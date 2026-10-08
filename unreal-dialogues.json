@@ -653,8 +653,8 @@
     "FloorIndex": 1,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 1555.0,
-      "Y": 1112.0
+      "X": 1475.0,
+      "Y": 1118.0
     },
     "Lines": [
       {
@@ -702,7 +702,7 @@
     "TargetEventID": "node_e1",
     "TriggerTiming": "action_option",
     "TriggerActionID": "act_e1_1",
-    "TriggerCondition": "During (T1-V1-E1-A1) Comb island",
+    "TriggerCondition": "During (T1-V1-E1-A0) Comb island",
     "DelayHours": 0.0,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
@@ -732,7 +732,7 @@
     "TargetEventID": "node_e1",
     "TriggerTiming": "post_action",
     "TriggerActionID": "act_e1_2",
-    "TriggerCondition": "After (T1-V1-E1-A1) Examine pod",
+    "TriggerCondition": "After (T1-V1-E1-A0) Examine pod",
     "DelayHours": 0.5,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
@@ -740,8 +740,8 @@
     "FloorIndex": 1,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 817.0,
-      "Y": 1394.0
+      "X": 906.0,
+      "Y": 1397.0
     },
     "Lines": [
       {
@@ -909,7 +909,7 @@
     "TargetEventID": "node_e1",
     "TriggerTiming": "action_option",
     "TriggerActionID": "act_e1_2",
-    "TriggerCondition": "During (T1-V1-E1-A1) Examine pod",
+    "TriggerCondition": "During (T1-V1-E1-A0) Examine pod",
     "DelayHours": 0.0,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
@@ -917,8 +917,8 @@
     "FloorIndex": 1,
     "ColorScheme": "default",
     "EditorPosition": {
-      "X": 783.0,
-      "Y": 1074.0
+      "X": 920.0,
+      "Y": 1076.0
     },
     "Lines": [
       {

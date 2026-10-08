@@ -1454,6 +1454,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 1. Main Project Load
         if path == '/api/load':
+            if not self.is_local_request() and not self.get_auth_user():
+                self.send_json(401, {"status": "error", "message": "Authentication required to access narrative project"})
+                return
             project_path = os.path.join(DIRECTORY, 'project-data.json')
             if os.path.exists(project_path):
                 self.send_response(200)
@@ -1467,6 +1470,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 2. Named Saves List
         elif path == '/api/saves':
+            if not self.is_local_request() and not self.get_auth_user():
+                self.send_json(401, {"status": "error", "message": "Authentication required to load saves"})
+                return
             try:
                 saves = []
                 if os.path.exists(SAVES_DIR):
@@ -1571,6 +1577,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 8. Comments: Get Comments (optional ?targetId=...)
         elif path == '/api/comments':
+            if not self.is_local_request() and not self.get_auth_user():
+                self.send_json(401, {"status": "error", "message": "Authentication required"})
+                return
             try:
                 query = urllib.parse.parse_qs(parsed.query)
                 target_id = query.get('targetId', [None])[0]
@@ -1597,6 +1606,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 9. In-app Notifications: Get for current user
         elif path == '/api/notifications':
+            if not self.is_local_request() and not self.get_auth_user():
+                self.send_json(401, {"status": "error", "message": "Authentication required"})
+                return
             try:
                 query = urllib.parse.parse_qs(parsed.query)
                 req_email = query.get('email', [''])[0].strip().lower()
@@ -1620,6 +1632,11 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 10. Static Files Fallback
         else:
+            # Block direct downloading of narrative project data files without authentication
+            if path in ('/project-data.json', '/unreal-export.json', '/unreal-dialogues.json', '/unreal-events.json', '/sample-project.json', '/comments.json', '/notifications.json'):
+                if not self.is_local_request() and not self.get_auth_user():
+                    self.send_json(401, {"status": "error", "message": "Authentication required to access narrative project"})
+                    return
             super().do_GET()
 
     # ==================== DELETE ====================

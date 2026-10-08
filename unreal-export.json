@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-08T14:36:08.938976Z",
+    "ExportTime": "2026-10-08T15:31:41.632710Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel Poludyonny",
-    "TotalEvents": 13,
+    "TotalEvents": 14,
     "TotalDialogues": 16,
     "TotalTimelines": 2,
     "TotalVariations": 20,
@@ -407,7 +407,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 769.0,
+        "X": 898.0,
         "Y": 90.0
       },
       "Actions": [
@@ -602,7 +602,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": -110.0,
+        "X": -73.0,
         "Y": 1080.0
       },
       "Actions": [
@@ -761,7 +761,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 2160.0,
+        "X": 2055.0,
         "Y": 1080.0
       },
       "Actions": [
@@ -1647,6 +1647,55 @@
           "CustomData": {}
         }
       ]
+    },
+    {
+      "Name": "EVENT_node_1791471563090",
+      "RowName": "EVENT_node_1791471563090",
+      "EventID": "node_1791471563090",
+      "EventTitle": "",
+      "EventCategory": "KeyChain",
+      "EventType": "World",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 3810.0,
+        "Y": 90.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
     }
   ],
   "DialoguesDataTable": [
@@ -2304,8 +2353,8 @@
       "FloorIndex": 1,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 1555.0,
-        "Y": 1112.0
+        "X": 1475.0,
+        "Y": 1118.0
       },
       "Lines": [
         {
@@ -2353,7 +2402,7 @@
       "TargetEventID": "node_e1",
       "TriggerTiming": "action_option",
       "TriggerActionID": "act_e1_1",
-      "TriggerCondition": "During (T1-V1-E1-A1) Comb island",
+      "TriggerCondition": "During (T1-V1-E1-A0) Comb island",
       "DelayHours": 0.0,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2383,7 +2432,7 @@
       "TargetEventID": "node_e1",
       "TriggerTiming": "post_action",
       "TriggerActionID": "act_e1_2",
-      "TriggerCondition": "After (T1-V1-E1-A1) Examine pod",
+      "TriggerCondition": "After (T1-V1-E1-A0) Examine pod",
       "DelayHours": 0.5,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2391,8 +2440,8 @@
       "FloorIndex": 1,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 817.0,
-        "Y": 1394.0
+        "X": 906.0,
+        "Y": 1397.0
       },
       "Lines": [
         {
@@ -2560,7 +2609,7 @@
       "TargetEventID": "node_e1",
       "TriggerTiming": "action_option",
       "TriggerActionID": "act_e1_2",
-      "TriggerCondition": "During (T1-V1-E1-A1) Examine pod",
+      "TriggerCondition": "During (T1-V1-E1-A0) Examine pod",
       "DelayHours": 0.0,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2568,8 +2617,8 @@
       "FloorIndex": 1,
       "ColorScheme": "default",
       "EditorPosition": {
-        "X": 783.0,
-        "Y": 1074.0
+        "X": 920.0,
+        "Y": 1076.0
       },
       "Lines": [
         {

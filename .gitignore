@@ -12,3 +12,9 @@ check_pixel_look.py
 debug_delete.py
 run_test.py
 tunnel_url.txt
+make_icons.py
+push_update.py
+push_now.py
+do_push.py
+git_ops.py
+backups/

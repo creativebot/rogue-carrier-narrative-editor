@@ -277,7 +277,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 769,
+        "x": 898,
         "y": 90
       },
       "actions": [
@@ -422,7 +422,7 @@
     },
     {
       "id": "node_e1",
-      "codename": "T1-V1-E1-A1",
+      "codename": "T1-V1-E1-A0",
       "name": "Escape Pod Signal",
       "type": "World",
       "category": "KeyChain",
@@ -435,7 +435,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -110,
+        "x": -73,
         "y": 1080
       },
       "actions": [
@@ -576,7 +576,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2160,
+        "x": 2055,
         "y": 1080
       },
       "actions": [
@@ -1202,6 +1202,41 @@
         }
       ],
       "colorScheme": "blue"
+    },
+    {
+      "id": "node_1791471563090",
+      "codename": "T1-V1-E13-A0",
+      "name": "New Event Block",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 3810,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791471563090",
+          "codeSuffix": "A1",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ]
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -1679,8 +1714,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-E1-A0) Process the data",
       "position": {
-        "x": 1555,
-        "y": 1112
+        "x": 1475,
+        "y": 1118
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1720,7 +1755,7 @@
       "triggerActionId": "act_e1_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A1) Comb island",
+      "triggerCondition": "During (T1-V1-E1-A0) Comb island",
       "position": {
         "x": -1374,
         "y": 1164
@@ -1744,10 +1779,10 @@
       "triggerActionId": "act_e1_2",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E1-A1) Examine pod",
+      "triggerCondition": "After (T1-V1-E1-A0) Examine pod",
       "position": {
-        "x": 817,
-        "y": 1394
+        "x": 906,
+        "y": 1397
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1872,10 +1907,10 @@
       "triggerActionId": "act_e1_2",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A1) Examine pod",
+      "triggerCondition": "During (T1-V1-E1-A0) Examine pod",
       "position": {
-        "x": 783,
-        "y": 1074
+        "x": 920,
+        "y": 1076
       },
       "variationId": "var_v1",
       "category": "KeyChain",

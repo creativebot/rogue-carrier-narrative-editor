@@ -176,26 +176,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   variationSelect = document.getElementById('variation-select');
 
   await loadResourceCatalog();
-  await loadProjectData();
   await initAuthSystem();
-  await loadAllCommentCounts();
-  setupCanvasEvents();
+
   setupToolbarEvents();
   setupAuthAndCollaborationEvents();
-  setupPdfImportEvents();
-  setupPickerEvents();
-  setupPortDragEvents();
 
-  // Auto-detect mobile devices or narrow screen viewports (<= 768px, phones, Pixel, iPhone, etc.)
-  const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  if (isMobileDevice) {
-    switchAppViewMode('mobile-stage', true);
+  if (isLocalEnvironment() || canUserEdit()) {
+    await loadProjectData();
+    await loadAllCommentCounts();
+    setupCanvasEvents();
+    setupPdfImportEvents();
+    setupPickerEvents();
+    setupPortDragEvents();
+
+    // Auto-detect mobile devices or narrow screen viewports (<= 768px, phones, Pixel, iPhone, etc.)
+    const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobileDevice) {
+      switchAppViewMode('mobile-stage', true);
+    } else {
+      renderApp();
+      setTimeout(() => {
+        updateCanvasTransform();
+        fitWholeSchematic();
+      }, 150);
+    }
   } else {
-    renderApp();
-    setTimeout(() => {
-      updateCanvasTransform();
-      fitWholeSchematic();
-    }, 150);
+    // Unauthenticated public visitor: hide board, show lock gate
+    updateAuthHeaderUI();
+    setupGoogleSignIn();
   }
 });
 
@@ -232,7 +240,9 @@ async function loadProjectData() {
 
   // 1. Try loading directly from server disk (project-data.json)
   try {
-    const serverRes = await fetch('/api/load');
+    const headers = {};
+    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+    const serverRes = await fetch('/api/load', { headers });
     if (serverRes.ok) {
       const serverData = await serverRes.json();
       if (serverData && serverData.nodes && serverData.nodes.length > 0) {
@@ -6755,11 +6765,16 @@ function updateAuthHeaderUI() {
   const btnTeam = document.getElementById('btn-admin-team');
   const readonlyBanner = document.getElementById('readonly-mode-banner');
   const regTab = document.getElementById('auth-tab-register');
+  const authGate = document.getElementById('public-auth-gate');
+  const canvasContainer = document.getElementById('canvas-container');
+  const mobileStage = document.getElementById('mobile-stage-view');
 
   // Disable registration on public web page
   if (regTab) regTab.classList.add('hidden');
 
   if (isLocalEnvironment() || canUserEdit()) {
+    if (authGate) authGate.classList.add('hidden');
+    if (canvasContainer) canvasContainer.style.display = '';
     if (readonlyBanner) readonlyBanner.classList.add('hidden');
     if (btnLogin) btnLogin.classList.add('hidden');
     if (userBadge) userBadge.classList.remove('hidden');
@@ -6781,7 +6796,15 @@ function updateAuthHeaderUI() {
       else btnTeam.classList.add('hidden');
     }
   } else {
-    if (readonlyBanner) readonlyBanner.classList.remove('hidden');
+    // Unauthenticated public URI access: completely hide board, show lock gate
+    if (authGate) {
+      authGate.classList.remove('hidden');
+      setupGoogleSignIn();
+      if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+    }
+    if (canvasContainer) canvasContainer.style.display = 'none';
+    if (mobileStage) mobileStage.classList.add('hidden');
+    if (readonlyBanner) readonlyBanner.classList.add('hidden');
     if (btnLogin) btnLogin.classList.remove('hidden');
     if (userBadge) userBadge.classList.add('hidden');
     if (btnTeam) btnTeam.classList.add('hidden');
@@ -6871,6 +6894,17 @@ async function setupGoogleSignIn() {
         const customBtn = document.getElementById('btn-custom-google-signin');
         if (customBtn) customBtn.classList.add('hidden');
       }
+
+      const gateBtn = document.getElementById('gate_g_id_signin');
+      if (gateBtn) {
+        google.accounts.id.renderButton(gateBtn, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signin_with',
+          shape: 'rectangular',
+          width: 320
+        });
+      }
     } catch (err) {
       console.warn("Google Sign-In initialization:", err);
     }
@@ -6879,13 +6913,14 @@ async function setupGoogleSignIn() {
 
 async function handleGoogleSignInResponse(response) {
   const errEl = document.getElementById('auth-google-error');
+  const gateErrEl = document.getElementById('gate-google-error');
   if (errEl) errEl.classList.add('hidden');
+  if (gateErrEl) gateErrEl.classList.add('hidden');
 
   if (!response || !response.credential) {
-    if (errEl) {
-      errEl.innerText = "No credential received from Google.";
-      errEl.classList.remove('hidden');
-    }
+    const msg = "No credential received from Google.";
+    if (errEl) { errEl.innerText = msg; errEl.classList.remove('hidden'); }
+    if (gateErrEl) { gateErrEl.innerText = msg; gateErrEl.classList.remove('hidden'); }
     return;
   }
 
@@ -6904,17 +6939,34 @@ async function handleGoogleSignInResponse(response) {
       closeModal('modal-auth');
       showToast(data.message || `Signed in with Google as ${currentUser.name}!`, 'success');
       preloadTeamUsers();
-    } else {
-      if (errEl) {
-        errEl.innerText = data.message || "Google authentication failed.";
-        errEl.classList.remove('hidden');
+
+      // Unlock and render full narrative board
+      await loadProjectData();
+      await loadAllCommentCounts();
+      setupCanvasEvents();
+      setupPdfImportEvents();
+      setupPickerEvents();
+      setupPortDragEvents();
+
+      const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobileDevice) {
+        switchAppViewMode('mobile-stage', true);
+      } else {
+        renderApp();
+        setTimeout(() => {
+          updateCanvasTransform();
+          fitWholeSchematic();
+        }, 150);
       }
+    } else {
+      const msg = data.message || "Google authentication failed.";
+      if (errEl) { errEl.innerText = msg; errEl.classList.remove('hidden'); }
+      if (gateErrEl) { gateErrEl.innerText = msg; gateErrEl.classList.remove('hidden'); }
     }
   } catch (e) {
-    if (errEl) {
-      errEl.innerText = "Network error connecting to auth server.";
-      errEl.classList.remove('hidden');
-    }
+    const msg = "Network error connecting to auth server.";
+    if (errEl) { errEl.innerText = msg; errEl.classList.remove('hidden'); }
+    if (gateErrEl) { gateErrEl.innerText = msg; gateErrEl.classList.remove('hidden'); }
   }
 }
 

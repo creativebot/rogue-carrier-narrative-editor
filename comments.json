@@ -1,20 +1,6 @@
 {
   "comments": [
     {
-      "id": "cmt_1791456016100",
-      "targetId": "event_intro_1",
-      "targetType": "event",
-      "targetTitle": "Emergency Signal",
-      "text": "Great work on this intro block @dpoludonnyi ! Check the fuel rewards.",
-      "author": "Alice Reviewer",
-      "authorEmail": "alice@n-ix.com",
-      "createdAt": "2026-10-08T10:40:16.100607Z",
-      "displayTime": "2026-10-08 12:40",
-      "mentions": [
-        "dpoludonnyi@n-ix.com"
-      ]
-    },
-    {
       "id": "cmt_1791467850374",
       "targetId": "node_e0",
       "targetType": "event",
@@ -27,32 +13,6 @@
       "mentions": []
     },
     {
-      "id": "cmt_1791467861478",
-      "targetId": "node_e0",
-      "targetType": "event",
-      "targetTitle": "The Moment After the End",
-      "text": "@dpoludonnyi",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-08T13:57:41.478168Z",
-      "displayTime": "2026-10-08 15:57",
-      "mentions": []
-    },
-    {
-      "id": "cmt_1791468532629",
-      "targetId": "T1-V1-E1-A0",
-      "targetType": "event",
-      "targetTitle": "The Moment After the End",
-      "text": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
-      "author": "Olena Dev",
-      "authorEmail": "olena.dev@n-ix.com",
-      "createdAt": "2026-10-08T14:08:52.629464Z",
-      "displayTime": "2026-10-08 16:08",
-      "mentions": [
-        "dpoludonnyi@n-ix.com"
-      ]
-    },
-    {
       "id": "cmt_1791468621763",
       "targetId": "node_e1",
       "targetType": "event",
@@ -63,34 +23,6 @@
       "createdAt": "2026-10-08T14:10:21.763424Z",
       "displayTime": "2026-10-08 16:10",
       "mentions": []
-    },
-    {
-      "id": "cmt_1791469013463",
-      "targetId": "T1-V1-E1-A0",
-      "targetType": "event",
-      "targetTitle": "The Moment After the End",
-      "text": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
-      "author": "Olena Dev",
-      "authorEmail": "olena.dev@n-ix.com",
-      "createdAt": "2026-10-08T14:16:53.463669Z",
-      "displayTime": "2026-10-08 16:16",
-      "mentions": [
-        "dpoludonnyi@n-ix.com"
-      ]
-    },
-    {
-      "id": "cmt_1791469059191",
-      "targetId": "T1-V1-E1-A0",
-      "targetType": "event",
-      "targetTitle": "The Moment After the End",
-      "text": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
-      "author": "Olena Dev",
-      "authorEmail": "olena.dev@n-ix.com",
-      "createdAt": "2026-10-08T14:17:39.191061Z",
-      "displayTime": "2026-10-08 16:17",
-      "mentions": [
-        "dpoludonnyi@n-ix.com"
-      ]
     }
   ]
 }
