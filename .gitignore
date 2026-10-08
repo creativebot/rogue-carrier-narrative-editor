@@ -11,5 +11,4 @@ make_qr.py
 check_pixel_look.py
 debug_delete.py
 run_test.py
-git_ops.py
-push_repo.py
+tunnel_url.txt
