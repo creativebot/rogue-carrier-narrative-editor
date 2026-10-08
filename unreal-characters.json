@@ -1,0 +1,119 @@
+[
+  {
+    "Name": "CHAR_voss",
+    "RowName": "CHAR_voss",
+    "CharacterID": "voss",
+    "CharacterName": "Elias Voss",
+    "Role": "Behemoth Captain",
+    "Color": "#fef08a",
+    "TextColor": "#713f12",
+    "Icon": "👨‍✈️",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_mnemosyne",
+    "RowName": "CHAR_mnemosyne",
+    "CharacterID": "mnemosyne",
+    "CharacterName": "Mnemosyne",
+    "Role": "Ship AI System",
+    "Color": "#e0e7ff",
+    "TextColor": "#3730a3",
+    "Icon": "🤖",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_khalil",
+    "RowName": "CHAR_khalil",
+    "CharacterID": "khalil",
+    "CharacterName": "Khalil Arida",
+    "Role": "Communication Officer",
+    "Color": "#dcfce7",
+    "TextColor": "#166534",
+    "Icon": "📻",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_tuuli",
+    "RowName": "CHAR_tuuli",
+    "CharacterID": "tuuli",
+    "CharacterName": "Tuuli Korpela",
+    "Role": "Chief Engineer",
+    "Color": "#ffedd5",
+    "TextColor": "#9a3412",
+    "Icon": "🔧",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_abbadie",
+    "RowName": "CHAR_abbadie",
+    "CharacterID": "abbadie",
+    "CharacterName": "Mars Abbadie",
+    "Role": "Head of R&D",
+    "Color": "#f3e8ff",
+    "TextColor": "#6b21a8",
+    "Icon": "🔬",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_orest",
+    "RowName": "CHAR_orest",
+    "CharacterID": "orest",
+    "CharacterName": "Orest Demchuck",
+    "Role": "Scout Leader",
+    "Color": "#fee2e2",
+    "TextColor": "#991b1b",
+    "Icon": "🎯",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_survivor",
+    "RowName": "CHAR_survivor",
+    "CharacterID": "survivor",
+    "CharacterName": "Survivor",
+    "Role": "Keeling Island Refugee",
+    "Color": "#f3f4f6",
+    "TextColor": "#1f2937",
+    "Icon": "👤",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_hinemosyne",
+    "RowName": "CHAR_hinemosyne",
+    "CharacterID": "hinemosyne",
+    "CharacterName": "",
+    "Role": "",
+    "Color": "#f3f4f6",
+    "TextColor": "#1f2937",
+    "Icon": "👤",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  },
+  {
+    "Name": "CHAR_iseeitin_your_eyes",
+    "RowName": "CHAR_iseeitin_your_eyes",
+    "CharacterID": "iseeitin_your_eyes",
+    "CharacterName": "",
+    "Role": "",
+    "Color": "#f3f4f6",
+    "TextColor": "#1f2937",
+    "Icon": "👤",
+    "VariationIDs": [
+      "var_v1"
+    ]
+  }
+]

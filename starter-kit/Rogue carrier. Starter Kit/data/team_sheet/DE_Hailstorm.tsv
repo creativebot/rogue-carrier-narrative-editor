@@ -1,0 +1,9 @@
+Fall Out		Category				
+		1.0	2.0	3.0	4.0	5.0
+Size	Hail diameter in meters	10.0	10.0	10.0	10.0	10.0
+Density	Hail density Hails per tile per minute	1000.0	2000.0	3000.0	6000.0	8000.0
+Behemoth Damage	Hail damage to Behemoth Damage points	5.0	5.0	5.0	5.0	5.0
+	Hail damage to Buildings building damage by one hit (percent)	0.05	0.1	0.15	0.2	0.35
+Crew Damage	Chance to kill crew member without shelter	0.001	0.002	0.003	0.005	0.01
+	Chance to injure crew member without shelter	0.002	0.004	0.006	0.01	0.02
+	Damage to the crew member in %HP	0.1	0.1	0.1	0.1	0.1

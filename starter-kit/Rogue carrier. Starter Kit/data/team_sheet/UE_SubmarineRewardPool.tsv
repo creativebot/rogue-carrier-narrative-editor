@@ -1,0 +1,9 @@
+Stage 1			Stage 2			Stage 3			Stage 4		
+Fail Damage			Fail Damage Amounts			Fail Damage Amounts			Fail Damage Amounts		
+Chance to avoid damage	Damage Minimum	Damage Maximum	Chance to avoid damage	Damage Minimum	Damage Maximum	Chance to avoid damage	Damage Minimum	Damage Maximum	Chance to avoid damage	Damage Minimum	Damage Maximum
+0.9	5.0	30.0	0.65	15.0	40.0	0.4	30.0	60.0	0.15	50.0	100.0
+Reward type	Amount per Crewmember	Chance	Reward type	Amount per Crewmember	Chance	Reward type	Amount per Crewmember	Chance	Reward type	Amount per Crewmember	Chance
+T1 resources	5.0	1.0	T1 resources	10.0	0.9	T1 resources	15.0	0.75	T1 resources	20.0	0.5
+			Blueprint	1.0	0.1	T2 resources	5.0	0.15	T2 resources	10.0	0.3
+						Blueprint	1.0	0.1	Blueprint	1.0	0.1
+									Tier B artifact	1.0	0.1

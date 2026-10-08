@@ -1,0 +1,27 @@
+Rarity	Variable Name	Chance																
+Common	ResourceRarityChanceCommon	45.0																
+Uncommon	ResourceRarityChanceUncommon	22.0																
+Rare	ResourceRarityChanceRare	16.0																
+Exotic	ResourceRarityChanceExotic	12.0																
+Unique	ResourceRarityChanceUnique	5.0																
+		100																
+				Cluster Density								Underground Cluster Density		ResAmountMult	x5			
+Deposits	Contained Elements	Biome Types	Resources in cluster	Tropical	Volcanic	Polar	Rocky	Desert	Temperate	Shallow		Tropical	Volcanic	Polar	Rocky	Desert	Temperate	Shallow
+Polymetallic Sulfide Ore	Copper, Iron, Titanium, Sulfur	Tropical, Volcanic, Rocky, Temperate	46057.0	0.3	0.7		0.5		0.3			0.3	0.3		0.3		0.3	
+Skarn Ore	Iron, Aluminum, Chlorine	Rocky, Desert, Temperate	46057.0				0.3	0.3	0.7						0.3	0.3	0.3	
+Pegmatite																		
+Bauxite	Chromium, Aluminum, Tungsten	Volcanic, Polar, Shallow	46057.0		0.5	0.7				0.3			0.3	0.3				0.3
+Layered Mafic Intrusions Ore	Iron, Chlorine, Phosphorus, Sulfur	Tropical, Polar, Shallow	46057.0	0.7		0.3				0.3		0.3		0.3				0.3
+Black Shale Ore	Iron, Phosphorus, Lithium, Silicon	Tropical, Desert, Shallow	46057.0	0.5				0.7		0.5		0.3				0.3		0.3
+Oxide Ore																		
+Placers Deposit	Aluminum, Tungsten, Sodium, Silicon	Polar, Rocky, Temperate	46057.0			0.5	0.7		0.5					0.3	0.3		0.3	
+Hydrothermal Vein Ore																		
+Lateritic Ore	Copper, Iron, Chromium, Aluminum	Volcanic, Desert, Shallow	46057.0		0.3			0.5		0.7			0.3			0.3		0.3
+Salt Deposits																		
+Carbon Deposit	Carbon	Shallow, Rocky	1.0				0.5								0.3			
+Hydrocarbons Deposit	Hydrocarbons, Carbon	Tropical, Desert, Temperate	45659.0	0.5				0.5	0.5			0.3				0.3	0.3	
+Gold Deposits	Gold	Polar	1.0			0.2								0.1				
+Silicon Sand	Silicon																	
+Biomaterial Source	Prebiotic Matter	Tropical, Rocky, Desert, Deep Sea, Temperate, Shallow, Volcanic	1.0	0.6	0.5		0.4	0.3	0.6	0.7								
+Deep Sea Organic Source	K-IV Aminoacids, K-IV Plankton, K-IV Algae, K-IV Krill	Deep Sea	1.0															
+EM Anomaly Source	Eldritium																	

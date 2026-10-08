@@ -1,0 +1,10 @@
+Tier	Consumable Name	Charges	Health Buff (Units per Hour)	Morale Buff (Units per Hour)	Immunity buff (Units)	Health Drop Shield (% per Hour)	Morale Drop Shield (% per Hour)	Energy Use Reduced (% )	Building Damage Shield (%)	Productivity Increase (%)	Material Use Reduced (%)	Waste Production Reduced (%)	Repair Value
+	Tricoder	24.0						50.0			25.0		
+	Comm-Link	18.0		4.0									
+	Cyberware	24.0	10.0	6.0									
+	Portable Force Shield	18.0				100.0							
+	Modular Container	18.0									25.0		
+	Med Gel	12.0	2.0		2.0								
+	Med Kit	18.0	6.0		4.0								
+	Stem Tissue	12.0	2.0										
+	Personal Defence Kit	12.0				25.0							

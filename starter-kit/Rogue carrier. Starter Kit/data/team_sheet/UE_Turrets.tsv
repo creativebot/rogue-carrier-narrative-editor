@@ -1,0 +1,3 @@
+	MinShootingArea	ShootingArea	ConeRadius	TurnRate	Distance	Trajectory	ProjectileSpeed	DamagePerProjectile	FireRate	AreaOfEffect	Duration	Pushback	Timeout	Cooldown	ShotsPerResource
+b_survival_02	1000.0	120000.0	100.0	0.8	105000.0	Line	1000.0	6.0	10.0	0.0	0.0	0.0	2.0	1.0	300.0
+b_survival_03	1000.0	120000.0	75.0	0.6	105000.0	Line	-1.0	10.0	5.0	0.0	2.0	0.0	2.0	5.0	10.0

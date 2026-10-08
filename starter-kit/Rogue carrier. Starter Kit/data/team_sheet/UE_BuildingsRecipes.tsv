@@ -1,0 +1,76 @@
+ID	Building	Category	Subcategory	Tier	Resources1	Amount1	Resources2	Amount2	Resources3	Amount3
+shipsystem_01	Power Unit	Ship Systems		0						
+shipsystem_02	Sensor System	Ship Systems		0						
+shipsystem_03	Engine	Ship Systems		0						
+shipsystem_04	Mass Driver	Ship Systems		0						
+shipsystem_05	R&D Lab	Ship Systems		0						
+b_production_01	Resource Allocation Center	Services		0	Iron, Aluminum, Titanium	20				
+b_production_t1_01	Tools Workshop	Workshop		1	Iron, Aluminum	20	Chromium, Copper, Carbon	10		
+b_production_t1_02	Electronics Workshop	Workshop		1	Iron, Aluminum	14	Silicon, Copper	16		
+b_production_t1_03	Repairs Workshop	Workshop		1	Iron, Titanium	16	Chromium, Copper	14		
+b_production_t1_04	Processing Workshop	Workshop		1	Iron, Titanium	20	Chromium, Copper	10		
+b_production_t1_05	Synthesis Workshop	Workshop		1	Iron, Aluminum	18	Silicon, Chromium	12		
+b_production_t1_06	Compounds Workshop	Workshop		1	Iron, Aluminum	18	Sulfur, Silicon	12		
+b_production_t1_07	Chemistry Workshop	Workshop		1	Iron, Aluminum	20	Sulfur, Carbon	10		
+b_production_t1_08	Bioengineering Workshop	Workshop		1	Iron, Aluminum	11	Carbon, Silicon	19		
+b_production_t1_09	Farm	Workshop		1	Iron, Aluminum	12	Phosphorus, Carbon, Silicon	18		
+b_production_t1_10	Plantation	Workshop		1	Iron, Aluminum	14	Sulfur, Phosphorus, Silicon	16		
+b_production_t1_11	Universum	Workshop		1	Iron, Aluminum	14	Silicon, Carbon, Phosphorus	16		
+b_production_t2_01	Electronics Factory	Factory		2	Alloyed Metal, Thermoplastic, Crabri Organic Membrane	10	Nanomaterials, Biopolymer, Knidaria Sensorics Fiber	5		
+b_production_t2_02	Pyrogenics Factory	Factory		2	Metal Constructions, Mycobrick, Crabri Bioframe	10	Alloyed Metal, Thermoplastic, Crabri Organic Membrane	5		
+b_production_t2_03	Nano-Tech Factory	Factory		2	Alloyed Metal, Metal Constructions, Crabri Bioframe	5	Nanomaterials, Basic Toolkit, Aetheridis Wire Weaving	10		
+b_production_t2_04	Prototype Development Factory	Factory		2	Alloyed Metal, Metal Constructions, Crabri Bioframe	5	Nanomaterials, Thermoplastic, Auri Fiber Tissue	10		
+b_production_t2_05	Container Factory	Factory		2	Alloyed Metal, Metal Constructions, Nasobi Metal Work	10	Mycobrick, Thermoplastic, Crabri Organic Membrane	5		
+b_production_t2_06	Expedition Research Factory	Factory		2	Alloyed Metal, Metal Constructions	10	Biopolymer, Thermoplastic	5		
+b_production_t2_07	Energy Research Factory	Factory		2	Biopolymer, Thermoplastic, Auri Fiber Tissue	5	Mycobrick, Alloyed Metal, Crabri Bioframe	10		
+b_production_t2_08	Component Factory	Factory		2	Mycobrick, Alloyed Metal, Crabri Bioframe	5	Thermoplastic, Nanomaterials, Auri Fiber Tissue	10		
+b_production_t2_09	Medical Goods Factory	Factory		2	Mycobrick, Alloyed Metal, Nasobi Metal Work	5	Biopolymer, Thermoplastic, Crabri Organic Membrane	10		
+b_production_t2_10	Food Factory	Factory		2	Mycobrick, Metal Constructions, Crabri Bioframe	10	Thermoplastic, Biopolymer, Auri Fiber Tissue	5		
+b_production_t3_01	Advanced Tools Plant	Plant		3	Alloyed Metal, Biopolymer	20	Nanomaterials, Thermoplastic	10		
+b_production_t3_02	Expedition Plant	Plant		3	Metal Constructions, Mycobrick	15	Alloyed Metal, Biopolymer	15		
+b_production_t3_03	Smart Tools Plant	Plant		3	Metal Constructions, Mycobrick	25	Biopolymer, Thermoplastic	5		
+b_production_t3_04	Tactical Production Plant	Plant		3	Metal Constructions, Mycobrick	20	Thermoplastic, Biopolymer	10		
+b_production_t3_05	Consumer Goods Plant	Plant		3	Metal Constructions, Mycobrick	15	Biopolymer, Thermoplastic	15		
+b_locals_t3_01	Nasobi Building	Plant		3	Metal Constructions	25	Thermoplastic, Biopolymer	5		
+b_locals_t3_02	Aetherid Building	Plant		3	Metal Constructions, Mycobrick	10	Alloyed Metal	20		
+b_locals_t3_03	Crabari Building	Plant		3	Mycobrick, Alloyed Metal	30				
+b_locals_t3_04	Mistralid Building	Plant		3	Mycobrick	15	Biopolymer	15		
+b_locals_t3_05	Knidaria Building	Plant		3	Thermoplastic	15	Biopolymer	15		
+b_production_t4_01	Hi-Tech Facility	Advanced Tech		4	Alloyed Metal, Metal Constructions	30	Basic Scanner, Nano Parts	5		
+b_production_t4_02	Experimental Materials Facility	Advanced Tech		4	Metal Constructions, Alloyed Metal	30	Microcontrollers, Battery Block	5		
+b_production_t4_03	Robotics Facility	Advanced Tech		4	Metal Constructions	30	Battery Block, Nano Parts	5		
+b_production_t4_04	Advanced Wares Facility	Advanced Tech		4	Mycobrick, Thermoplastic	30	Microcontrollers, Nano Parts	5		
+b_explorationprogram_t5_01	Satellite Control Complex	Advanced Tech		5	Metal Constructions, Alloyed Metal	30	Tech Voxel	5	Tricoder	1
+b_energyprogram_t5_01	Antimatter Core Unit	Energy		5	Metal Constructions, Mycobrick	30	Portable Force Shield	5	Tech Assembly Matrix	5
+b_powerprogram_t5_01	Advanced Technology Center	Advanced Tech		5	Mycobrick, Alloyed Metal	30	Tech Voxel	5	Fusion Cell	1
+b_evolutionprogram_t5_01	Evolution Center	Advanced Tech		5	Thermoplastic, Biopolymer	30	Multi-Tool	5	AI Core	1
+b_exploration_01	Artifacts Lab	Advanced Tech		1	Metal Constructions, Mycobrick	6	Thermoplastic, Biopolymer	5	Basic Toolkit	1
+b_service_01	Health and Care Center	Services		3	Metal Constructions, Mycobrick	5	Thermoplastic, Biopolymer	10	Med Gel	2
+b_service_09	Bioconversion Lab	Services		2	Alloyed Metal, Metal Constructions	10	Biopolymer, Thermoplastic	12	Composite Enzymes	1
+b_service_10	Geo Lab	Services		2	Metal Constructions, Mycobrick	12	Alloyed Metal, Thermoplastic	10	Basic Toolkit	1
+b_service_02	Medical Center	Services		2	Alloyed Metal, Metal Constructions	10	Biopolymer, Thermoplastic	6	Biochem Compounds	2
+b_service_03	Social dome	Services		3	Alloyed Metal, Metal Constructions	5	Thermoplastic	15	Modular Container	3
+b_service_05	Institute	Services		3	Alloyed Metal, Mycobrick	10	Biopolymer, Thermoplastic	5	Nano Parts	3
+b_service_06	Holodeck	Services		4	Alloyed Metal, Metal Constructions	10	AI Core	1	Tech Voxel	1
+b_service_07	Alliance Center	Services		4	Alloyed Metal, Metal Constructions	30	Thermoplastic, Biopolymer	15		
+b_accomm_01	General quarters	Services		1	Iron, Aluminum	10	Silicon, Sulfur	5		
+b_accomm_02	Residential Complex	Services		2	Metal Constructions, Mycobrick	10	Thermoplastic, Biopolymer	10		
+b_energy_11	Solar Panels	Energy		1	Metal Constructions, Mycobrick	5	Silicon	15	Tech Assembly Matrix	1
+b_energy_08	Energy Accumulator	Energy		2	Alloyed Metal, Metal Constructions	5	Biopolymer, Thermoplastic	5	Sodium, Lithium	10
+b_energy_12	Small Energy Accumulator	Energy		1	Alloyed Metal, Metal Constructions	3	Biopolymer, Thermoplastic	3	Sodium, Lithium	5
+b_energy_03	Generator	Energy		1	Alloyed Metal, Metal Constructions	5	Biopolymer, Thermoplastic	5	Tech Assembly Matrix	2
+b_energy_06	Cyclone Energy Turbine	Energy		3	Alloyed Metal, Metal Constructions	20	Nano Parts, Propulsion Kit	5	Tech Assembly Matrix	3
+b_energy_07	Solar Reactor	Energy		3	Metal Constructions, Mycobrick	20	Battery Block, Sensors Array	5	Tech Assembly Matrix	3
+b_energy_09	Fusion Core Unit	Energy		4	Metal Constructions, Mycobrick	20	Tech Voxel, Portable Force Shield	8	Tech Assembly Matrix	3
+b_fleet_02	Hangar	Ship Systems		0	Metal Constructions, Mycobrick	7	Thermoplastic, Biopolymer	4		
+b_survival_01	Power Bolt Emitter	Defense		3	Thermoplastic, Biopolymer	6	Metal Constructions	8	Electronic Components	2
+b_survival_02	Gatling Gun	Defense		1	Iron, Aluminum	7	Titanium	7	Sulfur	2
+b_survival_03	Photon Gun	Defense		2	Metal Constructions	5	Thermoplastic, Biopolymer	6	Conductive Materials	4
+b_survival_04	Grenade Launcher	Defense		2	Thermoplastic, Alloyed Metal	5	Biopolymer, Mycobrick	6	Basic Toolkit	2
+b_survival_05	Active defense system	Defense		3	Metal Constructions, Alloyed Metal	5	Sensors Array	6	Nano Parts	2
+b_survival_06	Flamethrower	Defense		1	Titanium	5	Silicon	6	Chromium, Tungsten	2
+b_survival_07	Power Barrier	Defense		3	Metal Constructions, Mycobrick	10	Battery Block	5	Eldritium	2
+b_survival_08	Sonic Pulse System	Defense		3	Mycobrick, Thermoplastic	10	Microcontrollers	5	Propulsion Kit	2
+b_survival_09	Static Field	Defense		3	Metal Constructions, Alloyed Metal	10	Battery Block	5	Nano Parts	2
+b_dump_bio	Biowaste Dump	Other		0						
+b_dump_manufactured	Manufactured Waste Dump	Other		0						

@@ -1,0 +1,76 @@
+id,name,tier,category,type,icon,hosts
+b_accomm_01,General quarters,0,Services,Accommodation,b_accomm_01__General_quarters,
+b_dump_bio,Biowaste Dump,0,Other,Storage,,
+b_dump_manufactured,Manufactured Waste Dump,0,Other,Storage,,
+b_energy_03,Generator,0,Energy,Energy,b_energy_03__Generator,
+b_energy_11,Solar Panels,0,Energy,Energy,b_energy_11__Solar_Panels,
+b_energy_12,Small Energy Accumulator,0,Energy,Battery,b_energy_12__Small_Energy_Accumulator,
+b_exploration_01,Artifacts Lab,0,Advanced Tech,Special Sysytem,b_exploration_01__Artifacts_Lab,
+b_fleet_02,Hangar,0,Ship Systems,Neutral,,Worker Drone (g3); Freighter (g3); Recon Craft (g3); Deep-Sea Trawler (g3)
+b_production_01,Resource Allocation Center,0,Services,Storage,b_production_01__Resource_Allocation_Center,
+shipsystem_01,Power Unit,0,Ship Systems,Neutral,,
+shipsystem_02,Sensor System,0,Ship Systems,Neutral,,
+shipsystem_03,Engine,0,Ship Systems,Neutral,,
+shipsystem_04,Mass Driver,0,Ship Systems,Neutral,,
+shipsystem_05,R&D Lab,0,Ship Systems,Exploration,,
+b_energy_08,Energy Accumulator,1,Energy,Battery,b_energy_08__Energy_Accumulator,
+b_production_t1_01,Tools Workshop,1,Workshop,Production,b_production_t1_01__Tools_Workshop,Alloyed Metal (g3); Basic Toolkit (g3); Standard Ammunition Pack (g3)
+b_production_t1_02,Electronics Workshop,1,Workshop,Production,b_production_t1_02__Electronics_Workshop,Electronic Components (g3); Nanomaterials (g3); Electrolyte Salts (g2)
+b_production_t1_03,Repairs Workshop,1,Workshop,Production,b_production_t1_03__Repairs_Workshop,Metal Constructions (g3); Basic Toolkit (g2); Electronic Components (g2); Conductive Materials (g2)
+b_production_t1_04,Processing Workshop,1,Workshop,Production,b_production_t1_04__Processing_Workshop,Conductive Materials (g3); Alloyed Metal (g2); Thermoplastic (g2)
+b_production_t1_05,Synthesis Workshop,1,Workshop,Production,b_production_t1_05__Synthesis_Workshop,Thermoplastic (g3); Explosive Charges (g2); Standard Ammunition Pack (g2); Biopolymer (g2)
+b_production_t1_06,Compounds Workshop,1,Workshop,Production,b_production_t1_06__Compounds_Workshop,Mycobrick (g3); Composite Enzymes (g2); Metal Constructions (g2)
+b_production_t1_07,Chemistry Workshop,1,Workshop,Production,b_production_t1_07__Chemistry_Workshop,Explosive Charges (g3); Biochem Compounds (g3); Chemical Fuel (g2); Nanomaterials (g2)
+b_production_t1_08,Bioengineering Workshop,1,Workshop,Production,b_production_t1_08__Bioengineering_Workshop,Biopolymer (g3); Composite Enzymes (g3); Protein Mass (g2); Cultured Meat (g2)
+b_production_t1_09,Farm,1,Workshop,Production,b_production_t1_09__Farm,Grain (g3); Cultured Meat (g3); Omni Fruit (g2); Biochem Compounds (g2)
+b_production_t1_10,Plantation,1,Workshop,Production,b_production_t1_10__Plantation,Omni Fruit (g3); Protein Mass (g3); Mycobrick (g2)
+b_production_t1_11,Universum,1,Workshop,Production,b_production_t1_11__Universum,Chemical Fuel (g3); Electrolyte Salts (g3); Grain (g2)
+b_service_02,Medical Center,1,Services,Treatment,b_service_02__Medical_Center,
+b_service_09,Bioconversion Lab,1,Services,Waste Managment,b_service_09__Bioconversion_Lab,Biopolymer (g3); Composite Enzymes (g3); Protein Mass (g3); Chemical Fuel (g2)
+b_service_10,Geo Lab,2,Services,Waste Managment,,Composite Panels (g3); Basic Extractor (g2); Sensors Array (g2)
+b_survival_02,Gatling Gun,1,Defense,Weapon,b_survival_02__Gatling_Gun,
+b_survival_04,Grenade Launcher,1,Defense,Weapon,b_survival_04__Grenade_Launcher,
+b_survival_06,Flamethrower,1,Defense,Weapon,,
+b_accomm_02,Residential Complex,2,Services,Accommodation,b_accomm_02__Residential_Complex,
+b_energy_06,Cyclone Energy Turbine,2,Energy,Renewable Energy,b_energy_06__Cyclone_Energy_Turbine,
+b_production_t2_01,Electronics Factory,2,Factory,Production,b_production_t2_01__Electronics_Factory,Sensors Array (g3); Microcontrollers (g3); Smart Ammunition Pack (g2)
+b_production_t2_02,Pyrogenics Factory,2,Factory,Production,b_production_t2_02__Pyrogenics_Factory,D.A.R.T. (g3); Basic Extractor (g3); Smart Ammunition Pack (g3); Propulsion Kit (g2)
+b_production_t2_03,Nano-Tech Factory,2,Factory,Production,b_production_t2_03__Nano-Tech_Factory,Basic Scanner (g3); Microcontrollers (g2); Composite Panels (g2)
+b_production_t2_04,Prototype Development Factory,2,Factory,Production,b_production_t2_04__Prototype_Development_Factory,Fuel Cell (g3); D.A.R.T. (g2); Personal Defence Kit (g2); Servo Drive (g2)
+b_production_t2_05,Container Factory,2,Factory,Production,b_production_t2_05__Container_Factory,Modular Container (g3); Personal Defence Kit (g3); Battery Block (g2); Nutrient Paste (g2)
+b_production_t2_06,Expedition Research Factory,2,Factory,Production,b_production_t2_06__Expedition_Research_Factory,Bio Cell (g3); Med Gel (g2); Energy Bar (g2); Basic Scanner (g2)
+b_production_t2_07,Energy Research Factory,2,Factory,Production,b_production_t2_07__Energy_Research_Factory,Battery Block (g3); Electrocyte Pack (g3); Fuel Cell (g2); Bio Cell (g2)
+b_production_t2_08,Component Factory,2,Factory,Production,b_production_t2_08__Component_Factory,Servo Drive (g3); Propulsion Kit (g3); Modular Container (g2)
+b_production_t2_09,Medical Goods Factory,2,Factory,Production,b_production_t2_09__Medical_Goods_Factory,Stem Tissue (g3); Med Gel (g3); Electrocyte Pack (g2)
+b_production_t2_10,Food Factory,2,Factory,Production,b_production_t2_10__Food_Factory,Energy Bar (g3); Nutrient Paste (g3); Stem Tissue (g2)
+b_service_01,Health and Care Center,2,Services,Treatment,,
+b_service_03,Social dome,2,Services,Treatment,,
+b_service_05,Institute,2,Services,Special Sysytem,,
+b_survival_01,Power Bolt Emitter,2,Defense,Weapon,,
+b_survival_03,Photon Gun,2,Defense,Weapon,b_survival_03__Photon_Gun,
+b_energy_07,Solar Reactor,3,Energy,Renewable Energy,b_energy_07__Solar_Reactor,
+b_energy_09,Fusion Core Unit,3,Energy,Energy,b_energy_09__Fusion_Core_Unit,
+b_locals_t3_01,Nasobi Building,3,Plant,Production,,Fruit Paste (g3); Krill Paste (g2); Energy Bar (g2)
+b_locals_t3_02,Aetherid Building,3,Plant,Production,,Energy Bar (g3); Krill Preserves (g2)
+b_locals_t3_03,Crabari Building,3,Plant,Production,,Krill Paste (g3); Nutrient Paste (g2); Omni-Meal (g3)
+b_locals_t3_04,Mistralid Building,3,Plant,Production,,Algae Preserves (g3); Fruit Paste (g2); Omni-Meal (g2)
+b_locals_t3_05,Knidaria Building,3,Plant,Production,b_locals_t3_05__Knidaria_Building,Krill Preserves (g3); Algae Preserves (g2); Nutrient Paste (g2)
+b_production_t3_01,Advanced Tools Plant,3,Plant,Production,b_production_t3_01__Advanced_Tools_Plant,Multi-Tool (g3); Underground Deposit Extractor (g3); Tricoder (g2); Tech Voxel (g2)
+b_production_t3_02,Expedition Plant,3,Plant,Production,b_production_t3_02__Expedition_Plant,Omni-Meal (g2); Portable Force Shield (g2); Fusion Cell (g3); Underground Deposit Extractor (g2)
+b_production_t3_03,Smart Tools Plant,3,Plant,Production,b_production_t3_03__Smart_Tools_Plant,Comm-Link (g3); Tricoder (g3); Surveying Probe (g2)
+b_production_t3_04,Tactical Production Plant,3,Plant,Production,b_production_t3_04__Tactical_Production_Plant,Surveying Probe (g3); Med Kit (g2); Multi-Tool (g2); Fusion Cell (g2)
+b_production_t3_05,Consumer Goods Plant,3,Plant,Production,b_production_t3_05__Consumer_Goods_Plant,Neural Mesh (g3); Med Kit (g3); Omni-Meal (g3); Comm-Link (g2)
+b_service_06,Holodeck,3,Services,Special Sysytem,b_service_06__Holodeck,
+b_service_07,Alliance Center,3,Services,Special Sysytem,,
+b_survival_05,Active defense system,3,Defense,Weapon,,
+b_survival_07,Power Barrier,3,Defense,Weapon,,
+b_survival_08,Sonic Pulse System,3,Defense,Weapon,,
+b_survival_09,Static Field,3,Defense,Weapon,,
+b_production_t4_01,Hi-Tech Facility,4,Advanced Tech,Production,b_production_t4_01__Hi-Tech_Facility,AI Core (g3); Isotope Source (g2); Cyberware (g2)
+b_production_t4_02,Experimental Materials Facility,4,Advanced Tech,Production,b_production_t4_02__Experimental_Materials_Facility,Tech Assembly Matrix (g3); Isotope Source (g3); Tech Voxel (g2)
+b_production_t4_03,Robotics Facility,4,Advanced Tech,Production,b_production_t4_03__Robotics_Facility,Cyberware (g3); AI Core (g2); Multi-Tool (g2); Tech Assembly Matrix (g2)
+b_production_t4_04,Advanced Wares Facility,3,Advanced Tech,Production,b_production_t4_04__Advanced_Wares_Facility,Portable Force Shield (g3); Tech Voxel (g3); Neural Mesh (g2)
+b_energyprogram_t5_01,Antimatter Core Unit,5,Energy,Energy,b_energyprogram_t5_01__Antimatter_Core_Unit,
+b_evolutionprogram_t5_01,Evolution Center,5,Advanced Tech,Production,b_evolutionprogram_t5_01__Evolution_Center,Transhuman Form (g3)
+b_explorationprogram_t5_01,Satellite Control Complex,5,Advanced Tech,Special Sysytem,b_explorationprogram_t5_01__Satellite_Control_Complex,Satellite (g3)
+b_powerprogram_t5_01,Advanced Technology Center,5,Advanced Tech,Production,b_powerprogram_t5_01__Advanced_Technology_Center,Positron Cell (g3)

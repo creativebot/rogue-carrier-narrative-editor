@@ -1,0 +1,78 @@
+#	Notification text	Notification condition	Category	Spawn Group	Timing	On click	Notification Type	Status	
+1.0	{0} has joined the crew.	Population++	Crew.OneCrew.Joined	Crew.Joined	One-time	Open crew panel	Info	implemented	
+2	{0} new members joined the crew.	Population+=N	Crew.SeveralCrew.Joined	Crew.Joined	One-time	Open crew panel	Info	implemented	
+3	A crew member died {0} from {1}	A crew member died, show the cause (dangerous event, illnes, starving or other)	Crew.OneCrew.Died	Crew.Died	One-time	Open crew panel	Warning	Changed (needs to be implemented)	
+4	{0} Crew members died from {1}	A few crew members died while the previous notification in this group is active; show the cause (dangerous event, illness, starvation, or other) New notifications for each cause	Crew.SeveralCrew.Died	Crew.Died	One-time	Open crew panel	Warning	Changed (needs to be implemented)	
+5	{0} left the ship	Population-- (Left)	Crew.OneCrew.LeftShip		One-time	Open crew panel	Info	need to be deleted	
+6	{0} Crew members left the ship	Population-=N (Left)	Crew.SeveralCrew.LeftShip		One-time	Open crew panel	Info	need to be deleted	
+7	Crew morale below {0}	Crew morale dropped below specific threshold	Crew.Morale.Dropped		Ongoing	Open crew panel	Info	implemented	
+8	Crew morale restored.	Crew morale 95+ after drop	Crew.Morale.Restored		One-time		Info	implemented	
+9	{0} injured.	1 crewmember injured	Crew.OneCrew.Injured	Crew.Injured	One-time	Open crew panel	Info		
+10	{0} crewmembers injured.	1+ crewmember injured	Crew.SeveralCrew.Injured	Crew.Injured	One-time	Open crew panel	Info		
+11	{0} reported ill.	1 crewmember, disease, unknown	Crew.OneCrew.UnknownDisease	Crew.UnknownDesease	Ongoing	Open crew panel	Info	need to be deleted	
+12	{0} crewmembers reported ill.	1+ crewmember, disease, unknown	Crew.SeveralCrew.UnknownDisease	Crew.UnknownDesease	Ongoing	Open crew panel	Info	need to be deleted	
+13	Crewmember {0} is ill, place of probable exposure {1}	crewmember got sick, show the location of possible exposure	Crew.OneCrew.KnownDisease		One-time	Open crew panel	Info	Changed (needs to be implemented)	
+14	{0} crewmembers are ill with {1}	more than 4 crewmember are ill with disease type Stop showing other notification about this disease	Crew.SeveralCrew.KnownDisease		Ongoing	Open crew panel	Warning	Changed (needs to be implemented)	
+15	There is an outbreak on board; it is recommended to implement isolation and treatment measures.}	More than 3 difrent disease types with more than 12 cremebers are ill	Crew.SeveralCrew.SeveralDiseases		Ongoing	Open crew panel	Warning	Changed (needs to be implemented)	
+16	{0} crewmembers cured.	1+ crewmembers stop having Injured and/or Ill statuses	Crew.SeveralCrew.Curred	Crew.Curred	One-time	Open crew panel	Info	need to be deleted	
+17	{0} completed  {1}.	Crew members finished using education or training. Separate notification for each service	Crew.OneCrew.ServiceCompleted	Crew.ServiceCompleted	One-time	Open crew panel	Info	need to be deleted	
+18	{0} crewmembers completed {1}.	N crew members finished using education or training. Separate notification per each service	Crew.SeveralCrew.ServiceCompleted	Crew.ServiceCompleted	One-time	Open crew panel	Info	need to be deleted	
+19	Hull integrity below {0}	Behemoth’s health <500/250/100	Survival.Hull.Dropped		Ongoing	Open Maintain Mode	Info	Changed (needs to be implemented)	
+20	Hull integrity restored	Behemoth’s health 950+	Survival.Hull.Restored		One-time		Info	implemented	
+21	Behemoth’s roll reached {0}	Behemoth roll reaches certain degree	Survival.Roll.Reached		Ongoing	Construction view	Info	implemented	
+22	Behemoth’s roll critical	Behemoth’s roll is 30°	Survival.Roll.Critical		Ongoing	Construction view	Info	need to be deleted	
+23	We're approaching [Weather_condition]!	Extreme weather (dangerous storms, acid rains, rock falls, etc) starts in 5 seconds	Survival.Weather.Start		One-time		Info	need to be deleted	
+24	We're passing through [Weather_condition]!	Extreme weather (dangerous storms, acid rains, rock falls, etc) present	Survival.Weather.Active		Ongoing		Info	need to be deleted	
+25	Hostile entity approaching.	Unresearched hostile creature or fraction approaches	Survival.Creature.Unresearched		One-time	Entity	Critical	Trigger check beeded	
+26	{0} approaching.	Researched hostile creature or fraction is getting close	Survival.Creature.Researched		One-time	Entity	Critical	Trigger check beeded	
+27	{0} reached storage capacity.	There is nowhere to store produced waste.	Survival.Waste.ReachedCapacity		Ongoing	Waste location	Info	need to be deleted	
+28	{0} discarded.	Waste was thrown overboard.	Survival.Waste.Discarded		One-time	N/A	Warning	no mechanic	
+29	{0} {1} returned to the station.		Exploration.Unit.Returning					Need to be delated	
+30	{0} {1} fully charged.		Exploration.Unit.Charged					Need to be delated	
+31	{0} {1} integrity below {2}	Unit HP <50/25	Exploration.Unit.Integrity.Dropped		Ongoing	Related unit	Info	implemented	Fixed
+32	{0} {1} integrity restored.	Unit’s HP >90	Exploration.Unit.Integrity.Restored		One-time		Info	implemented	Fixed
+33	{0} {1} is out of Control zone.	{Unit type} {Unit Name} is out of Control zone more than 10 sec Fore Recon Craft this notification disabled during the Recon mission	Exploration.Unit.Lost		One-time		Warning	Changed (needs to be implemented)	
+34	{0} {1} constructed.	New ship produced.	Exploration.Unit.Constructed		One-time	Related unit	Info	no mechanic	
+35	Unit {0} has finished {1}.	Recon craft finished the Event or the Reconing mission	Exploration.Unit.Exploration.Finished		One-time	Related event or Recon Mission window	Info	Changed (needs to be implemented)	
+36	Unit {0} has finished resource gathering.	Deep Sea Trawler finished gathering resources	Exploration.Unit.ResourceGatheringFinished		One-time	Submarine window	Info	Changed (needs to be implemented)	
+37	Unit {0} arrived at the {1}		Exploration.Unit.WorkStarted					need to be deleted	
+38	Station {0} {1} low.		Exploration.Station.Resources.DangerousValue						
+39	Station {0} ran out of {1}.		Exploration.Station.Resources.NotEnought						
+40	Station [Controlstation_name] integrity compromised	Control station HP < 90	Exploration.Station.Integrity.Compromised		Ongoing	Control station	Info	need to be deleted	
+41	Station [Controlstation_name] integrity's below [Integrity_value]!	Control station HP<75/50/25	Exploration.Station.Integrity.Dropped		Ongoing	Control station	Info	need to be deleted	
+42	Station [Controlstation_name]'s integrity restored!	integrity>90	Exploration.Station.Integrity.Restored		One-time	Control station	Info	need to be deleted	
+43	Station [Controlstation_name] has been lost!	Contact with station lost	Exploration.Station.Lost		One-time	Related event	Info	need to be deleted	
+44	Unknown artifact acquired.	Unresearched artifact acquired	Exploration.Artifact.Brought		One-time	Artifact lab UI	Info	Changed (needs to be implemented)	
+45	Artifact {0} researched.	New artifact researched and can be integrated	Exploration.Artifact.Researched		One-time	Artifact lab UI	Info	Changed (needs to be implemented)	
+46	{0}: not enough resources for construction.	Construction of building requires material absent in stock	Production.Building.MaterialNeeds		One-time	Construction menu	Info	imlemented(Delay)	
+47	{0}: construction finished	Construction finished	Production.Building.Constructed		One-time	Building (lerp)	Info	imlemented	
+48	{0} idle.	No recipes selected, building is on and workers assigned	Production.Building.Idle		One-time	Building (lerp)	Info	need to be deleted	
+49	{0}: not enough resources for production.	Not enough resources for one or multiple recipes for turned on recipe	Production.Buildings.Resources.NotEnough		One-time	Building menu	Info	need to be deleted	
+50	{0} no workers assigned	No workers assigned and building is on	Production.Building.Crew.NoWorkers		One-time	Building menu	Info	implemented(Delay)	
+51	{0} integrity below {1}	Buildings HP below 75%	Production.Building.Integrity.Dropped		Ongoing	Building (lerp)	Info	implemented	
+52	{0} integrity restored.		Production.Building.Integrity.Restored		One-time		Info	implemented	
+53	{0}: {1} production finished.	T5 resource produced	Production.Building.Finished		One-time		Info	implemented	
+54	{0} on {1}	Accidents in production	Production.Building.AccidentHappend		One-time	Building (lerp)	Info	no mechanic	
+55	{0} out of order.	Building is too damaged to work	Production.Building.Destroyed		One-time	Building (lerp)	Info	no mechanic	
+56	{0}: energy out.	The building got disconnected from the energy circuit.	Production.Building.EnergyOut		One-time	Building (lerp)	Info	no mechanic	
+57	[Building_type]: not enough water.	Water is insufficient for building work	Production.Building.WaterNotEnough		Ongoing	Building (lerp)	Info	need to be deleted	
+58	Energy levels dropped.	Sudden drop in energy	Energy.DroppedSudden		One-time	Energy panel	Info	implemented	
+59	{0}: running out of powercells.	Powercells amount is not sufficient for building to keep working in next cycle.	Energy.PowerCells.NotEnoughForNextCycle		Ongoing	Building (lerp)	Info	mechanic will be changed	
+60	Behemoth’s energy out.	The energy drops below the 10% of the Overall energy.	Energy.Dropped		Ongoing	Energy panel	Info	implemented	
+61	Power line damaged.	One of wires or transformers is damaged, disrupting the power line	Energy.PowerLine.Damaged		Ongoing	Wire placing panel	Info	need to be deleted	
+62	Power grid is significantly damaged.	More than 5 wires and transformers are damaged, disrupting the power line	Energy.PowerLine.SignificantlyDamaged		Ongoing	Wire placing panel	Info	need to be deleted	
+63	[Building_type] disconnected from power grid.	Building’s connection to power line got broken	Energy.Building.OneDisconnected		Ongoing	Wire placing panel	Info	need to be deleted	
+64	Multiple buildings disconnected form power grid.	Multiple buildings’ connection to power line got broken	Energy.Building.SeveralDisconnected		One-time	Wire placing panel	Info	need to be deleted	
+65	R&D Lab completed research.	R&D Lab completed research	Production.Building.RnD.Completed		One-time	Results screen	Info	implemented	
+66	Behemoth’s out of fuel.	There are no more powercells in the Engine.	Energy.PowerCells.Empty		One-time	Energy panel	Info	Changed (needs to be implemented)	
+67	{0} Category: {1}	When Behemoth enters dangerous event	GameEvent.EnteredArea		Ongoing		Critical	implemented	
+68	{0} placed on the deck	When waste was placed on the deck	Production.Building.Waste.Constructed		One-time		Info	implemented	
+69	Combat engaged {0}	When a dangerous creature approaches	GameEvent.Creature		Ongoing		Critical	implemented	
+70	[CrewmemberName] has gone on strike!	Crewmember went on strike	Crew.OneCrew.Striking		One-time		Info	need to be deleted	
+71	[N] crew members are striking!	N Crew members went on strike	Crew.SeveralCrew.Striking		One-time		Info	need to be deleted	
+72	Not enough quarters	Not enough quarters for crew during dangerous event	Crew.Evacuation.NotEnoughQuarters		One-time		Warning	Changed (needs to be implemented)	
+73	A crew member is starving	When a crew member, for any reason, is unable to obtain food (due to a shortage or a restriction on consumption)	Crew.SeveralCrew.Starving	Starving	Ongoing	Open Crew Mnagment	Critical	QA check needed	
+74	{0} crew members are starving	When a more than one crew member, for any reason, iare unable to obtain food (due to a shortage or a restriction on consumption)	Crew.SeveralCrew.Starving	Starving	Ongoing	Open Crew Mnagment	Critical	QA check needed	
+75	Food supplies are at a {0} level	When food supplies last for 12 in-game hours (considering current 'charges' on crew members and all 'charges' in food in stock)	Crew.FoodSupply		Ongoing	Open Crew Mnagment	Warning	QA check needed	
+76	{0} power cell is almost discharged.	No powercells available in storage and current powercells in buildings/engine have 25% or less energy left	Energy.PowerCells.Low		One-time	Energy panel	Info	Added (needs to be implemented)	
+77	{0} reached storage capacity.	When the building storage reached capacity	Production.Storage.ReachedCapacity			Open the window of the corresponding building	Info	Added (needs to be implemented)	

@@ -1,0 +1,37 @@
+				From \ To	Calm	Normal	Gale		From \ To	Calm	Normal	Gale		From \ To	Calm	Normal	Gale				
+				Calm	0.8	0.2	0.0	1	Calm	0.4	0.6	0.0	1	Calm	0.2	0.6	0.2	1			
+				Normal	0.58	0.4	0.02	1	Normal	0.15	0.6	0.25	1	Normal	0.1	0.4	0.5	1			
+				Gale	0.2	0.6	0.2	1	Gale	0.0	0.6	0.4	1	Gale	0.0	0.4	0.6	1			
+Start Wind	Normal	Entropy Level	1.0																		
+				Clouds\Wind	Calm	Normal	Gale		Calm			Normal			Gale						
+				Fog	0.1	0.0	0.0		0.0	0.1											
+				Clear	0.7	0.2	0.0		0.1	0.8		0.0	0.2								
+				Scattered	0.15	0.4	0.2		0.8	0.95		0.2	0.6		0.0	0.2					
+				Broken	0.05	0.3	0.3		0.95	1		0.6	0.9		0.2	0.5					
+				Overcast	0.0	0.1	0.5		1	1		0.9	1		0.5	1					
+																					
+					Fog	Clear	Scattered	Broken	Overcast		Wind/Sea	Calm	Normal	Gale							
+				No Rain	0.9	1.0	0.9	0.2	0.0		Calm	1.0	0.5	0.0							
+				Light Rain	0.1	0.0	0.1	0.3	0.15		Waves 1	0.0	0.5	0.2							
+				Rain	0.0	0.0	0.0	0.4	0.2		Waves 2	0.0	0.0	0.8							
+				Heavy Rain	0.0	0.0	0.0	0.1	0.65												
+					1	1	1	1	1												
+																					
+																					
+	3h	6h	9h	12h	15h	18h	21h	24h	27h	30h	33h	36h	39h	42h	45h	48h					
+Wind	Calm	Calm	Calm	Calm	Calm	Calm	Calm	Normal	Gale	Normal	Normal	Normal	Normal	Normal	Calm	Calm					
+Clouds	Clear	Broken	Scattered	Scattered	Scattered	Clear	Clear	Scattered	Overcast	Overcast	Broken	Clear	Broken	Scattered	Clear	Clear					
+Rain	No Rain	No Rain	No Rain	No Rain	No Rain	No Rain	No Rain	No Rain	Heavy Rain	Light Rain	No Rain	No Rain	Rain	No Rain	No Rain	No Rain					
+Sea	Calm	Calm	Calm	Calm	Calm	Calm	Calm	Waves 1	Waves 2	Calm	Waves 1	Calm	Calm	Calm	Calm	Calm					
+																					
+																					
+																					
+																					
+																					
+		Storm	EM Anomaly	Underwater Volcanoes	Hailstorm	Thick Fog	Creature Attack														
+	Storm	⛔	✅	✅	⛔	⛔	✅													0.0	0
+	EM Anomaly	✅	⛔	✅	✅	✅	⛔													0	0
+	Underwater Volcanoes	✅	✅	⛔	✅	✅	⛔													0	0
+	Hailstorm	⛔	✅	✅	⛔	⛔	⛔														
+	Thick Fog	⛔	✅	✅	⛔	⛔	✅														
+	Creature Attack	✅	⛔	⛔	⛔	✅	⛔														

@@ -1,0 +1,75 @@
+RowID	PresetName	EntryCountMin	EntryCountMax	bAllowDuplicated	EmptyGenerationWeight	EntryIndex	ResourceName	ResourceAmountMin	ResourceAmountMax	ResourceAmountStep	EntryWeight	Individual Multiplier Min	Individual Multiplier Max
+1.0	Cons_Energy_T3_V2	1.0	1.0	0	0.0	0.0	Bio Cell	1.0	2.0	1.0	1.0	1.0	1.0
+2.0						1.0	Fuel Cell	1.0	2.0	1.0	1.0	1.0	1.0
+3.0	Cons_Food_T1_V2	1.0	1.0	0	0.0	0.0	Grain	40.0	60.0	10.0	1.0	1.0	1.0
+4.0						1.0	Omni Fruit	40.0	60.0	10.0	1.0	1.0	1.0
+5.0						2.0	Cultured Meat	40.0	60.0	10.0	1.0	1.0	1.0
+						3.0	Protein Mass	40.0	60.0	10.0	1.0	1.0	1.0
+6.0	Cons_Food_T3_V2	1.0	1.0	0	0.0	0.0	Nutrient Paste	24.0	40.0	1.0	1.0	1.0	1.0
+7.0						1.0	Energy Bar	20.0	40.0	1.0	1.0	1.0	1.0
+8.0						2.0	Omni-Meal	12.0	24.0	1.0	1.0	1.0	1.0
+9.0	Raw_Metals_Common_A_V2	1.0	1.0	0	0.0	0.0	Titanium	70.0	140.0	20.0	1.0	1.0	1.0
+10.0						1.0	Sodium	70.0	140.0	20.0	1.0	1.0	1.0
+11.0						2.0	Lithium	70.0	140.0	20.0	1.0	1.0	1.0
+12.0						3.0	Silicon	70.0	140.0	20.0	1.0	1.0	1.0
+13.0						4.0	Aluminum	70.0	140.0	20.0	1.0	1.0	1.0
+14.0	Raw_Metals_Common_B_V2	1.0	1.0	0	0.0	0.0	Iron	70.0	140.0	20.0	1.0	1.0	1.0
+15.0						1.0	Tungsten	70.0	140.0	20.0	1.0	1.0	1.0
+16.0						2.0	Nickel	70.0	140.0	20.0	1.0	1.0	1.0
+17.0						3.0	Chromium	70.0	140.0	20.0	1.0	1.0	1.0
+18.0						4.0	Copper	70.0	140.0	20.0	1.0	1.0	1.0
+19.0	Raw_Metals_Exotic_V2	1.0	1.0	0	0.0	0.0	Gold	20.0	30.0	5.0	1.0	1.0	1.0
+20.0	Elditrium	1.0	1.0	0	0.0	0.0	Eldritium	10.0	20.0	5.0	1.0	1.0	1.0
+21.0	Raw_Nonmetal_V2	1.0	1.0	0	0.0	0.0	Chlorine	70.0	140.0	20.0	1.0	1.0	1.0
+22.0						1.0	Phosphorus	70.0	140.0	20.0	1.0	1.0	1.0
+23.0						2.0	Sulfur	70.0	140.0	20.0	1.0	1.0	1.0
+24.0						3.0	Hydrocarbons	70.0	140.0	20.0	1.0	1.0	1.0
+25.0						4.0	Carbon	70.0	140.0	20.0	1.0	1.0	1.0
+26.0	Raw_Organic_A_V2	1.0	1.0	0	0.0	0.0	K-IV Algae	70.0	140.0	20.0	1.0	1.0	1.0
+27.0						1.0	Prebiotic Matter	70.0	140.0	20.0	1.0	1.0	1.0
+28.0						2.0	K-IV Aminoacids	70.0	140.0	20.0	1.0	1.0	1.0
+29.0	Raw_Organic_B_V2	1.0	1.0	0	0.0	0.0	K-IV Plankton	70.0	140.0	20.0	1.0	1.0	1.0
+30.0						1.0	K-IV Algae	70.0	140.0	20.0	1.0	1.0	1.0
+31.0						2.0	K-IV Krill	70.0	140.0	20.0	1.0	1.0	1.0
+32.0	Prod_Extraction_T3_V2	1.0	1.0	0	0.0	0.0	Basic Extractor	3.0	4.0	1.0	1.0	1.0	1.0
+33.0						1.0	Underground Deposit Extractor	1.0	2.0	1.0	1.0	1.0	1.0
+34.0	Special_Blueprints_V2	1.0	1.0	0	0.0	0.0	Architectural Blueprint	3.0	4.0	1.0	1.0	1.0	1.0
+35.0	Prod_Construction_T2A_V2	1.0	1.0	0	0.0	0.0	Metal Constructions	20.0	30.0	5.0	1.0	1.0	1.0
+36.0						1.0	Alloyed Metal	20.0	30.0	5.0	1.0	1.0	1.0
+37.0						2.0	Conductive Materials	20.0	30.0	5.0	1.0	1.0	1.0
+38.0	Prod_Construction_T2B_V2	1.0	1.0	0	0.0	0.0	Biopolymer	20.0	30.0	5.0	1.0	1.0	1.0
+39.0						1.0	Thermoplastic	20.0	30.0	5.0	1.0	1.0	1.0
+40.0						2.0	Mycobrick	20.0	30.0	5.0	1.0	1.0	1.0
+41.0	Prod_Production_T2A_V2	1.0	1.0	0	0.0	0.0	Composite Enzymes	20.0	30.0	5.0	1.0	1.0	1.0
+42.0						1.0	Biochem Compounds	20.0	30.0	5.0	1.0	1.0	1.0
+43.0						2.0	Chemical Fuel	20.0	30.0	5.0	1.0	1.0	1.0
+44.0	Prod_Production_T2B_V2	1.0	1.0	0	0.0	0.0	Nanomaterials	20.0	30.0	5.0	1.0	1.0	1.0
+45.0						1.0	Basic Toolkit	20.0	30.0	5.0	1.0	1.0	1.0
+46.0						2.0	Electronic Components	20.0	30.0	5.0	1.0	1.0	1.0
+47.0	Prod_Production_T3A_V2	1.0	1.0	0	0.0	0.0	Microcontrollers	5.0	8.0	1.0	1.0	1.0	1.0
+48.0						1.0	Basic Scanner	5.0	8.0	1.0	1.0	1.0	1.0
+49.0						2.0	Sensors Array	5.0	8.0	1.0	1.0	1.0	1.0
+50.0						3.0	Personal Defence Kit	5.0	8.0	1.0	1.0	1.0	1.0
+51.0	Prod_Production_T3B_V2	1.0	1.0	0	0.0	0.0	Nano Parts	5.0	8.0	1.0	1.0	1.0	1.0
+52.0						1.0	Battery Block	5.0	8.0	1.0	1.0	1.0	1.0
+53.0						2.0	Modular Container	5.0	8.0	1.0	1.0	1.0	1.0
+54.0						3.0	Propulsion Kit	5.0	8.0	1.0	1.0	1.0	1.0
+55.0	Prod_Medicine_T3_V2	1.0	1.0	0	0.0	0.0	Med Gel	9.0	18.0	1.0	1.0	1.0	1.0
+56.0						1.0	Stem Tissue	12.0	24.0	1.0	1.0	1.0	1.0
+57.0						2.0	Med Kit	2.0	4.0	1.0	1.0	1.0	1.0
+58.0	Prod_Ammo_T2	1.0	1.0	0	0.0	0.0	Standard Ammunition Pack	8.0	16.0	1.0	1.0	1.0	1.0
+59.0						1.0	Chemical Fuel	8.0	16.0	1.0	1.0	1.0	1.0
+60.0	Prod_Ammo_T3T4	1.0	1.0	0	0.0	0.0	Explosive Charges	4.0	12.0	1.0	1.0	1.0	1.0
+61.0						1.0	Smart Ammunition Pack	1.0	3.0	1.0	1.0	1.0	1.0
+62.0	T4_Items_V1	1.0	1.0	0	0.0	0.0	Tech Voxel	3.0	5.0	1.0	1.0	1.0	1.0
+63.0						1.0	Multi-Tool	3.0	5.0	1.0	1.0	1.0	1.0
+64.0						2.0	Comm-Link	3.0	5.0	1.0	1.0	1.0	1.0
+65.0						3.0	Tricoder	3.0	5.0	1.0	1.0	1.0	1.0
+66.0	T4_Items_V2	1.0	1.0	0	0.0	0.0	Smart Ammunition Pack	3.0	5.0	1.0	1.0	1.0	1.0
+67.0						1.0	Portable Force Shield	3.0	5.0	1.0	1.0	1.0	1.0
+68.0						2.0	D.A.R.T.	3.0	5.0	1.0	1.0	1.0	1.0
+69.0	T5_Items_V1	1.0	1.0	0	0.0	0.0	Cyberware	2.0	3.0	1.0	1.0	1.0	1.0
+70.0						1.0	AI Core	2.0	3.0	1.0	1.0	1.0	1.0
+71.0	T5_Items_V2	1.0	1.0	0	0.0	0.0	Tech Assembly Matrix	1.0	2.0	1.0	1.0	1.0	1.0
+72.0						1.0	Surveying Probe	1.0	2.0	1.0	1.0	1.0	1.0
+73.0	T5_Energy_V1	1.0	1.0	0	0.0	0.0	Fusion Cell	1.0	1.0	1.0	1.0	1.0	1.0

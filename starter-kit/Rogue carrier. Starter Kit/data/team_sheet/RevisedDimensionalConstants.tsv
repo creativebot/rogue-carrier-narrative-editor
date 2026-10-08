@@ -1,0 +1,41 @@
+#	State	Function name	Description	Category	Type	Example of how it's shown to user (Text)	Visibility to player		+Icons	Comment
+1.0	technically implemented	The starting entropy level is altered	The run starts with low Entropy 1	World	Embedded	Starting Entropy: 3	Visible	DC_StartingEntropy_1		
+2.0			The run starts with high Entropy (4-6)	World			Visible	DC_StartingEntropy_3		
+3.0	technically implemented	The day duration is altered	The day lasts longer	World	Embedded	Text: as in the description (no values)	Hidden			
+4.0			The night lasts longer	World			Hidden	DC_DayLength_3h		
+5.0			There is always sun	World			Hidden			
+6.0			There is always night	World			Hidden			
+7.0	technically implemented	Biome distribution is altered	All biomes are evenly distributed	World	Embedded	list of biomes in tooltip (hiding the locked biomes)	Hidden			
+8.0			Some biomes are missing (3-4 presets)	World			Hidden			
+9.0			One biome dominates the map? (Persets = biomes)	World			Hidden			
+10.0	technically implemented	The islands distance is altered	Islands are closer to each other	World	Embedded	distance presets with general description	Hidden			
+11.0			Islands are scattered evenly across the map	World			Hidden			
+12.0			Islands are farther from each other	World			Hidden			
+13.0	technically implemented	The wind is stronger	There is almost no wind at all	World	Embedded	Wind strength: +50%	Hidden	DC_ChangeWindTransition_Calm_x2		
+14.0	technically implemented		There are frequent strong gusts	World			Hidden	DC_ChangeWindTransition_Gale_x2		
+15.0	technically implemented	Resource cluster density is altered	Resource clusters are very dense	World	Embedded	Cluster density: +1	Visible			
+16.0			Resource clusters are very sparse	World			Visible			
+17.0	clusters?		Resources are spread out with no big clusters	World		Cluster density: no big clusters	Visible			
+18.0	clusters?		Resources appear in a few huge mega-clusters	World		Cluster density: mega clusters	Visible			
+19.0			Dangerous events appear with higher probablility	World		Dangerous events: +50%	Visible	DC_DangEventsChance_Inc_x2		
+20.0		Creature spawn rate is altered	Increased	World	Embedded		Visible			
+21.0	technically implemented	Trader outpost number is altered	There are very few trader outposts	World	Embedded	Trader outposts: rare	Visible			
+22.0		Traveling trader number is altered	There are very few Traveling trader	World	Embedded	Traveling trader: rare	Visible			
+23.0	technically implemented	Mini-map/Map is disabled for the run	Mini-map/Map is disabled for the run	World	Embedded	Text: as in the description (no values)	Visible	DC_DisableMap, DC_DisableMapAndMinimap		
+24.0	technically implemented	Entropy Gain	Entropy gain x1.5	World	Embedded	Entropy gain x1.5	Visible			
+25.0			Extraction generates more Entropy	World		Entropy from extraction: -50% / +50%	Visible	DV_ExtractionEntropy_Inc_x2		
+26.0		Buildings entropy gain is altered	Buildings generate more Entropy	World			Visible	DC_BuildingEntropy_x2		
+27.0			Waste generates more Entropy	World			Visible	DC_WasteEntropy_Inc_x2		
+28.0	technically implemented	Quest entropy gain multiplier	Entropy from generic and deck events is increased x1.5	World	Embedded		Visible	DC_QuestEntropy_Inc_x2		
+29.0	technically implemented	Blueprint cost increased by 1	RnD lab roll cost is increased by 1 Blueprint	Behemoth	Embedded	Text: as in the description (no values)	Visible	DC_ReserarchCost_x2		
+30.0	technically implemented	R&D lab slots number are altered (+-1)	RnD lab has +1 or -1 building slots	Behemoth	Embedded	Text: as in the description (no values)	Visible	DC_RnDSlots_2, DC_RnDSlots_4		
+31.0	technically implemented	Building category worker slot number is altered (+-1)	All buildings have +1 worker slot	Behemoth	Embedded	Text: as in the description (no values)	Visible	DC_AdditionalBuildingCrewSlots_1		
+32.0			All energy consumption is increased			Energy consumption: +25%	Visible	DC_EnergyConsumption_Inc_x15		
+33.0			All waste types accumulate faster			Waste generation: +50%	Visible	DC_WasteAccumulatioMultiplier_Inc_x3		
+34.0		Active scan disabled	Active scanning is unavailable	Behemoth	Embedded	Text: as in the description (no values)	Visible			
+35.0			Discontent is increased			Discontent growth: +50%	Visible	DC_CrewDiscontent_Inc_x2		
+36.0	technically implemented	The food morale gain is altered	Food provides less morale	Behemoth	Embedded	Morale from food: -50%	Visible	DC_FoodMoraleGain_Dec_x05		
+37.0	technically implemented	Behemoth recieve more/less Hull damage from every source	Behemoth recieve more Hull damage from every source	Behemoth	Embedded	Hull damage taken: +25%	Visible	DC_HullIncomingDamage_Inc_x2		
+38.0		Increased value of fog	Default amount of fog is increased 1.5 times	World	Embedded	Fog thickness increase: +50%	Visible			
+39.0		Storm stress increased	Storm stressed is increased x1.5	World	Embedded	Storm stress increase: +50%	Visible			
+40.0		Crew immunity decreased	Each crewmember's base Immunity is decreased by 2	Behemoth	Embedded	Crewmembers' Immunity is reduced by 2	Visible			

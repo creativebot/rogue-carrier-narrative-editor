@@ -1,0 +1,35 @@
+	Tropical	Volcanic	Polar	Rocky	Desert	Deep Sea	Temperate	Shallow	Description
+Tropical	+	+	-	+	+	-	+	+	Tropical climate
+Volcanic	+	+	-	+	-	-	+	+	Active volcanoes zone
+Polar	-	-	+	+	-	+	-	-	Polar climate
+Rocky	+	+	+	+	+	-	+	+	Only rocky wastalnd islands
+Desert	+	+	-	+	+	-	+	+	Desert climate - isladns with dry climate
+Deep Sea	-	-	+	-	-	+	+	-	Regions without land -  only floating or Sea objects
+Temperate	+	+	-	+	+	+	+	+	Temperate climate zone
+Shallow	+	+	-	+	+	-	+	+	Shallow waters, Subtropical
+All									
+									
+Biome Type (Mask)	Biomes (island and objects)		Number of biomes by type	Rarity					
+Tropical	Sandstone Rock Pillar Spire Islands Old volcano Island Volcanic islands Floating cubes Rainforest islands Atolls Mangrove-style tree islands Buoyant city		9	Common					
+Volcanic	Old volcano Island Volcanic islands Reefs Floating cubes Mud volcanoes Single-ore island		6	Rare					
+Polar	Glaciers Iceberg Floating cubes Crystal island Single-ore island		5	Rare					
+Rocky	Pointy rocks Plateaus Old volcano Island Volcanic islands Asteroidal island Reefs Floating cubes Necroterra Island Arborial Roots Ragnam Island Supergravitational islands Cavern Island Crystal island Fjords Windy planes Sea river		16	Uncommon					
+Desert	Multi-shelved island Sandstone Rock Pillar Spire Islands Desert islands Red Rocks Island Floating cubes Buoyant city Canyon island		8	Uncommon					
+Deep Sea	Great depths Floating cubes Ocean Trenches Large-scale metal veins Shipwreck Ragnam Island Supergravitational islands High currents Stormy waters Windy planes Hydrothermal Vents Deep sea cave systems "Whale Falls" Centers of gyres Anemone fields Sea river		16	Uncommon					
+Temperate	Swamp Island Pointy rocks Plateaus Purple island Reefs Floating cubes Necroterra Island Arborial Roots Ragnam Island Supergravitational islands Buoyant city		11	Common					
+Shallow	Purple island Reefs Floating cubes Half-drowned ship Rainforest islands Estuary islands Mangrove-style tree islands Necroterra Island Supergravitational islands Anemone fields		10	Rare					
+									
+									
+									
+									
+									
+									
+			Sandstone Rock Pillar						
+			Spire Islands						
+			Old volcano Island						
+			Volcanic islands						
+			Floating cubes						
+			Rainforest islands						
+			Atolls						
+			Mangrove-style tree islands						
+			Buoyant city						

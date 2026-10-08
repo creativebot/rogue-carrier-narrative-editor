@@ -1,0 +1,10 @@
+Name	IconColor	DisplayName	IconPath
+Ship Systems	88EFD0FF	Ship Systems	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_ShipSystems.T_UI_BuildingCategory_ShipSystems"
+Services	0D5EFFFF	Services	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Services.T_UI_BuildingCategory_Services"
+Workshop	CC00CCFF	Workshop	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Workshop.T_UI_BuildingCategory_Workshop"
+Factory	B22447FF	Factory	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Factory.T_UI_BuildingCategory_Factory"
+Plant	88CC00FF	Plant	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Plant.T_UI_BuildingCategory_Plant"
+Advanced Tech	A64DFFFF	Advanced Tech	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_AdvancedTech.T_UI_BuildingCategory_AdvancedTech"
+Energy	D6A019FF	Energy	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Energy.T_UI_BuildingCategory_Energy"
+Defense	00DA91FF	Defense	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_Survival.T_UI_BuildingCategory_Survival"
+Other	55FF85FF	Other	"/Game/Textures/UI/Categories/Buildings/T_UI_BuildingCategory_BasicNeeds.T_UI_BuildingCategory_BasicNeeds"

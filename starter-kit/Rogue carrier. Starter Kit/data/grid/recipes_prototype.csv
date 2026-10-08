@@ -1,0 +1,494 @@
+product_id,product_name,product_kind,slot,slot_job,slot_function,option_id,option_name,qty
+processing_02,Alloyed Metal,item,1,,,res_04_Iron,Iron,1
+processing_02,Alloyed Metal,item,1,,,res_07_Alum,Aluminum,1
+processing_02,Alloyed Metal,item,2,,,res_03_Copper,Copper,1
+processing_02,Alloyed Metal,item,2,,,res_08_Titan,Titanium,1
+processing_06,Basic Toolkit,item,1,,,res_08_Titan,Titanium,1
+processing_06,Basic Toolkit,item,1,,,res_10_Tung,Tungsten,1
+processing_06,Basic Toolkit,item,2,,,res_07_Alum,Aluminum,1
+processing_06,Basic Toolkit,item,2,,,res_06_Chrom,Chromium,1
+synthesis_02,Biochem Compounds,item,1,,,res_38_Prebiotic,Prebiotic Matter,1
+synthesis_02,Biochem Compounds,item,1,,,res_40_k_AminoAc,K-IV Aminoacids,1
+synthesis_02,Biochem Compounds,item,2,,,res_15_Sodium,Sodium,1
+synthesis_02,Biochem Compounds,item,2,,,res_12_Chlor,Chlorine,1
+synthesized_01,Biopolymer,item,1,,,res_39_k_Krill,K-IV Krill,1
+synthesized_01,Biopolymer,item,1,,,res_33,Protein Mass,1
+synthesized_01,Biopolymer,item,2,,,res_13_Phosph,Phosphorus,1
+synthesized_01,Biopolymer,item,2,,,res_17_Silicon,Silicon,1
+synthesis_03,Chemical Fuel,item,1,,,res_27_HydroCarb,Hydrocarbons,1
+synthesis_03,Chemical Fuel,item,1,,,res_31_k_Algae,K-IV Algae,1
+synthesis_03,Chemical Fuel,item,2,,,res_28_Carbon,Carbon,1
+synthesis_03,Chemical Fuel,item,2,,,res_17_Silicon,Silicon,1
+synthesis_05,Composite Enzymes,item,1,,,res_24_k_Plankton,K-IV Plankton,1
+synthesis_05,Composite Enzymes,item,1,,,res_39_k_Krill,K-IV Krill,1
+synthesis_05,Composite Enzymes,item,2,,,res_12_Chlor,Chlorine,1
+synthesis_05,Composite Enzymes,item,2,,,res_15_Sodium,Sodium,1
+processing_04,Conductive Materials,item,1,,,res_03_Copper,Copper,1
+processing_04,Conductive Materials,item,1,,,res_01_Gold,Gold,1
+res_32,Cultured Meat,item,1,,,res_24_k_Plankton,K-IV Plankton,1
+res_32,Cultured Meat,item,1,,,res_40_k_AminoAc,K-IV Aminoacids,1
+electronics_05,Electronic Components,item,1,,,res_17_Silicon,Silicon,1
+electronics_05,Electronic Components,item,2,,,res_03_Copper,Copper,1
+electronics_05,Electronic Components,item,2,,,res_01_Gold,Gold,1
+electronics_05,Electronic Components,item,2,,,synthesis_04,Nanomaterials,1
+res_29,Grain,item,1,,,res_38_Prebiotic,Prebiotic Matter,1
+processing_01,Metal Constructions,item,1,,,res_04_Iron,Iron,1
+processing_01,Metal Constructions,item,1,,,res_07_Alum,Aluminum,1
+processing_01,Metal Constructions,item,2,,,res_28_Carbon,Carbon,1
+processing_01,Metal Constructions,item,2,,,res_06_Chrom,Chromium,1
+synthesis_06,Mycobrick,item,1,,,res_38_Prebiotic,Prebiotic Matter,1
+synthesis_06,Mycobrick,item,1,,,res_40_k_AminoAc,K-IV Aminoacids,1
+synthesis_06,Mycobrick,item,1,,,res_33,Protein Mass,1
+synthesis_06,Mycobrick,item,2,,,res_28_Carbon,Carbon,1
+synthesis_06,Mycobrick,item,2,,,res_14_Sulfur,Sulfur,1
+synthesis_04,Nanomaterials,item,1,,,res_17_Silicon,Silicon,1
+synthesis_04,Nanomaterials,item,1,,,res_28_Carbon,Carbon,1
+synthesis_04,Nanomaterials,item,2,,,res_15_Sodium,Sodium,1
+synthesis_04,Nanomaterials,item,2,,,res_16_Lithium,Lithium,1
+res_30,Omni Fruit,item,1,,,res_38_Prebiotic,Prebiotic Matter,1
+res_30,Omni Fruit,item,1,,,res_24_k_Plankton,K-IV Plankton,1
+res_30,Omni Fruit,item,2,,,res_13_Phosph,Phosphorus,1
+res_33,Protein Mass,item,1,,,res_38_Prebiotic,Prebiotic Matter,1
+res_33,Protein Mass,item,1,,,res_40_k_AminoAc,K-IV Aminoacids,1
+res_33,Protein Mass,item,2,,,res_24_k_Plankton,K-IV Plankton,1
+res_33,Protein Mass,item,2,,,res_31_k_Algae,K-IV Algae,1
+ammunition_01,Standard Ammunition Pack,item,1,,,res_06_Chrom,Chromium,1
+ammunition_01,Standard Ammunition Pack,item,1,,,res_10_Tung,Tungsten,1
+ammunition_01,Standard Ammunition Pack,item,2,,,res_28_Carbon,Carbon,1
+ammunition_01,Standard Ammunition Pack,item,2,,,res_27_HydroCarb,Hydrocarbons,1
+ammunition_01,Standard Ammunition Pack,item,3,,,res_14_Sulfur,Sulfur,1
+ammunition_01,Standard Ammunition Pack,item,3,,,res_13_Phosph,Phosphorus,1
+processing_03,Thermoplastic,item,1,,,res_27_HydroCarb,Hydrocarbons,1
+processing_03,Thermoplastic,item,1,,,res_31_k_Algae,K-IV Algae,1
+processing_03,Thermoplastic,item,1,,,res_29,Grain,1
+processing_03,Thermoplastic,item,2,,,res_14_Sulfur,Sulfur,1
+processing_03,Thermoplastic,item,2,,,res_12_Chlor,Chlorine,1
+food_08,Algae Preserves,item,1,,,res_24_k_Plankton,K-IV Plankton,1
+food_08,Algae Preserves,item,2,,,res_31_k_Algae,K-IV Algae,1
+extractor_01,Basic Extractor,item,1,,,processing_01,Metal Constructions,1
+extractor_01,Basic Extractor,item,1,,,synthesis_06,Mycobrick,1
+extractor_01,Basic Extractor,item,2,,,synthesis_03,Chemical Fuel,1
+extractor_01,Basic Extractor,item,2,,,synthesis_02,Biochem Compounds,1
+machinery_04,Basic Scanner,item,1,,,processing_06,Basic Toolkit,1
+machinery_04,Basic Scanner,item,2,,,processing_04,Conductive Materials,1
+machinery_04,Basic Scanner,item,2,,,electronics_05,Electronic Components,1
+machinery_04,Basic Scanner,item,3,,,res_16_Lithium,Lithium,1
+machinery_04,Basic Scanner,item,3,,,res_01_Gold,Gold,1
+machinery_05,Battery Block,item,1,,,res_15_Sodium,Sodium,1
+machinery_05,Battery Block,item,1,,,res_16_Lithium,Lithium,1
+machinery_05,Battery Block,item,2,,,processing_03,Thermoplastic,1
+machinery_05,Battery Block,item,2,,,synthesis_06,Mycobrick,1
+machinery_05,Battery Block,item,3,,,processing_04,Conductive Materials,1
+machinery_05,Battery Block,item,3,,,synthesis_04,Nanomaterials,1
+powercell_02,Bio Cell,item,1,,,synthesis_05,Composite Enzymes,1
+powercell_02,Bio Cell,item,2,,,synthesized_01,Biopolymer,1
+powercell_02,Bio Cell,item,2,,,synthesis_06,Mycobrick,1
+food_05,Energy Bar,item,1,,,res_29,Grain,1
+food_05,Energy Bar,item,1,,,res_33,Protein Mass,1
+food_05,Energy Bar,item,2,,,res_30,Omni Fruit,1
+ammunition_02,Explosive Charges,item,1,,,synthesized_01,Biopolymer,1
+ammunition_02,Explosive Charges,item,1,,,processing_03,Thermoplastic,1
+ammunition_02,Explosive Charges,item,2,,,synthesis_03,Chemical Fuel,1
+ammunition_02,Explosive Charges,item,3,,,synthesis_02,Biochem Compounds,1
+ammunition_02,Explosive Charges,item,3,,,synthesis_05,Composite Enzymes,1
+food_07,Fruit Paste,item,1,,,res_30,Omni Fruit,1
+food_07,Fruit Paste,item,1,,,res_31_k_Algae,K-IV Algae,1
+food_07,Fruit Paste,item,2,,,res_33,Protein Mass,1
+powercell_01,Fuel Cell,item,1,,,synthesis_03,Chemical Fuel,1
+powercell_01,Fuel Cell,item,2,,,processing_02,Alloyed Metal,1
+powercell_01,Fuel Cell,item,2,,,processing_03,Thermoplastic,1
+food_06,Krill Paste,item,1,,,res_39_k_Krill,K-IV Krill,1
+food_06,Krill Paste,item,2,,,res_33,Protein Mass,1
+food_10,Krill Preserves,item,1,,,res_24_k_Plankton,K-IV Plankton,1
+food_10,Krill Preserves,item,2,,,res_39_k_Krill,K-IV Krill,1
+medres_01,Med Gel,item,1,,,synthesis_02,Biochem Compounds,1
+medres_01,Med Gel,item,2,,,synthesis_05,Composite Enzymes,1
+medres_01,Med Gel,item,2,,,res_30,Omni Fruit,1
+electronics_02,Microcontrollers,item,1,,,electronics_05,Electronic Components,1
+electronics_02,Microcontrollers,item,2,,,synthesis_04,Nanomaterials,1
+electronics_02,Microcontrollers,item,2,,,processing_04,Conductive Materials,1
+electronics_02,Microcontrollers,item,3,,,res_13_Phosph,Phosphorus,1
+electronics_02,Microcontrollers,item,3,,,res_14_Sulfur,Sulfur,1
+questres_01,Modular Container,item,1,,,processing_01,Metal Constructions,1
+questres_01,Modular Container,item,2,,,synthesis_06,Mycobrick,1
+questres_01,Modular Container,item,2,,,processing_03,Thermoplastic,1
+questres_01,Modular Container,item,3,,,res_08_Titan,Titanium,1
+processing_05,Nano Parts,item,1,,,synthesis_04,Nanomaterials,1
+processing_05,Nano Parts,item,2,,,processing_02,Alloyed Metal,1
+processing_05,Nano Parts,item,2,,,synthesized_01,Biopolymer,1
+processing_05,Nano Parts,item,3,,,res_06_Chrom,Chromium,1
+food_01,Nutrient Paste,item,1,,,res_32,Cultured Meat,1
+food_01,Nutrient Paste,item,1,,,res_33,Protein Mass,1
+food_01,Nutrient Paste,item,2,,,res_29,Grain,1
+medres_04,Personal Defence Kit,item,1,,,processing_02,Alloyed Metal,1
+medres_04,Personal Defence Kit,item,2,,,processing_03,Thermoplastic,1
+medres_04,Personal Defence Kit,item,2,,,synthesized_01,Biopolymer,1
+medres_04,Personal Defence Kit,item,3,,,res_10_Tung,Tungsten,1
+medres_04,Personal Defence Kit,item,3,,,res_06_Chrom,Chromium,1
+machinery_01,Propulsion Kit,item,1,,,processing_06,Basic Toolkit,1
+machinery_01,Propulsion Kit,item,1,,,processing_01,Metal Constructions,1
+machinery_01,Propulsion Kit,item,2,,,processing_04,Conductive Materials,1
+machinery_01,Propulsion Kit,item,3,,,res_10_Tung,Tungsten,1
+electronics_03,Sensors Array,item,1,,,processing_03,Thermoplastic,1
+electronics_03,Sensors Array,item,1,,,processing_02,Alloyed Metal,1
+electronics_03,Sensors Array,item,2,,,synthesis_04,Nanomaterials,1
+electronics_03,Sensors Array,item,2,,,electronics_05,Electronic Components,1
+electronics_03,Sensors Array,item,3,,,res_16_Lithium,Lithium,1
+medres_03,Stem Tissue,item,1,,,synthesis_05,Composite Enzymes,1
+medres_03,Stem Tissue,item,1,,,synthesis_02,Biochem Compounds,1
+medres_03,Stem Tissue,item,2,,,res_32,Cultured Meat,1
+unitres_01,Worker Drone,item,1,,,processing_06,Basic Toolkit,1
+unitres_01,Worker Drone,item,1,,,processing_02,Alloyed Metal,1
+unitres_01,Worker Drone,item,2,,,electronics_05,Electronic Components,1
+unitres_01,Worker Drone,item,2,,,processing_04,Conductive Materials,1
+unitres_01,Worker Drone,item,2,,,synthesis_04,Nanomaterials,1
+unitres_01,Worker Drone,item,3,,,processing_01,Metal Constructions,1
+unitres_01,Worker Drone,item,3,,,synthesis_06,Mycobrick,1
+questres_03,Comm-Link,item,1,,,electronics_02,Microcontrollers,1
+questres_03,Comm-Link,item,2,,,machinery_05,Battery Block,1
+questres_03,Comm-Link,item,2,,,machinery_04,Basic Scanner,1
+extractor_02,D.A.R.T.,item,1,,,questres_01,Modular Container,1
+extractor_02,D.A.R.T.,item,2,,,machinery_04,Basic Scanner,1
+extractor_02,D.A.R.T.,item,2,,,electronics_03,Sensors Array,1
+extractor_02,D.A.R.T.,item,3,,,powercell_01,Fuel Cell,1
+extractor_02,D.A.R.T.,item,3,,,powercell_02,Bio Cell,1
+unitres_05,Deep-Sea Trawler,item,1,,,machinery_01,Propulsion Kit,1
+unitres_05,Deep-Sea Trawler,item,2,,,electronics_03,Sensors Array,1
+unitres_05,Deep-Sea Trawler,item,2,,,machinery_04,Basic Scanner,1
+unitres_05,Deep-Sea Trawler,item,3,,,processing_01,Metal Constructions,1
+unitres_05,Deep-Sea Trawler,item,3,,,processing_02,Alloyed Metal,1
+unitres_02,Freighter,item,1,,,machinery_01,Propulsion Kit,1
+unitres_02,Freighter,item,2,,,questres_01,Modular Container,1
+unitres_02,Freighter,item,2,,,processing_05,Nano Parts,1
+medres_02,Med Kit,item,1,,,medres_01,Med Gel,1
+medres_02,Med Kit,item,2,,,medres_03,Stem Tissue,1
+medres_02,Med Kit,item,2,,,food_01,Nutrient Paste,1
+scineceres_01,Multi-Tool,item,1,,,questres_01,Modular Container,1
+scineceres_01,Multi-Tool,item,2,,,electronics_02,Microcontrollers,1
+scineceres_01,Multi-Tool,item,2,,,machinery_04,Basic Scanner,1
+food_11,Omni-Meal,item,1,,,food_05,Energy Bar,1
+food_11,Omni-Meal,item,2,,,food_01,Nutrient Paste,1
+consumer_02,Portable Force Shield,item,1,,,medres_04,Personal Defence Kit,1
+consumer_02,Portable Force Shield,item,2,,,processing_05,Nano Parts,1
+consumer_02,Portable Force Shield,item,2,,,machinery_05,Battery Block,1
+consumer_02,Portable Force Shield,item,3,,,res_19_Eldrit,Eldritium,1
+ammunition_03,Smart Ammunition Pack,item,1,,,electronics_02,Microcontrollers,1
+ammunition_03,Smart Ammunition Pack,item,1,,,electronics_03,Sensors Array,1
+ammunition_03,Smart Ammunition Pack,item,2,,,machinery_01,Propulsion Kit,1
+ammunition_03,Smart Ammunition Pack,item,3,,,synthesis_03,Chemical Fuel,1
+machinery_03,Tech Voxel,item,1,,,processing_05,Nano Parts,1
+machinery_03,Tech Voxel,item,2,,,questres_01,Modular Container,1
+machinery_03,Tech Voxel,item,2,,,machinery_01,Propulsion Kit,1
+questres_05,Tricoder,item,1,,,machinery_04,Basic Scanner,1
+questres_05,Tricoder,item,2,,,electronics_02,Microcontrollers,1
+questres_05,Tricoder,item,2,,,electronics_03,Sensors Array,1
+extractor_03,Underground Deposit Extractor,item,1,,,processing_01,Metal Constructions,1
+extractor_03,Underground Deposit Extractor,item,1,,,synthesis_06,Mycobrick,1
+extractor_03,Underground Deposit Extractor,item,2,,,powercell_01,Fuel Cell,1
+extractor_03,Underground Deposit Extractor,item,2,,,powercell_02,Bio Cell,1
+extractor_03,Underground Deposit Extractor,item,3,,,synthesis_03,Chemical Fuel,1
+extractor_03,Underground Deposit Extractor,item,3,,,processing_04,Conductive Materials,1
+electronics_01,AI Core,item,1,,,questres_03,Comm-Link,1
+electronics_01,AI Core,item,2,,,questres_05,Tricoder,1
+consumer_01,Cyberware,item,1,,,questres_03,Comm-Link,1
+consumer_01,Cyberware,item,2,,,medres_02,Med Kit,1
+powercell_04,Fusion Cell,item,1,,,consumer_02,Portable Force Shield,1
+powercell_04,Fusion Cell,item,2,,,powercell_01,Fuel Cell,1
+powercell_04,Fusion Cell,item,2,,,powercell_02,Bio Cell,1
+powercell_04,Fusion Cell,item,3,,,res_19_Eldrit,Eldritium,1
+unitres_03,Recon Craft,item,1,,,machinery_03,Tech Voxel,1
+unitres_03,Recon Craft,item,2,,,questres_05,Tricoder,1
+unitres_03,Recon Craft,item,3,,,processing_02,Alloyed Metal,1
+unitres_03,Recon Craft,item,3,,,processing_01,Metal Constructions,1
+cn_41,Surveying Probe,item,1,,,questres_05,Tricoder,1
+cn_41,Surveying Probe,item,2,,,machinery_03,Tech Voxel,1
+machinery_02,Tech Assembly Matrix,item,1,,,machinery_03,Tech Voxel,1
+machinery_02,Tech Assembly Matrix,item,2,,,scineceres_01,Multi-Tool,1
+powercell_05,Positron Cell,item,1,,,powercell_04,Fusion Cell,1
+powercell_05,Positron Cell,item,2,,,machinery_02,Tech Assembly Matrix,1
+cn_43,Satellite,item,1,,,questres_05,Tricoder,1
+cn_43,Satellite,item,2,,,machinery_03,Tech Voxel,1
+cn_43,Satellite,item,3,,,electronics_01,AI Core,1
+serviceres_02,Transhuman Form,item,1,,,consumer_01,Cyberware,1
+serviceres_02,Transhuman Form,item,2,,,electronics_01,AI Core,1
+b_accomm_01,General quarters,building,1,,,res_04_Iron,Iron,1
+b_accomm_01,General quarters,building,1,,,res_07_Alum,Aluminum,1
+b_accomm_01,General quarters,building,2,,,res_17_Silicon,Silicon,1
+b_accomm_01,General quarters,building,2,,,res_14_Sulfur,Sulfur,1
+b_energy_03,Generator,building,1,,,processing_02,Alloyed Metal,1
+b_energy_03,Generator,building,1,,,processing_01,Metal Constructions,1
+b_energy_03,Generator,building,2,,,synthesized_01,Biopolymer,1
+b_energy_03,Generator,building,2,,,processing_03,Thermoplastic,1
+b_energy_03,Generator,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_energy_11,Solar Panels,building,1,,,processing_01,Metal Constructions,1
+b_energy_11,Solar Panels,building,1,,,synthesis_06,Mycobrick,1
+b_energy_11,Solar Panels,building,2,,,res_17_Silicon,Silicon,1
+b_energy_11,Solar Panels,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_energy_12,Small Energy Accumulator,building,1,,,processing_02,Alloyed Metal,1
+b_energy_12,Small Energy Accumulator,building,1,,,processing_01,Metal Constructions,1
+b_energy_12,Small Energy Accumulator,building,2,,,synthesized_01,Biopolymer,1
+b_energy_12,Small Energy Accumulator,building,2,,,processing_03,Thermoplastic,1
+b_energy_12,Small Energy Accumulator,building,3,,,res_15_Sodium,Sodium,1
+b_energy_12,Small Energy Accumulator,building,3,,,res_16_Lithium,Lithium,1
+b_exploration_01,Artifacts Lab,building,1,,,processing_01,Metal Constructions,1
+b_exploration_01,Artifacts Lab,building,1,,,synthesis_06,Mycobrick,1
+b_exploration_01,Artifacts Lab,building,2,,,processing_03,Thermoplastic,1
+b_exploration_01,Artifacts Lab,building,2,,,synthesized_01,Biopolymer,1
+b_exploration_01,Artifacts Lab,building,3,,,processing_06,Basic Toolkit,1
+b_fleet_02,Hangar,building,1,,,processing_01,Metal Constructions,1
+b_fleet_02,Hangar,building,1,,,synthesis_06,Mycobrick,1
+b_fleet_02,Hangar,building,2,,,processing_03,Thermoplastic,1
+b_fleet_02,Hangar,building,2,,,synthesized_01,Biopolymer,1
+b_production_01,Resource Allocation Center,building,1,,,res_04_Iron,Iron,1
+b_production_01,Resource Allocation Center,building,1,,,res_07_Alum,Aluminum,1
+b_production_01,Resource Allocation Center,building,1,,,res_08_Titan,Titanium,1
+b_energy_08,Energy Accumulator,building,1,,,processing_02,Alloyed Metal,1
+b_energy_08,Energy Accumulator,building,1,,,processing_01,Metal Constructions,1
+b_energy_08,Energy Accumulator,building,2,,,synthesized_01,Biopolymer,1
+b_energy_08,Energy Accumulator,building,2,,,processing_03,Thermoplastic,1
+b_energy_08,Energy Accumulator,building,3,,,res_15_Sodium,Sodium,1
+b_energy_08,Energy Accumulator,building,3,,,res_16_Lithium,Lithium,1
+b_production_t1_01,Tools Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_01,Tools Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_01,Tools Workshop,building,2,,,res_06_Chrom,Chromium,1
+b_production_t1_01,Tools Workshop,building,2,,,res_03_Copper,Copper,1
+b_production_t1_01,Tools Workshop,building,2,,,res_28_Carbon,Carbon,1
+b_production_t1_02,Electronics Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_02,Electronics Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_02,Electronics Workshop,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_02,Electronics Workshop,building,2,,,res_03_Copper,Copper,1
+b_production_t1_03,Repairs Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_03,Repairs Workshop,building,1,,,res_08_Titan,Titanium,1
+b_production_t1_03,Repairs Workshop,building,2,,,res_06_Chrom,Chromium,1
+b_production_t1_03,Repairs Workshop,building,2,,,res_03_Copper,Copper,1
+b_production_t1_04,Processing Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_04,Processing Workshop,building,1,,,res_08_Titan,Titanium,1
+b_production_t1_04,Processing Workshop,building,2,,,res_06_Chrom,Chromium,1
+b_production_t1_04,Processing Workshop,building,2,,,res_03_Copper,Copper,1
+b_production_t1_05,Synthesis Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_05,Synthesis Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_05,Synthesis Workshop,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_05,Synthesis Workshop,building,2,,,res_06_Chrom,Chromium,1
+b_production_t1_06,Compounds Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_06,Compounds Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_06,Compounds Workshop,building,2,,,res_14_Sulfur,Sulfur,1
+b_production_t1_06,Compounds Workshop,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_07,Chemistry Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_07,Chemistry Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_07,Chemistry Workshop,building,2,,,res_14_Sulfur,Sulfur,1
+b_production_t1_07,Chemistry Workshop,building,2,,,res_28_Carbon,Carbon,1
+b_production_t1_08,Bioengineering Workshop,building,1,,,res_04_Iron,Iron,1
+b_production_t1_08,Bioengineering Workshop,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_08,Bioengineering Workshop,building,2,,,res_28_Carbon,Carbon,1
+b_production_t1_08,Bioengineering Workshop,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_09,Farm,building,1,,,res_04_Iron,Iron,1
+b_production_t1_09,Farm,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_09,Farm,building,2,,,res_13_Phosph,Phosphorus,1
+b_production_t1_09,Farm,building,2,,,res_28_Carbon,Carbon,1
+b_production_t1_09,Farm,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_10,Plantation,building,1,,,res_04_Iron,Iron,1
+b_production_t1_10,Plantation,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_10,Plantation,building,2,,,res_14_Sulfur,Sulfur,1
+b_production_t1_10,Plantation,building,2,,,res_13_Phosph,Phosphorus,1
+b_production_t1_10,Plantation,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_11,Universum,building,1,,,res_04_Iron,Iron,1
+b_production_t1_11,Universum,building,1,,,res_07_Alum,Aluminum,1
+b_production_t1_11,Universum,building,2,,,res_17_Silicon,Silicon,1
+b_production_t1_11,Universum,building,2,,,res_28_Carbon,Carbon,1
+b_production_t1_11,Universum,building,2,,,res_13_Phosph,Phosphorus,1
+b_service_02,Medical Center,building,1,,,processing_02,Alloyed Metal,1
+b_service_02,Medical Center,building,1,,,processing_01,Metal Constructions,1
+b_service_02,Medical Center,building,2,,,synthesized_01,Biopolymer,1
+b_service_02,Medical Center,building,2,,,processing_03,Thermoplastic,1
+b_service_02,Medical Center,building,3,,,synthesis_02,Biochem Compounds,1
+b_service_09,Bioconversion Lab,building,1,,,processing_02,Alloyed Metal,1
+b_service_09,Bioconversion Lab,building,1,,,processing_01,Metal Constructions,1
+b_service_09,Bioconversion Lab,building,2,,,synthesized_01,Biopolymer,1
+b_service_09,Bioconversion Lab,building,2,,,processing_03,Thermoplastic,1
+b_service_09,Bioconversion Lab,building,3,,,synthesis_05,Composite Enzymes,1
+b_service_10,Geo Lab,building,1,,,processing_01,Metal Constructions,1
+b_service_10,Geo Lab,building,1,,,synthesis_06,Mycobrick,1
+b_service_10,Geo Lab,building,2,,,processing_02,Alloyed Metal,1
+b_service_10,Geo Lab,building,2,,,processing_03,Thermoplastic,1
+b_service_10,Geo Lab,building,3,,,processing_06,Basic Toolkit,1
+b_survival_02,Gatling Gun,building,1,,,res_04_Iron,Iron,1
+b_survival_02,Gatling Gun,building,1,,,res_07_Alum,Aluminum,1
+b_survival_02,Gatling Gun,building,2,,,res_08_Titan,Titanium,1
+b_survival_02,Gatling Gun,building,3,,,res_14_Sulfur,Sulfur,1
+b_survival_04,Grenade Launcher,building,1,,,processing_03,Thermoplastic,1
+b_survival_04,Grenade Launcher,building,1,,,processing_02,Alloyed Metal,1
+b_survival_04,Grenade Launcher,building,2,,,synthesized_01,Biopolymer,1
+b_survival_04,Grenade Launcher,building,2,,,synthesis_06,Mycobrick,1
+b_survival_04,Grenade Launcher,building,3,,,processing_06,Basic Toolkit,1
+b_survival_06,Flamethrower,building,1,,,res_08_Titan,Titanium,1
+b_survival_06,Flamethrower,building,2,,,res_17_Silicon,Silicon,1
+b_survival_06,Flamethrower,building,3,,,res_06_Chrom,Chromium,1
+b_survival_06,Flamethrower,building,3,,,res_10_Tung,Tungsten,1
+b_accomm_02,Residential Complex,building,1,,,processing_01,Metal Constructions,1
+b_accomm_02,Residential Complex,building,1,,,synthesis_06,Mycobrick,1
+b_accomm_02,Residential Complex,building,2,,,processing_03,Thermoplastic,1
+b_accomm_02,Residential Complex,building,2,,,synthesized_01,Biopolymer,1
+b_energy_06,Cyclone Energy Turbine,building,1,,,processing_02,Alloyed Metal,1
+b_energy_06,Cyclone Energy Turbine,building,1,,,processing_01,Metal Constructions,1
+b_energy_06,Cyclone Energy Turbine,building,2,,,processing_05,Nano Parts,1
+b_energy_06,Cyclone Energy Turbine,building,2,,,machinery_01,Propulsion Kit,1
+b_energy_06,Cyclone Energy Turbine,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_production_t2_01,Electronics Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_01,Electronics Factory,building,1,,,processing_03,Thermoplastic,1
+b_production_t2_01,Electronics Factory,building,2,,,synthesis_04,Nanomaterials,1
+b_production_t2_01,Electronics Factory,building,2,,,synthesized_01,Biopolymer,1
+b_production_t2_02,Pyrogenics Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_02,Pyrogenics Factory,building,1,,,synthesis_06,Mycobrick,1
+b_production_t2_02,Pyrogenics Factory,building,2,,,processing_02,Alloyed Metal,1
+b_production_t2_02,Pyrogenics Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_03,Nano-Tech Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_03,Nano-Tech Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_03,Nano-Tech Factory,building,2,,,synthesis_04,Nanomaterials,1
+b_production_t2_03,Nano-Tech Factory,building,2,,,processing_06,Basic Toolkit,1
+b_production_t2_04,Prototype Development Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_04,Prototype Development Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_04,Prototype Development Factory,building,2,,,synthesis_04,Nanomaterials,1
+b_production_t2_04,Prototype Development Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_05,Container Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_05,Container Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_05,Container Factory,building,2,,,synthesis_06,Mycobrick,1
+b_production_t2_05,Container Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_06,Expedition Research Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_06,Expedition Research Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_06,Expedition Research Factory,building,2,,,synthesized_01,Biopolymer,1
+b_production_t2_06,Expedition Research Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_07,Energy Research Factory,building,1,,,synthesized_01,Biopolymer,1
+b_production_t2_07,Energy Research Factory,building,1,,,processing_03,Thermoplastic,1
+b_production_t2_07,Energy Research Factory,building,2,,,synthesis_06,Mycobrick,1
+b_production_t2_07,Energy Research Factory,building,2,,,processing_02,Alloyed Metal,1
+b_production_t2_08,Component Factory,building,1,,,synthesis_06,Mycobrick,1
+b_production_t2_08,Component Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_08,Component Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_08,Component Factory,building,2,,,synthesis_04,Nanomaterials,1
+b_production_t2_09,Medical Goods Factory,building,1,,,synthesis_06,Mycobrick,1
+b_production_t2_09,Medical Goods Factory,building,1,,,processing_02,Alloyed Metal,1
+b_production_t2_09,Medical Goods Factory,building,2,,,synthesized_01,Biopolymer,1
+b_production_t2_09,Medical Goods Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_10,Food Factory,building,1,,,synthesis_06,Mycobrick,1
+b_production_t2_10,Food Factory,building,1,,,processing_01,Metal Constructions,1
+b_production_t2_10,Food Factory,building,2,,,processing_03,Thermoplastic,1
+b_production_t2_10,Food Factory,building,2,,,synthesized_01,Biopolymer,1
+b_service_01,Health and Care Center,building,1,,,processing_01,Metal Constructions,1
+b_service_01,Health and Care Center,building,1,,,synthesis_06,Mycobrick,1
+b_service_01,Health and Care Center,building,2,,,processing_03,Thermoplastic,1
+b_service_01,Health and Care Center,building,2,,,synthesized_01,Biopolymer,1
+b_service_01,Health and Care Center,building,3,,,medres_01,Med Gel,1
+b_service_03,Social dome,building,1,,,processing_02,Alloyed Metal,1
+b_service_03,Social dome,building,1,,,processing_01,Metal Constructions,1
+b_service_03,Social dome,building,2,,,processing_03,Thermoplastic,1
+b_service_03,Social dome,building,3,,,questres_01,Modular Container,1
+b_service_05,Institute,building,1,,,processing_02,Alloyed Metal,1
+b_service_05,Institute,building,1,,,synthesis_06,Mycobrick,1
+b_service_05,Institute,building,2,,,synthesized_01,Biopolymer,1
+b_service_05,Institute,building,2,,,processing_03,Thermoplastic,1
+b_service_05,Institute,building,3,,,processing_05,Nano Parts,1
+b_survival_01,Power Bolt Emitter,building,1,,,processing_03,Thermoplastic,1
+b_survival_01,Power Bolt Emitter,building,1,,,synthesized_01,Biopolymer,1
+b_survival_01,Power Bolt Emitter,building,2,,,processing_01,Metal Constructions,1
+b_survival_01,Power Bolt Emitter,building,3,,,electronics_05,Electronic Components,1
+b_survival_03,Photon Gun,building,1,,,processing_01,Metal Constructions,1
+b_survival_03,Photon Gun,building,2,,,processing_03,Thermoplastic,1
+b_survival_03,Photon Gun,building,2,,,synthesized_01,Biopolymer,1
+b_survival_03,Photon Gun,building,3,,,processing_04,Conductive Materials,1
+b_energy_07,Solar Reactor,building,1,,,processing_01,Metal Constructions,1
+b_energy_07,Solar Reactor,building,1,,,synthesis_06,Mycobrick,1
+b_energy_07,Solar Reactor,building,2,,,machinery_05,Battery Block,1
+b_energy_07,Solar Reactor,building,2,,,electronics_03,Sensors Array,1
+b_energy_07,Solar Reactor,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_energy_09,Fusion Core Unit,building,1,,,processing_01,Metal Constructions,1
+b_energy_09,Fusion Core Unit,building,1,,,synthesis_06,Mycobrick,1
+b_energy_09,Fusion Core Unit,building,2,,,machinery_03,Tech Voxel,1
+b_energy_09,Fusion Core Unit,building,2,,,consumer_02,Portable Force Shield,1
+b_energy_09,Fusion Core Unit,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_locals_t3_01,Nasobi Building,building,1,,,processing_01,Metal Constructions,1
+b_locals_t3_01,Nasobi Building,building,2,,,processing_03,Thermoplastic,1
+b_locals_t3_01,Nasobi Building,building,2,,,synthesized_01,Biopolymer,1
+b_locals_t3_02,Aetherid Building,building,1,,,processing_01,Metal Constructions,1
+b_locals_t3_02,Aetherid Building,building,1,,,synthesis_06,Mycobrick,1
+b_locals_t3_02,Aetherid Building,building,2,,,processing_02,Alloyed Metal,1
+b_locals_t3_03,Crabari Building,building,1,,,synthesis_06,Mycobrick,1
+b_locals_t3_03,Crabari Building,building,1,,,processing_02,Alloyed Metal,1
+b_locals_t3_04,Mistralid Building,building,1,,,synthesis_06,Mycobrick,1
+b_locals_t3_04,Mistralid Building,building,2,,,synthesized_01,Biopolymer,1
+b_locals_t3_05,Knidaria Building,building,1,,,processing_03,Thermoplastic,1
+b_locals_t3_05,Knidaria Building,building,2,,,synthesized_01,Biopolymer,1
+b_production_t3_01,Advanced Tools Plant,building,1,,,processing_02,Alloyed Metal,1
+b_production_t3_01,Advanced Tools Plant,building,1,,,synthesized_01,Biopolymer,1
+b_production_t3_01,Advanced Tools Plant,building,2,,,synthesis_04,Nanomaterials,1
+b_production_t3_01,Advanced Tools Plant,building,2,,,processing_03,Thermoplastic,1
+b_production_t3_02,Expedition Plant,building,1,,,processing_01,Metal Constructions,1
+b_production_t3_02,Expedition Plant,building,1,,,synthesis_06,Mycobrick,1
+b_production_t3_02,Expedition Plant,building,2,,,processing_02,Alloyed Metal,1
+b_production_t3_02,Expedition Plant,building,2,,,synthesized_01,Biopolymer,1
+b_production_t3_03,Smart Tools Plant,building,1,,,processing_01,Metal Constructions,1
+b_production_t3_03,Smart Tools Plant,building,1,,,synthesis_06,Mycobrick,1
+b_production_t3_03,Smart Tools Plant,building,2,,,synthesized_01,Biopolymer,1
+b_production_t3_03,Smart Tools Plant,building,2,,,processing_03,Thermoplastic,1
+b_production_t3_04,Tactical Production Plant,building,1,,,processing_01,Metal Constructions,1
+b_production_t3_04,Tactical Production Plant,building,1,,,synthesis_06,Mycobrick,1
+b_production_t3_04,Tactical Production Plant,building,2,,,processing_03,Thermoplastic,1
+b_production_t3_04,Tactical Production Plant,building,2,,,synthesized_01,Biopolymer,1
+b_production_t3_05,Consumer Goods Plant,building,1,,,processing_01,Metal Constructions,1
+b_production_t3_05,Consumer Goods Plant,building,1,,,synthesis_06,Mycobrick,1
+b_production_t3_05,Consumer Goods Plant,building,2,,,synthesized_01,Biopolymer,1
+b_production_t3_05,Consumer Goods Plant,building,2,,,processing_03,Thermoplastic,1
+b_service_06,Holodeck,building,1,,,processing_02,Alloyed Metal,1
+b_service_06,Holodeck,building,1,,,processing_01,Metal Constructions,1
+b_service_06,Holodeck,building,2,,,electronics_01,AI Core,1
+b_service_06,Holodeck,building,3,,,machinery_03,Tech Voxel,1
+b_service_07,Alliance Center,building,1,,,processing_02,Alloyed Metal,1
+b_service_07,Alliance Center,building,1,,,processing_01,Metal Constructions,1
+b_service_07,Alliance Center,building,2,,,processing_03,Thermoplastic,1
+b_service_07,Alliance Center,building,2,,,synthesized_01,Biopolymer,1
+b_survival_05,Active defense system,building,1,,,processing_01,Metal Constructions,1
+b_survival_05,Active defense system,building,1,,,processing_02,Alloyed Metal,1
+b_survival_05,Active defense system,building,2,,,electronics_03,Sensors Array,1
+b_survival_05,Active defense system,building,3,,,processing_05,Nano Parts,1
+b_survival_07,Power Barrier,building,1,,,processing_01,Metal Constructions,1
+b_survival_07,Power Barrier,building,1,,,synthesis_06,Mycobrick,1
+b_survival_07,Power Barrier,building,2,,,machinery_05,Battery Block,1
+b_survival_07,Power Barrier,building,3,,,res_19_Eldrit,Eldritium,1
+b_survival_08,Sonic Pulse System,building,1,,,synthesis_06,Mycobrick,1
+b_survival_08,Sonic Pulse System,building,1,,,processing_03,Thermoplastic,1
+b_survival_08,Sonic Pulse System,building,2,,,electronics_02,Microcontrollers,1
+b_survival_08,Sonic Pulse System,building,3,,,machinery_01,Propulsion Kit,1
+b_survival_09,Static Field,building,1,,,processing_01,Metal Constructions,1
+b_survival_09,Static Field,building,1,,,processing_02,Alloyed Metal,1
+b_survival_09,Static Field,building,2,,,machinery_05,Battery Block,1
+b_survival_09,Static Field,building,3,,,processing_05,Nano Parts,1
+b_production_t4_01,Hi-Tech Facility,building,1,,,processing_02,Alloyed Metal,1
+b_production_t4_01,Hi-Tech Facility,building,1,,,processing_01,Metal Constructions,1
+b_production_t4_01,Hi-Tech Facility,building,2,,,machinery_04,Basic Scanner,1
+b_production_t4_01,Hi-Tech Facility,building,2,,,processing_05,Nano Parts,1
+b_production_t4_02,Experimental Materials Facility,building,1,,,processing_01,Metal Constructions,1
+b_production_t4_02,Experimental Materials Facility,building,1,,,processing_02,Alloyed Metal,1
+b_production_t4_02,Experimental Materials Facility,building,2,,,electronics_02,Microcontrollers,1
+b_production_t4_02,Experimental Materials Facility,building,2,,,machinery_05,Battery Block,1
+b_production_t4_03,Robotics Facility,building,1,,,processing_01,Metal Constructions,1
+b_production_t4_03,Robotics Facility,building,2,,,machinery_05,Battery Block,1
+b_production_t4_03,Robotics Facility,building,2,,,processing_05,Nano Parts,1
+b_production_t4_04,Advanced Wares Facility,building,1,,,synthesis_06,Mycobrick,1
+b_production_t4_04,Advanced Wares Facility,building,1,,,processing_03,Thermoplastic,1
+b_production_t4_04,Advanced Wares Facility,building,2,,,electronics_02,Microcontrollers,1
+b_production_t4_04,Advanced Wares Facility,building,2,,,processing_05,Nano Parts,1
+b_energyprogram_t5_01,Antimatter Core Unit,building,1,,,processing_01,Metal Constructions,1
+b_energyprogram_t5_01,Antimatter Core Unit,building,1,,,synthesis_06,Mycobrick,1
+b_energyprogram_t5_01,Antimatter Core Unit,building,2,,,consumer_02,Portable Force Shield,1
+b_energyprogram_t5_01,Antimatter Core Unit,building,3,,,machinery_02,Tech Assembly Matrix,1
+b_evolutionprogram_t5_01,Evolution Center,building,1,,,processing_03,Thermoplastic,1
+b_evolutionprogram_t5_01,Evolution Center,building,1,,,synthesized_01,Biopolymer,1
+b_evolutionprogram_t5_01,Evolution Center,building,2,,,scineceres_01,Multi-Tool,1
+b_evolutionprogram_t5_01,Evolution Center,building,3,,,electronics_01,AI Core,1
+b_explorationprogram_t5_01,Satellite Control Complex,building,1,,,processing_01,Metal Constructions,1
+b_explorationprogram_t5_01,Satellite Control Complex,building,1,,,processing_02,Alloyed Metal,1
+b_explorationprogram_t5_01,Satellite Control Complex,building,2,,,machinery_03,Tech Voxel,1
+b_explorationprogram_t5_01,Satellite Control Complex,building,3,,,questres_05,Tricoder,1
+b_powerprogram_t5_01,Advanced Technology Center,building,1,,,synthesis_06,Mycobrick,1
+b_powerprogram_t5_01,Advanced Technology Center,building,1,,,processing_02,Alloyed Metal,1
+b_powerprogram_t5_01,Advanced Technology Center,building,2,,,machinery_03,Tech Voxel,1
+b_powerprogram_t5_01,Advanced Technology Center,building,3,,,powercell_04,Fusion Cell,1

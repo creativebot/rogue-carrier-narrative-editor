@@ -1,0 +1,10 @@
+Building id	Building Name	id Name Service 1	id Name Service 2	id Name Service 3	UseResourcesForServices 1	UseResourcesForServices 2	UseResourcesForServices 3
+b_service_01	Health and Care Center	UnfreezingCrew	Regeneration	Vaccination		Med Gel	
+b_service_02	Medical Center	UnfreezingCrew	Regeneration	Treatment		Med Gel	Med Kit
+b_service_03	Social dome	Vaccination	Recreation	Teambuilding Event			
+b_service_05	Institute	Technical Support	Add Specialization			Basic Toolkit	
+b_service_06	Holodeck	Recreation	E.T. Communications	Teambuilding Event			
+b_service_07	Alliance Center	E.T. Communications	Technology Exchange	Arrange a Meeting with Aliens			Cyberware
+b_service_09	Bioconversion Lab	Recycling Organic			Bio Waste		
+b_service_10	Geo Lab	Recycling Manufactured			Manufacturing Waste		
+b_exploration_01	Artifacts Lab	Research			Basic Toolkit		

@@ -1,0 +1,4 @@
+Type	InitialCharge	MaxCharge	ChargeSpeed	InitialHealth	MaxHealth	InitialCrew	MaxCrew	ProductionRate	TransferAmount	TransferTime	StorageCellAmount	StorageCellVolume	MaxSpeed
+Worker	75.0	75.0	5.0	100.0	100.0	0.0	0.0	1.0	15.0	1.5	15.0	5.0	3000.0
+Scout	500.0	500.0	5.0	100.0	100.0	2.0	5.0	1.0	1000.0	6.0	1000.0	100.0	20000.0
+Cargo	150.0	150.0	5.0	100.0	100.0	2.0	3.0	1.0	60.0	2.0	60.0	10.0	28000.0

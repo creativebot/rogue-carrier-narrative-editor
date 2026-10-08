@@ -1,0 +1,1860 @@
+{
+  "id": "snap_20261008_151929_Automated_Save_Snapshot",
+  "filename": "snap_20261008_151929_Automated_Save_Snapshot.json",
+  "reason": "Automated Save Snapshot",
+  "author": "Daniel (Local PC)",
+  "timestamp": "2026-10-08T15:19:29.411298",
+  "displayTime": "2026-10-08 15:19:29",
+  "nodeCount": 12,
+  "dialogueCount": 15,
+  "data": {
+    "version": "2.6.0",
+    "projectInfo": {
+      "name": "Rogue Carrier Scenario 1",
+      "author": "Daniel (Local PC)"
+    },
+    "timelines": [
+      {
+        "id": "timeline_1",
+        "number": 1,
+        "name": "The Fate of Zephyrus",
+        "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+      },
+      {
+        "id": "timeline_2",
+        "number": 2,
+        "name": "Timeline 2: Multiverse Branch",
+        "description": "New parallel timeline hypercell reality branch."
+      }
+    ],
+    "variations": [
+      {
+        "id": "var_v1",
+        "timelineId": "timeline_1",
+        "number": 1,
+        "name": "The Moment After the End",
+        "description": "First variation containing primary critical event chain."
+      },
+      {
+        "id": "var_v2",
+        "timelineId": "timeline_1",
+        "number": 2,
+        "name": "Orbital Rift",
+        "description": "Debris field gravitational anomalies."
+      },
+      {
+        "id": "var_v3",
+        "timelineId": "timeline_1",
+        "number": 3,
+        "name": "Deep Submersion",
+        "description": "Keeling ocean trawler exploration."
+      },
+      {
+        "id": "var_v4",
+        "timelineId": "timeline_1",
+        "number": 4,
+        "name": "Predator Nest",
+        "description": "Keeling island predator swarms."
+      },
+      {
+        "id": "var_v5",
+        "timelineId": "timeline_1",
+        "number": 5,
+        "name": "Bioweapon Outbreak",
+        "description": "Ebola strain contagion response."
+      },
+      {
+        "id": "var_v6",
+        "timelineId": "timeline_1",
+        "number": 6,
+        "name": "Zephyrus Wreckage",
+        "description": "Disassembly of smoldering wreckage."
+      },
+      {
+        "id": "var_v7",
+        "timelineId": "timeline_1",
+        "number": 7,
+        "name": "Chronos Paradox",
+        "description": "Time displacement hypercell anomaly."
+      },
+      {
+        "id": "var_v8",
+        "timelineId": "timeline_1",
+        "number": 8,
+        "name": "Sub-Oceanic Abyss",
+        "description": "Sunken flight recorder retrieval."
+      },
+      {
+        "id": "var_v9",
+        "timelineId": "timeline_1",
+        "number": 9,
+        "name": "Behemoth Encounter",
+        "description": "Combat with leviathan predator."
+      },
+      {
+        "id": "var_v10",
+        "timelineId": "timeline_1",
+        "number": 10,
+        "name": "Echoes of the Fleet",
+        "description": "Final escape pod signals."
+      },
+      {
+        "id": "var_t2_v1",
+        "timelineId": "timeline_2",
+        "number": 1,
+        "name": "Timeline 2: Multiverse Branch - Variation 1",
+        "description": "Variation 1 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v2",
+        "timelineId": "timeline_2",
+        "number": 2,
+        "name": "Timeline 2: Multiverse Branch - Variation 2",
+        "description": "Variation 2 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v3",
+        "timelineId": "timeline_2",
+        "number": 3,
+        "name": "Timeline 2: Multiverse Branch - Variation 3",
+        "description": "Variation 3 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v4",
+        "timelineId": "timeline_2",
+        "number": 4,
+        "name": "Timeline 2: Multiverse Branch - Variation 4",
+        "description": "Variation 4 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v5",
+        "timelineId": "timeline_2",
+        "number": 5,
+        "name": "Timeline 2: Multiverse Branch - Variation 5",
+        "description": "Variation 5 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v6",
+        "timelineId": "timeline_2",
+        "number": 6,
+        "name": "Timeline 2: Multiverse Branch - Variation 6",
+        "description": "Variation 6 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v7",
+        "timelineId": "timeline_2",
+        "number": 7,
+        "name": "Timeline 2: Multiverse Branch - Variation 7",
+        "description": "Variation 7 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v8",
+        "timelineId": "timeline_2",
+        "number": 8,
+        "name": "Timeline 2: Multiverse Branch - Variation 8",
+        "description": "Variation 8 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v9",
+        "timelineId": "timeline_2",
+        "number": 9,
+        "name": "Timeline 2: Multiverse Branch - Variation 9",
+        "description": "Variation 9 for Timeline 2: Multiverse Branch"
+      },
+      {
+        "id": "var_t2_v10",
+        "timelineId": "timeline_2",
+        "number": 10,
+        "name": "Timeline 2: Multiverse Branch - Variation 10",
+        "description": "Variation 10 for Timeline 2: Multiverse Branch"
+      }
+    ],
+    "characters": [
+      {
+        "id": "voss",
+        "name": "Elias Voss",
+        "role": "Behemoth Captain",
+        "color": "#fef08a",
+        "textColor": "#713f12",
+        "icon": "👨‍✈️",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "mnemosyne",
+        "name": "Mnemosyne",
+        "role": "Ship AI System",
+        "color": "#e0e7ff",
+        "textColor": "#3730a3",
+        "icon": "🤖",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "khalil",
+        "name": "Khalil Arida",
+        "role": "Communication Officer",
+        "color": "#dcfce7",
+        "textColor": "#166534",
+        "icon": "📻",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "tuuli",
+        "name": "Tuuli Korpela",
+        "role": "Chief Engineer",
+        "color": "#ffedd5",
+        "textColor": "#9a3412",
+        "icon": "🔧",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "abbadie",
+        "name": "Mars Abbadie",
+        "role": "Head of R&D",
+        "color": "#f3e8ff",
+        "textColor": "#6b21a8",
+        "icon": "🔬",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "orest",
+        "name": "Orest Demchuck",
+        "role": "Scout Leader",
+        "color": "#fee2e2",
+        "textColor": "#991b1b",
+        "icon": "🎯",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "survivor",
+        "name": "Survivor",
+        "role": "Keeling Island Refugee",
+        "color": "#f3f4f6",
+        "textColor": "#1f2937",
+        "icon": "👤",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "hinemosyne",
+        "name": "",
+        "role": "",
+        "color": "#f3f4f6",
+        "textColor": "#1f2937",
+        "icon": "👤",
+        "variationIds": [
+          "var_v1"
+        ]
+      },
+      {
+        "id": "iseeitin_your_eyes",
+        "name": "",
+        "role": "",
+        "color": "#f3f4f6",
+        "textColor": "#1f2937",
+        "icon": "👤",
+        "variationIds": [
+          "var_v1"
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "node_e0",
+        "codename": "T1-V1-E1-A0",
+        "name": "The Moment After the End",
+        "type": "Deck",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 0,
+        "spawnConditions": "End of Tutorial / Zephyrus Collapse",
+        "eventIntro": "N/A",
+        "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods distributed throughout the ship for evacuation. Someone could have reached them just in time.  But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder, aka the orange box, must be retrieved.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 769,
+          "y": 90
+        },
+        "actions": [
+          {
+            "id": "act_e0_1",
+            "codeSuffix": "A1",
+            "shortDescription": "Build a transmitter",
+            "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
+            "requirements": [
+              {
+                "id": "clause_1791299400955",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "processing_01",
+                    "name": "Metal Constructions",
+                    "amount": 15,
+                    "iconImg": "icons/T_Metal_Frames.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791299424222",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "processing_04",
+                    "name": "Conductive Materials",
+                    "amount": 15,
+                    "iconImg": "icons/T_Conductive-Materials.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791384158266",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "spec_science",
+                    "name": "Science Crew",
+                    "amount": 2,
+                    "icon": "🔬",
+                    "iconImg": "",
+                    "category": "Specialization"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791384159499",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "spec_engineering",
+                    "name": "Engineering Crew",
+                    "amount": 1,
+                    "icon": "🔧",
+                    "iconImg": "",
+                    "category": "Specialization"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 4,
+            "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
+            "rewards": [
+              "🧠 Knowledge +300",
+              "📜 Blueprints +1"
+            ],
+            "targetNodeId": "node_e1"
+          },
+          {
+            "id": "act_e0_2",
+            "codeSuffix": "B1",
+            "shortDescription": "Process the data",
+            "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the orange box (flight recorder) should be contained.",
+            "requirements": [
+              {
+                "id": "clause_1791299451478",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "processing_03",
+                    "name": "Thermoplastic",
+                    "amount": 15,
+                    "iconImg": "icons/T_Thermoplastic.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791299458580",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "electronics_05",
+                    "name": "Electronic Components",
+                    "amount": 15,
+                    "iconImg": "icons/T_Holo_Display.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791384183560",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "spec_science",
+                    "name": "Science Crew",
+                    "amount": 2,
+                    "icon": "🔬",
+                    "iconImg": "",
+                    "category": "Specialization"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791384184803",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "spec_engineering",
+                    "name": "Engineering Crew",
+                    "amount": 1,
+                    "icon": "🔧",
+                    "iconImg": "",
+                    "category": "Specialization"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
+            "rewards": [
+              "😊 Morale -1",
+              "🧠 Knowledge +300"
+            ],
+            "targetNodeId": "node_e1b"
+          }
+        ],
+        "colorScheme": "amber",
+        "disabledVariationIds": [],
+        "location": "End of Tutorial / Zephyrus Collapse"
+      },
+      {
+        "id": "node_e1",
+        "codename": "T1-V1-E1-A1",
+        "name": "Escape Pod Signal",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 1,
+        "spawnConditions": "On an island with additional escape pod model.",
+        "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
+        "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": -540,
+          "y": 1080
+        },
+        "actions": [
+          {
+            "id": "act_e1_1",
+            "codeSuffix": "A2",
+            "shortDescription": "Comb island",
+            "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
+            "requirements": [
+              {
+                "id": "clause_1791379437831",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "medres_04",
+                    "name": "Personal Defence Kit",
+                    "amount": 5,
+                    "iconImg": "icons/T_DefensiveGear.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
+            "rewards": [
+              {
+                "resourceId": "res_38_Prebiotic",
+                "name": "Prebiotic Matter",
+                "amount": "100-150",
+                "iconImg": "icons/T_Prebiotic.png",
+                "icon": "📦"
+              },
+              {
+                "resourceId": "spec_defense",
+                "name": "Defense Spec",
+                "amount": "+3",
+                "icon": "🛡️",
+                "iconImg": "",
+                "category": "Specialization"
+              },
+              {
+                "resourceId": "stat_knowledge",
+                "name": "Knowledge",
+                "amount": "+200",
+                "icon": "🧠",
+                "iconImg": ""
+              }
+            ],
+            "targetNodeId": "node_e2a"
+          },
+          {
+            "id": "act_e1_2",
+            "codeSuffix": "B2",
+            "shortDescription": "Examine pod",
+            "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
+            "requirements": [
+              {
+                "id": "clause_1791379456088",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "electronics_02",
+                    "name": "Microcontrollers",
+                    "amount": 1,
+                    "iconImg": "icons/T_Microcontrollers.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791379470074",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "questres_01",
+                    "name": "Modular Container",
+                    "amount": 3,
+                    "iconImg": "icons/T_Container.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791379483293",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "processing_06",
+                    "name": "Basic Toolkit",
+                    "amount": 5,
+                    "iconImg": "icons/T_Basic-Tool-Kit.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go?   That's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+            "rewards": [
+              {
+                "resourceId": "machinery_05",
+                "name": "Battery Block",
+                "amount": "6",
+                "iconImg": "icons/T_Battery-Block.png",
+                "icon": "📦"
+              },
+              {
+                "resourceId": "stat_blueprints",
+                "name": "Blueprints",
+                "amount": "+2",
+                "icon": "📜",
+                "iconImg": ""
+              },
+              {
+                "resourceId": "stat_knowledge",
+                "name": "Knowledge",
+                "amount": "+400",
+                "icon": "🧠",
+                "iconImg": ""
+              }
+            ],
+            "targetNodeId": "node_e2b"
+          }
+        ],
+        "colorScheme": "blue",
+        "location": "On an island with additional escape pod model.",
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_e1b",
+        "codename": "T1-V1-E1-B1",
+        "name": "Smoldering Crater",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 1,
+        "spawnConditions": "Data processed",
+        "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
+        "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 2160,
+          "y": 1080
+        },
+        "actions": [
+          {
+            "id": "act_e1b_1",
+            "codeSuffix": "B2",
+            "shortDescription": "Disassemble",
+            "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
+            "requirements": [
+              {
+                "id": "clause_1791378421058",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "questres_01",
+                    "name": "Modular Container",
+                    "amount": 1,
+                    "iconImg": "icons/T_Container.png"
+                  }
+                ]
+              },
+              {
+                "id": "clause_1791378440100",
+                "isReplaceable": true,
+                "items": [
+                  {
+                    "resourceId": "machinery_04",
+                    "name": "Basic Scanner",
+                    "amount": 5,
+                    "iconImg": "icons/T_Basic-Scaner.png"
+                  },
+                  {
+                    "resourceId": "processing_06",
+                    "name": "Basic Toolkit",
+                    "amount": 15,
+                    "iconImg": "icons/T_Basic-Tool-Kit.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 6,
+            "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from exploding, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. They manage to extract many components and useful implements, but not the one you hoped to find.  The orange box is not here, and it never has been. A different fragment must have carried it down here. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
+            "rewards": [
+              "📜 Blueprints +3",
+              "Nano Parts x15",
+              "🧠 Knowledge +350"
+            ],
+            "targetNodeId": "node_e2b"
+          },
+          {
+            "id": "act_1791378373196",
+            "codeSuffix": "B1",
+            "shortDescription": "Blast through!",
+            "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
+            "requirements": [
+              {
+                "id": "clause_1791378603692",
+                "isReplaceable": true,
+                "items": [
+                  {
+                    "resourceId": "ammunition_02",
+                    "name": "Explosive Charges",
+                    "amount": 3,
+                    "iconImg": "icons/T_ExplosiveCharges.png"
+                  },
+                  {
+                    "resourceId": "synthesis_03",
+                    "name": "Chemical Fuel",
+                    "amount": 20,
+                    "iconImg": "icons/T_Chemical-Fuel.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 3,
+            "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive materials as well as their placement to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n      Luckily, the orange box isn't there. It never has been. A different fragment must have carried it down. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
+            "rewards": [
+              {
+                "resourceId": "processing_02",
+                "name": "Alloyed Metal",
+                "amount": "20-30",
+                "iconImg": "icons/T_Alloy_Steel.png",
+                "icon": "📦"
+              },
+              {
+                "resourceId": "synthesized_01",
+                "name": "Biopolymer",
+                "amount": "20-30",
+                "iconImg": "icons/T_Biopolymer.png",
+                "icon": "📦"
+              },
+              {
+                "resourceId": "processing_03",
+                "name": "Thermoplastic",
+                "amount": "20-30",
+                "iconImg": "icons/T_Thermoplastic.png",
+                "icon": "📦"
+              },
+              {
+                "resourceId": "processing_04",
+                "name": "Conductive Materials",
+                "amount": "20-30",
+                "iconImg": "icons/T_Conductive-Materials.png",
+                "icon": "📦"
+              },
+              "🧠 Knowledge +300"
+            ]
+          }
+        ],
+        "colorScheme": "blue",
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_e2a",
+        "codename": "T1-V1-E2-A2",
+        "name": "Predator Ambush",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 2,
+        "spawnConditions": "Scouts sweep island",
+        "eventIntro": "Swarming alien fauna detected.",
+        "eventDescription": "Island is swarming with violent predators tracking living heat signatures.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": -7,
+          "y": 2070
+        },
+        "actions": [
+          {
+            "id": "act_e2a_1",
+            "codeSuffix": "A3",
+            "shortDescription": "Set perimeter",
+            "description": "Deploy defensive force field.",
+            "requirements": [
+              {
+                "id": "c_e2a_1",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "machinery_02",
+                    "name": "Portable Force Shield",
+                    "amount": 1,
+                    "iconImg": "icons/T_ForceField.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Island cleared of threat.",
+            "rewards": [
+              "🧠 Knowledge +400"
+            ],
+            "targetNodeId": "node_e3a"
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_e2b",
+        "codename": "T1-V1-E2-B2",
+        "name": "Lifeboat Reunion",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 2,
+        "spawnConditions": "Lifeboat located",
+        "eventIntro": "Lifeboat tossed by turbulent ocean waves.",
+        "eventDescription": "Radio silence greets your ship. Survivors have contracted a deadly mutated virus strain.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 1346,
+          "y": 2070
+        },
+        "actions": [
+          {
+            "id": "act_e2b_1",
+            "codeSuffix": "A3",
+            "shortDescription": "Rescue & Quarantine",
+            "description": "Bring survivors to Health Care Center immediately.",
+            "requirements": [
+              {
+                "id": "c_e2b_1_1",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "questres_03",
+                    "name": "Tricorder",
+                    "amount": 1,
+                    "iconImg": "icons/T_Tricoder.png"
+                  }
+                ]
+              },
+              {
+                "id": "c_e2b_1_2",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "medres_01",
+                    "name": "Med Kit",
+                    "amount": 2,
+                    "iconImg": "icons/T_Med-Kit.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Scouts admitted to med bay. Virus isolated as Ebola derivative.",
+            "rewards": [
+              "🧠 Knowledge +150",
+              "💀 Entropy +10"
+            ],
+            "targetNodeId": "node_e3b"
+          },
+          {
+            "id": "act_e2b_2",
+            "codeSuffix": "B3",
+            "shortDescription": "Study distantly",
+            "description": "Examine remotely using worker drones to prevent outbreak.",
+            "requirements": [
+              {
+                "id": "c_e2b_2_1",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "questres_03",
+                    "name": "Tricorder",
+                    "amount": 1,
+                    "iconImg": "icons/T_Tricoder.png"
+                  }
+                ]
+              },
+              {
+                "id": "c_e2b_2_2",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "machinery_01",
+                    "name": "Worker Drone",
+                    "amount": 1,
+                    "iconImg": "icons/T_WorkerDrone.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Remote telemetry indicates airborne Ebola strain.",
+            "rewards": [
+              "🧠 Knowledge +300"
+            ],
+            "targetNodeId": "node_e3b"
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_e3a",
+        "codename": "T1-V1-E3-A3",
+        "name": "Submerged Orange Box",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 3,
+        "spawnConditions": "Deep sea extraction drones deployed",
+        "eventIntro": "Sub oceanic trench operations.",
+        "eventDescription": "Drones extract the Zephyrus orange box intact from the sea floor when a massive leviathan approaches!",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 88,
+          "y": 3060
+        },
+        "actions": [
+          {
+            "id": "act_e3a_1",
+            "codeSuffix": "A4",
+            "shortDescription": "Defeat Leviathan",
+            "description": "Engage predator creature to safeguard orange box.",
+            "requirements": [
+              {
+                "id": "c_e3a_1",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "ammunition_03",
+                    "name": "Explosive Charges",
+                    "amount": 2,
+                    "iconImg": "icons/T_ExplosiveCharges.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 6,
+            "resultDescription": "Orange box retrieved intact. Last 10 minutes data missing!",
+            "rewards": [
+              "🧠 Knowledge +500",
+              "😊 Morale +15"
+            ]
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_e3b",
+        "codename": "T1-V1-E3-B3",
+        "name": "Bioweapon Resolution",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 3,
+        "spawnConditions": "R&D virus investigation complete",
+        "eventIntro": "Outbreak containment protocol.",
+        "eventDescription": "Mars Abbadie concludes the virus is a bioengineered weapon originated from outer space inside the escape pod.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 1080,
+          "y": 3060
+        },
+        "actions": [
+          {
+            "id": "act_e3b_1",
+            "codeSuffix": "B4",
+            "shortDescription": "Mass Produce Medkits",
+            "description": "Fully man Health Care Center to eradicate virus.",
+            "requirements": [
+              {
+                "id": "c_e3b_1",
+                "isReplaceable": false,
+                "items": [
+                  {
+                    "resourceId": "medres_01",
+                    "name": "Med Kit",
+                    "amount": 5,
+                    "iconImg": "icons/T_Med-Kit.png"
+                  }
+                ]
+              }
+            ],
+            "timerHours": 5,
+            "resultDescription": "Virus eradicated. Crew saved.",
+            "rewards": [
+              "👨‍🚀 Crew Count +3",
+              "🧠 Knowledge +600"
+            ]
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_1791297604320",
+        "codename": "GEN-E1",
+        "name": "Derelict Beacon (Refurbished AI Core)",
+        "type": "World",
+        "category": "GenericPool",
+        "variationId": "var_v1",
+        "floorIndex": 0,
+        "tier": 1,
+        "location": "Uncharted Atoll",
+        "spawnConditions": "Random island",
+        "eventIntro": "Initial event context...",
+        "eventDescription": "Enter narrative body context...",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 80,
+          "y": 214
+        },
+        "actions": [
+          {
+            "id": "c_1791297604320",
+            "codeSuffix": "A1",
+            "shortDescription": "Board Vessel",
+            "description": "Action description...",
+            "requirements": [],
+            "timerHours": 5,
+            "resultDescription": "",
+            "rewards": [
+              "🧠 Knowledge +100"
+            ],
+            "targetNodeId": "node_gen_followup"
+          }
+        ],
+        "disabledVariationIds": [
+          "var_v2"
+        ]
+      },
+      {
+        "id": "node_sec_1",
+        "codename": "T1-V1-SEC-1",
+        "name": "Encrypted Black-Box Beacon",
+        "type": "World",
+        "category": "SecretChain",
+        "variationId": "var_v1",
+        "floorIndex": 0,
+        "spawnConditions": "Decrypted Hypercell Signal",
+        "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
+        "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 450,
+          "y": 90
+        },
+        "actions": [
+          {
+            "id": "act_sec_1_1",
+            "codeSuffix": "S1",
+            "shortDescription": "Crack Encryption",
+            "description": "Override classified security cypher.",
+            "requirements": [],
+            "timerHours": 4,
+            "resultDescription": "Coordinates extracted to hidden vessel.",
+            "rewards": [
+              "🧠 Knowledge +300"
+            ],
+            "targetNodeId": "node_sec_2"
+          },
+          {
+            "id": "act_sec_1_2",
+            "codeSuffix": "S2",
+            "shortDescription": "Triangulate Source",
+            "description": "Scan directional telemetry.",
+            "requirements": [],
+            "timerHours": 4,
+            "resultDescription": "Origin pinpointed at ocean ridge.",
+            "rewards": [
+              "😊 Morale +10"
+            ],
+            "targetNodeId": "node_sec_2"
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_sec_2",
+        "codename": "T1-V1-SEC-2",
+        "name": "The Ghost Skiff",
+        "type": "World",
+        "category": "SecretChain",
+        "variationId": "var_v1",
+        "floorIndex": 1,
+        "spawnConditions": "Coordinates Decoded",
+        "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
+        "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 450,
+          "y": 1080
+        },
+        "actions": [
+          {
+            "id": "act_sec_2_1",
+            "codeSuffix": "S3",
+            "shortDescription": "Retrieve Black Core",
+            "description": "Extract mission flight logs from terminal.",
+            "requirements": [],
+            "timerHours": 6,
+            "resultDescription": "Black Core retrieved! Conspiracy revealed.",
+            "rewards": [
+              "🧠 Knowledge +600",
+              "😊 Morale +20"
+            ]
+          }
+        ],
+        "disabledVariationIds": []
+      },
+      {
+        "id": "node_gen_followup",
+        "codename": "GEN-E2",
+        "name": "Ancient AI Core",
+        "type": "Ship",
+        "category": "GenericPool",
+        "variationId": "var_v2",
+        "floorIndex": 1,
+        "tier": 1,
+        "location": "Submerged Hull",
+        "spawnConditions": "After boarding beacon",
+        "eventIntro": "The interior atmospheric sensors flicker to life. A faint cybernetic hum resonates through the bulkhead.",
+        "eventDescription": "Deep within the sunken vessel, a dormant intelligence awakens.",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 80,
+          "y": 1193
+        },
+        "actions": [
+          {
+            "id": "act_gen2_1",
+            "codeSuffix": "A1",
+            "shortDescription": "Extract Core Data",
+            "description": "Interface directly with the terminal.",
+            "requirements": [],
+            "timerHours": 3,
+            "resultDescription": "Data extracted successfully.",
+            "rewards": [
+              "🧠 Knowledge +300",
+              "🔧 Engineering +1"
+            ]
+          }
+        ],
+        "disabledVariationIds": [
+          "var_v2"
+        ]
+      },
+      {
+        "id": "node_deck_1",
+        "codename": "DECK-E1",
+        "name": "Hangar Deck Fire Drill",
+        "type": "Carrier",
+        "category": "DeckPool",
+        "variationId": "var_v1",
+        "floorIndex": 0,
+        "tier": 1,
+        "location": "Main Hangar Bay",
+        "spawnConditions": "Carrier underway",
+        "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+        "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+        "reactionTimerHours": "2",
+        "hasInactionThreat": true,
+        "inactionThreat": {
+          "consequenceText": "Drill failure creates crew demoralization.",
+          "timerHours": 2,
+          "shortDescription": "Failed Drill",
+          "description": "No team responded in time.",
+          "resultDescription": "Penalty applied.",
+          "penalties": [
+            "💀 Entropy +5"
+          ]
+        },
+        "position": {
+          "x": 100,
+          "y": 220
+        },
+        "actions": [
+          {
+            "id": "act_deck_1",
+            "codeSuffix": "A1",
+            "shortDescription": "Dispatch Fire Crews",
+            "description": "Direct crew to seal airlocks and foam containment.",
+            "requirements": [],
+            "timerHours": 1,
+            "resultDescription": "Hangar secured ahead of schedule.",
+            "rewards": [
+              "🛡️ Defense +1",
+              "🧠 Knowledge +150"
+            ]
+          }
+        ],
+        "disabledVariationIds": []
+      }
+    ],
+    "dialogues": [
+      {
+        "id": "diag_intro",
+        "targetEventId": "node_e0",
+        "triggerTiming": "pre_event",
+        "triggerActionId": null,
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "Before (T1-V1-E1-A0)",
+        "position": {
+          "x": 735,
+          "y": -1061
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 0,
+        "lines": [
+          {
+            "id": "l1",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Contact with Zephyrus is lost, Captain. Visual analysis suggests it has been destroyed. Calculating potential casualties..."
+          },
+          {
+            "id": "l_1791301692113",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "With all likelihood, there is little to no chance of survivors."
+          },
+          {
+            "id": "l_1791301216876",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "No..."
+          },
+          {
+            "id": "l2",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "No, it... it can't be... "
+          },
+          {
+            "id": "l3",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Captain, per protocol, you are now in charge of the entire mission."
+          },
+          {
+            "id": "l_1791301926752",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "..."
+          },
+          {
+            "id": "l4",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Captain?"
+          },
+          {
+            "id": "l_1791301955120",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Just..."
+          },
+          {
+            "id": "l_1791301964157",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Just give a moment..."
+          },
+          {
+            "id": "l_1791301994241",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Unfortunately, this is an emergency, and therefore, not an appropriate time for a 'moment.' "
+          },
+          {
+            "id": "l_1791302013909",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Now, shall we review all the possible courses of action available? \n\nI'm ready when you are."
+          }
+        ]
+      },
+      {
+        "id": "diag_orest",
+        "targetEventId": "node_e0",
+        "triggerTiming": "action_option",
+        "triggerActionId": "act_e0_1",
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "During (T1-V1-E1-A0) Build a transmitter",
+        "position": {
+          "x": 2185,
+          "y": 234
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 0,
+        "lines": [
+          {
+            "id": "l5",
+            "speakerId": "orest",
+            "speakerName": "Orest Demchuck",
+            "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
+          }
+        ],
+        "colorScheme": "purple"
+      },
+      {
+        "id": "diag_2b",
+        "targetEventId": "node_e2b",
+        "triggerTiming": "pre_event",
+        "triggerActionId": null,
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "Before (T1-V1-E2-B2)",
+        "position": {
+          "x": 3325,
+          "y": 1792
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 2,
+        "lines": [
+          {
+            "id": "l8",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Captain, we've located the lifeboat within comm link reach."
+          },
+          {
+            "id": "l9",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "Finally... let me speak to them."
+          },
+          {
+            "id": "l10",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "This is Elias Voss, captain of BCEV-07M. Can someone hear me?"
+          },
+          {
+            "id": "l11",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "Oh, thank goodness... We contracted something on that island. It hurts so much."
+          }
+        ]
+      },
+      {
+        "id": "diag_survivor",
+        "targetEventId": "node_e2b",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e2b_1",
+        "delayHours": 0.5,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E2-B2) Rescue & Quarantine",
+        "position": {
+          "x": 2741,
+          "y": 2288
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 2,
+        "lines": [
+          {
+            "id": "l12",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "The lifepod's log states there was a child on board..."
+          },
+          {
+            "id": "l13",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "I wasn't the only parent back on Zephyrus. It means nothing."
+          },
+          {
+            "id": "l14",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "Listen... is it true that there is a child with you?"
+          },
+          {
+            "id": "l15",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "Yes, I've got my daughter here."
+          }
+        ]
+      },
+      {
+        "id": "diag_rnd",
+        "targetEventId": "node_e3b",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e3b_1",
+        "delayHours": 0.5,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E3-B3) Mass Produce Medkits",
+        "position": {
+          "x": 2560,
+          "y": 3083
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 3,
+        "lines": [
+          {
+            "id": "l16",
+            "speakerId": "abbadie",
+            "speakerName": "Mars Abbadie",
+            "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
+          },
+          {
+            "id": "l17",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "So we're not going to have our brains bleed out of our eyes. That's nice."
+          },
+          {
+            "id": "l18",
+            "speakerId": "abbadie",
+            "speakerName": "Mars Abbadie",
+            "text": "I believe it was a bioweapon."
+          }
+        ]
+      },
+      {
+        "id": "diag_engineer",
+        "targetEventId": "node_e3a",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e3a_1",
+        "delayHours": 0.25,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E3-A3) Defeat Leviathan",
+        "position": {
+          "x": 1948,
+          "y": 3645
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 3,
+        "lines": [
+          {
+            "id": "l19",
+            "speakerId": "tuuli",
+            "speakerName": "Tuuli Korpela",
+            "text": "Captain, we got the orange box! But... it doesn't have anything about the last ten minutes."
+          },
+          {
+            "id": "l20",
+            "speakerId": "voss",
+            "speakerName": "Voss",
+            "text": "Inside job?"
+          },
+          {
+            "id": "l21",
+            "speakerId": "tuuli",
+            "speakerName": "Tuuli Korpela",
+            "text": "I can't see how an outside force could have paralyzed Zephyrus's entire nervous system."
+          }
+        ]
+      },
+      {
+        "id": "diag_1791303674022",
+        "targetEventId": "node_e0",
+        "triggerTiming": "action_option",
+        "triggerActionId": "act_e0_2",
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "During (T1-V1-E1-A0) Process the data",
+        "position": {
+          "x": 2179,
+          "y": -3
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "lines": [
+          {
+            "id": "l_1791303674022",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
+          }
+        ],
+        "floorIndex": 0,
+        "colorScheme": "purple"
+      },
+      {
+        "id": "diag_1791326756359",
+        "targetEventId": "node_e0",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e0_1",
+        "delayHours": 3,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E1-A0) Build a transmitter",
+        "position": {
+          "x": -339,
+          "y": -201
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "lines": [
+          {
+            "id": "l_1791326756359",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "Captain, the transmitter has detected a signal awfully similar to the frequency our escape pods use."
+          },
+          {
+            "id": "l_1791326810336",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "We must check it out then. Add its location to the navigation panel."
+          },
+          {
+            "id": "l_1791326832022",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "Right away! "
+          },
+          {
+            "id": "l_1791326875256",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "And, Captain?"
+          },
+          {
+            "id": "l_1791326879892",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "What?"
+          },
+          {
+            "id": "l_1791326893760",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "I just wanted to say, you know, you shouldn't lose hope just yet."
+          },
+          {
+            "id": "l_1791326900263",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Stop. That's enough."
+          },
+          {
+            "id": "l_1791326910224",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "Why? Zephyrus had enough pods for mass evacuation. "
+          },
+          {
+            "id": "l_1791326928270",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "I'm afraid to get my hopes up..."
+          },
+          {
+            "id": "l_1791326935957",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "...afraid to feel the heartbreak again..."
+          },
+          {
+            "id": "l_1791327084814",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "...losing her again and again, each time I open the escape pod and she's not there..."
+          },
+          {
+            "id": "l_1791327095049",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "It's easier to accept, just in case."
+          }
+        ],
+        "floorIndex": 0
+      },
+      {
+        "id": "diag_imp_1791378854328",
+        "targetEventId": "node_e0",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e0_2",
+        "delayHours": 2.5,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E1-A0) Process the data",
+        "position": {
+          "x": 2853,
+          "y": 55
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 0,
+        "colorScheme": "purple",
+        "lines": [
+          {
+            "id": "l_imp_1791378854328_0",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "I must say I'm surprised by your decision. I thought you would make us overturn every slab of metal from Zephyrus, just to be sure."
+          },
+          {
+            "id": "l_imp_1791378854328_1",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "And I am not the only one. Many are... disappointed."
+          },
+          {
+            "id": "l_imp_1791378854328_2",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "And what about you? Disappointed, as well?"
+          },
+          {
+            "id": "l_imp_1791378854328_3",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "I... I understand your point of view. But are you yourself on board with what you are doing?"
+          },
+          {
+            "id": "l_imp_1791378854328_4",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Mis right. We must know what happened to Zephyrus."
+          },
+          {
+            "id": "l_imp_1791378854328_5",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "I can see there's something else you're not saying."
+          },
+          {
+            "id": "l_imp_1791378854328_6",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "It's just..."
+          },
+          {
+            "id": "l_imp_1791378854328_7",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "I'm done lying to myself."
+          },
+          {
+            "id": "l_imp_1791378854328_8",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Liora couldn't have reached the emergency bay in time. Every upturned slab, every lifepod without her inside would..."
+          },
+          {
+            "id": "l_imp_1791378854328_9",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "...would kill me."
+          },
+          {
+            "id": "l_imp_1791378854328_10",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "No point in chasing ghosts. No, I want to know what happened, and if there is someone — keyword, someone responsible for this."
+          }
+        ]
+      },
+      {
+        "id": "diag_imp_1791379069123",
+        "targetEventId": "node_e0",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e0_2",
+        "delayHours": 2.5,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E1-A0) Process the data",
+        "position": {
+          "x": 1555,
+          "y": 1112
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 1,
+        "colorScheme": "purple",
+        "lines": [
+          {
+            "id": "l_imp_1791379069123_0",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Captain, I have completed my analysis and added the expected location of the flight recorder to the navigation panel"
+          },
+          {
+            "id": "l_imp_1791379069123_1",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Thank you, M."
+          },
+          {
+            "id": "l_imp_1791379069123_2",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "I also wanted to discuss the recent decrease in morale among the crew. An unhappy crew leads to complications. Did you consider giving a motivational speech?"
+          },
+          {
+            "id": "l_imp_1791379069123_3",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "To give a good speech, one must believe in what gospels he's spewing. Me? I don't know that I do. Besides, hate giving speeches. I'm the man of action, preferring the results to speak for myself."
+          }
+        ]
+      },
+      {
+        "id": "diag_1791393196279",
+        "targetEventId": "node_e1",
+        "triggerTiming": "action_option",
+        "triggerActionId": "act_e1_1",
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "During (T1-V1-E1-A1) Comb island",
+        "position": {
+          "x": -1374,
+          "y": 1164
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "lines": [
+          {
+            "id": "l_1791393196279",
+            "speakerId": "orest",
+            "speakerName": "Orest Demchuck",
+            "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
+          }
+        ],
+        "floorIndex": 1
+      },
+      {
+        "id": "diag_imp_1791393401628",
+        "targetEventId": "node_e1",
+        "triggerTiming": "post_action",
+        "triggerActionId": "act_e1_2",
+        "delayHours": 0.5,
+        "delayUnit": "hours",
+        "triggerCondition": "After (T1-V1-E1-A1) Examine pod",
+        "position": {
+          "x": 817,
+          "y": 1394
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 1,
+        "colorScheme": "purple",
+        "lines": [
+          {
+            "id": "l_imp_1791393401628_1",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "The lifepod's log states there was a child on board..."
+          },
+          {
+            "id": "l_imp_1791393401628_2",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "I wasn't the only parent back on Zephyrus. It means nothing. "
+          },
+          {
+            "id": "l_imp_1791393401628_3",
+            "speakerId": "khalil",
+            "speakerName": "Khalil Arida",
+            "text": "I see it in your eyes: it means a lot."
+          },
+          {
+            "id": "l_imp_1791393401628_4",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Yes. \n\nI'm terrified."
+          }
+        ]
+      },
+      {
+        "id": "diag_imp_1791402101041",
+        "targetEventId": null,
+        "triggerTiming": null,
+        "triggerActionId": null,
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "Imported Dialogue Script",
+        "position": {
+          "x": -1213,
+          "y": 1973
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "floorIndex": 2,
+        "colorScheme": "purple",
+        "lines": [
+          {
+            "id": "l_imp_1791402101041_0",
+            "speakerId": "mnemosyne",
+            "speakerName": "Mnemosyne",
+            "text": "Captain, we've got an incoming transmission from the lifeboat."
+          },
+          {
+            "id": "l_imp_1791402101041_1",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Finally... let me speak to them. This is Elias Voss, the captain of BCEV-07M, speaking. Can someone hear me? "
+          },
+          {
+            "id": "l_1791402164922",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "Is... is this real? Or am I... imagining this?"
+          },
+          {
+            "id": "l_imp_1791402101041_2",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "I reassure you, this is quite true. We've come to help you."
+          },
+          {
+            "id": "l_1791402186355",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "Oh, thank goodness."
+          },
+          {
+            "id": "l_imp_1791402101041_3",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Listen... is it true that then is a child with you?"
+          },
+          {
+            "id": "l_1791402241876",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": " Survivor (generic icon): Yes, I've got my daughter here."
+          },
+          {
+            "id": "l_imp_1791402101041_4",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Your daughter? I... I see. "
+          },
+          {
+            "id": "l_1791402137448",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "Um, listen, you have doctors on the ship, right?"
+          },
+          {
+            "id": "l_imp_1791402101041_5",
+            "speakerId": "voss",
+            "speakerName": "Elias Voss",
+            "text": "Is someone hurt? "
+          },
+          {
+            "id": "l_1791402111341",
+            "speakerId": "survivor",
+            "speakerName": "Survivor",
+            "text": "We think we've... um, contracted something on that island. We're not feeling too well. Please, help us. It hurts so much."
+          }
+        ]
+      },
+      {
+        "id": "diag_1791402455441",
+        "targetEventId": "node_e1",
+        "triggerTiming": "action_option",
+        "triggerActionId": "act_e1_2",
+        "delayHours": 0,
+        "delayUnit": "hours",
+        "triggerCondition": "During (T1-V1-E1-A1) Examine pod",
+        "position": {
+          "x": 783,
+          "y": 1074
+        },
+        "variationId": "var_v1",
+        "category": "KeyChain",
+        "lines": [
+          {
+            "id": "l_1791402455441",
+            "speakerId": "tuuli",
+            "speakerName": "Tuuli Korpela",
+            "text": "Let's stay focused on the pod. The Reckon Craft cargo space is limited and we will need all the gear we can get."
+          }
+        ],
+        "floorIndex": 1
+      },
+      {
+        "id": "diag_gen_beacon",
+        "characterId": "char_catherine",
+        "category": "GenericPool",
+        "variationId": "var_v1",
+        "targetEventId": "node_1791297604320",
+        "triggerTiming": "post_action",
+        "triggerActionId": "c_1791297604320",
+        "triggerCondition": "After (GEN-E1) Board Vessel",
+        "position": {
+          "x": 30,
+          "y": 872
+        },
+        "lines": [
+          {
+            "speakerName": "Catherine",
+            "text": "Commander, the beacon frequency matches pre-collapse naval telemetry. Proceed with caution.",
+            "mood": "Concerned"
+          }
+        ]
+      }
+    ]
+  }
+}

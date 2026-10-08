@@ -1,0 +1,995 @@
+[
+  {
+    "Name": "DIALOGUE_diag_intro",
+    "RowName": "DIALOGUE_diag_intro",
+    "DialogueID": "diag_intro",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "pre_event",
+    "TriggerActionID": "",
+    "TriggerCondition": "Before (T1-V1-E1-A0)",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 735.0,
+      "Y": -1061.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Contact with Zephyrus is lost, Captain. Visual analysis suggests it has been destroyed. Calculating potential casualties...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "With all likelihood, there is little to no chance of survivors.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "No...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "No, it... it can't be... ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 4,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, per protocol, you are now in charge of the entire mission.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 5,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 6,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 7,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Just...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 8,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Just give a moment...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 9,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Unfortunately, this is an emergency, and therefore, not an appropriate time for a 'moment.' ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 10,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Now, shall we review all the possible courses of action available? \n\nI'm ready when you are.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_orest",
+    "RowName": "DIALOGUE_diag_orest",
+    "DialogueID": "diag_orest",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e0_1",
+    "TriggerCondition": "During (T1-V1-E1-A0) Build a transmitter",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 2185.0,
+      "Y": 234.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_2b",
+    "RowName": "DIALOGUE_diag_2b",
+    "DialogueID": "diag_2b",
+    "TargetEventID": "node_e2b",
+    "TriggerTiming": "pre_event",
+    "TriggerActionID": "",
+    "TriggerCondition": "Before (T1-V1-E2-B2)",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 2,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 3325.0,
+      "Y": 1792.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, we've located the lifeboat within comm link reach.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Finally... let me speak to them.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "This is Elias Voss, captain of BCEV-07M. Can someone hear me?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Oh, thank goodness... We contracted something on that island. It hurts so much.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_survivor",
+    "RowName": "DIALOGUE_diag_survivor",
+    "DialogueID": "diag_survivor",
+    "TargetEventID": "node_e2b",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e2b_1",
+    "TriggerCondition": "After (T1-V1-E2-B2) Rescue & Quarantine",
+    "DelayHours": 0.5,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 2,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 2741.0,
+      "Y": 2288.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "The lifepod's log states there was a child on board...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I wasn't the only parent back on Zephyrus. It means nothing.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Listen... is it true that there is a child with you?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Yes, I've got my daughter here.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_rnd",
+    "RowName": "DIALOGUE_diag_rnd",
+    "DialogueID": "diag_rnd",
+    "TargetEventID": "node_e3b",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e3b_1",
+    "TriggerCondition": "After (T1-V1-E3-B3) Mass Produce Medkits",
+    "DelayHours": 0.5,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 3,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 2560.0,
+      "Y": 3083.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "So we're not going to have our brains bleed out of our eyes. That's nice.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I believe it was a bioweapon.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_engineer",
+    "RowName": "DIALOGUE_diag_engineer",
+    "DialogueID": "diag_engineer",
+    "TargetEventID": "node_e3a",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e3a_1",
+    "TriggerCondition": "After (T1-V1-E3-A3) Defeat Leviathan",
+    "DelayHours": 0.25,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 3,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 1948.0,
+      "Y": 3645.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, we got the orange box! But... it doesn't have anything about the last ten minutes.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Inside job?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I can't see how an outside force could have paralyzed Zephyrus's entire nervous system.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791303674022",
+    "RowName": "DIALOGUE_diag_1791303674022",
+    "DialogueID": "diag_1791303674022",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e0_2",
+    "TriggerCondition": "During (T1-V1-E1-A0) Process the data",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 2179.0,
+      "Y": -3.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791326756359",
+    "RowName": "DIALOGUE_diag_1791326756359",
+    "DialogueID": "diag_1791326756359",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e0_1",
+    "TriggerCondition": "After (T1-V1-E1-A0) Build a transmitter",
+    "DelayHours": 3.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": -339.0,
+      "Y": -201.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, the transmitter has detected a signal awfully similar to the frequency our escape pods use.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "We must check it out then. Add its location to the navigation panel.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Right away! ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "And, Captain?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 4,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "What?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 5,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I just wanted to say, you know, you shouldn't lose hope just yet.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 6,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Stop. That's enough.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 7,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Why? Zephyrus had enough pods for mass evacuation. ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 8,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I'm afraid to get my hopes up...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 9,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "...afraid to feel the heartbreak again...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 10,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "...losing her again and again, each time I open the escape pod and she's not there...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 11,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "It's easier to accept, just in case.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_imp_1791378854328",
+    "RowName": "DIALOGUE_diag_imp_1791378854328",
+    "DialogueID": "diag_imp_1791378854328",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e0_2",
+    "TriggerCondition": "After (T1-V1-E1-A0) Process the data",
+    "DelayHours": 2.5,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 2853.0,
+      "Y": 55.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I must say I'm surprised by your decision. I thought you would make us overturn every slab of metal from Zephyrus, just to be sure.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "And I am not the only one. Many are... disappointed.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "And what about you? Disappointed, as well?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I... I understand your point of view. But are you yourself on board with what you are doing?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 4,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Mis right. We must know what happened to Zephyrus.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 5,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I can see there's something else you're not saying.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 6,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "It's just...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 7,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I'm done lying to myself.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 8,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Liora couldn't have reached the emergency bay in time. Every upturned slab, every lifepod without her inside would...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 9,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "...would kill me.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 10,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "No point in chasing ghosts. No, I want to know what happened, and if there is someone — keyword, someone responsible for this.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_imp_1791379069123",
+    "RowName": "DIALOGUE_diag_imp_1791379069123",
+    "DialogueID": "diag_imp_1791379069123",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e0_2",
+    "TriggerCondition": "After (T1-V1-E1-A0) Process the data",
+    "DelayHours": 2.5,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 1,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 1555.0,
+      "Y": 1112.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, I have completed my analysis and added the expected location of the flight recorder to the navigation panel",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Thank you, M.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I also wanted to discuss the recent decrease in morale among the crew. An unhappy crew leads to complications. Did you consider giving a motivational speech?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "To give a good speech, one must believe in what gospels he's spewing. Me? I don't know that I do. Besides, hate giving speeches. I'm the man of action, preferring the results to speak for myself.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791393196279",
+    "RowName": "DIALOGUE_diag_1791393196279",
+    "DialogueID": "diag_1791393196279",
+    "TargetEventID": "node_e1",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e1_1",
+    "TriggerCondition": "During (T1-V1-E1-A1) Comb island",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 1,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": -1374.0,
+      "Y": 1164.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_imp_1791393401628",
+    "RowName": "DIALOGUE_diag_imp_1791393401628",
+    "DialogueID": "diag_imp_1791393401628",
+    "TargetEventID": "node_e1",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_e1_2",
+    "TriggerCondition": "After (T1-V1-E1-A1) Examine pod",
+    "DelayHours": 0.5,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 1,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 817.0,
+      "Y": 1394.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "The lifepod's log states there was a child on board...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I wasn't the only parent back on Zephyrus. It means nothing. ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I see it in your eyes: it means a lot.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Yes. \n\nI'm terrified.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_imp_1791402101041",
+    "RowName": "DIALOGUE_diag_imp_1791402101041",
+    "DialogueID": "diag_imp_1791402101041",
+    "TargetEventID": null,
+    "TriggerTiming": null,
+    "TriggerActionID": "",
+    "TriggerCondition": "Imported Dialogue Script",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 2,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": -1213.0,
+      "Y": 1973.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, we've got an incoming transmission from the lifeboat.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Finally... let me speak to them. This is Elias Voss, the captain of BCEV-07M, speaking. Can someone hear me? ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 2,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Is... is this real? Or am I... imagining this?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 3,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "I reassure you, this is quite true. We've come to help you.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 4,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Oh, thank goodness.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 5,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Listen... is it true that then is a child with you?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 6,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": " Survivor (generic icon): Yes, I've got my daughter here.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 7,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Your daughter? I... I see. ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 8,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Um, listen, you have doctors on the ship, right?",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 9,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Is someone hurt? ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 10,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "We think we've... um, contracted something on that island. We're not feeling too well. Please, help us. It hurts so much.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791402455441",
+    "RowName": "DIALOGUE_diag_1791402455441",
+    "DialogueID": "diag_1791402455441",
+    "TargetEventID": "node_e1",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e1_2",
+    "TriggerCondition": "During (T1-V1-E1-A1) Examine pod",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 1,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 783.0,
+      "Y": 1074.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Let's stay focused on the pod. The Reckon Craft cargo space is limited and we will need all the gear we can get.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_gen_beacon",
+    "RowName": "DIALOGUE_diag_gen_beacon",
+    "DialogueID": "diag_gen_beacon",
+    "TargetEventID": "node_1791297604320",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "c_1791297604320",
+    "TriggerCondition": "After (GEN-E1) Board Vessel",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "GenericPool",
+    "FloorIndex": 0,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 30.0,
+      "Y": 872.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Commander, the beacon frequency matches pre-collapse naval telemetry. Proceed with caution.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791470044470",
+    "RowName": "DIALOGUE_diag_1791470044470",
+    "DialogueID": "diag_1791470044470",
+    "TargetEventID": "node_1791469920243",
+    "TriggerTiming": "post_action",
+    "TriggerActionID": "act_1791469959616",
+    "TriggerCondition": "After (T1-V1-E12-A0) Choice C",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 1,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 4613.0,
+      "Y": 1107.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Enter dialogue line here...",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  }
+]

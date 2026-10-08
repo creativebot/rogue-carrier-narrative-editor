@@ -1,0 +1,5 @@
+	CalmProbability	NormalProbability	GaleProbability
+Initial	0.3	0.5	0.2
+Calm	0.6	0.35	0.05
+Normal	0.2	0.6	0.2
+Gale	0.1	0.45	0.45

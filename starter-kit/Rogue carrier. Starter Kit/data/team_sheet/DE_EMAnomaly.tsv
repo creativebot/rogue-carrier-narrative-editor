@@ -1,0 +1,13 @@
+Fog		Category				
+		1.0	2.0	3.0	4.0	5.0
+Lightingbolts	Number of ball lighting per anomaly	4.0	8.0	12.0	16.0	20.0
+	Roaming speed min					
+	Roaming speed max					
+	Speed when pursue					
+	Max angle speed					
+Damage to the Building	Damage from lightingbolt hit	5.0	10.0	20.0	30.0	40.0
+Damage to the Behemoth		5.0	10.0	20.0	30.0	40.0
+Distortion						
+	Distortion Timeout min	20.0	15.0	15.0	7.0	5.0
+	Distortion Timeout max	25.0	20.0	15.0	14.0	10.0
+	Chanse to shutdow System (Control Station, Power Unit, RnD lab, Hangar)	10.0	20.0	30.0	40.0	50.0

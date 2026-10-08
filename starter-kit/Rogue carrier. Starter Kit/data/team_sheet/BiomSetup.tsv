@@ -1,0 +1,72 @@
+1.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile5.umap	Spire Islands		Desert_1x1_1	Tropical_1x1_1	dummy		
+2.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile4.umap	Spire Islands		Desert_1x1_2	Tropical_1x1_2			
+3.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile6.umap	Spire Islands		Desert_1x1_3	Tropical_1x1_3			
+4.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile7.umap	Spire Islands		Desert_1x1_4	Tropical_1x1_4			
+5.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile8.umap	Spire Islands		Desert_1x1_5	Tropical_1x1_5			
+6.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile9.umap	Spire Islands		Desert_1x1_6	Tropical_1x1_6			
+7.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile10.umap	Desert islands		Desert_1x1_7				
+8.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile3.umap	Red Rocks Island		Desert_1x1_8				
+9.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile23.umap	Volcanic		Rocky_1x1_1	Volcanic_1x1_1	Tropical_1x1_7		
+10.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile22.umap	Plateaus		Rocky_1x1_2	Temperate_1x1_1			
+11.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile24.umap	Volcanic		Rocky_2x2_1	Volcanic_2x2_1	Tropical_2x2_1		
+12.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile26.umap	Multi-shelved island						
+13.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile27.umap	Multi-shelved island						
+14.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile28.umap	Multi-shelved island						
+15.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile29.umap	Multi-shelved island						
+16.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile30.umap	Multi-shelved island						
+17.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile31.umap	Multi-shelved island						
+18.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile32.umap	Multi-shelved island						
+19.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile33.umap	Multi-shelved island						
+20.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile34.umap	Multi-shelved island						
+21.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile35.umap	Multi-shelved island						
+22.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile36.umap	Multi-shelved island						
+23.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile37.umap	Multi-shelved island						
+24.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile38.umap	Multi-shelved island						
+25.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile39.umap	Multi-shelved island						
+26.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile40.umap	Multi-shelved island						
+27.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile41.umap	Pointy rocks		Rocky_1x1_3	Temperate_1x1_2			
+28.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile42.umap	Sandstone Rock Pillar		Desert_1x1_22	Tropical_1x1_8			
+29.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile21.umap	Plateaus		Rocky_1x1_4	Temperate_1x1_3			
+30.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile11.umap	Swamp Island						
+31.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile12.umap	Swamp Island						
+32.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile13.umap	Swamp Island						
+33.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile14.umap	Swamp Island						
+34.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile15.umap	Swamp Island						
+35.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile16.umap	Swamp Island						
+36.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile17.umap	Swamp Island						
+37.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile18.umap	Swamp Island						
+38.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile19.umap	Swamp Island						
+39.0	/beef/Content/Maps/BarrenLands/BarrenLands_Tile20.umap	Swamp Island						
+40.0	/beef/Content/Maps/Events/Event_Wreckage1.umap			DeepSea_1x1_1				
+41.0	/beef/Content/Maps/Events/Event_Wreckage2.umap			DeepSea_1x1_2				
+42.0	/beef/Content/Maps/Events/Event_Wreckage3.umap			DeepSea_1x1_3				
+43.0	/beef/Content/Maps/Events/AncientRings.umap			DeepSea_1x1_4				
+44.0	/beef/Content/Maps/Events/MotionlessGiant1.umap			DeepSea_2x2_1				
+45.0	/beef/Content/Maps/Events/MotionlessGiant2.umap			DeepSea_2x2_2				
+46.0	/beef/Content/Maps/MainGoal/Tile_MainGoal.umap			Polar_1x1_1				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_001.umap			Desert_1x1_N_Multi_shelved_001				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_002.umap			Desert_1x1_N_Multi_shelved_002				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_003.umap			Desert_1x1_N_Multi_shelved_003				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_004.umap			Desert_1x1_N_Multi_shelved_004				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_005.umap			Desert_1x1_N_Multi_shelved_005				
+	/beef/Content/Maps/Biomes/Biome_01/LVL_Multi_shelved_006.umap			Desert_1x1_N_Multi_shelved_006				
+	/beef/Content/Maps/Biomes/Biome_02/LVL_Swamp_001.umap			Temperate_1x1_N_Swamp_001				
+	/beef/Content/Maps/Biomes/Biome_02/LVL_Swamp_002.umap			Temperate_1x1_N_Swamp_002				
+	/beef/Content/Maps/Biomes/Biome_02/LVL_Swamp_003.umap			Temperate_1x1_N_Swamp_003				
+	/beef/Content/Maps/Biomes/Biome_02/LVL_Swamp_004.umap			Temperate_1x1_N_Swamp_004				
+	/beef/Content/Maps/Biomes/Biome_02/LVL_Swamp_005.umap			Temperate_1x1_N_Swamp_005				
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_001.umap			Rocky_1x1_ N_Plateaus_001	Temperate_1x1_N_Plateaus_001			
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_002.umap			Rocky_1x1_ N_Plateaus_002	Temperate_1x1_N_Plateaus_002			
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_003.umap			Rocky_1x1_ N_Plateaus_003	Temperate_1x1_N_Plateaus_003			
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_004.umap			Rocky_1x1_ N_Plateaus_004	Temperate_1x1_N_Plateaus_004			
+	/beef/Content/Maps/Biomes/Biome_03/LVL_PointyRocks_001.umap			Rocky_1x1_N_PointyRocks_001	Temperate_1x1_N_PointyRocks_001			
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_005.umap			Rocky_1x1_N_Plateaus_005	Temperate_1x1_N_Plateaus_005			
+	/beef/Content/Maps/Biomes/Biome_04/LVL_Plateaus_006.umap			Rocky_1x1_N_Plateaus_006	Temperate_1x1_N_Plateaus_006			
+	/beef/Content/Maps/Biomes/Biome_05/LVL_Purple_001.umap			Shallow_1x1_N_01	Temperate_1x1_N_Purple_001			
+	/beef/Content/Maps/Biomes/Biome_05/LVL_Purple_002.umap			Shallow_1x1_N_02	Temperate_1x1_N_Purple_002			
+	/beef/Content/Maps/Biomes/Biome_05/LVL_Purple_003.umap			Shallow_1x1_N_03	Temperate_1x1_N_Purple_003			
+	/beef/Content/Maps/Biomes/Biome_12/LVL_Asteroidal_001.umap			Rocky_1x1_N_Asteroidal_001				
+	/beef/Content/Maps/Biomes/Biome_12/LVL_Asteroidal_002.umap			Rocky_1x1_N_Asteroidal_002				2.0
+	/beef/Content/Maps/Biomes/Biome_12/LVL_Asteroidal_003.umap			Rocky_1x1_N_Asteroidal_003				
+	/beef/Content/Maps/Biomes/Biome_12/LVL_Asteroidal_004.umap			Rocky_1x1_N_Asteroidal_004				
+	/beef/Content/Maps/Biomes/Biome_12/LVL_Asteroidal_005.umap			Rocky_1x1_N_Asteroidal_005				

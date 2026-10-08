@@ -1,0 +1,84 @@
+ID	Name	Category	Subcategory	Affected Synergy Buildings	Synergy Effect Name	Affected Debuff Buildings	Debuff effect name	AOE Range	AOE Falloff
+shipsystem_01	Power Unit	Ship Systems							
+shipsystem_02	Sensor system	Ship Systems							
+shipsystem_03	Engine	Ship Systems							
+shipsystem_04	Capsule Launcher	Ship Systems							
+shipsystem_05	R&D Lab	Ship Systems							
+b_base_01	Base Material Workshop	Production	Processing						
+b_foodprocess_01	Canteen	Basic Needs	Basic Needs	b_foodgrow_03, b_foodgrow_01, b_foodgrow_02	Conveyor Belt			Connect	
+b_foodprocess_02	Wardroom	Basic Needs	Basic Needs	b_foodgrow_03, b_foodgrow_02	Conveyor Belt			Connect	
+b_foodprocess_03	Mess Hall	Basic Needs	Basic Needs	b_foodgrow_03	Conveyor Belt			Connect	
+b_foodprocess_04	Provisions Hub	Basic Needs	Basic Needs						
+b_foodgrow_01	Greenhouse	Basic Needs	Basic Needs						
+b_foodgrow_02	Plantation	Basic Needs	Basic Needs						
+b_foodgrow_03	Algae Farm	Basic Needs	Basic Needs						
+b_foodgrow_04	Vertical Farm	Basic Needs	Basic Needs						
+b_foodgrow_05	Bioengineering Facility	Basic Needs	Basic Needs						
+b_service_01	Medbay	Service	Service						
+b_service_02	Health Care Center	Service	Service						
+b_service_03	Social dome	Service	Service						
+b_service_04	Efficiency workshop	Service	Service						
+b_service_05	Academy	Service	Service						
+b_service_06	Holodeck	Service	Service						
+b_service_07	Alliance Center	Service	Service						
+b_accomm_01	General quarters	Basic Needs	Basic Needs						
+b_accomm_02	Human quarters	Basic Needs	Basic Needs						
+b_accomm_03	Knidaria quarters	Basic Needs	Basic Needs						
+b_accomm_04	Nasobi quarters	Basic Needs	Basic Needs						
+b_exploration_01	Artifacts Lab	Exploration	Exploration						
+b_exploration_02	Control Station	Exploration	Exploration						
+b_exploration_03	Advanced Control Station	Exploration	Exploration						
+b_exploration_04	Weather Station	Exploration	Exploration						
+b_exploration_05	Satellite Control Complex	Exploration	Exploration						
+b_energy_01	Water Filter	Energy	Energy						
+b_energy_02	Advanced Water Filter	Energy	Energy						
+b_energy_03	Fuel Generator	Energy	Energy						
+b_energy_04	Bio reactor	Energy	Energy						
+b_energy_05	Radiolytic Power Block	Energy	Energy						
+b_energy_06	Cyclone Energy Turbine	Energy	Energy						
+b_energy_07	Solar Reactor	Energy	Energy						
+b_energy_08	Energy accumulator	Energy	Energy						
+b_energy_09	Fusion Core Unit	Energy	Energy						
+b_energy_10	Hadron collider	Energy	Energy						
+b_fleet_01	Submarine Hangar	Exploration	Exploration						
+b_fleet_02	Hangar	Exploration	Exploration						
+b_survival_01	Harpoon	Survival	Survival						
+b_survival_02	Gatling gun	Survival	Survival						
+b_survival_03	Railgun	Survival	Survival						
+b_survival_04	Siege cannon	Survival	Survival						
+b_survival_05	Active defense system	Survival	Survival						
+b_survival_06	Force shield	Survival	Survival						
+b_survival_07	Bio Recycling Station	Survival	Survival						
+b_survival_08	Chemical Recycling Station	Survival	Survival						
+b_survival_09	Manufacterd Recycling Station	Survival	Survival						
+b_production_01	Resource Allocation Center	Service	Service						
+b_production_02	Resource Hub	Service	Service						
+b_refinery_01	Elements Processing Plant	Production	Refinery						
+b_refinery_02	Catalytic Conversion Complex	Production	Refinery	b_sythesis_03	Conveyor Belt			Connect	
+b_refinery_03	Purificatory Processor	Production	Refinery						
+b_refinery_04	Molecular Refinery	Production	Refinery						
+b_refinery_05	Ore Refinery Plant	Production	Refinery						
+b_refinery_06	Metallurgical Refining Unit	Production	Refinery						
+b_processing_01	Plasma Print Foundry	Production	Processing			b_accom_01, b_accom_02, b_accom_03, b_accom_04	Loud Sound	2.0	1.0
+b_processing_02	Molecular Forging Unit	Production	Processing			b_accom_01, b_accom_02, b_accom_03, b_accom_04	Loud Sound	2.0	1.0
+b_processing_03	Compression Unit	Production	Processing			b_accom_01, b_accom_02, b_accom_03, b_accom_04	Loud Sound	2.0	1.0
+b_processing_04	Formation Station	Production	Processing			b_accom_01, b_accom_02, b_accom_03, b_accom_04	Loud Sound	2.0	1.0
+b_processing_05	Advanced Materials Printing Unit	Production	Processing			b_accom_01, b_accom_02, b_accom_03, b_accom_04	Loud Sound	2.0	1.0
+b_sythesis_01	Synthesis Facility	Production	Synthesis						
+b_sythesis_02	Synthesis Plant	Production	Synthesis						
+b_sythesis_03	Chem-processing Unit	Production	Synthesis						
+b_sythesis_04	Chemical Processor	Production	Synthesis						
+b_sythesis_05	Biochem Plant	Production	Synthesis						
+b_machinery_01	Technical Production Center	Production	Machinery						
+b_machinery_02	Machine Shop	Production	Machinery						
+b_machinery_03	Hardware Facility	Production	Machinery						
+b_machinery_04	Mech Assembler	Production	Machinery						
+b_machinery_05	Universal Fabrication Unit	Production	Machinery						
+b_electronics_01	Electronics Production Unit	Production	Electronics						
+b_electronics_02	Electronics Hub	Production	Electronics						
+b_electronics_03	TechNode Tower	Production	Electronics						
+b_electronics_04	Technoplex	Production	Electronics						
+b_electronics_05	MicroChip Assembly Station	Production	Electronics						
+b_hightech_01	Advanced Technology Center	Production	High-Tec						
+b_hightech_02	High-Tec Assembly Unit	Production	High-Tec						
+b_hightech_03	CyberForge	Production	High-Tec						

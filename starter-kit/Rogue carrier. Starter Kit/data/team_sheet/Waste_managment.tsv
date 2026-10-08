@@ -1,0 +1,22 @@
+Waste parameters												Resources on Recycling count (per 1 waste)		
+id	Name	Description	Negative Effect	Negative Impact Area (sq.)	Size (part of the sq.)	Production Category	Accumulate Rate Variable Name	Accumulate Rate per production cycle	Morale Debuff Variable Name	Morale Debuff	Possible Resources on Recycling	min	max	Entropy level per dumped unit
+res_35	Bio Waste	A container with biological waste. While the crew cannot smell it, they still dislike having it stored nearby.	- reduces the morale of crew members in buildings in the negative effect zone - double effect on buildings in basic needs category	2.0	0.05	Food Processing, Food Production	BiowasteAccumulationRateDefaultValue	0.1	BiowasteDebuffValue	-8.0	Prebiotic Matter, Carbon	4.0	6.0	0.001
+res_36	Toxic Waste	A container with toxic waste. This container does not provide a long-term guarantee that the waste will not leak, especially in the harsh conditions of this planet.	- reduces the morale of crew members in buildings in the negative effect zone - can cause illness for the crew in nearby buildings - double effect on buildings in basic needs category	3.0	0.1	Synthesis, Refinery	ToxicwasteAccumulationRateDefaultValue	0.2	ToxicwasteDebuffValue	-10.0	Chemical Fuel			0.1
+res_37	Manufacturing Waste		- slightly reduces the morale of crew members in buildings located in the area of negative impact	1.0	0.05	Processing, Machinery	ManufacturedWasteAccumulationRateDefaultValue	0.3	ManufacturedWasteDebuffValue	-6.0	Alloyed Metal, Metal Constructions, Thermoplastic, Biopolymer	2.0	3.0	0.01
+res_38	Radioactive Waste	This is a reliable and safe container for radioactive waste, but it still takes up space.	- slightly reduces the morale of crew members in buildings located in the area of negative impact	1.0	0.1				RadiowasteDebuffValue	-4.0				0.5
+														
+Energy waste accumulation.														
+	Accumulate Rate per use													
+Power Cell Type	Variable	Value												
+All power cells	PowerCellsManufacturedWasteAccumulationRate	0.3												
+Fuel Cell	FuelcellToxicwasteAccumulationRate	0.2												
+Fission Cell	FissioncellRadiowasteAccumulationRate	0.1												
+														
+Waste after the demolishing of the building per building squer														
+Subcategory or building	Variable Name	Value												
+All buidings	BuildingsManufacturewasteDemolishRate	1.0												
+Refinery	RefineryBuildingsToxicwasteDemolishRate	1.0												
+Food Production	FoodproductionBuildingsToxicwasteDemolishRate	1.0												
+Food Processing	FoodProcessingBuildingsToxicwasteDemolishRate	2.0												
+Synthesis	SynthesisBuildingsToxicwasteDemolishRate	2.0												
+Radiolytic Power Block	RadioliticpowerblockRadioactivewasteDemolishRate	1.0												

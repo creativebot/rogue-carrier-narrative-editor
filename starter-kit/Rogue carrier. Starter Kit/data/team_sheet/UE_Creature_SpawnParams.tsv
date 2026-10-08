@@ -1,0 +1,3 @@
+ID	CreatureName	Biomes	TimeMin	TimeMax	SpawnWeight
+0.0	Dreadlot	Shallow, Temperate, Deep Sea, Desert, Rocky, Polar, Volcanic, Tropical	0.0	24.0	1.0
+1.0	Aetherfin	Shallow, Temperate, Deep Sea, Desert, Rocky, Polar, Volcanic, Tropical	6.0	18.0	0.9

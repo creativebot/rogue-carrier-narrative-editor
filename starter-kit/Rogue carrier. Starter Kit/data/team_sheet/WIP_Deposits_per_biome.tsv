@@ -1,0 +1,91 @@
+Resource ID	Resource	Rarity	Tier	Type	min	max	Chance	4.0	Resource ID	Resource	Rarity	Tier	Type	min	max	Chance
+Tropical									Tropical Underground							
+res_01	Gold	Exotic	0	Metal	30.0	50.0	0.5		res_01	Gold	Exotic	0	Metal	120	200	
+res_03	Copper	Uncommon	0	Metal	60.0	100.0	5.0		res_03	Copper	Uncommon	0	Metal	240	400	6.0
+res_04	Iron	Common	0	Metal	100.0	140.0	8.0		res_04	Iron	Common	0	Metal	400	560	9.0
+res_06	Chromium	Uncommon	0	Metal	60.0	100.0	8.0		res_06	Chromium	Uncommon	0	Metal	240	400	9.0
+res_07	Aluminum	Common	0	Metal	100.0	140.0	8.0		res_07	Aluminum	Common	0	Metal	400	560	9.0
+res_08	Titanium	Uncommon	0	Metal	60.0	100.0	4.0		res_08	Titanium	Uncommon	0	Metal	240	400	5.0
+res_10	Tungsten	Uncommon	0	Metal	60.0	100.0	4.0		res_10	Tungsten	Uncommon	0	Metal	240	400	5.0
+res_12	Chlorine	Common	0	Nonmetal	100.0	140.0	8.0		res_12	Chlorine	Common	0	Nonmetal	400	560	8.0
+res_13	Phosphorus	Common	0	Nonmetal	100.0	140.0	8.0		res_13	Phosphorus	Common	0	Nonmetal	400	560	8.0
+res_14	Sulfur	Common	0	Nonmetal	100.0	140.0	8.0		res_14	Sulfur	Common	0	Nonmetal	400	560	8.0
+res_15	Sodium	Common	0	Metal	100.0	140.0	8.0		res_15	Sodium	Common	0	Metal	400	560	8.0
+res_16	Lithium	Rare	0	Metal	40.0	80.0	3.5		res_16	Lithium	Rare	0	Metal	160	320	4.0
+res_17	Silicon	Common	0	Metalloid	100.0	140.0	5.0		res_17	Silicon	Common	0	Metalloid	400	560	5.0
+res_27	Hydrocarbons	Common	0	Raw	100.0	140.0	6.0		res_27	Hydrocarbons	Common	0	Raw	400	560	8.0
+res_28	Carbon	Common	0	Raw	100.0	140.0	8.0		res_28	Carbon	Common	0	Raw	400	560	8.0
+res_38	Prebiotic Matter	Common	0	Organic	100.0	140.0	8.0									
+							100									100
+Volcanic									Volcanic Underground							
+res_01	Gold	Exotic	0	Metal	30.0	50.0	0.5		res_01	Gold	Exotic	0	Metal	120	200	
+res_03	Copper	Uncommon	0	Metal	60.0	100.0	5.0		res_03	Copper	Uncommon	0	Metal	240	400	6.0
+res_04	Iron	Common	0	Metal	100.0	140.0	8.0		res_04	Iron	Common	0	Metal	400	560	9.0
+res_06	Chromium	Uncommon	0	Metal	60.0	100.0	8.0		res_06	Chromium	Uncommon	0	Metal	240	400	9.0
+res_07	Aluminum	Common	0	Metal	100.0	140.0	8.0		res_07	Aluminum	Common	0	Metal	400	560	9.0
+res_08	Titanium	Uncommon	0	Metal	60.0	100.0	4.0		res_08	Titanium	Uncommon	0	Metal	240	400	5.0
+res_10	Tungsten	Uncommon	0	Metal	60.0	100.0	4.0		res_10	Tungsten	Uncommon	0	Metal	240	400	5.0
+res_12	Chlorine	Common	0	Nonmetal	100.0	140.0	8.0		res_12	Chlorine	Common	0	Nonmetal	400	560	8.0
+res_13	Phosphorus	Common	0	Nonmetal	100.0	140.0	8.0		res_13	Phosphorus	Common	0	Nonmetal	400	560	8.0
+res_14	Sulfur	Common	0	Nonmetal	100.0	140.0	8.0		res_14	Sulfur	Common	0	Nonmetal	400	560	8.0
+res_15	Sodium	Common	0	Metal	100.0	140.0	8.0		res_15	Sodium	Common	0	Metal	400	560	8.0
+res_16	Lithium	Rare	0	Metal	40.0	80.0	3.5		res_16	Lithium	Rare	0	Metal	160	320	4.0
+res_17	Silicon	Common	0	Metalloid	100.0	140.0	5.0		res_17	Silicon	Common	0	Metalloid	400	560	5.0
+res_27	Hydrocarbons	Common	0	Raw	100.0	140.0	6.0		res_27	Hydrocarbons	Common	0	Raw	400	560	8.0
+res_28	Carbon	Common	0	Raw	100.0	140.0	8.0		res_28	Carbon	Common	0	Raw	400	560	8.0
+res_38	Prebiotic Matter	Common	0	Organic	100.0	140.0	8.0									
+							100									100
+Polar									Polar Underground							
+res_01	Gold	Exotic	0	Metal	30.0	50.0	0.5		res_01	Gold	Exotic	0	Metal	120	200	
+res_03	Copper	Uncommon	0	Metal	60.0	100.0	5.0		res_03	Copper	Uncommon	0	Metal	240	400	6.0
+res_04	Iron	Common	0	Metal	100.0	140.0	8.0		res_04	Iron	Common	0	Metal	400	560	9.0
+res_06	Chromium	Uncommon	0	Metal	60.0	100.0	8.0		res_06	Chromium	Uncommon	0	Metal	240	400	9.0
+res_07	Aluminum	Common	0	Metal	100.0	140.0	8.0		res_07	Aluminum	Common	0	Metal	400	560	9.0
+res_08	Titanium	Uncommon	0	Metal	60.0	100.0	4.0		res_08	Titanium	Uncommon	0	Metal	240	400	5.0
+res_10	Tungsten	Uncommon	0	Metal	60.0	100.0	4.0		res_10	Tungsten	Uncommon	0	Metal	240	400	5.0
+res_12	Chlorine	Common	0	Nonmetal	100.0	140.0	8.0		res_12	Chlorine	Common	0	Nonmetal	400	560	8.0
+res_13	Phosphorus	Common	0	Nonmetal	100.0	140.0	8.0		res_13	Phosphorus	Common	0	Nonmetal	400	560	8.0
+res_14	Sulfur	Common	0	Nonmetal	100.0	140.0	8.0		res_14	Sulfur	Common	0	Nonmetal	400	560	8.0
+res_15	Sodium	Common	0	Metal	100.0	140.0	8.0		res_15	Sodium	Common	0	Metal	400	560	8.0
+res_16	Lithium	Rare	0	Metal	40.0	80.0	3.5		res_16	Lithium	Rare	0	Metal	160	320	4.0
+res_17	Silicon	Common	0	Metalloid	100.0	140.0	5.0		res_17	Silicon	Common	0	Metalloid	400	560	5.0
+res_27	Hydrocarbons	Common	0	Raw	100.0	140.0	6.0		res_27	Hydrocarbons	Common	0	Raw	400	560	8.0
+res_28	Carbon	Common	0	Raw	100.0	140.0	8.0		res_28	Carbon	Common	0	Raw	400	560	8.0
+res_38	Prebiotic Matter	Common	0	Organic	100.0	140.0	8.0									
+							100									100
+Rocky									Rocky Underground							
+res_01	Gold	Exotic	0	Metal	30.0	50.0	0.5		res_01	Gold	Exotic	0	Metal	120	200	
+res_03	Copper	Uncommon	0	Metal	60.0	100.0	5.0		res_03	Copper	Uncommon	0	Metal	240	400	6.0
+res_04	Iron	Common	0	Metal	100.0	140.0	8.0		res_04	Iron	Common	0	Metal	400	560	9.0
+res_06	Chromium	Uncommon	0	Metal	60.0	100.0	8.0		res_06	Chromium	Uncommon	0	Metal	240	400	9.0
+res_07	Aluminum	Common	0	Metal	100.0	140.0	8.0		res_07	Aluminum	Common	0	Metal	400	560	9.0
+res_08	Titanium	Uncommon	0	Metal	60.0	100.0	4.0		res_08	Titanium	Uncommon	0	Metal	240	400	5.0
+res_10	Tungsten	Uncommon	0	Metal	60.0	100.0	4.0		res_10	Tungsten	Uncommon	0	Metal	240	400	5.0
+res_12	Chlorine	Common	0	Nonmetal	100.0	140.0	8.0		res_12	Chlorine	Common	0	Nonmetal	400	560	8.0
+res_13	Phosphorus	Common	0	Nonmetal	100.0	140.0	8.0		res_13	Phosphorus	Common	0	Nonmetal	400	560	8.0
+res_14	Sulfur	Common	0	Nonmetal	100.0	140.0	8.0		res_14	Sulfur	Common	0	Nonmetal	400	560	8.0
+res_15	Sodium	Common	0	Metal	100.0	140.0	8.0		res_15	Sodium	Common	0	Metal	400	560	8.0
+res_16	Lithium	Rare	0	Metal	40.0	80.0	3.5		res_16	Lithium	Rare	0	Metal	160	320	4.0
+res_17	Silicon	Common	0	Metalloid	100.0	140.0	5.0		res_17	Silicon	Common	0	Metalloid	400	560	5.0
+res_27	Hydrocarbons	Common	0	Raw	100.0	140.0	6.0		res_27	Hydrocarbons	Common	0	Raw	400	560	8.0
+res_28	Carbon	Common	0	Raw	100.0	140.0	8.0		res_28	Carbon	Common	0	Raw	400	560	8.0
+res_38	Prebiotic Matter	Common	0	Organic	100.0	140.0	8.0									
+							100									100
+Desert									Desert Underground							
+res_01	Gold	Exotic	0	Metal	30.0	50.0	0.5		res_01	Gold	Exotic	0	Metal	120	200	
+res_03	Copper	Uncommon	0	Metal	60.0	100.0	5.0		res_03	Copper	Uncommon	0	Metal	240	400	6.0
+res_04	Iron	Common	0	Metal	100.0	140.0	8.0		res_04	Iron	Common	0	Metal	400	560	9.0
+res_06	Chromium	Uncommon	0	Metal	60.0	100.0	8.0		res_06	Chromium	Uncommon	0	Metal	240	400	9.0
+res_07	Aluminum	Common	0	Metal	100.0	140.0	8.0		res_07	Aluminum	Common	0	Metal	400	560	9.0
+res_08	Titanium	Uncommon	0	Metal	60.0	100.0	4.0		res_08	Titanium	Uncommon	0	Metal	240	400	5.0
+res_10	Tungsten	Uncommon	0	Metal	60.0	100.0	4.0		res_10	Tungsten	Uncommon	0	Metal	240	400	5.0
+res_12	Chlorine	Common	0	Nonmetal	100.0	140.0	8.0		res_12	Chlorine	Common	0	Nonmetal	400	560	8.0
+res_13	Phosphorus	Common	0	Nonmetal	100.0	140.0	8.0		res_13	Phosphorus	Common	0	Nonmetal	400	560	8.0
+res_14	Sulfur	Common	0	Nonmetal	100.0	140.0	8.0		res_14	Sulfur	Common	0	Nonmetal	400	560	8.0
+res_15	Sodium	Common	0	Metal	100.0	140.0	8.0		res_15	Sodium	Common	0	Metal	400	560	8.0
+res_16	Lithium	Rare	0	Metal	40.0	80.0	3.5		res_16	Lithium	Rare	0	Metal	160	320	4.0
+res_17	Silicon	Common	0	Metalloid	100.0	140.0	5.0		res_17	Silicon	Common	0	Metalloid	400	560	5.0
+res_27	Hydrocarbons	Common	0	Raw	100.0	140.0	6.0		res_27	Hydrocarbons	Common	0	Raw	400	560	8.0
+res_28	Carbon	Common	0	Raw	100.0	140.0	8.0		res_28	Carbon	Common	0	Raw	400	560	8.0
+res_38	Prebiotic Matter	Common	0	Organic	100.0	140.0	8.0									
+							100									100

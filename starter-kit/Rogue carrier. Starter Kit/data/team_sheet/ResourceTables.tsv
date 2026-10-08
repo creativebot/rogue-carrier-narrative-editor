@@ -1,0 +1,17 @@
+Resource ID	Resource	Rarity	Median	Median (underground)	Tier	Type	min	max	Tropical	Tropical Underground	Volcanic	Volcanic Underground	Polar	Polar Underground	Rocky	Rocky Underground	Desert	Desert Underground	Temperate	Temperate Underground	Shallow	Shallow Underground
+res_01	Gold	Exotic	2	1	0	Metal	40	60					4.0		2.0	2.0		1.0	2.0	1.0		
+res_03	Copper	Uncommon	6	8	0	Metal	80	120	4.0		8.0	10.0	9.0	11.0	6.0	7.0	6.0	8.0	5.0	5.0	3.0	
+res_04	Iron	Common	12	12	0	Metal	120	160	7.0	10.0	16.0	16.0	12.0	12.0	12.0	12.0	9.0	10.0	12.0	12.0	5.0	
+res_06	Chromium	Uncommon	6	9	0	Metal	80	120	3.0		14.0	14.0	8.0	9.0	8.0	9.0	6.0	8.0	5.0	7.0	3.0	
+res_07	Aluminum	Common	8	10	0	Metal	120	160	5.0		5.0		10.0	12.0	10.0	10.0	14.0	14.0	8.0	9.0	5.0	6.0
+res_08	Titanium	Uncommon	9	8.5	0	Metal	80	120		8.0	11.0	12.0	9.0		12.0	12.0	7.0	9.0	4.0	7.0		5.0
+res_10	Tungsten	Uncommon	7	9	0	Metal	60	120		8.0	9.0	11.0	7.0	10.0	11.0	12.0	4.0		3.0	5.0		6.0
+res_12	Chlorine	Common	5	7.5	0	Nonmetal	120	160	3.0	5.0	8.0	10.0	5.0		4.0		5.0		5.0	5.0	8.0	10.0
+res_13	Phosphorus	Common	6	8	0	Nonmetal	120	160	12.0	12.0		8.0		8.0	4.0		5.0		6.0	6.0	14.0	16.0
+res_14	Sulfur	Common	6	9	0	Nonmetal	120	160	8.0	10.0	12.0	12.0	3.0		4.0			8.0	5.0	5.0	7.0	9.0
+res_15	Sodium	Common	6	8	0	Metal	120	160	6.0	8.0	4.0		6.0	8.0		6.0	9.0	10.0	6.0	6.0	10.0	12.0
+res_16	Lithium	Rare	6	8	0	Metal	60	100	7.0	8.0		7.0	7.0	9.0	6.0	8.0	6.0	8.0	5.0	5.0	4.0	
+res_17	Silicon	Common	10	10	0	Metalloid	100	160	4.0		5.0		10.0	10.0	12.0	12.0	14.0	14.0	10.0	10.0	6.0	8.0
+res_27	Hydrocarbons	Common	7	8.5	0	Raw	120	160	15.0	15.0			5.0	6.0		5.0	6.0	10.0	7.0	7.0	12.0	14.0
+res_28	Carbon	Common	5	10	0	Raw	120	160	16.0	16.0	4.0		5.0	5.0	3.0	5.0	5.0		9.0	10.0	12.0	14.0
+res_38	Prebiotic Matter	Common	7	0.0	0	Organic	120	160	10.0		4.0				6.0		4.0		8.0		11.0	

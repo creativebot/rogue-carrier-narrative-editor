@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.log
+.system_generated/
+test_*.py
+verify_*.py
+cloudflared.exe
+run_tunnel.py
+dl_cloudflared.py
+make_qr.py
+check_pixel_look.py
+debug_delete.py
+run_test.py
+git_ops.py
+push_repo.py

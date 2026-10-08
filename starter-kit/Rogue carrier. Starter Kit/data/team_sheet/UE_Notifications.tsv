@@ -1,0 +1,78 @@
+Category	Notification text	IsOngoing	Type	IconPath
+Crew.OneCrew.Joined	{0} has joined the crew.	Crew.Joined	Open crew panel	incorrect category
+Crew.SeveralCrew.Joined	{0} new members joined the crew.	Crew.Joined	Open crew panel	incorrect category
+Crew.OneCrew.Died	A crew member died {0} from {1}	Crew.Died	Open crew panel	incorrect category
+Crew.SeveralCrew.Died	{0} Crew members died from {1}	Crew.Died	Open crew panel	incorrect category
+Crew.OneCrew.LeftShip	{0} left the ship		Open crew panel	incorrect category
+Crew.SeveralCrew.LeftShip	{0} Crew members left the ship		Open crew panel	incorrect category
+Crew.Morale.Dropped	Crew morale below {0}		Open crew panel	incorrect category
+Crew.Morale.Restored	Crew morale restored.			incorrect category
+Crew.OneCrew.Injured	{0} injured.	Crew.Injured	Open crew panel	incorrect category
+Crew.SeveralCrew.Injured	{0} crewmembers injured.	Crew.Injured	Open crew panel	incorrect category
+Crew.OneCrew.UnknownDisease	{0} reported ill.	Crew.UnknownDesease	Open crew panel	incorrect category
+Crew.SeveralCrew.UnknownDisease	{0} crewmembers reported ill.	Crew.UnknownDesease	Open crew panel	incorrect category
+Crew.OneCrew.KnownDisease	Crewmember {0} is ill, place of probable exposure {1}		Open crew panel	incorrect category
+Crew.SeveralCrew.KnownDisease	{0} crewmembers are ill with {1}		Open crew panel	incorrect category
+Crew.SeveralCrew.SeveralDiseases	There is an outbreak on board; it is recommended to implement isolation and treatment measures.}		Open crew panel	incorrect category
+Crew.SeveralCrew.Curred	{0} crewmembers cured.	Crew.Curred	Open crew panel	incorrect category
+Crew.OneCrew.ServiceCompleted	{0} completed  {1}.	Crew.ServiceCompleted	Open crew panel	incorrect category
+Crew.SeveralCrew.ServiceCompleted	{0} crewmembers completed {1}.	Crew.ServiceCompleted	Open crew panel	incorrect category
+Survival.Hull.Dropped	Hull integrity below {0}		Open Maintain Mode	incorrect category
+Survival.Hull.Restored	Hull integrity restored			incorrect category
+Survival.Roll.Reached	Behemoth’s roll reached {0}		Construction view	incorrect category
+Survival.Roll.Critical	Behemoth’s roll critical		Construction view	incorrect category
+Survival.Weather.Start	We're approaching [Weather_condition]!			incorrect category
+Survival.Weather.Active	We're passing through [Weather_condition]!			incorrect category
+Survival.Creature.Unresearched	Hostile entity approaching.		Entity	incorrect category
+Survival.Creature.Researched	{0} approaching.		Entity	incorrect category
+Survival.Waste.ReachedCapacity	{0} reached storage capacity.		Waste location	incorrect category
+Survival.Waste.Discarded	{0} discarded.		N/A	incorrect category
+Exploration.Unit.Returning	{0} {1} returned to the station.			incorrect category
+Exploration.Unit.Charged	{0} {1} fully charged.			incorrect category
+Exploration.Unit.Integrity.Dropped	{0} {1} integrity below {2}		Related unit	incorrect category
+Exploration.Unit.Integrity.Restored	{0} {1} integrity restored.			incorrect category
+Exploration.Unit.Lost	{0} {1} is out of Control zone.			incorrect category
+Exploration.Unit.Constructed	{0} {1} constructed.		Related unit	incorrect category
+Exploration.Unit.Exploration.Finished	Unit {0} has finished {1}.		Related event or Recon Mission window	incorrect category
+Exploration.Unit.ResourceGatheringFinished	Unit {0} has finished resource gathering.		Submarine window	incorrect category
+Exploration.Unit.WorkStarted	Unit {0} arrived at the {1}			incorrect category
+Exploration.Station.Resources.DangerousValue	Station {0} {1} low.			incorrect category
+Exploration.Station.Resources.NotEnought	Station {0} ran out of {1}.			incorrect category
+Exploration.Station.Integrity.Compromised	Station [Controlstation_name] integrity compromised		Control station	incorrect category
+Exploration.Station.Integrity.Dropped	Station [Controlstation_name] integrity's below [Integrity_value]!		Control station	incorrect category
+Exploration.Station.Integrity.Restored	Station [Controlstation_name]'s integrity restored!		Control station	incorrect category
+Exploration.Station.Lost	Station [Controlstation_name] has been lost!		Related event	incorrect category
+Exploration.Artifact.Brought	Unknown artifact acquired.		Artifact lab UI	incorrect category
+Exploration.Artifact.Researched	Artifact {0} researched.		Artifact lab UI	incorrect category
+Production.Building.MaterialNeeds	{0}: not enough resources for construction.		Construction menu	incorrect category
+Production.Building.Constructed	{0}: construction finished		Building (lerp)	incorrect category
+Production.Building.Idle	{0} idle.		Building (lerp)	incorrect category
+Production.Buildings.Resources.NotEnough	{0}: not enough resources for production.		Building menu	incorrect category
+Production.Building.Crew.NoWorkers	{0} no workers assigned		Building menu	incorrect category
+Production.Building.Integrity.Dropped	{0} integrity below {1}		Building (lerp)	incorrect category
+Production.Building.Integrity.Restored	{0} integrity restored.			incorrect category
+Production.Building.Finished	{0}: {1} production finished.			incorrect category
+Production.Building.AccidentHappend	{0} on {1}		Building (lerp)	incorrect category
+Production.Building.Destroyed	{0} out of order.		Building (lerp)	incorrect category
+Production.Building.EnergyOut	{0}: energy out.		Building (lerp)	incorrect category
+Production.Building.WaterNotEnough	[Building_type]: not enough water.		Building (lerp)	incorrect category
+Energy.DroppedSudden	Energy levels dropped.		Energy panel	incorrect category
+Energy.PowerCells.NotEnoughForNextCycle	{0}: running out of powercells.		Building (lerp)	incorrect category
+Energy.Dropped	Behemoth’s energy out.		Energy panel	incorrect category
+Energy.PowerLine.Damaged	Power line damaged.		Wire placing panel	incorrect category
+Energy.PowerLine.SignificantlyDamaged	Power grid is significantly damaged.		Wire placing panel	incorrect category
+Energy.Building.OneDisconnected	[Building_type] disconnected from power grid.		Wire placing panel	incorrect category
+Energy.Building.SeveralDisconnected	Multiple buildings disconnected form power grid.		Wire placing panel	incorrect category
+Production.Building.RnD.Completed	R&D Lab completed research.		Results screen	incorrect category
+Energy.PowerCells.Empty	Behemoth’s out of fuel.		Energy panel	incorrect category
+GameEvent.EnteredArea	{0} Category: {1}			incorrect category
+Production.Building.Waste.Constructed	{0} placed on the deck			incorrect category
+GameEvent.Creature	Combat engaged {0}			incorrect category
+Crew.OneCrew.Striking	[CrewmemberName] has gone on strike!			incorrect category
+Crew.SeveralCrew.Striking	[N] crew members are striking!			incorrect category
+Crew.Evacuation.NotEnoughQuarters	Not enough quarters			incorrect category
+Crew.SeveralCrew.Starving	A crew member is starving	Starving	Open Crew Mnagment	incorrect category
+Crew.SeveralCrew.Starving	{0} crew members are starving	Starving	Open Crew Mnagment	incorrect category
+Crew.FoodSupply	Food supplies are at a {0} level		Open Crew Mnagment	
+Energy.PowerCells.Low	{0} power cell is almost discharged.		Energy panel	
+Production.Storage.ReachedCapacity	{0} reached storage capacity.		Open the window of the corresponding building	

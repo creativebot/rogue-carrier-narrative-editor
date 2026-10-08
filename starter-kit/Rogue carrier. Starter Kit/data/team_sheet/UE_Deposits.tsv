@@ -1,0 +1,22 @@
+id	Name	Rarity	Tier	Type	min	max	ClusterName
+res_01	Gold	Exotic	1	Metal	40	60	Gold Deposits
+res_03	Copper	Uncommon	1	Metal	80	120	Polymetallic Sulfide Ore, Lateritic Ore
+res_04	Iron	Common	1	Metal	120	160	Layered Mafic Intrusions Ore, Polymetallic Sulfide Ore, Black Shale Ore, Skarn Ore, Lateritic Ore
+res_06	Chromium	Uncommon	1	Metal	80	120	Bauxite, Lateritic Ore
+res_07	Aluminum	Common	1	Metal	120	160	Bauxite, Skarn Ore, Placers Deposit, Lateritic Ore
+res_08	Titanium	Uncommon	1	Metal	80	120	Polymetallic Sulfide Ore
+res_10	Tungsten	Rare	1	Metal	60	100	Bauxite, Placers Deposit
+res_12	Chlorine	Common	1	Nonmetal	120	160	Layered Mafic Intrusions Ore, Skarn Ore
+res_13	Phosphorus	Common	1	Nonmetal	120	160	Layered Mafic Intrusions Ore, Black Shale Ore
+res_14	Sulfur	Common	1	Nonmetal	120	160	Layered Mafic Intrusions Ore, Polymetallic Sulfide Ore
+res_15	Sodium	Common	1	Metal	120	160	Placers Deposit
+res_16	Lithium	Rare	1	Metal	60	100	Black Shale Ore
+res_17	Silicon	Common	1	Metalloid	100	140	Silicon Sand, Black Shale Ore, Placers Deposit
+res_19	Eldritium	Unique	1	Nonmetal	25	40	EM Anomaly Source
+res_27	Hydrocarbons	Common	1	Raw	120	160	Hydrocarbons Deposit
+res_28	Carbon	Common	1	Raw	120	160	Carbon Deposit, Hydrocarbons Deposit
+res_38	Prebiotic Matter	Common	1	Organic	120	160	Biomaterial Source
+res_40	K-IV Aminoacids	Uncommon	1	Organic	80	120	Deep Sea Organic Source
+res_24	K-IV Plankton	Common	1	Organic	80	120	Deep Sea Organic Source
+res_31	K-IV Algae	Uncommon	1	Organic	80	120	Deep Sea Organic Source
+res_39	K-IV Krill	Uncommon	1	Organic	80	120	Deep Sea Organic Source

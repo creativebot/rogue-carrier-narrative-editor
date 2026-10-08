@@ -1,0 +1,401 @@
+RowID	Trader ID	ItemsToGenerate	Resource ID	Resource	AmountMin	AmountMax	Chance	Req Game Stage	InterestingIn	NotInterestingIn	FixedPrice
+1.0	Nasobi_merchant	6.0	res_01	Gold	30.0	60.0	0.7	3.0			0.5
+2.0			res_03	Copper	60.0	120.0	0.7	2.0			0.05
+3.0			res_04	Iron	80.0	160.0	0.7	1.0			0.03
+5.0			res_06	Chromium	80.0	160.0	0.7	1.0			0.05
+6.0			res_07	Aluminum	80.0	160.0	0.7	1.0			0.03
+7.0			res_08	Titanium	80.0	160.0	0.7	2.0			0.05
+8.0			res_10	Tungsten	80.0	160.0	0.7	2.0			0.05
+9.0			res_12	Chlorine	0.0	0.0					0.03
+10.0			res_13	Phosphorus	0.0	0.0					0.03
+11.0			res_14	Sulfur	0.0	0.0					0.03
+12.0			res_15	Sodium	0.0	0.0					0.03
+13.0			res_16	Lithium	0.0	0.0					0.1
+14.0			res_17	Silicon	0.0	0.0					0.03
+15.0			res_19	Eldritium	0.0	0.0					2.5
+16.0			res_27	Hydrocarbons	0.0	0.0					0.03
+17.0			res_28	Carbon	0.0	0.0					0.03
+18.0			res_29	Grain	0.0	0.0					0.07
+19.0			res_30	Omni Fruit	0.0	0.0					0.14
+20.0			res_32	Cultured Meat	0.0	0.0					0.07
+21.0			res_33	Protein Mass	0.0	0.0					0.14
+22.0			res_34	Bio Waste	0.0	0.0					0.06
+23.0			res_38	Prebiotic Matter	0.0	0.0					0.03
+24.0			res_40	K-IV Aminoacids	0.0	0.0					0.03
+25.0			res_24	K-IV Plankton	0.0	0.0		1.0			0.01
+26.0			res_31	K-IV Algae	100.0	200.0		1.0			0.01
+27.0			res_39	K-IV Krill	100.0	200.0		1.0			0.01
+29.0			res_36	Manufacturing Waste	0.0	0.0					0.06
+31.0			processing_01	Metal Constructions	10.0	50.0		3.0	1.0		0.28
+32.0			processing_02	Alloyed Metal	10.0	50.0		3.0	1.0		0.36
+33.0			processing_03	Thermoplastic	10.0	50.0		3.0	1.0		0.22
+34.0			processing_04	Conductive Materials	10.0	50.0		3.0	1.0		0.17
+35.0			processing_05	Nano Parts	10.0	50.0				1.0	2.12
+36.0			synthesized_01	Biopolymer	10.0	50.0				1.0	0.18
+37.0			synthesis_02	Biochem Compounds	10.0	50.0				1.0	0.28
+38.0			synthesis_03	Chemical Fuel	10.0	50.0				1.0	0.28
+39.0			synthesis_04	Nanomaterials	10.0	50.0				1.0	0.25
+40.0			machinery_01	Propulsion Kit	10.0	50.0		4.0		1.0	1.73
+41.0			machinery_02	Tech Assembly Matrix	10.0	50.0		4.0		1.0	67.73
+42.0			machinery_03	Tech Voxel	10.0	50.0				1.0	12.5
+43.0			machinery_04	Basic Scanner	10.0	50.0		4.0		1.0	1.68
+44.0			machinery_05	Battery Block	10.0	50.0		4.0		1.0	1.31
+45.0			electronics_01	AI Core	10.0	50.0				1.0	48.0
+46.0			electronics_02	Microcontrollers	10.0	50.0				1.0	1.8
+47.0			electronics_03	Sensors Array	10.0	50.0				1.0	1.87
+48.0			synthesis_05	Composite Enzymes	10.0	50.0				1.0	0.21
+49.0			processing_06	Basic Toolkit	10.0	50.0		4.0		1.0	0.3
+50.0			electronics_05	Electronic Components	10.0	50.0				1.0	0.3
+51.0			synthesis_06	Mycobrick	10.0	50.0				1.0	0.25
+52.0			questres_01	Modular Container	10.0	50.0				1.0	1.79
+53.0			questres_03	Comm-Link	10.0	50.0				1.0	10.43
+54.0			questres_05	Tricoder	10.0	50.0				1.0	6.71
+55.0			consumer_01	Cyberware	10.0	50.0				1.0	44.83
+56.0			consumer_02	Portable Force Shield	10.0	50.0				1.0	24.44
+57.0			cn_41	Surveying Probe	10.0	50.0					53.79
+58.0			cn_43	Satellite	10.0	50.0					1000.0
+59.0			serviceres_02	Transhuman Form	10.0	50.0					1000.0
+60.0			scineceres_01	Multi-Tool	10.0	50.0					11.69
+61.0			food_01	Nutrient Paste	10.0	50.0					0.17
+62.0			food_05	Energy Bar	10.0	50.0					0.25
+63.0			food_06	Krill Paste	10.0	50.0				1.0	0.18
+64.0			food_07	Fruit Paste	10.0	50.0					0.33
+65.0			food_08	Algae Preserves	10.0	50.0					0.03
+66.0			medres_01	Med Gel	10.0	50.0					1.16
+67.0			medres_02	Med Kit	10.0	50.0					5.58
+68.0			medres_03	Stem Tissue	10.0	50.0					0.66
+69.0			medres_04	Personal Defence Kit	10.0	50.0					2.06
+70.0			powercell_01	Fuel Cell	10.0	50.0					1.75
+71.0			powercell_02	Bio Cell	10.0	50.0					1.2
+72.0			powercell_04	Fusion Cell	10.0	50.0					105.87
+73.0			powercell_05	Positron Cell	10.0	50.0					1000.0
+74.0			extractor_01	Basic Extractor	10.0	50.0					1.32
+75.0			extractor_02	D.A.R.T.	10.0	50.0					6.79
+76.0			extractor_03	Underground Deposit Extractor	10.0	50.0					4.06
+77.0			blueprint_02	Architectural Blueprint	10.0	50.0					0.0
+78.0			food_10	Krill Preserves	10.0	50.0				1.0	0.06
+79.0			food_11	Omni-Meal	10.0	50.0					0.54
+80.0			questitem_01	Nasobi Wares	10.0	50.0					0.0
+81.0			ammunition_01	Standard Ammunition Pack	10.0	50.0					0.33
+82.0			ammunition_02	Explosive Charges	10.0	50.0					1.2
+83.0			ammunition_03	Smart Ammunition Pack	10.0	50.0					5.3
+84.0	Nasobi_outpost	4.0	res_01	Gold	30.0	60.0	0.7	3.0			0.5
+85.0			res_03	Copper	60.0	120.0	0.7	2.0			0.05
+86.0			res_04	Iron	80.0	160.0	0.7	1.0			0.03
+88.0			res_06	Chromium	80.0	160.0	0.7	1.0			0.05
+89.0			res_07	Aluminum	80.0	160.0	0.7	1.0			0.03
+90.0			res_08	Titanium	80.0	160.0	0.7	2.0			0.05
+91.0			res_10	Tungsten	80.0	160.0	0.7	2.0			0.05
+92.0			res_12	Chlorine	0.0	0.0			1.0		0.03
+93.0			res_13	Phosphorus	0.0	0.0			1.0		0.03
+94.0			res_14	Sulfur	10.0	20.0			1.0		0.03
+95.0			res_15	Sodium	10.0	20.0			1.0		0.03
+96.0			res_16	Lithium	10.0	20.0			1.0		0.1
+97.0			res_17	Silicon	10.0	20.0			1.0		0.03
+98.0			res_19	Eldritium	10.0	20.0			1.0		2.5
+99.0			res_27	Hydrocarbons	10.0	20.0			1.0		0.03
+100.0			res_28	Carbon	10.0	20.0			1.0		0.03
+101.0			res_29	Grain	10.0	20.0			1.0		0.07
+102.0			res_30	Omni Fruit	10.0	20.0			1.0		0.14
+103.0			res_32	Cultured Meat	10.0	20.0			1.0		0.07
+104.0			res_33	Protein Mass	10.0	20.0			1.0		0.14
+105.0			res_34	Bio Waste	10.0	20.0			1.0		0.06
+106.0			res_38	Prebiotic Matter	10.0	20.0			1.0		0.03
+107.0			res_40	K-IV Aminoacids	10.0	20.0			1.0		0.03
+108.0			res_24	K-IV Plankton	10.0	20.0			1.0		0.01
+109.0			res_31	K-IV Algae	100.0	200.0	0.0	1.0			0.01
+110.0			res_39	K-IV Krill	100.0	200.0	0.0	1.0			0.01
+112.0			res_36	Manufacturing Waste	10.0	20.0					0.06
+114.0			processing_01	Metal Constructions	10.0	20.0				1.0	0.28
+115.0			processing_02	Alloyed Metal	10.0	20.0				1.0	0.36
+116.0			processing_03	Thermoplastic	10.0	20.0				1.0	0.22
+117.0			processing_04	Conductive Materials	10.0	20.0				1.0	0.17
+118.0			processing_05	Nano Parts	10.0	20.0				1.0	2.12
+119.0			synthesized_01	Biopolymer	10.0	20.0				1.0	0.18
+120.0			synthesis_02	Biochem Compounds	10.0	20.0				1.0	0.28
+121.0			synthesis_03	Chemical Fuel	10.0	20.0				1.0	0.28
+122.0			synthesis_04	Nanomaterials	10.0	20.0				1.0	0.25
+123.0			machinery_01	Propulsion Kit	10.0	20.0				1.0	1.73
+124.0			machinery_02	Tech Assembly Matrix	10.0	20.0				1.0	67.73
+125.0			machinery_03	Tech Voxel	10.0	20.0				1.0	12.5
+126.0			machinery_04	Basic Scanner	10.0	20.0				1.0	1.68
+127.0			machinery_05	Battery Block	10.0	20.0				1.0	1.31
+128.0			electronics_01	AI Core	10.0	20.0				1.0	48.0
+129.0			electronics_02	Microcontrollers	10.0	20.0				1.0	1.8
+130.0			electronics_03	Sensors Array	10.0	20.0				1.0	1.87
+131.0			synthesis_05	Composite Enzymes	10.0	20.0				1.0	0.21
+132.0			processing_06	Basic Toolkit	10.0	20.0				1.0	0.3
+133.0			electronics_05	Electronic Components	10.0	20.0				1.0	0.3
+134.0			synthesis_06	Mycobrick	10.0	20.0				1.0	0.25
+135.0			questres_01	Modular Container	10.0	20.0				1.0	1.79
+136.0			questres_03	Comm-Link	10.0	20.0				1.0	10.43
+137.0			questres_05	Tricoder	10.0	20.0				1.0	6.71
+138.0			consumer_01	Cyberware	10.0	20.0				1.0	44.83
+139.0			consumer_02	Portable Force Shield	10.0	20.0				1.0	24.44
+140.0			cn_41	Surveying Probe	10.0	20.0				1.0	53.79
+141.0			cn_43	Satellite	10.0	20.0				1.0	1000.0
+142.0			serviceres_02	Transhuman Form	10.0	20.0				1.0	1000.0
+143.0			scineceres_01	Multi-Tool	10.0	20.0				1.0	11.69
+144.0			food_01	Nutrient Paste	10.0	20.0				1.0	0.17
+145.0			food_05	Energy Bar	10.0	20.0				1.0	0.25
+146.0			food_06	Krill Paste	10.0	20.0				1.0	0.18
+147.0			food_07	Fruit Paste	10.0	20.0				1.0	0.33
+148.0			food_08	Algae Preserves	10.0	20.0				1.0	0.03
+149.0			medres_01	Med Gel	10.0	20.0				1.0	1.16
+150.0			medres_02	Med Kit	10.0	20.0				1.0	5.58
+151.0			medres_03	Stem Tissue	10.0	20.0				1.0	0.66
+152.0			medres_04	Personal Defence Kit	10.0	20.0				1.0	2.06
+153.0			powercell_01	Fuel Cell	10.0	20.0				1.0	1.75
+154.0			powercell_02	Bio Cell	10.0	20.0				1.0	1.2
+155.0			powercell_04	Fusion Cell	10.0	20.0				1.0	105.87
+156.0			powercell_05	Positron Cell	10.0	20.0				1.0	1000.0
+157.0			extractor_01	Basic Extractor	10.0	20.0				1.0	1.32
+158.0			extractor_02	D.A.R.T.	10.0	20.0				1.0	6.79
+159.0			extractor_03	Underground Deposit Extractor	10.0	20.0				1.0	4.06
+160.0			blueprint_02	Architectural Blueprint	10.0	20.0				1.0	0.0
+161.0			food_10	Krill Preserves	10.0	20.0				1.0	0.06
+162.0			food_11	Omni-Meal	10.0	20.0				1.0	0.54
+163.0			questitem_01	Nasobi Wares	10.0	20.0				1.0	0.0
+164.0			ammunition_01	Standard Ammunition Pack	10.0	20.0				1.0	0.33
+165.0			ammunition_02	Explosive Charges	10.0	20.0				1.0	1.2
+166.0			ammunition_03	Smart Ammunition Pack							5.3
+167.0	Aetherid_merchant	6.0	res_01	Gold							0.5
+168.0			res_03	Copper							0.05
+169.0			res_04	Iron							0.03
+171.0			res_06	Chromium							0.05
+172.0			res_07	Aluminum							0.03
+173.0			res_08	Titanium							0.05
+174.0			res_10	Tungsten							0.05
+175.0			res_12	Chlorine							0.03
+176.0			res_13	Phosphorus							0.03
+177.0			res_14	Sulfur							0.03
+178.0			res_15	Sodium							0.03
+179.0			res_16	Lithium							0.1
+180.0			res_17	Silicon							0.03
+181.0			res_19	Eldritium							2.5
+182.0			res_27	Hydrocarbons							0.03
+183.0			res_28	Carbon							0.03
+184.0			res_29	Grain							0.07
+185.0			res_30	Omni Fruit							0.14
+186.0			res_32	Cultured Meat							0.07
+187.0			res_33	Protein Mass							0.14
+188.0			res_34	Bio Waste							0.06
+189.0			res_38	Prebiotic Matter							0.03
+190.0			res_40	K-IV Aminoacids							0.03
+191.0			res_24	K-IV Plankton							0.01
+192.0			res_31	K-IV Algae							0.01
+193.0			res_39	K-IV Krill							0.01
+195.0			res_36	Manufacturing Waste							0.06
+197.0			processing_01	Metal Constructions							0.28
+198.0			processing_02	Alloyed Metal							0.36
+199.0			processing_03	Thermoplastic							0.22
+200.0			processing_04	Conductive Materials							0.17
+201.0			processing_05	Nano Parts							2.12
+202.0			synthesized_01	Biopolymer							0.18
+203.0			synthesis_02	Biochem Compounds							0.28
+204.0			synthesis_03	Chemical Fuel							0.28
+205.0			synthesis_04	Nanomaterials							0.25
+206.0			machinery_01	Propulsion Kit							1.73
+207.0			machinery_02	Tech Assembly Matrix							67.73
+208.0			machinery_03	Tech Voxel							12.5
+209.0			machinery_04	Basic Scanner							1.68
+210.0			machinery_05	Battery Block							1.31
+211.0			electronics_01	AI Core							48.0
+212.0			electronics_02	Microcontrollers							1.8
+213.0			electronics_03	Sensors Array							1.87
+214.0			synthesis_05	Composite Enzymes							0.21
+215.0			processing_06	Basic Toolkit							0.3
+216.0			electronics_05	Electronic Components							0.3
+217.0			synthesis_06	Mycobrick							0.25
+218.0			questres_01	Modular Container							1.79
+219.0			questres_03	Comm-Link							10.43
+220.0			questres_05	Tricoder							6.71
+221.0			consumer_01	Cyberware							44.83
+222.0			consumer_02	Portable Force Shield							24.44
+223.0			cn_41	Surveying Probe							53.79
+224.0			cn_43	Satellite							1000.0
+225.0			serviceres_02	Transhuman Form							1000.0
+226.0			scineceres_01	Multi-Tool							11.69
+227.0			food_01	Nutrient Paste							0.17
+228.0			food_05	Energy Bar							0.25
+229.0			food_06	Krill Paste							0.18
+230.0			food_07	Fruit Paste							0.33
+231.0			food_08	Algae Preserves							0.03
+232.0			medres_01	Med Gel							1.16
+233.0			medres_02	Med Kit							5.58
+234.0			medres_03	Stem Tissue							0.66
+235.0			medres_04	Personal Defence Kit							2.06
+236.0			powercell_01	Fuel Cell							1.75
+237.0			powercell_02	Bio Cell							1.2
+238.0			powercell_04	Fusion Cell							105.87
+239.0			powercell_05	Positron Cell							1000.0
+240.0			extractor_01	Basic Extractor							1.32
+241.0			extractor_02	D.A.R.T.							6.79
+242.0			extractor_03	Underground Deposit Extractor							4.06
+243.0			blueprint_02	Architectural Blueprint							0.0
+244.0			food_10	Krill Preserves							0.06
+245.0			food_11	Omni-Meal							0.54
+246.0			questitem_01	Nasobi Wares							0.0
+247.0			ammunition_01	Standard Ammunition Pack							0.33
+248.0			ammunition_02	Explosive Charges							1.2
+249.0			ammunition_03	Smart Ammunition Pack							5.3
+250.0	Aetherid_outpost	4.0	res_01	Gold							0.5
+251.0			res_03	Copper							0.05
+252.0			res_04	Iron							0.03
+254.0			res_06	Chromium							0.05
+255.0			res_07	Aluminum							0.03
+256.0			res_08	Titanium							0.05
+257.0			res_10	Tungsten							0.05
+258.0			res_12	Chlorine							0.03
+259.0			res_13	Phosphorus							0.03
+260.0			res_14	Sulfur							0.03
+261.0			res_15	Sodium							0.03
+262.0			res_16	Lithium							0.1
+263.0			res_17	Silicon							0.03
+264.0			res_19	Eldritium							2.5
+265.0			res_27	Hydrocarbons							0.03
+266.0			res_28	Carbon							0.03
+267.0			res_29	Grain							0.07
+268.0			res_30	Omni Fruit							0.14
+269.0			res_32	Cultured Meat							0.07
+270.0			res_33	Protein Mass							0.14
+271.0			res_34	Bio Waste							0.06
+272.0			res_38	Prebiotic Matter							0.03
+273.0			res_40	K-IV Aminoacids							0.03
+274.0			res_24	K-IV Plankton							0.01
+275.0			res_31	K-IV Algae							0.01
+276.0			res_39	K-IV Krill							0.01
+278.0			res_36	Manufacturing Waste							0.06
+280.0			processing_01	Metal Constructions							0.28
+281.0			processing_02	Alloyed Metal							0.36
+282.0			processing_03	Thermoplastic							0.22
+283.0			processing_04	Conductive Materials							0.17
+284.0			processing_05	Nano Parts							2.12
+285.0			synthesized_01	Biopolymer							0.18
+286.0			synthesis_02	Biochem Compounds							0.28
+287.0			synthesis_03	Chemical Fuel							0.28
+288.0			synthesis_04	Nanomaterials							0.25
+289.0			machinery_01	Propulsion Kit							1.73
+290.0			machinery_02	Tech Assembly Matrix							67.73
+291.0			machinery_03	Tech Voxel							12.5
+292.0			machinery_04	Basic Scanner							1.68
+293.0			machinery_05	Battery Block							1.31
+294.0			electronics_01	AI Core							48.0
+295.0			electronics_02	Microcontrollers							1.8
+296.0			electronics_03	Sensors Array							1.87
+297.0			synthesis_05	Composite Enzymes							0.21
+298.0			processing_06	Basic Toolkit							0.3
+299.0			electronics_05	Electronic Components							0.3
+300.0			synthesis_06	Mycobrick							0.25
+301.0			questres_01	Modular Container							1.79
+302.0			questres_03	Comm-Link							10.43
+303.0			questres_05	Tricoder							6.71
+304.0			consumer_01	Cyberware							44.83
+305.0			consumer_02	Portable Force Shield							24.44
+306.0			cn_41	Surveying Probe							53.79
+307.0			cn_43	Satellite							1000.0
+308.0			serviceres_02	Transhuman Form							1000.0
+309.0			scineceres_01	Multi-Tool							11.69
+310.0			food_01	Nutrient Paste							0.17
+311.0			food_05	Energy Bar							0.25
+312.0			food_06	Krill Paste							0.18
+313.0			food_07	Fruit Paste							0.33
+314.0			food_08	Algae Preserves							0.03
+315.0			medres_01	Med Gel							1.16
+316.0			medres_02	Med Kit							5.58
+317.0			medres_03	Stem Tissue							0.66
+318.0			medres_04	Personal Defence Kit							2.06
+319.0			powercell_01	Fuel Cell							1.75
+320.0			powercell_02	Bio Cell							1.2
+321.0			powercell_04	Fusion Cell							105.87
+322.0			powercell_05	Positron Cell							1000.0
+323.0			extractor_01	Basic Extractor							1.32
+324.0			extractor_02	D.A.R.T.							6.79
+325.0			extractor_03	Underground Deposit Extractor							4.06
+326.0			blueprint_02	Architectural Blueprint							0.0
+327.0			food_10	Krill Preserves							0.06
+328.0			food_11	Omni-Meal							0.54
+329.0			questitem_01	Nasobi Wares							0.0
+330.0			ammunition_01	Standard Ammunition Pack							0.33
+331.0			ammunition_02	Explosive Charges							1.2
+332.0			ammunition_03	Smart Ammunition Pack							5.3
+333.0	crabari_outpost	4.0	res_01	Gold							0.5
+334.0			res_03	Copper							0.05
+335.0			res_04	Iron							0.03
+337.0			res_06	Chromium							0.05
+338.0			res_07	Aluminum							0.03
+339.0			res_08	Titanium							0.05
+340.0			res_10	Tungsten							0.05
+341.0			res_12	Chlorine							0.03
+342.0			res_13	Phosphorus							0.03
+343.0			res_14	Sulfur							0.03
+344.0			res_15	Sodium							0.03
+345.0			res_16	Lithium							0.1
+346.0			res_17	Silicon							0.03
+347.0			res_19	Eldritium							2.5
+348.0			res_27	Hydrocarbons							0.03
+349.0			res_28	Carbon							0.03
+350.0			res_29	Grain							0.07
+351.0			res_30	Omni Fruit							0.14
+352.0			res_32	Cultured Meat							0.07
+353.0			res_33	Protein Mass							0.14
+354.0			res_34	Bio Waste							0.06
+355.0			res_38	Prebiotic Matter							0.03
+356.0			res_40	K-IV Aminoacids							0.03
+357.0			res_24	K-IV Plankton							0.01
+358.0			res_31	K-IV Algae							0.01
+359.0			res_39	K-IV Krill							0.01
+361.0			res_36	Manufacturing Waste							0.06
+363.0			processing_01	Metal Constructions							0.28
+364.0			processing_02	Alloyed Metal							0.36
+365.0			processing_03	Thermoplastic							0.22
+366.0			processing_04	Conductive Materials							0.17
+367.0			processing_05	Nano Parts							2.12
+368.0			synthesized_01	Biopolymer							0.18
+369.0			synthesis_02	Biochem Compounds							0.28
+370.0			synthesis_03	Chemical Fuel							0.28
+371.0			synthesis_04	Nanomaterials							0.25
+372.0			machinery_01	Propulsion Kit							1.73
+373.0			machinery_02	Tech Assembly Matrix							67.73
+374.0			machinery_03	Tech Voxel							12.5
+375.0			machinery_04	Basic Scanner							1.68
+376.0			machinery_05	Battery Block							1.31
+377.0			electronics_01	AI Core							48.0
+378.0			electronics_02	Microcontrollers							1.8
+379.0			electronics_03	Sensors Array							1.87
+380.0			synthesis_05	Composite Enzymes							0.21
+381.0			processing_06	Basic Toolkit							0.3
+382.0			electronics_05	Electronic Components							0.3
+383.0			synthesis_06	Mycobrick							0.25
+384.0			questres_01	Modular Container							1.79
+385.0			questres_03	Comm-Link							10.43
+386.0			questres_05	Tricoder							6.71
+387.0			consumer_01	Cyberware							44.83
+388.0			consumer_02	Portable Force Shield							24.44
+389.0			cn_41	Surveying Probe							53.79
+390.0			cn_43	Satellite							1000.0
+391.0			serviceres_02	Transhuman Form							1000.0
+392.0			scineceres_01	Multi-Tool							11.69
+393.0			food_01	Nutrient Paste							0.17
+394.0			food_05	Energy Bar							0.25
+395.0			food_06	Krill Paste							0.18
+396.0			food_07	Fruit Paste							0.33
+397.0			food_08	Algae Preserves							0.03
+398.0			medres_01	Med Gel							1.16
+399.0			medres_02	Med Kit							5.58
+400.0			medres_03	Stem Tissue							0.66
+401.0			medres_04	Personal Defence Kit							2.06
+402.0			powercell_01	Fuel Cell							1.75
+403.0			powercell_02	Bio Cell							1.2
+404.0			powercell_04	Fusion Cell							105.87
+405.0			powercell_05	Positron Cell							1000.0
+406.0			extractor_01	Basic Extractor							1.32
+407.0			extractor_02	D.A.R.T.							6.79
+408.0			extractor_03	Underground Deposit Extractor							4.06
+409.0			blueprint_02	Architectural Blueprint							0.0
+410.0			food_10	Krill Preserves							0.06
+411.0			food_11	Omni-Meal							0.54
+412.0			questitem_01	Nasobi Wares							0.0
+413.0			ammunition_01	Standard Ammunition Pack							0.33
+414.0			ammunition_02	Explosive Charges							1.2
+415.0			ammunition_03	Smart Ammunition Pack							5.3

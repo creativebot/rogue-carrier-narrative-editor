@@ -1,0 +1,74 @@
+RowID	PresetName	EntryCountMin	EntryCountMax	bAllowDuplicated	EmptyGenerationWeight	EntryIndex	ResourceName	ResourceAmountMin	ResourceAmountMax	ResourceAmountStep	EntryWeight
+1	Cons_Energy_T3_V2	1	1	0	0	0	Bio Cell	1	2	1	1
+2						1	Fuel Cell	1	2	1	1
+3	Cons_Food_T1_V2	1	1	0	0	0	Grain	40	60	10	1
+4						1	Omni Fruit	40	60	10	1
+5						2	Cultured Meat	40	60	10	1
+6	Cons_Food_T3_V2	1	1	0	0	0	Nutrient Paste	24	40	1	1
+7						1	Energy Bar	20	40	1	1
+8						2	Omni-Meal	12	24	1	1
+9	Raw_Metals_Common_A_V2	1	1	0	0	0	Titanium	70	140	20	1
+10						1	Sodium	70	140	20	1
+11						2	Lithium	70	140	20	1
+12						3	Silicon	70	140	20	1
+13						4	Aluminum	70	140	20	1
+14	Raw_Metals_Common_B_V2	1	1	0	0	0	Iron	70	140	20	1
+15						1	Tungsten	70	140	20	1
+16						2	Nickel	70	140	20	1
+17						3	Chromium	70	140	20	1
+18						4	Copper	70	140	20	1
+19	Raw_Metals_Exotic_V2	1	1	0	0	0	Gold	20	30	5	1
+20	Elditrium	1	1	0	0	0	Eldritium	10	20	5	1
+21	Raw_Nonmetal_V2	1	1	0	0	0	Chlorine	70	140	20	1
+22						1	Phosphorus	70	140	20	1
+23						2	Sulfur	70	140	20	1
+24						3	Hydrocarbons	70	140	20	1
+25						4	Carbon	70	140	20	1
+26	Raw_Organic_A_V2	1	1	0	0	0	K-IV Algae	70	140	20	1
+27						1	Prebiotic Matter	70	140	20	1
+28						2	K-IV Aminoacids	70	140	20	1
+29	Raw_Organic_B_V2	1	1	0	0	0	K-IV Plankton	70	140	20	1
+30						1	K-IV Algae	70	140	20	1
+31						2	K-IV Krill	70	140	20	1
+32	Prod_Extraction_T3_V2	1	1	0	0	0	Basic Extractor	3	4	1	1
+33						1	Underground Deposit Extractor	1	2	1	1
+34	Special_Blueprints_V2	1	1	0	0	0	Architectural Blueprint	3	4	1	1
+35	Prod_Construction_T2A_V2	1	1	0	0	0	Metal Constructions	20	30	5	1
+36						1	Alloyed Metal	20	30	5	1
+37						2	Conductive Materials	20	30	5	1
+38	Prod_Construction_T2B_V2	1	1	0	0	0	Biopolymer	20	30	5	1
+39						1	Thermoplastic	20	30	5	1
+40						2	Mycobrick	20	30	5	1
+41	Prod_Production_T2A_V2	1	1	0	0	0	Composite Enzymes	20	30	5	1
+42						1	Biochem Compounds	20	30	5	1
+43						2	Chemical Fuel	20	30	5	1
+44	Prod_Production_T2B_V2	1	1	0	0	0	Nanomaterials	20	30	5	1
+45						1	Basic Toolkit	20	30	5	1
+46						2	Electronic Components	20	30	5	1
+47	Prod_Production_T3A_V2	1	1	0	0	0	Microcontrollers	5	8	1	1
+48						1	Basic Scanner	5	8	1	1
+49						2	Sensors Array	5	8	1	1
+50						3	Personal Defence Kit	5	8	1	1
+51	Prod_Production_T3B_V2	1	1	0	0	0	Nano Parts	5	8	1	1
+52						1	Battery Block	5	8	1	1
+53						2	Modular Container	5	8	1	1
+54						3	Propulsion Kit	5	8	1	1
+55	Prod_Medicine_T3_V2	1	1	0	0	0	Med Gel	9	18	1	1
+56						1	Stem Tissue	12	24	1	1
+57						2	Med Kit	2	4	1	1
+58	Prod_Ammo_T2	1	1	0	0	0	Standard Ammunition Pack	8	16	1	1
+59						1	Chemical Fuel	8	16	1	1
+60	Prod_Ammo_T3T4	1	1	0	0	0	Explosive Charges	4	12	1	1
+61						1	Smart Ammunition Pack	1	3	1	1
+62	T4_Items_V1	1	1	0	0	0	Tech Voxel	3	5	1	1
+63						1	Multi-Tool	3	5	1	1
+64						2	Comm-Link	3	5	1	1
+65						3	Tricoder	3	5	1	1
+66	T4_Items_V2	1	1	0	0	0	Smart Ammunition Pack	3	5	1	1
+67						1	Portable Force Shield	3	5	1	1
+68						2	D.A.R.T.	3	5	1	1
+69	T5_Items_V1	1	1	0	0	0	Cyberware	2	3	1	1
+70						1	AI Core	2	3	1	1
+71	T5_Items_V2	1	1	0	0	0	Tech Assembly Matrix	1	2	1	1
+72						1	Surveying Probe	1	2	1	1
+73	T5_Energy_V1	1	1	0	0	0	Fusion Cell	1	1	1	1

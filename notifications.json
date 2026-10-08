@@ -1,0 +1,46 @@
+{
+  "notifications": [
+    {
+      "id": "notif_1791469059192_0",
+      "recipientEmail": "dpoludonnyi@n-ix.com",
+      "senderName": "Olena Dev",
+      "senderEmail": "olena.dev@n-ix.com",
+      "targetId": "T1-V1-E1-A0",
+      "targetType": "event",
+      "targetTitle": "The Moment After the End",
+      "commentText": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
+      "commentId": "cmt_1791469059191",
+      "createdAt": "2026-10-08T14:17:39.191061Z",
+      "displayTime": "Oct 08, 16:17",
+      "read": true
+    },
+    {
+      "id": "notif_1791469013465_0",
+      "recipientEmail": "dpoludonnyi@n-ix.com",
+      "senderName": "Olena Dev",
+      "senderEmail": "olena.dev@n-ix.com",
+      "targetId": "T1-V1-E1-A0",
+      "targetType": "event",
+      "targetTitle": "The Moment After the End",
+      "commentText": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
+      "commentId": "cmt_1791469013463",
+      "createdAt": "2026-10-08T14:16:53.463669Z",
+      "displayTime": "Oct 08, 16:16",
+      "read": true
+    },
+    {
+      "id": "notif_1791468532632_0",
+      "recipientEmail": "dpoludonnyi@n-ix.com",
+      "senderName": "Olena Dev",
+      "senderEmail": "olena.dev@n-ix.com",
+      "targetId": "T1-V1-E1-A0",
+      "targetType": "event",
+      "targetTitle": "The Moment After the End",
+      "commentText": "Hey @dpoludonnyi please double-check the reaction window on this event before Unreal export!",
+      "commentId": "cmt_1791468532629",
+      "createdAt": "2026-10-08T14:08:52.629464Z",
+      "displayTime": "Oct 08, 16:08",
+      "read": false
+    }
+  ]
+}

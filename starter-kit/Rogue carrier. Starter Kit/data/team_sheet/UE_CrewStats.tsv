@@ -1,0 +1,7 @@
+SpeciesName	BaseEfficiency	MaxHealth	BaseHealth	MaxMorale	BaseMorale	FoodConsumption	Susceptibility	TraitBonus	IconPath
+Human	100.0	100.0	100.0	100.0	50.0	1.0	5.0	0.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceHuman.T_RaceHuman
+Nasobi	100.0	80.0	80.0	100.0	60.0	1.0	7.0	10.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceNasobi.T_RaceNasobi
+Crabari	100.0	130.0	130.0	100.0	40.0	2.0	4.0	25.0	/Engine/EngineResources/AICON-Green.AICON-Green
+Knidaria	100.0	70.0	70.0	100.0	55.0	1.0	8.0	10.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceKnidaria.T_RaceKnidaria
+Aetherids	100.0	60.0	60.0	100.0	70.0	2.0	6.0	30.0	/Engine/EngineResources/AICON-Green.AICON-Green
+Mistralids	100.0	90.0	90.0	100.0	50.0	1.0	5.0	1.0	/Engine/EngineResources/AICON-Green.AICON-Green

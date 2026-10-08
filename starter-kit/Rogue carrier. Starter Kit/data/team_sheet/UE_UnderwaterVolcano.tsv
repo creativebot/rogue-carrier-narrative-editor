@@ -1,0 +1,6 @@
+Category	DiameterMin	DiameterMax	TotalAmount	Density	ShipDamage	ChanceToKillCrew	ChanceToInjureCrew	CrewDamagePercent	UnderwaterVolcanoSpawnRadius	DebrisShipDamage	DebrisBuildingDamagePercent	DebrisChanceToInjureCrew
+1.0	1000	1000	20	10	5	0.001	0.05	0.1	200000	30	15	0.02
+2.0	1000.0	1000.0	30.0	15.0	10.0	0.001	0.05	0.1	200000.0	30.0	15.0	0.02
+3.0	1000.0	1000.0	40.0	20.0	15.0	0.005	0.05	0.1	200000.0	30.0	15.0	0.02
+4.0	1000.0	1000.0	50.0	25.0	20.0	0.005	0.05	0.1	200000.0	30.0	15.0	0.02
+5.0	1000.0	1000.0	60.0	30.0	35.0	0.01	0.05	0.1	200000.0	30.0	15.0	0.02

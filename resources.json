@@ -1,0 +1,1502 @@
+{
+  "version": "2.0.0-starter-kit",
+  "lastUpdated": "2026-10-04",
+  "totalItems": 161,
+  "resources": [
+    {
+      "id": "res_01_Gold",
+      "name": "Gold",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Gold.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_03_Copper",
+      "name": "Copper",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Copper.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_04_Iron",
+      "name": "Iron",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Metals_Fe.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_06_Chrom",
+      "name": "Chromium",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Chromium.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_07_Alum",
+      "name": "Aluminum",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Metals_Al.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_08_Titan",
+      "name": "Titanium",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Metals_Ti.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_10_Tung",
+      "name": "Tungsten",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Metals_W.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_12_Chlor",
+      "name": "Chlorine",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Refined_Etilen.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_13_Phosph",
+      "name": "Phosphorus",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Phosphorus.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_14_Sulfur",
+      "name": "Sulfur",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Sulfur.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_15_Sodium",
+      "name": "Sodium",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Sodium.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_16_Lithium",
+      "name": "Lithium",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Lithium.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_17_Silicon",
+      "name": "Silicon",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Ore_Tungsten.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_19_Eldrit",
+      "name": "Eldritium",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Eldritium.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_27_HydroCarb",
+      "name": "Hydrocarbons",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Combastibles_Oil.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_28_Carbon",
+      "name": "Carbon",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Carbon.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_38_Prebiotic",
+      "name": "Prebiotic Matter",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Prebiotic.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_40_k_AminoAc",
+      "name": "K-IV Aminoacids",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_Amino_Acid.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_24_k_Plankton",
+      "name": "K-IV Plankton",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_ET_Plankton.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_31_k_Algae",
+      "name": "K-IV Algae",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_ET_Squash.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_39_k_Krill",
+      "name": "K-IV Krill",
+      "category": "Raw",
+      "kind": "raw",
+      "tier": 0,
+      "iconImg": "icons/T_K-IV_Krill.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_02",
+      "name": "Alloyed Metal",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Alloy_Steel.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_06",
+      "name": "Basic Toolkit",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Basic-Tool-Kit.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesis_02",
+      "name": "Biochem Compounds",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Chem-Compound.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesized_01",
+      "name": "Biopolymer",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Biopolymer.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesis_03",
+      "name": "Chemical Fuel",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Chemical-Fuel.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesis_05",
+      "name": "Composite Enzymes",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Composite-Enzymes.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_04",
+      "name": "Conductive Materials",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Conductive-Materials.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_32",
+      "name": "Cultured Meat",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Raw_Meat.png",
+      "icon": "📦"
+    },
+    {
+      "id": "electronics_05",
+      "name": "Electronic Components",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Holo_Display.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_29",
+      "name": "Grain",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Grain.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_01",
+      "name": "Metal Constructions",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Metal_Frames.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesis_06",
+      "name": "Mycobrick",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Mycobrick.png",
+      "icon": "📦"
+    },
+    {
+      "id": "synthesis_04",
+      "name": "Nanomaterials",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Graphene.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_30",
+      "name": "Omni Fruit",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_OmniFruit.png",
+      "icon": "📦"
+    },
+    {
+      "id": "res_33",
+      "name": "Protein Mass",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_HPYeast.png",
+      "icon": "📦"
+    },
+    {
+      "id": "ammunition_01",
+      "name": "Standard Ammunition Pack",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_StandardAmmunitionPack.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_03",
+      "name": "Thermoplastic",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 1,
+      "iconImg": "icons/T_Thermoplastic.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_08",
+      "name": "Algae Preserves",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Algae-Preserves.png",
+      "icon": "📦"
+    },
+    {
+      "id": "extractor_01",
+      "name": "Basic Extractor",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_ExtractorBasic.png",
+      "icon": "📦"
+    },
+    {
+      "id": "machinery_04",
+      "name": "Basic Scanner",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Basic-Scaner.png",
+      "icon": "📦"
+    },
+    {
+      "id": "machinery_05",
+      "name": "Battery Block",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Battery-Block.png",
+      "icon": "📦"
+    },
+    {
+      "id": "powercell_02",
+      "name": "Bio Cell",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Biocell.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_05",
+      "name": "Energy Bar",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Energy-Bar.png",
+      "icon": "📦"
+    },
+    {
+      "id": "ammunition_02",
+      "name": "Explosive Charges",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_ExplosiveCharges.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_07",
+      "name": "Fruit Paste",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Fruit-Paste.png",
+      "icon": "📦"
+    },
+    {
+      "id": "powercell_01",
+      "name": "Fuel Cell",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_FuelCell.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_06",
+      "name": "Krill Paste",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Krill-Paste.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_10",
+      "name": "Krill Preserves",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_KnidariaMeal.png",
+      "icon": "📦"
+    },
+    {
+      "id": "medres_01",
+      "name": "Med Gel",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Med-Gel.png",
+      "icon": "📦"
+    },
+    {
+      "id": "electronics_02",
+      "name": "Microcontrollers",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Microcontrollers.png",
+      "icon": "📦"
+    },
+    {
+      "id": "questres_01",
+      "name": "Modular Container",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Container.png",
+      "icon": "📦"
+    },
+    {
+      "id": "processing_05",
+      "name": "Nano Parts",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Fuel_Rod.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_01",
+      "name": "Nutrient Paste",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Nutrient-Paste.png",
+      "icon": "📦"
+    },
+    {
+      "id": "medres_04",
+      "name": "Personal Defence Kit",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_DefensiveGear.png",
+      "icon": "📦"
+    },
+    {
+      "id": "machinery_01",
+      "name": "Propulsion Kit",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Propulsion_Kit.png",
+      "icon": "📦"
+    },
+    {
+      "id": "electronics_03",
+      "name": "Sensors Array",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Sensors.png",
+      "icon": "📦"
+    },
+    {
+      "id": "medres_03",
+      "name": "Stem Tissue",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_Stem-Tissue.png",
+      "icon": "📦"
+    },
+    {
+      "id": "unitres_01",
+      "name": "Worker Drone",
+      "category": "Unit",
+      "kind": "craft",
+      "tier": 2,
+      "iconImg": "icons/T_WorkerUnit.png",
+      "icon": "📦"
+    },
+    {
+      "id": "questres_03",
+      "name": "Comm-Link",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Comm_Link.png",
+      "icon": "📦"
+    },
+    {
+      "id": "extractor_02",
+      "name": "D.A.R.T.",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_ControlStation.png",
+      "icon": "📦"
+    },
+    {
+      "id": "unitres_05",
+      "name": "Deep-Sea Trawler",
+      "category": "Unit",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Trawler.png",
+      "icon": "📦"
+    },
+    {
+      "id": "unitres_02",
+      "name": "Freighter",
+      "category": "Unit",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Cargo.png",
+      "icon": "📦"
+    },
+    {
+      "id": "medres_02",
+      "name": "Med Kit",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Med-Kit.png",
+      "icon": "📦"
+    },
+    {
+      "id": "scineceres_01",
+      "name": "Multi-Tool",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Calibrator.png",
+      "icon": "📦"
+    },
+    {
+      "id": "food_11",
+      "name": "Omni-Meal",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_OmniMeal.png",
+      "icon": "📦"
+    },
+    {
+      "id": "consumer_02",
+      "name": "Portable Force Shield",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_ForceField.png",
+      "icon": "📦"
+    },
+    {
+      "id": "ammunition_03",
+      "name": "Smart Ammunition Pack",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_SmartAmmunitionPack.png",
+      "icon": "📦"
+    },
+    {
+      "id": "machinery_03",
+      "name": "Tech Voxel",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Tech-Voxel.png",
+      "icon": "📦"
+    },
+    {
+      "id": "questres_05",
+      "name": "Tricoder",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_Tricoder.png",
+      "icon": "📦"
+    },
+    {
+      "id": "extractor_03",
+      "name": "Underground Deposit Extractor",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 3,
+      "iconImg": "icons/T_ExtractorShallow.png",
+      "icon": "📦"
+    },
+    {
+      "id": "electronics_01",
+      "name": "AI Core",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Ai-Core.png",
+      "icon": "📦"
+    },
+    {
+      "id": "consumer_01",
+      "name": "Cyberware",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Cyberware.png",
+      "icon": "📦"
+    },
+    {
+      "id": "powercell_04",
+      "name": "Fusion Cell",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Cell_Fusion.png",
+      "icon": "📦"
+    },
+    {
+      "id": "unitres_03",
+      "name": "Recon Craft",
+      "category": "Unit",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Scout.png",
+      "icon": "📦"
+    },
+    {
+      "id": "cn_41",
+      "name": "Surveying Probe",
+      "category": "Consumable",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Surveying_Probe.png",
+      "icon": "📦"
+    },
+    {
+      "id": "machinery_02",
+      "name": "Tech Assembly Matrix",
+      "category": "Component",
+      "kind": "craft",
+      "tier": 4,
+      "iconImg": "icons/T_Assembly_Matrix.png",
+      "icon": "📦"
+    },
+    {
+      "id": "powercell_05",
+      "name": "Positron Cell",
+      "category": "Program",
+      "kind": "craft",
+      "tier": 5,
+      "iconImg": "icons/T_PowerCell.png",
+      "icon": "📦"
+    },
+    {
+      "id": "cn_43",
+      "name": "Satellite",
+      "category": "Program",
+      "kind": "craft",
+      "tier": 5,
+      "iconImg": "icons/T_Satellite.png",
+      "icon": "📦"
+    },
+    {
+      "id": "serviceres_02",
+      "name": "Transhuman Form",
+      "category": "Program",
+      "kind": "craft",
+      "tier": 5,
+      "iconImg": "icons/T_Transhuman.png",
+      "icon": "📦"
+    },
+    {
+      "id": "b_accomm_01",
+      "name": "General quarters",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_accomm_01__General_quarters.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_dump_bio",
+      "name": "Biowaste Dump",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_Waste_Bio.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_dump_manufactured",
+      "name": "Manufactured Waste Dump",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_Waste_Manufactured.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_03",
+      "name": "Generator",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_energy_03__Generator.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_11",
+      "name": "Solar Panels",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_energy_11__Solar_Panels.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_12",
+      "name": "Small Energy Accumulator",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_energy_12__Small_Energy_Accumulator.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_exploration_01",
+      "name": "Artifacts Lab",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_exploration_01__Artifacts_Lab.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_fleet_02",
+      "name": "Hangar",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_Scout.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_01",
+      "name": "Resource Allocation Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_production_01__Resource_Allocation_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "shipsystem_01",
+      "name": "Power Unit",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_PowerCell.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "shipsystem_02",
+      "name": "Sensor System",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_Sensors.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "shipsystem_03",
+      "name": "Engine",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/T_Propulsion_Kit.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "shipsystem_04",
+      "name": "Mass Driver",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_survival_03__Photon_Gun.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "shipsystem_05",
+      "name": "R&D Lab",
+      "category": "Building",
+      "kind": "building",
+      "tier": 0,
+      "iconImg": "icons/b_exploration_01__Artifacts_Lab.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_08",
+      "name": "Energy Accumulator",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_energy_08__Energy_Accumulator.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_01",
+      "name": "Tools Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_01__Tools_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_02",
+      "name": "Electronics Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_02__Electronics_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_03",
+      "name": "Repairs Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_03__Repairs_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_04",
+      "name": "Processing Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_04__Processing_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_05",
+      "name": "Synthesis Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_05__Synthesis_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_06",
+      "name": "Compounds Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_06__Compounds_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_07",
+      "name": "Chemistry Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_07__Chemistry_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_08",
+      "name": "Bioengineering Workshop",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_08__Bioengineering_Workshop.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_09",
+      "name": "Farm",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_09__Farm.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_10",
+      "name": "Plantation",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_10__Plantation.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t1_11",
+      "name": "Universum",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_production_t1_11__Universum.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_02",
+      "name": "Medical Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_service_02__Medical_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_09",
+      "name": "Bioconversion Lab",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_service_09__Bioconversion_Lab.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_10",
+      "name": "Geo Lab",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_service_09__Bioconversion_Lab.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_02",
+      "name": "Gatling Gun",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_survival_02__Gatling_Gun.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_04",
+      "name": "Grenade Launcher",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_survival_04__Grenade_Launcher.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_06",
+      "name": "Flamethrower",
+      "category": "Building",
+      "kind": "building",
+      "tier": 1,
+      "iconImg": "icons/b_survival_04__Grenade_Launcher.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_accomm_02",
+      "name": "Residential Complex",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_accomm_02__Residential_Complex.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_06",
+      "name": "Cyclone Energy Turbine",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_energy_06__Cyclone_Energy_Turbine.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_01",
+      "name": "Electronics Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_01__Electronics_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_02",
+      "name": "Pyrogenics Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_02__Pyrogenics_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_03",
+      "name": "Nano-Tech Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_03__Nano-Tech_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_04",
+      "name": "Prototype Development Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_04__Prototype_Development_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_05",
+      "name": "Container Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_05__Container_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_06",
+      "name": "Expedition Research Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_06__Expedition_Research_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_07",
+      "name": "Energy Research Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_07__Energy_Research_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_08",
+      "name": "Component Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_08__Component_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_09",
+      "name": "Medical Goods Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_09__Medical_Goods_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t2_10",
+      "name": "Food Factory",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_production_t2_10__Food_Factory.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_01",
+      "name": "Health and Care Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_service_02__Medical_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_03",
+      "name": "Social dome",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_service_06__Holodeck.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_05",
+      "name": "Institute",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_powerprogram_t5_01__Advanced_Technology_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_01",
+      "name": "Power Bolt Emitter",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_survival_02__Gatling_Gun.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_03",
+      "name": "Photon Gun",
+      "category": "Building",
+      "kind": "building",
+      "tier": 2,
+      "iconImg": "icons/b_survival_03__Photon_Gun.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_07",
+      "name": "Solar Reactor",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_energy_07__Solar_Reactor.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energy_09",
+      "name": "Fusion Core Unit",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_energy_09__Fusion_Core_Unit.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_locals_t3_01",
+      "name": "Nasobi Building",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_locals_t3_05__Knidaria_Building.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_locals_t3_02",
+      "name": "Aetherid Building",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_locals_t3_05__Knidaria_Building.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_locals_t3_03",
+      "name": "Crabari Building",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_locals_t3_05__Knidaria_Building.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_locals_t3_04",
+      "name": "Mistralid Building",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_locals_t3_05__Knidaria_Building.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_locals_t3_05",
+      "name": "Knidaria Building",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_locals_t3_05__Knidaria_Building.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t3_01",
+      "name": "Advanced Tools Plant",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_production_t3_01__Advanced_Tools_Plant.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t3_02",
+      "name": "Expedition Plant",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_production_t3_02__Expedition_Plant.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t3_03",
+      "name": "Smart Tools Plant",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_production_t3_03__Smart_Tools_Plant.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t3_04",
+      "name": "Tactical Production Plant",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_production_t3_04__Tactical_Production_Plant.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t3_05",
+      "name": "Consumer Goods Plant",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_production_t3_05__Consumer_Goods_Plant.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_06",
+      "name": "Holodeck",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_service_06__Holodeck.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_service_07",
+      "name": "Alliance Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_accomm_02__Residential_Complex.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_05",
+      "name": "Active defense system",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/T_DefensiveGear.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_07",
+      "name": "Power Barrier",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/T_ForceField.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_08",
+      "name": "Sonic Pulse System",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/b_survival_03__Photon_Gun.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_survival_09",
+      "name": "Static Field",
+      "category": "Building",
+      "kind": "building",
+      "tier": 3,
+      "iconImg": "icons/T_ForceField.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t4_01",
+      "name": "Hi-Tech Facility",
+      "category": "Building",
+      "kind": "building",
+      "tier": 4,
+      "iconImg": "icons/b_production_t4_01__Hi-Tech_Facility.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t4_02",
+      "name": "Experimental Materials Facility",
+      "category": "Building",
+      "kind": "building",
+      "tier": 4,
+      "iconImg": "icons/b_production_t4_02__Experimental_Materials_Facility.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t4_03",
+      "name": "Robotics Facility",
+      "category": "Building",
+      "kind": "building",
+      "tier": 4,
+      "iconImg": "icons/b_production_t4_03__Robotics_Facility.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_production_t4_04",
+      "name": "Advanced Wares Facility",
+      "category": "Building",
+      "kind": "building",
+      "tier": 4,
+      "iconImg": "icons/b_production_t4_04__Advanced_Wares_Facility.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_energyprogram_t5_01",
+      "name": "Antimatter Core Unit",
+      "category": "Building",
+      "kind": "building",
+      "tier": 5,
+      "iconImg": "icons/b_energyprogram_t5_01__Antimatter_Core_Unit.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_evolutionprogram_t5_01",
+      "name": "Evolution Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 5,
+      "iconImg": "icons/b_evolutionprogram_t5_01__Evolution_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_explorationprogram_t5_01",
+      "name": "Satellite Control Complex",
+      "category": "Building",
+      "kind": "building",
+      "tier": 5,
+      "iconImg": "icons/b_explorationprogram_t5_01__Satellite_Control_Complex.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "b_powerprogram_t5_01",
+      "name": "Advanced Technology Center",
+      "category": "Building",
+      "kind": "building",
+      "tier": 5,
+      "iconImg": "icons/b_powerprogram_t5_01__Advanced_Technology_Center.png",
+      "icon": "🏥"
+    },
+    {
+      "id": "stat_knowledge",
+      "name": "Knowledge",
+      "category": "Stat",
+      "icon": "🧠",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "stat_morale",
+      "name": "Morale",
+      "category": "Stat",
+      "icon": "😊",
+      "color": "#f43f5e"
+    },
+    {
+      "id": "stat_entropy",
+      "name": "Entropy",
+      "category": "Stat",
+      "icon": "🌀",
+      "color": "#64748b"
+    },
+    {
+      "id": "stat_crew",
+      "name": "Crew Members",
+      "category": "People",
+      "icon": "👨‍🚀",
+      "color": "#38bdf8"
+    },
+    {
+      "id": "stat_blueprints",
+      "name": "Blueprints",
+      "category": "Tech",
+      "icon": "📜",
+      "color": "#eab308"
+    },
+    {
+      "id": "orange_box",
+      "name": "Orange Box (Flight Recorder)",
+      "category": "Key Item",
+      "icon": "🟧",
+      "color": "#f97316"
+    }
+  ],
+  "characters": [
+    {
+      "id": "voss",
+      "name": "Voss",
+      "title": "Captain of BCEV-07M",
+      "color": "#fef08a",
+      "textColor": "#713f12",
+      "icon": "👤"
+    },
+    {
+      "id": "mnemosyne",
+      "name": "Mnemosyne",
+      "title": "Ship AI",
+      "color": "#f3e8ff",
+      "textColor": "#581c87",
+      "icon": "🤖"
+    },
+    {
+      "id": "survivor",
+      "name": "Survivor",
+      "title": "Generic Refugee",
+      "color": "#dcfce7",
+      "textColor": "#14532d",
+      "icon": "🧑‍🚀"
+    },
+    {
+      "id": "khalil",
+      "name": "Khalil Arida",
+      "title": "Executive Officer",
+      "color": "#fed7aa",
+      "textColor": "#7c2d12",
+      "icon": "👨‍💼"
+    },
+    {
+      "id": "mars",
+      "name": "Mars Abbadie",
+      "title": "Head of R&D",
+      "color": "#ffe4e6",
+      "textColor": "#881337",
+      "icon": "🔬"
+    },
+    {
+      "id": "orest",
+      "name": "Orest Demchuck",
+      "title": "Lieutenant (Scout Leader)",
+      "color": "#e0e7ff",
+      "textColor": "#1e1b4b",
+      "icon": "🎖️"
+    },
+    {
+      "id": "tuuli",
+      "name": "Tuuli Korpela",
+      "title": "Chief Engineer",
+      "color": "#fae8ff",
+      "textColor": "#701a75",
+      "icon": "🔧"
+    }
+  ]
+}

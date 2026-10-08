@@ -1,0 +1,51 @@
+Function	Description	Uses for services	Usage Rate
+Recycling Organic	Reduces the level of “Entropy” for the run		
+Recycling Toxic	Reduces the level of “Entropy” for the run		
+Recycling Manufactured	Reduces the level of “Entropy” for the run		
+Recycling Nuclear	Reduces the level of “Entropy” for the run		
+Add Specialization	Crew can learn new skills		
+Increase Specialization Level	Cre can improve therir skill here		
+E.T. Communications	Improves mood for non-human crew, better prices with traders, traders can sell intel		
+Technology Exchange			
+Technical Support			
+Recreation	Increases mood level for the crew		0.1
+Treatment	Heal ilnesess	Med Gel, Med Kit	0.1
+Regeneration	Restore HP and and remove injures	Stem Tissue, Med Gel, Med Kit	0.1
+Vaccination			
+UnfreezingCrew			
+Teambuilding Event			
+Arrange a Meeting with Aliens			
+			
+Storage			
+Refinery			
+Energy			
+Water			
+Survial			
+Research			
+Defence			
+Exploration			
+Hangar			
+Recycling			
+			
+Entertainment_Low			
+Entertainment_High			
+Regeneration_Low			
+Regeneration_High			
+Treatment_Low			
+Treatment_High			
+Training_Low			
+Training_High			
+Vaccination_Low			
+Vaccination_High			
+Unfreezing_Low			
+Unfreezing_High			
+Connector_Entertainment_Low			
+Connector_Entertainment_High			
+Connector_Regeneration_Low			
+Connector_Regeneration_High			
+Connector_TechnologyExchange_Low			
+Connector_TechnologyExchange_High			
+Connector_EnergyConsumption_Low			
+Connector_EnergyConsumption_High			
+Connector_Conveyor			
+Connector_Waste			

@@ -1,0 +1,17 @@
+Storm		Category				
+		1.0	2.0	3.0	4.0	5.0
+Overall settings						
+Risk to hit crew member without shelter	Calculate for each crew member without cover each cycle of the event. The crew gets hit at a random time between cycles (but only while in the event)	0.1	0.2	0.3	0.4	0.5
+Crew Damage	Damage to the crew member in %HP	0.1	0.1	0.1	0.1	0.1
+Risk of death for a crew member without shelter	Calculate for each crew member without cover each cycle of the event. The crew gets hit at a random time between cycles (but only while in the event)	0.01	0.02	0.05	0.1	0.2
+Morale debuff	morale per hour while in the event	2.0	3.0	5.0	6.0	8.0
+Waves	The orientation of the waves is clockwise around the storm circle					
+Waves high		5.0	8.0	12.0	15.0	20.0
+Wind						
+Wind	Wind speed min	0.0	50.0	100.0	150.0	250.0
+	Wind speed max	50.0	100.0	150.0	200.0	300.0
+Wind gusts	Wind speed					
+						
+Lighting	Probability to strike the Behemothm chec	10.0	20.0	30.0	40.0	50.0
+	Lightings per cylce min	0.0	0.0	5.0	10.0	10.0
+	Lightings per cylce max	0.0	5.0	10.0	15.0	20.0

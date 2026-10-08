@@ -1,0 +1,35 @@
+RowId	QuestID_block (filled down by kit)	Stage/Choice	Short description	Reward
+43	BaseQuest_T_AlienCrashSite	AlienCrashSite T0 Choice A	Analyze	Blueprints
+45	BaseQuest_T_AlienCrashSite	AlienCrashSite T0 Choice B	Extract	Energy
+47	BaseQuest_T_AlienCrashSite	AlienCrashSite T0 Choice C	Investigate	Knowledge
+51	BaseQuest_T_Anomaly_T2_E5	Anomaly_T2_E5 Choice A	Test Extractor	Knowledge
+54	BaseQuest_T_Anomaly_T2_E5	Anomaly_T2_E5 Choice B Result		Blueprints
+59	BaseQuest_T_Bioharvest	Bioharvest T0 Choice A	Prepare	Food
+62	BaseQuest_T_Bioharvest	Bioharvest T0 Choice B	Study	Knowledge
+65	BaseQuest_T_Bioharvest	Bioharvest T0 Choice C	Observe	Blueprints
+68	BaseQuest_T_Bioharvest	Bioharvest T0 Choice D	Contact	Crew (Knidaria)
+71	BaseQuest_T_Bioharvest	Bioharvest T0 Choice E	Collect	Raw organic
+74	BaseQuest_T_Bioharvest	Bioharvest T0 Choice F	Process	Medicine
+79	BaseQuest_T_CaveSystem	CaveSystem_T2_E4 Choice A	Feed the strangers	Metals, common
+82	BaseQuest_T_CaveSystem	CaveSystem_T2_E4 Choice B Result		Nonmetals, common/uncommon
+95	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice A	Decipher	Blueprints
+97	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice B	Excavate	Knowledge
+99	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice C	Scan	Energy
+101	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice D	Salvage	Building mats
+103	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice E	Investigate	Machinery
+105	BaseQuest_T_PrimordialRuins	PrimordialRuins T0 Choice F	Analyze	Extractors
+109	BaseQuest_T_SupplyBeacon_T1_E0	SupplyBeacon_T1_E0 Choice A	Open	Food
+111	BaseQuest_T_SupplyBeacon_T1_E0	SupplyBeacon_T1_E0 Choice B	Disable	Energy
+113	BaseQuest_T_SupplyBeacon_T1_E0	SupplyBeacon_T1_E0 Choice C	Scan	Blueprints
+117	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice A	Open	Energy
+119	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice B	Inspect	Food
+121	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice C	Recover	Crew (Human)
+123	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice D	Salvage	Knowledge
+125	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice E	Search	Machinery
+127	BaseQuest_T_ZephyrusLifepod	Lifepod T0 Choice F	Bury	Electronics
+131	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice A	Loot	Blueprints
+133	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice B	Inspect	Crew (Human)
+135	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice C	Recover	Food
+137	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice D	Search	Energy
+139	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice E	Salvage	Extractors
+141	BaseQuest_T_ZephyrusWreckage	ZephyrusWreckage T0 Choice F	Survey	Knowledge

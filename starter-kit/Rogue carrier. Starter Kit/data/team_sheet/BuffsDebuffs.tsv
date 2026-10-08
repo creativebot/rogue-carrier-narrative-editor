@@ -1,0 +1,49 @@
+#	Category	Name	positive/negative	Target	Effect	Description	Effect	Value	Time
+1.0	Food	Food Savings	positive	crew	food charge lasts for 2 hours				
+2		Fasting	positive	crew	food charge lasts for 4 hours				
+3		Better Taste	positive	crew	food Morale bonuses x2 for N hours				
+4		Overeating	negative	crew	crew use x2 portions of food per hour for N hours				
+5	Morale	Weakened Morale I	negative	crew	Morale -5				
+6		Weakened Morale II	negative	crew	Morale -10				
+7		Weakened Morale III	negative	crew	Morale -20				
+8		Morale Boost I	positive	crew	gain +10 morale for N hours				
+9		Morale Boost II	positive	crew	gain +20 morale for N hours				
+10		Morale Boost III	positive	crew	gain +30 morale for N hours				
+11		Morale Stasis	positive	crew	Morale not changes for N hours				
+12	Immunity	Weakened Immunity I	negative	crew	Immunity x0.6 for N hours				
+13		Weakened Immunity II	negative	crew	Immunity x0.3 for N hours				
+14		Boosted Immunity I	positive	crew	Immunity x1.5 for N hours				
+15		Boosted Immunity II	positive	crew	Immunity x2 for N hours				
+16		Absolute Immunity	positive	crew	gain no infections for N hours				
+17	HP	Weakened Health I	negative	crew	crew HP x0.8 for N hours				
+18		Weakened Health II	negative	crew	crew HP x0.6 for N hours				
+19		Weakened Health III	negative	crew	crew HP x0.4 for N hours				
+20		Boosted Health I	positive	crew	crew HP x1.2 for N hours				
+21		Boosted Health II	positive	crew	crew HP x1.5 for N hours				
+22		Boosted Health III	positive	crew	crew HP x2 for N hours				
+23		Health Recovery	positive	crew	gain 5 HP per hour for N hours				
+24	Production Bonuses	Boosted Productivity I	positive	crew/building	productivity +25 for N hours				
+25		Boosted Productivity II	positive	crew/building	productivity +50 for N hours				
+26		Boosted Productivity III	positive	crew/building	productivity +100 for N hours				
+27		Productivity Slowdown I	negative	crew/building	crew productivity -20 for N hours				
+28		Productivity Slowdown II	negative	crew/building	crew productivity -40 for N hours				
+29		Productivity Slowdown III	negative	crew/building	crew productivity -80 for N hours				
+30	Repair, hull and buildings HP	Corrosive Mold	negative	building	integrity -5 per hour for N hours				
+31	Energy	Energy Leaks I	negative	building (consume energy)	energy consumption x1.2 for N hours				
+32		Energy Leaks II	negative	building (consume energy)	energy consumption x1.5 for N hours				
+33		Energy Leaks III	negative	building (consume energy)	energy consumption x2 for N hours				
+34		Energy Leaks I	negative	building (produce energy)	energy production -20% for {N} hours				
+35		Energy Leaks II	negative	building (produce energy)	energy production -30% for {N} hours				
+36		Energy Leaks III	negative	building (produce energy)	energy production -50% for {N} hours				
+37	Trade	Concerned {SpeciesName} traders	negative	{Species} Traders	prices x1.5 for species for N hours				
+38		Disappointed {SpeciesName} traders	negative	{Species} Traders	prices x2 for species for N hours				
+39		Angry {SpeciesName} traders	negative	{Species} Traders	prices x3 for species for N hours				
+40		Pleased {SpeciesName} Traders	positive	{Species} Traders	prices x0.9 for species for N hours				
+41		Happy {SpeciesName} Traders	positive	{Species} Traders	prices x0.8 for species for N hours				
+42		Delighted {SpeciesName} Traders	positive	{Species} Traders	prices x0.7 for species for N hours				
+43	Waste	Waste Issues I	negative	building	Waste accumulation x1.2				
+44		Waste Issues II	negative	building	Waste accumulation x1.5				
+45		Waste Issues III	negative	building	Waste accumulation x2				
+46		Sustainable Living I	positive	building	Waste accumulation x0.75				
+47		Sustainable Living II	positive	building	Waste accumulation x0.5				
+48		Sustainable Living III	positive	building	Waste accumulation x0.25				

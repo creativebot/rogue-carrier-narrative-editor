@@ -1,0 +1,7 @@
+SpeciesName	MinHealth	MaxHealth	MinStamina	MaxStamina	SleepHours	SatiationDropRate	FirstSpecializationBonus	SecondSpecializationBonus	ExplorationProbability	ShipSystemsProbability	RefineryProbability	BasicNeedsProbability	MachineryProbability	SurvivalProbability	HighTechProbability	ServiceProbability	ElectronicsProbability	EnergyProbability	ProcessingProbability	SynthesisProbability	StartMorale	StartSatiation	IconPath
+Human	300	400	350	450	7	5	Exploration	Ship Systems	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceHuman.T_RaceHuman
+Nasobi	150	250	250	400	4	3	Refinery	Basic Needs	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceNasobi.T_RaceNasobi
+Crabari	400	600	250	400	6	7	Machinery	Survival	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Engine/EngineResources/AICON-Green.AICON-Green
+Knidaria	200	300	500	600	12	1	High Tech	Service	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Game/Blueprints/UI/Crew/Textures/Race/T_RaceKnidaria.T_RaceKnidaria
+Aetherids	150	250	650	750	5	10	Electronics	Energy	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Engine/EngineResources/AICON-Green.AICON-Green
+Mistralids	200	300	200	300	2	2	Processing	Synthesis	15	20	15	15	20	15	20	15	15	15	20	15	100.0	100.0	/Engine/EngineResources/AICON-Green.AICON-Green

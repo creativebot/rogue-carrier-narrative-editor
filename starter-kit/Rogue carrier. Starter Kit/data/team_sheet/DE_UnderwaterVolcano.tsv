@@ -1,0 +1,14 @@
+Underwater Eruption		Category				
+		1.0	2.0	3.0	4.0	5.0
+Size	Diameter min	1000.0	1000.0	1000.0	1000.0	1000.0
+	Diameter max	1000.0	1000.0	1000.0	1000.0	1000.0
+Total Amount	Total number of volcanoes for the event	20.0	30.0	40.0	50.0	60.0
+Density	Eruption spreding evenly under the water Minimal disatnce to the coast is equal to Diametr max	10.0	15.0	20.0	25.0	30.0
+Behemoth Damage	Damage to the Behemoth if in the eruption circle	5.0	10.0	15.0	20.0	35.0
+Crew Damage	Chance to kill crew member without shelter	0.001	0.001	0.005	0.005	0.01
+	Chance to injure crew member without shelter	0.05	0.05	0.05	0.05	0.05
+	Damage to the crew member in %HP	0.1	0.1	0.1	0.1	0.1
+Underwater Volcano Spawn Search Radius		200000.0	200000.0	200000.0	200000.0	200000.0
+Volcano Debris Damage (per hit)	Damage to Behemoth Hull	30.0	30.0	30.0	30.0	30.0
+	Damage to the bildings (% HP)	15.0	15.0	15.0	15.0	15.0
+	Chance to injure crew member without shelter	0.02	0.02	0.02	0.02	0.02

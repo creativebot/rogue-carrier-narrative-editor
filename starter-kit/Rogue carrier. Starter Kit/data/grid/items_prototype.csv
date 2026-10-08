@@ -1,0 +1,81 @@
+id,team_id,name,kind,tier,class,consumable,rarity,branch,start_kit,icon,made_in,used_in_count
+res_01_Gold,res_01,Gold,raw,0,raw,,Exotic,,,T_Gold,,3
+res_03_Copper,res_03,Copper,raw,0,raw,,Uncommon,,,T_Copper,,7
+res_04_Iron,res_04,Iron,raw,0,raw,,Common,,,T_Metals_Fe,,16
+res_06_Chrom,res_06,Chromium,raw,0,raw,,Uncommon,,,T_Chromium,,10
+res_07_Alum,res_07,Aluminum,raw,0,raw,,Common,,,T_Metals_Al,,15
+res_08_Titan,res_08,Titanium,raw,0,raw,,Uncommon,,,T_Metals_Ti,,8
+res_10_Tung,res_10,Tungsten,raw,0,raw,,Uncommon,,,T_Metals_W,,5
+res_12_Chlor,res_12,Chlorine,raw,0,raw,,Common,,,T_Refined_Etilen,,3
+res_13_Phosph,res_13,Phosphorus,raw,0,raw,,Common,,,T_Phosphorus,,7
+res_14_Sulfur,res_14,Sulfur,raw,0,raw,,Common,,,T_Sulfur,,9
+res_15_Sodium,res_15,Sodium,raw,0,raw,,Common,,,T_Sodium,,6
+res_16_Lithium,res_16,Lithium,raw,0,raw,,Rare,,,T_Lithium,,6
+res_17_Silicon,res_17,Silicon,raw,0,raw,,Common,,,T_Ore_Tungsten,,14
+res_19_Eldrit,res_19,Eldritium,raw,0,raw,,Unique,,,T_Eldritium,,3
+res_27_HydroCarb,res_27,Hydrocarbons,raw,0,raw,,Common,,,T_Combastibles_Oil,,3
+res_28_Carbon,res_28,Carbon,raw,0,raw,,Common,,,T_Carbon,,10
+res_38_Prebiotic,res_38,Prebiotic Matter,raw,0,raw,,Common,,,T_Prebiotic,,5
+res_40_k_AminoAc,res_40,K-IV Aminoacids,raw,0,raw,,Uncommon,,,T_Amino_Acid,,4
+res_24_k_Plankton,res_24,K-IV Plankton,raw,0,raw,,Common,,,T_ET_Plankton,,6
+res_31_k_Algae,res_31,K-IV Algae,raw,0,raw,,Common,,,T_ET_Squash,,5
+res_39_k_Krill,res_39,K-IV Krill,raw,0,raw,,Common,,,T_K-IV_Krill,,4
+processing_02,processing_02,Alloyed Metal,craft,1,component,,,,,T_Alloy_Steel,Repairs Workshop (g3); Electronics Workshop (g2); Compounds Workshop (g1),38
+processing_06,processing_06,Basic Toolkit,craft,1,component,,,,,T_Basic-Tool-Kit,Tools Workshop (g3); Repairs Workshop (g1),7
+synthesis_02,synthesis_02,Biochem Compounds,craft,1,component,,,,,T_Chem-Compound,Compounds Workshop (g3); Bioengineering Workshop (g2); Bioconversion Lab (g1),5
+synthesized_01,synthesized_01,Biopolymer,craft,1,component,,,,,T_Biopolymer,Compounds Workshop (g3); Farm (g1); Bioconversion Lab (g1),32
+synthesis_03,synthesis_03,Chemical Fuel,craft,1,component,,,,,T_Chemical-Fuel,Chemistry Workshop (g3); Universum (g2),5
+synthesis_05,synthesis_05,Composite Enzymes,craft,1,component,,,,,T_Composite-Enzymes,Synthesis Workshop (g3); Chemistry Workshop (g1),5
+processing_04,processing_04,Conductive Materials,craft,1,component,,,,,T_Conductive-Materials,Tools Workshop (g3); Electronics Workshop (g2),7
+res_32,res_32,Cultured Meat,craft,1,consumable,food,,,,T_Raw_Meat,Plantation (g3); Farm (g2),2
+electronics_05,electronics_05,Electronic Components,craft,1,component,,,,,T_Holo_Display,Electronics Workshop (g3); Processing Workshop (g2),5
+res_29,res_29,Grain,craft,1,consumable,food,,,,T_Grain,Farm (g3); Universum (g2),3
+processing_01,processing_01,Metal Constructions,craft,1,component,,,,,T_Metal_Frames,Processing Workshop (g3); Tools Workshop (g1),46
+synthesis_06,synthesis_06,Mycobrick,craft,1,component,,,,,T_Mycobrick,Bioengineering Workshop (g3); Chemistry Workshop (g1),34
+synthesis_04,synthesis_04,Nanomaterials,craft,1,component,,,,,T_Graphene,Synthesis Workshop (g3); Processing Workshop (g2),11
+res_30,res_30,Omni Fruit,craft,1,consumable,food,,,,T_OmniFruit,Universum (g3); Plantation (g2),3
+res_33,res_33,Protein Mass,craft,1,consumable,food,,,,T_HPYeast,Bioengineering Workshop (g3); Synthesis Workshop (g1),6
+ammunition_01,ammunition_01,Standard Ammunition Pack,craft,1,consumable,ammo,,,,T_StandardAmmunitionPack,Chemistry Workshop (g3); Tools Workshop (g1),0
+processing_03,processing_03,Thermoplastic,craft,1,component,,,,,T_Thermoplastic,Repairs Workshop (g3); Plantation (g2),40
+food_08,food_08,Algae Preserves,craft,2,consumable,food,,,,T_Algae-Preserves,Mistralid Building (g3); Knidaria Building (g3),0
+extractor_01,extractor_01,Basic Extractor,craft,2,consumable,capsule,,,,T_ExtractorBasic,Pyrogenics Factory (g3); Container Factory (g2); Expedition Research Factory (g2); Geo Lab (g1); Nasobi Building (g1),0
+machinery_04,machinery_04,Basic Scanner,craft,2,consumable,pulse,,,,T_Basic-Scaner,Prototype Development Factory (g3); Electronics Factory (g1),6
+machinery_05,machinery_05,Battery Block,craft,2,consumable,power_cell,,,,T_Battery-Block,Component Factory (g3); Pyrogenics Factory (g1),7
+powercell_02,powercell_02,Bio Cell,craft,2,consumable,power_cell,,,,T_Biocell,Energy Research Factory (g3); Bioconversion Lab (g1); Medical Goods Factory (g1),3
+food_05,food_05,Energy Bar,craft,2,consumable,food,,,,T_Energy-Bar,Food Factory (g3); Aetherid Building (g3); Energy Research Factory (g2),1
+ammunition_02,ammunition_02,Explosive Charges,craft,2,consumable,ammo,,,,T_ExplosiveCharges,Pyrogenics Factory (g3); Prototype Development Factory (g1),0
+food_07,food_07,Fruit Paste,craft,2,consumable,food,,,,T_Fruit-Paste,Nasobi Building (g3); Mistralid Building (g3),0
+powercell_01,powercell_01,Fuel Cell,craft,2,consumable,power_cell,,,,T_FuelCell,Prototype Development Factory (g3); Geo Lab (g1); Pyrogenics Factory (g1),3
+food_06,food_06,Krill Paste,craft,2,consumable,food,,,,T_Krill-Paste,Nasobi Building (g3); Crabari Building (g3),0
+food_10,food_10,Krill Preserves,craft,2,consumable,food,,,,T_KnidariaMeal,Aetherid Building (g3); Knidaria Building (g3),0
+medres_01,medres_01,Med Gel,craft,2,consumable,medicine,,,,T_Med-Gel,Medical Goods Factory (g3); Energy Research Factory (g2),2
+electronics_02,electronics_02,Microcontrollers,craft,2,component,,,,,T_Microcontrollers,Electronics Factory (g3); Container Factory (g1),7
+questres_01,questres_01,Modular Container,craft,2,consumable,rechargeable,,,,T_Container,Container Factory (g3); Component Factory (g1),5
+processing_05,processing_05,Nano Parts,craft,2,component,,,,,T_Fuel_Rod,Nano-Tech Factory (g3); Electronics Factory (g2),10
+food_01,food_01,Nutrient Paste,craft,2,consumable,food,,,,T_Nutrient-Paste,Food Factory (g3); Crabari Building (g3); Expedition Research Factory (g2),2
+medres_04,medres_04,Personal Defence Kit,craft,2,consumable,rechargeable,,,,T_DefensiveGear,Expedition Research Factory (g3); Nano-Tech Factory (g1),1
+machinery_01,machinery_01,Propulsion Kit,craft,2,component,,,,,T_Propulsion_Kit,Nano-Tech Factory (g3); Prototype Development Factory (g1),6
+electronics_03,electronics_03,Sensors Array,craft,2,component,,,,,T_Sensors,Component Factory (g3); Electronics Factory (g1),6
+medres_03,medres_03,Stem Tissue,craft,2,consumable,medicine,,,,T_Stem-Tissue,Medical Goods Factory (g3); Food Factory (g1),1
+unitres_01,unitres_01,Worker Drone,craft,2,unit,,,,,T_WorkerUnit,Hangar (g3),0
+questres_03,questres_03,Comm-Link,craft,3,consumable,rechargeable,,,,T_Comm_Link,Smart Tools Plant (g3); Consumer Goods Plant (g2); Knidaria Building (g1),2
+extractor_02,extractor_02,D.A.R.T.,craft,3,consumable,capsule,,,,T_ControlStation,Expedition Plant (g3); Smart Tools Plant (g2); Advanced Wares Facility (g2),0
+unitres_05,unitres_05,Deep-Sea Trawler,craft,3,unit,,,,,T_Trawler,Hangar (g3),0
+unitres_02,unitres_02,Freighter,craft,3,unit,,,,,T_Cargo,Hangar (g3),0
+medres_02,medres_02,Med Kit,craft,3,consumable,medicine,,,,T_Med-Kit,Consumer Goods Plant (g3); Tactical Production Plant (g2); Mistralid Building (g1),1
+scineceres_01,scineceres_01,Multi-Tool,craft,3,component,,,,,T_Calibrator,Smart Tools Plant (g3); Tactical Production Plant (g2); Advanced Wares Facility (g2),2
+food_11,food_11,Omni-Meal,craft,3,consumable,food,,,,T_OmniMeal,Consumer Goods Plant (g3); Crabari Building (g1),0
+consumer_02,consumer_02,Portable Force Shield,craft,3,consumable,rechargeable,,,,T_ForceField,Expedition Plant (g3); Tactical Production Plant (g2); Aetherid Building (g1),3
+ammunition_03,ammunition_03,Smart Ammunition Pack,craft,3,consumable,ammo,,,,T_SmartAmmunitionPack,Advanced Tools Plant (g3); Smart Tools Plant (g2),0
+machinery_03,machinery_03,Tech Voxel,craft,3,component,,,,,T_Tech-Voxel,Advanced Tools Plant (g3); Expedition Plant (g2),8
+questres_05,questres_05,Tricoder,craft,3,consumable,rechargeable,,,,T_Tricoder,Advanced Tools Plant (g3); Consumer Goods Plant (g2),5
+extractor_03,extractor_03,Underground Deposit Extractor,craft,3,consumable,capsule,,,,T_ExtractorShallow,Tactical Production Plant (g3); Advanced Tools Plant (g2); Expedition Plant (g2),0
+electronics_01,electronics_01,AI Core,craft,4,component,,,,,T_Ai-Core,Hi-Tech Facility (g3); Robotics Facility (g2),4
+consumer_01,consumer_01,Cyberware,craft,4,consumable,implant,,,,T_Cyberware,Robotics Facility (g3); Hi-Tech Facility (g2),1
+powercell_04,powercell_04,Fusion Cell,craft,4,consumable,power_cell,,,,T_Cell_Fusion,Robotics Facility (g3); Experimental Materials Facility (g2),2
+unitres_03,unitres_03,Recon Craft,craft,4,unit,,,,,T_Scout,Hangar (g3),0
+cn_41,cn_41,Surveying Probe,craft,4,consumable,capsule,,,,T_Surveying_Probe,Experimental Materials Facility (g3); Hi-Tech Facility (g2),0
+machinery_02,machinery_02,Tech Assembly Matrix,craft,4,component,,,,,T_Assembly_Matrix,Experimental Materials Facility (g3); Advanced Wares Facility (g2),7
+powercell_05,powercell_05,Positron Cell,craft,5,program,,,,,T_PowerCell,Advanced Technology Center (g3),0
+cn_43,cn_43,Satellite,craft,5,program,,,,,T_Satellite,Satellite Control Complex (g3),0
+serviceres_02,serviceres_02,Transhuman Form,craft,5,program,,,,,T_Transhuman,Evolution Center (g3),0

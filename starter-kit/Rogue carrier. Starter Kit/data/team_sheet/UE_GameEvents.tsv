@@ -1,0 +1,8 @@
+Name	DisplayName	MaxCycles	BaseChanceMultiplier	InherentBiomes	AllowedOverlapEvents	InherentBiomesChanceMultiplier	CenterRadius	ThicknessStep	PositionChangeStep
+Storm	Storm	10	1	Shallow, Temperate, Deep Sea, Desert, Rocky, Polar, Volcanic, Tropical	EM Anomaly Zones, Underwater Volcano, Aggressive Creature Attack, Storm		3	1	8
+Hailstorm	Hailstorm	5	0.2	Shallow, Deep Sea, Temperate, Desert, Rocky, Polar, Volcanic, Tropical	EM Anomaly Zones, Underwater Volcano		1	1	8
+Aggressive Creature Attack	Aggressive Creature Attack	5	0	Tropical, Rocky, Desert, Deep Sea, Temperate	Storm, Thick Fog		3		1
+Tsunami	Tsunami	1	0	Tropical, Volcanic, Temperate, Deep Sea, Desert, Rocky	Storm, Hailstorm, Aggressive Creature Attack, Tsunami, Thick Fog, EM Anomaly Zones, Underwater Volcano		1		
+Thick Fog	Thick Fog	5	0	Tropical, Volcanic, Temperate, Shallow	EM Anomaly Zones, Underwater Volcano, Aggressive Creature Attack		2	1	2
+EM Anomaly Zones	EM Anomaly Zones	5	0	Shallow, Temperate, Deep Sea, Desert, Rocky, Polar, Volcanic, Tropical	Underwater Volcano, Storm, Hailstorm, Thick Fog		1	1	1
+Underwater Volcano	Underwater Volcano	1	0.1	Tropical, Volcanic, Shallow, Rocky	EM Anomaly Zones, Storm, Hailstorm, Thick Fog	0.4, 0.6, 0.4, 0.4	3		

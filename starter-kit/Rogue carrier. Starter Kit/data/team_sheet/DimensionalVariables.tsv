@@ -1,0 +1,69 @@
+#	Category	Variable	Function		Power Level (Rarity)	Price (in Knowledge)	Text		+Icons	Comment
+1.0	Start Resources	Starting power cell Fuel Cell x3	Contain a list of resources that will be in the Behemoth on start			2000.0		DV_GiveBioCell_x3		
+2		Starting power cell Fusion Cell	Contain a list of resources that will be in the Behemoth on start			3000.0		DV_GiveFusionCell_x1		
+3		Starting Resources Pack More Extractors	Contain a list of resources that will be in the Behemoth on start			2000.0		DV_GiveCapsules_x3		
+4		Starting Resources Pack More Food	Contain a list of resources that will be in the Behemoth on start			2000.0		DV_GiveFoodKit		
+5		Starting Resources Pack Exploration Items	Contain a list of resources that will be in the Behemoth on start			2000.0		DV_GiveExplorationKit		
+6		Starting Resources Pack Raw Resources	Contain a list of resources that will be in the Behemoth on start			2000.0		DV_GiveRawResourcesKit		
+7	Crew	All Buildings have -1 Assigned Crew Slots			3.0	3000				
+8		All Active Services have +2 Slots			2.0	2000				
+9		All crewmembers have specialization			3.0	3000				
+10		Additional Crew +10 (30 total) crew members			3.0	3000				
+11		Replace 10 crew members with Nasobi			1.0	1500				
+12		Replace 10 crew members with Aetherids			1.0	1500				
+13		Replace 10 crew members with Mistralids			1.0	1500				
+14		Replace 10 crew members with Crabari			1.0	1500				
+15		At least 10 Operations specialists are in the crew			1.0	1500				
+16		At least 10 Engineers are in the crew			1.0	1500				
+17		At least 10 Defense specialists are in the crew			1.0	1500				
+18		At least 10 Science/Medical specialists are in the crew			1.0	1500				
+19	Buildings	Behemoth starts with Unlocked Energy Program Buildings			5.0	6500		DV_UnlockBuildings_EnergyProgram		
+20		Behemoth starts with Unlocked all Tier 1 Buildings			3.0	3000		DV_UnlockBuildings_AllTier1		
+21		Behemoth starts with Unlocked Exploration Program Buildings			5.0	6500		DV_UnlockBuildings_ExplorationProgram		
+22		Behemoth starts with Unlocked Photon Gun, Gatling Gun and Grenade Launcher			3.0	3000		DV_UnlockBuildings_Turrets		
+23		Behemoth starts with Unlocked Fuel Program Buildings			5.0	6500		DV_UnlockBuildings_FuelProgram		
+24		Behemoth starts with Unlocked Solar Panels, Solar Reactor, Cyclone Energy Turbine			3.0	3000		DUPLICATE		
+25		Behemoth starts with Unlocked Medical Center			1.0	1500		DV_UnlockBuildings_MedicalCenter		
+26		Behemoth starts with Unlocked Evolution Program Buildings			5.0	6500		DV_UnlockBuildings_EvolutionCenter		
+27		Behemoth starts with Unlocked Solar Panels, Solar Reactor, Cyclone Energy Turbine			3.0	3000		DV_UnlockBuildings_CleanEnergy		
+28		Behemoth starts with Unlocked Bioconversion Lab, Geo Lab			2.0	2000		DV_UnlockBuildings_Labs		
+29		Behemoth starts with Food Chain on deck (Bioengineering Workshop, Farm, Plantation, Food Factory)			4.0	4500				
+30		Behemoth starts with Bio Cells and Recycling  (Bioconversion Lab, Synthesis Workshop)			4.0	4500		DV_UnlockBuildings_Recycling		
+31		Behemoth starts with x3 Solar Panels, x2 Small Energy Accumulator			3.0	3000				
+32		Behemoth starts with Generator			1.0	1500				
+33		Behemoth starts with x2 Residential complex			2.0	2000				
+34	Units	Behemoth starts with 5 Freighters			3.0	3000				
+35		Behemoth starts with 2 Trawlers			3.0	3000				
+36		Behemoth starts with 3 Recon Crafts			3.0	3000				
+37		Behemoth starts with 12 Deck Drones			2.0	2000				
+38	Buffs	30%  More Base Immunity	Immunity	1.3	1.0	1500				
+39		60% More  Base Immunity	Immunity	1.6	3.0	3000				
+40		100% More Base Immunity	Immunity	2.0	4.0	4500				
+41		Food Morale Bonuses x1.5			3.0	3000		DV_FoodMoraleInc_x125		
+42		Morale Bonuses x2			4.0	4500				
+43		Food Charges x1.5			3.0	3000				
+44		Food Charges x2			4.0	4500				
+45		Food Charges x4			5.0	6500				
+46		Utilities Charges x1.5			2.0	2000				
+47		Utilities Charges x2			3.0	3000				
+48		Utilities Charges x3			4.0	4500				
+49		Proficiency bonuses x2			3.0	3000				
+50		Energy Consumption Halved			4.0	4500		DV_Energy_Consumption_Dec_x05		
+51		Entropy Gain x0.6			4.0	4500				
+52		Repair cost x0.5			1.0	1500				
+53		Sailing energy use x0.75			2.0	2000				
+54		Sailing energy use x0.5			3.0	3000				
+55		Sailing energy use x0.25			4.0	4500				
+56		Storage capacity x1.5			1.0	1500				
+57		Storage capacity x2			2.0	2000				
+58		Sailing Speed x1.25			2.0	2000				
+59		Sailing Speed x1.5			3.0	3000				
+60.0	Buildings	Waste Recycling generates x3 the amount of resources	On completing each recycling cycle, quantity of resources gained from it is multiplied by 3		3.0	3000.0	Resources from any Recycling: 3x			Multiplier should be modifiable by designers
+61.0	Crew	Crew gets +1 Morale per stage per hour from Hailstorms, Thick Fog, EM Anomalies, and Underwater Volcanoes	Each hour crew spends in dangerous event that is not Storm, they gain 1 Morale per event per category		4.0	4500.0	Morale bonus from dangerous events, excluding Storm: +1 per Category			Morale bonus should be modifiable by designers
+62.0	Crew	For each species with at least 2 crew members, spawn 1 additional member every 5 hours.	If there are at least 2 crewmembers of some species on board for 5 minutes, another crewmember of that species appears, as if they were hired or unfrozen		3.0	3000.0	For each species with at least 2 crew members, spawn 1 additional member every 5 minutes.			Timer and amount of crewmembers to spawn should be modifiable by designers
+63.0	World	All non-event Dangerous Creatures' start aggression: 50%	All dangerous creatures not spawned by event start at Flee or Neutral level of aggression		4.0	4500.0	All non-event dangerous creatures start at Neutral level of aggression	Non-event creatures? Is aggression percentile?		
+64.0	Crew	Crewmembers get +6 Immunity bonus when starving	When a crewmember has Hungry status effect, they temporarily gain +6 Immunity bonus		3.0	3000.0				Immunity bonus should be modifiable by designers
+65.0	Buildings	Every RnD lab reroll has 25% chance of unlocking a random building. Amount of blueprints in Stashes is reduced by 25%.			2.0	2000.0	25% chance of one extra random building unlocking per RnD Lab research. Amount of blueprints in the world is reduced by 25%.	Any UX changes here?		Both percentiles should be modifiable by designers
+66.0	Buildings	Behemoth's hull integrity increases by 100 for each building on deck			4.0	4500.0		Max and current integrity? What about sorting zone and previews		Integrity increase step should be modifiable by designers
+67.0	Buffs	Behemoth's movement generates 50 Energy per each kts of speed			5.0	6500.0				Energy amount should be modifiable by designers
+68.0	Crew	Each crewmember of new species on deck adds 10% chance of producing double resoruce per line per cycle			3.0	3000.0		Unique crewmember?		Chance increase percentile should be modifiable by designers

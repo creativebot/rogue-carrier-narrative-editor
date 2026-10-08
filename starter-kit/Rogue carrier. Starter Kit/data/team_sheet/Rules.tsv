@@ -1,0 +1,30 @@
+		Rules	
+1.0	Recipe	The recipe uses from one to three ingredients	
+2.0	Recipe	A recipe can use different replsements for each of the ingredients	
+3.0	Tier	Only components with lower or equal Tier are used in the recipe	
+4.0	Rarity	If an ingredient has different variants of components, the ingredient with the lowest rarity is used in the recipe by default. For components with higher rarity recipe uses a 50% less amount with each rarity level.	
+5.0	Efficiency		
+6.0	Product Line	One product line for one product in the building	
+			
+			
+			
+	Sheets	Sheet columns description	Sheet columns description
+	Rsources Manufactured Consumables	These sheets contain a list of resources and recipes.	Resource - name of th resource Short Name - Short name of the resource (for tips) Rarity - the rarity of the resource. Required to adjust the biome generator, and also for some recipe rules Tier - Required to check the recipe and production balance Type - Additional parameter, parsing not needed Tag - Additional parameter, parsing not needed Description - description of the resource Ingredients are the components of a resource (if it is produced). The recipe can be empty, for example, for water, ore or other specific resources. Each ingredient can have up to 5 alternatives. If an ingredient has an alternative, it is written with a ”, ” separator. Ingredient 1 - Name of the ingridient 1 I1 count - count of Ingridient 1 Ingredient 2 - Name of the ingridient 2 I2 count - count of Ingridient 2 Ingredient 3 - Name of the ingridient 3 I3 count - count of Ingridient 3 Result Amount - the amount of resource you get
+			
+			
+	Resources Tags		
+	Ore		
+	Gas		
+	Liquid		
+	Harvest/Collect		
+	Grow		
+	Synthesized		
+	Solid		
+	Metal		
+	Native Mineral		
+	Liquid Raw		
+	Orgnaic Material		
+	Orgnaic Liquid		
+	Nonmetal		
+	Metalloid		
+	Native Metal		

@@ -1,0 +1,98 @@
+Tier	Name	Category	Subcategory	Unified Subcategories	Description	Status as of June 25
+Tier 0 (ship compounds)						
+	Power Unit	Systems			Provides initial enegry to Behemoth powered by fusion core. Aside from energy, can be used to power the engine for slow movement.	Implemented
+	Capsule Launcher	Systems			A 360 degree gun that allows shooting extraction capsules on islands. Also allows capsule production.	Implemented
+	R&D Lab	Systems			Allows research of building blueprints based on collectible blueprint parts	Implemented
+	Sensor system	Systems			Provides information about surroundings: islands, resources, POIs, events etc. as well as territory control radius	Implemented
+	Engine	Systems			Powers the Behemoth's movement based on fuel cells, energy generators, and other types of power	Implemented
+						
+Tier 1 (always available and essential)						
+						
+	Base Material Workshop					Implemented
+	Canteen					Implemented
+	General quarters	Services				Implemented
+	Artifacts Lab	Advanced Tech				Implemented
+	Water Filter	Energy				Implemented
+	Hangar	Exploration	Exploration	Exploration		Implemented
+	Resource Allocation Center	Basic				Implemented
+						
+Tier 2-5 (unlockable and variable each run)						
+						
+	Plantation	Workshop				Implemented
+	Provisions Hub					Implemented
+	Submarine Hangar					not implemented
+	Wardroom					Implemented
+	Mess Hall					Implemented
+	Greenhouse					Implemented
+	Algae Farm					Implemented
+	Vertical Farm					Implemented
+	Bioengineering Facility					Implemented
+	Medbay					Implemented
+	Health Care Center					not implemented
+	Social dome	Services				not implemented
+	Efficiency workshop					Implemented
+	Academy					Implemented
+	Holodeck	Services				not implemented
+	Alliance Center	Services				not implemented
+	Human quarters					Implemented
+	Knidaria quarters					Implemented
+	Nasobi quarters					Implemented
+	Control Station					not implemented
+	Advanced Control Station					not implemented
+	Weather Station					not implemented
+	Satellite Control Complex	Advanced Tech				not implemented
+	Advanced Water Filter					Implemented
+	Fuel Generator					Implemented
+	Bio reactor					Implemented
+	Radiolytic Power Block					Implemented
+	Cyclone Energy Turbine	Energy				Implemented
+	Solar Reactor	Energy				Implemented
+	Energy accumulator	Energy				Implemented
+	Fusion Core Unit	Energy				Implemented
+	Hadron collider					Implemented
+	Harpoon					not implemented
+	Gatling gun	Defense				not implemented
+	Railgun					not implemented
+	Siege cannon					not implemented
+	Active defense system	Defense				not implemented
+	Force shield					not implemented
+	Bio Recycling Station					in progress
+	Chemical Recycling Station					in progress
+	Manufacterd Recycling Station					in progress
+	Resource Hub					Implemented
+	Elements Processing Plant					not implemented
+	Purificatory Processor					not implemented
+	Catalytic Conversion Complex					not implemented
+	Molecular Refinery					not implemented
+	Ore Refinery Plant					not implemented
+	Metallurgical Refining Unit					not implemented
+	Plasma Print Foundry					Implemented
+	Molecular Forging Unit					Implemented
+	Compression Unit					Implemented
+	Formation Station					Implemented
+	Advanced Materials Printing Unit					Implemented
+	Synthesis Facility					Implemented
+	Synthesis Plant					Implemented
+	Chem-processing Unit					Implemented
+	Chemical Processor					Implemented
+	Biochem Plant					Implemented
+	Technical Production Center					Implemented
+	Machine Shop					Implemented
+	Hardware Facility					Implemented
+	Universal Fabrication Unit					Implemented
+	Mech Assembler					Implemented
+	Electronics Production Unit					Implemented
+	Electronics Hub					Implemented
+	TechNode Tower					Implemented
+	Technoplex					Implemented
+	MicroChip Assembly Station					Implemented
+	Advanced Technology Center	Advanced Tech				Implemented
+	High-Tec Assembly Unit					Implemented
+	CyberForge					Implemented
+	Antimatter Fusion Core Unit					not implemented
+	Gaiasphere					not implemented
+	Nasobi Ritual Site					not implemented
+	Knidaria Ritual Site					not implemented
+	Aetherid Ritual Site					not implemented
+	Crabari Ritual Site					not implemented
+	Mistralid Ritual Site					not implemented

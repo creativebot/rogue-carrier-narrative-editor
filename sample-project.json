@@ -1,0 +1,239 @@
+{
+  "version": "2.0.0",
+  "projectInfo": {
+    "name": "Rogue Carrier Scenario 1: Zephyrus Collapse",
+    "author": "Wild Fields Narrative Team",
+    "lastSaved": "2026-10-04T21:15:00Z"
+  },
+  "variations": [
+    {
+      "id": "var_v1",
+      "timelineId": "Timeline 1 - Keeling Orbit",
+      "name": "Variation 1: The Moment after the End",
+      "description": "Primary storyline following the aftermath of Zephyrus mothership collapse.",
+      "keyEventChainRootId": "node_a0",
+      "secretEventIds": ["node_secret_1"],
+      "assignedGenericEventIds": ["node_gen_1", "node_gen_2"],
+      "assignedDeckEventIds": ["node_deck_1"]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node_a0",
+      "codename": "L3-V1-Q1-A0",
+      "name": "The Moment after the End",
+      "type": "Deck",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "Immediately after the Zephyrus collapse scene (or tutorial sequence)",
+      "eventIntro": "",
+      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder, aka the orange box, must be retrieved.",
+      "reactionTimerHours": 0,
+      "position": { "x": 600, "y": 80 },
+      "actions": [
+        {
+          "id": "act_a0_1",
+          "codeSuffix": "1A",
+          "shortDescription": "Build a transmitter",
+          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
+          "requirements": [
+            { "resourceId": "processing_01", "name": "Metal Constructions", "amount": 1, "iconImg": "icons/T_Metal_Frames.png" },
+            { "resourceId": "electronics_05", "name": "Electronic Components", "amount": 1, "iconImg": "icons/T_Microcontrollers.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
+          "rewards": ["None"],
+          "consequences": ["Knowledge +300", "+ BLUEPRINTS"],
+          "targetNodeId": "node_1a"
+        },
+        {
+          "id": "act_a0_2",
+          "codeSuffix": "1B",
+          "shortDescription": "Process the data",
+          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the orange box (flight recorder) should be contained.",
+          "requirements": [
+            { "resourceId": "processing_04", "name": "Conductive Materials", "amount": 1, "iconImg": "icons/T_Conductive-Materials.png" },
+            { "resourceId": "synthesis_01", "name": "Thermoplastic", "amount": 1, "iconImg": "icons/T_Thermoplastic.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
+          "rewards": ["Morale -1"],
+          "consequences": ["Knowledge +300"],
+          "targetNodeId": "node_1b"
+        }
+      ],
+      "inactionThreat": {
+        "consequenceText": "Player Inaction penalty: Delay in locating Zephyrus recorder."
+      }
+    },
+    {
+      "id": "node_1a",
+      "codename": "L1-V1-Q1-1A",
+      "name": "The Moment after the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Triggered by Transmitter completion (1A)",
+      "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
+      "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
+      "reactionTimerHours": 5,
+      "position": { "x": 150, "y": 620 },
+      "actions": [
+        {
+          "id": "act_1a_1",
+          "codeSuffix": "2A",
+          "shortDescription": "Comb the island",
+          "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
+          "requirements": [
+            { "resourceId": "machinery_03", "name": "Defense Kit", "amount": 1, "iconImg": "icons/T_DefensiveGear.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod.",
+          "rewards": ["None"],
+          "consequences": ["Knowledge +350", "Prebiotic Matter", "Morale -1"],
+          "targetNodeId": "node_2a"
+        },
+        {
+          "id": "act_1a_2",
+          "codeSuffix": "2B",
+          "shortDescription": "Examine the pod",
+          "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
+          "requirements": [
+            { "resourceId": "questres_03", "name": "Tricorder", "amount": 1, "iconImg": "icons/T_Tricoder.png" },
+            { "resourceId": "processing_03", "name": "Modular Container", "amount": 1, "iconImg": "icons/T_Container.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing.",
+          "rewards": ["None"],
+          "consequences": ["Knowledge +350"],
+          "targetNodeId": "node_2b",
+          "triggeredDialogueId": "diag_2b"
+        }
+      ],
+      "inactionThreat": {
+        "consequenceText": "Player Inaction penalty: Survivors perish."
+      }
+    },
+    {
+      "id": "node_1b",
+      "codename": "L1-V1-Q1-1B",
+      "name": "The Moment after the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Triggered by Data Analysis completion (1B)",
+      "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
+      "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars. And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
+      "reactionTimerHours": 6,
+      "position": { "x": 1050, "y": 620 },
+      "actions": [
+        {
+          "id": "act_1b_1",
+          "codeSuffix": "2B",
+          "shortDescription": "Disassemble",
+          "description": "Slowly and carefully, like handling a bomb that is one wrong move away from exploding, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards.",
+          "requirements": [
+            { "resourceId": "ammunition_03", "name": "Explosive Charges", "amount": 1, "iconImg": "icons/T_ExplosiveCharges.png" }
+          ],
+          "timerHours": 6,
+          "resultDescription": "They manage to extract many components and useful implements, but not the one you hoped to find. The orange box is not here, and it never has been.",
+          "rewards": ["Knowledge +400"],
+          "consequences": ["Mnemosyne recalculates crash site"],
+          "targetNodeId": "node_2b"
+        }
+      ],
+      "inactionThreat": {
+        "consequenceText": "Player Inaction penalty: Fragment sinks."
+      }
+    },
+    {
+      "id": "node_2a",
+      "codename": "L1-V1-Q1-2A",
+      "name": "The Moment after the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "After 1A resolution",
+      "eventIntro": "",
+      "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
+      "reactionTimerHours": 5,
+      "position": { "x": 150, "y": 1200 },
+      "actions": [],
+      "inactionThreat": { "consequenceText": "Predators overwhelm scouts." }
+    },
+    {
+      "id": "node_2b",
+      "codename": "L1-V1-Q1-2B",
+      "name": "The Moment after the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Distress signal picked up from missing lifeboat",
+      "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
+      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for. People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
+      "reactionTimerHours": 5,
+      "position": { "x": 600, "y": 1200 },
+      "actions": [
+        {
+          "id": "act_2b_1",
+          "codeSuffix": "3A",
+          "shortDescription": "Treat survivors",
+          "description": "Bring the survivors to the ship and provide them with all necessary medical help.",
+          "requirements": [
+            { "resourceId": "medres_01", "name": "Med Kit", "amount": 1, "iconImg": "icons/T_Med-Kit.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts return with the blood-crying survivors, and the fight for their lives begins. Based on preliminary examination, the virus appears to be a mutated strain of Ebola.",
+          "rewards": ["Crew +3"],
+          "consequences": ["Knowledge +400", "[Contagious survivors]=1"],
+          "targetNodeId": "node_3b"
+        },
+        {
+          "id": "act_2b_2",
+          "codeSuffix": "3B",
+          "shortDescription": "Study distantly",
+          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
+          "requirements": [
+            { "resourceId": "machinery_01", "name": "Basic Scanner", "amount": 1, "iconImg": "icons/T_BasicScanner.png" }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research.",
+          "rewards": ["Morale -2"],
+          "consequences": ["Knowledge +400", "[Contagious survivors]=1"],
+          "targetNodeId": "node_3b"
+        }
+      ],
+      "inactionThreat": {
+        "consequenceText": "Infection spreads uncontrollably."
+      },
+      "triggeredDialogueId": "diag_2b"
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "diag_2b",
+      "targetEventId": "node_2b",
+      "triggerCondition": "When L1-V1-Q1-2B starts:",
+      "position": { "x": 1050, "y": 1200 },
+      "lines": [
+        { "id": "l1", "speakerId": "mnemosyne", "speakerName": "Mnemosyne", "text": "Captain, we've got an incoming transmission from the lifeboat." },
+        { "id": "l2", "speakerId": "voss", "speakerName": "Voss", "text": "Finally... let me speak to them." },
+        { "id": "l3", "speakerId": "voss", "speakerName": "Voss", "text": "This is Elias Voss, the captain of BCEV-07M, speaking. Can someone hear me?" },
+        { "id": "l4", "speakerId": "survivor", "speakerName": "Survivor (generic icon)", "text": "Is... is this real? Or am I... imagining this?" },
+        { "id": "l5", "speakerId": "voss", "speakerName": "Voss", "text": "I reassure you, this is quite true. We've come to help you." },
+        { "id": "l6", "speakerId": "survivor", "speakerName": "Survivor (generic icon)", "text": "Oh, thank goodness." },
+        { "id": "l7", "speakerId": "voss", "speakerName": "Voss", "text": "Listen... is it true that there is a child with you?" },
+        { "id": "l8", "speakerId": "survivor", "speakerName": "Survivor (generic icon)", "text": "Yes, I've got my daughter here." },
+        { "id": "l9", "speakerId": "voss", "speakerName": "Voss", "text": "Your daughter? I... I see." },
+        { "id": "l10", "speakerId": "survivor", "speakerName": "Survivor (generic icon)", "text": "Um, listen, you have doctors on the ship, right?" },
+        { "id": "l11", "speakerId": "voss", "speakerName": "Voss", "text": "Is someone hurt?" },
+        { "id": "l12", "speakerId": "survivor", "speakerName": "Survivor (generic icon)", "text": "We think we've... um, contracted something on that island. We're not feeling too well. Please, help us. It hurts so much." }
+      ]
+    }
+  ]
+}

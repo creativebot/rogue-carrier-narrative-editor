@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "email": "dpoludonnyi@n-ix.com",
+      "name": "Daniel Poludyonny",
+      "role": "admin",
+      "status": "approved",
+      "createdAt": "2026-10-08T10:38:44.834639Z",
+      "lastLogin": "2026-10-08T14:08:27.695199Z",
+      "picture": null
+    },
+    {
+      "email": "oseliutin@n-ix.com",
+      "name": "Oleksandr Seliutin",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-08T14:08:37.207970Z",
+      "lastLogin": "2026-10-08T14:08:37.207970Z"
+    },
+    {
+      "email": "mlysytska@n-ix.com",
+      "name": "Maiia Lysytska",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-08T14:11:08.639044Z",
+      "lastLogin": "2026-10-08T14:11:08.639044Z"
+    }
+  ]
+}

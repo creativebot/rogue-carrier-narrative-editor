@@ -1,0 +1,62 @@
+{
+  "about": "Current map generator settings (the engine values as of 2026-10-01). worldgen/worldgen.js uses these as WorldGen.DEFAULTS; WorldGen.settingsFromJson(thisFile) reads this file back. Explained in docs/02_WORLD.md.",
+  "noiseFormula": "For each octave o = 0..Octaves-1: Sum += PerlinNoise2D(X * PatternScale * 2^o / NoiseScale + Seed, Y * PatternScale * 2^o / NoiseScale + Seed) / 2^o. Value = Sum * Multiplier + Offset. X, Y = tile column and row. Seed = the layer's seed (only seed mod 256 matters).",
+  "settings": {
+    "width":            { "value": 100,   "unit": "tiles", "meaning": "Map width. One tile is a 2.5 km square." },
+    "height":           { "value": 100,   "unit": "tiles", "meaning": "Map height." },
+    "startClear":       { "value": 1,     "unit": "tiles", "meaning": "Tiles within this distance of the centre tile (counted like a king moves in chess) are always empty: no island, big island or water object. 1 = the 3x3 block around the centre tile; 0 = off." },
+
+    "islandPattern":    { "value": 1,     "unit": "factor", "meaning": "Islands noise, Pattern Scale. Larger = smaller, denser shapes. Only Pattern Scale / Noise Scale matters." },
+    "islandNoise":      { "value": 1.4,   "unit": "factor", "meaning": "Islands noise, Noise Scale. Larger = bigger, clumpier land shapes. If Noise Scale / Pattern Scale is 1, 2, 4, 8 ..., some octaves fall on whole coordinates and add nothing (1 = no land at all)." },
+    "islandOctaves":    { "value": 12,    "unit": "count",  "meaning": "Islands noise, octaves (layers of detail). More = more ragged coasts and specks of land." },
+    "islandOffset":     { "value": 0,     "unit": "noise units", "meaning": "Added to the islands noise value. Positive = more land." },
+    "islandMultiplier": { "value": 1,     "unit": "factor", "meaning": "Multiplies the islands noise sum before Offset." },
+    "islandThreshold":  { "value": 0.5,   "unit": "noise units", "meaning": "Perlin Modifier: the land threshold. A tile whose islands noise value is above it is land (one small island). Higher = fewer islands." },
+    "bigPercent":       { "value": 0.15,  "unit": "share (0.15 = 15%)", "meaning": "Big island %: each biome gets round(this x its small-island count) big islands (2x2 stamps)." },
+
+    "biomePattern":     { "value": 0.5,   "unit": "factor", "meaning": "Biomes noise, Pattern Scale. Larger = smaller biome areas." },
+    "biomeNoise":       { "value": 8,     "unit": "factor", "meaning": "Biomes noise, Noise Scale. Larger = wider biome areas." },
+    "biomeOctaves":     { "value": 4,     "unit": "count",  "meaning": "Biomes noise, octaves. More = more ragged biome borders." },
+    "biomeOffset":      { "value": 0,     "unit": "noise units", "meaning": "Added to every biome value: positive shifts the map towards Desert, negative towards Polar." },
+    "biomeMultiplier":  { "value": 1,     "unit": "factor", "meaning": "Stretches biome values away from 0: above 1, the edge biomes (Polar, Desert) get more room." },
+
+    "subOn":            { "value": false, "unit": "true/false", "meaning": "Sub-biomes. Off in the game. When on, an interval that names two or three biomes is split between them by a separate noise." },
+    "subPattern":       { "value": 0.5,   "unit": "factor", "meaning": "Sub-biomes noise, Pattern Scale (used only when subOn is true)." },
+    "subNoise":         { "value": 8,     "unit": "factor", "meaning": "Sub-biomes noise, Noise Scale." },
+    "subOctaves":       { "value": 4,     "unit": "count",  "meaning": "Sub-biomes noise, octaves." },
+    "subOffset":        { "value": 0,     "unit": "noise units", "meaning": "Sub-biomes noise, Offset." },
+    "subMultiplier":    { "value": 1,     "unit": "factor", "meaning": "Sub-biomes noise, Multiplier." },
+
+    "waterMode":        { "value": "competition", "unit": "competition | parallel", "meaning": "What happens when several water objects claim one water tile. competition (the game today): the highest noise value takes it, the others lose it; a tie goes to the earlier row. parallel (planned mechanic): every claimant keeps it, so one tile can hold up to three objects." }
+  },
+  "biomeFields": {
+    "min": "Lowest biome-noise value of the interval (inclusive).",
+    "max": "Highest value (exclusive). Values outside every interval go to the nearest interval, so the ends also take values below -1 or above 1.",
+    "names": "The biome of the interval. Two or three names only matter when sub-biomes are on. An interval with min = max is switched off."
+  },
+  "biomes": [
+    { "min": -1,   "max": -0.7, "names": ["Polar"] },
+    { "min": -0.7, "max": -0.4, "names": ["Rocky"] },
+    { "min": -0.4, "max": -0.2, "names": ["Volcanic"] },
+    { "min": -0.2, "max": 0.1,  "names": ["Temperate"] },
+    { "min": 0.1,  "max": 0.4,  "names": ["Tropical"] },
+    { "min": 0.4,  "max": 0.7,  "names": ["Shallow"] },
+    { "min": 0.7,  "max": 1,    "names": ["Desert"] }
+  ],
+  "waterObjectFields": {
+    "key": "Short id used in WorldGen output (map.water.<key>).",
+    "name": "Display name.",
+    "noiseScale": "Noise Scale of the object's own noise.",
+    "patternScale": "Pattern Scale of the object's own noise.",
+    "octaves": "Octaves of the object's noise (4 for each: the team's answer, the engine panel does not show it).",
+    "offset": "Added to the noise value.",
+    "multiplier": "Multiplies the noise sum before Offset.",
+    "threshold": "The object claims a water tile where its noise value is above this. Higher = fewer tiles.",
+    "on": "false = the object is not generated."
+  },
+  "waterObjects": [
+    { "key": "reef",     "name": "Reef",            "noiseScale": 1,   "patternScale": 1.1, "octaves": 4, "offset": 0, "multiplier": 1, "threshold": 0.3, "on": true },
+    { "key": "seaweed",  "name": "Seaweed",         "noiseScale": 1.1, "patternScale": 1,   "octaves": 4, "offset": 0, "multiplier": 1, "threshold": 0.2, "on": true },
+    { "key": "floating", "name": "Floating island", "noiseScale": 1,   "patternScale": 1.1, "octaves": 4, "offset": 0, "multiplier": 1, "threshold": 0.5, "on": true }
+  ]
+}

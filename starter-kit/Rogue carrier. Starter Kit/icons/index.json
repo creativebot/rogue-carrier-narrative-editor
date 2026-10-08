@@ -1,0 +1,2223 @@
+[
+ {
+  "key": "b_accomm_01__General_quarters",
+  "small": "icons/small/b_accomm_01__General_quarters.png",
+  "large": "icons/256/b_accomm_01__General_quarters.png",
+  "entities": [
+   {
+    "id": "b_accomm_01",
+    "name": "General quarters",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_accomm_02__Residential_Complex",
+  "small": "icons/small/b_accomm_02__Residential_Complex.png",
+  "large": "icons/256/b_accomm_02__Residential_Complex.png",
+  "entities": [
+   {
+    "id": "b_accomm_02",
+    "name": "Residential Complex",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_03__Generator",
+  "small": "icons/small/b_energy_03__Generator.png",
+  "large": "icons/256/b_energy_03__Generator.png",
+  "entities": [
+   {
+    "id": "b_energy_03",
+    "name": "Generator",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_06__Cyclone_Energy_Turbine",
+  "small": "icons/small/b_energy_06__Cyclone_Energy_Turbine.png",
+  "large": "icons/256/b_energy_06__Cyclone_Energy_Turbine.png",
+  "entities": [
+   {
+    "id": "b_energy_06",
+    "name": "Cyclone Energy Turbine",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_07__Solar_Reactor",
+  "small": "icons/small/b_energy_07__Solar_Reactor.png",
+  "large": "icons/256/b_energy_07__Solar_Reactor.png",
+  "entities": [
+   {
+    "id": "b_energy_07",
+    "name": "Solar Reactor",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_08__Energy_Accumulator",
+  "small": "icons/small/b_energy_08__Energy_Accumulator.png",
+  "large": "icons/256/b_energy_08__Energy_Accumulator.png",
+  "entities": [
+   {
+    "id": "b_energy_08",
+    "name": "Energy Accumulator",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_09__Fusion_Core_Unit",
+  "small": "icons/small/b_energy_09__Fusion_Core_Unit.png",
+  "large": "icons/256/b_energy_09__Fusion_Core_Unit.png",
+  "entities": [
+   {
+    "id": "b_energy_09",
+    "name": "Fusion Core Unit",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_11__Solar_Panels",
+  "small": "icons/small/b_energy_11__Solar_Panels.png",
+  "large": "icons/256/b_energy_11__Solar_Panels.png",
+  "entities": [
+   {
+    "id": "b_energy_11",
+    "name": "Solar Panels",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energy_12__Small_Energy_Accumulator",
+  "small": "icons/small/b_energy_12__Small_Energy_Accumulator.png",
+  "large": "icons/256/b_energy_12__Small_Energy_Accumulator.png",
+  "entities": [
+   {
+    "id": "b_energy_12",
+    "name": "Small Energy Accumulator",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_energyprogram_t5_01__Antimatter_Core_Unit",
+  "small": "icons/small/b_energyprogram_t5_01__Antimatter_Core_Unit.png",
+  "large": "icons/256/b_energyprogram_t5_01__Antimatter_Core_Unit.png",
+  "entities": [
+   {
+    "id": "b_energyprogram_t5_01",
+    "name": "Antimatter Core Unit",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_evolutionprogram_t5_01__Evolution_Center",
+  "small": "icons/small/b_evolutionprogram_t5_01__Evolution_Center.png",
+  "large": "icons/256/b_evolutionprogram_t5_01__Evolution_Center.png",
+  "entities": [
+   {
+    "id": "b_evolutionprogram_t5_01",
+    "name": "Evolution Center",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_exploration_01__Artifacts_Lab",
+  "small": "icons/small/b_exploration_01__Artifacts_Lab.png",
+  "large": "icons/256/b_exploration_01__Artifacts_Lab.png",
+  "entities": [
+   {
+    "id": "b_exploration_01",
+    "name": "Artifacts Lab",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_explorationprogram_t5_01__Satellite_Control_Complex",
+  "small": "icons/small/b_explorationprogram_t5_01__Satellite_Control_Complex.png",
+  "large": "icons/256/b_explorationprogram_t5_01__Satellite_Control_Complex.png",
+  "entities": [
+   {
+    "id": "b_explorationprogram_t5_01",
+    "name": "Satellite Control Complex",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_locals_t3_05__Knidaria_Building",
+  "small": "icons/small/b_locals_t3_05__Knidaria_Building.png",
+  "large": "icons/256/b_locals_t3_05__Knidaria_Building.png",
+  "entities": [
+   {
+    "id": "b_locals_t3_05",
+    "name": "Knidaria Building",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_powerprogram_t5_01__Advanced_Technology_Center",
+  "small": "icons/small/b_powerprogram_t5_01__Advanced_Technology_Center.png",
+  "large": "icons/256/b_powerprogram_t5_01__Advanced_Technology_Center.png",
+  "entities": [
+   {
+    "id": "b_powerprogram_t5_01",
+    "name": "Advanced Technology Center",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_01__Resource_Allocation_Center",
+  "small": "icons/small/b_production_01__Resource_Allocation_Center.png",
+  "large": "icons/256/b_production_01__Resource_Allocation_Center.png",
+  "entities": [
+   {
+    "id": "b_production_01",
+    "name": "Resource Allocation Center",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_01__Tools_Workshop",
+  "small": "icons/small/b_production_t1_01__Tools_Workshop.png",
+  "large": "icons/256/b_production_t1_01__Tools_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_01",
+    "name": "Tools Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_02__Electronics_Workshop",
+  "small": "icons/small/b_production_t1_02__Electronics_Workshop.png",
+  "large": "icons/256/b_production_t1_02__Electronics_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_02",
+    "name": "Electronics Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_03__Repairs_Workshop",
+  "small": "icons/small/b_production_t1_03__Repairs_Workshop.png",
+  "large": "icons/256/b_production_t1_03__Repairs_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_03",
+    "name": "Repairs Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_04__Processing_Workshop",
+  "small": "icons/small/b_production_t1_04__Processing_Workshop.png",
+  "large": "icons/256/b_production_t1_04__Processing_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_04",
+    "name": "Processing Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_05__Synthesis_Workshop",
+  "small": "icons/small/b_production_t1_05__Synthesis_Workshop.png",
+  "large": "icons/256/b_production_t1_05__Synthesis_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_05",
+    "name": "Synthesis Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_06__Compounds_Workshop",
+  "small": "icons/small/b_production_t1_06__Compounds_Workshop.png",
+  "large": "icons/256/b_production_t1_06__Compounds_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_06",
+    "name": "Compounds Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_07__Chemistry_Workshop",
+  "small": "icons/small/b_production_t1_07__Chemistry_Workshop.png",
+  "large": "icons/256/b_production_t1_07__Chemistry_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_07",
+    "name": "Chemistry Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_08__Bioengineering_Workshop",
+  "small": "icons/small/b_production_t1_08__Bioengineering_Workshop.png",
+  "large": "icons/256/b_production_t1_08__Bioengineering_Workshop.png",
+  "entities": [
+   {
+    "id": "b_production_t1_08",
+    "name": "Bioengineering Workshop",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_09__Farm",
+  "small": "icons/small/b_production_t1_09__Farm.png",
+  "large": "icons/256/b_production_t1_09__Farm.png",
+  "entities": [
+   {
+    "id": "b_production_t1_09",
+    "name": "Farm",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_10__Plantation",
+  "small": "icons/small/b_production_t1_10__Plantation.png",
+  "large": "icons/256/b_production_t1_10__Plantation.png",
+  "entities": [
+   {
+    "id": "b_production_t1_10",
+    "name": "Plantation",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t1_11__Universum",
+  "small": "icons/small/b_production_t1_11__Universum.png",
+  "large": "icons/256/b_production_t1_11__Universum.png",
+  "entities": [
+   {
+    "id": "b_production_t1_11",
+    "name": "Universum",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_01__Electronics_Factory",
+  "small": "icons/small/b_production_t2_01__Electronics_Factory.png",
+  "large": "icons/256/b_production_t2_01__Electronics_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_01",
+    "name": "Electronics Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_02__Pyrogenics_Factory",
+  "small": "icons/small/b_production_t2_02__Pyrogenics_Factory.png",
+  "large": "icons/256/b_production_t2_02__Pyrogenics_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_02",
+    "name": "Pyrogenics Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_03__Nano-Tech_Factory",
+  "small": "icons/small/b_production_t2_03__Nano-Tech_Factory.png",
+  "large": "icons/256/b_production_t2_03__Nano-Tech_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_03",
+    "name": "Nano-Tech Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_04__Prototype_Development_Factory",
+  "small": "icons/small/b_production_t2_04__Prototype_Development_Factory.png",
+  "large": "icons/256/b_production_t2_04__Prototype_Development_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_04",
+    "name": "Prototype Development Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_05__Container_Factory",
+  "small": "icons/small/b_production_t2_05__Container_Factory.png",
+  "large": "icons/256/b_production_t2_05__Container_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_05",
+    "name": "Container Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_06__Expedition_Research_Factory",
+  "small": "icons/small/b_production_t2_06__Expedition_Research_Factory.png",
+  "large": "icons/256/b_production_t2_06__Expedition_Research_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_06",
+    "name": "Expedition Research Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_07__Energy_Research_Factory",
+  "small": "icons/small/b_production_t2_07__Energy_Research_Factory.png",
+  "large": "icons/256/b_production_t2_07__Energy_Research_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_07",
+    "name": "Energy Research Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_08__Component_Factory",
+  "small": "icons/small/b_production_t2_08__Component_Factory.png",
+  "large": "icons/256/b_production_t2_08__Component_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_08",
+    "name": "Component Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_09__Medical_Goods_Factory",
+  "small": "icons/small/b_production_t2_09__Medical_Goods_Factory.png",
+  "large": "icons/256/b_production_t2_09__Medical_Goods_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_09",
+    "name": "Medical Goods Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t2_10__Food_Factory",
+  "small": "icons/small/b_production_t2_10__Food_Factory.png",
+  "large": "icons/256/b_production_t2_10__Food_Factory.png",
+  "entities": [
+   {
+    "id": "b_production_t2_10",
+    "name": "Food Factory",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t3_01__Advanced_Tools_Plant",
+  "small": "icons/small/b_production_t3_01__Advanced_Tools_Plant.png",
+  "large": "icons/256/b_production_t3_01__Advanced_Tools_Plant.png",
+  "entities": [
+   {
+    "id": "b_production_t3_01",
+    "name": "Advanced Tools Plant",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t3_02__Expedition_Plant",
+  "small": "icons/small/b_production_t3_02__Expedition_Plant.png",
+  "large": "icons/256/b_production_t3_02__Expedition_Plant.png",
+  "entities": [
+   {
+    "id": "b_production_t3_02",
+    "name": "Expedition Plant",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t3_03__Smart_Tools_Plant",
+  "small": "icons/small/b_production_t3_03__Smart_Tools_Plant.png",
+  "large": "icons/256/b_production_t3_03__Smart_Tools_Plant.png",
+  "entities": [
+   {
+    "id": "b_production_t3_03",
+    "name": "Smart Tools Plant",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t3_04__Tactical_Production_Plant",
+  "small": "icons/small/b_production_t3_04__Tactical_Production_Plant.png",
+  "large": "icons/256/b_production_t3_04__Tactical_Production_Plant.png",
+  "entities": [
+   {
+    "id": "b_production_t3_04",
+    "name": "Tactical Production Plant",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t3_05__Consumer_Goods_Plant",
+  "small": "icons/small/b_production_t3_05__Consumer_Goods_Plant.png",
+  "large": "icons/256/b_production_t3_05__Consumer_Goods_Plant.png",
+  "entities": [
+   {
+    "id": "b_production_t3_05",
+    "name": "Consumer Goods Plant",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t4_01__Hi-Tech_Facility",
+  "small": "icons/small/b_production_t4_01__Hi-Tech_Facility.png",
+  "large": "icons/256/b_production_t4_01__Hi-Tech_Facility.png",
+  "entities": [
+   {
+    "id": "b_production_t4_01",
+    "name": "Hi-Tech Facility",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t4_02__Experimental_Materials_Facility",
+  "small": "icons/small/b_production_t4_02__Experimental_Materials_Facility.png",
+  "large": "icons/256/b_production_t4_02__Experimental_Materials_Facility.png",
+  "entities": [
+   {
+    "id": "b_production_t4_02",
+    "name": "Experimental Materials Facility",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t4_03__Robotics_Facility",
+  "small": "icons/small/b_production_t4_03__Robotics_Facility.png",
+  "large": "icons/256/b_production_t4_03__Robotics_Facility.png",
+  "entities": [
+   {
+    "id": "b_production_t4_03",
+    "name": "Robotics Facility",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_production_t4_04__Advanced_Wares_Facility",
+  "small": "icons/small/b_production_t4_04__Advanced_Wares_Facility.png",
+  "large": "icons/256/b_production_t4_04__Advanced_Wares_Facility.png",
+  "entities": [
+   {
+    "id": "b_production_t4_04",
+    "name": "Advanced Wares Facility",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_service_02__Medical_Center",
+  "small": "icons/small/b_service_02__Medical_Center.png",
+  "large": "icons/256/b_service_02__Medical_Center.png",
+  "entities": [
+   {
+    "id": "b_service_02",
+    "name": "Medical Center",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_service_06__Holodeck",
+  "small": "icons/small/b_service_06__Holodeck.png",
+  "large": "icons/256/b_service_06__Holodeck.png",
+  "entities": [
+   {
+    "id": "b_service_06",
+    "name": "Holodeck",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_service_09__Bioconversion_Lab",
+  "small": "icons/small/b_service_09__Bioconversion_Lab.png",
+  "large": "icons/256/b_service_09__Bioconversion_Lab.png",
+  "entities": [
+   {
+    "id": "b_service_09",
+    "name": "Bioconversion Lab",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_survival_02__Gatling_Gun",
+  "small": "icons/small/b_survival_02__Gatling_Gun.png",
+  "large": "icons/256/b_survival_02__Gatling_Gun.png",
+  "entities": [
+   {
+    "id": "b_survival_02",
+    "name": "Gatling Gun",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_survival_03__Photon_Gun",
+  "small": "icons/small/b_survival_03__Photon_Gun.png",
+  "large": "icons/256/b_survival_03__Photon_Gun.png",
+  "entities": [
+   {
+    "id": "b_survival_03",
+    "name": "Photon Gun",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "b_survival_04__Grenade_Launcher",
+  "small": "icons/small/b_survival_04__Grenade_Launcher.png",
+  "large": "icons/256/b_survival_04__Grenade_Launcher.png",
+  "entities": [
+   {
+    "id": "b_survival_04",
+    "name": "Grenade Launcher",
+    "kind": "building",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "custom_mulmkonuv8e",
+  "small": "icons/small/custom_mulmkonuv8e.png",
+  "large": null,
+  "entities": [
+   {
+    "id": "craft_isotope_source",
+    "name": "Isotope Source",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Ai-Core",
+  "small": "icons/small/T_Ai-Core.png",
+  "large": "icons/256/T_Ai-Core.png",
+  "entities": [
+   {
+    "id": "electronics_01",
+    "name": "AI Core",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Algae-Preserves",
+  "small": "icons/small/T_Algae-Preserves.png",
+  "large": "icons/256/T_Algae-Preserves.png",
+  "entities": [
+   {
+    "id": "food_08",
+    "name": "Algae Preserves",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Alloy_Steel",
+  "small": "icons/small/T_Alloy_Steel.png",
+  "large": "icons/256/T_Alloy_Steel.png",
+  "entities": [
+   {
+    "id": "processing_02",
+    "name": "Alloyed Metal",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Amino_Acid",
+  "small": "icons/small/T_Amino_Acid.png",
+  "large": "icons/256/T_Amino_Acid.png",
+  "entities": [
+   {
+    "id": "res_40_k_AminoAc",
+    "name": "K-IV Aminoacids",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Assembly_Matrix",
+  "small": "icons/small/T_Assembly_Matrix.png",
+  "large": "icons/256/T_Assembly_Matrix.png",
+  "entities": [
+   {
+    "id": "machinery_02",
+    "name": "Tech Assembly Matrix",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Basic-Scaner",
+  "small": "icons/small/T_Basic-Scaner.png",
+  "large": "icons/256/T_Basic-Scaner.png",
+  "entities": [
+   {
+    "id": "machinery_04",
+    "name": "Basic Scanner",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Basic-Tool-Kit",
+  "small": "icons/small/T_Basic-Tool-Kit.png",
+  "large": "icons/256/T_Basic-Tool-Kit.png",
+  "entities": [
+   {
+    "id": "processing_06",
+    "name": "Basic Toolkit",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Battery-Block",
+  "small": "icons/small/T_Battery-Block.png",
+  "large": "icons/256/T_Battery-Block.png",
+  "entities": [
+   {
+    "id": "machinery_05",
+    "name": "Battery Block",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Biocell",
+  "small": "icons/small/T_Biocell.png",
+  "large": "icons/256/T_Biocell.png",
+  "entities": [
+   {
+    "id": "powercell_02",
+    "name": "Bio Cell",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Biopolymer",
+  "small": "icons/small/T_Biopolymer.png",
+  "large": "icons/256/T_Biopolymer.png",
+  "entities": [
+   {
+    "id": "synthesized_01",
+    "name": "Biopolymer",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Calibrator",
+  "small": "icons/small/T_Calibrator.png",
+  "large": "icons/256/T_Calibrator.png",
+  "entities": [
+   {
+    "id": "scineceres_01",
+    "name": "Multi-Tool",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Carbon",
+  "small": "icons/small/T_Carbon.png",
+  "large": "icons/256/T_Carbon.png",
+  "entities": [
+   {
+    "id": "res_28_Carbon",
+    "name": "Carbon",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Cargo",
+  "small": "icons/small/T_Cargo.png",
+  "large": "icons/256/T_Cargo.png",
+  "entities": [
+   {
+    "id": "unitres_02",
+    "name": "Freighter",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Cell_Fusion",
+  "small": "icons/small/T_Cell_Fusion.png",
+  "large": "icons/256/T_Cell_Fusion.png",
+  "entities": [
+   {
+    "id": "powercell_04",
+    "name": "Fusion Cell",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Chem-Compound",
+  "small": "icons/small/T_Chem-Compound.png",
+  "large": "icons/256/T_Chem-Compound.png",
+  "entities": [
+   {
+    "id": "synthesis_02",
+    "name": "Biochem Compounds",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Chemical-Fuel",
+  "small": "icons/small/T_Chemical-Fuel.png",
+  "large": "icons/256/T_Chemical-Fuel.png",
+  "entities": [
+   {
+    "id": "synthesis_03",
+    "name": "Chemical Fuel",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Chromium",
+  "small": "icons/small/T_Chromium.png",
+  "large": "icons/256/T_Chromium.png",
+  "entities": [
+   {
+    "id": "res_06_Chrom",
+    "name": "Chromium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Combastibles_Oil",
+  "small": "icons/small/T_Combastibles_Oil.png",
+  "large": "icons/256/T_Combastibles_Oil.png",
+  "entities": [
+   {
+    "id": "res_27_HydroCarb",
+    "name": "Hydrocarbons",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Comm_Link",
+  "small": "icons/small/T_Comm_Link.png",
+  "large": "icons/256/T_Comm_Link.png",
+  "entities": [
+   {
+    "id": "questres_03",
+    "name": "Comm-Link",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Composite-Enzymes",
+  "small": "icons/small/T_Composite-Enzymes.png",
+  "large": "icons/256/T_Composite-Enzymes.png",
+  "entities": [
+   {
+    "id": "synthesis_05",
+    "name": "Composite Enzymes",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Conductive-Materials",
+  "small": "icons/small/T_Conductive-Materials.png",
+  "large": "icons/256/T_Conductive-Materials.png",
+  "entities": [
+   {
+    "id": "processing_04",
+    "name": "Conductive Materials",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Container",
+  "small": "icons/small/T_Container.png",
+  "large": "icons/256/T_Container.png",
+  "entities": [
+   {
+    "id": "questres_01",
+    "name": "Modular Container",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ControlStation",
+  "small": "icons/small/T_ControlStation.png",
+  "large": "icons/256/T_ControlStation.png",
+  "entities": [
+   {
+    "id": "extractor_02",
+    "name": "D.A.R.T.",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Copper",
+  "small": "icons/small/T_Copper.png",
+  "large": "icons/256/T_Copper.png",
+  "entities": [
+   {
+    "id": "res_03_Copper",
+    "name": "Copper",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Cyberware",
+  "small": "icons/small/T_Cyberware.png",
+  "large": "icons/256/T_Cyberware.png",
+  "entities": [
+   {
+    "id": "consumer_01",
+    "name": "Cyberware",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_DefensiveGear",
+  "small": "icons/small/T_DefensiveGear.png",
+  "large": "icons/256/T_DefensiveGear.png",
+  "entities": [
+   {
+    "id": "medres_04",
+    "name": "Personal Defence Kit",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Eldritium",
+  "small": "icons/small/T_Eldritium.png",
+  "large": "icons/256/T_Eldritium.png",
+  "entities": [
+   {
+    "id": "res_19_Eldrit",
+    "name": "Eldritium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Electrocyte_Pack",
+  "small": "icons/small/T_Electrocyte_Pack.png",
+  "large": "icons/256/T_Electrocyte_Pack.png",
+  "entities": [
+   {
+    "id": "craft_electrocyte_pack",
+    "name": "Electrocyte Pack",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Energy-Bar",
+  "small": "icons/small/T_Energy-Bar.png",
+  "large": "icons/256/T_Energy-Bar.png",
+  "entities": [
+   {
+    "id": "food_05",
+    "name": "Energy Bar",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ET_Mycelium",
+  "small": "icons/small/T_ET_Mycelium.png",
+  "large": "icons/256/T_ET_Mycelium.png",
+  "entities": [
+   {
+    "id": "res_mugywkvu5c5",
+    "name": "Mycelium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ET_Plankton",
+  "small": "icons/small/T_ET_Plankton.png",
+  "large": "icons/256/T_ET_Plankton.png",
+  "entities": [
+   {
+    "id": "res_24_k_Plankton",
+    "name": "K-IV Plankton",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ET_Squash",
+  "small": "icons/small/T_ET_Squash.png",
+  "large": "icons/256/T_ET_Squash.png",
+  "entities": [
+   {
+    "id": "res_31_k_Algae",
+    "name": "K-IV Algae",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ExplosiveCharges",
+  "small": "icons/small/T_ExplosiveCharges.png",
+  "large": "icons/256/T_ExplosiveCharges.png",
+  "entities": [
+   {
+    "id": "ammunition_02",
+    "name": "Explosive Charges",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ExtractorBasic",
+  "small": "icons/small/T_ExtractorBasic.png",
+  "large": "icons/256/T_ExtractorBasic.png",
+  "entities": [
+   {
+    "id": "extractor_01",
+    "name": "Basic Extractor",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ExtractorShallow",
+  "small": "icons/small/T_ExtractorShallow.png",
+  "large": "icons/256/T_ExtractorShallow.png",
+  "entities": [
+   {
+    "id": "extractor_03",
+    "name": "Underground Deposit Extractor",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_ForceField",
+  "small": "icons/small/T_ForceField.png",
+  "large": "icons/256/T_ForceField.png",
+  "entities": [
+   {
+    "id": "consumer_02",
+    "name": "Portable Force Shield",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Fruit-Paste",
+  "small": "icons/small/T_Fruit-Paste.png",
+  "large": "icons/256/T_Fruit-Paste.png",
+  "entities": [
+   {
+    "id": "food_07",
+    "name": "Fruit Paste",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Fuel_Rod",
+  "small": "icons/small/T_Fuel_Rod.png",
+  "large": "icons/256/T_Fuel_Rod.png",
+  "entities": [
+   {
+    "id": "processing_05",
+    "name": "Composite Panels",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_FuelCell",
+  "small": "icons/small/T_FuelCell.png",
+  "large": "icons/256/T_FuelCell.png",
+  "entities": [
+   {
+    "id": "powercell_01",
+    "name": "Fuel Cell",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Gold",
+  "small": "icons/small/T_Gold.png",
+  "large": "icons/256/T_Gold.png",
+  "entities": [
+   {
+    "id": "res_01_Gold",
+    "name": "Gold",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Grain",
+  "small": "icons/small/T_Grain.png",
+  "large": "icons/256/T_Grain.png",
+  "entities": [
+   {
+    "id": "res_29",
+    "name": "Grain",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Graphene",
+  "small": "icons/small/T_Graphene.png",
+  "large": "icons/256/T_Graphene.png",
+  "entities": [
+   {
+    "id": "synthesis_04",
+    "name": "Nanomaterials",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Holo_Display",
+  "small": "icons/small/T_Holo_Display.png",
+  "large": "icons/256/T_Holo_Display.png",
+  "entities": [
+   {
+    "id": "electronics_05",
+    "name": "Electronic Components",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_HPYeast",
+  "small": "icons/small/T_HPYeast.png",
+  "large": "icons/256/T_HPYeast.png",
+  "entities": [
+   {
+    "id": "res_33",
+    "name": "Protein Mass",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_K-IV_Krill",
+  "small": "icons/small/T_K-IV_Krill.png",
+  "large": "icons/256/T_K-IV_Krill.png",
+  "entities": [
+   {
+    "id": "res_39_k_Krill",
+    "name": "K-IV Krill",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_KnidariaMeal",
+  "small": "icons/small/T_KnidariaMeal.png",
+  "large": "icons/256/T_KnidariaMeal.png",
+  "entities": [
+   {
+    "id": "food_10",
+    "name": "Krill Preserves",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Krill-Paste",
+  "small": "icons/small/T_Krill-Paste.png",
+  "large": "icons/256/T_Krill-Paste.png",
+  "entities": [
+   {
+    "id": "food_06",
+    "name": "Krill Paste",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Lithium",
+  "small": "icons/small/T_Lithium.png",
+  "large": "icons/256/T_Lithium.png",
+  "entities": [
+   {
+    "id": "res_16_Lithium",
+    "name": "Lithium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Med-Gel",
+  "small": "icons/small/T_Med-Gel.png",
+  "large": "icons/256/T_Med-Gel.png",
+  "entities": [
+   {
+    "id": "medres_01",
+    "name": "Med Gel",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Med-Kit",
+  "small": "icons/small/T_Med-Kit.png",
+  "large": "icons/256/T_Med-Kit.png",
+  "entities": [
+   {
+    "id": "medres_02",
+    "name": "Med Kit",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Metal_Frames",
+  "small": "icons/small/T_Metal_Frames.png",
+  "large": "icons/256/T_Metal_Frames.png",
+  "entities": [
+   {
+    "id": "processing_01",
+    "name": "Metal Constructions",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Metals_Al",
+  "small": "icons/small/T_Metals_Al.png",
+  "large": "icons/256/T_Metals_Al.png",
+  "entities": [
+   {
+    "id": "res_07_Alum",
+    "name": "Aluminum",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Metals_Fe",
+  "small": "icons/small/T_Metals_Fe.png",
+  "large": "icons/256/T_Metals_Fe.png",
+  "entities": [
+   {
+    "id": "res_04_Iron",
+    "name": "Iron",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Metals_Ti",
+  "small": "icons/small/T_Metals_Ti.png",
+  "large": "icons/256/T_Metals_Ti.png",
+  "entities": [
+   {
+    "id": "res_08_Titan",
+    "name": "Titanium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Metals_W",
+  "small": "icons/small/T_Metals_W.png",
+  "large": "icons/256/T_Metals_W.png",
+  "entities": [
+   {
+    "id": "res_10_Tung",
+    "name": "Tungsten",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Microcontrollers",
+  "small": "icons/small/T_Microcontrollers.png",
+  "large": "icons/256/T_Microcontrollers.png",
+  "entities": [
+   {
+    "id": "electronics_02",
+    "name": "Microcontrollers",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Mycobrick",
+  "small": "icons/small/T_Mycobrick.png",
+  "large": "icons/256/T_Mycobrick.png",
+  "entities": [
+   {
+    "id": "synthesis_06",
+    "name": "Mycobrick",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Neural_Mesh",
+  "small": "icons/small/T_Neural_Mesh.png",
+  "large": "icons/256/T_Neural_Mesh.png",
+  "entities": [
+   {
+    "id": "craft_neural_mesh",
+    "name": "Neural Mesh",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Nutrient-Paste",
+  "small": "icons/small/T_Nutrient-Paste.png",
+  "large": "icons/256/T_Nutrient-Paste.png",
+  "entities": [
+   {
+    "id": "food_01",
+    "name": "Nutrient Paste",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_OmniFruit",
+  "small": "icons/small/T_OmniFruit.png",
+  "large": "icons/256/T_OmniFruit.png",
+  "entities": [
+   {
+    "id": "res_30",
+    "name": "Omni Fruit",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_OmniMeal",
+  "small": "icons/small/T_OmniMeal.png",
+  "large": "icons/256/T_OmniMeal.png",
+  "entities": [
+   {
+    "id": "food_11",
+    "name": "Omni-Meal",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Ore_Tungsten",
+  "small": "icons/small/T_Ore_Tungsten.png",
+  "large": "icons/256/T_Ore_Tungsten.png",
+  "entities": [
+   {
+    "id": "res_17_Silicon",
+    "name": "Silicon",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Phosphorus",
+  "small": "icons/small/T_Phosphorus.png",
+  "large": "icons/256/T_Phosphorus.png",
+  "entities": [
+   {
+    "id": "res_13_Phosph",
+    "name": "Phosphorus",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_PowerCell",
+  "small": "icons/small/T_PowerCell.png",
+  "large": "icons/256/T_PowerCell.png",
+  "entities": [
+   {
+    "id": "powercell_05",
+    "name": "Positron Cell",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Prebiotic",
+  "small": "icons/small/T_Prebiotic.png",
+  "large": "icons/256/T_Prebiotic.png",
+  "entities": [
+   {
+    "id": "res_38_Prebiotic",
+    "name": "Prebiotic Matter",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Propulsion_Kit",
+  "small": "icons/small/T_Propulsion_Kit.png",
+  "large": "icons/256/T_Propulsion_Kit.png",
+  "entities": [
+   {
+    "id": "machinery_01",
+    "name": "Propulsion Kit",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Raw_Meat",
+  "small": "icons/small/T_Raw_Meat.png",
+  "large": "icons/256/T_Raw_Meat.png",
+  "entities": [
+   {
+    "id": "res_32",
+    "name": "Cultured Meat",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Refined_Etilen",
+  "small": "icons/small/T_Refined_Etilen.png",
+  "large": "icons/256/T_Refined_Etilen.png",
+  "entities": [
+   {
+    "id": "res_12_Chlor",
+    "name": "Chlorine",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Satellite",
+  "small": "icons/small/T_Satellite.png",
+  "large": "icons/256/T_Satellite.png",
+  "entities": [
+   {
+    "id": "cn_43",
+    "name": "Satellite",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Scout",
+  "small": "icons/small/T_Scout.png",
+  "large": "icons/256/T_Scout.png",
+  "entities": [
+   {
+    "id": "unitres_03",
+    "name": "Recon Craft",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Sensors",
+  "small": "icons/small/T_Sensors.png",
+  "large": "icons/256/T_Sensors.png",
+  "entities": [
+   {
+    "id": "electronics_03",
+    "name": "Sensors Array",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Servo_Drive",
+  "small": "icons/small/T_Servo_Drive.png",
+  "large": "icons/256/T_Servo_Drive.png",
+  "entities": [
+   {
+    "id": "craft_servo_drive",
+    "name": "Servo Drive",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_SmartAmmunitionPack",
+  "small": "icons/small/T_SmartAmmunitionPack.png",
+  "large": "icons/256/T_SmartAmmunitionPack.png",
+  "entities": [
+   {
+    "id": "ammunition_03",
+    "name": "Smart Ammunition Pack",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Sodium",
+  "small": "icons/small/T_Sodium.png",
+  "large": "icons/256/T_Sodium.png",
+  "entities": [
+   {
+    "id": "res_15_Sodium",
+    "name": "Sodium",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   },
+   {
+    "id": "craft_electrolyte_salts",
+    "name": "Electrolyte Salts",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_StandardAmmunitionPack",
+  "small": "icons/small/T_StandardAmmunitionPack.png",
+  "large": "icons/256/T_StandardAmmunitionPack.png",
+  "entities": [
+   {
+    "id": "ammunition_01",
+    "name": "Standard Ammunition Pack",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Stem-Tissue",
+  "small": "icons/small/T_Stem-Tissue.png",
+  "large": "icons/256/T_Stem-Tissue.png",
+  "entities": [
+   {
+    "id": "medres_03",
+    "name": "Stem Tissue",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Sulfur",
+  "small": "icons/small/T_Sulfur.png",
+  "large": "icons/256/T_Sulfur.png",
+  "entities": [
+   {
+    "id": "res_14_Sulfur",
+    "name": "Sulfur",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Surveying_Probe",
+  "small": "icons/small/T_Surveying_Probe.png",
+  "large": "icons/256/T_Surveying_Probe.png",
+  "entities": [
+   {
+    "id": "cn_41",
+    "name": "Surveying Probe",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Tech-Voxel",
+  "small": "icons/small/T_Tech-Voxel.png",
+  "large": "icons/256/T_Tech-Voxel.png",
+  "entities": [
+   {
+    "id": "machinery_03",
+    "name": "Tech Voxel",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Thermoplastic",
+  "small": "icons/small/T_Thermoplastic.png",
+  "large": "icons/256/T_Thermoplastic.png",
+  "entities": [
+   {
+    "id": "processing_03",
+    "name": "Thermoplastic",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Transhuman",
+  "small": "icons/small/T_Transhuman.png",
+  "large": "icons/256/T_Transhuman.png",
+  "entities": [
+   {
+    "id": "serviceres_02",
+    "name": "Transhuman Form",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Trawler",
+  "small": "icons/small/T_Trawler.png",
+  "large": "icons/256/T_Trawler.png",
+  "entities": [
+   {
+    "id": "unitres_05",
+    "name": "Deep-Sea Trawler",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Tricoder",
+  "small": "icons/small/T_Tricoder.png",
+  "large": "icons/256/T_Tricoder.png",
+  "entities": [
+   {
+    "id": "questres_05",
+    "name": "Tricoder",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "T_Waste_Bio",
+  "small": "icons/small/T_Waste_Bio.png",
+  "large": "icons/256/T_Waste_Bio.png",
+  "entities": [
+   {
+    "id": "res_34_WasteB",
+    "name": "Bio Waste",
+    "kind": "waste resource (team sheet only, not in the grids)",
+    "grids": []
+   }
+  ]
+ },
+ {
+  "key": "T_Waste_Manufactured",
+  "small": "icons/small/T_Waste_Manufactured.png",
+  "large": "icons/256/T_Waste_Manufactured.png",
+  "entities": [
+   {
+    "id": "res_36_WasteM",
+    "name": "Manufacturing Waste",
+    "kind": "waste resource (team sheet only, not in the grids)",
+    "grids": []
+   }
+  ]
+ },
+ {
+  "key": "T_WorkerUnit",
+  "small": "icons/small/T_WorkerUnit.png",
+  "large": "icons/256/T_WorkerUnit.png",
+  "entities": [
+   {
+    "id": "unitres_01",
+    "name": "Worker Drone",
+    "kind": "item",
+    "grids": [
+     "v14_3_outdated_draft",
+     "prototype"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: rogue-carrier-narrative-editor
+    runtime: python
+    buildCommand: "echo 'Dependencies ready'"
+    startCommand: "python server.py"
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: GOOGLE_CLIENT_ID
+        value: 436412031999-5hjf625k2417tn0ua2lb395731111dvb.apps.googleusercontent.com

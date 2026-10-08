@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WorldGen map preview</title>
+<style>
+:root{--ink:#1b212a;--mute:#5f6b7a;--line:#dfe4ea;--bg:#fbfcfe;--panel:#fff}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font:12px/1.4 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);
+  display:flex;flex-direction:column;overflow:hidden}
+#bar{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:6px 10px;background:var(--panel);
+  border-bottom:1px solid var(--line);flex:none}
+#bar b{font-weight:600}
+#bar label{display:flex;gap:4px;align-items:center;cursor:pointer;white-space:nowrap}
+#bar button,#bar input,#bar select{font:inherit;padding:2px 6px}
+#bar button{cursor:pointer;min-width:26px}
+#index{width:64px;text-align:center}
+.grp{display:flex;gap:4px;align-items:center}
+#seeds{color:var(--mute)}
+#stage{flex:1;min-height:0;display:flex}
+#board{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;padding:10px}
+#wrap{position:relative;box-shadow:0 0 0 1px #c3cbd6}
+#wrap canvas{position:absolute;left:0;top:0;display:block}
+#side{width:250px;flex:none;border-left:1px solid var(--line);background:var(--panel);overflow:auto;padding:6px 12px 12px}
+#side h4{margin:10px 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.row{display:flex;align-items:center;gap:6px;padding:1px 0}
+.row .n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .v{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;min-width:34px}
+.row.off{opacity:.35}
+.sw{width:11px;height:11px;flex:none;box-shadow:0 0 0 1px #c3cbd6}
+.trio{display:flex;flex:none}.trio span{width:8px;height:11px}
+.gl{width:14px;height:14px;flex:none}
+.hint{color:#8a94a2;font-size:11px;margin-top:8px}
+#tip{position:fixed;z-index:5;display:none;max-width:300px;background:var(--ink);color:#fff;border-radius:4px;
+  padding:6px 9px;font-size:11px;line-height:1.5;pointer-events:none}
+#tip .t{font-weight:600}#tip .m{color:#b8c1cc}
+#err{color:#c0392b;padding:20px;display:none}
+@media (max-width:700px){#stage{flex-direction:column}#side{width:auto;border-left:0;border-top:1px solid var(--line);max-height:40vh}}
+</style>
+</head>
+<body>
+<div id="bar">
+  <span class="grp"><b>Map</b>
+    <button id="prev" title="Previous map (left arrow)">&#9664;</button>
+    <input id="index" type="number" min="0" max="4095" value="0" title="Map index, 0..4095">
+    <button id="next" title="Next map (right arrow)">&#9654;</button></span>
+  <label title="How a water tile claimed by several objects is resolved">Water
+    <select id="mode"><option value="competition">competition (game today)</option><option value="parallel">parallel (planned)</option></select></label>
+  <label><input type="checkbox" id="showBiomes" checked>Biome colours</label>
+  <label><input type="checkbox" id="showIslands" checked>Islands</label>
+  <label><input type="checkbox" id="showObjects" checked>Water objects</label>
+  <label><input type="checkbox" id="showStart" checked>Start</label>
+  <label title="Outline the island group under the pointer"><input type="checkbox" id="showGroup" checked>Group on hover</label>
+  <span id="seeds"></span>
+</div>
+<div id="stage">
+  <div id="board"><div id="wrap"><canvas id="map"></canvas><canvas id="over"></canvas></div><div id="err"></div></div>
+  <div id="side"></div>
+</div>
+<div id="tip"></div>
+<script src="worldgen.js"></script>
+<script>
+(function () {
+  'use strict';
+  var INK = '#1b212a';
+  var el = function (id) { return document.getElementById(id); };
+  if (typeof WorldGen === 'undefined') {
+    el('err').style.display = 'block';
+    el('err').textContent = 'worldgen.js did not load. Keep preview.html next to worldgen.js.';
+    return;
+  }
+
+  var MAP = null, OBJ_OFF = {}, HOVER = -1, PX = 1;
+  var KEYS = WorldGen.DEFAULTS.water.map(function (o) { return o.key; });
+
+  // ---------- shapes: same places in a tile as the team's preview, coloured by biome ----------
+  // Reef: hatching over the whole tile. Seaweed: a sprig, bottom left. Floating island:
+  // an oval with its shadow, top right. Each is drawn in its tile's biome colour.
+
+  function reef(ctx, x, y, p, col) {
+    ctx.save();
+    ctx.beginPath(); ctx.rect(x, y, p, p); ctx.clip();
+    ctx.strokeStyle = col; ctx.lineWidth = Math.max(1, p / 9);
+    ctx.beginPath();
+    var step = Math.max(3, p / 3);
+    for (var d = -p; d < p; d += step) { ctx.moveTo(x + d, y + p); ctx.lineTo(x + d + p, y); }
+    ctx.stroke();
+    ctx.restore();
+  }
+  function weed(ctx, x, y, p, col) {
+    ctx.strokeStyle = col; ctx.lineWidth = Math.max(1, p / 12); ctx.lineCap = 'round';
+    ctx.beginPath();
+    if (p < 8) {
+      ctx.moveTo(x + 0.26 * p, y + 0.92 * p); ctx.lineTo(x + 0.26 * p, y + 0.55 * p);
+    } else {
+      for (var k = 0; k < 2; k++) {
+        var bx = x + (0.2 + 0.14 * k) * p, top = y + (0.48 + 0.06 * k) * p;
+        ctx.moveTo(bx, y + 0.9 * p);
+        ctx.quadraticCurveTo(bx - 0.08 * p, y + 0.78 * p, bx, top + 0.18 * p);
+        ctx.quadraticCurveTo(bx + 0.08 * p, top + 0.1 * p, bx, top);
+      }
+    }
+    ctx.stroke();
+  }
+  function floater(ctx, x, y, p, col) {
+    var cx = x + 0.68 * p, cy = y + 0.3 * p;
+    ctx.fillStyle = 'rgba(27,33,42,.28)';
+    ctx.beginPath(); ctx.ellipse(cx + 0.03 * p, cy + 0.17 * p, 0.17 * p, 0.05 * p, 0, 0, 2 * Math.PI); ctx.fill();
+    ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = Math.max(1, p / 14);
+    ctx.beginPath(); ctx.ellipse(cx, cy, Math.max(1.5, 0.22 * p), Math.max(1.2, 0.13 * p), 0, 0, 2 * Math.PI);
+    ctx.fill(); ctx.stroke();
+  }
+  function other(ctx, x, y, p, col) {
+    var cx = x + p / 2, cy = y + p / 2, r = Math.max(1.5, p / 6);
+    ctx.fillStyle = col;
+    ctx.beginPath(); ctx.moveTo(cx, cy - r); ctx.lineTo(cx + r, cy); ctx.lineTo(cx, cy + r); ctx.lineTo(cx - r, cy); ctx.fill();
+  }
+  var SHAPE = { reef: reef, seaweed: weed, floating: floater };
+  function shapeOf(key) { return SHAPE[key] || other; }
+
+  // ---------- building and drawing ----------
+
+  function build() {
+    var index = Math.max(0, Math.min(4095, Math.round(Number(el('index').value) || 0)));
+    el('index').value = index;
+    MAP = WorldGen.generate(index, { waterMode: el('mode').value });
+    var s = MAP.seeds;
+    el('seeds').textContent = 'Seeds: islands ' + s.islands + ' · biomes ' + s.biomes + ' · ' +
+      MAP.waterObjects.map(function (o, k) { return o.name.toLowerCase() + ' ' + s.water[k]; }).join(' · ');
+    try { history.replaceState(null, '', '#' + index); } catch (e) { /* file:// may refuse */ }
+    layout();
+    side();
+  }
+
+  function layout() {
+    if (!MAP) return;
+    var board = el('board');
+    var avail = Math.max(100, Math.min(board.clientWidth - 20, board.clientHeight - 20));
+    PX = Math.max(2, Math.floor(avail / Math.max(MAP.width, MAP.height)));
+    var w = MAP.width * PX, h = MAP.height * PX, dpr = window.devicePixelRatio || 1;
+    el('wrap').style.width = w + 'px'; el('wrap').style.height = h + 'px';
+    ['map', 'over'].forEach(function (id) {
+      var c = el(id);
+      c.style.width = w + 'px'; c.style.height = h + 'px';
+      c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+      c.getContext('2d').setTransform(dpr, 0, 0, dpr, 0, 0);
+    });
+    draw();
+    drawOver();
+  }
+
+  function draw() {
+    var ctx = el('map').getContext('2d'), T = MAP.tiles, names = MAP.biomeNames, w = MAP.width, h = MAP.height, p = PX;
+    var showB = el('showBiomes').checked, showI = el('showIslands').checked;
+    ctx.clearRect(0, 0, w * p, h * p);
+    for (var y = 0, i = 0; y < h; y++) {
+      for (var x = 0; x < w; x++, i++) {
+        var b = T.biome[i], n = names[b];
+        var kind = !showI || !T.land[i] ? 'water' : T.bigIsland[i] >= 0 ? 'big' : 'island';
+        ctx.fillStyle = showB || kind !== 'water' ? WorldGen.colour(n, kind, b) : '#e6edf3';
+        if (!showB && kind !== 'water') ctx.fillStyle = kind === 'big' ? '#3b4350' : '#76808e';
+        ctx.fillRect(x * p, y * p, p, p);
+      }
+    }
+    if (el('showObjects').checked) {
+      for (var k = 0; k < MAP.waterObjects.length; k++) {
+        if (OBJ_OFF[k]) continue;
+        var draw1 = shapeOf(MAP.waterObjects[k].key);
+        for (i = 0; i < T.water.length; i++) {
+          if (!(T.water[i] & (1 << k))) continue;
+          var col = WorldGen.colour(names[T.biome[i]], 'big', T.biome[i]);
+          draw1(ctx, (i % w) * p, Math.floor(i / w) * p, p, col);
+        }
+      }
+    }
+    if (el('showStart').checked) {
+      var s = MAP.start, r = s.clear;
+      ctx.strokeStyle = INK; ctx.lineWidth = 1; ctx.setLineDash([3, 2]);
+      ctx.strokeRect((s.x - r) * p + 0.5, (s.y - r) * p + 0.5, (2 * r + 1) * p - 1, (2 * r + 1) * p - 1);
+      ctx.setLineDash([]);
+      var cx = (s.x + 0.5) * p, cy = (s.y + 0.5) * p, a = Math.max(4, p * 0.45);
+      ctx.fillStyle = '#c0392b'; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(cx, cy - a); ctx.lineTo(cx + a * 0.8, cy + a * 0.7); ctx.lineTo(cx - a * 0.8, cy + a * 0.7);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+    }
+  }
+
+  /** The island group under the pointer, outlined. */
+  function drawOver() {
+    var ctx = el('over').getContext('2d'), w = MAP.width, p = PX;
+    ctx.clearRect(0, 0, w * p, MAP.height * p);
+    if (HOVER < 0 || !el('showGroup').checked) return;
+    var g = MAP.tiles.group[HOVER];
+    if (g < 0) return;
+    var G = MAP.tiles.group, t = Math.max(1.5, p / 5);
+    ctx.fillStyle = INK;
+    MAP.groups[g].tiles.forEach(function (i) {
+      var x = i % w, y = Math.floor(i / w);
+      if (x === 0 || G[i - 1] !== g) ctx.fillRect(x * p, y * p, t, p);
+      if (x === w - 1 || G[i + 1] !== g) ctx.fillRect((x + 1) * p - t, y * p, t, p);
+      if (y === 0 || G[i - w] !== g) ctx.fillRect(x * p, y * p, p, t);
+      if (y === MAP.height - 1 || G[i + w] !== g) ctx.fillRect(x * p, (y + 1) * p - t, p, t);
+    });
+  }
+
+  // ---------- side panel: legend and counts ----------
+
+  function esc(s) { return String(s).replace(/[<>&"]/g, ''); }
+  function row(sw, name, value, cls, attr) {
+    return '<div class="row' + (cls ? ' ' + cls : '') + '"' + (attr || '') + '>' + sw + '<span class="n">' + esc(name) +
+           '</span><span class="v">' + (value === undefined ? '' : value) + '</span></div>';
+  }
+  function glyph(key) {
+    var c = document.createElement('canvas'), dpr = window.devicePixelRatio || 1, s = 14;
+    c.width = c.height = s * dpr;
+    var g = c.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.fillStyle = WorldGen.colour('Tropical', 'water'); g.fillRect(0, 0, s, s);
+    shapeOf(key)(g, 0, 0, s, WorldGen.colour('Tropical', 'big'));
+    return '<img class="gl" alt="" src="' + c.toDataURL() + '">';
+  }
+
+  function side() {
+    var c = MAP.counts, out = [];
+    out.push('<h4>Biomes · share · islands</h4>');
+    c.biomes.forEach(function (b, i) {
+      var trio = '<span class="trio"><span style="background:' + WorldGen.colour(b.name, 'water', i) + '"></span><span style="background:' +
+                 WorldGen.colour(b.name, 'island', i) + '"></span><span style="background:' + WorldGen.colour(b.name, 'big', i) + '"></span></span>';
+      out.push(row(trio, b.name, (Math.round(b.share * 1000) / 10) + '% · ' + b.islands, b.tiles ? '' : 'off'));
+    });
+    var missing = MAP.biomeNames.filter(function (n) { return MAP.biomesPresent.indexOf(n) < 0; });
+    out.push('<div class="hint">Swatches: water · small island · big island.' +
+             (missing.length ? ' Not on this map: <b>' + esc(missing.join(', ')) + '</b>.' : ' All biomes are on this map.') + '</div>');
+    out.push('<h4>Water objects · ' + esc(MAP.mode) + '</h4>');
+    MAP.waterObjects.forEach(function (o, k) {
+      out.push(row(glyph(o.key), o.name, c.water[k].tiles, OBJ_OFF[k] ? 'off' : '', ' data-obj="' + k + '" style="cursor:pointer" title="Click to show or hide"'));
+    });
+    out.push('<div class="hint">Shapes take the colour of their tile\'s biome. Click a row to hide it.</div>');
+    out.push('<h4>This map</h4>');
+    var grey = '<span class="sw" style="background:#8a94a2"></span>';
+    out.push(row(grey, 'Islands (big + small)', c.islands));
+    out.push(row(grey, 'Big islands (2x2)', c.bigIslands));
+    out.push(row(grey, 'Small islands (1 tile)', c.smallIslands));
+    out.push(row(grey, 'Island tiles', c.islandTiles));
+    out.push(row(grey, 'Island groups', c.groups));
+    out.push(row(grey, 'Water tiles', c.waterTiles));
+    out.push(row(grey, 'Water with an object', c.objectTiles));
+    out.push(row(grey, 'Start tile', '(' + MAP.start.x + ', ' + MAP.start.y + ')'));
+    out.push('<div class="hint">1 tile = 2.5 km. Hover a tile for details. Arrow keys change the map.</div>');
+    el('side').innerHTML = out.join('');
+  }
+
+  el('side').addEventListener('click', function (e) {
+    var r = e.target.closest ? e.target.closest('[data-obj]') : null;
+    if (!r) return;
+    var k = Number(r.getAttribute('data-obj'));
+    OBJ_OFF[k] = !OBJ_OFF[k];
+    draw(); side();
+  });
+
+  // ---------- tooltip ----------
+
+  var tip = el('tip');
+  el('over').parentNode.addEventListener('mousemove', function (e) {
+    if (!MAP) return;
+    var r = el('map').getBoundingClientRect();
+    var x = Math.floor((e.clientX - r.left) / PX), y = Math.floor((e.clientY - r.top) / PX);
+    if (x < 0 || y < 0 || x >= MAP.width || y >= MAP.height) { hide(); return; }
+    var info = WorldGen.tileInfo(MAP, x, y);
+    if (info.i !== HOVER) { HOVER = info.i; drawOver(); tip.innerHTML = describe(info); }
+    tip.style.display = 'block';
+    var tx = e.clientX + 14, ty = e.clientY + 14;
+    if (tx + tip.offsetWidth > window.innerWidth - 4) tx = e.clientX - tip.offsetWidth - 10;
+    if (ty + tip.offsetHeight > window.innerHeight - 4) ty = e.clientY - tip.offsetHeight - 10;
+    tip.style.left = tx + 'px'; tip.style.top = ty + 'px';
+  });
+  el('over').parentNode.addEventListener('mouseleave', hide);
+  function hide() { tip.style.display = 'none'; if (HOVER >= 0) { HOVER = -1; drawOver(); } }
+
+  function describe(t) {
+    var lines = ['<div class="t">Tile (' + t.x + ', ' + t.y + ') · ' + esc(t.biome) + '</div>'];
+    if (t.land) {
+      var isle = MAP.islands[t.island];
+      lines.push(isle.type === 'big' ? 'Big island #' + isle.bigId + ' (2x2 from ' + isle.x + ', ' + isle.y + ')'
+                                     : 'Small island #' + isle.id);
+      var g = MAP.groups[t.group];
+      lines.push('Group #' + g.id + ': ' + g.islands.length + ' island' + (g.islands.length === 1 ? '' : 's') + ', ' +
+                 g.size + ' tile' + (g.size === 1 ? '' : 's') + ', ' + esc(g.biome));
+    } else {
+      lines.push('Water' + (t.water.length ? ': ' + esc(t.water.join(', ')) : ', nothing on it'));
+    }
+    if (t.start) lines.push('<span class="m">Start tile: the ship starts in its middle</span>');
+    else if (t.startArea) lines.push('<span class="m">Start area: always kept empty</span>');
+    return lines.join('<br>');
+  }
+
+  // ---------- controls ----------
+
+  function step(d) { el('index').value = Math.max(0, Math.min(4095, (Number(el('index').value) || 0) + d)); build(); }
+  el('prev').onclick = function () { step(-1); };
+  el('next').onclick = function () { step(1); };
+  el('index').onchange = build;
+  el('mode').onchange = build;
+  ['showBiomes', 'showIslands', 'showObjects', 'showStart'].forEach(function (id) { el(id).onchange = draw; });
+  el('showGroup').onchange = drawOver;
+  document.addEventListener('keydown', function (e) {
+    if (e.target && e.target.tagName === 'INPUT' && e.target.type === 'number') return;
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+  var resizeTimer = 0;
+  window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(layout, 80); });
+
+  var fromHash = Number((location.hash || '').slice(1));
+  if (fromHash >= 0 && fromHash <= 4095) el('index').value = Math.floor(fromHash);
+  build();
+})();
+</script>
+</body>
+</html>

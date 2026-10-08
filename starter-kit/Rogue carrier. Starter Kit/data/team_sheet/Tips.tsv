@@ -1,0 +1,25 @@
+id	Name	Text	Icon	Trigger (description)
+1.0	Reset camera	Press "R" to return the camera to the Behemoth		Camera is not centered on the Behemoth more than 15 sec
+2.0	Avoid reefs	You can lower speed of the Behemoth to better navigation control		- Hit the reef for the first time
+3.0	RnD Reroll	you can use reroll to get other variants of buildings		- 5 RnD Lab research and - Reroll not used
+4.0	Drop capsule	You can drop capsule to reach places with		- 5 shoots from Mass Driver and - Not use capsule drop for last 5 shots
+5.0	Power management	Check buildings power consumption You can turn on/off buildings		- Energy deficit to turn on the building for the first time or - Constructed building wasn't turned on for N minutes (in-game hourse)
+6.0	Gather ocean resources	Send Freighters to pick up resources		- N ocean resources scanned and - None ocean resources were gathered
+7.0	Scanning System Radius	The scanning system automatically scans all objects of interest within its range. You can adjust scan radius and scan speed in the scanning system.		- N scans fisnished
+8.0	Crew Assign	Most building require crew to function. You can unassign crew from unused buildings.		- There is a building without the crew for N minutes and - Crew members were never unassign from building
+9.0	Production Target Amount	Turn on/off production, set target amount, change resources		- any production is on but target amount not set for N minutes
+10.0	Interchangeable Ingredients	Most of the recipes has interchangeable ingredients. You can change which resource to use in the recipe.		- there are N different resources produced and - the interchangeable resources were never selected
+11.0	Drone Assign			- there are N buildings constructed and - the drones were never assigned
+12.0	Behemoth Roll	Check buildings position		- the roll display more than N degrees
+13.0	Hull Repair			- the hull has less than 100% HP for N minutes
+14.0	Building Repair			- the building/s has less than 100% HP for N minutes
+15.0	Waste Management	Waste is generated as a result of building operations and accumulates on deck. There are facilities capable of processing waste to address this issue.		- First waste placed on the deck
+16.0	Entropy	Entropy rise from gathering resources, Engine usage and from some buildings. Entropy level can cause the planet response such as sudden storms and other anomalies.		- Entropy reaches 1st level
+17.0	Move Backward			- Some obstacle is in front (less than N meters) of the Behemoth
+18.0	Utilities and Artifacts usage			- There is no Artifact or other resources in any utilities block for N minutes and - There is an Artifacts or Utility resources in the Allocation Center and - Open building window with utilities slots
+19.0	Active Scan	If visibility is low you can use Active Scan to detect objects. To use Active Scan you need to use specific resources in the Scan System.		- current time - night or current fog - more than 7 And - there are Basic Scanner or Tricoder in the allocation center
+20.0	Blueprints	You need blueprints for RnD Lab researching. You can find blueprints on the Zephyrus debris.		- there is no blueprints in the RnD Lab for N minutes
+21.0	Morale Management	To maintain crew morale on appropriate level produce better food and construct buildings with entertainment services.		- Morale drops lower than N
+22.0	Food for crew	Your team should eat regularly, check food supplies, and prepare new food when supplies run low. Higher-quality food is better for boosting morale.		- Food supplies is low (less than N units of food)
+23.0	Underground Extractor	There are even more resources underground. To collect them, you need to use the appropriate type of extractor.		- No undeground resources collected for N discovered islands
+24.0	Knowledge/Win Condition	You nee to collcet Knowledge to fnish variation and make progress in unlocked the Prism features		- First knowledge from any event.
