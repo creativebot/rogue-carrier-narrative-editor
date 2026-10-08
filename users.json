@@ -10,6 +10,16 @@
       "picture": null
     },
     {
+      "email": "daniel.poludyonny@gmail.com",
+      "name": "Daniel Poludyonny",
+      "role": "admin",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-08T21:05:00.000000Z",
+      "lastLogin": "2026-10-08T21:05:00.000000Z",
+      "picture": null
+    },
+    {
       "email": "oseliutin@n-ix.com",
       "name": "Oleksandr Seliutin",
       "picture": "",

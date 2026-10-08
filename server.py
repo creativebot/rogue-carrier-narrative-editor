@@ -28,9 +28,17 @@ os.makedirs(SAVES_DIR, exist_ok=True)
 os.makedirs(BACKUPS_DIR, exist_ok=True)
 
 ADMIN_EMAIL = "dpoludonnyi@n-ix.com"
+ADMIN_EMAILS = {"dpoludonnyi@n-ix.com", "daniel.poludyonny@gmail.com"}
+ALLOWED_EMAILS = {"daniel.poludyonny@gmail.com"}
 ALLOWED_DOMAIN = "@n-ix.com"
 REGISTRATION_ENABLED = False  # Public registration disabled by administrator
 GOOGLE_CLIENT_ID = "436412031999-5hjf625k2417tn0ua2lb395731111dvb.apps.googleusercontent.com"
+
+def is_admin_email(email):
+    if not email:
+        return False
+    e = email.strip().lower()
+    return e in ADMIN_EMAILS or e == ADMIN_EMAIL.lower()
 
 # Password Hashing & Verification
 def hash_password(password, salt=None):
@@ -364,7 +372,7 @@ def is_valid_nix_email(email):
     if not email or not isinstance(email, str):
         return False
     e = email.strip().lower()
-    return e.endswith(ALLOWED_DOMAIN) and len(e) > len(ALLOWED_DOMAIN)
+    return (e.endswith(ALLOWED_DOMAIN) and len(e) > len(ALLOWED_DOMAIN)) or e in ALLOWED_EMAILS
 
 # ----------------- Notifications & Emails -----------------
 
@@ -975,7 +983,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                         break
 
                 now_iso = datetime.utcnow().isoformat() + "Z"
-                is_admin = (email == ADMIN_EMAIL.lower())
+                is_admin = is_admin_email(email)
 
                 if not target_user:
                     target_user = {
@@ -1547,7 +1555,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 "name": u.get("name"),
                 "role": u.get("role"),
                 "status": u.get("status")
-            } for u in users]
+            } for u in users if u.get("email") and u.get("email").lower() not in ALLOWED_EMAILS]
             self.send_json(200, {"status": "success", "users": safe_users})
 
         # 6. Backups: List Snapshots
