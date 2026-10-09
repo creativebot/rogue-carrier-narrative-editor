@@ -32,6 +32,16 @@
           <!-- Dynamically populated variations -->
         </select>
       </div>
+
+      <!-- Item Creation Buttons (Moved to Top Header Panel to free canvas space) -->
+      <div class="flex items-center gap-1 shrink-0" id="header-creation-tools">
+        <button id="btn-add-event" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-bold px-2 py-1 rounded-lg flex items-center gap-1 shadow transition active:scale-95 shrink-0" title="Add new event block to canvas">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> <span class="hidden sm:inline">Event</span>
+        </button>
+        <button id="btn-add-dialogue" class="bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-lg flex items-center gap-1 shadow transition active:scale-95 shrink-0" title="Create a standalone dialogue card">
+          <i data-lucide="message-square-plus" class="w-3.5 h-3.5"></i> <span class="hidden sm:inline">Dialogue</span>
+        </button>
+      </div>
     </div>
 
     <!-- Center: Touch Interaction Mode (Pan vs Arrange) & View Mode (Canvas vs Stage) -->
@@ -206,15 +216,6 @@
   <!-- Main Work Area (Canvas) -->
   <div class="relative flex-1 min-h-0 w-full overflow-hidden canvas-bg" id="canvas-container">
     
-    <!-- Floating Canvas Creation Tools (Top-Left) -->
-    <div class="absolute top-4 left-4 z-30 flex items-center gap-2 bg-gray-900/90 border border-gray-700/80 p-1.5 rounded-xl shadow-2xl backdrop-blur-md">
-      <button id="btn-add-event" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow transition active:scale-95" title="Add new event block to canvas">
-        <i data-lucide="plus-circle" class="w-4 h-4"></i> Add Event
-      </button>
-      <button id="btn-add-dialogue" class="bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow transition active:scale-95" title="Create a standalone dialogue card">
-        <i data-lucide="message-square-plus" class="w-4 h-4"></i> Add Dialogue
-      </button>
-    </div>
 
     <!-- Canvas Stage Layer (Holds Nodes + Stage-Embedded SVG Connectors + Floor Bands) -->
     <div id="canvas-stage" class="absolute top-0 left-0 origin-top-left z-20">

@@ -28,6 +28,11 @@ let appData = {
   nodes: [],
   dialogues: []
 };
+Object.defineProperty(window, 'appData', {
+  get: () => appData,
+  set: (val) => { appData = val; },
+  configurable: true
+});
 
 let resourceCatalog = { resources: [], characters: [] };
 let activeTimelineId = "timeline_1";
@@ -147,6 +152,7 @@ function showToast(msg, type = "info") {
 
 // Canvas Transform State
 let transform = { x: 40, y: 30, scale: 0.8 };
+window.transform = transform;
 let isDraggingCanvas = false;
 let dragStart = { x: 0, y: 0 };
 let parsedImportData = { nodes: [], dialogues: [] };
@@ -2398,11 +2404,7 @@ function createEventNodeDOM(node) {
       </td>`;
   }
 
-  wrapper.innerHTML = `
-    ${zoomControlsHTML}
-    <div class="event-card-inner">
-      ${isPoolEvent ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : ''}
-      <div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
+  wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
@@ -2705,8 +2707,7 @@ function createDeckNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `
-    ${zoomControlsHTML}
+  wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-start mb-3">
       <div class="space-y-2">
         <div class="deck-tag-condition">Conditions: <span class="editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'conditions')">${node.conditions || 'in the open sea'}</span></div>
@@ -2766,8 +2767,7 @@ function createGenericNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `
-    ${zoomControlsHTML}
+  wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-center mb-3">
       <div class="generic-banner flex-1">${node.codename}</div>
       <div class="generic-premise-card ml-4 w-64 bg-amber-100 border border-amber-300 p-2 rounded text-xs text-amber-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
@@ -2877,9 +2877,7 @@ function createDialogueNodeDOM(dialogue) {
 
   const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
 
-  wrapper.innerHTML = `
-    ${zoomControlsHTML}
-    <div class="dialogue-card-inner">
+  wrapper.innerHTML = `${zoomControlsHTML}<div class="dialogue-card-inner">
       <div class="dialogue-header pb-1.5">
         <div class="flex justify-between items-center gap-2 mb-1.5 flex-nowrap">
           <div class="flex items-center gap-1.5 cursor-grab flex-1 min-w-0" title="Drag dialogue block anywhere">
@@ -3161,12 +3159,109 @@ function createConnectedDialogueFromPort(nodeId, timing, actionId, customX, cust
   showToast(timing === 'action_option' ? "Route Suggestion Dialogue created for Option" : "Connected Dialogue created from Event port", "success");
 }
 
+// Requirement 4: Find closest empty space on canvas relative to current viewport center without overlapping existing cards
+function findClosestEmptyCanvasPosition(width, height) {
+  const containerW = (canvasContainer && canvasContainer.clientWidth) ? canvasContainer.clientWidth : (window.innerWidth || 1200);
+  const containerH = (canvasContainer && canvasContainer.clientHeight) ? canvasContainer.clientHeight : (window.innerHeight || 800);
+
+  const curScale = Math.max(transform.scale || 1, 0.1);
+  // Viewport center in canvas stage coordinates
+  const stageCenterX = (containerW / 2 - transform.x) / curScale;
+  const stageCenterY = (containerH / 2 - transform.y) / curScale;
+
+  const idealX = Math.round(stageCenterX - width / 2);
+  const idealY = Math.round(stageCenterY - height / 2);
+
+  const padding = 50; // Safety clearance so blocks never touch or overlap
+
+  // Collect bounding boxes of all relevant items in the current active category
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const boxes = [];
+
+  (appData.nodes || []).forEach(n => {
+    if (!n.position) return;
+    if (!isPoolPage && n.variationId && n.variationId !== activeVariationId) return;
+    if ((n.category || 'KeyChain') !== activeCategoryFilter) return;
+
+    const el = document.getElementById(`node-${n.id}`);
+    const w = (el && el.offsetWidth > 100) ? el.offsetWidth : (n.type === 'Deck' ? 820 : 880);
+    const h = (el && el.offsetHeight > 100) ? el.offsetHeight : 540;
+    boxes.push({ x: n.position.x, y: n.position.y, w, h });
+  });
+
+  (appData.dialogues || []).forEach(d => {
+    if (!d.position) return;
+    if (d.targetEventId) {
+      const targetNode = appData.nodes.find(n => n.id === d.targetEventId);
+      if (targetNode) {
+        if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
+        if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
+      }
+    } else {
+      if (!isPoolPage && d.variationId && d.variationId !== activeVariationId) return;
+      if (d.category && d.category !== activeCategoryFilter) return;
+    }
+
+    const el = document.getElementById(`dialogue-${d.id}`);
+    const w = (el && el.offsetWidth > 100) ? el.offsetWidth : 490;
+    const h = (el && el.offsetHeight > 100) ? el.offsetHeight : 240;
+    boxes.push({ x: d.position.x, y: d.position.y, w, h });
+  });
+
+  function hasOverlap(cx, cy) {
+    for (const b of boxes) {
+      const intersectX = (cx < b.x + b.w + padding) && (cx + width + padding > b.x);
+      const intersectY = (cy < b.y + b.h + padding) && (cy + height + padding > b.y);
+      if (intersectX && intersectY) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // 1. If ideal center spot is clear, place directly there!
+  if (!hasOverlap(idealX, idealY)) {
+    return { x: idealX, y: idealY };
+  }
+
+  // 2. Search outward in concentric rings around ideal position
+  const stepX = 120;
+  const stepY = 90;
+  const maxRings = 20;
+
+  for (let ring = 1; ring <= maxRings; ring++) {
+    let bestInRing = null;
+    let minRingDist = Infinity;
+
+    for (let rx = -ring; rx <= ring; rx++) {
+      for (let ry = -ring; ry <= ring; ry++) {
+        if (Math.abs(rx) !== ring && Math.abs(ry) !== ring) continue; // Perimeter only
+
+        const candX = Math.round(idealX + rx * stepX);
+        const candY = Math.round(idealY + ry * stepY);
+
+        if (!hasOverlap(candX, candY)) {
+          const dist = Math.hypot(candX - idealX, candY - idealY);
+          if (dist < minRingDist) {
+            minRingDist = dist;
+            bestInRing = { x: candX, y: candY };
+          }
+        }
+      }
+    }
+
+    if (bestInRing) {
+      return bestInRing;
+    }
+  }
+
+  return { x: idealX + width + padding, y: idealY };
+}
+
 // Requirement 2: Create Standalone Unconnected Dialogue Card
 function createStandaloneDialogue() {
   pushUndoState();
-  const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
-  const posX = isTier ? 1040 : 1450;
-  const posY = isTier ? 140 : FLOOR_Y[0];
+  const spawnPos = findClosestEmptyCanvasPosition(490, 240);
 
   const newDiag = {
     id: `diag_${Date.now()}`,
@@ -3176,7 +3271,7 @@ function createStandaloneDialogue() {
     delayHours: 0,
     delayUnit: 'hours',
     triggerCondition: 'Standalone Conversation',
-    position: { x: posX, y: posY },
+    position: spawnPos,
     variationId: activeVariationId,
     category: activeCategoryFilter,
     lines: [
@@ -5241,26 +5336,39 @@ function zoomInToBlock(blockId, isDialogue) {
   const containerW = (canvasContainer && canvasContainer.clientWidth) ? canvasContainer.clientWidth : (window.innerWidth || 1200);
   const containerH = (canvasContainer && canvasContainer.clientHeight) ? canvasContainer.clientHeight : (window.innerHeight || 800);
 
-  // Generous margins on both sides for floating controls and aesthetic breathing room
-  const marginH = 130;
-  const marginV = 60;
+  // 54px margin accommodates the -48px floating buttons on either side with edge clearance
+  const marginH = 54;
+  const marginV = 20;
 
   const availableW = Math.max(containerW - (marginH * 2), 320);
   const availableH = Math.max(containerH - (marginV * 2), 240);
 
   const scaleX = availableW / blockW;
   const scaleY = availableH / blockH;
-  let targetScale = Math.min(scaleX, scaleY);
 
-  // Clamped to comfortable maximum zoom
-  targetScale = Math.min(Math.max(targetScale, 0.35), 2.0);
+  // Zoom in to maximum readable capacity
+  // On tablet / iPad (width <= 1280px), fit width up to 2.0x so card details fill the screen
+  // On large desktop screens, fit width or height comfortably up to 1.8x
+  let targetScale;
+  if (containerW <= 1280) {
+    targetScale = Math.min(Math.max(scaleX, 0.4), 2.0);
+  } else {
+    targetScale = Math.min(Math.max(Math.min(scaleX, scaleY * 1.25), 0.4), 1.8);
+  }
 
   maxZoomedBlockId = blockId;
   window.maxZoomedBlockId = blockId;
   maxZoomScale = targetScale;
   transform.scale = targetScale;
   transform.x = Math.round((containerW - (blockW * targetScale)) / 2 - (obj.position.x * targetScale));
-  transform.y = Math.round((containerH - (blockH * targetScale)) / 2 - (obj.position.y * targetScale));
+
+  const scaledH = blockH * targetScale;
+  if (scaledH <= containerH - (marginV * 2)) {
+    transform.y = Math.round((containerH - scaledH) / 2 - (obj.position.y * targetScale));
+  } else {
+    // Top-align with marginV so the card header is directly visible in view
+    transform.y = Math.round(marginV - (obj.position.y * targetScale));
+  }
 
   // Seamlessly update button visibility in place without DOM re-render (NO SCREEN BLINK!)
   updateBlockZoomButtons();
@@ -5281,6 +5389,9 @@ function zoomOutToWholeScheme() {
   updateBlockZoomButtons();
   fitWholeSchematic(false);
 }
+
+window.zoomInToBlock = zoomInToBlock;
+window.zoomOutToWholeScheme = zoomOutToWholeScheme;
 
 // "View Whole Schematic" Engine
 function fitWholeSchematic(keepZoomLock = false) {
@@ -6150,8 +6261,7 @@ function openCreateEventModal() {
   const floor = 1;
   const currentVar = appData.variations.find(v => v.id === activeVariationId) || { number: 1 };
 
-  const posX = isTier ? TIER_X[0] : 300;
-  const posY = isTier ? 120 : FLOOR_Y[floor];
+  const spawnPos = findClosestEmptyCanvasPosition(880, 540);
 
   const isSecret = (activeCategoryFilter === 'SecretChain');
   const codePrefix = isSecret ? `SEC${appData.nodes.filter(n => n.category === 'SecretChain').length + 1}` : `E${appData.nodes.length}`;
@@ -6172,7 +6282,7 @@ function openCreateEventModal() {
     reactionTimerHours: "Infinite",
     hasInactionThreat: false,
     inactionThreat: null,
-    position: { x: posX, y: posY },
+    position: spawnPos,
     actions: [
       { 
         id: `c_${Date.now()}`, 
@@ -6192,6 +6302,9 @@ function openCreateEventModal() {
   renderApp();
   showToast("New Event Block created", "success");
 }
+
+window.openCreateEventModal = openCreateEventModal;
+window.createStandaloneDialogue = createStandaloneDialogue;
 
 function exportProjectJSON() {
   const jsonStr = JSON.stringify(appData, null, 2);
