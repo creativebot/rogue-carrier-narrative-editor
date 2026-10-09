@@ -23,6 +23,30 @@
       "createdAt": "2026-10-08T14:10:21.763424Z",
       "displayTime": "2026-10-08 16:10",
       "mentions": []
+    },
+    {
+      "id": "cmt_1791569583368",
+      "targetId": "node_e0",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K1A - The Moment After the End",
+      "text": "Playwright automated test comment @mnemosyne",
+      "author": "Daniel (Local PC)",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-09T18:13:03.368285Z",
+      "displayTime": "2026-10-09 20:13",
+      "mentions": []
+    },
+    {
+      "id": "cmt_1791569647034",
+      "targetId": "node_e0",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K1A - The Moment After the End",
+      "text": "Playwright automated test comment @mnemosyne",
+      "author": "Daniel (Local PC)",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-09T18:14:07.034033Z",
+      "displayTime": "2026-10-09 20:14",
+      "mentions": []
     }
   ]
 }

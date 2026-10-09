@@ -16,5 +16,6 @@ make_icons.py
 push_update.py
 push_now.py
 do_push.py
-git_ops.py
 backups/
+github_token.txt
+.env

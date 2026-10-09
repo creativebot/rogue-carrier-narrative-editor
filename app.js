@@ -702,6 +702,20 @@ function normalizeAllProjectData() {
     });
   }
 
+  // Normalize action codeSuffixes across all events to pure letters A, B, C...
+  if (appData.nodes) {
+    appData.nodes.forEach(node => {
+      if (node.actions && Array.isArray(node.actions)) {
+        node.actions.forEach((act, actIdx) => {
+          const letter = String.fromCharCode(65 + actIdx);
+          if (!act.codeSuffix || /\d/.test(act.codeSuffix) || act.codeSuffix.length > 1) {
+            act.codeSuffix = letter;
+          }
+        });
+      }
+    });
+  }
+
   // Seamless migration of old stage coordinates to new enlarged FLOOR_Y
   const oldFloorY = [90, 840, 1590, 2340];
   if (appData.nodes) {
@@ -754,7 +768,7 @@ function getDefaultNodesDataset() {
   return [
     {
       id: "node_e0",
-      codename: "T1-V1-E0-A0",
+      codename: "T1-V1-K1A",
       name: "The Moment After the End",
       type: "World",
       category: "KeyChain",
@@ -769,7 +783,7 @@ function getDefaultNodesDataset() {
       position: { x: 450, y: FLOOR_Y[0] },
       actions: [
         {
-          id: "act_e0_1", codeSuffix: "A1", shortDescription: "Investigate Signal", description: "Track keeling island distress signal.",
+          id: "act_e0_1", codeSuffix: "A", shortDescription: "Investigate Signal", description: "Track keeling island distress signal.",
           requirements: [
             { id: "c_e0_1_1", isReplaceable: false, items: [{ resourceId: "crafting_01", name: "Multi-Tool", amount: 1, iconImg: "icons/T_Multi-Tool.png" }] },
             { id: "c_e0_1_2", isReplaceable: false, items: [{ resourceId: "processing_01", name: "Assembly Matrix", amount: 1, iconImg: "icons/T_AssemblyMatrix.png" }] }
@@ -777,7 +791,7 @@ function getDefaultNodesDataset() {
           timerHours: 5, resultDescription: "Distress signal located at Keeling shore.", rewards: ["😊 Morale +5", "🧠 Knowledge +250"], targetNodeId: "node_e1"
         },
         {
-          id: "act_e0_2", codeSuffix: "B1", shortDescription: "Scan Wreckage", description: "Deploy long-range sensors to scan orbit.",
+          id: "act_e0_2", codeSuffix: "B", shortDescription: "Scan Wreckage", description: "Deploy long-range sensors to scan orbit.",
           requirements: [
             { id: "c_e0_2_1", isReplaceable: false, items: [{ resourceId: "processing_04", name: "Conductive Materials", amount: 1, iconImg: "icons/T_Conductive-Materials.png" }] },
             { id: "c_e0_2_2", isReplaceable: false, items: [{ resourceId: "synthesis_01", name: "Thermoplastic", amount: 1, iconImg: "icons/T_Thermoplastic.png" }] }
@@ -785,7 +799,7 @@ function getDefaultNodesDataset() {
           timerHours: 5, resultDescription: "Crash site calculated.", rewards: ["😊 Morale -1", "🧠 Knowledge +300"], targetNodeId: "node_e1b"
         },
         {
-          id: "act_e0_3", codeSuffix: "C1", shortDescription: "Deploy Scout Probes", description: "Launch high-altitude recon drones directly toward orbital decay corridors.",
+          id: "act_e0_3", codeSuffix: "C", shortDescription: "Deploy Scout Probes", description: "Launch high-altitude recon drones directly toward orbital decay corridors.",
           requirements: [
             { id: "c_e0_3_1", isReplaceable: false, items: [{ resourceId: "electronics_05", name: "Electronic Components", amount: 15, iconImg: "icons/T_Holo_Display.png" }] },
             { id: "c_e0_3_2", isReplaceable: false, items: [{ resourceId: "processing_04", name: "Conductive Materials", amount: 15, iconImg: "icons/T_Conductive-Materials.png" }] }
@@ -796,7 +810,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e1",
-      codename: "T1-V1-E1-A1",
+      codename: "T1-V1-K2A",
       name: "Escape Pod Signal",
       type: "World",
       category: "KeyChain",
@@ -811,7 +825,7 @@ function getDefaultNodesDataset() {
       position: { x: 140, y: FLOOR_Y[1] },
       actions: [
         {
-          id: "act_e1_1", codeSuffix: "A2", shortDescription: "Comb island", description: "Search island for survivors.",
+          id: "act_e1_1", codeSuffix: "A", shortDescription: "Comb island", description: "Search island for survivors.",
           requirements: [
             {
               id: "c_e1_1_1",
@@ -826,7 +840,7 @@ function getDefaultNodesDataset() {
           resultDescription: "Predators discovered.", rewards: ["Prebiotic Matter", "🧠 Knowledge +350"], targetNodeId: "node_e2a"
         },
         {
-          id: "act_e1_2", codeSuffix: "B2", shortDescription: "Examine pod", description: "Investigate scene for clues.",
+          id: "act_e1_2", codeSuffix: "B", shortDescription: "Examine pod", description: "Investigate scene for clues.",
           requirements: [
             { id: "c_e1_2_1", isReplaceable: false, items: [{ resourceId: "questres_03", name: "Tricorder", amount: 1, iconImg: "icons/T_Tricoder.png" }] },
             { id: "c_e1_2_2", isReplaceable: false, items: [{ resourceId: "processing_03", name: "Modular Container", amount: 1, iconImg: "icons/T_Container.png" }] }
@@ -838,7 +852,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e1b",
-      codename: "T1-V1-E1-B1",
+      codename: "T1-V1-K2B",
       name: "Smoldering Crater",
       type: "World",
       category: "KeyChain",
@@ -853,7 +867,7 @@ function getDefaultNodesDataset() {
       position: { x: 1080, y: FLOOR_Y[1] },
       actions: [
         {
-          id: "act_e1b_1", codeSuffix: "B2", shortDescription: "Disassemble", description: "Extract flight recorder.",
+          id: "act_e1b_1", codeSuffix: "B", shortDescription: "Disassemble", description: "Extract flight recorder.",
           requirements: [
             { id: "c_e1b_1", isReplaceable: false, items: [{ resourceId: "ammunition_03", name: "Explosive Charges", amount: 1, iconImg: "icons/T_ExplosiveCharges.png" }] }
           ],
@@ -864,7 +878,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e2a",
-      codename: "T1-V1-E2-A2",
+      codename: "T1-V1-K3A",
       name: "Predator Ambush",
       type: "World",
       category: "KeyChain",
@@ -879,7 +893,7 @@ function getDefaultNodesDataset() {
       position: { x: 140, y: FLOOR_Y[2] },
       actions: [
         {
-          id: "act_e2a_1", codeSuffix: "A3", shortDescription: "Set perimeter", description: "Deploy defensive force field.",
+          id: "act_e2a_1", codeSuffix: "A", shortDescription: "Set perimeter", description: "Deploy defensive force field.",
           requirements: [
             { id: "c_e2a_1", isReplaceable: false, items: [{ resourceId: "machinery_02", name: "Portable Force Shield", amount: 1, iconImg: "icons/T_ForceField.png" }] }
           ],
@@ -890,7 +904,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e2b",
-      codename: "T1-V1-E2-B2",
+      codename: "T1-V1-K3B",
       name: "Lifeboat Reunion",
       type: "World",
       category: "KeyChain",
@@ -905,7 +919,7 @@ function getDefaultNodesDataset() {
       position: { x: 1080, y: FLOOR_Y[2] },
       actions: [
         {
-          id: "act_e2b_1", codeSuffix: "A3", shortDescription: "Rescue & Quarantine", description: "Bring survivors to Health Care Center immediately.",
+          id: "act_e2b_1", codeSuffix: "A", shortDescription: "Rescue & Quarantine", description: "Bring survivors to Health Care Center immediately.",
           requirements: [
             { id: "c_e2b_1_1", isReplaceable: false, items: [{ resourceId: "questres_03", name: "Tricorder", amount: 1, iconImg: "icons/T_Tricoder.png" }] },
             { id: "c_e2b_1_2", isReplaceable: false, items: [{ resourceId: "medres_01", name: "Med Kit", amount: 2, iconImg: "icons/T_Med-Kit.png" }] }
@@ -914,7 +928,7 @@ function getDefaultNodesDataset() {
           resultDescription: "Scouts admitted to med bay. Virus isolated as Ebola derivative.", rewards: ["🧠 Knowledge +150", "💀 Entropy +10"], targetNodeId: "node_e3b"
         },
         {
-          id: "act_e2b_2", codeSuffix: "B3", shortDescription: "Study distantly", description: "Examine remotely using worker drones to prevent outbreak.",
+          id: "act_e2b_2", codeSuffix: "B", shortDescription: "Study distantly", description: "Examine remotely using worker drones to prevent outbreak.",
           requirements: [
             { id: "c_e2b_2_1", isReplaceable: false, items: [{ resourceId: "questres_03", name: "Tricorder", amount: 1, iconImg: "icons/T_Tricoder.png" }] },
             { id: "c_e2b_2_2", isReplaceable: false, items: [{ resourceId: "machinery_01", name: "Worker Drone", amount: 1, iconImg: "icons/T_WorkerDrone.png" }] }
@@ -926,7 +940,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e3a",
-      codename: "T1-V1-E3-A3",
+      codename: "T1-V1-K4A",
       name: "Submerged Orange Box",
       type: "World",
       category: "KeyChain",
@@ -941,7 +955,7 @@ function getDefaultNodesDataset() {
       position: { x: 140, y: FLOOR_Y[3] },
       actions: [
         {
-          id: "act_e3a_1", codeSuffix: "A4", shortDescription: "Defeat Leviathan", description: "Engage predator creature to safeguard orange box.",
+          id: "act_e3a_1", codeSuffix: "A", shortDescription: "Defeat Leviathan", description: "Engage predator creature to safeguard orange box.",
           requirements: [
             { id: "c_e3a_1", isReplaceable: false, items: [{ resourceId: "ammunition_03", name: "Explosive Charges", amount: 2, iconImg: "icons/T_ExplosiveCharges.png" }] }
           ],
@@ -952,7 +966,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_e3b",
-      codename: "T1-V1-E3-B3",
+      codename: "T1-V1-K4B",
       name: "Bioweapon Resolution",
       type: "World",
       category: "KeyChain",
@@ -967,7 +981,7 @@ function getDefaultNodesDataset() {
       position: { x: 1080, y: FLOOR_Y[3] },
       actions: [
         {
-          id: "act_e3b_1", codeSuffix: "B4", shortDescription: "Mass Produce Medkits", description: "Fully man Health Care Center to eradicate virus.",
+          id: "act_e3b_1", codeSuffix: "B", shortDescription: "Mass Produce Medkits", description: "Fully man Health Care Center to eradicate virus.",
           requirements: [
             { id: "c_e3b_1", isReplaceable: false, items: [{ resourceId: "medres_01", name: "Med Kit", amount: 5, iconImg: "icons/T_Med-Kit.png" }] }
           ],
@@ -978,7 +992,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_sec_1",
-      codename: "T1-V1-SEC-1",
+      codename: "T1-V1-S1A",
       name: "Encrypted Black-Box Beacon",
       type: "World",
       category: "SecretChain",
@@ -994,7 +1008,7 @@ function getDefaultNodesDataset() {
       actions: [
         {
           id: "act_sec_1_1",
-          codeSuffix: "S1",
+          codeSuffix: "A",
           shortDescription: "Crack Encryption",
           description: "Override classified security cypher.",
           requirements: [],
@@ -1005,7 +1019,7 @@ function getDefaultNodesDataset() {
         },
         {
           id: "act_sec_1_2",
-          codeSuffix: "S2",
+          codeSuffix: "B",
           shortDescription: "Triangulate Source",
           description: "Scan directional telemetry.",
           requirements: [],
@@ -1018,7 +1032,7 @@ function getDefaultNodesDataset() {
     },
     {
       id: "node_sec_2",
-      codename: "T1-V1-SEC-2",
+      codename: "T1-V1-S2A",
       name: "The Ghost Skiff",
       type: "World",
       category: "SecretChain",
@@ -1034,7 +1048,7 @@ function getDefaultNodesDataset() {
       actions: [
         {
           id: "act_sec_2_1",
-          codeSuffix: "S3",
+          codeSuffix: "A",
           shortDescription: "Retrieve Black Core",
           description: "Extract mission flight logs from terminal.",
           requirements: [],
@@ -1057,7 +1071,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: null,
       delayHours: 0,
       delayUnit: "hours",
-      triggerCondition: "Before (T1-V1-E1-A0)",
+      triggerCondition: "Before (T1-V1-K1A)",
       position: { x: 1400, y: FLOOR_Y[0] },
       variationId: "var_v1",
       category: "KeyChain",
@@ -1076,7 +1090,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: "act_e0_1",
       delayHours: 3,
       delayUnit: "hours",
-      triggerCondition: "After (T1-V1-E1-A0) Investigate Signal",
+      triggerCondition: "After (T1-V1-K1A) Investigate Signal",
       position: { x: 1400, y: FLOOR_Y[0] + 340 },
       variationId: "var_v1",
       category: "KeyChain",
@@ -1094,7 +1108,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: "act_e0_1",
       delayHours: 0,
       delayUnit: "hours",
-      triggerCondition: "During (T1-V1-E1-A0) Investigate Signal",
+      triggerCondition: "During (T1-V1-K1A) Investigate Signal",
       position: { x: 1540, y: FLOOR_Y[0] },
       variationId: "var_v1",
       category: "KeyChain",
@@ -1110,7 +1124,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: "act_e0_2",
       delayHours: 0,
       delayUnit: "hours",
-      triggerCondition: "During (T1-V1-E1-A0) Scan Wreckage",
+      triggerCondition: "During (T1-V1-K1A) Scan Wreckage",
       position: { x: 1540, y: FLOOR_Y[0] + 280 },
       variationId: "var_v1",
       category: "KeyChain",
@@ -1126,7 +1140,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: "act_e0_3",
       delayHours: 0,
       delayUnit: "hours",
-      triggerCondition: "During (T1-V1-E1-A0) Deploy Scout Probes",
+      triggerCondition: "During (T1-V1-K1A) Deploy Scout Probes",
       position: { x: 1540, y: FLOOR_Y[0] + 560 },
       variationId: "var_v1",
       category: "KeyChain",
@@ -1142,7 +1156,7 @@ function getDefaultDialoguesDataset() {
       triggerActionId: null,
       delayHours: 0,
       delayUnit: "hours",
-      triggerCondition: "Before (T1-V1-E2-A1)",
+      triggerCondition: "Before (T1-V1-K3B)",
       position: { x: 2020, y: FLOOR_Y[2] },
       variationId: "var_v1",
       category: "KeyChain",
@@ -2532,7 +2546,7 @@ function createEventNodeDOM(node) {
       <th class="action-column-head" style="width: ${actionWidthPercent}%; padding: 4px 6px;">
         <div class="flex items-center justify-between px-1 gap-1">
           <div class="flex items-center gap-1 min-w-0">
-            <span class="truncate">Action Option ${idx + 1}</span>
+            <span class="truncate">Action ${act.codeSuffix || String.fromCharCode(65 + idx)}</span>
             <div class="dialogue-trigger-port action-option-port shrink-0 cursor-pointer ${hasRouteDiag ? 'has-connected-diag' : ''}" 
                  data-node-id="${node.id}" data-action-id="${act.id}" 
                  title="Click to spawn side-screen route suggestion dialogue for this option (or drag to connect)" 
@@ -2622,7 +2636,7 @@ function createEventNodeDOM(node) {
       <td class="event-value-cell text-center py-2 bg-yellow-100/50" id="action-btn-cell-${node.id}-${idx}">
         <div class="action-handle-group">
           <button type="button" class="action-handle" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
-            ${act.codeSuffix || `A${idx+1}`}: ${act.shortDescription || 'Choice'}
+            ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}
           </button>
           <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="${act.id}" title="Drag line to connect or spawn new block"></div>
         </div>
@@ -2747,7 +2761,7 @@ function createEventNodeDOM(node) {
         </div>
 
         <div class="flex items-center gap-1.5">
-          <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event', '${escapeHtml(node.name || node.codename)}')">
+          <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event')">
             💬 <span class="cmt-cnt-${node.id}">${getCommentCount(node.id)}</span>
           </button>
           <select class="event-theme-select" 
@@ -2974,14 +2988,12 @@ function addActionColumn(nodeId) {
   }
 
   pushUndoState();
-  const suffixes = ['A1', 'B1', 'C1', 'D1'];
   const newIdx = node.actions.length;
-  const nextSuffix = suffixes[newIdx] || `A${newIdx + 1}`;
   const nextLetter = String.fromCharCode(65 + newIdx);
 
   node.actions.push({
     id: `act_${Date.now()}`,
-    codeSuffix: nextSuffix,
+    codeSuffix: nextLetter,
     shortDescription: `Choice ${nextLetter}`,
     description: `Description for action choice ${nextLetter}...`,
     requirements: [],
@@ -2992,7 +3004,7 @@ function addActionColumn(nodeId) {
 
   saveProjectToLocalStorage();
   renderApp();
-  showToast(`Action Option ${newIdx + 1} added (${nextSuffix})`, "success");
+  showToast(`Action Option ${nextLetter} added`, "success");
 }
 
 function removeActionColumn(nodeId, actionIdx) {
@@ -3249,7 +3261,7 @@ function createDialogueNodeDOM(dialogue) {
           </div>
 
           <div class="flex items-center gap-1.5 shrink-0">
-            <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue', 'Dialogue ${dialogue.id}')">
+            <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue')">
               💬 <span class="cmt-cnt-${dialogue.id}">${getCommentCount(dialogue.id)}</span>
             </button>
             ${targetNode ? `
@@ -3827,13 +3839,14 @@ function setupPortDragEvents() {
               const dist = Math.abs(mouseY - fy);
               if (dist < minDistance) { minDistance = dist; closestFloorIdx = idx; }
             });
+            const newCodename = generateNewEventCodename(sourceNode.category || 'KeyChain', closestFloorIdx, sourceNode.variationId || activeVariationId);
             const newNode = {
               id: `node_${Date.now()}`,
-              codename: `T1-V1-E${closestFloorIdx}-FAIL`,
-              name: `Consequence of ${sourceNode.codename}`,
-              type: sourceNode.type,
-              category: sourceNode.category,
-              variationId: sourceNode.variationId,
+              codename: newCodename,
+              name: `Consequence of ${sourceNode.name || sourceNode.codename}`,
+              type: sourceNode.type || 'World',
+              category: sourceNode.category || 'KeyChain',
+              variationId: sourceNode.variationId || activeVariationId,
               floorIndex: closestFloorIdx,
               spawnConditions: `Inaction Failure on ${sourceNode.codename}`,
               eventDescription: "Catastrophic outcome occurred due to inaction...",
@@ -3842,7 +3855,7 @@ function setupPortDragEvents() {
               inactionThreat: null,
               position: { x: Math.round(mouseX - 200), y: FLOOR_Y[closestFloorIdx] },
               actions: [
-                { id: `c_${Date.now()}`, codeSuffix: "A1", shortDescription: "Recover", description: "Attempt salvage", requirements: [], timerHours: 5, resultDescription: "", rewards: ["💀 Entropy +5"] }
+                { id: `c_${Date.now()}`, codeSuffix: "A", shortDescription: "Recover", description: "Attempt salvage", requirements: [], timerHours: 5, resultDescription: "", rewards: ["💀 Entropy +5"] }
               ]
             };
             appData.nodes.push(newNode);
@@ -3864,15 +3877,14 @@ function setupPortDragEvents() {
                 if (dist < minDistance) { minDistance = dist; closestFloorIdx = idx; }
               });
 
-              const actionSuffix = action.codeSuffix || 'A1';
-              const newCodename = `T1-V1-E${closestFloorIdx}-${actionSuffix}`;
+              const newCodename = generateNewEventCodename(sourceNode.category || 'KeyChain', closestFloorIdx, sourceNode.variationId || activeVariationId);
               const newNode = {
                 id: `node_${Date.now()}`,
                 codename: newCodename,
-                name: `Outcome from ${sourceNode.codename}`,
-                type: sourceNode.type,
-                category: sourceNode.category,
-                variationId: sourceNode.variationId,
+                name: `Outcome from ${sourceNode.name || sourceNode.codename}`,
+                type: sourceNode.type || 'World',
+                category: sourceNode.category || 'KeyChain',
+                variationId: sourceNode.variationId || activeVariationId,
                 floorIndex: closestFloorIdx,
                 spawnConditions: `Triggered by ${sourceNode.codename}`,
                 eventDescription: "Enter new outcome narrative body text...",
@@ -3881,7 +3893,7 @@ function setupPortDragEvents() {
                 inactionThreat: null,
                 position: { x: Math.round(mouseX - 200), y: FLOOR_Y[closestFloorIdx] },
                 actions: [
-                  { id: `c_${Date.now()}`, codeSuffix: "A1", shortDescription: "Continue", description: "Next step narrative", requirements: [], timerHours: 5, resultDescription: "", rewards: ["🧠 Knowledge +100"] }
+                  { id: `c_${Date.now()}`, codeSuffix: "A", shortDescription: "Continue", description: "Next step narrative", requirements: [], timerHours: 5, resultDescription: "", rewards: ["🧠 Knowledge +100"] }
                 ]
               };
 
@@ -5479,6 +5491,217 @@ function makeInlineReactionTimerEditable(element, nodeId) {
   select.onblur = () => renderApp();
 }
 
+/* ==========================================================================
+   EVENT CODENAME PARSING, GENERATION & LETTER SWAPPING ENGINE
+   Format: T{timeline}-V{variation}-{K|S}{stage}{letter} (e.g. T1-V1-K1A, T1-V1-S2B)
+   Action Suffix: Strictly A, B, C (no digits)
+   ========================================================================== */
+
+function getNodeTimelineNumber(node) {
+  const vId = (node && node.variationId) || activeVariationId;
+  const v = (appData.variations || []).find(x => x.id === vId);
+  if (v && v.timelineId) {
+    const tl = (appData.timelines || []).find(t => t.id === v.timelineId);
+    if (tl && tl.number) return tl.number;
+  }
+  const actTl = (appData.timelines || []).find(t => t.id === activeTimelineId);
+  return (actTl && actTl.number) || 1;
+}
+
+function getNodeVariationNumber(node) {
+  const vId = (node && node.variationId) || activeVariationId;
+  const v = (appData.variations || []).find(x => x.id === vId);
+  return (v && v.number) || 1;
+}
+
+function getNodeStageNumber(node) {
+  if (node && node.floorIndex !== undefined && node.floorIndex !== null) {
+    return Number(node.floorIndex) + 1;
+  }
+  if (node && node.tier) return Number(node.tier);
+  return (activeMobileStageIndex || 0) + 1;
+}
+
+function parseStructuredCodename(codeStr) {
+  if (!codeStr || typeof codeStr !== 'string') return null;
+  const match = codeStr.trim().toUpperCase().match(/^T(\d+)-V(\d+)-([KS])(\d+)([A-Z])$/);
+  if (match) {
+    return {
+      timeline: Number(match[1]),
+      variation: Number(match[2]),
+      type: match[3],
+      stage: Number(match[4]),
+      letter: match[5],
+      isStructured: true
+    };
+  }
+  const shortMatch = codeStr.trim().toUpperCase().match(/^([KS])(\d+)([A-Z])$/);
+  if (shortMatch) {
+    return {
+      timeline: 1,
+      variation: 1,
+      type: shortMatch[1],
+      stage: Number(shortMatch[2]),
+      letter: shortMatch[3],
+      isStructured: true
+    };
+  }
+  return { isStructured: false, raw: codeStr };
+}
+
+function buildStructuredCodename(tlNum, varNum, type, stageNum, letter) {
+  return `T${tlNum}-V${varNum}-${type}${stageNum}${letter.toUpperCase()}`;
+}
+
+function getUsedLettersOnStage(stageIndex, category, variationId, excludeNodeId = null) {
+  const letters = new Set();
+  const vId = variationId || activeVariationId;
+  const stageNum = stageIndex + 1;
+  const isSecret = (category === 'SecretChain');
+  const targetType = isSecret ? 'S' : 'K';
+
+  (appData.nodes || []).forEach(n => {
+    if (n.id === excludeNodeId) return;
+    if ((n.category || 'KeyChain') !== category) return;
+    const nVar = n.variationId || activeVariationId;
+    if (nVar !== vId) return;
+    const nFloor = (n.floorIndex !== undefined && n.floorIndex !== null) ? Number(n.floorIndex) : 0;
+    if (nFloor !== stageIndex) return;
+
+    const parsed = parseStructuredCodename(n.codename);
+    if (parsed && parsed.isStructured && parsed.type === targetType && parsed.stage === stageNum) {
+      letters.add(parsed.letter);
+    }
+  });
+  return letters;
+}
+
+function getNextAvailableEventLetter(stageIndex, category, variationId) {
+  const used = getUsedLettersOnStage(stageIndex, category, variationId);
+  for (let i = 0; i < 26; i++) {
+    const letter = String.fromCharCode(65 + i);
+    if (!used.has(letter)) {
+      return letter;
+    }
+  }
+  return 'Z';
+}
+
+function generateNewEventCodename(category, stageIndex, variationId) {
+  if (category === 'GenericPool' || category === 'DeckPool') {
+    const prefix = category === 'DeckPool' ? 'DECK' : 'GEN';
+    const count = (appData.nodes || []).filter(n => n.category === category).length + 1;
+    return `${prefix}-S${stageIndex + 1}-E${count}`;
+  }
+
+  const vId = variationId || activeVariationId;
+  const dummyNode = { variationId: vId, floorIndex: stageIndex, category };
+  const tlNum = getNodeTimelineNumber(dummyNode);
+  const varNum = getNodeVariationNumber(dummyNode);
+  const type = (category === 'SecretChain') ? 'S' : 'K';
+  const stageNum = stageIndex + 1;
+  const letter = getNextAvailableEventLetter(stageIndex, category, vId);
+
+  return buildStructuredCodename(tlNum, varNum, type, stageNum, letter);
+}
+
+function updateEventCodenameWithSwapping(nodeId, rawInput) {
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return;
+
+  const trimmed = (rawInput || '').trim();
+  if (!trimmed) return;
+
+  // Generic and Deck events allow free-form custom naming
+  if (node.category !== 'KeyChain' && node.category !== 'SecretChain') {
+    if (trimmed !== node.codename) {
+      pushUndoState();
+      const oldCode = node.codename;
+      node.codename = trimmed;
+      cascadeCodenameChanges(nodeId, oldCode, trimmed);
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Updated generic codename to "${trimmed}"`, "info");
+    }
+    return;
+  }
+
+  // KeyChain and SecretChain follow structured T{t}-V{v}-{K|S}{s}{L}
+  const isSecret = (node.category === 'SecretChain');
+  const type = isSecret ? 'S' : 'K';
+  const stageNum = getNodeStageNumber(node);
+  const stageIndex = stageNum - 1;
+  const tlNum = getNodeTimelineNumber(node);
+  const varNum = getNodeVariationNumber(node);
+
+  let targetLetter = null;
+  const fullParsed = parseStructuredCodename(trimmed);
+  if (fullParsed && fullParsed.isStructured) {
+    targetLetter = fullParsed.letter;
+  } else {
+    // Extract letter from partial input (e.g. "K1B", "1B", "B", "b")
+    const match = trimmed.toUpperCase().match(/[A-Z]$/);
+    if (match) targetLetter = match[0];
+  }
+
+  if (!targetLetter || !/^[A-Z]$/.test(targetLetter)) {
+    showToast(`Invalid codename format. Must end with letter A-Z (e.g. T${tlNum}-V${varNum}-${type}${stageNum}A)`, "warning");
+    renderApp();
+    return;
+  }
+
+  const currentParsed = parseStructuredCodename(node.codename);
+  const currentLetter = (currentParsed && currentParsed.isStructured) ? currentParsed.letter : 'A';
+
+  if (targetLetter === currentLetter && node.codename === buildStructuredCodename(tlNum, varNum, type, stageNum, targetLetter)) {
+    return; // No change
+  }
+
+  pushUndoState();
+
+  const newTargetCodename = buildStructuredCodename(tlNum, varNum, type, stageNum, targetLetter);
+  const vId = node.variationId || activeVariationId;
+
+  // Cross-check: find sibling event with target letter on same canvas & stage
+  const siblingNodes = (appData.nodes || []).filter(n =>
+    n.id !== node.id &&
+    (n.category || 'KeyChain') === node.category &&
+    (n.floorIndex || 0) === (node.floorIndex || 0) &&
+    (n.variationId || activeVariationId) === vId
+  );
+
+  const conflictingNode = siblingNodes.find(n => {
+    const p = parseStructuredCodename(n.codename);
+    return p && p.isStructured && p.letter === targetLetter;
+  });
+
+  const oldCode = node.codename;
+
+  if (conflictingNode) {
+    // Swap letters! Conflicting node takes the vacated currentLetter
+    const conflictingOldCode = conflictingNode.codename;
+    const conflictingNewCode = buildStructuredCodename(tlNum, varNum, type, stageNum, currentLetter);
+
+    node.codename = newTargetCodename;
+    conflictingNode.codename = conflictingNewCode;
+
+    cascadeCodenameChanges(node.id, oldCode, newTargetCodename);
+    cascadeCodenameChanges(conflictingNode.id, conflictingOldCode, conflictingNewCode);
+
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Swapped codenames: "${newTargetCodename}" ↔ "${conflictingNewCode}"`, "success");
+  } else {
+    // No conflict: allocate target letter directly
+    node.codename = newTargetCodename;
+    cascadeCodenameChanges(node.id, oldCode, newTargetCodename);
+
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Updated codename to "${newTargetCodename}"`, "success");
+  }
+}
+
 function makeInlineCodenameEditable(element, nodeId) {
   if (!requireAuthToEdit("edit event codename")) return;
   if (element.querySelector('input')) return;
@@ -5488,7 +5711,7 @@ function makeInlineCodenameEditable(element, nodeId) {
   const currentCode = node.codename;
   const input = document.createElement('input');
   input.type = 'text';
-  input.className = 'inline-input font-mono font-bold w-36 text-center text-amber-900 bg-amber-100 border-2 border-amber-500';
+  input.className = 'inline-input font-mono font-bold w-40 text-center text-amber-900 bg-amber-100 border-2 border-amber-500 rounded';
   input.value = currentCode;
   element.innerHTML = '';
   element.appendChild(input);
@@ -5512,41 +5735,23 @@ function makeInlineCodenameEditable(element, nodeId) {
     if (saved) return;
     saved = true;
     const rawVal = input.value.trim();
-    const formattedCode = enforceCodenamePattern(rawVal, node);
-    if (formattedCode !== node.codename) {
-      pushUndoState();
-      const oldCode = node.codename;
-      node.codename = formattedCode;
-
-      cascadeCodenameChanges(nodeId, oldCode, formattedCode);
-
-      saveProjectToLocalStorage();
-      renderApp();
-    }
+    updateEventCodenameWithSwapping(nodeId, rawVal);
   };
 
   input.onblur = saveCodename;
 }
 
-function enforceCodenamePattern(str, node) {
-  const pattern = /^T(\d+)-V(\d+)-E(\d+)-([A-Z0-9]+)$/i;
-  if (pattern.test(str)) {
-    return str.toUpperCase();
-  }
-  const floor = node.floorIndex || 0;
-  return `T1-V1-E${floor}-A0`;
-}
-
 function cascadeCodenameChanges(nodeId, oldCode, newCode) {
-  appData.nodes.forEach(n => {
+  if (!oldCode || !newCode || oldCode === newCode) return;
+  (appData.nodes || []).forEach(n => {
     if (n.spawnConditions && n.spawnConditions.includes(oldCode)) {
-      n.spawnConditions = n.spawnConditions.replace(oldCode, newCode);
+      n.spawnConditions = n.spawnConditions.replaceAll(oldCode, newCode);
     }
   });
 
-  appData.dialogues.forEach(d => {
+  (appData.dialogues || []).forEach(d => {
     if (d.triggerCondition && d.triggerCondition.includes(oldCode)) {
-      d.triggerCondition = d.triggerCondition.replace(oldCode, newCode);
+      d.triggerCondition = d.triggerCondition.replaceAll(oldCode, newCode);
     }
   });
 }
@@ -5665,9 +5870,9 @@ function zoomInToBlock(blockId, isDialogue) {
   const containerW = (canvasContainer && canvasContainer.clientWidth) ? canvasContainer.clientWidth : (window.innerWidth || 1200);
   const containerH = (canvasContainer && canvasContainer.clientHeight) ? canvasContainer.clientHeight : (window.innerHeight || 800);
 
-  // 54px margin accommodates the -48px floating buttons on either side with edge clearance
-  const marginH = 54;
-  const marginV = 20;
+  // 68px horizontal margin accommodates side floating buttons; 48px vertical margin clears top header & bottom status bar
+  const marginH = 68;
+  const marginV = 48;
 
   const availableW = Math.max(containerW - (marginH * 2), 320);
   const availableH = Math.max(containerH - (marginV * 2), 240);
@@ -5675,29 +5880,18 @@ function zoomInToBlock(blockId, isDialogue) {
   const scaleX = availableW / blockW;
   const scaleY = availableH / blockH;
 
-  // Zoom in to maximum readable capacity
-  // On tablet / iPad (width <= 1280px), fit width up to 2.0x so card details fill the screen
-  // On large desktop screens, fit width or height comfortably up to 1.8x
-  let targetScale;
-  if (containerW <= 1280) {
-    targetScale = Math.min(Math.max(scaleX, 0.4), 2.0);
-  } else {
-    targetScale = Math.min(Math.max(Math.min(scaleX, scaleY * 1.25), 0.4), 1.8);
-  }
+  // Zoom in bounding strictly by whichever dimension (height or width) is limiting the block,
+  // guaranteeing the ENTIRE card fits comfortably on screen without any truncation or cutoff.
+  const targetScale = Math.max(Math.min(scaleX, scaleY), 0.2);
 
   maxZoomedBlockId = blockId;
   window.maxZoomedBlockId = blockId;
   maxZoomScale = targetScale;
   transform.scale = targetScale;
-  transform.x = Math.round((containerW - (blockW * targetScale)) / 2 - (obj.position.x * targetScale));
 
-  const scaledH = blockH * targetScale;
-  if (scaledH <= containerH - (marginV * 2)) {
-    transform.y = Math.round((containerH - scaledH) / 2 - (obj.position.y * targetScale));
-  } else {
-    // Top-align with marginV so the card header is directly visible in view
-    transform.y = Math.round(marginV - (obj.position.y * targetScale));
-  }
+  // Perfectly center in both X and Y so 100% of the block is directly in view
+  transform.x = Math.round((containerW - (blockW * targetScale)) / 2 - (obj.position.x * targetScale));
+  transform.y = Math.round((containerH - (blockH * targetScale)) / 2 - (obj.position.y * targetScale));
 
   // Seamlessly update button visibility in place without DOM re-render (NO SCREEN BLINK!)
   updateBlockZoomButtons();
@@ -6588,16 +6782,13 @@ function openCreateEventModal() {
   pushUndoState();
   const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
   const floor = 1;
-  const currentVar = appData.variations.find(v => v.id === activeVariationId) || { number: 1 };
 
   const spawnPos = findClosestEmptyCanvasPosition(880, 540);
-
-  const isSecret = (activeCategoryFilter === 'SecretChain');
-  const codePrefix = isSecret ? `SEC${appData.nodes.filter(n => n.category === 'SecretChain').length + 1}` : `E${appData.nodes.length}`;
+  const newCodename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
 
   const newNode = {
     id: `node_${Date.now()}`,
-    codename: `T1-V${currentVar.number}-${codePrefix}-A0`,
+    codename: newCodename,
     name: 'New Event Block',
     type: activeCategoryFilter === 'DeckPool' ? 'Deck' : 'World',
     category: activeCategoryFilter,
@@ -6615,7 +6806,7 @@ function openCreateEventModal() {
     actions: [
       { 
         id: `c_${Date.now()}`, 
-        codeSuffix: "A1", 
+        codeSuffix: "A", 
         shortDescription: "Choice A", 
         description: "Action description...", 
         requirements: [], 
@@ -6629,7 +6820,7 @@ function openCreateEventModal() {
   preventNodeOverlap(newNode.id);
   saveProjectToLocalStorage();
   renderApp();
-  showToast("New Event Block created", "success");
+  showToast(`New Event Block created (${newCodename})`, "success");
 }
 
 window.openCreateEventModal = openCreateEventModal;
@@ -6956,7 +7147,7 @@ function renderMobileStageView() {
                 </h3>
               </div>
               <div class="flex items-center gap-1.5">
-                <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event', '${escapeHtml(node.name || node.codename)}')">
+                <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event')">
                   💬 <span class="cmt-cnt-${node.id}">${getCommentCount(node.id)}</span>
                 </button>
                 <button type="button" onclick="deleteMobileEvent('${node.id}')" class="text-xs text-red-400 hover:text-red-300 p-1 rounded hover:bg-red-950/40" title="Delete Event">
@@ -7076,7 +7267,7 @@ function renderMobileDialogueCardHTML(dialogue, isRoute = false) {
           <span>💬</span> ${dialogue.triggerCondition || 'Dialogue Block'}
         </span>
         <div class="flex items-center gap-2">
-          <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue', '${escapeHtml(dialogue.triggerCondition || dialogue.id)}')">
+          <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue')">
             💬 <span class="cmt-cnt-${dialogue.id}">${getCommentCount(dialogue.id)}</span>
           </button>
           <button type="button" onclick="addMobileDialogueLine('${dialogue.id}')" class="text-[10px] text-cyan-400 hover:text-cyan-200 font-semibold">+ Line</button>
@@ -7102,9 +7293,7 @@ function createMobileEvent(floorIndex) {
   const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
   const slot = allocateDesktopSlotForEvent(floor, activeCategoryFilter);
 
-  const existingCount = (appData.nodes || []).filter(n => (n.category || 'KeyChain') === activeCategoryFilter).length;
-  const prefix = activeCategoryFilter === 'GenericPool' ? 'GEN' : (activeCategoryFilter === 'DeckPool' ? 'DECK' : (activeCategoryFilter === 'SecretChain' ? 'SEC' : 'KEY'));
-  const codename = `${prefix}-S${floor + 1}-E${existingCount + 1}`;
+  const codename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
 
   const newNode = {
     id: `node_mob_${Date.now()}`,
@@ -7126,7 +7315,7 @@ function createMobileEvent(floorIndex) {
     actions: [
       {
         id: `c_${Date.now()}`,
-        codeSuffix: "A1",
+        codeSuffix: "A",
         shortDescription: "Choice A",
         description: "Action description...",
         requirements: [],
@@ -8178,7 +8367,9 @@ let activeCommentTarget = null; // { id, type, title }
 
 async function loadAllCommentCounts() {
   try {
-    const res = await fetch('/api/comments');
+    const headers = {};
+    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+    const res = await fetch('/api/comments', { headers });
     if (res.ok) {
       const data = await res.json();
       commentCounts = data.counts || {};
@@ -8205,6 +8396,16 @@ function updateCommentBadgesInDOM() {
 }
 
 async function openCommentsDrawer(targetId, targetType, targetTitle) {
+  if (!targetTitle) {
+    if (targetType === 'event') {
+      const node = (appData.nodes || []).find(e => e.id === targetId);
+      if (node) targetTitle = `${node.codename ? node.codename + ' - ' : ''}${node.name || 'Event Block'}`;
+    } else if (targetType === 'dialogue') {
+      const d = (appData.dialogues || []).find(x => x.id === targetId);
+      if (d) targetTitle = d.triggerCondition || `Dialogue ${d.id}`;
+    }
+  }
+  targetTitle = targetTitle || targetId;
   activeCommentTarget = { id: targetId, type: targetType, title: targetTitle };
 
   const drawer = document.getElementById('drawer-comments');
@@ -8243,7 +8444,9 @@ async function loadCommentsStream(targetId) {
   container.innerHTML = '<div class="text-center py-8 text-gray-500">Loading comments...</div>';
 
   try {
-    const res = await fetch(`/api/comments?targetId=${encodeURIComponent(targetId)}`);
+    const headers = {};
+    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+    const res = await fetch(`/api/comments?targetId=${encodeURIComponent(targetId)}`, { headers });
     if (res.ok) {
       const data = await res.json();
       const comments = data.comments || [];
@@ -8314,9 +8517,11 @@ async function postComment() {
   }
 
   try {
+    const headers = { 'Content-Type': 'application/json' };
+    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     const res = await fetch('/api/comments', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         targetId: activeCommentTarget.id,
         targetType: activeCommentTarget.type,
@@ -8353,7 +8558,9 @@ async function postComment() {
 async function deleteComment(commentId) {
   if (!confirm("Delete this comment?")) return;
   try {
-    const res = await fetch(`/api/comments/${commentId}`, { method: 'DELETE' });
+    const headers = {};
+    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+    const res = await fetch(`/api/comments/${commentId}`, { method: 'DELETE', headers });
     if (res.ok) {
       if (activeCommentTarget) {
         await loadCommentsStream(activeCommentTarget.id);

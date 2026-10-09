@@ -1,3 +1,5 @@
+import threading
+import base64
 import http.server
 import socketserver
 import json
@@ -585,6 +587,108 @@ def create_backup_snapshot(trigger_reason, author, app_data):
         print(f"Error creating backup snapshot: {err}", file=sys.stderr)
         return None
 
+
+def get_github_pat():
+    pat = os.environ.get("GITHUB_PAT")
+    if pat:
+        return pat.strip()
+    token_file = os.path.join(DIRECTORY, "github_token.txt")
+    if os.path.exists(token_file):
+        try:
+            with open(token_file, "r", encoding="utf-8") as f:
+                return f.read().strip()
+        except Exception:
+            pass
+    return ""
+
+GITHUB_PAT = get_github_pat()
+GITHUB_REPO = "creativebot/rogue-carrier-narrative-editor"
+
+def sync_project_data_to_github(app_data, author_name):
+    """
+    Asynchronously commits and pushes project-data.json directly to GitHub repository main branch.
+    This guarantees that Render redeployments or container restarts NEVER lose saved work.
+    """
+    if not GITHUB_PAT or not app_data:
+        return
+    try:
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/project-data.json"
+        headers = {
+            "Authorization": f"Bearer {GITHUB_PAT}",
+            "Accept": "application/vnd.github.v3+json",
+            "User-Agent": "RogueCarrierNarrativeEditor"
+        }
+        # 1. Fetch current file SHA
+        sha = None
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode('utf-8'))
+                sha = data.get('sha')
+        except Exception:
+            pass
+
+        # 2. Base64 encode JSON
+        json_bytes = json.dumps(app_data, indent=2, ensure_ascii=False).encode('utf-8')
+        content_b64 = base64.b64encode(json_bytes).decode('utf-8')
+
+        node_count = len(app_data.get('nodes', []))
+        diag_count = len(app_data.get('dialogues', []))
+        commit_msg = f"Auto-save project-data.json ({node_count} events, {diag_count} diags) by {author_name}"
+
+        put_body = {
+            "message": commit_msg,
+            "content": content_b64,
+            "branch": "main"
+        }
+        if sha:
+            put_body["sha"] = sha
+
+        put_data = json.dumps(put_body).encode('utf-8')
+        put_req = urllib.request.Request(url, data=put_data, headers={**headers, "Content-Type": "application/json"}, method="PUT")
+        with urllib.request.urlopen(put_req, timeout=15) as put_resp:
+            if put_resp.status in (200, 201):
+                print(f"[GitHub Sync] Successfully committed and pushed project-data.json to GitHub main ({node_count} events)")
+    except Exception as err:
+        print(f"[GitHub Sync] GitHub background push error: {err}")
+
+def pull_latest_from_github_on_startup():
+    """
+    On server boot, checks if GitHub repository has a richer or newer project-data.json than the container disk.
+    """
+    if not GITHUB_PAT:
+        return
+    try:
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/project-data.json"
+        headers = {
+            "Authorization": f"Bearer {GITHUB_PAT}",
+            "Accept": "application/vnd.github.v3+json",
+            "User-Agent": "RogueCarrierNarrativeEditor"
+        }
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            if 'content' in data:
+                raw_bytes = base64.b64decode(data['content'])
+                remote_json = json.loads(raw_bytes.decode('utf-8'))
+                remote_nodes = len(remote_json.get('nodes', []))
+
+                project_path = os.path.join(DIRECTORY, 'project-data.json')
+                local_nodes = 0
+                if os.path.exists(project_path):
+                    try:
+                        with open(project_path, 'r', encoding='utf-8') as f:
+                            local_nodes = len(json.load(f).get('nodes', []))
+                    except Exception:
+                        pass
+
+                if remote_nodes > local_nodes:
+                    with open(project_path, 'wb') as f:
+                        f.write(raw_bytes)
+                    print(f"[Startup] Pulled updated project-data.json from GitHub ({remote_nodes} nodes vs local {local_nodes})")
+    except Exception as e:
+        print(f"[Startup] Could not check GitHub on startup: {e}")
+
 def list_backup_snapshots():
     snapshots = []
     if os.path.exists(BACKUPS_DIR):
@@ -748,6 +852,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 # Automated Backup Snapshot
                 snap = create_backup_snapshot("Automated Save Snapshot", author_name, app_data)
+
+                # Asynchronous Permanent GitHub Commit & Push (Container-Reset Immune)
+                threading.Thread(target=sync_project_data_to_github, args=(app_data, author_name), daemon=True).start()
 
                 self.send_json(200, {
                     "status": "success",

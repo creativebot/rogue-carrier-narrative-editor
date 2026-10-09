@@ -10,3 +10,5 @@ services:
         value: 10000
       - key: GOOGLE_CLIENT_ID
         value: 436412031999-5hjf625k2417tn0ua2lb395731111dvb.apps.googleusercontent.com
+      - key: GITHUB_PAT
+        sync: false
