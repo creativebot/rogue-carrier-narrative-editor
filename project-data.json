@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Daniel (Local PC)"
   },
   "timelines": [
     {
@@ -264,7 +264,7 @@
   "nodes": [
     {
       "id": "node_e0",
-      "codename": "T1-V1-E1-A0",
+      "codename": "T1-V1-K1B",
       "name": "The Moment After the End",
       "type": "Deck",
       "category": "KeyChain",
@@ -283,7 +283,7 @@
       "actions": [
         {
           "id": "act_e0_1",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Build a transmitter",
           "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
           "requirements": [
@@ -350,7 +350,7 @@
         },
         {
           "id": "act_e0_2",
-          "codeSuffix": "B1",
+          "codeSuffix": "B",
           "shortDescription": "Process the data",
           "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the orange box (flight recorder) should be contained.",
           "requirements": [
@@ -418,11 +418,12 @@
       ],
       "colorScheme": "amber",
       "disabledVariationIds": [],
-      "location": "End of Tutorial / Zephyrus Collapse"
+      "location": "End of Tutorial / Zephyrus Collapse",
+      "title": "The Moment After the End"
     },
     {
       "id": "node_e1",
-      "codename": "T1-V1-E1-A0",
+      "codename": "T1-V1-K2A",
       "name": "Escape Pod Signal",
       "type": "World",
       "category": "KeyChain",
@@ -441,7 +442,7 @@
       "actions": [
         {
           "id": "act_e1_1",
-          "codeSuffix": "A2",
+          "codeSuffix": "A",
           "shortDescription": "Comb island",
           "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
           "requirements": [
@@ -488,7 +489,7 @@
         },
         {
           "id": "act_e1_2",
-          "codeSuffix": "B2",
+          "codeSuffix": "B",
           "shortDescription": "Examine pod",
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
@@ -559,11 +560,12 @@
       ],
       "colorScheme": "blue",
       "location": "On an island with additional escape pod model.",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Escape Pod Signal"
     },
     {
       "id": "node_e1b",
-      "codename": "T1-V1-E1-B1",
+      "codename": "T1-V1-K2B",
       "name": "Smoldering Crater",
       "type": "World",
       "category": "KeyChain",
@@ -582,7 +584,7 @@
       "actions": [
         {
           "id": "act_e1b_1",
-          "codeSuffix": "B2",
+          "codeSuffix": "A",
           "shortDescription": "Disassemble",
           "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
           "requirements": [
@@ -628,7 +630,7 @@
         },
         {
           "id": "act_1791378373196",
-          "codeSuffix": "B1",
+          "codeSuffix": "B",
           "shortDescription": "Blast through!",
           "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
           "requirements": [
@@ -687,11 +689,12 @@
         }
       ],
       "colorScheme": "blue",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Smoldering Crater"
     },
     {
       "id": "node_e2a",
-      "codename": "T1-V1-E2-A2",
+      "codename": "T1-V1-K3A",
       "name": "Predator Ambush",
       "type": "World",
       "category": "KeyChain",
@@ -710,7 +713,7 @@
       "actions": [
         {
           "id": "act_e2a_1",
-          "codeSuffix": "A3",
+          "codeSuffix": "A",
           "shortDescription": "Set perimeter",
           "description": "Deploy defensive force field.",
           "requirements": [
@@ -735,11 +738,12 @@
           "targetNodeId": "node_e3a"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Predator Ambush"
     },
     {
       "id": "node_e2b",
-      "codename": "T1-V1-E2-B2",
+      "codename": "T1-V1-K3B",
       "name": "Lifeboat Reunion",
       "type": "World",
       "category": "KeyChain",
@@ -758,7 +762,7 @@
       "actions": [
         {
           "id": "act_e2b_1",
-          "codeSuffix": "A3",
+          "codeSuffix": "A",
           "shortDescription": "Rescue & Quarantine",
           "description": "Bring survivors to Health Care Center immediately.",
           "requirements": [
@@ -797,7 +801,7 @@
         },
         {
           "id": "act_e2b_2",
-          "codeSuffix": "B3",
+          "codeSuffix": "B",
           "shortDescription": "Study distantly",
           "description": "Examine remotely using worker drones to prevent outbreak.",
           "requirements": [
@@ -834,11 +838,12 @@
           "targetNodeId": "node_e3b"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Lifeboat Reunion"
     },
     {
       "id": "node_e3a",
-      "codename": "T1-V1-E3-A3",
+      "codename": "T1-V1-K4A",
       "name": "Submerged Orange Box",
       "type": "World",
       "category": "KeyChain",
@@ -857,7 +862,7 @@
       "actions": [
         {
           "id": "act_e3a_1",
-          "codeSuffix": "A4",
+          "codeSuffix": "A",
           "shortDescription": "Defeat Leviathan",
           "description": "Engage predator creature to safeguard orange box.",
           "requirements": [
@@ -882,11 +887,12 @@
           ]
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Submerged Orange Box"
     },
     {
       "id": "node_e3b",
-      "codename": "T1-V1-E3-B3",
+      "codename": "T1-V1-K4B",
       "name": "Bioweapon Resolution",
       "type": "World",
       "category": "KeyChain",
@@ -905,7 +911,7 @@
       "actions": [
         {
           "id": "act_e3b_1",
-          "codeSuffix": "B4",
+          "codeSuffix": "A",
           "shortDescription": "Mass Produce Medkits",
           "description": "Fully man Health Care Center to eradicate virus.",
           "requirements": [
@@ -930,7 +936,8 @@
           ]
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Bioweapon Resolution"
     },
     {
       "id": "node_1791297604320",
@@ -955,7 +962,7 @@
       "actions": [
         {
           "id": "c_1791297604320",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Board Vessel",
           "description": "Action description...",
           "requirements": [],
@@ -967,11 +974,12 @@
           "targetNodeId": "node_gen_followup"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Derelict Beacon (Refurbished AI Core)"
     },
     {
       "id": "node_sec_1",
-      "codename": "T1-V1-SEC-1",
+      "codename": "T1-V1-S1A",
       "name": "Encrypted Black-Box Beacon",
       "type": "World",
       "category": "SecretChain",
@@ -990,7 +998,7 @@
       "actions": [
         {
           "id": "act_sec_1_1",
-          "codeSuffix": "S1",
+          "codeSuffix": "A",
           "shortDescription": "Crack Encryption",
           "description": "Override classified security cypher.",
           "requirements": [],
@@ -1003,7 +1011,7 @@
         },
         {
           "id": "act_sec_1_2",
-          "codeSuffix": "S2",
+          "codeSuffix": "B",
           "shortDescription": "Triangulate Source",
           "description": "Scan directional telemetry.",
           "requirements": [],
@@ -1015,11 +1023,12 @@
           "targetNodeId": "node_sec_2"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Encrypted Black-Box Beacon"
     },
     {
       "id": "node_sec_2",
-      "codename": "T1-V1-SEC-2",
+      "codename": "T1-V1-S2A",
       "name": "The Ghost Skiff",
       "type": "World",
       "category": "SecretChain",
@@ -1038,7 +1047,7 @@
       "actions": [
         {
           "id": "act_sec_2_1",
-          "codeSuffix": "S3",
+          "codeSuffix": "A",
           "shortDescription": "Retrieve Black Core",
           "description": "Extract mission flight logs from terminal.",
           "requirements": [],
@@ -1050,7 +1059,8 @@
           ]
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "The Ghost Skiff"
     },
     {
       "id": "node_gen_followup",
@@ -1075,7 +1085,7 @@
       "actions": [
         {
           "id": "act_gen2_1",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Extract Core Data",
           "description": "Interface directly with the terminal.",
           "requirements": [],
@@ -1087,7 +1097,8 @@
           ]
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Ancient AI Core"
     },
     {
       "id": "node_deck_1",
@@ -1121,7 +1132,7 @@
       "actions": [
         {
           "id": "act_deck_1",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
           "description": "Direct crew to seal airlocks and foam containment.",
           "requirements": [],
@@ -1133,11 +1144,12 @@
           ]
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
     },
     {
       "id": "node_1791469920243",
-      "codename": "T1-V1-E12-A0",
+      "codename": "T1-V1-K2C",
       "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
@@ -1166,7 +1178,7 @@
       "actions": [
         {
           "id": "c_1791469920243",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "sadadsadsadasdaasdsadas",
           "requirements": [],
@@ -1178,7 +1190,7 @@
         },
         {
           "id": "act_1791469958512",
-          "codeSuffix": "B1",
+          "codeSuffix": "B",
           "shortDescription": "Choice B",
           "description": "asdasdasdasd",
           "requirements": [],
@@ -1190,7 +1202,7 @@
         },
         {
           "id": "act_1791469959616",
-          "codeSuffix": "C1",
+          "codeSuffix": "C",
           "shortDescription": "Choice C",
           "description": "Description for action choice C...",
           "requirements": [],
@@ -1201,11 +1213,13 @@
           ]
         }
       ],
-      "colorScheme": "blue"
+      "colorScheme": "blue",
+      "title": "New Event Block",
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791471563090",
-      "codename": "T1-V1-E13-A0",
+      "codename": "T1-V1-K1A",
       "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
@@ -1226,7 +1240,7 @@
       "actions": [
         {
           "id": "c_1791471563090",
-          "codeSuffix": "A1",
+          "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
           "requirements": [],
@@ -1236,7 +1250,9 @@
             "🧠 Knowledge +100"
           ]
         }
-      ]
+      ],
+      "title": "New Event Block",
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -1247,7 +1263,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-E1-A0)",
+      "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
         "x": 735,
         "y": -1061
@@ -1331,7 +1347,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A0) Build a transmitter",
+      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
       "position": {
         "x": 2185,
         "y": 234
@@ -1356,7 +1372,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-E2-B2)",
+      "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 3325,
         "y": 1792
@@ -1398,7 +1414,7 @@
       "triggerActionId": "act_e2b_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E2-B2) Rescue & Quarantine",
+      "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 2741,
         "y": 2288
@@ -1440,7 +1456,7 @@
       "triggerActionId": "act_e3b_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E3-B3) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 2560,
         "y": 3083
@@ -1476,7 +1492,7 @@
       "triggerActionId": "act_e3a_1",
       "delayHours": 0.25,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E3-A3) Defeat Leviathan",
+      "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": 1948,
         "y": 3645
@@ -1512,7 +1528,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A0) Process the data",
+      "triggerCondition": "During (T1-V1-K2A) Process the data",
       "position": {
         "x": 2179,
         "y": -3
@@ -1537,7 +1553,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 3,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E1-A0) Build a transmitter",
+      "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
         "x": -339,
         "y": -201
@@ -1627,7 +1643,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E1-A0) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 2853,
         "y": 55
@@ -1712,7 +1728,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E1-A0) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1475,
         "y": 1118
@@ -1755,7 +1771,7 @@
       "triggerActionId": "act_e1_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A0) Comb island",
+      "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1374,
         "y": 1164
@@ -1779,7 +1795,7 @@
       "triggerActionId": "act_e1_2",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E1-A0) Examine pod",
+      "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 906,
         "y": 1397
@@ -1907,7 +1923,7 @@
       "triggerActionId": "act_e1_2",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-E1-A0) Examine pod",
+      "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 920,
         "y": 1076
@@ -1952,7 +1968,7 @@
       "triggerActionId": "act_1791469959616",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-E12-A0) Choice C",
+      "triggerCondition": "After (T1-V1-K2C) Choice C",
       "position": {
         "x": 4613,
         "y": 1107
@@ -1969,5 +1985,7 @@
       ],
       "floorIndex": 1
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "_lastModified": "2026-10-09T18:12:54.647Z"
 }
