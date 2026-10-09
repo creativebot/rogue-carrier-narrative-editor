@@ -264,7 +264,7 @@
   "nodes": [
     {
       "id": "node_e0",
-      "codename": "T1-V1-K1B",
+      "codename": "T1-V1-K1A",
       "name": "The Moment After the End",
       "type": "Deck",
       "category": "KeyChain",
@@ -1219,7 +1219,7 @@
     },
     {
       "id": "node_1791471563090",
-      "codename": "T1-V1-K1A",
+      "codename": "T1-V1-K1B",
       "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
@@ -1263,7 +1263,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K1A)",
+      "triggerCondition": "Before (T1-V1-K1B)",
       "position": {
         "x": 735,
         "y": -1061
@@ -1553,7 +1553,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 3,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
+      "triggerCondition": "After (T1-V1-K1B) Build a transmitter",
       "position": {
         "x": -339,
         "y": -201
@@ -1643,7 +1643,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
+      "triggerCondition": "After (T1-V1-K1B) Process the data",
       "position": {
         "x": 2853,
         "y": 55
@@ -1728,7 +1728,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
+      "triggerCondition": "After (T1-V1-K1B) Process the data",
       "position": {
         "x": 1475,
         "y": 1118
