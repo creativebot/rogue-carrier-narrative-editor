@@ -175,6 +175,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   floorBandsLayer = document.getElementById('floor-bands-layer');
   variationSelect = document.getElementById('variation-select');
 
+  // Lock window scroll to (0,0) permanently for iOS WebKit/iPad browsers
+  window.scrollTo(0, 0);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY !== 0 || window.scrollX !== 0) {
+      window.scrollTo(0, 0);
+    }
+  }, { passive: true });
+
   await loadResourceCatalog();
   await initAuthSystem();
 

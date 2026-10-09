@@ -15,10 +15,10 @@
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body class="h-screen w-screen overflow-hidden flex flex-col bg-gray-950 text-gray-100">
+<body class="h-screen w-screen overflow-hidden flex flex-col bg-gray-950 text-gray-100 fixed inset-0">
 
   <!-- Top Navigation & Control Toolbar (Compact Single-Row for iPad Air & Desktop) -->
-  <header class="h-[52px] px-3 bg-gray-900 border-b border-gray-800 flex items-center justify-between gap-2 z-30 shrink-0 shadow-lg select-none">
+  <header id="main-header" class="h-[52px] min-h-[52px] max-h-[52px] px-3 bg-gray-900 border-b border-gray-800 flex items-center justify-between gap-2 z-40 shrink-0 shadow-lg select-none w-full">
     <!-- Left: Branding & Variation Selector -->
     <div class="flex items-center space-x-2 shrink-0">
       <div class="bg-gray-950 border border-amber-500/40 p-1 rounded-lg font-black tracking-tighter text-sm flex items-center gap-1.5 shadow-sm shadow-amber-500/10 shrink-0">
@@ -204,7 +204,7 @@
   </div>
 
   <!-- Main Work Area (Canvas) -->
-  <div class="relative flex-1 w-full h-full overflow-hidden canvas-bg" id="canvas-container">
+  <div class="relative flex-1 min-h-0 w-full overflow-hidden canvas-bg" id="canvas-container">
     
     <!-- Floating Canvas Creation Tools (Top-Left) -->
     <div class="absolute top-4 left-4 z-30 flex items-center gap-2 bg-gray-900/90 border border-gray-700/80 p-1.5 rounded-xl shadow-2xl backdrop-blur-md">
@@ -248,26 +248,8 @@
       </div>
     </div>
 
-    <!-- Canvas Viewport Controls (Bottom-Right) -->
-    <div class="absolute bottom-6 right-6 z-30 flex flex-col space-y-2">
-      <div class="bg-gray-900 border border-gray-800 rounded-lg p-1 flex flex-col shadow-xl">
-        <button id="btn-zoom-in" class="p-2 hover:bg-gray-800 rounded text-gray-300 hover:text-white" title="Zoom In">
-          <i data-lucide="zoom-in" class="w-4 h-4"></i>
-        </button>
-        <button id="btn-zoom-reset" class="p-2 hover:bg-gray-800 rounded text-xs font-mono font-bold text-amber-400" title="Reset 100%">
-          100%
-        </button>
-        <button id="btn-zoom-out" class="p-2 hover:bg-gray-800 rounded text-gray-300 hover:text-white" title="Zoom Out">
-          <i data-lucide="zoom-out" class="w-4 h-4"></i>
-        </button>
-        <button id="btn-fit-schematic-ctrl" class="p-2 hover:bg-gray-800 rounded text-blue-400 border-t border-gray-800" title="View Whole Schematic">
-          <i data-lucide="maximize-2" class="w-4 h-4"></i>
-        </button>
-        <button id="btn-auto-layout" class="p-2 hover:bg-gray-800 rounded text-amber-400" title="Snap Nodes to 4 Stage Rows">
-          <i data-lucide="workflow" class="w-4 h-4"></i>
-        </button>
-      </div>
-    </div>
+    <!-- Canvas Viewport Controls (Bottom-Right) - Removed per user request -->
+    <div id="canvas-viewport-controls" class="hidden"></div>
 
     <!-- Bottom Status Bar -->
     <div class="absolute bottom-2 left-4 z-30 bg-gray-900/90 border border-gray-800/80 px-3 py-1.5 rounded-full text-xs text-gray-400 flex items-center space-x-4 backdrop-blur shadow-lg">
@@ -1046,6 +1028,8 @@ And what about you? Disappointed, as well?"></textarea>
         <span>Authorized N-iX team members only</span>
       </div>
     </div>
+  </div>
+
   <!-- Floating Arrange Mode Banner (iPad / Tablet Touch Mode Indicator) -->
   <div id="arrange-mode-banner" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-gradient-to-r from-amber-500 to-amber-600 text-gray-950 font-black px-4 py-2 rounded-full shadow-2xl flex items-center gap-2.5 backdrop-blur-md border border-amber-300 text-xs tracking-tight animate-bounce-subtle">
     <i data-lucide="move" class="w-4 h-4 text-gray-950"></i>
