@@ -248,53 +248,357 @@ async function loadResourceCatalog() {
   });
 }
 
-// Load Project Data (Server Disk Auto-Sync & LocalStorage)
+/* ==========================================================================
+   DATA RECOVERY, PERSISTENCE & SAFEGUARD ARCHITECTURE
+   ========================================================================== */
+
+// Scans all browser storage keys for saved sessions, safety snapshots, and rolling backups
+function scanAllLocalRecoveryCandidates() {
+  const candidates = [];
+  const seenSignatures = new Set();
+
+  function addCandidate(cand) {
+    if (!cand || !cand.data) return;
+    const nodeCount = cand.nodeCount || (Array.isArray(cand.data.nodes) ? cand.data.nodes.length : 0);
+    const dialogueCount = cand.dialogueCount || (Array.isArray(cand.data.dialogues) ? cand.data.dialogues.length : 0);
+    if (nodeCount === 0 && dialogueCount === 0) return;
+
+    // Signature based on node count, dialogue count, and first 3 node codenames/names
+    const firstNodes = (cand.data.nodes || []).slice(0, 3).map(n => n.codename || n.name || n.id).join('_');
+    const sig = `${nodeCount}:${dialogueCount}:${firstNodes}`;
+    if (seenSignatures.has(sig) && cand.sourceType !== 'local_active') {
+      return; // Deduplicate identical datasets
+    }
+    seenSignatures.add(sig);
+
+    cand.nodeCount = nodeCount;
+    cand.dialogueCount = dialogueCount;
+    cand.totalScore = (nodeCount * 10) + dialogueCount;
+    cand.previewNodes = (cand.data.nodes || []).slice(0, 4).map(n => n.name || n.codename).filter(Boolean);
+    cand.isLocal = true;
+    candidates.push(cand);
+  }
+
+  // 1. Check rc_local_saved_versions (rolling version history)
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        list.forEach((item, idx) => {
+          if (item && item.data) {
+            addCandidate({
+              sourceType: 'local_version',
+              id: item.id || `ver_${idx}_${Date.now()}`,
+              name: item.name || `Session Snapshot #${idx + 1}`,
+              author: item.author || 'Local Session',
+              timestamp: item.timestamp || item.displayTime || new Date().toISOString(),
+              displayTime: item.displayTime || (item.timestamp ? new Date(item.timestamp).toLocaleString() : 'Recent Session'),
+              data: item.data
+            });
+          }
+        });
+      }
+    }
+  } catch (e) {
+    console.warn("Could not parse rc_local_saved_versions", e);
+  }
+
+  // 2. Check rc_safety_backup_v26
+  try {
+    const raw = localStorage.getItem('rc_safety_backup_v26');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const data = parsed.data || parsed;
+      if (data && (data.nodes || data.dialogues)) {
+        addCandidate({
+          sourceType: 'safety_backup',
+          id: 'safety_backup_v26',
+          name: parsed.reason ? `Safety Backup (${parsed.reason})` : 'Safety Backup',
+          author: 'Auto-Backup',
+          timestamp: parsed.timestamp || new Date().toISOString(),
+          displayTime: parsed.timestamp ? new Date(parsed.timestamp).toLocaleString() : 'Safety Backup',
+          data: data
+        });
+      }
+    }
+  } catch (e) {}
+
+  // 3. Check rc_narrative_project_v26
+  try {
+    const raw = localStorage.getItem('rc_narrative_project_v26');
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data && (data.nodes || data.dialogues)) {
+        addCandidate({
+          sourceType: 'local_active',
+          id: 'local_active_v26',
+          name: 'Active Browser Cache (v26)',
+          author: (data.projectInfo && data.projectInfo.author) || 'Current Device',
+          timestamp: data._lastModified || new Date().toISOString(),
+          displayTime: data._lastModified ? new Date(data._lastModified).toLocaleString() : 'Recent Edit',
+          data: data
+        });
+      }
+    }
+  } catch (e) {}
+
+  // 4. Check any other localStorage keys starting with rc_ or containing backup/narrative
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k) continue;
+      if (k === 'rc_local_saved_versions' || k === 'rc_safety_backup_v26' || k === 'rc_narrative_project_v26') continue;
+      if (k.startsWith('rc_') || k.includes('backup') || k.includes('narrative')) {
+        try {
+          const val = JSON.parse(localStorage.getItem(k));
+          const data = val.data || val;
+          if (data && Array.isArray(data.nodes) && data.nodes.length > 0) {
+            addCandidate({
+              sourceType: 'storage_key',
+              id: k,
+              name: `Saved Key (${k})`,
+              author: 'LocalStorage',
+              timestamp: val.timestamp || new Date().toISOString(),
+              displayTime: val.timestamp ? new Date(val.timestamp).toLocaleString() : k,
+              data: data
+            });
+          }
+        } catch (err) {}
+      }
+    }
+  } catch (e) {}
+
+  // Sort candidates: richest first (totalScore), then newest timestamp
+  candidates.sort((a, b) => {
+    if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
+    return new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
+  });
+
+  return candidates;
+}
+
+// Stores an immutable safety snapshot into localStorage rolling versions
+function archiveLocalSnapshot(reason, dataToArchive) {
+  try {
+    const payload = dataToArchive ? JSON.parse(JSON.stringify(dataToArchive)) : JSON.parse(JSON.stringify(appData));
+    if (!payload || (!payload.nodes && !payload.dialogues)) return;
+
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    let list = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(list)) list = [];
+
+    const now = new Date();
+    list.unshift({
+      id: `archive_${Date.now()}`,
+      name: reason || "Session Backup",
+      author: (currentUser && currentUser.name) || (payload.projectInfo && payload.projectInfo.author) || 'User Session',
+      timestamp: now.toISOString(),
+      displayTime: now.toLocaleDateString() + ' ' + now.toLocaleTimeString(),
+      nodeCount: (payload.nodes || []).length,
+      dialogueCount: (payload.dialogues || []).length,
+      data: payload
+    });
+
+    if (list.length > 60) list = list.slice(0, 60);
+    localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+  } catch (e) {
+    console.warn("archiveLocalSnapshot quota or parse error", e);
+  }
+}
+
+// Shows prominent Data Recovery banner at top of workspace
+function showRecoveryBanner(text, bestId, totalCount) {
+  const banner = document.getElementById('data-recovery-banner');
+  const bannerText = document.getElementById('data-recovery-text');
+  const badge = document.getElementById('recovery-count-badge');
+  const headerBadge = document.getElementById('header-backups-badge');
+
+  if (banner && bannerText) {
+    bannerText.innerText = text;
+    if (badge) badge.innerText = totalCount || '1';
+    banner.classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
+  }
+
+  if (headerBadge) {
+    headerBadge.innerText = totalCount || '0';
+    if (totalCount > 0) {
+      headerBadge.classList.remove('hidden');
+    }
+  }
+}
+
+function dismissRecoveryBanner() {
+  const banner = document.getElementById('data-recovery-banner');
+  if (banner) banner.classList.add('hidden');
+}
+
+// Restores the single richest/latest recovered session snapshot
+async function restoreBestRecoverySession() {
+  const candidates = scanAllLocalRecoveryCandidates();
+  if (candidates.length === 0) {
+    showToast("No local session backups found to restore.", "info");
+    return;
+  }
+  const best = candidates[0];
+  if (!confirm(`Restore recovered session '${best.name}'?\n\n• Events: ${best.nodeCount}\n• Dialogues: ${best.dialogueCount}\n• Saved: ${best.displayTime}\n\nYour current canvas will be safely backed up first, and this restored version will immediately sync to the server disk.`)) {
+    return;
+  }
+
+  archiveLocalSnapshot("Before Restoring Recovered Session");
+  pushUndoState();
+  appData = JSON.parse(JSON.stringify(best.data));
+  normalizeAllProjectData();
+  saveProjectToLocalStorage();
+  await saveCurrentProject(false); // Posts to server /api/save immediately
+  renderApp();
+  fitWholeSchematic();
+  dismissRecoveryBanner();
+  showToast(`Successfully restored ${best.nodeCount} events and ${best.dialogueCount} dialogues! Synced to server.`, 'success');
+}
+
+// Restores any specific candidate by its ID
+async function restoreCandidate(candidateId) {
+  const candidates = scanAllLocalRecoveryCandidates();
+  const found = candidates.find(c => c.id === candidateId);
+  if (!found || !found.data) {
+    showToast("Candidate data not found", "error");
+    return;
+  }
+
+  if (!confirm(`Restore snapshot '${found.name}'?\n\n• Events: ${found.nodeCount}\n• Dialogues: ${found.dialogueCount}\n• Saved: ${found.displayTime}\n\nYour current canvas will be backed up before replacing.`)) {
+    return;
+  }
+
+  archiveLocalSnapshot("Before Restoring " + found.name);
+  pushUndoState();
+  appData = JSON.parse(JSON.stringify(found.data));
+  normalizeAllProjectData();
+  saveProjectToLocalStorage();
+  await saveCurrentProject(false);
+  renderApp();
+  fitWholeSchematic();
+  closeModal('modal-save-manager');
+  dismissRecoveryBanner();
+  showToast(`Restored '${found.name}' (${found.nodeCount} events). Synced to server.`, 'success');
+}
+
+function downloadCandidateJson(candidateId) {
+  const candidates = scanAllLocalRecoveryCandidates();
+  const found = candidates.find(c => c.id === candidateId) || candidates[0];
+  if (!found || !found.data) {
+    showToast("Backup data not found", "error");
+    return;
+  }
+  const jsonStr = JSON.stringify(found.data, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safeName = (found.name || 'backup').replace(/[^a-zA-Z0-9_-]/g, '_');
+  a.download = `rogue_carrier_backup_${safeName}_${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function deleteLocalCandidate(candidateId) {
+  if (!confirm("Remove this snapshot from browser storage?")) return;
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) {
+      let list = JSON.parse(raw);
+      list = list.filter(s => s.id !== candidateId);
+      localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+    }
+  } catch (e) {}
+  loadBackupsList();
+  renderSavedVersionsList();
+  showToast("Snapshot removed from local storage", "info");
+}
+
+// Load Project Data with Intelligent Client-Server Reconciliation & Auto-Recovery
 async function loadProjectData() {
   let loaded = false;
+  let serverData = null;
+  let serverLoadOk = false;
 
-  // 1. Try loading directly from server disk (project-data.json)
+  // 1. Scan all local candidates first
+  const localCandidates = scanAllLocalRecoveryCandidates();
+  const bestLocal = localCandidates.length > 0 ? localCandidates[0] : null;
+
+  // 2. Fetch server disk state (/api/load)
   try {
     const headers = {};
     if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     const serverRes = await fetch('/api/load', { headers });
     if (serverRes.ok) {
-      const serverData = await serverRes.json();
-      if (serverData && serverData.nodes && serverData.nodes.length > 0) {
-        appData = serverData;
-        if (!appData.characters || appData.characters.length === 0) {
-          appData.characters = getDefaultCharactersList();
-        }
-        loaded = true;
-        console.log("Narrative Project successfully loaded from disk (project-data.json)");
-      }
+      serverData = await serverRes.json();
+      serverLoadOk = true;
     }
   } catch (err) {
-    console.log("No disk save found or server offline, trying localStorage");
+    console.warn("Could not reach server /api/load, checking local storage", err);
   }
 
-  // 2. Try loading from localStorage
-  if (!loaded) {
-    const localSaved = localStorage.getItem('rc_narrative_project_v26');
-    if (localSaved) {
-      try {
-        const parsed = JSON.parse(localSaved);
-        if (parsed && parsed.nodes && parsed.nodes.length > 0) {
-          appData = parsed;
-          if (!appData.characters || appData.characters.length === 0) {
-            appData.characters = getDefaultCharactersList();
-          }
-          loaded = true;
-        }
-      } catch (e) {
-        console.warn('Resetting corrupt localStorage');
-      }
+  const serverNodesCount = (serverData && Array.isArray(serverData.nodes)) ? serverData.nodes.length : 0;
+  const serverDialoguesCount = (serverData && Array.isArray(serverData.dialogues)) ? serverData.dialogues.length : 0;
+  const serverScore = (serverNodesCount * 10) + serverDialoguesCount;
+
+  const localNodesCount = bestLocal ? bestLocal.nodeCount : 0;
+  const localDialoguesCount = bestLocal ? bestLocal.dialogueCount : 0;
+  const localScore = bestLocal ? bestLocal.totalScore : 0;
+
+  console.log(`[Storage Check] Server: ${serverScore} pts (${serverNodesCount} nodes), Best Local: ${localScore} pts (${localNodesCount} nodes)`);
+
+  // 3. Smart Decision Logic:
+  // If local data has MORE content than server (e.g., fresh container booted with 10-node default git commit, but browser has 5 hours of work):
+  if (bestLocal && (localScore > serverScore || (serverScore <= 100 && localScore > 100))) {
+    console.log("[Data Recovery] Local storage has richer session work than server disk. Prioritizing local data!");
+    appData = JSON.parse(JSON.stringify(bestLocal.data));
+    loaded = true;
+    normalizeAllProjectData();
+    saveProjectToLocalStorage();
+
+    // Auto-heal the ephemeral server disk immediately so future reloads find the user's data
+    syncProjectToDiskServer();
+
+    // Display recovery banner confirming restoration
+    showRecoveryBanner(`Auto-restored your recent session with ${bestLocal.nodeCount} events and ${bestLocal.dialogueCount} dialogues (${bestLocal.displayTime})!`, bestLocal.id, localCandidates.length);
+    showToast(`Restored ${bestLocal.nodeCount} events from your session!`, 'success');
+  } else if (serverLoadOk && serverData && serverNodesCount > 0) {
+    // Server data is richer or equal.
+    // Safety archive of existing local state before accepting server state
+    if (bestLocal && localScore > 0) {
+      archiveLocalSnapshot("Pre-Server-Sync Local State", bestLocal.data);
     }
+    appData = serverData;
+    loaded = true;
+    normalizeAllProjectData();
+
+    // If local candidates exist from earlier sessions, keep the banner available for easy switching
+    if (localCandidates.length > 0 && (localNodesCount > 10 || localCandidates.some(c => c.nodeCount !== serverNodesCount))) {
+      showRecoveryBanner(`Found ${localCandidates.length} saved session backups. Latest has ${localNodesCount} events (${bestLocal.displayTime}).`, bestLocal.id, localCandidates.length);
+    }
+  } else if (bestLocal) {
+    // Offline or server not available, load best local
+    appData = JSON.parse(JSON.stringify(bestLocal.data));
+    loaded = true;
+    normalizeAllProjectData();
+    showToast(`Loaded ${bestLocal.nodeCount} events from offline local storage`, 'info');
   }
 
   if (!loaded) {
     resetToDefaultProjectData();
   } else {
     normalizeAllProjectData();
+  }
+
+  // Update header backups count
+  const headerBadge = document.getElementById('header-backups-badge');
+  if (headerBadge) {
+    const totalBackups = (scanAllLocalRecoveryCandidates() || []).length;
+    headerBadge.innerText = totalBackups;
+    if (totalBackups > 0) headerBadge.classList.remove('hidden');
   }
 }
 
@@ -330,8 +634,33 @@ function normalizeNodeRequirements(node) {
 }
 
 function normalizeAllProjectData() {
-  if (!appData.nodes) appData.nodes = [];
-  appData.nodes.forEach(node => {
+  if (!appData || typeof appData !== 'object') appData = {};
+  if (!appData.schemaVersion) appData.schemaVersion = 1;
+  appData._lastModified = appData._lastModified || new Date().toISOString();
+
+  if (!Array.isArray(appData.nodes)) appData.nodes = [];
+  if (!Array.isArray(appData.dialogues)) appData.dialogues = [];
+  if (!Array.isArray(appData.characters) || appData.characters.length === 0) {
+    appData.characters = getDefaultCharactersList();
+  }
+  if (!Array.isArray(appData.timelines)) appData.timelines = [];
+  if (!Array.isArray(appData.variations)) appData.variations = [];
+  if (!appData.projectInfo) {
+    appData.projectInfo = { title: "Rogue Carrier Narrative", version: "2.6", author: "Wild Fields" };
+  }
+
+  appData.nodes.forEach((node, idx) => {
+    if (!node.id) node.id = `node_${idx}_${Date.now()}`;
+    if (!node.codename) node.codename = `EV-${idx + 1}`;
+    if (!node.name && node.title) node.name = node.title;
+    if (!node.title && node.name) node.title = node.name;
+    if (!node.type) node.type = "World";
+    if (!node.category) node.category = "KeyChain";
+    if (typeof node.floorIndex === 'undefined') node.floorIndex = 0;
+    if (!node.position || typeof node.position.x !== 'number') {
+      node.position = { x: 450, y: (typeof FLOOR_Y !== 'undefined' && FLOOR_Y[node.floorIndex]) || 150 };
+    }
+    if (!Array.isArray(node.actions)) node.actions = [];
     normalizeNodeRequirements(node);
     if (!Array.isArray(node.disabledVariationIds)) {
       node.disabledVariationIds = [];
@@ -1021,7 +1350,7 @@ async function recordVersionSnapshot(name, author = 'Wild Fields', notify = fals
       dialogueCount: versionMeta.dialogueCount,
       data: versionMeta.data
     });
-    if (list.length > 25) list = list.slice(0, 25);
+    if (list.length > 60) list = list.slice(0, 60);
     localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
   } catch (e) {
     console.warn("localStorage version store quota reached", e);
@@ -1084,13 +1413,13 @@ async function fetchAllSavedVersions() {
   return combined;
 }
 
-function openSaveManagerModal() {
+function openSaveManagerModal(targetTab = 'saves') {
   const managerSavedText = document.getElementById('save-manager-last-saved');
   if (managerSavedText) {
     managerSavedText.innerText = lastSavedTimestamp ? `(Last saved: ${lastSavedTimestamp})` : '(Auto-saved)';
   }
   openModal('modal-save-manager');
-  renderSavedVersionsList();
+  switchSaveManagerTab(targetTab);
 }
 
 async function renderSavedVersionsList() {
@@ -7661,20 +7990,100 @@ async function loadBackupsList() {
   const container = document.getElementById('backups-snapshots-list');
   if (!container) return;
 
-  container.innerHTML = '<div class="text-center py-6 text-gray-500">Loading snapshots...</div>';
+  container.innerHTML = '<div class="text-center py-6 text-gray-500 flex items-center justify-center gap-2"><i data-lucide="loader-2" class="w-4 h-4 animate-spin text-cyan-400"></i> Loading snapshots and browser backups...</div>';
+  if (window.lucide) lucide.createIcons();
 
+  // 1. Gather browser local storage candidates
+  const localCandidates = scanAllLocalRecoveryCandidates();
+
+  // 2. Gather server backups
+  let serverBackups = [];
   try {
     const res = await fetch('/api/backups');
     if (res.ok) {
       const data = await res.json();
-      const snapshots = data.backups || [];
-      if (snapshots.length === 0) {
-        container.innerHTML = '<div class="text-center py-6 text-gray-500">No backup snapshots stored yet. Every save creates an automated snapshot here.</div>';
-        return;
-      }
+      serverBackups = data.backups || [];
+    }
+  } catch (err) {
+    console.warn("Server backups not reachable", err);
+  }
 
-      container.innerHTML = snapshots.map(s => `
-        <div class="snapshot-card">
+  if (localCandidates.length === 0 && serverBackups.length === 0) {
+    container.innerHTML = '<div class="text-center py-8 bg-gray-950/60 rounded-lg border border-dashed border-gray-800 text-gray-400"><p class="font-semibold text-gray-300">No backup snapshots stored yet</p><p class="text-[11px] text-gray-500 mt-1">Every save and session edit automatically creates safe snapshots here.</p></div>';
+    return;
+  }
+
+  let html = '';
+
+  // SECTION A: Browser Local Storage Recovery Snapshots
+  if (localCandidates.length > 0) {
+    html += `
+      <div class="mb-3">
+        <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+          <span>🌐</span> Browser Local Storage & Session Recovery (${localCandidates.length})
+        </div>
+        <div class="space-y-2">
+    `;
+
+    localCandidates.forEach(cand => {
+      const previewText = cand.previewNodes && cand.previewNodes.length ? `• Events: ${cand.previewNodes.slice(0, 3).join(', ')}...` : '';
+      html += `
+        <div class="p-3 bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 rounded-xl flex items-center justify-between gap-3 transition">
+          <div class="space-y-1 min-w-0 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-gray-200 text-xs truncate">${cand.name}</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-800">
+                ${cand.sourceType === 'local_version' ? 'Protected Snapshot' : cand.sourceType === 'safety_backup' ? 'Safety Backup' : 'Local Mirror'}
+              </span>
+              <span class="text-[10px] text-gray-400 font-mono">🕒 ${cand.displayTime}</span>
+            </div>
+            <div class="text-[11px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <span>Events: <strong class="text-amber-400 font-mono">${cand.nodeCount}</strong></span>
+              <span>•</span>
+              <span>Dialogues: <strong class="text-purple-400 font-mono">${cand.dialogueCount}</strong></span>
+              ${previewText ? `<span class="text-gray-500 truncate hidden md:inline">${previewText}</span>` : ''}
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" onclick="restoreCandidate('${cand.id}')" 
+                    class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
+                    title="Restore this session into canvas and auto-sync to server disk">
+              ↺ Restore
+            </button>
+            <button type="button" onclick="downloadCandidateJson('${cand.id}')" 
+                    class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition"
+                    title="Download raw snapshot JSON">
+              📥 JSON
+            </button>
+            <button type="button" onclick="deleteLocalCandidate('${cand.id}')" 
+                    class="bg-gray-800 hover:bg-red-900/60 text-gray-400 hover:text-red-300 px-2 py-1.5 rounded text-xs transition" 
+                    title="Delete snapshot">
+              🗑️
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `
+        </div>
+      </div>
+    `;
+  }
+
+  // SECTION B: Server Disk Backups
+  if (serverBackups.length > 0) {
+    html += `
+      <div>
+        <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+          <span>💾</span> Server Disk Snapshots (${serverBackups.length})
+        </div>
+        <div class="space-y-2">
+    `;
+
+    serverBackups.forEach(s => {
+      html += `
+        <div class="p-3 bg-gray-950/80 border border-gray-800 hover:border-emerald-500/50 rounded-xl flex items-center justify-between gap-3 transition">
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-bold text-gray-200 text-xs">${s.reason || 'Snapshot'}</span>
@@ -7700,11 +8109,17 @@ async function loadBackupsList() {
             </a>
           </div>
         </div>
-      `).join('');
-    }
-  } catch (err) {
-    container.innerHTML = '<div class="text-center py-6 text-red-400">Failed to load snapshots from server.</div>';
+      `;
+    });
+
+    html += `
+        </div>
+      </div>
+    `;
   }
+
+  container.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
 }
 
 async function createManualSnapshot() {
@@ -8267,3 +8682,12 @@ window.deleteNotificationItem = deleteNotificationItem;
 window.openNotificationTarget = openNotificationTarget;
 
 
+
+window.scanAllLocalRecoveryCandidates = scanAllLocalRecoveryCandidates;
+window.restoreBestRecoverySession = restoreBestRecoverySession;
+window.restoreCandidate = restoreCandidate;
+window.downloadCandidateJson = downloadCandidateJson;
+window.deleteLocalCandidate = deleteLocalCandidate;
+window.archiveLocalSnapshot = archiveLocalSnapshot;
+window.showRecoveryBanner = showRecoveryBanner;
+window.dismissRecoveryBanner = dismissRecoveryBanner;

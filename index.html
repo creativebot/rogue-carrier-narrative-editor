@@ -79,6 +79,15 @@
         <i data-lucide="save" class="w-3.5 h-3.5 text-emerald-100"></i> <span class="hidden md:inline">Save</span>
       </button>
 
+      <!-- Backups & Session Recovery Button -->
+      <button id="btn-header-backups" type="button" onclick="openSaveManagerModal('backups')" 
+              class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-cyan-800/80 text-xs font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 transition shadow-xs active:scale-95" 
+              title="Project Backups & Session Recovery">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span class="hidden sm:inline">Backups</span>
+        <span id="header-backups-badge" class="hidden ml-0.5 px-1 py-0.2 text-[9px] font-mono bg-cyan-900 text-cyan-200 rounded-full">0</span>
+      </button>
+
       <div id="save-sync-badge" class="hidden xl:flex items-center gap-1 px-2 py-1 rounded bg-gray-950 border border-emerald-500/30 text-[10px] font-mono text-emerald-400 shadow-inner" title="Auto-saved to disk">
         <i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i>
         <span id="save-status-text">Saved</span>
@@ -201,6 +210,26 @@
       </div>
     </div>
   </header>
+
+  <!-- Data Recovery Alert Banner -->
+  <div id="data-recovery-banner" class="hidden bg-gradient-to-r from-amber-950 via-slate-900 to-amber-950 border-b-2 border-amber-500/80 text-white px-3 py-2 flex items-center justify-between text-xs shrink-0 z-40 shadow-lg gap-2">
+    <div class="flex items-center gap-2 min-w-0">
+      <span class="text-base animate-pulse shrink-0">🛡️</span>
+      <div class="truncate">
+        <strong class="text-amber-300 font-bold">Data Recovery Available:</strong>
+        <span id="data-recovery-text" class="text-gray-200 ml-1">Detected saved work from your recent session.</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <button id="btn-banner-restore" onclick="restoreBestRecoverySession()" class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-3 py-1 rounded text-xs shadow transition active:scale-95 flex items-center gap-1">
+        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> <span>Restore Session</span>
+      </button>
+      <button onclick="openSaveManagerModal('backups')" class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-cyan-700 px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1">
+        <span>View Backups</span> (<span id="recovery-count-badge">0</span>)
+      </button>
+      <button onclick="dismissRecoveryBanner()" class="text-gray-400 hover:text-white px-1.5 py-0.5 rounded hover:bg-gray-800 text-xs" title="Dismiss banner">✕</button>
+    </div>
+  </div>
 
   <!-- Read-Only / Guest Mode Notice Banner -->
   <div id="readonly-mode-banner" class="hidden bg-amber-950/80 border-b border-amber-600/40 text-amber-200 px-3 py-1 flex items-center justify-between text-xs shrink-0 z-40 backdrop-blur-sm shadow-sm gap-2">
@@ -737,7 +766,7 @@ And what about you? Disappointed, as well?"></textarea>
               Named Versions
             </button>
             <button id="tab-btn-backups" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('backups')">
-              Automated Snapshots
+              🛡️ Session Backups & Snapshots
             </button>
           </div>
         </div>
