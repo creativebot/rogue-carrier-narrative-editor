@@ -189,9 +189,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupPickerEvents();
     setupPortDragEvents();
 
-    // Auto-detect mobile devices or narrow screen viewports (<= 768px, phones, Pixel, iPhone, etc.)
-    const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobileDevice) {
+    // Auto-detect narrow phone devices (< 768px, iPhone, Android phones, etc.) - keep iPad / tablets in PC canvas mode
+    const isPhoneDevice = window.innerWidth < 768 && /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isPhoneDevice) {
       switchAppViewMode('mobile-stage', true);
     } else {
       renderApp();
@@ -1282,10 +1282,74 @@ function handleLoadProjectFromFile(event) {
   reader.readAsText(file);
 }
 
-// Universal Panning (Do not hijack text editing or ports)
+// ==========================================================================
+// iPad Air & Tablet Touch Interaction: Pan vs Arrange Mode
+// ==========================================================================
+let isArrangeMode = false;
+
+function setArrangeMode(active) {
+  isArrangeMode = Boolean(active);
+  const btnPan = document.getElementById('btn-mode-pan');
+  const btnArrange = document.getElementById('btn-mode-arrange');
+  const banner = document.getElementById('arrange-mode-banner');
+  const tools = document.getElementById('canvas-creation-tools');
+  const container = document.getElementById('canvas-container');
+
+  if (isArrangeMode) {
+    if (btnPan) {
+      btnPan.className = 'px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
+    }
+    if (btnArrange) {
+      btnArrange.className = 'px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
+    }
+    if (banner) banner.classList.remove('hidden');
+    if (tools) tools.classList.add('arrange-glow');
+    if (container) container.classList.add('arrange-mode-active');
+    showToast("📐 Arrange Mode: Drag blocks to move, connect wires, and add events.", "info");
+  } else {
+    if (btnPan) {
+      btnPan.className = 'px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
+    }
+    if (btnArrange) {
+      btnArrange.className = 'px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
+    }
+    if (banner) banner.classList.add('hidden');
+    if (tools) tools.classList.remove('arrange-glow');
+    if (container) container.classList.remove('arrange-mode-active');
+    showToast("🖐️ Pan Mode: Swipe with 1 finger to pan, pinch to zoom.", "info");
+  }
+}
+
+function toggleMasterMenu() {
+  const menu = document.getElementById('dropdown-master-menu');
+  if (!menu) return;
+  const isHidden = menu.classList.contains('hidden');
+  if (isHidden) {
+    menu.classList.remove('hidden');
+    if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  } else {
+    menu.classList.add('hidden');
+  }
+}
+
+// Close master menu when clicking outside or clicking any action button inside it
+window.addEventListener('click', (e) => {
+  const menu = document.getElementById('dropdown-master-menu');
+  const btn = document.getElementById('btn-master-menu');
+  if (menu && !menu.classList.contains('hidden')) {
+    if (!menu.contains(e.target) && !btn?.contains(e.target)) {
+      menu.classList.add('hidden');
+    } else if (menu.contains(e.target) && e.target.closest('button, a')) {
+      menu.classList.add('hidden');
+    }
+  }
+});
+
+// Universal Panning & Multi-Touch Gestures for iPad / Tablet / Desktop
 function setupCanvasEvents() {
   if (!canvasContainer) return;
 
+  // Desktop Mouse Events
   canvasContainer.addEventListener('mousedown', (e) => {
     if (document.activeElement && typeof document.activeElement.blur === 'function' && !e.target.closest('input, textarea, select')) {
       document.activeElement.blur();
@@ -1342,6 +1406,152 @@ function setupCanvasEvents() {
     updateBlockZoomButtons();
     updateCanvasTransform();
   }, { passive: false });
+
+  // -------------------------------------------------------------
+  // Multi-Touch Handlers for iPad Air, Tablets & Mobile Devices
+  // -------------------------------------------------------------
+  let touchState = {
+    mode: 'none', // 'pan' | 'pinch' | 'node-drag'
+    startX: 0,
+    startY: 0,
+    transformStart: { x: 0, y: 0, scale: 1 },
+    pinchDist: 0,
+    pinchMid: { x: 0, y: 0 },
+    dragNodeObj: null,
+    dragNodeEl: null,
+    dragNodeStart: { x: 0, y: 0 },
+    dragPreSnapshot: null
+  };
+
+  canvasContainer.addEventListener('touchstart', (e) => {
+    // 2-Finger Gesture: Pinch-to-Zoom & Pan around Midpoint
+    if (e.touches.length === 2) {
+      touchState.mode = 'pinch';
+      touchState.pinchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      touchState.pinchMid = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2
+      };
+      touchState.transformStart = { ...transform };
+      return;
+    }
+
+    // 1-Finger Gesture
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      const targetCard = e.target.closest('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
+      const isInteractive = e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner');
+
+      // If in Arrange Mode AND touch starts on an event/dialogue card body:
+      if (isArrangeMode && targetCard && !isInteractive) {
+        if (!canUserEdit()) {
+          requireAuthToEdit("move blocks in Arrange Mode");
+          return;
+        }
+        const isEvent = targetCard.classList.contains('event-card') || targetCard.classList.contains('deck-event-card') || targetCard.classList.contains('generic-event-card');
+        const nodeId = targetCard.id.replace(isEvent ? 'node-' : 'dialogue-', '');
+        const obj = isEvent ? appData.nodes.find(n => n.id === nodeId) : appData.dialogues.find(d => d.id === nodeId);
+
+        if (obj) {
+          touchState.mode = 'node-drag';
+          touchState.dragNodeObj = obj;
+          touchState.dragNodeEl = targetCard;
+          touchState.startX = touch.clientX;
+          touchState.startY = touch.clientY;
+          touchState.dragNodeStart = { ...obj.position };
+          touchState.dragPreSnapshot = JSON.stringify(appData);
+          e.preventDefault();
+          return;
+        }
+      }
+
+      // Default (Pan Mode) or touching background in Arrange Mode
+      if (!isInteractive) {
+        touchState.mode = 'pan';
+        touchState.startX = touch.clientX;
+        touchState.startY = touch.clientY;
+        touchState.transformStart = { ...transform };
+      }
+    }
+  }, { passive: false });
+
+  canvasContainer.addEventListener('touchmove', (e) => {
+    // 2-Finger Pinch-to-Zoom
+    if (touchState.mode === 'pinch' && e.touches.length === 2) {
+      e.preventDefault();
+      const currentDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      if (touchState.pinchDist > 0) {
+        const factor = currentDist / touchState.pinchDist;
+        const newScale = Math.min(Math.max(touchState.transformStart.scale * factor, 0.15), 3.0);
+
+        const rect = canvasContainer.getBoundingClientRect();
+        const midX = touchState.pinchMid.x - rect.left;
+        const midY = touchState.pinchMid.y - rect.top;
+
+        transform.x = midX - (midX - touchState.transformStart.x) * (newScale / touchState.transformStart.scale);
+        transform.y = midY - (midY - touchState.transformStart.y) * (newScale / touchState.transformStart.scale);
+        transform.scale = newScale;
+
+        updateCanvasTransform();
+      }
+      return;
+    }
+
+    // 1-Finger Move Element in Arrange Mode
+    if (touchState.mode === 'node-drag' && e.touches.length === 1 && touchState.dragNodeObj && touchState.dragNodeEl) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const dx = (touch.clientX - touchState.startX) / transform.scale;
+      const dy = (touch.clientY - touchState.startY) / transform.scale;
+
+      touchState.dragNodeObj.position.x = Math.round(touchState.dragNodeStart.x + dx);
+      touchState.dragNodeObj.position.y = Math.round(touchState.dragNodeStart.y + dy);
+
+      touchState.dragNodeEl.style.left = `${touchState.dragNodeObj.position.x}px`;
+      touchState.dragNodeEl.style.top = `${touchState.dragNodeObj.position.y}px`;
+
+      renderConnectors();
+      return;
+    }
+
+    // 1-Finger Pan Canvas (Default Pan Mode)
+    if (touchState.mode === 'pan' && e.touches.length === 1) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const dx = touch.clientX - touchState.startX;
+      const dy = touch.clientY - touchState.startY;
+
+      transform.x = touchState.transformStart.x + dx;
+      transform.y = touchState.transformStart.y + dy;
+      updateCanvasTransform();
+      return;
+    }
+  }, { passive: false });
+
+  const finishTouch = () => {
+    if (touchState.mode === 'node-drag' && touchState.dragNodeObj) {
+      const obj = touchState.dragNodeObj;
+      const hasMoved = (obj.position.x !== touchState.dragNodeStart.x || obj.position.y !== touchState.dragNodeStart.y);
+      if (hasMoved && touchState.dragPreSnapshot) {
+        undoStack.push(touchState.dragPreSnapshot);
+        if (undoStack.length > MAX_UNDO_DEPTH) undoStack.shift();
+        redoStack.length = 0;
+        saveProjectToLocalStorage();
+      }
+    }
+    touchState.mode = 'none';
+    touchState.dragNodeObj = null;
+    touchState.dragNodeEl = null;
+  };
+
+  canvasContainer.addEventListener('touchend', finishTouch);
+  canvasContainer.addEventListener('touchcancel', finishTouch);
 }
 
 function updateCanvasTransform() {
@@ -1351,6 +1561,10 @@ function updateCanvasTransform() {
   // Keep floating buttons comfortably sized at minimal zoom without over-scaling
   const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
   canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
+
+  // Scale touch buttons compensatory hitboxes when zoomed out so thumbs hit easily
+  const touchBtnScale = transform.scale < 1.0 ? Math.min(1.4, 1 / Math.sqrt(transform.scale)).toFixed(2) : '1.0';
+  canvasStage.style.setProperty('--touch-btn-scale', touchBtnScale);
 
   const resetBtn = document.getElementById('btn-zoom-reset');
   if (resetBtn) resetBtn.innerText = `${Math.round(transform.scale * 100)}%`;
@@ -3023,22 +3237,27 @@ function disconnectDialogueLink(dialogueId) {
 }
 
 // Interactive Port Drag Engine (Action Ports & Purple Dialogue Ports on Events)
+// Interactive Port Drag Engine (Action Ports & Purple Dialogue Ports on Events)
 function setupPortDragEvents() {
-  document.addEventListener('mousedown', (e) => {
-    const actionPort = e.target.closest('.action-port');
-    const preEventPort = e.target.closest('.pre-event-port');
-    const postActionPort = e.target.closest('.post-action-port');
-    const actionOptionPort = e.target.closest('.action-option-port');
+  function startPortDrag(targetEl, clientX, clientY) {
+    if (!targetEl) return false;
+    const actionPort = targetEl.closest('.action-port');
+    const preEventPort = targetEl.closest('.pre-event-port');
+    const postActionPort = targetEl.closest('.post-action-port');
+    const actionOptionPort = targetEl.closest('.action-option-port');
 
-    if (!actionPort && !preEventPort && !postActionPort && !actionOptionPort) return;
+    if (!actionPort && !preEventPort && !postActionPort && !actionOptionPort) return false;
 
-    e.stopPropagation();
+    if (!canUserEdit()) {
+      requireAuthToEdit("connect ports");
+      return false;
+    }
 
     if (actionPort) {
       const nodeId = actionPort.getAttribute('data-node-id');
       const actionId = actionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
-      if (!sourceNode) return;
+      if (!sourceNode) return false;
 
       const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
       const actIdx = (sourceNode.actions || []).findIndex(a => a.id === actionId);
@@ -3066,10 +3285,11 @@ function setupPortDragEvents() {
         sourceActionId: actionId,
         startPos: { x: startX, y: startY }
       };
+      return true;
     } else if (preEventPort) {
       const nodeId = preEventPort.getAttribute('data-node-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
-      if (!sourceNode) return;
+      if (!sourceNode) return false;
 
       let startX = sourceNode.position.x + 280;
       let startY = sourceNode.position.y + 20;
@@ -3087,11 +3307,12 @@ function setupPortDragEvents() {
         sourceActionId: null,
         startPos: { x: startX, y: startY }
       };
+      return true;
     } else if (actionOptionPort) {
       const nodeId = actionOptionPort.getAttribute('data-node-id');
       const actionId = actionOptionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
-      if (!sourceNode) return;
+      if (!sourceNode) return false;
 
       let startX = sourceNode.position.x + 350;
       let startY = sourceNode.position.y + 50;
@@ -3109,11 +3330,12 @@ function setupPortDragEvents() {
         sourceActionId: actionId,
         startPos: { x: startX, y: startY }
       };
+      return true;
     } else if (postActionPort) {
       const nodeId = postActionPort.getAttribute('data-node-id');
       const actionId = postActionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
-      if (!sourceNode) return;
+      if (!sourceNode) return false;
 
       let startX = sourceNode.position.x + 880;
       let startY = sourceNode.position.y + 320;
@@ -3131,29 +3353,31 @@ function setupPortDragEvents() {
         sourceActionId: actionId,
         startPos: { x: startX, y: startY }
       };
+      return true;
     }
-  });
+    return false;
+  }
 
-  document.addEventListener('mousemove', (e) => {
+  function movePortDrag(clientX, clientY) {
     if (!portDragState.isDragging || !canvasStage) return;
 
     const stageRect = canvasStage.getBoundingClientRect();
-    const mouseX = (e.clientX - stageRect.left) / transform.scale;
-    const mouseY = (e.clientY - stageRect.top) / transform.scale;
+    const mouseX = (clientX - stageRect.left) / transform.scale;
+    const mouseY = (clientY - stageRect.top) / transform.scale;
 
     renderConnectors();
     renderTempConnectorPath(portDragState.startPos.x, portDragState.startPos.y, mouseX, mouseY);
-  });
+  }
 
-  document.addEventListener('mouseup', (e) => {
+  function endPortDrag(clientX, clientY) {
     if (!portDragState.isDragging) return;
     pushUndoState();
 
     const stageRect = canvasStage.getBoundingClientRect();
-    const mouseX = (e.clientX - stageRect.left) / transform.scale;
-    const mouseY = (e.clientY - stageRect.top) / transform.scale;
+    const mouseX = (clientX - stageRect.left) / transform.scale;
+    const mouseY = (clientY - stageRect.top) / transform.scale;
 
-    const elementUnderMouse = document.elementFromPoint(e.clientX, e.clientY);
+    const elementUnderMouse = document.elementFromPoint(clientX, clientY);
     const targetCard = elementUnderMouse ? elementUnderMouse.closest('.event-card') : null;
     const targetDialogue = elementUnderMouse ? elementUnderMouse.closest('.dialogue-card') : null;
 
@@ -3275,6 +3499,44 @@ function setupPortDragEvents() {
     portDragState.isDragging = false;
     saveProjectToLocalStorage();
     renderApp();
+  }
+
+  // Mouse Listeners
+  document.addEventListener('mousedown', (e) => {
+    if (startPortDrag(e.target, e.clientX, e.clientY)) {
+      e.stopPropagation();
+    }
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    movePortDrag(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    endPortDrag(e.clientX, e.clientY);
+  });
+
+  // Touch Listeners (Arrange Mode on iPad/Touchscreen)
+  let lastTouchPos = { x: 0, y: 0 };
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    lastTouchPos = { x: t.clientX, y: t.clientY };
+    if (startPortDrag(e.target, t.clientX, t.clientY)) {
+      e.stopPropagation();
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!portDragState.isDragging || e.touches.length !== 1) return;
+    const t = e.touches[0];
+    lastTouchPos = { x: t.clientX, y: t.clientY };
+    movePortDrag(t.clientX, t.clientY);
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    if (!portDragState.isDragging) return;
+    endPortDrag(lastTouchPos.x, lastTouchPos.y);
   });
 }
 
@@ -6948,8 +7210,9 @@ async function handleGoogleSignInResponse(response) {
       setupPickerEvents();
       setupPortDragEvents();
 
-      const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobileDevice) {
+      // Auto-detect narrow phone devices (< 768px, iPhone, Android phones, etc.) - keep iPad / tablets in PC canvas mode
+      const isPhoneDevice = window.innerWidth < 768 && /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isPhoneDevice) {
         switchAppViewMode('mobile-stage', true);
       } else {
         renderApp();

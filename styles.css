@@ -26,6 +26,9 @@ body {
   background-color: #0b0f19;
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
   background-size: 32px 32px;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #canvas-stage {
@@ -1773,6 +1776,80 @@ body {
 .snapshot-card:hover {
   border-color: #38bdf8;
   background: rgba(30, 41, 59, 0.9);
+}
+
+/* ==========================================================================
+   iPad Air & Touch Interaction Optimization (Arrange Mode & Thumb Targets)
+   ========================================================================== */
+
+/* Arrange Mode Active Visual State */
+.arrange-mode-active .event-card,
+.arrange-mode-active .deck-event-card,
+.arrange-mode-active .generic-event-card,
+.arrange-mode-active .dialogue-card {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.7), 0 12px 28px rgba(0, 0, 0, 0.6) !important;
+  cursor: grab !important;
+}
+
+.arrange-mode-active .connector-port,
+.arrange-mode-active .dialogue-trigger-port {
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.9) !important;
+  transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 1.3)) !important;
+}
+
+#canvas-creation-tools.arrange-glow {
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.5), 0 8px 32px rgba(0, 0, 0, 0.7) !important;
+  border-color: rgba(245, 158, 11, 0.9) !important;
+}
+
+/* Compensatory Thumb-Friendly Hitboxes on Touchscreens */
+@media (pointer: coarse), (max-width: 1200px) {
+  /* Prevent accidental text selection during multi-touch canvas panning */
+  .event-card,
+  .dialogue-card,
+  #canvas-stage {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Expand tap hitbox for small buttons via pseudo-elements */
+  .event-card button,
+  .dialogue-card button,
+  .btn-zoom-corner,
+  .connector-port,
+  .dialogue-trigger-port {
+    touch-action: manipulation;
+    position: relative;
+  }
+
+  /* 42px minimum tap area without enlarging visual UI */
+  .event-card button:not(.btn-delete-node)::after,
+  .dialogue-card button:not(.btn-delete-node)::after,
+  .btn-zoom-corner::after,
+  .connector-port::after,
+  .dialogue-trigger-port::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 42px;
+    min-height: 42px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  /* Slightly enlarge small in-card buttons on tablet */
+  .event-card .btn-action-add,
+  .dialogue-card .btn-diag-line-add,
+  .req-remove-btn,
+  .req-add-btn {
+    transform-origin: center;
+    transform: scale(var(--touch-btn-scale, 1.15));
+  }
 }
 
 
