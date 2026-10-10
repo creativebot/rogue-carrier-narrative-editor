@@ -1832,54 +1832,74 @@ html, body {
   border-color: rgba(245, 158, 11, 0.9) !important;
 }
 
-/* Compensatory Thumb-Friendly Hitboxes on Touchscreens */
+/* Clean Touch-Friendly Hitboxes on Touchscreens (iPad & Mobile) */
 @media (pointer: coarse), (max-width: 1200px) {
-  /* Prevent accidental text selection during multi-touch canvas panning */
-  .event-card,
-  .dialogue-card,
+  /* Prevent accidental text selection during multi-touch canvas panning on card containers */
+  .event-card-inner,
+  .dialogue-card-inner,
   #canvas-stage {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
   }
 
-  /* Expand tap hitbox for small buttons via pseudo-elements */
-  .event-card button:not(.block-floating-btn),
-  .dialogue-card button:not(.block-floating-btn),
+  /* Ensure inputs, textareas and inline-inputs are ALWAYS selectable and focusable */
+  input,
+  textarea,
+  .inline-input,
+  .event-card input,
+  .event-card textarea,
+  .dialogue-card input,
+  .dialogue-card textarea,
+  .mobile-event-card input,
+  .mobile-event-card textarea {
+    -webkit-touch-callout: default !important;
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    touch-action: auto !important;
+  }
+
+  /* Interactive Spots */
+  .editable-spot {
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+
+  .editable-spot:active {
+    background: rgba(245, 158, 11, 0.25) !important;
+    border-radius: 4px;
+  }
+
+  /* Touch-action manipulation on all interactive buttons */
+  button,
+  .event-card button,
+  .dialogue-card button,
+  .mobile-event-card button,
   .btn-zoom-corner,
+  .comment-trigger-badge,
+  .connector-port,
+  .dialogue-trigger-port,
+  .req-pill {
+    touch-action: manipulation;
+  }
+
+  /* Comfortable minimum button padding on touchscreens without overlapping pseudo-elements */
+  .event-card button:not(.block-floating-btn),
+  .dialogue-card button:not(.block-floating-btn) {
+    min-height: 28px;
+  }
+
   .connector-port,
   .dialogue-trigger-port {
-    touch-action: manipulation;
-    position: relative;
+    min-width: 16px;
+    min-height: 16px;
   }
 
-  /* 42px minimum tap area without enlarging visual UI */
-  .event-card button:not(.btn-delete-node):not(.block-floating-btn)::after,
-  .dialogue-card button:not(.btn-delete-node):not(.block-floating-btn)::after,
-  .btn-zoom-corner::after,
-  .connector-port::after,
-  .dialogue-trigger-port::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 42px;
-    min-height: 42px;
-    width: calc(100% + 12px);
-    height: calc(100% + 12px);
-    pointer-events: auto;
-    z-index: 10;
-  }
-
-  /* Slightly enlarge small in-card buttons on tablet */
-  .event-card .btn-action-add,
-  .dialogue-card .btn-diag-line-add,
-  .req-remove-btn,
-  .req-add-btn {
-    transform-origin: center;
-    transform: scale(var(--touch-btn-scale, 1.15));
+  /* Smooth momentum scrolling on mobile stage container */
+  #mobile-stage-view {
+    -webkit-overflow-scrolling: touch;
   }
 }
+
 
 

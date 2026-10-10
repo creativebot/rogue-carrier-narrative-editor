@@ -1654,10 +1654,10 @@ function setArrangeMode(active) {
 
   if (isArrangeMode) {
     if (btnPan) {
-      btnPan.className = 'px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
+      btnPan.className = 'px-2 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
     }
     if (btnArrange) {
-      btnArrange.className = 'px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
+      btnArrange.className = 'px-2 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
     }
     if (banner) banner.classList.remove('hidden');
     if (tools) tools.classList.add('arrange-glow');
@@ -1665,10 +1665,10 @@ function setArrangeMode(active) {
     showToast("📐 Arrange Mode: Drag blocks to move, connect wires, and add events.", "info");
   } else {
     if (btnPan) {
-      btnPan.className = 'px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
+      btnPan.className = 'px-2 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
     }
     if (btnArrange) {
-      btnArrange.className = 'px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
+      btnArrange.className = 'px-2 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
     }
     if (banner) banner.classList.add('hidden');
     if (tools) tools.classList.remove('arrange-glow');
@@ -1677,7 +1677,10 @@ function setArrangeMode(active) {
   }
 }
 
-function toggleMasterMenu() {
+function toggleMasterMenu(event) {
+  if (event && typeof event.stopPropagation === 'function') {
+    event.stopPropagation();
+  }
   const menu = document.getElementById('dropdown-master-menu');
   if (!menu) return;
   const isHidden = menu.classList.contains('hidden');
@@ -1692,9 +1695,9 @@ function toggleMasterMenu() {
 // Close master menu when clicking outside or clicking any action button inside it
 window.addEventListener('click', (e) => {
   const menu = document.getElementById('dropdown-master-menu');
-  const btn = document.getElementById('btn-master-menu');
+  const container = document.getElementById('container-master-menu');
   if (menu && !menu.classList.contains('hidden')) {
-    if (!menu.contains(e.target) && !btn?.contains(e.target)) {
+    if (container && !container.contains(e.target)) {
       menu.classList.add('hidden');
     } else if (menu.contains(e.target) && e.target.closest('button, a')) {
       menu.classList.add('hidden');
@@ -6847,26 +6850,29 @@ function switchAppViewMode(mode, silent = false) {
   const mobileStageView = document.getElementById('mobile-stage-view');
   const btnCanvas = document.getElementById('btn-mode-canvas');
   const btnMobile = document.getElementById('btn-mode-mobile');
+  const touchModeSelector = document.getElementById('touch-mode-selector');
 
   if (mode === 'mobile-stage') {
     if (canvasContainer) canvasContainer.classList.add('hidden');
     if (mobileStageView) mobileStageView.classList.remove('hidden');
+    if (touchModeSelector) touchModeSelector.classList.add('hidden');
     if (btnCanvas) {
-      btnCanvas.className = "px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition";
+      btnCanvas.className = "px-2 py-1 rounded text-xs font-bold text-gray-400 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition";
     }
     if (btnMobile) {
-      btnMobile.className = "px-2.5 py-1 rounded text-xs font-bold bg-cyan-600 text-white shadow flex items-center gap-1 transition";
+      btnMobile.className = "px-2 py-1 rounded text-xs font-bold bg-cyan-600 text-white shadow flex items-center gap-1 transition";
     }
     renderApp();
     if (!silent) showToast("Switched to Mobile Stage-Centric View", "info");
   } else {
     if (mobileStageView) mobileStageView.classList.add('hidden');
     if (canvasContainer) canvasContainer.classList.remove('hidden');
+    if (touchModeSelector) touchModeSelector.classList.remove('hidden');
     if (btnCanvas) {
-      btnCanvas.className = "px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 shadow flex items-center gap-1 transition";
+      btnCanvas.className = "px-2 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 shadow flex items-center gap-1 transition";
     }
     if (btnMobile) {
-      btnMobile.className = "px-2.5 py-1 rounded text-xs font-bold text-gray-400 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition";
+      btnMobile.className = "px-2 py-1 rounded text-xs font-bold text-gray-400 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition";
     }
     renderApp();
     setTimeout(() => updateCanvasTransform(), 60);
@@ -7139,8 +7145,8 @@ function renderMobileStageView() {
             <div class="flex items-start justify-between gap-2 border-b border-gray-800 pb-3">
               <div>
                 <div class="flex items-center gap-2">
-                  <span class="mobile-stage-badge bg-amber-950 text-amber-300 border border-amber-600/40">${node.codename}</span>
-                  <span class="text-[10px] text-gray-400 uppercase font-semibold">${node.location || 'Location'}</span>
+                  <span class="mobile-stage-badge bg-amber-950 text-amber-300 border border-amber-600/40 editable-spot cursor-pointer" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')" title="Tap to edit codename">${node.codename}</span>
+                  <span class="text-[10px] text-gray-400 uppercase font-semibold editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'location')" title="Tap to edit location">${node.location || 'Location'}</span>
                 </div>
                 <h3 class="text-sm font-bold text-gray-100 mt-1 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">
                   ${node.name}
