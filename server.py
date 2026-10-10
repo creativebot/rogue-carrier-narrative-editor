@@ -656,7 +656,15 @@ def sync_project_data_to_github(app_data, author_name):
         put_body = {
             "message": commit_msg,
             "content": content_b64,
-            "branch": "main"
+            "branch": "main",
+            "committer": {
+                "name": "CreativeBot",
+                "email": "bot@creativebot.dev"
+            },
+            "author": {
+                "name": "CreativeBot",
+                "email": "bot@creativebot.dev"
+            }
         }
         if sha:
             put_body["sha"] = sha
