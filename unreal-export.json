@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-09T18:14:04.159144Z",
+    "ExportTime": "2026-10-10T22:54:09.243384Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel (Local PC)",
-    "TotalEvents": 14,
+    "TotalEvents": 15,
     "TotalDialogues": 16,
     "TotalTimelines": 2,
     "TotalVariations": 20,
@@ -1696,6 +1696,55 @@
           "CustomData": {}
         }
       ]
+    },
+    {
+      "Name": "EVENT_node_1791672843355",
+      "RowName": "EVENT_node_1791672843355",
+      "EventID": "node_1791672843355",
+      "EventTitle": "",
+      "EventCategory": "KeyChain",
+      "EventType": "World",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 2,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 4345.0,
+        "Y": 2070.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
     }
   ],
   "DialoguesDataTable": [
@@ -1706,7 +1755,7 @@
       "TargetEventID": "node_e0",
       "TriggerTiming": "pre_event",
       "TriggerActionID": "",
-      "TriggerCondition": "Before (T1-V1-K1B)",
+      "TriggerCondition": "Before (T1-V1-K1A)",
       "DelayHours": 0.0,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2096,7 +2145,7 @@
       "TargetEventID": "node_e0",
       "TriggerTiming": "post_action",
       "TriggerActionID": "act_e0_1",
-      "TriggerCondition": "After (T1-V1-K1B) Build a transmitter",
+      "TriggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "DelayHours": 3.0,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2225,7 +2274,7 @@
       "TargetEventID": "node_e0",
       "TriggerTiming": "post_action",
       "TriggerActionID": "act_e0_2",
-      "TriggerCondition": "After (T1-V1-K1B) Process the data",
+      "TriggerCondition": "After (T1-V1-K1A) Process the data",
       "DelayHours": 2.5,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -2345,7 +2394,7 @@
       "TargetEventID": "node_e0",
       "TriggerTiming": "post_action",
       "TriggerActionID": "act_e0_2",
-      "TriggerCondition": "After (T1-V1-K1B) Process the data",
+      "TriggerCondition": "After (T1-V1-K1A) Process the data",
       "DelayHours": 2.5,
       "DelayUnit": "hours",
       "VariationID": "var_v1",

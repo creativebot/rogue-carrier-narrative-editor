@@ -1307,5 +1307,54 @@
         "CustomData": {}
       }
     ]
+  },
+  {
+    "Name": "EVENT_node_1791672843355",
+    "RowName": "EVENT_node_1791672843355",
+    "EventID": "node_1791672843355",
+    "EventTitle": "",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 4345.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
   }
 ]

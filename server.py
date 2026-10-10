@@ -1836,6 +1836,12 @@ class ReusableThreadingServer(socketserver.ThreadingTCPServer):
     allow_reuse_address = True
 
 def run():
+    # Check GitHub on server startup (Render deployment safety)
+    try:
+        pull_latest_from_github_on_startup()
+    except Exception as e:
+        print(f"[Startup] GitHub sync error: {e}", file=sys.stderr)
+
     log_path = os.path.join(DIRECTORY, "server_debug.log")
     with open(log_path, "w", encoding="utf-8") as lf:
         lf.write(f"Server starting on port {PORT} at {datetime.now()}...\n")

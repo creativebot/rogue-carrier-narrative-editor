@@ -1,10 +1,10 @@
 {
   "id": "latest_autosave",
   "name": "Auto-Save Backup",
-  "timestamp": "2026-10-09T20:14:04.164975",
-  "displayTime": "2026-10-09 20:14:04",
+  "timestamp": "2026-10-11T00:54:06.667371",
+  "displayTime": "2026-10-11 00:54:06",
   "author": "Daniel (Local PC)",
-  "nodeCount": 14,
+  "nodeCount": 15,
   "dialogueCount": 16,
   "data": {
     "version": "2.6.0",
@@ -1261,6 +1261,41 @@
         ],
         "title": "New Event Block",
         "disabledVariationIds": []
+      },
+      {
+        "id": "node_1791672843355",
+        "codename": "T1-V1-K3C",
+        "name": "New Event Block",
+        "type": "World",
+        "category": "KeyChain",
+        "variationId": "var_v1",
+        "floorIndex": 2,
+        "tier": null,
+        "location": "",
+        "spawnConditions": "",
+        "eventIntro": "Initial event context...",
+        "eventDescription": "E2E Save Test Text 1791672844: Lifepod evacuees status report",
+        "reactionTimerHours": "Infinite",
+        "hasInactionThreat": false,
+        "inactionThreat": null,
+        "position": {
+          "x": 4345,
+          "y": 2070
+        },
+        "actions": [
+          {
+            "id": "c_1791672843355",
+            "codeSuffix": "A",
+            "shortDescription": "Choice A",
+            "description": "Action description...",
+            "requirements": [],
+            "timerHours": 5,
+            "resultDescription": "",
+            "rewards": [
+              "🧠 Knowledge +100"
+            ]
+          }
+        ]
       }
     ],
     "dialogues": [
@@ -1271,7 +1306,7 @@
         "triggerActionId": null,
         "delayHours": 0,
         "delayUnit": "hours",
-        "triggerCondition": "Before (T1-V1-K1B)",
+        "triggerCondition": "Before (T1-V1-K1A)",
         "position": {
           "x": 735,
           "y": -1061
@@ -1561,7 +1596,7 @@
         "triggerActionId": "act_e0_1",
         "delayHours": 3,
         "delayUnit": "hours",
-        "triggerCondition": "After (T1-V1-K1B) Build a transmitter",
+        "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
         "position": {
           "x": -339,
           "y": -201
@@ -1651,7 +1686,7 @@
         "triggerActionId": "act_e0_2",
         "delayHours": 2.5,
         "delayUnit": "hours",
-        "triggerCondition": "After (T1-V1-K1B) Process the data",
+        "triggerCondition": "After (T1-V1-K1A) Process the data",
         "position": {
           "x": 2853,
           "y": 55
@@ -1736,7 +1771,7 @@
         "triggerActionId": "act_e0_2",
         "delayHours": 2.5,
         "delayUnit": "hours",
-        "triggerCondition": "After (T1-V1-K1B) Process the data",
+        "triggerCondition": "After (T1-V1-K1A) Process the data",
         "position": {
           "x": 1475,
           "y": 1118
@@ -1995,6 +2030,6 @@
       }
     ],
     "schemaVersion": 1,
-    "_lastModified": "2026-10-09T18:12:54.647Z"
+    "_lastModified": "2026-10-10T22:54:06.272Z"
   }
 }

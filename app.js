@@ -637,39 +637,29 @@ async function loadProjectData() {
   );
 
   if (localIsRicher) {
-    console.log("[Data Recovery] Local storage has richer session work or custom narrative edits than server disk. Prioritizing local data!");
+    console.log("[Data Recovery] Local storage has richer session work than server disk. Prioritizing local data!");
     appData = JSON.parse(JSON.stringify(bestLocal.data));
     loaded = true;
     normalizeAllProjectData();
     saveProjectToLocalStorage();
 
-    // Auto-heal the server disk immediately so future reloads find the user's data
+    // Auto-heal the server disk immediately
     syncProjectToDiskServer();
-
-    // Display recovery banner confirming restoration
-    const editNotice = hasTargetEdits ? ` (Includes ${bestLocal.targetMatches.join(', ')} text edits)` : '';
-    showRecoveryBanner(`Auto-restored your recent session with ${bestLocal.nodeCount} events and ${bestLocal.dialogueCount} dialogues${editNotice} (${bestLocal.displayTime})!`, bestLocal.id, localCandidates.length);
-    showToast(`Restored ${bestLocal.nodeCount} events from your session!`, 'success');
+    showToast(`Loaded session with ${bestLocal.nodeCount} events`, 'info');
   } else if (serverLoadOk && serverData && serverNodesCount > 0) {
     // Server data is richer or equal.
-    // Safety archive of existing local state before accepting server state
     if (bestLocal && localScore > 0) {
       archiveLocalSnapshot("Pre-Server-Sync Local State", bestLocal.data);
     }
     appData = serverData;
     loaded = true;
     normalizeAllProjectData();
-
-    // If local candidates exist from earlier sessions, keep the banner available for easy switching
-    if (localCandidates.length > 0 && (localNodesCount > 10 || localCandidates.some(c => c.nodeCount !== serverNodesCount || c.hasTargetEdits))) {
-      showRecoveryBanner(`Found ${localCandidates.length} saved session backups. Latest has ${localNodesCount} events (${bestLocal.displayTime}).`, bestLocal.id, localCandidates.length);
-    }
   } else if (bestLocal) {
     // Offline or server not available, load best local
     appData = JSON.parse(JSON.stringify(bestLocal.data));
     loaded = true;
     normalizeAllProjectData();
-    showToast(`Loaded ${bestLocal.nodeCount} events from offline local storage`, 'info');
+    showToast(`Loaded ${bestLocal.nodeCount} events from local storage`, 'info');
   }
 
   if (!loaded) {
@@ -677,6 +667,9 @@ async function loadProjectData() {
   } else {
     normalizeAllProjectData();
   }
+
+  // Initialize periodic 1-minute auto-save
+  initPeriodicAutoSave();
 
   // Update header backups count
   const headerBadge = document.getElementById('header-backups-badge');
@@ -1313,22 +1306,52 @@ function getDefaultDialoguesDataset() {
 
 let autoSaveDiskTimer = null;
 let lastSavedTimestamp = null;
+let periodicAutoSaveIntervalId = null;
+let autoSaveIntervalSeconds = parseInt(localStorage.getItem('rc_autosave_interval_sec') || '60', 10);
+
+function initPeriodicAutoSave() {
+  if (periodicAutoSaveIntervalId) {
+    clearInterval(periodicAutoSaveIntervalId);
+    periodicAutoSaveIntervalId = null;
+  }
+  if (autoSaveIntervalSeconds > 0) {
+    periodicAutoSaveIntervalId = setInterval(() => {
+      // Periodic automatic save to disk & backups every X seconds
+      if (typeof appData === 'object' && appData && Array.isArray(appData.nodes) && appData.nodes.length > 0) {
+        saveCurrentProject(false, 'Auto-Save');
+      }
+    }, autoSaveIntervalSeconds * 1000);
+  }
+  const selectEl = document.getElementById('select-autosave-interval');
+  if (selectEl) {
+    selectEl.value = String(autoSaveIntervalSeconds);
+  }
+}
+
+function updateAutoSaveInterval(val) {
+  autoSaveIntervalSeconds = parseInt(val, 10);
+  localStorage.setItem('rc_autosave_interval_sec', String(autoSaveIntervalSeconds));
+  initPeriodicAutoSave();
+  showToast(autoSaveIntervalSeconds > 0 ? `Auto-save set to every ${autoSaveIntervalSeconds}s` : 'Auto-save disabled', 'info');
+}
 
 function saveProjectToLocalStorage() {
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
-  // Debounced auto-sync to server disk (project-data.json and unreal-export.json)
+  // Debounced auto-sync to server disk
   clearTimeout(autoSaveDiskTimer);
   autoSaveDiskTimer = setTimeout(() => {
     syncProjectToDiskServer();
-  }, 350);
+  }, 400);
 }
 
-// Immediate manual save triggered by Ctrl+S or Save button
-async function saveCurrentProject(isManual = false) {
-  if (!requireAuthToEdit("save project changes")) return;
+// Full manual or automated save triggered by Ctrl+S, Save button, or periodic timer
+async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   clearTimeout(autoSaveDiskTimer);
+  if (!appData || !Array.isArray(appData.nodes)) return;
+
+  appData._lastModified = new Date().toISOString();
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
@@ -1361,23 +1384,18 @@ async function saveCurrentProject(isManual = false) {
       const resp = await res.json();
       if (badgeText) badgeText.innerText = `Saved (${resp.timestamp || timeStr})`;
       if (isManual) {
-        showToast(`Project saved to project-data.json (${resp.timestamp || timeStr})`, 'success');
+        showToast(`Project saved to disk (${resp.timestamp || timeStr})`, 'success');
       }
     } else {
-      if (badgeText) badgeText.innerText = `Saved (${timeStr})`;
-      if (isManual) {
-        showToast(`Saved locally (${timeStr})`, 'success');
-      }
+      if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
     }
   } catch (e) {
     if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
-    if (isManual) {
-      showToast(`Saved locally (${timeStr})`, 'success');
-    }
   }
 
-  // Record rolling quick-save snapshot in version storage
-  recordVersionSnapshot(`Quick Save (${timeStr})`, (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Wild Fields', false);
+  // Record rolling version snapshot on server disk and local storage
+  const author = (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'User';
+  recordVersionSnapshot(`${triggerLabel} (${timeStr})`, author, false);
 }
 
 async function syncProjectToDiskServer() {
@@ -1396,7 +1414,7 @@ async function syncProjectToDiskServer() {
     });
     if (res.ok) {
       const resp = await res.json();
-      if (badgeText) badgeText.innerText = `Auto-Saved (${resp.timestamp || 'UE5'})`;
+      if (badgeText) badgeText.innerText = `Saved (${resp.timestamp || 'Disk'})`;
     }
   } catch (e) {
     if (badgeText) badgeText.innerText = 'Saved Locally';
@@ -8418,122 +8436,84 @@ async function loadBackupsList() {
 
   let html = '';
 
-  // Deep Scan Header Banner for Fast One-Click Recovery
-  html += `
-    <div class="mb-4 p-3 bg-gradient-to-r from-cyan-950/80 via-slate-900 to-amber-950/80 border border-cyan-500/50 rounded-xl flex items-center justify-between gap-3 shadow-md">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <span class="text-xl">🔍</span>
-        <div>
-          <div class="font-bold text-cyan-200 text-xs">Deep Storage Recovery Scanner</div>
-          <div class="text-[11px] text-gray-300">Scans all browser memory keys, rolling version logs, and safety mirrors for text edits in K3A, K3B, and K4A.</div>
-        </div>
-      </div>
-      <button type="button" onclick="deepScanAndRestoreTargetEdits()" 
-              class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-black px-3 py-1.5 rounded-lg text-xs shadow-lg transition active:scale-95 shrink-0 flex items-center gap-1.5">
-        ⚡ Deep Scan & Restore
-      </button>
-    </div>
-  `;
-
-  // SECTION A: Browser Local Storage Recovery Snapshots
-  if (localCandidates.length > 0) {
+  // SECTION: Server & Browser Backup History
+  if (serverBackups.length > 0 || localCandidates.length > 0) {
     html += `
       <div class="mb-3">
-        <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-          <span>🌐</span> Browser Local Storage & Session Recovery (${localCandidates.length})
+        <div class="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+          <span>💾</span> Backup History (${serverBackups.length + localCandidates.length} saves)
         </div>
         <div class="space-y-2">
     `;
 
-    localCandidates.forEach(cand => {
-      const previewText = cand.previewNodes && cand.previewNodes.length ? `• Events: ${cand.previewNodes.slice(0, 3).join(', ')}...` : '';
-      const targetBadge = cand.hasTargetEdits 
-        ? `<span class="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-600 animate-pulse">✨ Contains ${cand.targetMatches.join(', ')} Edits</span>`
-        : '';
-
-      html += `
-        <div class="p-3 bg-gray-950/80 border ${cand.hasTargetEdits ? 'border-emerald-500/80 ring-1 ring-emerald-500/30' : 'border-gray-800 hover:border-amber-500/50'} rounded-xl flex items-center justify-between gap-3 transition">
-          <div class="space-y-1 min-w-0 flex-1">
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="font-bold text-gray-200 text-xs truncate">${cand.name}</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-800">
-                ${cand.sourceType === 'local_version' ? 'Protected Snapshot' : cand.sourceType === 'safety_backup' ? 'Safety Backup' : 'Local Mirror'}
-              </span>
-              ${targetBadge}
-              <span class="text-[10px] text-gray-400 font-mono">🕒 ${cand.displayTime}</span>
-            </div>
-            <div class="text-[11px] text-gray-400 flex items-center gap-2 flex-wrap">
-              <span>Events: <strong class="text-amber-400 font-mono">${cand.nodeCount}</strong></span>
-              <span>•</span>
-              <span>Dialogues: <strong class="text-purple-400 font-mono">${cand.dialogueCount}</strong></span>
-              <span>•</span>
-              <span class="text-cyan-400 font-mono">${cand.totalTextChars || 0} chars</span>
-              ${previewText ? `<span class="text-gray-500 truncate hidden md:inline">${previewText}</span>` : ''}
-            </div>
-          </div>
-          <div class="flex items-center gap-1.5 shrink-0">
-            <button type="button" onclick="restoreCandidate('${cand.id}')" 
-                    class="${cand.hasTargetEdits ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-amber-500 hover:bg-amber-400'} text-gray-950 font-extrabold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
-                    title="Restore this session into canvas and auto-sync to server disk">
-              ↺ Restore
-            </button>
-            <button type="button" onclick="downloadCandidateJson('${cand.id}')" 
-                    class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition" 
-                    title="Download raw snapshot JSON">
-              📥 JSON
-            </button>
-            <button type="button" onclick="deleteLocalCandidate('${cand.id}')" 
-                    class="bg-gray-800 hover:bg-red-900/60 text-gray-400 hover:text-red-300 px-2 py-1.5 rounded text-xs transition" 
-                    title="Delete snapshot">
-              🗑️
-            </button>
-          </div>
-        </div>
-      `;
-    });
-
-    html += `
-        </div>
-      </div>
-    `;
-  }
-
-  // SECTION B: Server Disk Backups
-  if (serverBackups.length > 0) {
-    html += `
-      <div>
-        <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-          <span>💾</span> Server Disk Snapshots (${serverBackups.length})
-        </div>
-        <div class="space-y-2">
-    `;
-
+    // 1. First render server disk snapshots (primary, real files)
     serverBackups.forEach(s => {
       html += `
         <div class="p-3 bg-gray-950/80 border border-gray-800 hover:border-emerald-500/50 rounded-xl flex items-center justify-between gap-3 transition">
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="font-bold text-gray-200 text-xs">${s.reason || 'Snapshot'}</span>
-              <span class="text-[10px] text-gray-400 font-mono">📅 ${s.displayTime || s.timestamp}</span>
-              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-gray-800 text-cyan-300">👤 ${s.author}</span>
+              <span class="font-bold text-gray-200 text-xs">${s.reason || 'Save Backup'}</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">Server File</span>
+              <span class="text-[10px] text-gray-400 font-mono">🕒 ${s.displayTime || s.timestamp}</span>
+              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-gray-900 text-gray-400">👤 ${s.author}</span>
             </div>
             <div class="text-[11px] text-gray-400 flex items-center gap-3">
-              <span>Nodes: <strong class="text-amber-400 font-mono">${s.nodeCount}</strong></span>
+              <span>Events: <strong class="text-amber-400 font-mono">${s.nodeCount}</strong></span>
+              <span>•</span>
               <span>Dialogues: <strong class="text-purple-400 font-mono">${s.dialogueCount}</strong></span>
-              <span>Size: <strong class="text-gray-300 font-mono">${Math.round(s.sizeBytes / 1024)} KB</strong></span>
+              <span>•</span>
+              <span>Size: <strong class="text-gray-300 font-mono">${Math.round((s.sizeBytes || 0) / 1024)} KB</strong></span>
             </div>
           </div>
           <div class="flex items-center gap-1.5 shrink-0">
             <button type="button" onclick="restoreSnapshot('${s.id}')" 
-                    class="bg-emerald-700 hover:bg-emerald-600 text-white font-bold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
-                    title="Rollback the editor state to this exact snapshot">
+                    class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
+                    title="Restore canvas to this state">
               ↺ Restore
             </button>
             <a href="/api/backups/${s.filename}" download="${s.filename}" 
                class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition"
-               title="Download raw snapshot JSON">
+               title="Download raw backup JSON">
               📥 JSON
             </a>
+          </div>
+        </div>
+      `;
+    });
+
+    // 2. Render local browser backups
+    localCandidates.forEach(cand => {
+      html += `
+        <div class="p-3 bg-gray-950/80 border border-gray-800 hover:border-cyan-500/50 rounded-xl flex items-center justify-between gap-3 transition">
+          <div class="space-y-1 min-w-0 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-gray-200 text-xs truncate">${cand.name}</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Browser Cache</span>
+              <span class="text-[10px] text-gray-400 font-mono">🕒 ${cand.displayTime}</span>
+              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-gray-900 text-gray-400">👤 ${cand.author || 'User'}</span>
+            </div>
+            <div class="text-[11px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <span>Events: <strong class="text-amber-400 font-mono">${cand.nodeCount}</strong></span>
+              <span>•</span>
+              <span>Dialogues: <strong class="text-purple-400 font-mono">${cand.dialogueCount}</strong></span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" onclick="restoreCandidate('${cand.id}')" 
+                    class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
+                    title="Restore canvas to this state">
+              ↺ Restore
+            </button>
+            <button type="button" onclick="downloadCandidateJson('${cand.id}')" 
+                    class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition" 
+                    title="Download backup JSON">
+              📥 JSON
+            </button>
+            <button type="button" onclick="deleteLocalCandidate('${cand.id}')" 
+                    class="bg-gray-800 hover:bg-red-900/60 text-gray-400 hover:text-red-300 px-2 py-1.5 rounded text-xs transition" 
+                    title="Delete backup">
+              🗑️
+            </button>
           </div>
         </div>
       `;
@@ -9204,12 +9184,13 @@ async function deepScanAndRestoreTargetEdits() {
 window.recoverLostSessionData = deepScanAndRestoreTargetEdits;
 window.deepScanAndRestoreTargetEdits = deepScanAndRestoreTargetEdits;
 
+window.updateAutoSaveInterval = updateAutoSaveInterval;
+window.initPeriodicAutoSave = initPeriodicAutoSave;
 window.scanAllLocalRecoveryCandidates = scanAllLocalRecoveryCandidates;
 window.restoreBestRecoverySession = restoreBestRecoverySession;
 window.restoreCandidate = restoreCandidate;
 window.downloadCandidateJson = downloadCandidateJson;
 window.deleteLocalCandidate = deleteLocalCandidate;
 window.archiveLocalSnapshot = archiveLocalSnapshot;
-window.showRecoveryBanner = showRecoveryBanner;
-window.dismissRecoveryBanner = dismissRecoveryBanner;
+
 
