@@ -252,6 +252,68 @@ async function loadResourceCatalog() {
    DATA RECOVERY, PERSISTENCE & SAFEGUARD ARCHITECTURE
    ========================================================================== */
 
+// Computes total characters of text across nodes, descriptions, and dialogues
+function calculateDatasetTextChars(data) {
+  if (!data) return 0;
+  let totalChars = 0;
+  if (Array.isArray(data.nodes)) {
+    for (const node of data.nodes) {
+      if (node.name) totalChars += node.name.length;
+      if (node.eventIntro) totalChars += node.eventIntro.length;
+      if (node.eventDescription) totalChars += node.eventDescription.length;
+      if (node.spawnConditions) totalChars += node.spawnConditions.length;
+      if (node.inactionThreat) totalChars += node.inactionThreat.length;
+      if (Array.isArray(node.actions)) {
+        for (const act of node.actions) {
+          if (act.shortDescription) totalChars += act.shortDescription.length;
+          if (act.description) totalChars += act.description.length;
+          if (act.resultDescription) totalChars += act.resultDescription.length;
+        }
+      }
+    }
+  }
+  if (Array.isArray(data.dialogues)) {
+    for (const d of data.dialogues) {
+      if (d.title) totalChars += d.title.length;
+      if (d.text) totalChars += d.text.length;
+      if (d.context) totalChars += d.context.length;
+      if (d.speaker) totalChars += d.speaker.length;
+    }
+  }
+  return totalChars;
+}
+
+// Checks if dataset contains custom edits in K3A (node_e2a), K3B (node_e2b), or K4A (node_e3a)
+function inspectDatasetForTargetEdits(data) {
+  if (!data || !Array.isArray(data.nodes)) return { hasTargetEdits: false, matches: [] };
+  const targetIds = ['node_e2a', 'node_e2b', 'node_e3a'];
+  const matches = [];
+
+  const defaultTexts = {
+    'node_e2a': 'Island is swarming with violent predators tracking living heat signatures.',
+    'node_e2b': 'Radio silence greets your ship. Survivors have contracted a deadly mutated virus strain.',
+    'node_e3a': 'Drones extract the Zephyrus orange box intact from the sea floor when a massive leviathan approaches!'
+  };
+
+  for (const n of data.nodes) {
+    const isTarget = targetIds.includes(n.id) || 
+      (n.codename && (n.codename.includes('K3A') || n.codename.includes('K3B') || n.codename.includes('K4A')));
+    if (isTarget) {
+      const desc = (n.eventDescription || '').trim();
+      const def = defaultTexts[n.id] || '';
+      // If description differs from default or has substantial text
+      if (desc && desc !== def) {
+        matches.push(n.codename || n.name || n.id);
+      }
+    }
+  }
+
+  return {
+    hasTargetEdits: matches.length > 0,
+    matches: matches
+  };
+}
+
 // Scans all browser storage keys for saved sessions, safety snapshots, and rolling backups
 function scanAllLocalRecoveryCandidates() {
   const candidates = [];
@@ -263,17 +325,29 @@ function scanAllLocalRecoveryCandidates() {
     const dialogueCount = cand.dialogueCount || (Array.isArray(cand.data.dialogues) ? cand.data.dialogues.length : 0);
     if (nodeCount === 0 && dialogueCount === 0) return;
 
-    // Signature based on node count, dialogue count, and first 3 node codenames/names
-    const firstNodes = (cand.data.nodes || []).slice(0, 3).map(n => n.codename || n.name || n.id).join('_');
-    const sig = `${nodeCount}:${dialogueCount}:${firstNodes}`;
-    if (seenSignatures.has(sig) && cand.sourceType !== 'local_active') {
-      return; // Deduplicate identical datasets
+    const totalTextChars = calculateDatasetTextChars(cand.data);
+    const targetInspection = inspectDatasetForTargetEdits(cand.data);
+
+    // Signature includes text character length bucket so text modifications are preserved
+    const textBucket = Math.floor(totalTextChars / 20) * 20;
+    const firstNodes = (cand.data.nodes || []).slice(0, 5).map(n => n.codename || n.name || n.id).join('_');
+    const sig = `${nodeCount}:${dialogueCount}:${textBucket}:${firstNodes}:${targetInspection.matches.join(',')}`;
+
+    // Do not deduplicate rolling local_version snapshots unless identical ID or exact same millisecond
+    if (cand.sourceType !== 'local_version' && cand.sourceType !== 'local_active') {
+      if (seenSignatures.has(sig)) {
+        return; // Deduplicate identical static datasets
+      }
+      seenSignatures.add(sig);
     }
-    seenSignatures.add(sig);
 
     cand.nodeCount = nodeCount;
     cand.dialogueCount = dialogueCount;
-    cand.totalScore = (nodeCount * 10) + dialogueCount;
+    cand.totalTextChars = totalTextChars;
+    cand.hasTargetEdits = targetInspection.hasTargetEdits;
+    cand.targetMatches = targetInspection.matches;
+    // Composite score weighing nodes, dialogues, and actual typed text content
+    cand.totalScore = (nodeCount * 100) + (dialogueCount * 10) + Math.min(totalTextChars, 10000);
     cand.previewNodes = (cand.data.nodes || []).slice(0, 4).map(n => n.name || n.codename).filter(Boolean);
     cand.isLocal = true;
     candidates.push(cand);
@@ -542,28 +616,39 @@ async function loadProjectData() {
 
   const serverNodesCount = (serverData && Array.isArray(serverData.nodes)) ? serverData.nodes.length : 0;
   const serverDialoguesCount = (serverData && Array.isArray(serverData.dialogues)) ? serverData.dialogues.length : 0;
-  const serverScore = (serverNodesCount * 10) + serverDialoguesCount;
+  const serverTextChars = calculateDatasetTextChars(serverData);
+  const serverScore = (serverNodesCount * 100) + (serverDialoguesCount * 10) + Math.min(serverTextChars, 10000);
 
   const localNodesCount = bestLocal ? bestLocal.nodeCount : 0;
   const localDialoguesCount = bestLocal ? bestLocal.dialogueCount : 0;
+  const localTextChars = bestLocal ? (bestLocal.totalTextChars || 0) : 0;
   const localScore = bestLocal ? bestLocal.totalScore : 0;
+  const hasTargetEdits = bestLocal && Boolean(bestLocal.hasTargetEdits);
 
-  console.log(`[Storage Check] Server: ${serverScore} pts (${serverNodesCount} nodes), Best Local: ${localScore} pts (${localNodesCount} nodes)`);
+  console.log(`[Storage Check] Server: ${serverScore} pts (${serverNodesCount} nodes, ${serverTextChars} chars), Best Local: ${localScore} pts (${localNodesCount} nodes, ${localTextChars} chars, targetEdits: ${hasTargetEdits})`);
 
   // 3. Smart Decision Logic:
-  // If local data has MORE content than server (e.g., fresh container booted with 10-node default git commit, but browser has 5 hours of work):
-  if (bestLocal && (localScore > serverScore || (serverScore <= 100 && localScore > 100))) {
-    console.log("[Data Recovery] Local storage has richer session work than server disk. Prioritizing local data!");
+  // If local data has MORE content, or MORE text (narrative edits in cards), or target edits in K3A/K3B/K4A:
+  const localIsRicher = bestLocal && (
+    hasTargetEdits ||
+    localScore > serverScore ||
+    (localTextChars > serverTextChars + 15) ||
+    (serverScore <= 1000 && localScore > 1000)
+  );
+
+  if (localIsRicher) {
+    console.log("[Data Recovery] Local storage has richer session work or custom narrative edits than server disk. Prioritizing local data!");
     appData = JSON.parse(JSON.stringify(bestLocal.data));
     loaded = true;
     normalizeAllProjectData();
     saveProjectToLocalStorage();
 
-    // Auto-heal the ephemeral server disk immediately so future reloads find the user's data
+    // Auto-heal the server disk immediately so future reloads find the user's data
     syncProjectToDiskServer();
 
     // Display recovery banner confirming restoration
-    showRecoveryBanner(`Auto-restored your recent session with ${bestLocal.nodeCount} events and ${bestLocal.dialogueCount} dialogues (${bestLocal.displayTime})!`, bestLocal.id, localCandidates.length);
+    const editNotice = hasTargetEdits ? ` (Includes ${bestLocal.targetMatches.join(', ')} text edits)` : '';
+    showRecoveryBanner(`Auto-restored your recent session with ${bestLocal.nodeCount} events and ${bestLocal.dialogueCount} dialogues${editNotice} (${bestLocal.displayTime})!`, bestLocal.id, localCandidates.length);
     showToast(`Restored ${bestLocal.nodeCount} events from your session!`, 'success');
   } else if (serverLoadOk && serverData && serverNodesCount > 0) {
     // Server data is richer or equal.
@@ -576,7 +661,7 @@ async function loadProjectData() {
     normalizeAllProjectData();
 
     // If local candidates exist from earlier sessions, keep the banner available for easy switching
-    if (localCandidates.length > 0 && (localNodesCount > 10 || localCandidates.some(c => c.nodeCount !== serverNodesCount))) {
+    if (localCandidates.length > 0 && (localNodesCount > 10 || localCandidates.some(c => c.nodeCount !== serverNodesCount || c.hasTargetEdits))) {
       showRecoveryBanner(`Found ${localCandidates.length} saved session backups. Latest has ${localNodesCount} events (${bestLocal.displayTime}).`, bestLocal.id, localCandidates.length);
     }
   } else if (bestLocal) {
@@ -8333,6 +8418,23 @@ async function loadBackupsList() {
 
   let html = '';
 
+  // Deep Scan Header Banner for Fast One-Click Recovery
+  html += `
+    <div class="mb-4 p-3 bg-gradient-to-r from-cyan-950/80 via-slate-900 to-amber-950/80 border border-cyan-500/50 rounded-xl flex items-center justify-between gap-3 shadow-md">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <span class="text-xl">🔍</span>
+        <div>
+          <div class="font-bold text-cyan-200 text-xs">Deep Storage Recovery Scanner</div>
+          <div class="text-[11px] text-gray-300">Scans all browser memory keys, rolling version logs, and safety mirrors for text edits in K3A, K3B, and K4A.</div>
+        </div>
+      </div>
+      <button type="button" onclick="deepScanAndRestoreTargetEdits()" 
+              class="bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-black px-3 py-1.5 rounded-lg text-xs shadow-lg transition active:scale-95 shrink-0 flex items-center gap-1.5">
+        ⚡ Deep Scan & Restore
+      </button>
+    </div>
+  `;
+
   // SECTION A: Browser Local Storage Recovery Snapshots
   if (localCandidates.length > 0) {
     html += `
@@ -8345,31 +8447,38 @@ async function loadBackupsList() {
 
     localCandidates.forEach(cand => {
       const previewText = cand.previewNodes && cand.previewNodes.length ? `• Events: ${cand.previewNodes.slice(0, 3).join(', ')}...` : '';
+      const targetBadge = cand.hasTargetEdits 
+        ? `<span class="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-600 animate-pulse">✨ Contains ${cand.targetMatches.join(', ')} Edits</span>`
+        : '';
+
       html += `
-        <div class="p-3 bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 rounded-xl flex items-center justify-between gap-3 transition">
+        <div class="p-3 bg-gray-950/80 border ${cand.hasTargetEdits ? 'border-emerald-500/80 ring-1 ring-emerald-500/30' : 'border-gray-800 hover:border-amber-500/50'} rounded-xl flex items-center justify-between gap-3 transition">
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-bold text-gray-200 text-xs truncate">${cand.name}</span>
               <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-800">
                 ${cand.sourceType === 'local_version' ? 'Protected Snapshot' : cand.sourceType === 'safety_backup' ? 'Safety Backup' : 'Local Mirror'}
               </span>
+              ${targetBadge}
               <span class="text-[10px] text-gray-400 font-mono">🕒 ${cand.displayTime}</span>
             </div>
             <div class="text-[11px] text-gray-400 flex items-center gap-2 flex-wrap">
               <span>Events: <strong class="text-amber-400 font-mono">${cand.nodeCount}</strong></span>
               <span>•</span>
               <span>Dialogues: <strong class="text-purple-400 font-mono">${cand.dialogueCount}</strong></span>
+              <span>•</span>
+              <span class="text-cyan-400 font-mono">${cand.totalTextChars || 0} chars</span>
               ${previewText ? `<span class="text-gray-500 truncate hidden md:inline">${previewText}</span>` : ''}
             </div>
           </div>
           <div class="flex items-center gap-1.5 shrink-0">
             <button type="button" onclick="restoreCandidate('${cand.id}')" 
-                    class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
+                    class="${cand.hasTargetEdits ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-amber-500 hover:bg-amber-400'} text-gray-950 font-extrabold px-2.5 py-1.5 rounded flex items-center gap-1 text-xs shadow transition active:scale-95" 
                     title="Restore this session into canvas and auto-sync to server disk">
               ↺ Restore
             </button>
             <button type="button" onclick="downloadCandidateJson('${cand.id}')" 
-                    class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition"
+                    class="bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 font-semibold px-2 py-1.5 rounded flex items-center gap-1 text-xs shadow transition" 
                     title="Download raw snapshot JSON">
               📥 JSON
             </button>
@@ -9019,6 +9128,82 @@ window.openNotificationTarget = openNotificationTarget;
 
 
 
+// Deep scan all local storage and session version arrays to instantly extract and restore target edits
+async function deepScanAndRestoreTargetEdits() {
+  const candidates = scanAllLocalRecoveryCandidates();
+  // 1. Look for candidate with target edits (K3A, K3B, K4A)
+  let best = candidates.find(c => c.hasTargetEdits);
+  
+  // 2. If not flagged, find candidate with the highest text length
+  if (!best) {
+    let maxChars = 0;
+    candidates.forEach(c => {
+      const chars = c.totalTextChars || calculateDatasetTextChars(c.data);
+      if (chars > maxChars) {
+        maxChars = chars;
+        best = c;
+      }
+    });
+  }
+
+  // 3. Check directly in raw arrays if candidate list was somehow filtered
+  if (!best) {
+    try {
+      const raw = localStorage.getItem('rc_local_saved_versions');
+      if (raw) {
+        const list = JSON.parse(raw);
+        for (const item of list) {
+          if (item && item.data) {
+            const insp = inspectDatasetForTargetEdits(item.data);
+            if (insp.hasTargetEdits) {
+              best = {
+                id: item.id || 'raw_detected',
+                name: item.name || 'Recovered Raw Snapshot',
+                displayTime: item.displayTime || 'Recent',
+                nodeCount: (item.data.nodes || []).length,
+                dialogueCount: (item.data.dialogues || []).length,
+                hasTargetEdits: true,
+                targetMatches: insp.matches,
+                data: item.data
+              };
+              break;
+            }
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  if (!best || !best.data) {
+    alert("Deep Scan completed: No custom text modifications found in browser history beyond the default template.\n\nTip: You can inspect each individual snapshot in the list below.");
+    return false;
+  }
+
+  const details = best.hasTargetEdits 
+    ? `Found session with edits in: ${best.targetMatches.join(', ')}!\nSaved: ${best.displayTime}`
+    : `Found richest session with ${best.nodeCount} events and ${best.totalTextChars || 0} characters!\nSaved: ${best.displayTime}`;
+
+  if (confirm(`Recover Found Session?\n\n${details}\n\nClick OK to restore this immediately into your active canvas and sync to the server disk.`)) {
+    archiveLocalSnapshot("Before Deep Scan Restoration");
+    pushUndoState();
+    appData = JSON.parse(JSON.stringify(best.data));
+    normalizeAllProjectData();
+    saveProjectToLocalStorage();
+    await saveCurrentProject(false);
+    renderApp();
+    fitWholeSchematic();
+    closeModal('modal-save-manager');
+    dismissRecoveryBanner();
+    showToast(`Successfully restored session with ${best.nodeCount} events! Synced to server.`, 'success');
+    return true;
+  }
+  return false;
+}
+
+// Global console recovery helper for direct user access
+window.recoverLostSessionData = deepScanAndRestoreTargetEdits;
+window.deepScanAndRestoreTargetEdits = deepScanAndRestoreTargetEdits;
+
 window.scanAllLocalRecoveryCandidates = scanAllLocalRecoveryCandidates;
 window.restoreBestRecoverySession = restoreBestRecoverySession;
 window.restoreCandidate = restoreCandidate;
@@ -9027,3 +9212,4 @@ window.deleteLocalCandidate = deleteLocalCandidate;
 window.archiveLocalSnapshot = archiveLocalSnapshot;
 window.showRecoveryBanner = showRecoveryBanner;
 window.dismissRecoveryBanner = dismissRecoveryBanner;
+

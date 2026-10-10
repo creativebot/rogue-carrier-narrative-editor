@@ -25,6 +25,7 @@ USERS_FILE = os.path.join(DIRECTORY, 'users.json')
 COMMENTS_FILE = os.path.join(DIRECTORY, 'comments.json')
 NOTIFICATIONS_FILE = os.path.join(DIRECTORY, 'notifications.json')
 NOTIFICATIONS_LOG = os.path.join(DIRECTORY, 'notifications.log')
+SESSIONS_FILE = os.path.join(DIRECTORY, 'sessions.json')
 
 os.makedirs(SAVES_DIR, exist_ok=True)
 os.makedirs(BACKUPS_DIR, exist_ok=True)
@@ -56,9 +57,25 @@ def verify_password(stored_hash, password):
     test_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt.encode('utf-8'), 100000).hex()
     return secrets.compare_digest(hashed, test_hash)
 
-# In-memory stores
+def load_sessions():
+    if os.path.exists(SESSIONS_FILE):
+        try:
+            with open(SESSIONS_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+def save_sessions():
+    try:
+        with open(SESSIONS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(SESSIONS, f, indent=2, ensure_ascii=False)
+    except Exception:
+        pass
+
+# Persistent Session Store across server restarts
+SESSIONS = load_sessions()
 OTP_STORE = {}    # email -> {"otp": "123456", "expires": datetime}
-SESSIONS = {}     # token -> {"email": "...", "role": "admin"|"editor", "name": "...", "status": "approved"|"pending"}
 
 def parse_reward_string(raw_str):
     raw_str = raw_str.strip()
