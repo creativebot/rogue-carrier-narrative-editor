@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-10T22:54:09.243384Z",
+    "ExportTime": "2026-10-10T22:57:17.273260Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel (Local PC)",
-    "TotalEvents": 15,
+    "TotalEvents": 14,
     "TotalDialogues": 16,
     "TotalTimelines": 2,
     "TotalVariations": 20,
@@ -1669,55 +1669,6 @@
       "EditorPosition": {
         "X": 3810.0,
         "Y": 90.0
-      },
-      "Actions": [
-        {
-          "ActionIndex": 0,
-          "ActionText": "",
-          "Tooltip": "",
-          "Requirements": [],
-          "Rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "StructuredRewards": [
-            {
-              "ResourceID": "res_knowledge",
-              "Name": "Knowledge",
-              "Amount": "+100",
-              "Category": "Stat",
-              "Icon": "🧠"
-            }
-          ],
-          "ConsequenceText": "",
-          "NextEventID": "",
-          "Condition": "",
-          "NextStageIndex": null,
-          "NextFloorIndex": null,
-          "CustomData": {}
-        }
-      ]
-    },
-    {
-      "Name": "EVENT_node_1791672843355",
-      "RowName": "EVENT_node_1791672843355",
-      "EventID": "node_1791672843355",
-      "EventTitle": "",
-      "EventCategory": "KeyChain",
-      "EventType": "World",
-      "PoolType": "Timeline",
-      "PoolActiveByVariation": {},
-      "Intro": "",
-      "Outro": "",
-      "FloorIndex": 2,
-      "StageIndex": 0,
-      "LeadInSpeaker": "",
-      "LeadInDialogue": "",
-      "TimelineID": "",
-      "VariationIDs": [],
-      "Tags": [],
-      "EditorPosition": {
-        "X": 4345.0,
-        "Y": 2070.0
       },
       "Actions": [
         {

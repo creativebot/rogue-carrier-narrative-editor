@@ -1253,41 +1253,6 @@
       ],
       "title": "New Event Block",
       "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791672843355",
-      "codename": "T1-V1-K3C",
-      "name": "New Event Block",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "E2E Save Test Text 1791672844: Lifepod evacuees status report",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 3825,
-        "y": 2070
-      },
-      "actions": [
-        {
-          "id": "c_1791672843355",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ]
-        }
-      ]
     }
   ],
   "dialogues": [
