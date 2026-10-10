@@ -1897,13 +1897,8 @@ function setupCanvasEvents() {
   const finishTouch = () => {
     if (touchState.mode === 'node-drag' && touchState.dragNodeObj) {
       const obj = touchState.dragNodeObj;
-      const hasMoved = (obj.position.x !== touchState.dragNodeStart.x || obj.position.y !== touchState.dragNodeStart.y);
-      if (hasMoved && touchState.dragPreSnapshot) {
-        undoStack.push(touchState.dragPreSnapshot);
-        if (undoStack.length > MAX_UNDO_DEPTH) undoStack.shift();
-        redoStack.length = 0;
-        saveProjectToLocalStorage();
-      }
+      const el = touchState.dragNodeEl;
+      finalizeNodeDrop(obj, el, touchState.dragNodeStart, touchState.dragPreSnapshot);
     }
     touchState.mode = 'none';
     touchState.dragNodeObj = null;
@@ -2911,6 +2906,11 @@ function deleteEventNode(nodeId) {
   if (!confirm("Are you sure you want to delete this event block?")) return;
   pushUndoState();
 
+  const targetNode = (appData.nodes || []).find(n => n.id === nodeId);
+  const floor = targetNode ? targetNode.floorIndex : null;
+  const cat = targetNode ? targetNode.category : null;
+  const varId = targetNode ? targetNode.variationId : null;
+
   appData.nodes = appData.nodes.filter(n => n.id !== nodeId);
 
   // Clear incoming target references
@@ -2931,6 +2931,10 @@ function deleteEventNode(nodeId) {
   if (maxZoomedBlockId === nodeId) {
     maxZoomedBlockId = null;
     window.maxZoomedBlockId = null;
+  }
+
+  if (floor !== null && floor !== undefined) {
+    resequenceStageEventCodenames(floor, cat, varId);
   }
 
   saveProjectToLocalStorage();
@@ -3865,6 +3869,7 @@ function setupPortDragEvents() {
             if (!sourceNode.inactionThreat) sourceNode.inactionThreat = {};
             sourceNode.inactionThreat.targetNodeId = newNode.id;
             preventNodeOverlap(newNode.id);
+            resequenceStageEventCodenames(closestFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
           }
         } else {
           const action = (sourceNode.actions || []).find(a => a.id === portDragState.sourceActionId);
@@ -3903,6 +3908,7 @@ function setupPortDragEvents() {
               appData.nodes.push(newNode);
               action.targetNodeId = newNode.id;
               preventNodeOverlap(newNode.id);
+              resequenceStageEventCodenames(closestFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
             }
           }
         }
@@ -5750,6 +5756,14 @@ function cascadeCodenameChanges(nodeId, oldCode, newCode) {
     if (n.spawnConditions && n.spawnConditions.includes(oldCode)) {
       n.spawnConditions = n.spawnConditions.replaceAll(oldCode, newCode);
     }
+    (n.actions || []).forEach(a => {
+      if (a.shortDescription && a.shortDescription.includes(oldCode)) {
+        a.shortDescription = a.shortDescription.replaceAll(oldCode, newCode);
+      }
+      if (a.description && a.description.includes(oldCode)) {
+        a.description = a.description.replaceAll(oldCode, newCode);
+      }
+    });
   });
 
   (appData.dialogues || []).forEach(d => {
@@ -5757,6 +5771,136 @@ function cascadeCodenameChanges(nodeId, oldCode, newCode) {
       d.triggerCondition = d.triggerCondition.replaceAll(oldCode, newCode);
     }
   });
+}
+
+function resequenceStageEventCodenames(stageIndex, category, variationId) {
+  const cat = category || activeCategoryFilter || 'KeyChain';
+  if (cat !== 'KeyChain' && cat !== 'SecretChain') return;
+  const vId = variationId || activeVariationId;
+  const stageNum = stageIndex + 1;
+  const isSecret = (cat === 'SecretChain');
+  const type = isSecret ? 'S' : 'K';
+
+  // Find all events on this stage for this variation
+  const stageNodes = (appData.nodes || []).filter(n => {
+    const nCat = n.category || 'KeyChain';
+    if (nCat !== cat) return false;
+    const nVar = n.variationId || activeVariationId;
+    if (nVar !== vId) return false;
+    const nFloor = (n.floorIndex !== undefined && n.floorIndex !== null) ? Number(n.floorIndex) : 0;
+    return nFloor === stageIndex;
+  });
+
+  if (stageNodes.length === 0) return;
+
+  // Sort strictly by position.x ascending (left to right)
+  stageNodes.sort((a, b) => {
+    const ax = (a.position && a.position.x !== undefined) ? a.position.x : 0;
+    const bx = (b.position && b.position.x !== undefined) ? b.position.x : 0;
+    if (ax !== bx) return ax - bx;
+    return (a.id || '').localeCompare(b.id || '');
+  });
+
+  // Calculate target structured codenames: T{t}-V{v}-{K|S}{stage}{letter}
+  const changes = [];
+  stageNodes.forEach((node, idx) => {
+    const letter = String.fromCharCode(65 + Math.min(idx, 25)); // A, B, C...
+    const tlNum = getNodeTimelineNumber(node);
+    const varNum = getNodeVariationNumber(node);
+    const targetCode = buildStructuredCodename(tlNum, varNum, type, stageNum, letter);
+    if (node.codename !== targetCode) {
+      changes.push({
+        node,
+        oldCode: node.codename,
+        tempPlaceholder: `__TMP_REORDER_${node.id}_${Date.now()}_${idx}__`,
+        newCode: targetCode
+      });
+    }
+  });
+
+  if (changes.length === 0) return;
+
+  // Phase 1: assign temporary unique placeholders to break cyclic dependency (e.g. A <-> B swap)
+  changes.forEach(({ node, oldCode, tempPlaceholder }) => {
+    node.codename = tempPlaceholder;
+    cascadeCodenameChanges(node.id, oldCode, tempPlaceholder);
+  });
+
+  // Phase 2: assign final target codenames
+  changes.forEach(({ node, tempPlaceholder, newCode }) => {
+    node.codename = newCode;
+    cascadeCodenameChanges(node.id, tempPlaceholder, newCode);
+  });
+}
+
+function finalizeNodeDrop(obj, el, nodeStartPos, preDragSnapshot) {
+  if (!obj) return;
+  const isEvent = (appData.nodes || []).some(n => n.id === obj.id);
+  const prevFloorIndex = (obj.floorIndex !== undefined && obj.floorIndex !== null) ? Number(obj.floorIndex) : 0;
+
+  const hasMoved = (!nodeStartPos || obj.position.x !== nodeStartPos.x || obj.position.y !== nodeStartPos.y);
+  if (hasMoved && preDragSnapshot) {
+    undoStack.push(preDragSnapshot);
+    if (undoStack.length > MAX_UNDO_DEPTH) undoStack.shift();
+    redoStack.length = 0;
+  }
+
+  if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
+    // Snap horizontally to nearest Tier Column X
+    let closestTierIdx = 0;
+    let minTierDist = Infinity;
+    TIER_X.forEach((tx, idx) => {
+      const dist = Math.abs(obj.position.x - tx);
+      if (dist < minTierDist) {
+        minTierDist = dist;
+        closestTierIdx = idx;
+      }
+    });
+
+    if (isEvent) {
+      obj.position.x = TIER_X[closestTierIdx];
+      obj.tier = closestTierIdx + 1;
+      obj.floorIndex = Math.max(0, Math.floor((obj.position.y - 100) / 700));
+    }
+  } else {
+    // KeyChain / SecretChain: Lock vertically to nearest stage row FLOOR_Y
+    let closestFloorIdx = 0;
+    let minDistance = Infinity;
+
+    FLOOR_Y.forEach((fy, idx) => {
+      const dist = Math.abs(obj.position.y - fy);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestFloorIdx = idx;
+      }
+    });
+
+    if (isEvent) {
+      obj.position.y = FLOOR_Y[closestFloorIdx];
+      obj.floorIndex = closestFloorIdx;
+    } else {
+      // Dialogues: allow placing anywhere on canvas, but update floorIndex
+      obj.floorIndex = closestFloorIdx;
+    }
+  }
+
+  if (el) {
+    el.style.left = `${obj.position.x}px`;
+    el.style.top = `${obj.position.y}px`;
+  }
+
+  preventNodeOverlap(obj.id);
+
+  // If this is an event in KeyChain or SecretChain, automatically re-sequence codename letters (A, B, C...) from left to right
+  if (isEvent && (activeCategoryFilter === 'KeyChain' || activeCategoryFilter === 'SecretChain')) {
+    resequenceStageEventCodenames(obj.floorIndex, obj.category || activeCategoryFilter, obj.variationId || activeVariationId);
+    if (prevFloorIndex !== obj.floorIndex) {
+      resequenceStageEventCodenames(prevFloorIndex, obj.category || activeCategoryFilter, obj.variationId || activeVariationId);
+    }
+  }
+
+  saveProjectToLocalStorage();
+  renderApp();
 }
 
 function updateNodeFieldByPath(nodeId, fieldPath, value) {
@@ -6014,6 +6158,9 @@ function autoArrangeTreeLayout() {
   });
 
   preventNodeOverlap();
+  [0, 1, 2, 3].forEach(f => {
+    resequenceStageEventCodenames(f, activeCategoryFilter, activeVariationId);
+  });
   saveProjectToLocalStorage();
   renderApp();
 }
@@ -6082,62 +6229,10 @@ function makeNodesDraggable() {
         if (!isDraggingNode) return;
         isDraggingNode = false;
 
-        const hasMoved = (obj.position.x !== nodeStartPos.x || obj.position.y !== nodeStartPos.y);
-        if (hasMoved) {
-          undoStack.push(preDragSnapshot);
-          if (undoStack.length > MAX_UNDO_DEPTH) undoStack.shift();
-          redoStack.length = 0;
-        }
-
-        if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
-          // Snap horizontally to nearest Tier Column X
-          let closestTierIdx = 0;
-          let minTierDist = Infinity;
-          TIER_X.forEach((tx, idx) => {
-            const dist = Math.abs(obj.position.x - tx);
-            if (dist < minTierDist) {
-              minTierDist = dist;
-              closestTierIdx = idx;
-            }
-          });
-
-          if (isEvent) {
-            obj.position.x = TIER_X[closestTierIdx];
-            obj.tier = closestTierIdx + 1;
-            // Floor index can be 0 or calculated based on vertical position
-            obj.floorIndex = Math.max(0, Math.floor((obj.position.y - 100) / 700));
-          }
-        } else {
-          // KeyChain: Snap vertically to FLOOR_Y, freely placed horizontally (supports moving left to negative X)
-          let closestFloorIdx = 0;
-          let minDistance = Infinity;
-
-          FLOOR_Y.forEach((fy, idx) => {
-            const dist = Math.abs(obj.position.y - fy);
-            if (dist < minDistance) {
-              minDistance = dist;
-              closestFloorIdx = idx;
-            }
-          });
-
-          if (isEvent) {
-            obj.position.y = FLOOR_Y[closestFloorIdx];
-            obj.floorIndex = closestFloorIdx;
-          } else {
-            // Dialogues: allow placing anywhere on canvas (including outside / above Stage grid)
-            obj.floorIndex = closestFloorIdx;
-          }
-        }
-
-        el.style.left = `${obj.position.x}px`;
-        el.style.top = `${obj.position.y}px`;
-
-        preventNodeOverlap(nodeId);
+        finalizeNodeDrop(obj, el, nodeStartPos, preDragSnapshot);
 
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);
-        saveProjectToLocalStorage();
-        renderApp();
       };
 
       window.addEventListener('mousemove', onMouseMove);
@@ -6784,9 +6879,23 @@ function confirmImportToCanvas() {
 function openCreateEventModal() {
   pushUndoState();
   const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
-  const floor = 1;
 
   const spawnPos = findClosestEmptyCanvasPosition(880, 540);
+  let floor = 0;
+  if (!isTier) {
+    let closestFloorIdx = 0;
+    let minDistance = Infinity;
+    FLOOR_Y.forEach((fy, idx) => {
+      const dist = Math.abs(spawnPos.y - fy);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestFloorIdx = idx;
+      }
+    });
+    spawnPos.y = FLOOR_Y[closestFloorIdx];
+    floor = closestFloorIdx;
+  }
+
   const newCodename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
 
   const newNode = {
@@ -6821,9 +6930,12 @@ function openCreateEventModal() {
   };
   appData.nodes.push(newNode);
   preventNodeOverlap(newNode.id);
+  if (!isTier) {
+    resequenceStageEventCodenames(floor, activeCategoryFilter, activeVariationId);
+  }
   saveProjectToLocalStorage();
   renderApp();
-  showToast(`New Event Block created (${newCodename})`, "success");
+  showToast(`New Event Block created (${newNode.codename})`, "success");
 }
 
 window.openCreateEventModal = openCreateEventModal;
@@ -7415,10 +7527,21 @@ function deleteMobileEvent(eventId) {
   if (!requireAuthToEdit("delete events")) return;
   if (!confirm("Delete this event block?")) return;
   pushUndoState();
+
+  const targetNode = (appData.nodes || []).find(n => n.id === eventId);
+  const floor = targetNode ? targetNode.floorIndex : null;
+  const cat = targetNode ? targetNode.category : null;
+  const varId = targetNode ? targetNode.variationId : null;
+
   appData.nodes = (appData.nodes || []).filter(n => n.id !== eventId);
   (appData.dialogues || []).forEach(d => {
     if (d.targetEventId === eventId) d.targetEventId = null;
   });
+
+  if (floor !== null && floor !== undefined) {
+    resequenceStageEventCodenames(floor, cat, varId);
+  }
+
   saveProjectToLocalStorage();
   renderApp();
   showToast("Event block deleted", "info");
