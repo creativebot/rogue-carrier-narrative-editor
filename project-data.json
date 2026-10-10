@@ -1255,7 +1255,7 @@
       "disabledVariationIds": []
     },
     {
-      "id": "node_1791672748346",
+      "id": "node_1791672843355",
       "codename": "T1-V1-K3C",
       "name": "New Event Block",
       "type": "World",
@@ -1276,7 +1276,7 @@
       },
       "actions": [
         {
-          "id": "c_1791672748346",
+          "id": "c_1791672843355",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
