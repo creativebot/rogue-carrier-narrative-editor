@@ -1253,6 +1253,41 @@
       ],
       "title": "New Event Block",
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791672748346",
+      "codename": "T1-V1-K3C",
+      "name": "New Event Block",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 3825,
+        "y": 2070
+      },
+      "actions": [
+        {
+          "id": "c_1791672748346",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ]
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -1263,7 +1298,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K1B)",
+      "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
         "x": 735,
         "y": -1061
@@ -1553,7 +1588,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 3,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Build a transmitter",
+      "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
         "x": -339,
         "y": -201
@@ -1643,7 +1678,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 2853,
         "y": 55
@@ -1728,7 +1763,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1475,
         "y": 1118
