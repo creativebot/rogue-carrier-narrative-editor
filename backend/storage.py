@@ -108,85 +108,145 @@ def list_backup_snapshots(category='KeyChain', variation_id='var_v1'):
 
 # ----------------- Block Commenting System -----------------
 
-def load_comments():
+def _read_comments_raw():
     if not os.path.exists(COMMENTS_FILE):
-        return []
+        return {"comments": [], "deletedIds": []}
     try:
         with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            comments = data.get('comments', [])
-        changed = False
-        for c in comments:
-            if not isinstance(c, dict):
-                continue
-            c_email = (c.get('authorEmail') or '').strip().lower()
-            c_author = (c.get('author') or '').strip()
-            if not c_email and is_placeholder_name(c_author):
-                c_email = ADMIN_EMAIL
-                c['authorEmail'] = c_email
+        if not isinstance(data, dict):
+            return {"comments": [], "deletedIds": []}
+        return {
+            "comments": data.get("comments", []) if isinstance(data.get("comments"), list) else [],
+            "deletedIds": data.get("deletedIds", []) if isinstance(data.get("deletedIds"), list) else []
+        }
+    except Exception:
+        return {"comments": [], "deletedIds": []}
+
+def load_comments():
+    raw = _read_comments_raw()
+    deleted_set = set(raw.get("deletedIds", []))
+    comments = [c for c in raw.get("comments", []) if isinstance(c, dict) and c.get("id") not in deleted_set]
+    changed = (len(comments) != len(raw.get("comments", [])))
+    for c in comments:
+        c_email = (c.get('authorEmail') or '').strip().lower()
+        c_author = (c.get('author') or '').strip()
+        if not c_email and is_placeholder_name(c_author):
+            c_email = ADMIN_EMAIL
+            c['authorEmail'] = c_email
+            changed = True
+        if is_placeholder_name(c_author):
+            real_name = resolve_user_display_name(c_email or ADMIN_EMAIL, '')
+            if real_name and c.get('author') != real_name:
+                c['author'] = real_name
                 changed = True
-            if is_placeholder_name(c_author):
-                real_name = resolve_user_display_name(c_email or ADMIN_EMAIL, '')
-                if real_name and c.get('author') != real_name:
-                    c['author'] = real_name
-                    changed = True
-        if changed:
-            save_comments(comments)
-        return comments
-    except Exception:
-        return []
+    if changed:
+        save_comments(comments, deleted_ids=list(deleted_set), sync_github=False)
+    return comments
 
-def save_comments(comments_list):
+def save_comments(comments_list, deleted_ids=None, sync_github=True):
+    raw = _read_comments_raw()
+    merged_deleted = set(raw.get("deletedIds", []))
+    if isinstance(deleted_ids, (list, set)):
+        merged_deleted.update(x for x in deleted_ids if x)
+    clean_comments = [c for c in comments_list if isinstance(c, dict) and c.get("id") not in merged_deleted]
+    payload = {
+        "comments": clean_comments,
+        "deletedIds": sorted(list(merged_deleted))
+    }
     with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
-        json.dump({"comments": comments_list}, f, indent=2, ensure_ascii=False)
-    try:
-        threading.Thread(
-            target=_sync_json_file_to_github,
-            args=("comments.json", {"comments": comments_list}, f"Sync comments ({len(comments_list)} total)"),
-            daemon=True
-        ).start()
-    except Exception:
-        pass
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+    if sync_github:
+        try:
+            threading.Thread(
+                target=_sync_json_file_to_github,
+                args=("comments.json", payload, f"Sync comments ({len(clean_comments)} active, {len(merged_deleted)} deleted)"),
+                daemon=True
+            ).start()
+        except Exception:
+            pass
 
-def load_notifications():
+def delete_comment_by_id(comment_id):
+    if not comment_id:
+        return False
+    raw = _read_comments_raw()
+    deleted_set = set(raw.get("deletedIds", []))
+    orig_comments = raw.get("comments", [])
+    existed = any(isinstance(c, dict) and c.get("id") == comment_id for c in orig_comments) or (comment_id not in deleted_set)
+    deleted_set.add(comment_id)
+    remaining = [c for c in orig_comments if isinstance(c, dict) and c.get("id") != comment_id]
+    save_comments(remaining, deleted_ids=list(deleted_set), sync_github=True)
+    return existed or len(remaining) < len(orig_comments)
+
+def _read_notifications_raw():
     if not os.path.exists(NOTIFICATIONS_FILE):
-        return []
+        return {"notifications": [], "deletedIds": []}
     try:
         with open(NOTIFICATIONS_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            notifs = data.get('notifications', [])
-        changed = False
-        for n in notifs:
-            if not isinstance(n, dict):
-                continue
-            s_email = (n.get('senderEmail') or '').strip().lower()
-            s_name = (n.get('senderName') or '').strip()
-            if not s_email and is_placeholder_name(s_name):
-                s_email = ADMIN_EMAIL
-                n['senderEmail'] = s_email
-                changed = True
-            if is_placeholder_name(s_name):
-                real_name = resolve_user_display_name(s_email or ADMIN_EMAIL, '')
-                if real_name and n.get('senderName') != real_name:
-                    n['senderName'] = real_name
-                    changed = True
-        if changed:
-            save_notifications(notifs)
-        return notifs
+        if not isinstance(data, dict):
+            return {"notifications": [], "deletedIds": []}
+        return {
+            "notifications": data.get("notifications", []) if isinstance(data.get("notifications"), list) else [],
+            "deletedIds": data.get("deletedIds", []) if isinstance(data.get("deletedIds"), list) else []
+        }
     except Exception:
-        return []
+        return {"notifications": [], "deletedIds": []}
 
-def save_notifications(notifications_list):
+def load_notifications():
+    raw = _read_notifications_raw()
+    deleted_set = set(raw.get("deletedIds", []))
+    notifs = [n for n in raw.get("notifications", []) if isinstance(n, dict) and n.get("id") not in deleted_set]
+    changed = (len(notifs) != len(raw.get("notifications", [])))
+    for n in notifs:
+        s_email = (n.get('senderEmail') or '').strip().lower()
+        s_name = (n.get('senderName') or '').strip()
+        if not s_email and is_placeholder_name(s_name):
+            s_email = ADMIN_EMAIL
+            n['senderEmail'] = s_email
+            changed = True
+        if is_placeholder_name(s_name):
+            real_name = resolve_user_display_name(s_email or ADMIN_EMAIL, '')
+            if real_name and n.get('senderName') != real_name:
+                n['senderName'] = real_name
+                changed = True
+    if changed:
+        save_notifications(notifs, deleted_ids=list(deleted_set), sync_github=False)
+    return notifs
+
+def save_notifications(notifications_list, deleted_ids=None, sync_github=True):
+    raw = _read_notifications_raw()
+    merged_deleted = set(raw.get("deletedIds", []))
+    if isinstance(deleted_ids, (list, set)):
+        merged_deleted.update(x for x in deleted_ids if x)
+    clean_notifs = [n for n in notifications_list if isinstance(n, dict) and n.get("id") not in merged_deleted]
+    payload = {
+        "notifications": clean_notifs,
+        "deletedIds": sorted(list(merged_deleted))
+    }
     with open(NOTIFICATIONS_FILE, 'w', encoding='utf-8') as f:
-        json.dump({"notifications": notifications_list}, f, indent=2, ensure_ascii=False)
-    try:
-        threading.Thread(
-            target=_sync_json_file_to_github,
-            args=("notifications.json", {"notifications": notifications_list}, f"Sync notifications ({len(notifications_list)} total)"),
-            daemon=True
-        ).start()
-    except Exception:
-        pass
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+    if sync_github:
+        try:
+            threading.Thread(
+                target=_sync_json_file_to_github,
+                args=("notifications.json", payload, f"Sync notifications ({len(clean_notifs)} active)"),
+                daemon=True
+            ).start()
+        except Exception:
+            pass
+
+def delete_notification_by_id(notif_id):
+    if not notif_id:
+        return False
+    raw = _read_notifications_raw()
+    deleted_set = set(raw.get("deletedIds", []))
+    orig_notifs = raw.get("notifications", [])
+    existed = any(isinstance(n, dict) and n.get("id") == notif_id for n in orig_notifs)
+    deleted_set.add(notif_id)
+    remaining = [n for n in orig_notifs if isinstance(n, dict) and n.get("id") != notif_id]
+    save_notifications(remaining, deleted_ids=list(deleted_set), sync_github=True)
+    return existed or len(remaining) < len(orig_notifs)
 
 
 
@@ -233,6 +293,22 @@ def normalize_t1_variations(app_data):
             cur_name = (v.get("name") or "").strip()
             if not cur_name or cur_name in T1_LEGACY_VAR_NAMES:
                 v["name"] = T1_CANONICAL_VAR_NAMES[v_num]
+                changed = True
+
+    var_name_by_id = {
+        v.get("id"): (v.get("name") or "").strip()
+        for v in variations
+        if isinstance(v, dict) and v.get("id") and (v.get("name") or "").strip()
+    }
+    for n in (app_data.get("nodes") or []):
+        if not isinstance(n, dict):
+            continue
+        if (n.get("category") or "KeyChain") == "KeyChain":
+            vid = n.get("variationId") or "var_v1"
+            inherited_title = var_name_by_id.get(vid)
+            if inherited_title and (n.get("name") != inherited_title or n.get("title") != inherited_title):
+                n["name"] = inherited_title
+                n["title"] = inherited_title
                 changed = True
     return changed
 

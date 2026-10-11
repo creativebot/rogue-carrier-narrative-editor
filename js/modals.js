@@ -1200,6 +1200,14 @@ function updateVariationField(varId, field, value) {
   }
   pushUndoState();
   v[field] = field === 'name' ? trimmed : value;
+  if (field === 'name') {
+    (appData.nodes || []).forEach(n => {
+      if ((n.category || 'KeyChain') === 'KeyChain' && n.variationId === varId) {
+        n.name = v.name;
+        n.title = v.name;
+      }
+    });
+  }
   saveProjectToLocalStorage();
   renderTimelinesManager();
   renderApp();
@@ -2241,11 +2249,16 @@ function openCreateEventModal() {
   }
 
   const newCodename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
+  const currentVarObj = (appData.variations || []).find(v => v.id === activeVariationId);
+  const defaultEventName = (activeCategoryFilter === 'KeyChain' && currentVarObj && currentVarObj.name)
+    ? currentVarObj.name
+    : 'New Event Block';
 
   const newNode = {
     id: `node_${Date.now()}`,
     codename: newCodename,
-    name: 'New Event Block',
+    name: defaultEventName,
+    title: defaultEventName,
     type: activeCategoryFilter === 'DeckPool' ? 'Deck' : 'World',
     category: activeCategoryFilter,
     variationId: activeVariationId,

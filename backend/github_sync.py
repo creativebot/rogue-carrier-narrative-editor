@@ -282,42 +282,57 @@ def pull_latest_from_github_on_startup():
         save_users(local_users, sync_github=False)
         print(f"[Startup] Merged {len(local_users)} team users from GitHub users.json")
 
-    # 3. Merge comments.json and notifications.json by ID across cloud-state and main
+    # 3. Sync comments.json and notifications.json from cloud-state (authoritative) while honoring deletedIds
     for fname, key_name, file_path in (
         ("comments.json", "comments", COMMENTS_FILE),
         ("notifications.json", "notifications", NOTIFICATIONS_FILE)
     ):
         local_items = []
+        deleted_ids = set()
         if os.path.exists(file_path):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
-                    local_items = json.load(f).get(key_name, [])
+                    raw_local = json.load(f)
+                    local_items = raw_local.get(key_name, [])
+                    deleted_ids.update(raw_local.get("deletedIds", []) or [])
             except Exception:
                 local_items = []
-        by_id = {item.get('id'): item for item in local_items if isinstance(item, dict) and item.get('id')}
-        changed_items = False
-        for br in branches_to_check:
-            try:
-                furl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{fname}?ref={br}"
-                freq = urllib.request.Request(furl, headers=headers)
-                with urllib.request.urlopen(freq, timeout=10) as fresp:
-                    fdata = json.loads(fresp.read().decode('utf-8'))
-                    if 'content' in fdata:
-                        remote_obj = json.loads(base64.b64decode(fdata['content']).decode('utf-8'))
-                        for ritem in remote_obj.get(key_name, []):
-                            if isinstance(ritem, dict) and ritem.get('id') and ritem.get('id') not in by_id:
-                                local_items.append(ritem)
-                                by_id[ritem.get('id')] = ritem
-                                changed_items = True
-            except Exception:
-                pass
-        if changed_items:
-            local_items.sort(key=lambda x: x.get('createdAt') or '')
-            if key_name == 'notifications':
-                local_items.reverse()
-            with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump({key_name: local_items}, f, indent=2, ensure_ascii=False)
-            print(f"[Startup] Merged {len(local_items)} {key_name} from GitHub {fname}")
+
+        cloud_loaded = False
+        cloud_items = []
+        try:
+            furl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{fname}?ref={GITHUB_DATA_BRANCH}"
+            freq = urllib.request.Request(furl, headers=headers)
+            with urllib.request.urlopen(freq, timeout=10) as fresp:
+                fdata = json.loads(fresp.read().decode('utf-8'))
+                if 'content' in fdata:
+                    remote_obj = json.loads(base64.b64decode(fdata['content']).decode('utf-8'))
+                    deleted_ids.update(remote_obj.get("deletedIds", []) or [])
+                    cloud_items = [
+                        ritem for ritem in remote_obj.get(key_name, [])
+                        if isinstance(ritem, dict) and ritem.get('id') and ritem.get('id') not in deleted_ids
+                    ]
+                    cloud_loaded = True
+        except Exception:
+            pass
+
+        if cloud_loaded:
+            final_items = cloud_items
+        else:
+            final_items = [
+                item for item in local_items
+                if isinstance(item, dict) and item.get('id') and item.get('id') not in deleted_ids
+            ]
+
+        final_items.sort(key=lambda x: x.get('createdAt') or '')
+        if key_name == 'notifications':
+            final_items.reverse()
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump({
+                key_name: final_items,
+                "deletedIds": sorted(list(deleted_ids))
+            }, f, indent=2, ensure_ascii=False)
+        print(f"[Startup] Synced {len(final_items)} {key_name} from GitHub {fname} ({len(deleted_ids)} tombstoned)")
 
     # 4. Restore recent backup snapshots (backups/) and saves (saves/) from cloud-state
     for remote_dir, local_dir in (("backups", BACKUPS_DIR), ("saves", SAVES_DIR)):

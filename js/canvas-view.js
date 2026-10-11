@@ -1026,6 +1026,16 @@ function createEventNodeDOM(node) {
   const descText = node.eventDescription || '';
   const descOver = isFieldTextOverLimit(descText, 'eventDescription');
 
+  const nodeVarObj = (appData.variations || []).find(v => v.id === (node.variationId || activeVariationId)) || currentVar;
+  if ((node.category || 'KeyChain') === 'KeyChain' && nodeVarObj && nodeVarObj.name) {
+    node.name = nodeVarObj.name;
+    node.title = nodeVarObj.name;
+  }
+  const isKeyChainNode = (node.category || 'KeyChain') === 'KeyChain';
+  const titleSpanHTML = isKeyChainNode
+    ? `<span class="font-bold text-xs" title="Inherited from Variation (${escapeHtml(node.name)})">${escapeHtml(node.name)}</span>`
+    : `<span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">${escapeHtml(node.name)}</span>`;
+
   wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
@@ -1033,9 +1043,7 @@ function createEventNodeDOM(node) {
           <span class="codename-badge editable-spot font-mono font-bold" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')">
             ${node.codename}
           </span>
-          <span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">
-            ${node.name}
-          </span>
+          ${titleSpanHTML}
           <div class="dialogue-trigger-port pre-event-port cursor-pointer ${hasPreDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
           ${preDiagPills}
         </div>
@@ -2575,14 +2583,21 @@ function spawnChildBranchNode(nodeId, actionId) {
 
   pushUndoState();
   const nextFloorIdx = Math.min((Number(sourceNode.floorIndex) || 0) + 1, FLOOR_Y.length - 1);
-  const newCodename = generateNewEventCodename(sourceNode.category || 'KeyChain', nextFloorIdx, sourceNode.variationId || activeVariationId);
+  const targetCat = sourceNode.category || 'KeyChain';
+  const targetVarId = sourceNode.variationId || activeVariationId;
+  const targetVarObj = (appData.variations || []).find(v => v.id === targetVarId);
+  const inheritedName = (targetCat === 'KeyChain' && targetVarObj && targetVarObj.name)
+    ? targetVarObj.name
+    : `Outcome from ${sourceNode.name || sourceNode.codename}`;
+  const newCodename = generateNewEventCodename(targetCat, nextFloorIdx, targetVarId);
   const newNode = {
     id: `node_${Date.now()}`,
     codename: newCodename,
-    name: `Outcome from ${sourceNode.name || sourceNode.codename}`,
+    name: inheritedName,
+    title: inheritedName,
     type: sourceNode.type || 'World',
-    category: sourceNode.category || 'KeyChain',
-    variationId: sourceNode.variationId || activeVariationId,
+    category: targetCat,
+    variationId: targetVarId,
     floorIndex: nextFloorIdx,
     spawnConditions: `Triggered by ${sourceNode.codename}`,
     eventIntro: "Initial event context...",
@@ -2645,14 +2660,21 @@ function linkOrEditInaction(nodeId) {
   if (targetName.trim() === '') {
     pushUndoState();
     const nextFloorIdx = Math.min((Number(node.floorIndex) || 0) + 1, FLOOR_Y.length - 1);
-    const newCodename = generateNewEventCodename(node.category || 'KeyChain', nextFloorIdx, node.variationId || activeVariationId);
+    const targetCat = node.category || 'KeyChain';
+    const targetVarId = node.variationId || activeVariationId;
+    const targetVarObj = (appData.variations || []).find(v => v.id === targetVarId);
+    const inheritedName = (targetCat === 'KeyChain' && targetVarObj && targetVarObj.name)
+      ? targetVarObj.name
+      : `Inaction Consequence from ${node.name || node.codename}`;
+    const newCodename = generateNewEventCodename(targetCat, nextFloorIdx, targetVarId);
     const newNode = {
       id: `node_${Date.now()}`,
       codename: newCodename,
-      name: `Inaction Consequence from ${node.name || node.codename}`,
+      name: inheritedName,
+      title: inheritedName,
       type: node.type || 'World',
-      category: node.category || 'KeyChain',
-      variationId: node.variationId || activeVariationId,
+      category: targetCat,
+      variationId: targetVarId,
       floorIndex: nextFloorIdx,
       spawnConditions: `Triggered by ${node.codename} Inaction`,
       eventIntro: "Initial event context...",

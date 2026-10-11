@@ -25,42 +25,23 @@
       "mentions": []
     },
     {
-      "id": "cmt_1791569583368",
-      "targetId": "node_e0",
-      "targetType": "event",
-      "targetTitle": "T1-V1-K1A - The Moment After the End",
-      "text": "Playwright automated test comment @mnemosyne",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-09T18:13:03.368285Z",
-      "displayTime": "2026-10-09 20:13",
-      "mentions": []
-    },
-    {
-      "id": "cmt_1791569647034",
-      "targetId": "node_e0",
-      "targetType": "event",
-      "targetTitle": "T1-V1-K1A - The Moment After the End",
-      "text": "Playwright automated test comment @mnemosyne",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-09T18:14:07.034033Z",
-      "displayTime": "2026-10-09 20:14",
-      "mentions": []
-    },
-    {
-      "id": "cmt_1791723288305",
+      "id": "cmt_1791724017477",
       "targetId": "node_1791717900687",
       "targetType": "event",
-      "targetTitle": "T1-V2-K1A - New Event Block",
-      "text": "@vkuznietsov second test to see if my name is displayed correctly",
+      "targetTitle": "T1-V2-K1A - Once More Into The Fray",
+      "text": "Let's not use dot at the and of action button text. @vkuznietsov",
       "author": "Daniel Poludyonny",
       "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-11T12:54:48.305503Z",
-      "displayTime": "2026-10-11 12:54",
+      "createdAt": "2026-10-11T13:06:57.477974Z",
+      "displayTime": "2026-10-11 13:06",
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
     }
+  ],
+  "deletedIds": [
+    "cmt_1791569583368",
+    "cmt_1791569647034",
+    "cmt_1791723288305"
   ]
 }

@@ -56,8 +56,10 @@ from backend.storage import (
     list_backup_snapshots,
     load_comments,
     save_comments,
+    delete_comment_by_id,
     load_notifications,
     save_notifications,
+    delete_notification_by_id,
     T1_CANONICAL_VAR_NAMES,
     T1_LEGACY_VAR_NAMES,
     normalize_t1_variations,
@@ -1270,11 +1272,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 2. Delete Comment
         elif path.startswith('/api/comments/'):
             comment_id = path[len('/api/comments/'):].split('?')[0]
-            comments = load_comments()
-            orig_len = len(comments)
-            comments = [c for c in comments if c.get('id') != comment_id]
-            if len(comments) < orig_len:
-                save_comments(comments)
+            if delete_comment_by_id(comment_id):
                 self.send_json(200, {"status": "success", "message": f"Deleted comment {comment_id}"})
             else:
                 self.send_json(404, {"status": "error", "message": "Comment not found"})
@@ -1282,11 +1280,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 2b. Delete Notification
         elif path.startswith('/api/notifications/'):
             notif_id = path[len('/api/notifications/'):].split('?')[0]
-            all_notifs = load_notifications()
-            orig_len = len(all_notifs)
-            all_notifs = [n for n in all_notifs if n.get('id') != notif_id]
-            if len(all_notifs) < orig_len:
-                save_notifications(all_notifs)
+            if delete_notification_by_id(notif_id):
                 self.send_json(200, {"status": "success", "message": f"Deleted notification {notif_id}"})
             else:
                 self.send_json(404, {"status": "error", "message": "Notification not found"})

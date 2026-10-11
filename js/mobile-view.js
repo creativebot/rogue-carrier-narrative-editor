@@ -480,6 +480,16 @@ function renderMobileStageView() {
       const descStr = node.eventDescription || '';
       const isDescOver = isFieldTextOverLimit(descStr, 'eventDescription');
 
+      const nodeVarObj = (appData.variations || []).find(v => v.id === (node.variationId || activeVariationId)) || currentVar;
+      if ((node.category || 'KeyChain') === 'KeyChain' && nodeVarObj && nodeVarObj.name) {
+        node.name = nodeVarObj.name;
+        node.title = nodeVarObj.name;
+      }
+      const isKeyChainMob = (node.category || 'KeyChain') === 'KeyChain';
+      const mobTitleHTML = isKeyChainMob
+        ? `<h3 class="text-sm font-bold text-gray-100 mt-1" title="Inherited from Variation">${escapeHtml(node.name)}</h3>`
+        : `<h3 class="text-sm font-bold text-gray-100 mt-1 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">${escapeHtml(node.name)}</h3>`;
+
       return `
         <div class="mobile-event-card ${isDimmed ? 'is-pool-dimmed' : ''}" id="mob-node-${node.id}">
           ${poolSwitchBar}
@@ -491,9 +501,7 @@ function renderMobileStageView() {
                   <span class="mobile-stage-badge bg-amber-950 text-amber-300 border border-amber-600/40 editable-spot cursor-pointer" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')" title="Tap to edit codename">${node.codename}</span>
                   <span class="text-[10px] text-gray-400 uppercase font-semibold editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'spawnConditions')" title="Tap to edit spawn conditions">${node.spawnConditions || node.location || 'Spawn conditions'}</span>
                 </div>
-                <h3 class="text-sm font-bold text-gray-100 mt-1 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">
-                  ${node.name}
-                </h3>
+                ${mobTitleHTML}
               </div>
               <div class="flex items-center gap-1.5">
                 <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event')">
@@ -696,11 +704,16 @@ function createMobileEvent(floorIndex) {
   const slot = allocateDesktopSlotForEvent(floor, activeCategoryFilter);
 
   const codename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
+  const currentVarObj = (appData.variations || []).find(v => v.id === activeVariationId);
+  const defaultMobEventName = (activeCategoryFilter === 'KeyChain' && currentVarObj && currentVarObj.name)
+    ? currentVarObj.name
+    : `New Event (${isTier ? 'Tier ' + (floor + 1) : 'Stage ' + (floor + 1)})`;
 
   const newNode = {
     id: `node_mob_${Date.now()}`,
     codename: codename,
-    name: `New Event (${isTier ? 'Tier ' + (floor + 1) : 'Stage ' + (floor + 1)})`,
+    name: defaultMobEventName,
+    title: defaultMobEventName,
     type: activeCategoryFilter === 'DeckPool' ? 'Deck' : 'World',
     category: activeCategoryFilter,
     variationId: activeVariationId,

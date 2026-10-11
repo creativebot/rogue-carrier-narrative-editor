@@ -660,6 +660,13 @@ function normalizeAllProjectData() {
     if (!node.title && node.name) node.title = node.name;
     if (!node.type) node.type = "World";
     if (!node.category) node.category = "KeyChain";
+    if (node.category === 'KeyChain') {
+      const varObj = (appData.variations || []).find(v => v.id === (node.variationId || 'var_v1'));
+      if (varObj && varObj.name) {
+        node.name = varObj.name;
+        node.title = varObj.name;
+      }
+    }
     if (typeof node.floorIndex === 'undefined') node.floorIndex = 0;
     if (!node.position || typeof node.position.x !== 'number') {
       node.position = { x: 450, y: (typeof FLOOR_Y !== 'undefined' && FLOOR_Y[node.floorIndex]) || 150 };
