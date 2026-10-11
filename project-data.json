@@ -538,20 +538,6 @@
           "targetNodeIds": [
             "node_e1b"
           ]
-        },
-        {
-          "id": "act_1791726098437",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ],
       "colorScheme": "amber",
@@ -1886,8 +1872,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 465,
-        "y": 3349
+        "x": -448,
+        "y": 3301
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2838,7 +2824,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:41:38.437Z",
+  "_lastModified": "2026-10-11T13:42:05.462Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
