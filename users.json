@@ -6,7 +6,7 @@
       "role": "admin",
       "status": "approved",
       "createdAt": "2026-10-08T10:38:44.834639Z",
-      "lastLogin": "2026-10-08T14:08:27.695199Z",
+      "lastLogin": "2026-10-11T12:25:00.000000Z",
       "picture": null
     },
     {
@@ -38,6 +38,16 @@
       "authProvider": "google",
       "createdAt": "2026-10-08T14:11:08.639044Z",
       "lastLogin": "2026-10-08T14:11:08.639044Z"
+    },
+    {
+      "email": "vkuznietsov@n-ix.com",
+      "name": "Vladyslav Kuznietsov",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-11T10:00:00.000000Z",
+      "lastLogin": "2026-10-11T12:00:00.000000Z"
     }
   ]
 }
