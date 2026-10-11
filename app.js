@@ -1617,9 +1617,14 @@ function getAuthHeaders(includeJsonContentType = true) {
       if (savedUser) userObj = JSON.parse(savedUser);
     } catch (e) {}
   }
+  if (userObj && typeof sanitizeUserProfile === 'function') {
+    userObj = sanitizeUserProfile(userObj);
+  }
   if (userObj) {
     if (userObj.email) headers['X-User-Email'] = userObj.email;
-    if (userObj.name) headers['X-User-Name'] = userObj.name;
+    if (userObj.name && (typeof isGenericPlaceholderName !== 'function' || !isGenericPlaceholderName(userObj.name))) {
+      headers['X-User-Name'] = userObj.name;
+    }
   }
   return headers;
 }
@@ -9923,16 +9928,72 @@ window.refreshLayoutHealthModal = refreshLayoutHealthModal;
 /* ==========================================================================
    AUTHENTICATION & DOMAIN ACCESS CONTROL (@n-ix.com)
    ========================================================================== */
+const GENERIC_PLACEHOLDER_NAMES = new Set([
+  'authorized editor',
+  'editor user',
+  'daniel (local pc)',
+  'user',
+  'n-ix member',
+  'member',
+  'anonymous',
+  'unknown'
+]);
+
+function isGenericPlaceholderName(name) {
+  if (!name || typeof name !== 'string') return true;
+  return GENERIC_PLACEHOLDER_NAMES.has(name.trim().toLowerCase());
+}
+
+function resolveUserDisplayName(email, candidateName = '') {
+  const cleanEmail = String(email || '').trim().toLowerCase();
+  const cand = String(candidateName || '').trim();
+  if (cand && !isGenericPlaceholderName(cand)) {
+    return cand;
+  }
+  if (cleanEmail) {
+    if (Array.isArray(allNixUsers)) {
+      const matched = allNixUsers.find(u => u && String(u.email || '').trim().toLowerCase() === cleanEmail);
+      if (matched && matched.name && !isGenericPlaceholderName(matched.name)) {
+        return matched.name.trim();
+      }
+    }
+    if (cleanEmail === 'dpoludonnyi@n-ix.com' || cleanEmail === 'daniel.poludyonny@gmail.com') {
+      return 'Daniel Poludyonny';
+    }
+    if (cleanEmail.includes('@')) {
+      return cleanEmail.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+  }
+  return cand || 'Daniel Poludyonny';
+}
+
+function sanitizeUserProfile(u) {
+  if (!u || typeof u !== 'object') return u;
+  const email = String(u.email || 'dpoludonnyi@n-ix.com').trim().toLowerCase();
+  u.email = email;
+  u.name = resolveUserDisplayName(email, u.name);
+  if (email === 'dpoludonnyi@n-ix.com' || email === 'daniel.poludyonny@gmail.com') {
+    u.role = 'admin';
+    u.isAdmin = true;
+    u.status = 'approved';
+    u.canEdit = true;
+  }
+  return u;
+}
+
+let allNixUsers = [];
 let currentUser = (() => {
   try {
     const raw = localStorage.getItem('rogue_carrier_auth_user');
-    return raw ? JSON.parse(raw) : null;
+    if (!raw) return null;
+    const parsed = sanitizeUserProfile(JSON.parse(raw));
+    localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(parsed));
+    return parsed;
   } catch (e) {
     return null;
   }
 })();
 let authToken = localStorage.getItem('rogue_carrier_auth_token') || '';
-let allNixUsers = [];
 
 function isLocalEnvironment() {
   const host = window.location.hostname;
@@ -9941,17 +10002,21 @@ function isLocalEnvironment() {
 
 async function initAuthSystem() {
   if (isLocalEnvironment()) {
-    currentUser = {
+    currentUser = sanitizeUserProfile({
       email: 'dpoludonnyi@n-ix.com',
-      name: 'Daniel (Local PC)',
+      name: 'Daniel Poludyonny',
       role: 'admin',
       status: 'approved',
       canEdit: true,
       isAdmin: true
-    };
+    });
     updateAuthHeaderUI();
     preloadTeamUsers();
     return;
+  }
+
+  if (currentUser) {
+    currentUser = sanitizeUserProfile(currentUser);
   }
 
   if (authToken) {
@@ -9962,7 +10027,17 @@ async function initAuthSystem() {
       if (res.ok) {
         const data = await res.json();
         if (data.status === 'success' && data.user) {
-          currentUser = data.user;
+          const prevRealName = (currentUser && !isGenericPlaceholderName(currentUser.name)) ? currentUser.name : '';
+          if (prevRealName && isGenericPlaceholderName(data.user.name)) {
+            data.user.name = prevRealName;
+          }
+          currentUser = sanitizeUserProfile(data.user);
+          if (data.token && typeof data.token === 'string' && data.token.startsWith('rctok.')) {
+            authToken = data.token;
+            try {
+              localStorage.setItem('rogue_carrier_auth_token', authToken);
+            } catch (e) {}
+          }
           try {
             localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
           } catch (e) {}
@@ -10390,6 +10465,13 @@ async function preloadTeamUsers() {
     if (res.ok) {
       const data = await res.json();
       allNixUsers = data.users || [];
+      if (currentUser) {
+        currentUser = sanitizeUserProfile(currentUser);
+        try {
+          localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
+        } catch (e) {}
+        updateAuthHeaderUI();
+      }
     }
   } catch (e) {
     console.warn("Failed preloading team users:", e);
@@ -10837,22 +10919,24 @@ async function loadCommentsStream(targetId) {
       }
 
       container.innerHTML = comments.map(c => {
-        const authorInitials = (c.author || 'User').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+        const resolvedEmail = c.authorEmail || (isGenericPlaceholderName(c.author) ? 'dpoludonnyi@n-ix.com' : '');
+        const resolvedAuthor = resolveUserDisplayName(resolvedEmail, c.author);
+        const authorInitials = (resolvedAuthor || 'User').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
         // Format mentions highlight
         const formattedText = escapeHtml(c.text).replace(/@([a-zA-Z0-9._-]+(?:@n-ix\.com)?)/g, '<span class="mention-pill">@$1</span>');
 
-        const canDelete = currentUser && (currentUser.role === 'admin' || currentUser.email === c.authorEmail);
+        const canDelete = currentUser && (currentUser.role === 'admin' || currentUser.email === resolvedEmail);
 
         return `
           <div class="comment-card space-y-1.5" id="comment-card-${c.id}">
-            <div class="flex items-center justify-between text-xs">
+            <div class="flex items-start justify-between text-xs gap-2">
               <div class="flex items-center gap-2 min-w-0">
                 <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">
                   ${authorInitials}
                 </div>
-                <div class="truncate">
-                  <span class="font-bold text-gray-200">${c.author}</span>
-                  <span class="text-[10px] text-gray-400 font-mono ml-1">${c.authorEmail || ''}</span>
+                <div class="flex flex-col min-w-0 leading-tight">
+                  <span class="font-bold text-gray-200 truncate">${escapeHtml(resolvedAuthor)}</span>
+                  ${resolvedEmail ? `<span class="text-[10px] text-cyan-400/90 font-mono truncate">${escapeHtml(resolvedEmail)}</span>` : ''}
                 </div>
               </div>
               <div class="flex items-center gap-1.5 shrink-0">
@@ -10884,8 +10968,11 @@ async function postComment() {
   const text = (inputEl ? inputEl.value.trim() : '');
   if (!text) return;
 
-  const authorName = (currentUser && currentUser.name) || 'N-iX Member';
-  const authorEmail = (currentUser && currentUser.email) || 'member@n-ix.com';
+  if (currentUser) {
+    currentUser = sanitizeUserProfile(currentUser);
+  }
+  const authorEmail = (currentUser && currentUser.email) || 'dpoludonnyi@n-ix.com';
+  const authorName = resolveUserDisplayName(authorEmail, currentUser && currentUser.name);
 
   const btnPost = document.getElementById('btn-post-comment');
   if (btnPost) {
@@ -11135,7 +11222,9 @@ function renderNotificationsList() {
   }
 
   listContainer.innerHTML = userNotifications.map(n => {
-    const authorInitials = (n.senderName || 'User').split(' ').map(part => part[0]).join('').toUpperCase().slice(0, 2);
+    const resolvedSenderEmail = n.senderEmail || (isGenericPlaceholderName(n.senderName) ? 'dpoludonnyi@n-ix.com' : '');
+    const resolvedSenderName = resolveUserDisplayName(resolvedSenderEmail, n.senderName);
+    const authorInitials = (resolvedSenderName || 'User').split(' ').map(part => part[0]).join('').toUpperCase().slice(0, 2);
     const isUnread = !n.read;
     return `
       <div class="p-3 hover:bg-gray-800/60 cursor-pointer transition flex items-start gap-2.5 ${isUnread ? 'bg-blue-950/30 border-l-2 border-cyan-400' : ''}" 
@@ -11144,8 +11233,11 @@ function renderNotificationsList() {
           ${authorInitials}
         </div>
         <div class="min-w-0 flex-1 space-y-1">
-          <div class="flex items-center justify-between gap-1 text-[11px]">
-            <span class="font-bold text-gray-200 truncate">${n.senderName}</span>
+          <div class="flex items-start justify-between gap-1 text-[11px]">
+            <div class="flex flex-col min-w-0 leading-tight">
+              <span class="font-bold text-gray-200 truncate">${escapeHtml(resolvedSenderName)}</span>
+              ${resolvedSenderEmail ? `<span class="text-[10px] text-cyan-400/90 font-mono truncate">${escapeHtml(resolvedSenderEmail)}</span>` : ''}
+            </div>
             <span class="text-[10px] text-gray-400 font-mono shrink-0">${n.displayTime}</span>
           </div>
           <div class="text-[11px] text-gray-300">

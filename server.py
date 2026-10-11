@@ -485,6 +485,65 @@ def is_valid_nix_email(email):
     e = email.strip().lower()
     return (e.endswith(ALLOWED_DOMAIN) and len(e) > len(ALLOWED_DOMAIN)) or e in ALLOWED_EMAILS
 
+GENERIC_PLACEHOLDER_NAMES = {
+    'authorized editor',
+    'editor user',
+    'daniel (local pc)',
+    'user',
+    'n-ix member',
+    'member',
+    'anonymous',
+    'unknown'
+}
+
+def is_placeholder_name(name):
+    if not name or not isinstance(name, str):
+        return True
+    return name.strip().lower() in GENERIC_PLACEHOLDER_NAMES
+
+def resolve_user_display_name(email, candidate_name=''):
+    clean_email = (email or '').strip().lower()
+    cand = (candidate_name or '').strip()
+    if cand and not is_placeholder_name(cand):
+        return cand
+
+    if clean_email:
+        for u in load_users():
+            if (u.get('email') or '').strip().lower() == clean_email:
+                reg_name = (u.get('name') or '').strip()
+                if reg_name and not is_placeholder_name(reg_name):
+                    return reg_name
+        if is_admin_email(clean_email):
+            return "Daniel Poludyonny"
+        if '@' in clean_email:
+            return clean_email.split('@')[0].replace('.', ' ').replace('_', ' ').title()
+
+    return cand or "Daniel Poludyonny"
+
+def enrich_user_session(user_obj):
+    if not isinstance(user_obj, dict):
+        return user_obj
+    email = (user_obj.get('email') or ADMIN_EMAIL).strip().lower()
+    is_adm = is_admin_email(email)
+    reg_role = None
+    reg_pic = None
+    for u in load_users():
+        if (u.get('email') or '').strip().lower() == email:
+            reg_role = u.get('role')
+            reg_pic = u.get('picture')
+            break
+    role = 'admin' if (is_adm or reg_role == 'admin') else (user_obj.get('role') or 'editor')
+    resolved_name = resolve_user_display_name(email, user_obj.get('name', ''))
+    user_obj['email'] = email
+    user_obj['name'] = resolved_name
+    user_obj['role'] = role
+    user_obj['status'] = 'approved'
+    user_obj['isAdmin'] = (role == 'admin')
+    user_obj['canEdit'] = True
+    if reg_pic and not user_obj.get('picture'):
+        user_obj['picture'] = reg_pic
+    return user_obj
+
 def ensure_user_registered(user_obj):
     """
     Ensures any authenticated @n-ix.com user (from Google OAuth, OTP, stateless token, or X-User-Email header)
@@ -496,9 +555,9 @@ def ensure_user_registered(user_obj):
     if not email or not is_valid_nix_email(email):
         return
     name = (user_obj.get('name') or '').strip()
-    if name in ('Authorized Editor', 'Editor User', 'Daniel (Local PC)', 'User', 'N-iX Member'):
+    if is_placeholder_name(name):
         name = ''
-    default_name = name or email.split('@')[0].replace('.', ' ').replace('_', ' ').title()
+    default_name = resolve_user_display_name(email, name)
     users = load_users()
     found = None
     for u in users:
@@ -522,14 +581,19 @@ def ensure_user_registered(user_obj):
         save_users(users, sync_github=True)
     else:
         changed = False
-        if name and found.get('name') != name and not found.get('name'):
+        if name and (not found.get('name') or is_placeholder_name(found.get('name'))):
             found['name'] = name
+            changed = True
+        elif is_placeholder_name(found.get('name')):
+            found['name'] = default_name
             changed = True
         if found.get('status') != 'approved':
             found['status'] = 'approved'
             changed = True
         if changed:
             save_users(users, sync_github=True)
+    user_obj['name'] = found.get('name') if found and not is_placeholder_name(found.get('name')) else default_name
+
 
 # ----------------- Notifications & Emails -----------------
 
@@ -1017,7 +1081,25 @@ def load_comments():
     try:
         with open(COMMENTS_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            return data.get('comments', [])
+            comments = data.get('comments', [])
+        changed = False
+        for c in comments:
+            if not isinstance(c, dict):
+                continue
+            c_email = (c.get('authorEmail') or '').strip().lower()
+            c_author = (c.get('author') or '').strip()
+            if not c_email and is_placeholder_name(c_author):
+                c_email = ADMIN_EMAIL
+                c['authorEmail'] = c_email
+                changed = True
+            if is_placeholder_name(c_author):
+                real_name = resolve_user_display_name(c_email or ADMIN_EMAIL, '')
+                if real_name and c.get('author') != real_name:
+                    c['author'] = real_name
+                    changed = True
+        if changed:
+            save_comments(comments)
+        return comments
     except Exception:
         return []
 
@@ -1039,7 +1121,25 @@ def load_notifications():
     try:
         with open(NOTIFICATIONS_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            return data.get('notifications', [])
+            notifs = data.get('notifications', [])
+        changed = False
+        for n in notifs:
+            if not isinstance(n, dict):
+                continue
+            s_email = (n.get('senderEmail') or '').strip().lower()
+            s_name = (n.get('senderName') or '').strip()
+            if not s_email and is_placeholder_name(s_name):
+                s_email = ADMIN_EMAIL
+                n['senderEmail'] = s_email
+                changed = True
+            if is_placeholder_name(s_name):
+                real_name = resolve_user_display_name(s_email or ADMIN_EMAIL, '')
+                if real_name and n.get('senderName') != real_name:
+                    n['senderName'] = real_name
+                    changed = True
+        if changed:
+            save_notifications(notifs)
+        return notifs
     except Exception:
         return []
 
@@ -1137,7 +1237,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         if self.is_local_request():
             return {
                 "email": ADMIN_EMAIL,
-                "name": "Daniel (Local PC)",
+                "name": resolve_user_display_name(ADMIN_EMAIL, ""),
                 "role": "admin",
                 "status": "approved",
                 "isAdmin": True,
@@ -1156,32 +1256,37 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             if '?token=' in self.path:
                 token = self.path.split('?token=')[-1].split('&')[0]
 
+        header_email = (self.headers.get('X-User-Email') or '').strip().lower()
+        header_name = (self.headers.get('X-User-Name') or '').strip()
+        if is_placeholder_name(header_name):
+            header_name = ""
+
         if token and token in SESSIONS:
-            ensure_user_registered(SESSIONS[token])
-            return SESSIONS[token]
+            sess = SESSIONS[token]
+            if header_email and is_valid_nix_email(header_email) and sess.get('email') != header_email:
+                sess['email'] = header_email
+            if header_name and is_placeholder_name(sess.get('name')):
+                sess['name'] = header_name
+            enrich_user_session(sess)
+            ensure_user_registered(sess)
+            return sess
 
         # Stateless signed token check (survives container restarts/redeployments)
         if token:
             verified = verify_user_token(token)
             if verified:
+                enrich_user_session(verified)
                 SESSIONS[token] = verified
                 save_sessions()
                 ensure_user_registered(verified)
                 return verified
 
         # Fallback: X-User-Email header from an already-signed-in @n-ix.com client after container restart
-        header_email = (self.headers.get('X-User-Email') or '').strip().lower()
-        header_name = (self.headers.get('X-User-Name') or '').strip()
         if header_email and is_valid_nix_email(header_email):
-            is_adm = is_admin_email(header_email)
-            user_obj = {
+            user_obj = enrich_user_session({
                 "email": header_email,
-                "name": header_name or header_email.split('@')[0].replace('.', ' ').title(),
-                "role": "admin" if is_adm else "editor",
-                "status": "approved",
-                "isAdmin": is_adm,
-                "canEdit": True
-            }
+                "name": header_name
+            })
             if token:
                 SESSIONS[token] = user_obj
                 save_sessions()
@@ -1190,19 +1295,17 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # Legacy UUID session token recovery after server restart
         if token and len(token) >= 16:
-            restored_user = {
-                "email": ADMIN_EMAIL,
-                "name": header_name or "Authorized Editor",
-                "role": "editor",
-                "status": "approved",
-                "isAdmin": False,
-                "canEdit": True
-            }
+            restored_user = enrich_user_session({
+                "email": header_email if (header_email and is_valid_nix_email(header_email)) else ADMIN_EMAIL,
+                "name": header_name
+            })
             SESSIONS[token] = restored_user
             save_sessions()
+            ensure_user_registered(restored_user)
             return restored_user
 
         return None
+
 
     def read_json_body(self):
         content_length = int(self.headers.get('Content-Length', 0))
@@ -1919,8 +2022,11 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 target_title = payload.get('targetTitle', target_id)
                 text = payload.get('text', '').strip()
                 user = self.get_auth_user()
-                author = payload.get('author') or (user.get('name') if user else '') or 'N-iX Member'
-                author_email = payload.get('authorEmail') or (user.get('email') if user else '') or ''
+                raw_author = (payload.get('author') or '').strip()
+                if is_placeholder_name(raw_author):
+                    raw_author = ''
+                author_email = (payload.get('authorEmail') or (user.get('email') if user else '') or ADMIN_EMAIL).strip().lower()
+                author = resolve_user_display_name(author_email, raw_author or (user.get('name') if user else ''))
 
                 if author_email and is_valid_nix_email(author_email):
                     ensure_user_registered({"email": author_email, "name": author})
@@ -2150,9 +2256,13 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             is_local = self.is_local_request()
             user = self.get_auth_user()
             if user:
+                enrich_user_session(user)
+                signed_tok = sign_user_token(user)
+                SESSIONS[signed_tok] = user
                 self.send_json(200, {
                     "status": "success",
                     "user": user,
+                    "token": signed_tok,
                     "isLocal": is_local,
                     "registrationEnabled": REGISTRATION_ENABLED,
                     "googleClientId": GOOGLE_CLIENT_ID
