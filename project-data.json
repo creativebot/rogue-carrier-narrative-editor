@@ -1496,6 +1496,20 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
+        },
+        {
+          "id": "act_1791736324683",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "New Event Block",
@@ -2748,7 +2762,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:55:40.562Z",
+  "_lastModified": "2026-10-11T16:32:04.683Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
