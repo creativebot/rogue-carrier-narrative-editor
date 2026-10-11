@@ -2655,8 +2655,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4148,
-        "y": 2240
+        "x": 4234,
+        "y": 2264
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2824,5 +2824,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:04:47.191Z"
+  "_lastModified": "2026-10-11T13:06:00.373Z"
 }
