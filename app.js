@@ -2749,7 +2749,41 @@ function getSymbolCounterBadgeHTML(text, limitKey, isDarkBg = false, extraId = '
   return `<span ${idAttr} class="symbol-count-badge ${isDarkBg ? 'is-dark-bg' : ''} ${isOver ? 'is-over-limit' : ''}" data-limit-key="${limitKey}" title="Symbol count: ${count} / ${limit}${isOver ? ' (LIMIT SURPASSED!)' : ''}">${count}/${limit}</span>`;
 }
 
+function ensureSymbolLimitsModalFields() {
+  const modal = document.getElementById('modal-symbol-limits');
+  if (!modal) return;
+  const grid = modal.querySelector('.grid');
+  if (!grid) return;
+
+  // Ensure both 2-option and 3-option Action Description / Event Choice inputs exist with clear labels
+  const inp2 = document.getElementById('limit-input-actionDescription');
+  if (inp2 && inp2.parentElement && inp2.parentElement.previousElementSibling) {
+    inp2.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (2 Options)';
+  }
+
+  let inp3 = document.getElementById('limit-input-actionDescription3Opt');
+  if (!inp3) {
+    const card3 = document.createElement('div');
+    card3.className = 'bg-gray-950 p-3 rounded-lg border border-amber-500/40';
+    card3.innerHTML = `
+      <label class="text-[10px] font-bold uppercase text-amber-300 block mb-1">Action Description / Event Choice (3 Options)</label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="limit-input-actionDescription3Opt" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="200">
+        <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+      </div>
+    `;
+    if (inp2 && inp2.closest('.bg-gray-950')) {
+      inp2.closest('.bg-gray-950').insertAdjacentElement('afterend', card3);
+    } else {
+      grid.appendChild(card3);
+    }
+  } else if (inp3.parentElement && inp3.parentElement.previousElementSibling) {
+    inp3.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (3 Options)';
+  }
+}
+
 function openSymbolLimitsModal() {
+  ensureSymbolLimitsModalFields();
   const limits = getSymbolLimits();
   Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
     const inp = document.getElementById(`limit-input-${k}`);
@@ -3650,7 +3684,7 @@ function createEventNodeDOM(node) {
         <tr>
           <td class="event-label-cell">
             <div>Event Choice</div>
-            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits[getActionChoiceLimitKey(node)]}</div>
+            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits[getActionChoiceLimitKey(node)]} (${actionCols.length >= 3 ? '3 opt' : '2 opt'})</div>
           </td>
           ${actionDescHTML}
           ${inactionDescCell}
