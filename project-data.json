@@ -2678,7 +2678,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T18:08:53.788Z",
+  "_lastModified": "2026-10-11T18:09:11.087Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
@@ -2690,7 +2690,6 @@
     "variationDescription": 280
   },
   "criteriaPool": [
-    "Orange Box",
-    "Sick survivors"
+    "Orange Box"
   ]
 }
