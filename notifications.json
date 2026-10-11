@@ -1,6 +1,20 @@
 {
   "notifications": [
     {
+      "id": "notif_1791724017478_0",
+      "recipientEmail": "vkuznietsov@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "node_1791717900687",
+      "targetType": "event",
+      "targetTitle": "T1-V2-K1A - New Event Block",
+      "commentText": "Let's not use dot at the and of action button text. @vkuznietsov",
+      "commentId": "cmt_1791724017477",
+      "createdAt": "2026-10-11T13:06:57.477974Z",
+      "displayTime": "Oct 11, 13:06",
+      "read": false
+    },
+    {
       "id": "notif_1791723288309_0",
       "recipientEmail": "vkuznietsov@n-ix.com",
       "senderName": "Daniel Poludyonny",
