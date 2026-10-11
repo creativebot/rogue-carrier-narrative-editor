@@ -1,0 +1,2249 @@
+// ============================================================================
+// js/state.js - Data Recovery, Normalization, Auto-Save, Symbol Limits & Codenames
+// ============================================================================
+
+/* ==========================================================================
+   DATA RECOVERY, PERSISTENCE & SAFEGUARD ARCHITECTURE
+   ========================================================================== */
+
+// Computes total characters of text across nodes, descriptions, and dialogues
+function calculateDatasetTextChars(data) {
+  if (!data) return 0;
+  let totalChars = 0;
+  if (Array.isArray(data.nodes)) {
+    for (const node of data.nodes) {
+      if (node.name) totalChars += node.name.length;
+      if (node.eventIntro) totalChars += node.eventIntro.length;
+      if (node.eventDescription) totalChars += node.eventDescription.length;
+      if (node.spawnConditions) totalChars += node.spawnConditions.length;
+      if (node.inactionThreat) totalChars += node.inactionThreat.length;
+      if (Array.isArray(node.actions)) {
+        for (const act of node.actions) {
+          if (act.shortDescription) totalChars += act.shortDescription.length;
+          if (act.description) totalChars += act.description.length;
+          if (act.resultDescription) totalChars += act.resultDescription.length;
+        }
+      }
+    }
+  }
+  if (Array.isArray(data.dialogues)) {
+    for (const d of data.dialogues) {
+      if (d.title) totalChars += d.title.length;
+      if (d.text) totalChars += d.text.length;
+      if (d.context) totalChars += d.context.length;
+      if (d.speaker) totalChars += d.speaker.length;
+    }
+  }
+  return totalChars;
+}
+
+// Checks if dataset contains custom edits in K3A (node_e2a), K3B (node_e2b), or K4A (node_e3a)
+function inspectDatasetForTargetEdits(data) {
+  if (!data || !Array.isArray(data.nodes)) return { hasTargetEdits: false, matches: [] };
+  const targetIds = ['node_e2a', 'node_e2b', 'node_e3a'];
+  const matches = [];
+
+  const defaultTexts = {
+    'node_e2a': 'Island is swarming with violent predators tracking living heat signatures.',
+    'node_e2b': 'Radio silence greets your ship. Survivors have contracted a deadly mutated virus strain.',
+    'node_e3a': 'Drones extract the Zephyrus orange box intact from the sea floor when a massive leviathan approaches!'
+  };
+
+  for (const n of data.nodes) {
+    const isTarget = targetIds.includes(n.id) || 
+      (n.codename && (n.codename.includes('K3A') || n.codename.includes('K3B') || n.codename.includes('K4A')));
+    if (isTarget) {
+      const desc = (n.eventDescription || '').trim();
+      const def = defaultTexts[n.id] || '';
+      // If description differs from default or has substantial text
+      if (desc && desc !== def) {
+        matches.push(n.codename || n.name || n.id);
+      }
+    }
+  }
+
+  return {
+    hasTargetEdits: matches.length > 0,
+    matches: matches
+  };
+}
+
+// Accurately counts unique Event Blocks and Dialogue Blocks on the active board for any dataset snapshot
+function countDatasetBlocksForActiveBoard(data, categoryFilter = activeCategoryFilter, variationId = activeVariationId) {
+  if (!data || typeof data !== 'object') return { eventCount: 0, dialogueCount: 0 };
+  const isPoolPage = (categoryFilter === 'GenericPool' || categoryFilter === 'DeckPool');
+  const seenNodeIds = new Set();
+  const nodes = Array.isArray(data.nodes) ? data.nodes : [];
+  nodes.forEach(n => {
+    if (!n || !n.id || seenNodeIds.has(n.id)) return;
+    const cat = n.category || 'KeyChain';
+    if (cat !== categoryFilter) return;
+    if (!isPoolPage && n.variationId && n.variationId !== variationId) return;
+    seenNodeIds.add(n.id);
+  });
+
+  const seenDialogueIds = new Set();
+  const dialogues = Array.isArray(data.dialogues) ? data.dialogues : [];
+  dialogues.forEach(d => {
+    if (!d || !d.id || seenDialogueIds.has(d.id)) return;
+    const links = [];
+    if (Array.isArray(d.links) && d.links.length > 0) {
+      d.links.forEach(l => {
+        if (l && l.targetEventId) links.push(l);
+      });
+    } else if (d.targetEventId) {
+      links.push({ targetEventId: d.targetEventId });
+    }
+
+    if (links.length > 0) {
+      const hasVisibleLink = links.some(link => seenNodeIds.has(link.targetEventId));
+      if (!hasVisibleLink) return;
+      seenDialogueIds.add(d.id);
+      return;
+    }
+
+    const cat = d.category || 'KeyChain';
+    if (cat !== categoryFilter) return;
+    if (!isPoolPage && d.variationId && d.variationId !== variationId) return;
+    seenDialogueIds.add(d.id);
+  });
+
+  return {
+    eventCount: seenNodeIds.size,
+    dialogueCount: seenDialogueIds.size
+  };
+}
+
+// Scans all browser storage keys for saved sessions, safety snapshots, and rolling backups
+function scanAllLocalRecoveryCandidates() {
+  const candidates = [];
+  const seenSignatures = new Set();
+
+  function addCandidate(cand) {
+    if (!cand || !cand.data) return;
+    const boardCounts = countDatasetBlocksForActiveBoard(cand.data);
+    const nodeCount = boardCounts.eventCount;
+    const dialogueCount = boardCounts.dialogueCount;
+    const rawNodesLen = Array.isArray(cand.data.nodes) ? cand.data.nodes.length : 0;
+    if (rawNodesLen === 0 && dialogueCount === 0) return;
+
+    const totalTextChars = calculateDatasetTextChars(cand.data);
+    const targetInspection = inspectDatasetForTargetEdits(cand.data);
+
+    // Signature includes text character length bucket so text modifications are preserved
+    const textBucket = Math.floor(totalTextChars / 20) * 20;
+    const firstNodes = (cand.data.nodes || []).slice(0, 5).map(n => n.codename || n.name || n.id).join('_');
+    const sig = `${nodeCount}:${dialogueCount}:${textBucket}:${firstNodes}:${targetInspection.matches.join(',')}`;
+
+    // Do not deduplicate rolling local_version snapshots unless identical ID or exact same millisecond
+    if (cand.sourceType !== 'local_version' && cand.sourceType !== 'local_active') {
+      if (seenSignatures.has(sig)) {
+        return; // Deduplicate identical static datasets
+      }
+      seenSignatures.add(sig);
+    }
+
+    cand.nodeCount = nodeCount;
+    cand.dialogueCount = dialogueCount;
+    cand.totalTextChars = totalTextChars;
+    cand.hasTargetEdits = targetInspection.hasTargetEdits;
+    cand.targetMatches = targetInspection.matches;
+    // Composite score weighing nodes, dialogues, and actual typed text content
+    cand.totalScore = (nodeCount * 100) + (dialogueCount * 10) + Math.min(totalTextChars, 10000);
+    cand.previewNodes = (cand.data.nodes || []).slice(0, 4).map(n => n.name || n.codename).filter(Boolean);
+    cand.isLocal = true;
+    candidates.push(cand);
+  }
+
+  // 1. Check rc_local_saved_versions (rolling version history)
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        list.forEach((item, idx) => {
+          if (item && item.data) {
+            addCandidate({
+              sourceType: 'local_version',
+              id: item.id || `ver_${idx}_${Date.now()}`,
+              name: item.name || `Session Snapshot #${idx + 1}`,
+              author: item.author || 'Local Session',
+              timestamp: item.timestamp || item.displayTime || new Date().toISOString(),
+              displayTime: item.displayTime || (item.timestamp ? new Date(item.timestamp).toLocaleString() : 'Recent Session'),
+              data: item.data
+            });
+          }
+        });
+      }
+    }
+  } catch (e) {
+    console.warn("Could not parse rc_local_saved_versions", e);
+  }
+
+  // 2. Check rc_safety_backup_v26
+  try {
+    const raw = localStorage.getItem('rc_safety_backup_v26');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const data = parsed.data || parsed;
+      if (data && (data.nodes || data.dialogues)) {
+        addCandidate({
+          sourceType: 'safety_backup',
+          id: 'safety_backup_v26',
+          name: parsed.reason ? `Safety Backup (${parsed.reason})` : 'Safety Backup',
+          author: 'Auto-Backup',
+          timestamp: parsed.timestamp || new Date().toISOString(),
+          displayTime: parsed.timestamp ? new Date(parsed.timestamp).toLocaleString() : 'Safety Backup',
+          data: data
+        });
+      }
+    }
+  } catch (e) {}
+
+  // 3. Check rc_narrative_project_v26
+  try {
+    const raw = localStorage.getItem('rc_narrative_project_v26');
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data && (data.nodes || data.dialogues)) {
+        addCandidate({
+          sourceType: 'local_active',
+          id: 'local_active_v26',
+          name: 'Active Browser Cache (v26)',
+          author: (data.projectInfo && data.projectInfo.author) || 'Current Device',
+          timestamp: data._lastModified || new Date().toISOString(),
+          displayTime: data._lastModified ? new Date(data._lastModified).toLocaleString() : 'Recent Edit',
+          data: data
+        });
+      }
+    }
+  } catch (e) {}
+
+  // 4. Check any other localStorage keys starting with rc_ or containing backup/narrative
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k) continue;
+      if (k === 'rc_local_saved_versions' || k === 'rc_safety_backup_v26' || k === 'rc_narrative_project_v26') continue;
+      if (k.startsWith('rc_') || k.includes('backup') || k.includes('narrative')) {
+        try {
+          const val = JSON.parse(localStorage.getItem(k));
+          const data = val.data || val;
+          if (data && Array.isArray(data.nodes) && data.nodes.length > 0) {
+            addCandidate({
+              sourceType: 'storage_key',
+              id: k,
+              name: `Saved Key (${k})`,
+              author: 'LocalStorage',
+              timestamp: val.timestamp || new Date().toISOString(),
+              displayTime: val.timestamp ? new Date(val.timestamp).toLocaleString() : k,
+              data: data
+            });
+          }
+        } catch (err) {}
+      }
+    }
+  } catch (e) {}
+
+  // Sort candidates by newest timestamp first so latest state (including deletions) is prioritized
+  candidates.sort((a, b) => {
+    const tDiff = new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
+    if (tDiff !== 0 && !isNaN(tDiff)) return tDiff;
+    return b.totalScore - a.totalScore;
+  });
+
+  return candidates;
+}
+
+// Stores an immutable safety snapshot into localStorage rolling versions
+function archiveLocalSnapshot(reason, dataToArchive) {
+  try {
+    const payload = dataToArchive ? JSON.parse(JSON.stringify(dataToArchive)) : JSON.parse(JSON.stringify(appData));
+    if (!payload || (!payload.nodes && !payload.dialogues)) return;
+
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    let list = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(list)) list = [];
+
+    const now = new Date();
+    const boardCounts = countDatasetBlocksForActiveBoard(payload);
+    list.unshift({
+      id: `archive_${Date.now()}`,
+      name: reason || "Session Backup",
+      author: (currentUser && currentUser.name) || (payload.projectInfo && payload.projectInfo.author) || 'User Session',
+      timestamp: now.toISOString(),
+      displayTime: now.toLocaleDateString() + ' ' + now.toLocaleTimeString(),
+      nodeCount: boardCounts.eventCount,
+      dialogueCount: boardCounts.dialogueCount,
+      data: payload
+    });
+
+    if (list.length > 60) list = list.slice(0, 60);
+    localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+  } catch (e) {
+    console.warn("archiveLocalSnapshot quota or parse error", e);
+  }
+}
+
+// Shows prominent Data Recovery banner at top of workspace
+function showRecoveryBanner(text, bestId, totalCount) {
+  const banner = document.getElementById('data-recovery-banner');
+  const bannerText = document.getElementById('data-recovery-text');
+  const badge = document.getElementById('recovery-count-badge');
+  const headerBadge = document.getElementById('header-backups-badge');
+
+  if (banner && bannerText) {
+    bannerText.innerText = text;
+    if (badge) badge.innerText = totalCount || '1';
+    banner.classList.remove('hidden');
+    if (window.lucide) lucide.createIcons();
+  }
+
+  if (headerBadge) {
+    headerBadge.innerText = totalCount || '0';
+    if (totalCount > 0) {
+      headerBadge.classList.remove('hidden');
+    }
+  }
+}
+
+function dismissRecoveryBanner() {
+  const banner = document.getElementById('data-recovery-banner');
+  if (banner) banner.classList.add('hidden');
+}
+
+// Restores the single richest/latest recovered session snapshot
+async function restoreBestRecoverySession() {
+  const candidates = scanAllLocalRecoveryCandidates();
+  if (candidates.length === 0) {
+    showToast("No local session backups found to restore.", "info");
+    return;
+  }
+  const best = candidates[0];
+  if (!confirm(`Restore recovered session '${best.name}'?\n\n• Events: ${best.nodeCount}\n• Dialogues: ${best.dialogueCount}\n• Saved: ${best.displayTime}\n\nYour current canvas will be safely backed up first, and this restored version will immediately sync to the server disk.`)) {
+    return;
+  }
+
+  archiveLocalSnapshot("Before Restoring Recovered Session");
+  pushUndoState();
+  appData = JSON.parse(JSON.stringify(best.data));
+  normalizeAllProjectData();
+  saveProjectToLocalStorage();
+  await saveCurrentProject(false); // Posts to server /api/save immediately
+  renderApp();
+  fitWholeSchematic();
+  dismissRecoveryBanner();
+  showToast(`Successfully restored ${best.nodeCount} events and ${best.dialogueCount} dialogues! Synced to server.`, 'success');
+}
+
+// Restores any specific candidate by its ID
+async function restoreCandidate(candidateId) {
+  const candidates = scanAllLocalRecoveryCandidates();
+  const found = candidates.find(c => c.id === candidateId);
+  if (!found || !found.data) {
+    showToast("Candidate data not found", "error");
+    return;
+  }
+
+  if (!confirm(`Restore snapshot '${found.name}'?\n\n• Events: ${found.nodeCount}\n• Dialogues: ${found.dialogueCount}\n• Saved: ${found.displayTime}\n\nYour current canvas will be backed up before replacing.`)) {
+    return;
+  }
+
+  archiveLocalSnapshot("Before Restoring " + found.name);
+  pushUndoState();
+  appData = JSON.parse(JSON.stringify(found.data));
+  normalizeAllProjectData();
+  saveProjectToLocalStorage();
+  await saveCurrentProject(false);
+  renderApp();
+  fitWholeSchematic();
+  closeModal('modal-save-manager');
+  dismissRecoveryBanner();
+  showToast(`Restored '${found.name}' (${found.nodeCount} events). Synced to server.`, 'success');
+}
+
+function downloadCandidateJson(candidateId) {
+  const candidates = scanAllLocalRecoveryCandidates();
+  const found = candidates.find(c => c.id === candidateId) || candidates[0];
+  if (!found || !found.data) {
+    showToast("Backup data not found", "error");
+    return;
+  }
+  const jsonStr = JSON.stringify(found.data, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safeName = (found.name || 'backup').replace(/[^a-zA-Z0-9_-]/g, '_');
+  a.download = `rogue_carrier_backup_${safeName}_${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function deleteLocalCandidate(candidateId) {
+  if (!confirm("Remove this snapshot from browser storage?")) return;
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) {
+      let list = JSON.parse(raw);
+      list = list.filter(s => s.id !== candidateId);
+      localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+    }
+  } catch (e) {}
+  loadBackupsList();
+  renderSavedVersionsList();
+  showToast("Snapshot removed from local storage", "info");
+}
+
+// Load Project Data with Intelligent Client-Server Reconciliation & Auto-Recovery
+async function loadProjectData() {
+  let loaded = false;
+  let serverData = null;
+  let serverLoadOk = false;
+
+  // 1. Scan all local candidates first
+  const localCandidates = scanAllLocalRecoveryCandidates();
+  const bestLocal = localCandidates.find(c => c.sourceType === 'local_active') || (localCandidates.length > 0 ? localCandidates[0] : null);
+
+  // 2. Fetch server disk state (/api/load)
+  try {
+    const headers = typeof getAuthHeaders === 'function' ? getAuthHeaders(false) : {};
+    if (authToken && !headers['Authorization']) headers['Authorization'] = `Bearer ${authToken}`;
+    const serverRes = await fetch('/api/load', { headers });
+    if (serverRes.ok) {
+      serverData = await serverRes.json();
+      serverLoadOk = true;
+    }
+  } catch (err) {
+    console.warn("Could not reach server /api/load, checking local storage", err);
+  }
+
+  const serverCounts = countDatasetBlocksForActiveBoard(serverData);
+  const serverNodesCount = serverCounts.eventCount;
+  const serverDialoguesCount = serverCounts.dialogueCount;
+  const serverTextChars = calculateDatasetTextChars(serverData);
+  const serverScore = (serverNodesCount * 100) + (serverDialoguesCount * 10) + Math.min(serverTextChars, 10000);
+  const serverModTime = (serverData && serverData._lastModified) ? new Date(serverData._lastModified).getTime() : 0;
+
+  const localNodesCount = bestLocal ? bestLocal.nodeCount : 0;
+  const localTextChars = bestLocal ? (bestLocal.totalTextChars || 0) : 0;
+  const localScore = bestLocal ? bestLocal.totalScore : 0;
+  const localModTime = (bestLocal && bestLocal.data && bestLocal.data._lastModified) ? new Date(bestLocal.data._lastModified).getTime() : 0;
+
+  console.log(`[Storage Check] Server: ${serverNodesCount} events (mod: ${serverModTime}), Local: ${localNodesCount} events (mod: ${localModTime})`);
+
+  // 3. Smart Decision Logic:
+  // Prioritize whichever state has the newer _lastModified timestamp (or local if server is empty)
+  const localIsNewer = bestLocal && (
+    (localModTime > 0 && serverModTime > 0 && localModTime > serverModTime + 2000) ||
+    (!serverLoadOk && localNodesCount > 0) ||
+    (serverNodesCount === 0 && localNodesCount > 0)
+  );
+
+  if (localIsNewer) {
+    console.log("[Data Recovery] Local active cache is newer than server disk. Syncing local to server!");
+    appData = JSON.parse(JSON.stringify(bestLocal.data));
+    loaded = true;
+    normalizeAllProjectData();
+    saveProjectToLocalStorage();
+
+    // Auto-heal the server disk immediately
+    syncProjectToDiskServer();
+  } else if (serverLoadOk && serverData && Array.isArray(serverData.nodes) && serverData.nodes.length > 0) {
+    if (bestLocal && localScore > 0 && localModTime !== serverModTime) {
+      archiveLocalSnapshot("Pre-Server-Sync Local State", bestLocal.data);
+    }
+    appData = serverData;
+    loaded = true;
+    normalizeAllProjectData();
+    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+  } else if (bestLocal) {
+    // Offline or server not available, load best local
+    appData = JSON.parse(JSON.stringify(bestLocal.data));
+    loaded = true;
+    normalizeAllProjectData();
+    showToast(`Loaded ${bestLocal.nodeCount} events from local storage`, 'info');
+  }
+
+  if (!loaded) {
+    resetToDefaultProjectData();
+  } else {
+    normalizeAllProjectData();
+  }
+
+  // Restore whichever variation, timeline, and category tab the user was last editing before reload
+  restoreActiveWorkspacePosition();
+
+  // Initialize periodic 1-minute auto-save
+  initPeriodicAutoSave();
+
+  // Update header backups count
+  const headerBadge = document.getElementById('header-backups-badge');
+  if (headerBadge) {
+    const totalBackups = (scanAllLocalRecoveryCandidates() || []).length;
+    headerBadge.innerText = totalBackups;
+    if (totalBackups > 0) headerBadge.classList.remove('hidden');
+  }
+}
+
+function saveActiveWorkspacePosition() {
+  try {
+    if (activeVariationId) localStorage.setItem('rc_active_variation_id', activeVariationId);
+    if (activeTimelineId) localStorage.setItem('rc_active_timeline_id', activeTimelineId);
+    if (activeCategoryFilter) localStorage.setItem('rc_active_category_filter', activeCategoryFilter);
+    if (typeof activeMobileStageIndex === 'number') {
+      localStorage.setItem('rc_active_mobile_stage_index', String(activeMobileStageIndex));
+    }
+  } catch (e) {}
+}
+
+function restoreActiveWorkspacePosition() {
+  try {
+    const savedVarId = localStorage.getItem('rc_active_variation_id');
+    const savedTlId = localStorage.getItem('rc_active_timeline_id');
+    const savedCat = localStorage.getItem('rc_active_category_filter');
+    const savedMobStage = localStorage.getItem('rc_active_mobile_stage_index');
+
+    const variations = Array.isArray(appData.variations) ? appData.variations : [];
+    if (savedVarId && variations.some(v => v.id === savedVarId)) {
+      const matchedVar = variations.find(v => v.id === savedVarId);
+      activeVariationId = matchedVar.id;
+      activeTimelineId = matchedVar.timelineId || savedTlId || 'timeline_1';
+    } else if (variations.length > 0 && !variations.some(v => v.id === activeVariationId)) {
+      activeVariationId = variations[0].id;
+      activeTimelineId = variations[0].timelineId || 'timeline_1';
+    }
+
+    if (savedCat && ['KeyChain', 'SecretChain', 'GenericPool', 'DeckPool'].includes(savedCat)) {
+      activeCategoryFilter = savedCat;
+      syncCategoryFilterButtonsUI(savedCat);
+    }
+
+    if (savedMobStage !== null && !isNaN(parseInt(savedMobStage, 10))) {
+      activeMobileStageIndex = Math.max(0, parseInt(savedMobStage, 10));
+    }
+  } catch (e) {}
+}
+
+function syncCategoryFilterButtonsUI(filter) {
+  const btnKeychain = document.getElementById('btn-view-keychain');
+  const btnSecret = document.getElementById('btn-view-secret');
+  const btnGeneric = document.getElementById('btn-view-generic');
+  const btnDeck = document.getElementById('btn-view-deck');
+
+  if (btnKeychain) {
+    btnKeychain.className = filter === 'KeyChain'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 shadow flex items-center gap-1 transition ring-2 ring-amber-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-amber-950/40 text-amber-300 hover:bg-amber-900/60 border border-amber-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnSecret) {
+    btnSecret.className = filter === 'SecretChain'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-violet-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-violet-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-violet-950/40 text-violet-300 hover:bg-violet-900/60 border border-violet-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnGeneric) {
+    btnGeneric.className = filter === 'GenericPool'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-blue-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-blue-950/40 text-blue-300 hover:bg-blue-900/60 border border-blue-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnDeck) {
+    btnDeck.className = filter === 'DeckPool'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-emerald-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 border border-emerald-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+}
+
+function normalizeActionRequirements(act) {
+  if (!act) return;
+  if (!act.requirements) act.requirements = [];
+  act.requirements = act.requirements.map(r => {
+    if (r && Array.isArray(r.items)) {
+      return r;
+    } else if (r && (r.resourceId || r.name)) {
+      return {
+        id: `clause_${Math.random().toString(36).substring(2, 7)}`,
+        isReplaceable: false,
+        items: [r]
+      };
+    }
+    return null;
+  }).filter(Boolean);
+}
+
+function normalizeNodeRequirements(node) {
+  if (node.reactionTimerHours === undefined || node.reactionTimerHours === null) {
+    node.reactionTimerHours = "Infinite";
+  }
+  if (node.hasInactionThreat === undefined) {
+    node.hasInactionThreat = false;
+  }
+  if (!node.hasInactionThreat) {
+    node.inactionThreat = null;
+  } else if (node.inactionThreat && node.inactionThreat.targetNodeId === node.id) {
+    node.inactionThreat.targetNodeId = null;
+  }
+
+  (node.actions || []).forEach(act => {
+    if (act && act.targetNodeId === node.id) {
+      act.targetNodeId = null;
+    }
+    normalizeActionRequirements(act);
+  });
+}
+
+function normalizeAllProjectData() {
+  if (!appData || typeof appData !== 'object') appData = {};
+  if (!appData.schemaVersion) appData.schemaVersion = 1;
+  appData._lastModified = appData._lastModified || new Date().toISOString();
+
+  if (!Array.isArray(appData.nodes)) appData.nodes = [];
+  if (!Array.isArray(appData.dialogues)) appData.dialogues = [];
+  if (!Array.isArray(appData.characters) || appData.characters.length === 0) {
+    appData.characters = getDefaultCharactersList();
+  }
+  if (!Array.isArray(appData.timelines)) appData.timelines = [];
+  if (!Array.isArray(appData.variations)) appData.variations = [];
+
+  // Ensure Timeline 1 (The Fate of Zephyrus) Variations 2-10 reflect official titles
+  const t1CanonicalVarNames = {
+    2: "Once More Into The Frey",
+    3: "Too Many Variables",
+    4: "Gain The Upper Hand",
+    5: "Hunted!",
+    6: "On A Cold Trail",
+    7: "Prism Glitch",
+    8: "The Problem of Probability",
+    9: "Facing Shadows",
+    10: "The Finite Infinity"
+  };
+  const t1LegacyVarNames = new Set([
+    "Orbital Rift",
+    "Deep Submersion",
+    "Predator Nest",
+    "Bioweapon Outbreak",
+    "Zephyrus Wreckage",
+    "Chronos Paradox",
+    "Sub-Oceanic Abyss",
+    "Behemoth Encounter",
+    "Echoes of the Fleet"
+  ]);
+  let migratedLegacyVarNames = false;
+  appData.variations.forEach(v => {
+    if (!v) return;
+    const varNum = Number(v.number);
+    const isTimeline1 = (v.timelineId === 'timeline_1' || (v.id && /^var_v\d+$/.test(v.id)));
+    if (isTimeline1 && t1CanonicalVarNames[varNum]) {
+      const curName = (v.name || '').trim();
+      if (!curName || t1LegacyVarNames.has(curName) || /^Variation\s+\d+$/i.test(curName)) {
+        v.name = t1CanonicalVarNames[varNum];
+        migratedLegacyVarNames = true;
+      }
+    }
+  });
+  if (migratedLegacyVarNames) {
+    try {
+      localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+      if (typeof syncProjectToDiskServer === 'function') {
+        setTimeout(() => syncProjectToDiskServer(), 200);
+      }
+    } catch (e) {}
+  }
+
+  if (!appData.projectInfo) {
+    appData.projectInfo = { title: "Rogue Carrier Narrative", version: "2.6", author: "Wild Fields" };
+  }
+
+  appData.nodes.forEach((node, idx) => {
+    if (!node.id) node.id = `node_${idx}_${Date.now()}`;
+    if (!node.codename) node.codename = `EV-${idx + 1}`;
+    if (!node.name && node.title) node.name = node.title;
+    if (!node.title && node.name) node.title = node.name;
+    if (!node.type) node.type = "World";
+    if (!node.category) node.category = "KeyChain";
+    if (typeof node.floorIndex === 'undefined') node.floorIndex = 0;
+    if (!node.position || typeof node.position.x !== 'number') {
+      node.position = { x: 450, y: (typeof FLOOR_Y !== 'undefined' && FLOOR_Y[node.floorIndex]) || 150 };
+    }
+    if (!Array.isArray(node.actions)) node.actions = [];
+    normalizeNodeRequirements(node);
+    if (!Array.isArray(node.disabledVariationIds)) {
+      node.disabledVariationIds = [];
+    }
+  });
+  if (appData.dialogues) {
+    appData.dialogues.forEach(d => {
+      if (!d.variationId) d.variationId = "var_v1";
+      if (!d.category) d.category = "KeyChain";
+      if (d.delayUnit === 'hrs' || d.delayUnit === 'min') {
+        d.delayUnit = 'hours';
+      }
+      if (d.delayHours === undefined && d.delayMinutes !== undefined) {
+        d.delayHours = d.delayMinutes;
+      }
+      const links = getDialogueLinks(d);
+      links.forEach(link => {
+        const targetNode = (appData.nodes || []).find(n => n.id === link.targetEventId);
+        if (targetNode) {
+          const current = (link.triggerCondition || '').trim();
+          const isLegacy = !current ||
+            current.includes('Appears') ||
+            current.startsWith('Route Suggestion:') ||
+            current.startsWith('On Inaction Threat') ||
+            (current.startsWith('After ') && (!current.includes(`(${targetNode.codename})`) || current.indexOf(`(${targetNode.codename})`) > 8)) ||
+            (current.startsWith('Before ') && (!current.includes(`(${targetNode.codename})`)));
+
+          if (isLegacy) {
+            link.triggerCondition = formatDialogueTriggerCondition(link.triggerTiming || 'pre_event', targetNode, link.triggerActionId);
+          }
+        }
+      });
+      syncDialoguePrimaryFields(d);
+    });
+  }
+  sanitizeAndNormalizeCharacters();
+
+  // Normalize action codeSuffixes across all events to pure letters A, B, C...
+  if (appData.nodes) {
+    appData.nodes.forEach(node => {
+      if (node.actions && Array.isArray(node.actions)) {
+        node.actions.forEach((act, actIdx) => {
+          const letter = String.fromCharCode(65 + actIdx);
+          if (!act.codeSuffix || /\d/.test(act.codeSuffix) || act.codeSuffix.length > 1) {
+            act.codeSuffix = letter;
+          }
+        });
+      }
+    });
+  }
+
+  // Seamless migration of old stage coordinates to new enlarged FLOOR_Y
+  const oldFloorY = [90, 840, 1590, 2340];
+  if (appData.nodes) {
+    appData.nodes.forEach(node => {
+      if (node.category === 'KeyChain' && node.position) {
+        for (let i = 1; i < oldFloorY.length; i++) {
+          if (Math.abs(node.position.y - oldFloorY[i]) < 10) {
+            const deltaY = FLOOR_Y[i] - node.position.y;
+            node.position.y = FLOOR_Y[i];
+            if (appData.dialogues) {
+              appData.dialogues.forEach(d => {
+                if (d.targetEventId === node.id && d.position) {
+                  d.position.y += deltaY;
+                }
+              });
+            }
+            break;
+          }
+        }
+      }
+    });
+  }
+}
+
+function sanitizeAndNormalizeCharacters() {
+  if (!appData) return;
+  const rawList = Array.isArray(appData.characters) ? appData.characters : [];
+  const seenIds = new Set();
+  const cleaned = [];
+
+  rawList.forEach(c => {
+    if (!c || typeof c !== 'object') return;
+    const trimmedName = typeof c.name === 'string' ? c.name.trim() : '';
+    // Automatically strip empty characters or unnamed OCR noise entries
+    if (!trimmedName) return;
+
+    const charId = (typeof c.id === 'string' && c.id.trim())
+      ? c.id.trim()
+      : `char_${trimmedName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_${Date.now()}`;
+    if (seenIds.has(charId)) return;
+    seenIds.add(charId);
+
+    const disabledVars = Array.isArray(c.disabledVariationIds)
+      ? c.disabledVariationIds.filter(Boolean)
+      : [];
+
+    const allVarIds = Array.isArray(appData.variations) && appData.variations.length > 0
+      ? appData.variations.map(v => v.id)
+      : ['var_v1'];
+    const activeVars = allVarIds.filter(vId => !disabledVars.includes(vId));
+
+    cleaned.push({
+      id: charId,
+      name: trimmedName,
+      role: typeof c.role === 'string' ? c.role.trim() : 'Cast Member',
+      color: c.color || '#f3f4f6',
+      textColor: c.textColor || '#1f2937',
+      icon: (typeof c.icon === 'string' && c.icon.trim()) ? c.icon.trim() : '👤',
+      disabledVariationIds: disabledVars,
+      variationIds: activeVars.length > 0 ? activeVars : ['var_v1']
+    });
+  });
+
+  if (cleaned.length === 0) {
+    appData.characters = getDefaultCharactersList();
+  } else {
+    appData.characters = cleaned;
+  }
+}
+
+function isCharacterEnabledInVariation(charObj, varId = activeVariationId) {
+  if (!charObj) return false;
+  if (Array.isArray(charObj.disabledVariationIds)) {
+    return !charObj.disabledVariationIds.includes(varId);
+  }
+  return true;
+}
+
+function getGlobalCharactersPool() {
+  if (!appData || !Array.isArray(appData.characters) || appData.characters.length === 0) {
+    return getDefaultCharactersList();
+  }
+  return appData.characters.filter(c => c && typeof c.name === 'string' && c.name.trim().length > 0);
+}
+
+function getEnabledCharactersForVariation(varId = activeVariationId) {
+  const pool = getGlobalCharactersPool();
+  return pool.filter(c => isCharacterEnabledInVariation(c, varId));
+}
+
+
+let autoSaveDiskTimer = null;
+let lastSavedTimestamp = null;
+let periodicAutoSaveIntervalId = null;
+let autoSaveIntervalSeconds = parseInt(localStorage.getItem('rc_autosave_interval_sec') || '60', 10);
+let lastSavedContentSignature = '';
+
+function computeBoardContentSignature(data) {
+  if (!data || typeof data !== 'object') return '';
+  try {
+    const clone = { ...data };
+    delete clone._lastModified;
+    return JSON.stringify(clone);
+  } catch (e) {
+    return '';
+  }
+}
+
+function initPeriodicAutoSave() {
+  if (!lastSavedContentSignature && appData) {
+    lastSavedContentSignature = computeBoardContentSignature(appData);
+  }
+  if (periodicAutoSaveIntervalId) {
+    clearInterval(periodicAutoSaveIntervalId);
+    periodicAutoSaveIntervalId = null;
+  }
+  if (autoSaveIntervalSeconds > 0) {
+    periodicAutoSaveIntervalId = setInterval(() => {
+      // Periodic automatic save to disk & backups only when board content has actually changed
+      if (typeof appData === 'object' && appData && Array.isArray(appData.nodes) && appData.nodes.length > 0) {
+        const currentSig = computeBoardContentSignature(appData);
+        if (currentSig && currentSig !== lastSavedContentSignature) {
+          saveCurrentProject(false, 'Auto-Save');
+        }
+      }
+    }, autoSaveIntervalSeconds * 1000);
+  }
+  const selectEl = document.getElementById('select-autosave-interval');
+  if (selectEl) {
+    selectEl.value = String(autoSaveIntervalSeconds);
+  }
+}
+
+function updateAutoSaveInterval(val) {
+  autoSaveIntervalSeconds = parseInt(val, 10);
+  localStorage.setItem('rc_autosave_interval_sec', String(autoSaveIntervalSeconds));
+  initPeriodicAutoSave();
+  showToast(autoSaveIntervalSeconds > 0 ? `Auto-save set to every ${autoSaveIntervalSeconds}s` : 'Auto-save disabled', 'info');
+}
+
+function saveProjectToLocalStorage() {
+  appData._lastModified = new Date().toISOString();
+  localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+  updateStats();
+
+  // Debounced auto-sync to server disk
+  clearTimeout(autoSaveDiskTimer);
+  autoSaveDiskTimer = setTimeout(() => {
+    syncProjectToDiskServer();
+  }, 400);
+}
+
+// Builds standard auth headers for all server API calls
+function getAuthHeaders(includeJsonContentType = true) {
+  const headers = {};
+  if (includeJsonContentType) {
+    headers['Content-Type'] = 'application/json';
+  }
+  const tok = authToken || localStorage.getItem('rogue_carrier_auth_token') || '';
+  if (tok) {
+    headers['Authorization'] = `Bearer ${tok}`;
+    headers['X-Auth-Token'] = tok;
+  }
+  let userObj = currentUser;
+  if (!userObj) {
+    try {
+      const savedUser = localStorage.getItem('rogue_carrier_auth_user');
+      if (savedUser) userObj = JSON.parse(savedUser);
+    } catch (e) {}
+  }
+  if (userObj && typeof sanitizeUserProfile === 'function') {
+    userObj = sanitizeUserProfile(userObj);
+  }
+  if (userObj) {
+    if (userObj.email) headers['X-User-Email'] = userObj.email;
+    if (userObj.name && (typeof isGenericPlaceholderName !== 'function' || !isGenericPlaceholderName(userObj.name))) {
+      headers['X-User-Name'] = userObj.name;
+    }
+  }
+  return headers;
+}
+
+// Full manual or automated save triggered by Ctrl+S, Save button, or periodic timer
+async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
+  clearTimeout(autoSaveDiskTimer);
+  if (!appData || !Array.isArray(appData.nodes)) return;
+
+  const currentSig = computeBoardContentSignature(appData);
+  const hasContentChanged = (currentSig !== lastSavedContentSignature);
+  lastSavedContentSignature = currentSig;
+
+  appData._lastModified = new Date().toISOString();
+  // Always keep a local copy in browser storage as well
+  localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+  updateStats();
+
+  const timeStr = new Date().toLocaleTimeString();
+  lastSavedTimestamp = timeStr;
+
+  const btnSave = document.getElementById('btn-save-project');
+  if (btnSave && isManual) {
+    btnSave.classList.add('save-pulse');
+    setTimeout(() => btnSave.classList.remove('save-pulse'), 800);
+  }
+
+  const badgeText = document.getElementById('save-status-text');
+  const managerSavedText = document.getElementById('save-manager-last-saved');
+  if (managerSavedText) managerSavedText.innerText = `(Last saved: ${timeStr})`;
+
+  try {
+    if (currentUser && currentUser.name && appData.projectInfo) {
+      appData.projectInfo.author = currentUser.name;
+    }
+
+    const res = await fetch('/api/save', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify(appData)
+    });
+    if (res.ok) {
+      const resp = await res.json();
+      if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || timeStr})`;
+      if (isManual) {
+        showToast(`Saved to server & local copy (${resp.timestamp || timeStr})`, 'success');
+      }
+    } else {
+      if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
+      if (isManual) {
+        showToast(`Saved local copy (${timeStr}) — server returned ${res.status}`, 'warning');
+      }
+    }
+  } catch (e) {
+    if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
+    if (isManual) {
+      showToast(`Offline: Saved local copy (${timeStr})`, 'info');
+    }
+  }
+
+  // Record rolling version snapshot on server disk and local storage if manual or content changed
+  if (isManual || hasContentChanged) {
+    const author = (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'User';
+    recordVersionSnapshot(`${triggerLabel} (${timeStr})`, author, false);
+  }
+}
+
+async function syncProjectToDiskServer() {
+  const badgeText = document.getElementById('save-status-text');
+  try {
+    if (currentUser && currentUser.name && appData.projectInfo) {
+      appData.projectInfo.author = currentUser.name;
+    }
+
+    const res = await fetch('/api/save', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify(appData)
+    });
+    if (res.ok) {
+      const resp = await res.json();
+      if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || 'Synced'})`;
+    }
+  } catch (e) {
+    if (badgeText) badgeText.innerText = 'Saved Locally';
+  }
+}
+
+// Stores a version snapshot on server disk (/api/saves) and browser localStorage
+async function recordVersionSnapshot(name, author = 'Wild Fields', notify = false) {
+  const time = new Date();
+  const timestamp = time.toISOString();
+  const displayTime = time.toLocaleDateString() + ' ' + time.toLocaleTimeString();
+  const boardCounts = countDatasetBlocksForActiveBoard(appData);
+
+  let serverSaveId = `save_${Date.now()}`;
+
+  // 1. Save to server disk /api/saves
+  try {
+    const res = await fetch('/api/saves', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({
+        name: name,
+        author: author,
+        data: appData
+      })
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.save && json.save.id) {
+        serverSaveId = json.save.id;
+      }
+    }
+  } catch (e) {
+    console.warn("Could not reach /api/saves on server, persisting in localStorage", e);
+  }
+
+  const versionMeta = {
+    id: serverSaveId,
+    name: name,
+    author: author,
+    timestamp: timestamp,
+    displayTime: displayTime,
+    nodeCount: boardCounts.eventCount,
+    dialogueCount: boardCounts.dialogueCount,
+    data: appData
+  };
+
+  // 2. Always persist in localStorage as well (local copy & offline fallback)
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    let list = raw ? JSON.parse(raw) : [];
+    list.unshift({
+      id: versionMeta.id,
+      name: versionMeta.name,
+      author: versionMeta.author,
+      timestamp: versionMeta.timestamp,
+      displayTime: versionMeta.displayTime,
+      nodeCount: versionMeta.nodeCount,
+      dialogueCount: versionMeta.dialogueCount,
+      data: versionMeta.data
+    });
+    if (list.length > 60) list = list.slice(0, 60);
+    localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+  } catch (e) {
+    console.warn("localStorage version store quota reached", e);
+  }
+
+  if (notify) {
+    showToast(`Version '${name}' saved to server & local copy!`, 'success');
+  }
+}
+
+async function saveSafetyBackup(reason) {
+  try {
+    localStorage.setItem('rc_safety_backup_v26', JSON.stringify({
+      reason,
+      timestamp: new Date().toISOString(),
+      data: appData
+    }));
+    await fetch('/api/saves', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({
+        name: `Backup (${reason})`,
+        author: 'Auto Backup',
+        data: appData
+      })
+    });
+  } catch (e) {
+    console.warn("Failed to create safety backup", e);
+  }
+}
+
+async function fetchAllSavedVersions() {
+  let serverSaves = [];
+  try {
+    const qs = `?category=${encodeURIComponent(activeCategoryFilter)}&variationId=${encodeURIComponent(activeVariationId)}`;
+    const res = await fetch(`/api/saves${qs}`, {
+      headers: getAuthHeaders(false)
+    });
+    if (res.ok) {
+      const json = await res.json();
+      serverSaves = json.saves || [];
+    }
+  } catch (e) {
+    console.warn("Server saves not reachable, using local versions", e);
+  }
+
+  let localSaves = [];
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) localSaves = JSON.parse(raw);
+  } catch (e) {}
+
+  const map = new Map();
+  serverSaves.forEach(s => {
+    map.set(s.id, { ...s, source: 'disk' });
+  });
+  localSaves.forEach(s => {
+    if (!s) return;
+    const boardCounts = s.data ? countDatasetBlocksForActiveBoard(s.data) : {
+      eventCount: s.nodeCount || 0,
+      dialogueCount: s.dialogueCount || 0
+    };
+    const normalizedLocal = {
+      ...s,
+      nodeCount: boardCounts.eventCount,
+      dialogueCount: boardCounts.dialogueCount,
+      source: 'local'
+    };
+    if (!map.has(s.id)) {
+      // Also check if a server save with the exact same name was created at the same time
+      const dupServer = serverSaves.find(srv => srv.name === s.name && Math.abs(new Date(srv.timestamp || 0) - new Date(s.timestamp || 0)) < 5000);
+      if (!dupServer) {
+        map.set(s.id, normalizedLocal);
+      }
+    }
+  });
+
+  const combined = Array.from(map.values());
+  combined.sort((a, b) => new Date(b.timestamp || b.displayTime) - new Date(a.timestamp || a.displayTime));
+  return combined;
+}
+
+function openSaveManagerModal(targetTab = 'saves') {
+  const managerSavedText = document.getElementById('save-manager-last-saved');
+  if (managerSavedText) {
+    managerSavedText.innerText = lastSavedTimestamp ? `(Last saved: ${lastSavedTimestamp})` : '(Auto-saved)';
+  }
+  openModal('modal-save-manager');
+  switchSaveManagerTab(targetTab);
+}
+
+async function renderSavedVersionsList() {
+  const container = document.getElementById('saved-versions-list');
+  if (!container) return;
+
+  container.innerHTML = '<div class="text-center py-4 text-gray-500 flex items-center justify-center gap-2"><i data-lucide="loader-2" class="w-4 h-4 animate-spin text-cyan-400"></i> Loading saved versions...</div>';
+  if (window.lucide) lucide.createIcons();
+
+  const saves = await fetchAllSavedVersions();
+
+  if (saves.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-8 bg-gray-950/60 rounded-lg border border-dashed border-gray-800 text-gray-400">
+        <i data-lucide="hard-drive" class="w-8 h-8 text-gray-600 mx-auto mb-2"></i>
+        <p class="font-semibold text-gray-300">No saved versions yet</p>
+        <p class="text-[11px] text-gray-500 mt-1">Press <strong>Ctrl + S</strong> or enter a name above and click 'Store Version'.</p>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  container.innerHTML = '';
+  saves.forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'save-version-card';
+    card.innerHTML = `
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-white text-xs truncate">${s.name || 'Untitled Version'}</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ${s.source === 'disk' ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-cyan-950 text-cyan-300 border border-cyan-800'}">
+            ${s.source === 'disk' ? '☁️ Server & Local' : '🌐 Local Copy'}
+          </span>
+          <span class="text-[10px] text-gray-400 bg-gray-900 px-1.5 py-0.5 rounded border border-gray-800">
+            ${s.author || 'User'}
+          </span>
+        </div>
+        <div class="flex items-center gap-3 text-[11px] text-gray-400 mt-1">
+          <span>🕒 ${s.displayTime || s.timestamp || 'Recent'}</span>
+          <span>•</span>
+          <span class="text-amber-400 font-semibold">${s.nodeCount || 0} Events</span>
+          <span>•</span>
+          <span class="text-purple-400 font-semibold">${s.dialogueCount || 0} Dialogues</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button class="btn-load-this-version bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-2.5 py-1 rounded text-xs flex items-center gap-1 shadow" title="Load and restore this version into editor">
+          <i data-lucide="play" class="w-3 h-3 fill-current"></i> Load
+        </button>
+        <button class="btn-download-this-version bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-2 py-1 rounded text-xs" title="Download version as JSON file">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+        </button>
+        <button class="btn-delete-this-version bg-gray-800 hover:bg-red-900/60 text-gray-400 hover:text-red-300 px-2 py-1 rounded text-xs" title="Delete this version">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    `;
+
+    card.querySelector('.btn-load-this-version').onclick = () => loadSpecificVersion(s.id, s.name, s.filename);
+    card.querySelector('.btn-download-this-version').onclick = () => downloadSpecificVersion(s.id, s.name, s.filename);
+    card.querySelector('.btn-delete-this-version').onclick = () => deleteSpecificVersion(s.id, s.name, s.filename);
+
+    container.appendChild(card);
+  });
+
+  if (window.lucide) lucide.createIcons();
+}
+
+async function loadSpecificVersion(saveId, saveName, filename) {
+  if (!confirm(`Load version '${saveName}' into the canvas?\n\nAny unsaved changes will be replaced. A safety backup of your current canvas will be created automatically.`)) {
+    return;
+  }
+
+  await saveSafetyBackup("Before loading " + saveName);
+
+  let loadedData = null;
+
+  try {
+    const fn = filename || `${saveId}.json`;
+    const res = await fetch(`/api/saves/${fn}`, { headers: getAuthHeaders(false) });
+    if (res.ok) {
+      const json = await res.json();
+      loadedData = json.data || json;
+    }
+  } catch (e) {
+    console.warn("Could not load from server disk, checking localStorage", e);
+  }
+
+  if (!loadedData) {
+    try {
+      const raw = localStorage.getItem('rc_local_saved_versions');
+      if (raw) {
+        const list = JSON.parse(raw);
+        const item = list.find(s => s.id === saveId);
+        if (item && item.data) loadedData = item.data;
+      }
+    } catch (e) {}
+  }
+
+  if (loadedData && (loadedData.nodes || loadedData.timelines)) {
+    pushUndoState();
+    appData = loadedData;
+    normalizeAllProjectData();
+    saveProjectToLocalStorage();
+    renderApp();
+    fitWholeSchematic();
+    closeModal('modal-save-manager');
+    showToast(`Loaded version '${saveName}' successfully!`, 'success');
+  } else {
+    alert(`Could not load version data for '${saveName}'.`);
+  }
+}
+
+async function downloadSpecificVersion(saveId, saveName, filename) {
+  let dataToDownload = null;
+  try {
+    const fn = filename || `${saveId}.json`;
+    const res = await fetch(`/api/saves/${fn}`, { headers: getAuthHeaders(false) });
+    if (res.ok) {
+      dataToDownload = await res.json();
+    }
+  } catch (e) {}
+
+  if (!dataToDownload) {
+    try {
+      const raw = localStorage.getItem('rc_local_saved_versions');
+      if (raw) {
+        const list = JSON.parse(raw);
+        const item = list.find(s => s.id === saveId);
+        if (item) dataToDownload = item;
+      }
+    } catch (e) {}
+  }
+
+  if (!dataToDownload) dataToDownload = appData;
+
+  const jsonStr = JSON.stringify(dataToDownload, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${saveName.replace(/\s+/g, '_')}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function deleteSpecificVersion(saveId, saveName, filename) {
+  if (!confirm(`Delete saved version '${saveName}'? This cannot be undone.`)) return;
+
+  try {
+    const fn = filename || `${saveId}.json`;
+    await fetch(`/api/saves/${fn}`, { method: 'DELETE', headers: getAuthHeaders(false) });
+  } catch (e) {}
+
+  try {
+    const raw = localStorage.getItem('rc_local_saved_versions');
+    if (raw) {
+      let list = JSON.parse(raw);
+      list = list.filter(s => s.id !== saveId);
+      localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+    }
+  } catch (e) {}
+
+  showToast(`Deleted version '${saveName}'`, 'info');
+  renderSavedVersionsList();
+}
+
+function handleLoadProjectFromFile(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      const projectPayload = parsed.data || parsed;
+      if (!projectPayload || (!projectPayload.nodes && !projectPayload.timelines)) {
+        alert("Invalid project file: missing nodes or timelines data.");
+        return;
+      }
+
+      if (!confirm(`Load project from '${file.name}' into editor?\n\nA safety backup of your current canvas will be created first.`)) {
+        event.target.value = '';
+        return;
+      }
+
+      await saveSafetyBackup("Before importing " + file.name);
+
+      pushUndoState();
+      appData = projectPayload;
+      normalizeAllProjectData();
+      saveProjectToLocalStorage();
+      renderApp();
+      fitWholeSchematic();
+      closeModal('modal-save-manager');
+      showToast(`Loaded '${file.name}' successfully!`, 'success');
+    } catch (err) {
+      alert("Error parsing JSON file: " + err.message);
+    }
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+
+/* ==========================================================================
+   SYMBOL COUNT TRACKING & LIMITATIONS ENGINE + CRITERIA + MULTI-TARGET LINKS
+   ========================================================================== */
+const DEFAULT_SYMBOL_LIMITS = {
+  eventIntro: 475,
+  eventDescription: 475,
+  actionDescription: 120,
+  actionDescription3Opt: 200,
+  actionButtonText: 24,
+  eventOutcome: 925,
+  inactionResult: 475,
+  variationDescription: 280
+};
+
+function getActionChoiceLimitKey(node) {
+  const count = (node && Array.isArray(node.actions)) ? node.actions.length : 0;
+  return count >= 3 ? 'actionDescription3Opt' : 'actionDescription';
+}
+
+function getSymbolLimits() {
+  let savedLocal = {};
+  try {
+    const raw = localStorage.getItem('rc_symbol_limits');
+    if (raw) savedLocal = JSON.parse(raw) || {};
+  } catch (e) {}
+  const fromProject = (appData && appData.symbolLimits && typeof appData.symbolLimits === 'object') ? appData.symbolLimits : {};
+  const merged = { ...DEFAULT_SYMBOL_LIMITS, ...savedLocal, ...fromProject };
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const n = parseInt(merged[k], 10);
+    merged[k] = (!isNaN(n) && n > 0) ? n : DEFAULT_SYMBOL_LIMITS[k];
+  });
+  return merged;
+}
+
+function getSymbolLimitKeyForFieldPath(fieldPath, node = null) {
+  if (!fieldPath) return null;
+  if (fieldPath === 'eventIntro') return 'eventIntro';
+  if (fieldPath === 'eventDescription') return 'eventDescription';
+  if (/^actions\.\d+\.description$/.test(fieldPath)) return getActionChoiceLimitKey(node);
+  if (/^actions\.\d+\.shortDescription$/.test(fieldPath)) return 'actionButtonText';
+  if (/^actions\.\d+\.resultDescription$/.test(fieldPath)) return 'eventOutcome';
+  if (fieldPath === 'inactionThreat.resultDescription') return 'inactionResult';
+  if (fieldPath === 'variationDescription') return 'variationDescription';
+  return null;
+}
+
+function isFieldTextOverLimit(text, limitKey) {
+  const limits = getSymbolLimits();
+  const limit = limits[limitKey] || DEFAULT_SYMBOL_LIMITS[limitKey] || 475;
+  const count = (text !== undefined && text !== null) ? String(text).length : 0;
+  return count > limit;
+}
+
+function getSymbolCounterBadgeHTML(text, limitKey, isDarkBg = false, extraId = '') {
+  const limits = getSymbolLimits();
+  const limit = limits[limitKey] || DEFAULT_SYMBOL_LIMITS[limitKey] || 475;
+  const count = (text !== undefined && text !== null) ? String(text).length : 0;
+  const isOver = count > limit;
+  const idAttr = extraId ? `id="${extraId}"` : '';
+  return `<span ${idAttr} class="symbol-count-badge ${isDarkBg ? 'is-dark-bg' : ''} ${isOver ? 'is-over-limit' : ''}" data-limit-key="${limitKey}" title="Symbol count: ${count} / ${limit}${isOver ? ' (LIMIT SURPASSED!)' : ''}">${count}/${limit}</span>`;
+}
+
+function ensureSymbolLimitsModalFields() {
+  const modal = document.getElementById('modal-symbol-limits');
+  if (!modal) return;
+  const grid = modal.querySelector('.grid');
+  if (!grid) return;
+
+  // Ensure both 2-option and 3-option Action Description / Event Choice inputs exist with clear labels
+  const inp2 = document.getElementById('limit-input-actionDescription');
+  if (inp2 && inp2.parentElement && inp2.parentElement.previousElementSibling) {
+    inp2.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (2 Options)';
+  }
+
+  let inp3 = document.getElementById('limit-input-actionDescription3Opt');
+  if (!inp3) {
+    const card3 = document.createElement('div');
+    card3.className = 'bg-gray-950 p-3 rounded-lg border border-amber-500/40';
+    card3.innerHTML = `
+      <label class="text-[10px] font-bold uppercase text-amber-300 block mb-1">Action Description / Event Choice (3 Options)</label>
+      <div class="flex items-center gap-2">
+        <input type="number" id="limit-input-actionDescription3Opt" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="200">
+        <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+      </div>
+    `;
+    if (inp2 && inp2.closest('.bg-gray-950')) {
+      inp2.closest('.bg-gray-950').insertAdjacentElement('afterend', card3);
+    } else {
+      grid.appendChild(card3);
+    }
+  } else if (inp3.parentElement && inp3.parentElement.previousElementSibling) {
+    inp3.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (3 Options)';
+  }
+}
+
+function openSymbolLimitsModal() {
+  ensureSymbolLimitsModalFields();
+  const limits = getSymbolLimits();
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) inp.value = limits[k];
+  });
+  openModal('modal-symbol-limits');
+  if (window.lucide) lucide.createIcons();
+}
+
+function saveSymbolLimitsFromModal() {
+  const current = getSymbolLimits();
+  const updated = { ...current };
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) {
+      const val = parseInt(inp.value, 10);
+      updated[k] = (!isNaN(val) && val > 0) ? val : DEFAULT_SYMBOL_LIMITS[k];
+    }
+  });
+  if (appData) {
+    appData.symbolLimits = updated;
+  }
+  try {
+    localStorage.setItem('rc_symbol_limits', JSON.stringify(updated));
+  } catch (e) {}
+  saveProjectToLocalStorage();
+  closeModal('modal-symbol-limits');
+  const timelinesModal = document.getElementById('modal-timelines');
+  if (timelinesModal && !timelinesModal.classList.contains('hidden')) {
+    renderTimelinesManager();
+  }
+  renderApp();
+  showToast("Symbol limitations updated", "success");
+}
+
+function resetSymbolLimitsToDefault() {
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) inp.value = DEFAULT_SYMBOL_LIMITS[k];
+  });
+  showToast("Reset inputs to default symbol limits — click Save Limits to apply", "info");
+}
+
+window.openSymbolLimitsModal = openSymbolLimitsModal;
+window.saveSymbolLimitsFromModal = saveSymbolLimitsFromModal;
+window.resetSymbolLimitsToDefault = resetSymbolLimitsToDefault;
+
+// Multi-Target Action Link Helpers (allows 1 action to link to multiple downstream events)
+function getActionTargetIds(act, sourceNodeId = null) {
+  if (!act) return [];
+  const rawList = [];
+  if (Array.isArray(act.targetNodeIds)) {
+    act.targetNodeIds.forEach(id => {
+      if (id && typeof id === 'string') rawList.push(id);
+    });
+  }
+  if (act.targetNodeId && typeof act.targetNodeId === 'string' && !rawList.includes(act.targetNodeId)) {
+    rawList.unshift(act.targetNodeId);
+  }
+  const existingNodeIds = new Set(((appData && appData.nodes) || []).map(n => n.id));
+  const seen = new Set();
+  const valid = [];
+  rawList.forEach(id => {
+    if (sourceNodeId && id === sourceNodeId) return;
+    if (existingNodeIds.size > 0 && !existingNodeIds.has(id)) return;
+    if (!seen.has(id)) {
+      seen.add(id);
+      valid.push(id);
+    }
+  });
+  act.targetNodeIds = valid;
+  act.targetNodeId = valid[0] || null;
+  return valid;
+}
+
+function addActionTargetId(act, targetId, sourceNodeId = null) {
+  if (!act || !targetId || (sourceNodeId && targetId === sourceNodeId)) return false;
+  const current = getActionTargetIds(act, sourceNodeId);
+  if (!current.includes(targetId)) {
+    current.push(targetId);
+  }
+  act.targetNodeIds = current;
+  act.targetNodeId = current[0] || null;
+  return true;
+}
+
+function removeActionTargetId(act, targetId = null, sourceNodeId = null) {
+  if (!act) return;
+  if (!targetId) {
+    act.targetNodeIds = [];
+    act.targetNodeId = null;
+    return;
+  }
+  const current = getActionTargetIds(act, sourceNodeId).filter(id => id !== targetId);
+  act.targetNodeIds = current;
+  act.targetNodeId = current[0] || null;
+}
+
+// Criteria (Story Flags / Textual Variables) Helpers
+function isCriteriaObject(item) {
+  if (!item) return false;
+  if (typeof item === 'object') {
+    return item.category === 'Criteria' || item.kind === 'criteria' || String(item.resourceId || '').startsWith('criteria_');
+  }
+  if (typeof item === 'string') {
+    return item.trim().startsWith('🔑') || item.trim().toLowerCase().startsWith('criteria:');
+  }
+  return false;
+}
+
+function getGlobalCriteriaPool() {
+  if (!appData) return ['Orange Box'];
+  if (!Array.isArray(appData.criteriaPool)) {
+    appData.criteriaPool = ['Orange Box'];
+  }
+  const seen = new Map();
+  const addName = (rawName) => {
+    const clean = String(rawName || '').replace(/^🔑\s*/, '').replace(/^criteria:\s*/i, '').trim();
+    if (!clean) return;
+    const key = clean.toLowerCase();
+    if (!seen.has(key)) seen.set(key, clean);
+  };
+  appData.criteriaPool.forEach(addName);
+  if (seen.size === 0) addName('Orange Box');
+
+  // Also scan all nodes' requirements and rewards for any Criteria items
+  (appData.nodes || []).forEach(n => {
+    (n.actions || []).forEach(act => {
+      (act.requirements || []).forEach(clause => {
+        const items = (clause && Array.isArray(clause.items)) ? clause.items : [clause];
+        items.forEach(it => {
+          if (isCriteriaObject(it)) addName(typeof it === 'object' ? it.name : it);
+        });
+      });
+      (act.rewards || []).forEach(rw => {
+        if (isCriteriaObject(rw)) addName(typeof rw === 'object' ? rw.name : rw);
+      });
+    });
+  });
+
+  appData.criteriaPool = Array.from(seen.values());
+  return appData.criteriaPool;
+}
+
+// Format Reward & Penalty Pills with Resource Icons, Ranges & Criteria Flags
+function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
+  if (isCriteriaObject(rw)) {
+    const rawName = typeof rw === 'object' ? (rw.name || 'Criteria') : String(rw).replace(/^🔑\s*/, '').replace(/^criteria:\s*/i, '').trim();
+    const removeFn = isPenalty
+      ? `removeInactionPenalty('${nodeId}', ${rwIdx})`
+      : `removeRewardItem('${nodeId}', ${actionIdx}, ${rwIdx})`;
+    const editFn = isPenalty
+      ? `openResourcePickerModal('${nodeId}', -1, 'inaction_penalty', ${rwIdx})`
+      : `openResourcePickerModal('${nodeId}', ${actionIdx}, 'reward', ${rwIdx})`;
+    return `
+      <span class="req-pill criteria-pill inline-flex items-center gap-1 cursor-pointer transition shadow-2xs"
+            onclick="event.stopPropagation(); ${editFn}"
+            title="Story Criteria Flag (Textual Variable) — Click to change">
+        <span class="text-xs">🔑</span>
+        <span class="text-[9px] font-mono font-extrabold uppercase px-1 py-0.2 rounded bg-fuchsia-200/90 text-fuchsia-950 border border-fuchsia-400">Criteria</span>
+        <span class="font-bold text-fuchsia-950">${rawName}</span>
+        <button type="button" class="req-remove-btn" title="Remove criteria"
+                onclick="event.stopPropagation(); event.preventDefault(); ${removeFn}">×</button>
+      </span>
+    `;
+  }
+
+  let name = '';
+  let amount = '';
+  let iconImg = '';
+  let icon = isPenalty ? '💀' : '🎁';
+
+  if (typeof rw === 'object' && rw !== null) {
+    name = rw.name || (isPenalty ? 'Penalty' : 'Reward');
+    amount = rw.amount !== undefined ? String(rw.amount) : '';
+    iconImg = rw.iconImg || '';
+    icon = rw.icon || (isPenalty ? '💀' : '📦');
+  } else if (typeof rw === 'string') {
+    const raw = rw.trim();
+    // Check if string starts with an emoji, e.g. "🧠 Knowledge +500", "💀 Entropy +5"
+    const emojiMatch = raw.match(/^([\uD800-\uDBFF][\uDC00-\uDFFF]|[\u2600-\u27BF]|\p{Extended_Pictographic})\s*(.*)$/u);
+    if (emojiMatch) {
+      icon = emojiMatch[1];
+      const rest = emojiMatch[2].trim();
+      const deltaMatch = rest.match(/^(.*?)\s*([+\-]\s*[0-9]+(?:-[0-9]+)?|[0-9]+(?:-[0-9]+)?)$/);
+      if (deltaMatch) {
+        name = deltaMatch[1].trim();
+        amount = deltaMatch[2].trim();
+      } else {
+        name = rest;
+      }
+    } else {
+      // String without emoji, e.g. "Lose: Med Kit x2", "Explosive Charges x20-30", "Scrap 20-30"
+      let cleanRaw = raw;
+      if (cleanRaw.toLowerCase().startsWith('lose:')) {
+        cleanRaw = cleanRaw.substring(5).trim();
+      }
+      const multMatch = cleanRaw.match(/^(.*?)\s*[xX]\s*([0-9]+(?:-[0-9]+)?)$/);
+      const rangeMatch = cleanRaw.match(/^(.*?)\s+([0-9]+-[0-9]+)$/);
+      const deltaMatch = cleanRaw.match(/^(.*?)\s*([+\-][0-9]+(?:-[0-9]+)?)$/);
+
+      if (multMatch) {
+        name = multMatch[1].trim();
+        amount = multMatch[2].trim();
+      } else if (rangeMatch) {
+        name = rangeMatch[1].trim();
+        amount = rangeMatch[2].trim();
+      } else if (deltaMatch) {
+        name = deltaMatch[1].trim();
+        amount = deltaMatch[2].trim();
+      } else {
+        name = cleanRaw;
+      }
+    }
+  }
+
+  // Cross-reference with resourceCatalog for real game iconImg
+  const allRes = (resourceCatalog && resourceCatalog.resources) ? resourceCatalog.resources : [];
+  if (!iconImg && name) {
+    const cleanName = name.replace(/^[^\w\s]+/, '').trim().toLowerCase();
+    const matchedRes = allRes.find(r => 
+      r.name.toLowerCase() === cleanName || 
+      r.id.toLowerCase() === cleanName ||
+      cleanName.includes(r.name.toLowerCase()) ||
+      r.name.toLowerCase().includes(cleanName)
+    );
+    if (matchedRes) {
+      if (matchedRes.iconImg) iconImg = matchedRes.iconImg;
+      if (matchedRes.icon) icon = matchedRes.icon;
+    }
+  }
+
+  let iconMarkup = '';
+  if (iconImg) {
+    iconMarkup = `<img src="${iconImg}" alt="${name}" class="w-4 h-4 object-contain inline-block shrink-0 mr-1 drop-shadow-xs" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';"><span style="display:none;" class="mr-1 shrink-0 text-xs">${icon}</span>`;
+  } else {
+    iconMarkup = `<span class="mr-1 shrink-0 text-xs">${icon}</span>`;
+  }
+
+  let amountDisplay = '';
+  if (amount) {
+    amountDisplay = (amount.startsWith('+') || amount.startsWith('-')) ? amount : `x${amount}`;
+  }
+
+  if (isPenalty) {
+    return `
+      <span class="req-pill border-red-300 bg-red-100 text-red-950 inline-flex items-center gap-1 cursor-pointer hover:bg-red-200 transition shadow-2xs" 
+            onclick="event.stopPropagation(); openResourcePickerModal('${nodeId}', -1, 'inaction_penalty', ${rwIdx})"
+            title="Click to edit penalty">
+        ${iconMarkup}
+        <span class="font-bold">${name}</span>
+        ${amountDisplay ? `<span class="font-mono text-red-900 bg-red-200/80 border border-red-300 px-1 py-0.2 rounded text-[10px] font-bold">${amountDisplay}</span>` : ''}
+        <button type="button" class="req-remove-btn" title="Remove penalty" 
+                onclick="event.stopPropagation(); event.preventDefault(); removeInactionPenalty('${nodeId}', ${rwIdx})">×</button>
+      </span>
+    `;
+  }
+
+  return `
+    <span class="req-pill reward-pill inline-flex items-center gap-1 cursor-pointer hover:border-amber-400 hover:bg-amber-100 transition shadow-2xs" 
+          onclick="event.stopPropagation(); openResourcePickerModal('${nodeId}', ${actionIdx}, 'reward', ${rwIdx})"
+          title="Click to edit reward (Resource / Amount / Range)">
+      ${iconMarkup}
+      <span class="font-bold text-gray-900">${name}</span>
+      ${amountDisplay ? `<span class="font-mono text-amber-900 bg-amber-200/70 border border-amber-300 px-1 py-0.2 rounded text-[10px] font-bold">${amountDisplay}</span>` : ''}
+      <button type="button" class="req-remove-btn" title="Remove reward" 
+              onclick="event.stopPropagation(); event.preventDefault(); removeRewardItem('${nodeId}', ${actionIdx}, ${rwIdx})">×</button>
+    </span>
+  `;
+}
+
+// Pool Variation State Engine (Generic & Deck Pools)
+function isPoolNodeDimmed(nodeId, variationId, visited = new Set()) {
+  if (!nodeId || visited.has(nodeId)) return false;
+  visited.add(nodeId);
+
+  const targetVarId = variationId || activeVariationId;
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return false;
+
+  // 1. Directly disabled in target variation
+  if (Array.isArray(node.disabledVariationIds) && node.disabledVariationIds.includes(targetVarId)) {
+    return true;
+  }
+
+  // 2. Upstream connecting parent is disabled (cascades dimming to downstream connected events)
+  const isUpstreamDisabled = (appData.nodes || []).some(parent => {
+    if (parent.id === nodeId) return false;
+    if ((parent.category || 'KeyChain') !== (node.category || 'KeyChain')) return false;
+    const leadsToThis = (parent.actions || []).some(a => getActionTargetIds(a, parent.id).includes(nodeId) || a.targetEventId === nodeId) ||
+                        Boolean(parent.inactionThreat && (parent.inactionThreat.targetNodeId === nodeId || parent.inactionThreat.targetEventId === nodeId));
+    if (leadsToThis) {
+      return isPoolNodeDimmed(parent.id, targetVarId, visited);
+    }
+    return false;
+  });
+
+  return isUpstreamDisabled;
+}
+
+function getConnectedPoolEventIds(startNodeId) {
+  const connectedIds = new Set();
+  const queue = [startNodeId];
+  while (queue.length > 0) {
+    const currId = queue.shift();
+    if (!currId || connectedIds.has(currId)) continue;
+    connectedIds.add(currId);
+
+    const currNode = (appData.nodes || []).find(n => n.id === currId);
+    if (!currNode) continue;
+
+    (currNode.actions || []).forEach(act => {
+      const tgts = getActionTargetIds(act, currNode.id);
+      if (act.targetEventId && !tgts.includes(act.targetEventId)) tgts.push(act.targetEventId);
+      tgts.forEach(tgt => {
+        if (tgt && !connectedIds.has(tgt)) queue.push(tgt);
+      });
+    });
+
+    if (currNode.inactionThreat) {
+      const inactTgt = currNode.inactionThreat.targetNodeId || currNode.inactionThreat.targetEventId;
+      if (inactTgt && !connectedIds.has(inactTgt)) {
+        queue.push(inactTgt);
+      }
+    }
+  }
+  return Array.from(connectedIds);
+}
+
+function togglePoolNodeVariationState(nodeId, e) {
+  if (e) e.stopPropagation();
+  pushUndoState();
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return;
+
+  const currentDisabled = isPoolNodeDimmed(nodeId, activeVariationId);
+  const willDisable = !currentDisabled;
+
+  // Find this node and all connecting downstream nodes
+  const targetIds = getConnectedPoolEventIds(nodeId);
+
+  targetIds.forEach(id => {
+    const targetNode = (appData.nodes || []).find(n => n.id === id);
+    if (!targetNode) return;
+    if (!Array.isArray(targetNode.disabledVariationIds)) {
+      targetNode.disabledVariationIds = [];
+    }
+    const idx = targetNode.disabledVariationIds.indexOf(activeVariationId);
+    if (willDisable) {
+      if (idx === -1) targetNode.disabledVariationIds.push(activeVariationId);
+    } else {
+      if (idx !== -1) targetNode.disabledVariationIds.splice(idx, 1);
+    }
+  });
+
+  saveProjectToLocalStorage();
+  renderApp();
+
+  const activeVar = (appData.variations || []).find(v => v.id === activeVariationId);
+  const varLabel = activeVar ? `V${activeVar.number}` : 'Variation';
+  const countStr = targetIds.length > 1 ? ` (and ${targetIds.length - 1} connected event${targetIds.length > 2 ? 's' : ''})` : '';
+  showToast(`${node.codename}${countStr} switched ${willDisable ? 'OFF' : 'ON'} for ${varLabel}`, willDisable ? 'info' : 'success');
+}
+
+window.togglePoolNodeVariationState = togglePoolNodeVariationState;
+
+function getPoolSwitchBarHTML(node, isDimmed, currentVar) {
+  const varLabel = `V${currentVar.number}`;
+  const varName = currentVar.name || `Variation ${currentVar.number}`;
+  const statusTitle = isDimmed 
+    ? `Currently DISABLED for ${varLabel} (${varName}). Click to switch ON.`
+    : `Currently ACTIVE for ${varLabel} (${varName}). Click to switch OFF.`;
+
+  return `
+    <div class="pool-event-switch-bar ${isDimmed ? 'is-off' : 'is-on'}"
+         onclick="event.stopPropagation(); window.togglePoolNodeVariationState('${node.id}', event)"
+         onmousedown="event.stopPropagation()"
+         title="${statusTitle}">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="pool-switch-tag">${isDimmed ? '✕ DISABLED' : '✔ ACTIVE'}</span>
+        <span class="pool-switch-var-badge">${varLabel}</span>
+        <span class="pool-switch-status-text font-bold text-xs truncate">
+          ${isDimmed ? `Turned OFF for ${varLabel}` : `Included in ${varLabel}`}
+        </span>
+      </div>
+      <button type="button" class="pool-switch-toggle-btn ${isDimmed ? 'is-off' : 'is-on'} shrink-0"
+              onclick="event.stopPropagation(); window.togglePoolNodeVariationState('${node.id}', event)"
+              onmousedown="event.stopPropagation()">
+        <span class="pool-switch-thumb"></span>
+        <span class="pool-switch-btn-label">${isDimmed ? 'SWITCH ON' : 'SWITCH OFF'}</span>
+      </button>
+    </div>
+  `;
+}
+
+
+/* ==========================================================================
+   EVENT CODENAME PARSING, GENERATION & LETTER SWAPPING ENGINE
+   Format: T{timeline}-V{variation}-{K|S}{stage}{letter} (e.g. T1-V1-K1A, T1-V1-S2B)
+   Action Suffix: Strictly A, B, C (no digits)
+   ========================================================================== */
+
+function getNodeTimelineNumber(node) {
+  const vId = (node && node.variationId) || activeVariationId;
+  const v = (appData.variations || []).find(x => x.id === vId);
+  if (v && v.timelineId) {
+    const tl = (appData.timelines || []).find(t => t.id === v.timelineId);
+    if (tl && tl.number) return tl.number;
+  }
+  const actTl = (appData.timelines || []).find(t => t.id === activeTimelineId);
+  return (actTl && actTl.number) || 1;
+}
+
+function getNodeVariationNumber(node) {
+  const vId = (node && node.variationId) || activeVariationId;
+  const v = (appData.variations || []).find(x => x.id === vId);
+  return (v && v.number) || 1;
+}
+
+function getNodeStageNumber(node) {
+  if (node && node.floorIndex !== undefined && node.floorIndex !== null) {
+    return Number(node.floorIndex) + 1;
+  }
+  if (node && node.tier) return Number(node.tier);
+  return (activeMobileStageIndex || 0) + 1;
+}
+
+function parseStructuredCodename(codeStr) {
+  if (!codeStr || typeof codeStr !== 'string') return null;
+  const match = codeStr.trim().toUpperCase().match(/^T(\d+)-V(\d+)-([KS])(\d+)([A-Z])$/);
+  if (match) {
+    return {
+      timeline: Number(match[1]),
+      variation: Number(match[2]),
+      type: match[3],
+      stage: Number(match[4]),
+      letter: match[5],
+      isStructured: true
+    };
+  }
+  const shortMatch = codeStr.trim().toUpperCase().match(/^([KS])(\d+)([A-Z])$/);
+  if (shortMatch) {
+    return {
+      timeline: 1,
+      variation: 1,
+      type: shortMatch[1],
+      stage: Number(shortMatch[2]),
+      letter: shortMatch[3],
+      isStructured: true
+    };
+  }
+  return { isStructured: false, raw: codeStr };
+}
+
+function buildStructuredCodename(tlNum, varNum, type, stageNum, letter) {
+  return `T${tlNum}-V${varNum}-${type}${stageNum}${letter.toUpperCase()}`;
+}
+
+function getUsedLettersOnStage(stageIndex, category, variationId, excludeNodeId = null) {
+  const letters = new Set();
+  const vId = variationId || activeVariationId;
+  const stageNum = stageIndex + 1;
+  const isSecret = (category === 'SecretChain');
+  const targetType = isSecret ? 'S' : 'K';
+
+  (appData.nodes || []).forEach(n => {
+    if (n.id === excludeNodeId) return;
+    if ((n.category || 'KeyChain') !== category) return;
+    const nVar = n.variationId || activeVariationId;
+    if (nVar !== vId) return;
+    const nFloor = (n.floorIndex !== undefined && n.floorIndex !== null) ? Number(n.floorIndex) : 0;
+    if (nFloor !== stageIndex) return;
+
+    const parsed = parseStructuredCodename(n.codename);
+    if (parsed && parsed.isStructured && parsed.type === targetType && parsed.stage === stageNum) {
+      letters.add(parsed.letter);
+    }
+  });
+  return letters;
+}
+
+function getNextAvailableEventLetter(stageIndex, category, variationId) {
+  const used = getUsedLettersOnStage(stageIndex, category, variationId);
+  for (let i = 0; i < 26; i++) {
+    const letter = String.fromCharCode(65 + i);
+    if (!used.has(letter)) {
+      return letter;
+    }
+  }
+  return 'Z';
+}
+
+function generateNewEventCodename(category, stageIndex, variationId) {
+  if (category === 'GenericPool' || category === 'DeckPool') {
+    const prefix = category === 'DeckPool' ? 'DECK' : 'GEN';
+    const count = (appData.nodes || []).filter(n => n.category === category).length + 1;
+    return `${prefix}-S${stageIndex + 1}-E${count}`;
+  }
+
+  const vId = variationId || activeVariationId;
+  const dummyNode = { variationId: vId, floorIndex: stageIndex, category };
+  const tlNum = getNodeTimelineNumber(dummyNode);
+  const varNum = getNodeVariationNumber(dummyNode);
+  const type = (category === 'SecretChain') ? 'S' : 'K';
+  const stageNum = stageIndex + 1;
+  const letter = getNextAvailableEventLetter(stageIndex, category, vId);
+
+  return buildStructuredCodename(tlNum, varNum, type, stageNum, letter);
+}
+
+function updateEventCodenameWithSwapping(nodeId, rawInput) {
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return;
+
+  const trimmed = (rawInput || '').trim();
+  if (!trimmed) return;
+
+  // Generic and Deck events allow free-form custom naming
+  if (node.category !== 'KeyChain' && node.category !== 'SecretChain') {
+    if (trimmed !== node.codename) {
+      pushUndoState();
+      const oldCode = node.codename;
+      node.codename = trimmed;
+      cascadeCodenameChanges(nodeId, oldCode, trimmed);
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Updated generic codename to "${trimmed}"`, "info");
+    }
+    return;
+  }
+
+  // KeyChain and SecretChain follow structured T{t}-V{v}-{K|S}{s}{L}
+  const isSecret = (node.category === 'SecretChain');
+  const type = isSecret ? 'S' : 'K';
+  const stageNum = getNodeStageNumber(node);
+  const stageIndex = stageNum - 1;
+  const tlNum = getNodeTimelineNumber(node);
+  const varNum = getNodeVariationNumber(node);
+
+  let targetLetter = null;
+  const fullParsed = parseStructuredCodename(trimmed);
+  if (fullParsed && fullParsed.isStructured) {
+    targetLetter = fullParsed.letter;
+  } else {
+    // Extract letter from partial input (e.g. "K1B", "1B", "B", "b")
+    const match = trimmed.toUpperCase().match(/[A-Z]$/);
+    if (match) targetLetter = match[0];
+  }
+
+  if (!targetLetter || !/^[A-Z]$/.test(targetLetter)) {
+    showToast(`Invalid codename format. Must end with letter A-Z (e.g. T${tlNum}-V${varNum}-${type}${stageNum}A)`, "warning");
+    renderApp();
+    return;
+  }
+
+  const currentParsed = parseStructuredCodename(node.codename);
+  const currentLetter = (currentParsed && currentParsed.isStructured) ? currentParsed.letter : 'A';
+
+  if (targetLetter === currentLetter && node.codename === buildStructuredCodename(tlNum, varNum, type, stageNum, targetLetter)) {
+    return; // No change
+  }
+
+  pushUndoState();
+
+  const newTargetCodename = buildStructuredCodename(tlNum, varNum, type, stageNum, targetLetter);
+  const vId = node.variationId || activeVariationId;
+
+  // Cross-check: find sibling event with target letter on same canvas & stage
+  const siblingNodes = (appData.nodes || []).filter(n =>
+    n.id !== node.id &&
+    (n.category || 'KeyChain') === node.category &&
+    (n.floorIndex || 0) === (node.floorIndex || 0) &&
+    (n.variationId || activeVariationId) === vId
+  );
+
+  const conflictingNode = siblingNodes.find(n => {
+    const p = parseStructuredCodename(n.codename);
+    return p && p.isStructured && p.letter === targetLetter;
+  });
+
+  const oldCode = node.codename;
+
+  if (conflictingNode) {
+    // Swap letters! Conflicting node takes the vacated currentLetter
+    const conflictingOldCode = conflictingNode.codename;
+    const conflictingNewCode = buildStructuredCodename(tlNum, varNum, type, stageNum, currentLetter);
+
+    node.codename = newTargetCodename;
+    conflictingNode.codename = conflictingNewCode;
+
+    cascadeCodenameChanges(node.id, oldCode, newTargetCodename);
+    cascadeCodenameChanges(conflictingNode.id, conflictingOldCode, conflictingNewCode);
+
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Swapped codenames: "${newTargetCodename}" ↔ "${conflictingNewCode}"`, "success");
+  } else {
+    // No conflict: allocate target letter directly
+    node.codename = newTargetCodename;
+    cascadeCodenameChanges(node.id, oldCode, newTargetCodename);
+
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Updated codename to "${newTargetCodename}"`, "success");
+  }
+}
+
+function makeInlineCodenameEditable(element, nodeId) {
+  if (isArrangeMode) return;
+  if (!requireAuthToEdit("edit event codename")) return;
+  if (element.querySelector('input')) return;
+  const node = appData.nodes.find(n => n.id === nodeId);
+  if (!node) return;
+
+  const currentCode = node.codename;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'inline-input font-mono font-bold w-40 text-center text-amber-900 bg-amber-100 border-2 border-amber-500 rounded';
+  input.value = currentCode;
+  element.innerHTML = '';
+  element.appendChild(input);
+  input.focus();
+  input.select();
+
+  const stopProp = (e) => e.stopPropagation();
+  input.addEventListener('mousedown', stopProp);
+  input.addEventListener('click', stopProp);
+  input.addEventListener('keydown', (e) => {
+    e.stopPropagation();
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      input.blur();
+    }
+  });
+  input.addEventListener('keyup', stopProp);
+
+  let saved = false;
+  const saveCodename = () => {
+    if (saved) return;
+    saved = true;
+    const rawVal = input.value.trim();
+    updateEventCodenameWithSwapping(nodeId, rawVal);
+  };
+
+  input.onblur = saveCodename;
+}
+
+function cascadeCodenameChanges(nodeId, oldCode, newCode) {
+  if (!oldCode || !newCode || oldCode === newCode) return;
+  (appData.nodes || []).forEach(n => {
+    if (n.spawnConditions && n.spawnConditions.includes(oldCode)) {
+      n.spawnConditions = n.spawnConditions.replaceAll(oldCode, newCode);
+    }
+    (n.actions || []).forEach(a => {
+      if (a.shortDescription && a.shortDescription.includes(oldCode)) {
+        a.shortDescription = a.shortDescription.replaceAll(oldCode, newCode);
+      }
+      if (a.description && a.description.includes(oldCode)) {
+        a.description = a.description.replaceAll(oldCode, newCode);
+      }
+    });
+  });
+
+  (appData.dialogues || []).forEach(d => {
+    if (d.triggerCondition && d.triggerCondition.includes(oldCode)) {
+      d.triggerCondition = d.triggerCondition.replaceAll(oldCode, newCode);
+    }
+  });
+}
+
+function resequenceStageEventCodenames(stageIndex, category, variationId) {
+  const cat = category || activeCategoryFilter || 'KeyChain';
+  if (cat !== 'KeyChain' && cat !== 'SecretChain') return;
+  const vId = variationId || activeVariationId;
+  const stageNum = stageIndex + 1;
+  const isSecret = (cat === 'SecretChain');
+  const type = isSecret ? 'S' : 'K';
+
+  // Find all events on this stage for this variation
+  const stageNodes = (appData.nodes || []).filter(n => {
+    const nCat = n.category || 'KeyChain';
+    if (nCat !== cat) return false;
+    const nVar = n.variationId || activeVariationId;
+    if (nVar !== vId) return false;
+    const nFloor = (n.floorIndex !== undefined && n.floorIndex !== null) ? Number(n.floorIndex) : 0;
+    return nFloor === stageIndex;
+  });
+
+  if (stageNodes.length === 0) return;
+
+  // Sort strictly by position.x ascending (left to right)
+  stageNodes.sort((a, b) => {
+    const ax = (a.position && a.position.x !== undefined) ? a.position.x : 0;
+    const bx = (b.position && b.position.x !== undefined) ? b.position.x : 0;
+    if (ax !== bx) return ax - bx;
+    return (a.id || '').localeCompare(b.id || '');
+  });
+
+  // Calculate target structured codenames: T{t}-V{v}-{K|S}{stage}{letter}
+  const changes = [];
+  stageNodes.forEach((node, idx) => {
+    const letter = String.fromCharCode(65 + Math.min(idx, 25)); // A, B, C...
+    const tlNum = getNodeTimelineNumber(node);
+    const varNum = getNodeVariationNumber(node);
+    const targetCode = buildStructuredCodename(tlNum, varNum, type, stageNum, letter);
+    if (node.codename !== targetCode) {
+      changes.push({
+        node,
+        oldCode: node.codename,
+        tempPlaceholder: `__TMP_REORDER_${node.id}_${Date.now()}_${idx}__`,
+        newCode: targetCode
+      });
+    }
+  });
+
+  if (changes.length === 0) return;
+
+  // Phase 1: assign temporary unique placeholders to break cyclic dependency (e.g. A <-> B swap)
+  changes.forEach(({ node, oldCode, tempPlaceholder }) => {
+    node.codename = tempPlaceholder;
+    cascadeCodenameChanges(node.id, oldCode, tempPlaceholder);
+  });
+
+  // Phase 2: assign final target codenames
+  changes.forEach(({ node, tempPlaceholder, newCode }) => {
+    node.codename = newCode;
+    cascadeCodenameChanges(node.id, tempPlaceholder, newCode);
+  });
+}
+
+
+// Deep scan all local storage and session version arrays to instantly extract and restore target edits
+async function deepScanAndRestoreTargetEdits() {
+  const candidates = scanAllLocalRecoveryCandidates();
+  // 1. Look for candidate with target edits (K3A, K3B, K4A)
+  let best = candidates.find(c => c.hasTargetEdits);
+  
+  // 2. If not flagged, find candidate with the highest text length
+  if (!best) {
+    let maxChars = 0;
+    candidates.forEach(c => {
+      const chars = c.totalTextChars || calculateDatasetTextChars(c.data);
+      if (chars > maxChars) {
+        maxChars = chars;
+        best = c;
+      }
+    });
+  }
+
+  // 3. Check directly in raw arrays if candidate list was somehow filtered
+  if (!best) {
+    try {
+      const raw = localStorage.getItem('rc_local_saved_versions');
+      if (raw) {
+        const list = JSON.parse(raw);
+        for (const item of list) {
+          if (item && item.data) {
+            const insp = inspectDatasetForTargetEdits(item.data);
+            if (insp.hasTargetEdits) {
+              best = {
+                id: item.id || 'raw_detected',
+                name: item.name || 'Recovered Raw Snapshot',
+                displayTime: item.displayTime || 'Recent',
+                nodeCount: (item.data.nodes || []).length,
+                dialogueCount: (item.data.dialogues || []).length,
+                hasTargetEdits: true,
+                targetMatches: insp.matches,
+                data: item.data
+              };
+              break;
+            }
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  if (!best || !best.data) {
+    alert("Deep Scan completed: No custom text modifications found in browser history beyond the default template.\n\nTip: You can inspect each individual snapshot in the list below.");
+    return false;
+  }
+
+  const details = best.hasTargetEdits 
+    ? `Found session with edits in: ${best.targetMatches.join(', ')}!\nSaved: ${best.displayTime}`
+    : `Found richest session with ${best.nodeCount} events and ${best.totalTextChars || 0} characters!\nSaved: ${best.displayTime}`;
+
+  if (confirm(`Recover Found Session?\n\n${details}\n\nClick OK to restore this immediately into your active canvas and sync to the server disk.`)) {
+    archiveLocalSnapshot("Before Deep Scan Restoration");
+    pushUndoState();
+    appData = JSON.parse(JSON.stringify(best.data));
+    normalizeAllProjectData();
+    saveProjectToLocalStorage();
+    await saveCurrentProject(false);
+    renderApp();
+    fitWholeSchematic();
+    closeModal('modal-save-manager');
+    dismissRecoveryBanner();
+    showToast(`Successfully restored session with ${best.nodeCount} events! Synced to server.`, 'success');
+    return true;
+  }
+  return false;
+}
+
+// Global console recovery helper for direct user access
+window.recoverLostSessionData = deepScanAndRestoreTargetEdits;
+window.deepScanAndRestoreTargetEdits = deepScanAndRestoreTargetEdits;
+
+window.updateAutoSaveInterval = updateAutoSaveInterval;
+window.initPeriodicAutoSave = initPeriodicAutoSave;
+window.scanAllLocalRecoveryCandidates = scanAllLocalRecoveryCandidates;
+window.restoreBestRecoverySession = restoreBestRecoverySession;
+window.restoreCandidate = restoreCandidate;
+window.downloadCandidateJson = downloadCandidateJson;
+window.deleteLocalCandidate = deleteLocalCandidate;
+window.archiveLocalSnapshot = archiveLocalSnapshot;
+
+
