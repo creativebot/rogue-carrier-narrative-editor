@@ -831,17 +831,11 @@ def sync_project_data_to_github(app_data, author_name):
     except Exception as err:
         print(f"[GitHub Sync] GitHub background push error: {err}")
 
-def sync_users_to_github(users_list=None):
-    """
-    Asynchronously syncs corporate @n-ix.com users in users.json to GitHub main branch
-    so registered team members are never lost across Render container redeployments.
-    """
+def _sync_json_file_to_github(repo_filename, payload_obj, commit_message):
     if not GITHUB_PAT:
         return
     try:
-        if users_list is None:
-            users_list = load_users()
-        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/users.json"
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{repo_filename}"
         headers = {
             "Authorization": f"Bearer {GITHUB_PAT}",
             "Accept": "application/vnd.github.v3+json",
@@ -856,10 +850,10 @@ def sync_users_to_github(users_list=None):
         except Exception:
             pass
 
-        json_bytes = json.dumps({"users": users_list}, indent=2, ensure_ascii=False).encode('utf-8')
+        json_bytes = json.dumps(payload_obj, indent=2, ensure_ascii=False).encode('utf-8')
         content_b64 = base64.b64encode(json_bytes).decode('utf-8')
         put_body = {
-            "message": f"Sync team users ({len(users_list)} members)",
+            "message": commit_message,
             "content": content_b64,
             "branch": "main",
             "committer": {"name": "CreativeBot", "email": "bot@creativebot.dev"},
@@ -871,13 +865,28 @@ def sync_users_to_github(users_list=None):
         put_req = urllib.request.Request(url, data=put_data, headers={**headers, "Content-Type": "application/json"}, method="PUT")
         with urllib.request.urlopen(put_req, timeout=15) as put_resp:
             if put_resp.status in (200, 201):
-                print(f"[GitHub Sync] Synced users.json ({len(users_list)} users) to GitHub main")
+                print(f"[GitHub Sync] Synced {repo_filename} to GitHub main")
     except Exception as err:
-        print(f"[GitHub Sync] users.json sync error: {err}")
+        print(f"[GitHub Sync] {repo_filename} sync error: {err}")
+
+def sync_users_to_github(users_list=None):
+    """
+    Asynchronously syncs corporate @n-ix.com users in users.json to GitHub main branch
+    so registered team members are never lost across Render container redeployments.
+    """
+    if not GITHUB_PAT:
+        return
+    if users_list is None:
+        users_list = load_users()
+    public_users = [
+        u for u in users_list
+        if u.get("email") and u.get("email").strip().lower() not in ALLOWED_EMAILS
+    ]
+    _sync_json_file_to_github("users.json", {"users": public_users}, f"Sync team users ({len(public_users)} members)")
 
 def pull_latest_from_github_on_startup():
     """
-    On server boot, checks if GitHub repository has a newer project-data.json and merges users.json.
+    On server boot, checks if GitHub repository has a newer project-data.json and merges users.json, comments.json, and notifications.json.
     """
     if not GITHUB_PAT:
         return
@@ -947,6 +956,32 @@ def pull_latest_from_github_on_startup():
     except Exception as e:
         print(f"[Startup] Could not check GitHub users.json on startup: {e}")
 
+    for fname, key_name, file_path in (
+        ("comments.json", "comments", COMMENTS_FILE),
+        ("notifications.json", "notifications", NOTIFICATIONS_FILE)
+    ):
+        try:
+            furl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{fname}"
+            freq = urllib.request.Request(furl, headers=headers)
+            with urllib.request.urlopen(freq, timeout=10) as fresp:
+                fdata = json.loads(fresp.read().decode('utf-8'))
+                if 'content' in fdata:
+                    remote_obj = json.loads(base64.b64decode(fdata['content']).decode('utf-8'))
+                    remote_items = remote_obj.get(key_name, [])
+                    local_items = []
+                    if os.path.exists(file_path):
+                        try:
+                            with open(file_path, 'r', encoding='utf-8') as f:
+                                local_items = json.load(f).get(key_name, [])
+                        except Exception:
+                            local_items = []
+                    if len(remote_items) > len(local_items):
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            json.dump({key_name: remote_items}, f, indent=2, ensure_ascii=False)
+                        print(f"[Startup] Pulled {len(remote_items)} {key_name} from GitHub {fname}")
+        except Exception:
+            pass
+
 def list_backup_snapshots(category='KeyChain', variation_id='var_v1'):
     snapshots = []
     if os.path.exists(BACKUPS_DIR):
@@ -989,6 +1024,14 @@ def load_comments():
 def save_comments(comments_list):
     with open(COMMENTS_FILE, 'w', encoding='utf-8') as f:
         json.dump({"comments": comments_list}, f, indent=2, ensure_ascii=False)
+    try:
+        threading.Thread(
+            target=_sync_json_file_to_github,
+            args=("comments.json", {"comments": comments_list}, f"Sync comments ({len(comments_list)} total)"),
+            daemon=True
+        ).start()
+    except Exception:
+        pass
 
 def load_notifications():
     if not os.path.exists(NOTIFICATIONS_FILE):
@@ -1003,6 +1046,14 @@ def load_notifications():
 def save_notifications(notifications_list):
     with open(NOTIFICATIONS_FILE, 'w', encoding='utf-8') as f:
         json.dump({"notifications": notifications_list}, f, indent=2, ensure_ascii=False)
+    try:
+        threading.Thread(
+            target=_sync_json_file_to_github,
+            args=("notifications.json", {"notifications": notifications_list}, f"Sync notifications ({len(notifications_list)} total)"),
+            daemon=True
+        ).start()
+    except Exception:
+        pass
 
 
 # ----------------- HTTP Request Handler -----------------
@@ -1764,8 +1815,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     return
                 if '@' not in email:
                     email = f"{email}@n-ix.com"
-                if not is_allowed_user_email(email):
-                    self.send_json(403, {"status": "error", "message": f"Only @{ALLOWED_EMAIL_DOMAIN} team addresses can be added."})
+                if not is_valid_nix_email(email):
+                    self.send_json(403, {"status": "error", "message": f"Only {ALLOWED_DOMAIN} team addresses can be added."})
                     return
                 if not name:
                     name = email.split('@')[0].replace('.', ' ').title()
@@ -1867,10 +1918,11 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 target_type = payload.get('targetType', 'event') # 'event' or 'dialogue'
                 target_title = payload.get('targetTitle', target_id)
                 text = payload.get('text', '').strip()
-                author = payload.get('author', 'Anonymous')
-                author_email = payload.get('authorEmail', '')
+                user = self.get_auth_user()
+                author = payload.get('author') or (user.get('name') if user else '') or 'N-iX Member'
+                author_email = payload.get('authorEmail') or (user.get('email') if user else '') or ''
 
-                if author_email and is_allowed_user_email(author_email):
+                if author_email and is_valid_nix_email(author_email):
                     ensure_user_registered({"email": author_email, "name": author})
 
                 if not target_id or not text:
@@ -1899,7 +1951,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                             if u_email not in notified_users and u_email != author_email.lower():
                                 notified_users.append(u_email)
                     # If someone explicitly tagged @handle@n-ix.com not yet in users.json, auto-register & notify them
-                    if not matched_any and match_clean.endswith(f"@{ALLOWED_EMAIL_DOMAIN}"):
+                    if not matched_any and match_clean.endswith(ALLOWED_DOMAIN):
                         ensure_user_registered({"email": match_clean, "name": match_clean.split('@')[0].replace('.', ' ').title()})
                         if match_clean not in notified_users and match_clean != author_email.lower():
                             notified_users.append(match_clean)
@@ -2195,7 +2247,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 req_email = query.get('email', [''])[0].strip().lower()
                 user = self.get_auth_user()
                 current_email = req_email or (user.get('email', '').lower() if user else '')
-                if current_email and is_allowed_user_email(current_email):
+                if current_email and is_valid_nix_email(current_email):
                     ensure_user_registered({"email": current_email, "name": (user.get('name') if user else '') or current_email.split('@')[0]})
                 
                 all_notifs = load_notifications()

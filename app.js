@@ -717,6 +717,9 @@ async function loadProjectData() {
     normalizeAllProjectData();
   }
 
+  // Restore whichever variation, timeline, and category tab the user was last editing before reload
+  restoreActiveWorkspacePosition();
+
   // Initialize periodic 1-minute auto-save
   initPeriodicAutoSave();
 
@@ -726,6 +729,73 @@ async function loadProjectData() {
     const totalBackups = (scanAllLocalRecoveryCandidates() || []).length;
     headerBadge.innerText = totalBackups;
     if (totalBackups > 0) headerBadge.classList.remove('hidden');
+  }
+}
+
+function saveActiveWorkspacePosition() {
+  try {
+    if (activeVariationId) localStorage.setItem('rc_active_variation_id', activeVariationId);
+    if (activeTimelineId) localStorage.setItem('rc_active_timeline_id', activeTimelineId);
+    if (activeCategoryFilter) localStorage.setItem('rc_active_category_filter', activeCategoryFilter);
+    if (typeof activeMobileStageIndex === 'number') {
+      localStorage.setItem('rc_active_mobile_stage_index', String(activeMobileStageIndex));
+    }
+  } catch (e) {}
+}
+
+function restoreActiveWorkspacePosition() {
+  try {
+    const savedVarId = localStorage.getItem('rc_active_variation_id');
+    const savedTlId = localStorage.getItem('rc_active_timeline_id');
+    const savedCat = localStorage.getItem('rc_active_category_filter');
+    const savedMobStage = localStorage.getItem('rc_active_mobile_stage_index');
+
+    const variations = Array.isArray(appData.variations) ? appData.variations : [];
+    if (savedVarId && variations.some(v => v.id === savedVarId)) {
+      const matchedVar = variations.find(v => v.id === savedVarId);
+      activeVariationId = matchedVar.id;
+      activeTimelineId = matchedVar.timelineId || savedTlId || 'timeline_1';
+    } else if (variations.length > 0 && !variations.some(v => v.id === activeVariationId)) {
+      activeVariationId = variations[0].id;
+      activeTimelineId = variations[0].timelineId || 'timeline_1';
+    }
+
+    if (savedCat && ['KeyChain', 'SecretChain', 'GenericPool', 'DeckPool'].includes(savedCat)) {
+      activeCategoryFilter = savedCat;
+      syncCategoryFilterButtonsUI(savedCat);
+    }
+
+    if (savedMobStage !== null && !isNaN(parseInt(savedMobStage, 10))) {
+      activeMobileStageIndex = Math.max(0, parseInt(savedMobStage, 10));
+    }
+  } catch (e) {}
+}
+
+function syncCategoryFilterButtonsUI(filter) {
+  const btnKeychain = document.getElementById('btn-view-keychain');
+  const btnSecret = document.getElementById('btn-view-secret');
+  const btnGeneric = document.getElementById('btn-view-generic');
+  const btnDeck = document.getElementById('btn-view-deck');
+
+  if (btnKeychain) {
+    btnKeychain.className = filter === 'KeyChain'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 shadow flex items-center gap-1 transition ring-2 ring-amber-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-amber-950/40 text-amber-300 hover:bg-amber-900/60 border border-amber-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnSecret) {
+    btnSecret.className = filter === 'SecretChain'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-violet-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-violet-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-violet-950/40 text-violet-300 hover:bg-violet-900/60 border border-violet-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnGeneric) {
+    btnGeneric.className = filter === 'GenericPool'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-blue-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-blue-950/40 text-blue-300 hover:bg-blue-900/60 border border-blue-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnDeck) {
+    btnDeck.className = filter === 'DeckPool'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-emerald-400"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 border border-emerald-700/60 flex items-center gap-1 transition shadow-xs";
   }
 }
 
@@ -2290,7 +2360,15 @@ function setupToolbarEvents() {
   if (variationSelect) {
     variationSelect.addEventListener('change', (e) => {
       activeVariationId = e.target.value;
+      const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
+      if (vObj && vObj.timelineId) {
+        activeTimelineId = vObj.timelineId;
+      }
+      saveActiveWorkspacePosition();
       renderApp();
+      if (currentAppViewMode !== 'mobile-stage') {
+        setTimeout(() => fitWholeSchematic(), 50);
+      }
     });
   }
 
@@ -2450,32 +2528,8 @@ function setupToolbarEvents() {
 
 function setCategoryFilter(filter) {
   activeCategoryFilter = filter;
-  const btnKeychain = document.getElementById('btn-view-keychain');
-  const btnSecret = document.getElementById('btn-view-secret');
-  const btnGeneric = document.getElementById('btn-view-generic');
-  const btnDeck = document.getElementById('btn-view-deck');
-
-  if (btnKeychain) {
-    btnKeychain.className = filter === 'KeyChain'
-      ? "px-2.5 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 shadow flex items-center gap-1 transition ring-2 ring-amber-400"
-      : "px-2.5 py-1 rounded text-xs font-bold bg-amber-950/40 text-amber-300 hover:bg-amber-900/60 border border-amber-700/60 flex items-center gap-1 transition shadow-xs";
-  }
-  if (btnSecret) {
-    btnSecret.className = filter === 'SecretChain'
-      ? "px-2.5 py-1 rounded text-xs font-bold bg-violet-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-violet-400"
-      : "px-2.5 py-1 rounded text-xs font-bold bg-violet-950/40 text-violet-300 hover:bg-violet-900/60 border border-violet-700/60 flex items-center gap-1 transition shadow-xs";
-  }
-  if (btnGeneric) {
-    btnGeneric.className = filter === 'GenericPool'
-      ? "px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-blue-400"
-      : "px-2.5 py-1 rounded text-xs font-bold bg-blue-950/40 text-blue-300 hover:bg-blue-900/60 border border-blue-700/60 flex items-center gap-1 transition shadow-xs";
-  }
-  if (btnDeck) {
-    btnDeck.className = filter === 'DeckPool'
-      ? "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-emerald-400"
-      : "px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 border border-emerald-700/60 flex items-center gap-1 transition shadow-xs";
-  }
-
+  syncCategoryFilterButtonsUI(filter);
+  saveActiveWorkspacePosition();
   renderApp();
 }
 
@@ -2488,6 +2542,7 @@ function updateProjectSubtitle() {
 }
 
 function renderApp() {
+  saveActiveWorkspacePosition();
   updateProjectSubtitle();
   renderVariationSelect();
   if (currentAppViewMode === 'mobile-stage') {
@@ -9960,9 +10015,7 @@ let activeCommentTarget = null; // { id, type, title }
 
 async function loadAllCommentCounts() {
   try {
-    const headers = {};
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
-    const res = await fetch('/api/comments', { headers });
+    const res = await fetch('/api/comments', { headers: getAuthHeaders(false) });
     if (res.ok) {
       const data = await res.json();
       commentCounts = data.counts || {};
@@ -10039,9 +10092,7 @@ async function loadCommentsStream(targetId) {
   container.innerHTML = '<div class="text-center py-8 text-gray-500">Loading comments...</div>';
 
   try {
-    const headers = {};
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
-    const res = await fetch(`/api/comments?targetId=${encodeURIComponent(targetId)}`, { headers });
+    const res = await fetch(`/api/comments?targetId=${encodeURIComponent(targetId)}`, { headers: getAuthHeaders(false) });
     if (res.ok) {
       const data = await res.json();
       const comments = data.comments || [];
@@ -10090,6 +10141,8 @@ async function loadCommentsStream(targetId) {
           </div>
         `;
       }).join('');
+    } else {
+      container.innerHTML = '<div class="text-center py-8 text-red-400">Failed to load comments</div>';
     }
   } catch (e) {
     container.innerHTML = '<div class="text-center py-8 text-red-400">Failed to load comments</div>';
@@ -10112,11 +10165,9 @@ async function postComment() {
   }
 
   try {
-    const headers = { 'Content-Type': 'application/json' };
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     const res = await fetch('/api/comments', {
       method: 'POST',
-      headers,
+      headers: getAuthHeaders(true),
       body: JSON.stringify({
         targetId: activeCommentTarget.id,
         targetType: activeCommentTarget.type,
@@ -10126,8 +10177,8 @@ async function postComment() {
         authorEmail: authorEmail
       })
     });
-    if (res.ok) {
-      const data = await res.json();
+    const data = await res.json().catch(() => ({}));
+    if (res.ok && data.status === 'success') {
       inputEl.value = '';
       await loadCommentsStream(activeCommentTarget.id);
       commentCounts[activeCommentTarget.id] = (commentCounts[activeCommentTarget.id] || 0) + 1;
@@ -10138,9 +10189,11 @@ async function postComment() {
       } else {
         showToast('Comment posted', 'info');
       }
+    } else {
+      showToast(data.message || 'Failed to post comment', 'error');
     }
   } catch (err) {
-    showToast('Failed to post comment', 'error');
+    showToast('Failed to post comment: ' + err.message, 'error');
   } finally {
     if (btnPost) {
       btnPost.disabled = false;
@@ -10153,9 +10206,7 @@ async function postComment() {
 async function deleteComment(commentId) {
   if (!confirm("Delete this comment?")) return;
   try {
-    const headers = {};
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
-    const res = await fetch(`/api/comments/${commentId}`, { method: 'DELETE', headers });
+    const res = await fetch(`/api/comments/${commentId}`, { method: 'DELETE', headers: getAuthHeaders(false) });
     if (res.ok) {
       if (activeCommentTarget) {
         await loadCommentsStream(activeCommentTarget.id);
