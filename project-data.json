@@ -538,6 +538,20 @@
           "targetNodeIds": [
             "node_e1b"
           ]
+        },
+        {
+          "id": "act_1791726098437",
+          "codeSuffix": "C",
+          "shortDescription": "Choice C",
+          "description": "Description for action choice C...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "colorScheme": "amber",
@@ -2824,7 +2838,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:41:23.715Z",
+  "_lastModified": "2026-10-11T13:41:38.437Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
