@@ -1056,10 +1056,24 @@ def pull_latest_from_github_on_startup():
                     remote_users_json = json.loads(base64.b64decode(udata['content']).decode('utf-8'))
                     for ru in remote_users_json.get('users', []):
                         remail = (ru.get('email') or '').strip().lower()
-                        if remail and remail not in by_email:
+                        if not remail:
+                            continue
+                        if remail not in by_email:
                             local_users.append(ru)
                             by_email[remail] = ru
                             merged_users_changed = True
+                        else:
+                            existing_u = by_email[remail]
+                            rname = (ru.get('name') or '').strip()
+                            if rname and not is_placeholder_name(rname) and is_placeholder_name(existing_u.get('name')):
+                                existing_u['name'] = rname
+                                merged_users_changed = True
+                            if ru.get('picture') and not existing_u.get('picture'):
+                                existing_u['picture'] = ru.get('picture')
+                                merged_users_changed = True
+                            if (ru.get('lastLogin') or '') > (existing_u.get('lastLogin') or ''):
+                                existing_u['lastLogin'] = ru.get('lastLogin')
+                                merged_users_changed = True
         except Exception:
             pass
     if merged_users_changed:

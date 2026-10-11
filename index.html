@@ -1058,14 +1058,14 @@ And what about you? Disappointed, as well?"></textarea>
       <div class="relative">
         <!-- Autocomplete popup for @ mentions -->
         <div id="mention-autocomplete-dropdown" class="mention-dropdown hidden"></div>
-        <textarea id="comment-input-text" rows="3" placeholder="Add a comment... Type @ to mention a team member" 
+        <textarea id="comment-input-text" rows="3" placeholder="Add a comment... Type @ to mention a team member (Ctrl+Enter to send)" 
                   class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-cyan-500 resize-none"></textarea>
       </div>
       <div class="flex items-center justify-between">
         <span class="text-[10px] text-gray-500 flex items-center gap-1">
-          <i data-lucide="mail" class="w-3 h-3 text-cyan-400"></i> Tagged users receive email alert
+          <i data-lucide="mail" class="w-3 h-3 text-cyan-400"></i> Tagged users receive email alert • <kbd class="px-1 py-0.5 rounded bg-gray-900 border border-gray-700 text-gray-400 font-mono text-[9px]">Ctrl+Enter</kbd>
         </span>
-        <button id="btn-post-comment" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 shadow transition">
+        <button id="btn-post-comment" title="Post Comment (Ctrl+Enter)" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 shadow transition">
           <i data-lucide="send" class="w-3.5 h-3.5"></i> Post Comment
         </button>
       </div>
@@ -1211,7 +1211,7 @@ And what about you? Disappointed, as well?"></textarea>
   </div>
 
   <!-- Application Logic -->
-  <script src="app.js?v=20261011_v7"></script>
+  <script src="app.js?v=20261011_v8"></script>
   <script>
     lucide.createIcons();
   </script>

@@ -11038,11 +11038,20 @@ async function deleteComment(commentId) {
   }
 }
 
-// Mention Autocomplete Listener
+// Mention Autocomplete Listener & Ctrl+Enter Submit
 function setupMentionAutocomplete() {
   const inputEl = document.getElementById('comment-input-text');
   const dropdown = document.getElementById('mention-autocomplete-dropdown');
   if (!inputEl || !dropdown) return;
+
+  inputEl.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.add('hidden');
+      postComment();
+    }
+  });
 
   inputEl.addEventListener('input', (e) => {
     const text = inputEl.value;
