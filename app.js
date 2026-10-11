@@ -830,13 +830,7 @@ function normalizeAllProjectData() {
       syncDialoguePrimaryFields(d);
     });
   }
-  if (appData.characters) {
-    appData.characters.forEach(c => {
-      if (!c.variationIds || c.variationIds.length === 0) {
-        c.variationIds = ["var_v1"];
-      }
-    });
-  }
+  sanitizeAndNormalizeCharacters();
 
   // Normalize action codeSuffixes across all events to pure letters A, B, C...
   if (appData.nodes) {
@@ -876,6 +870,72 @@ function normalizeAllProjectData() {
   }
 }
 
+function sanitizeAndNormalizeCharacters() {
+  if (!appData) return;
+  const rawList = Array.isArray(appData.characters) ? appData.characters : [];
+  const seenIds = new Set();
+  const cleaned = [];
+
+  rawList.forEach(c => {
+    if (!c || typeof c !== 'object') return;
+    const trimmedName = typeof c.name === 'string' ? c.name.trim() : '';
+    // Automatically strip empty characters or unnamed OCR noise entries
+    if (!trimmedName) return;
+
+    const charId = (typeof c.id === 'string' && c.id.trim())
+      ? c.id.trim()
+      : `char_${trimmedName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}_${Date.now()}`;
+    if (seenIds.has(charId)) return;
+    seenIds.add(charId);
+
+    const disabledVars = Array.isArray(c.disabledVariationIds)
+      ? c.disabledVariationIds.filter(Boolean)
+      : [];
+
+    const allVarIds = Array.isArray(appData.variations) && appData.variations.length > 0
+      ? appData.variations.map(v => v.id)
+      : ['var_v1'];
+    const activeVars = allVarIds.filter(vId => !disabledVars.includes(vId));
+
+    cleaned.push({
+      id: charId,
+      name: trimmedName,
+      role: typeof c.role === 'string' ? c.role.trim() : 'Cast Member',
+      color: c.color || '#f3f4f6',
+      textColor: c.textColor || '#1f2937',
+      icon: (typeof c.icon === 'string' && c.icon.trim()) ? c.icon.trim() : '👤',
+      disabledVariationIds: disabledVars,
+      variationIds: activeVars.length > 0 ? activeVars : ['var_v1']
+    });
+  });
+
+  if (cleaned.length === 0) {
+    appData.characters = getDefaultCharactersList();
+  } else {
+    appData.characters = cleaned;
+  }
+}
+
+function isCharacterEnabledInVariation(charObj, varId = activeVariationId) {
+  if (!charObj) return false;
+  if (Array.isArray(charObj.disabledVariationIds)) {
+    return !charObj.disabledVariationIds.includes(varId);
+  }
+  return true;
+}
+
+function getGlobalCharactersPool() {
+  if (!appData || !Array.isArray(appData.characters) || appData.characters.length === 0) {
+    return getDefaultCharactersList();
+  }
+  return appData.characters.filter(c => c && typeof c.name === 'string' && c.name.trim().length > 0);
+}
+
+function getEnabledCharactersForVariation(varId = activeVariationId) {
+  const pool = getGlobalCharactersPool();
+  return pool.filter(c => isCharacterEnabledInVariation(c, varId));
+}
+
 function resetToDefaultProjectData(skipBackup = false) {
   if (!skipBackup && appData && appData.nodes && appData.nodes.length > 0) {
     saveSafetyBackup("Before Reset to Default");
@@ -889,13 +949,13 @@ function resetToDefaultProjectData(skipBackup = false) {
 
 function getDefaultCharactersList() {
   return [
-    { id: "voss", name: "Voss", role: "Mothership Captain", color: "#fef08a", textColor: "#713f12", icon: "👨‍✈️", variationIds: ["var_v1"] },
-    { id: "mnemosyne", name: "Mnemosyne", role: "Ship AI System", color: "#e0e7ff", textColor: "#3730a3", icon: "🤖", variationIds: ["var_v1"] },
-    { id: "khalil", name: "Khalil Arida", role: "Communication Officer", color: "#dcfce7", textColor: "#166534", icon: "📻", variationIds: ["var_v1"] },
-    { id: "tuuli", name: "Tuuli Korpela", role: "Chief Engineer", color: "#ffedd5", textColor: "#9a3412", icon: "🔧", variationIds: ["var_v1"] },
-    { id: "abbadie", name: "Mars Abbadie", role: "Head of R&D", color: "#f3e8ff", textColor: "#6b21a8", icon: "🔬", variationIds: ["var_v1"] },
-    { id: "orest", name: "Orest Demchuck", role: "Scout Leader", color: "#fee2e2", textColor: "#991b1b", icon: "🎯", variationIds: ["var_v1"] },
-    { id: "survivor", name: "Survivor", role: "Keeling Island Refugee", color: "#f3f4f6", textColor: "#1f2937", icon: "👤", variationIds: ["var_v1"] }
+    { id: "voss", name: "Elias Voss", role: "Behemoth Captain", color: "#fef08a", textColor: "#713f12", icon: "👨‍✈️", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "mnemosyne", name: "Mnemosyne", role: "Ship AI System", color: "#e0e7ff", textColor: "#3730a3", icon: "🤖", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "khalil", name: "Khalil Arida", role: "Communication Officer", color: "#dcfce7", textColor: "#166534", icon: "📻", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "tuuli", name: "Tuuli Korpela", role: "Chief Engineer", color: "#ffedd5", textColor: "#9a3412", icon: "🔧", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "abbadie", name: "Mars Abbadie", role: "Head of R&D", color: "#f3e8ff", textColor: "#6b21a8", icon: "🔬", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "orest", name: "Orest Demchuck", role: "Scout Leader", color: "#fee2e2", textColor: "#991b1b", icon: "🎯", disabledVariationIds: [], variationIds: ["var_v1"] },
+    { id: "survivor", name: "Survivor", role: "Keeling Island Refugee", color: "#f3f4f6", textColor: "#1f2937", icon: "👤", disabledVariationIds: [], variationIds: ["var_v1"] }
   ];
 }
 
@@ -2286,7 +2346,7 @@ function setupToolbarEvents() {
   if (btnCharacters) btnCharacters.onclick = () => renderCharactersManager();
 
   const btnAddChar = document.getElementById('btn-add-character');
-  if (btnAddChar) btnAddChar.onclick = () => addNewCharacter();
+  if (btnAddChar) btnAddChar.onclick = () => createCharacterFromModalForm();
 
   const btnAddTimeline = document.getElementById('btn-add-timeline');
   if (btnAddTimeline) btnAddTimeline.onclick = () => addNewTimeline();
@@ -3567,11 +3627,8 @@ function createDialogueNodeDOM(dialogue) {
   wrapper.style.left = `${dialogue.position.x}px`;
   wrapper.style.top = `${dialogue.position.y}px`;
 
-  const allChars = appData.characters || getDefaultCharactersList();
-  const availableChars = allChars.filter(c => {
-    if (!c.variationIds || c.variationIds.length === 0) return true;
-    return c.variationIds.includes(activeVariationId);
-  });
+  const allChars = getGlobalCharactersPool();
+  const enabledChars = getEnabledCharactersForVariation(activeVariationId);
 
   const links = getDialogueLinks(dialogue);
   const validLinks = links.map((l, idx) => ({
@@ -3591,9 +3648,17 @@ function createDialogueNodeDOM(dialogue) {
   wrapper.className = `absolute dialogue-card dialogue-theme-${theme} cursor-move ${isDetached ? 'is-detached' : ''} ${isActionOption ? 'is-action-option' : ''} ${isTargetDimmed ? 'is-pool-dimmed' : ''}`;
 
   let linesHTML = dialogue.lines.map((l, lIdx) => {
-    const charMeta = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName) || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
+    const matchedChar = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName);
+    const charMeta = matchedChar || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
     const isFirst = lIdx === 0;
     const isLast = lIdx === dialogue.lines.length - 1;
+
+    // Build dropdown options from enabled characters in this variation;
+    // if the line's current character is disabled in this variation, include it with a (Disabled in V#) indicator so it doesn't silently switch
+    const dropdownChars = [...enabledChars];
+    if (matchedChar && !dropdownChars.some(c => c.id === matchedChar.id)) {
+      dropdownChars.unshift({ ...matchedChar, _isDisabledInVar: true });
+    }
 
     return `
       <div class="dialogue-row" data-line-index="${lIdx}">
@@ -3601,7 +3666,12 @@ function createDialogueNodeDOM(dialogue) {
           <div class="flex items-center gap-1.5 flex-1 min-w-0">
             <span>${charMeta.icon}</span>
             <select class="inline-select text-xs font-bold" onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
-              ${availableChars.map(c => `<option value="${c.id}" ${c.id === l.speakerId ? 'selected' : ''}>${c.name} (${c.role || ''})</option>`).join('')}
+              ${dropdownChars.map(c => {
+                const isSelected = (matchedChar && c.id === matchedChar.id) || c.id === l.speakerId;
+                const roleSuffix = c.role ? ` (${c.role})` : '';
+                const disabledBadge = c._isDisabledInVar ? ' [Disabled]' : '';
+                return `<option value="${c.id}" ${isSelected ? 'selected' : ''}>${c.name}${roleSuffix}${disabledBadge}</option>`;
+              }).join('')}
             </select>
           </div>
 
@@ -5740,173 +5810,313 @@ function removeRewardItem(nodeId, actionIdx, rwIdx) {
   }
 }
 
-// Dialogue Characters Cast Meta Manager (Requirement 3: strictly scoped to active variation)
+// Dialogue Characters Cast Meta Manager — Global Pool + Per-Variation Dropdown Enable/Disable + Deletion
+function getCharacterDialogueUsageCount(charObj) {
+  if (!charObj || !appData || !Array.isArray(appData.dialogues)) return 0;
+  let count = 0;
+  appData.dialogues.forEach(d => {
+    (d.lines || []).forEach(l => {
+      if (l.speakerId === charObj.id || (l.speakerName && charObj.name && l.speakerName.toLowerCase() === charObj.name.toLowerCase())) {
+        count++;
+      }
+    });
+  });
+  return count;
+}
+
 function renderCharactersManager() {
   const grid = document.getElementById('characters-list-grid');
   if (!grid) return;
   grid.innerHTML = '';
 
-  const allChars = appData.characters || getDefaultCharactersList();
-  const currentVar = appData.variations.find(v => v.id === activeVariationId) || { name: 'Variation 1', number: 1 };
+  sanitizeAndNormalizeCharacters();
+  const allChars = getGlobalCharactersPool();
+  const currentVar = (appData.variations || []).find(v => v.id === activeVariationId) || { id: activeVariationId, name: 'Variation 1', number: 1 };
 
-  // Update modal header subtitle
-  const titleEl = document.querySelector('#modal-characters h3');
-  if (titleEl) {
-    titleEl.innerHTML = `<span class="text-purple-400">Characters Cast</span> — <span class="text-amber-300 font-normal">V${currentVar.number}: ${currentVar.name}</span>`;
+  // Remove any legacy #char-assign-section if present
+  const oldAssignSection = document.getElementById('char-assign-section');
+  if (oldAssignSection) oldAssignSection.remove();
+
+  // Count enabled in active variation
+  const enabledCount = allChars.filter(c => isCharacterEnabledInVariation(c, activeVariationId)).length;
+
+  // Render Variation Control Bar
+  const varBar = document.getElementById('characters-variation-bar');
+  if (varBar) {
+    varBar.innerHTML = `
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-700/70 text-amber-300 font-bold text-xs">
+          Active Variation: V${currentVar.number} — ${currentVar.name}
+        </span>
+        <span class="text-xs text-gray-300">
+          <strong class="text-emerald-400">${enabledCount}</strong> of <strong>${allChars.length}</strong> global characters enabled in V${currentVar.number} dropdowns
+        </span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <button type="button" onclick="setAllCharactersInActiveVariation(true)" class="text-[11px] bg-emerald-950/70 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-700/70 font-bold px-2.5 py-1 rounded transition">
+          ✓ Enable All in V${currentVar.number}
+        </button>
+        <button type="button" onclick="setAllCharactersInActiveVariation(false)" class="text-[11px] bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 font-bold px-2.5 py-1 rounded transition">
+          Disable All in V${currentVar.number}
+        </button>
+      </div>
+    `;
   }
 
-  // Filter ONLY characters selected/assigned for this active variation
-  const assignedChars = allChars.filter(c => {
-    if (!c.variationIds || c.variationIds.length === 0) return true; // Available across all by default
-    return c.variationIds.includes(activeVariationId);
-  });
-
-  const unassignedChars = allChars.filter(c => {
-    return c.variationIds && c.variationIds.length > 0 && !c.variationIds.includes(activeVariationId);
-  });
-
-  assignedChars.forEach((c) => {
-    const originalIdx = allChars.findIndex(ch => ch.id === c.id);
+  allChars.forEach((c, idx) => {
+    const isEnabled = isCharacterEnabledInVariation(c, activeVariationId);
+    const usageCount = getCharacterDialogueUsageCount(c);
     const card = document.createElement('div');
-    card.className = 'bg-gray-950 border border-purple-900/60 p-3 rounded-lg flex items-center justify-between gap-3 shadow-md';
-    
+    card.className = `p-3 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition shadow-md ${
+      isEnabled
+        ? 'bg-gray-950 border border-purple-800/70'
+        : 'bg-gray-950/60 border border-gray-800 opacity-75'
+    }`;
+
+    const safeName = (c.name || '').replace(/"/g, '&quot;');
+    const safeRole = (c.role || '').replace(/"/g, '&quot;');
+    const safeIcon = (c.icon || '👤').replace(/"/g, '&quot;');
+
     card.innerHTML = `
-      <div class="flex items-center gap-2.5 flex-1">
-        <span class="text-2xl px-2.5 py-1.5 rounded-lg border border-white/20" style="background-color:${c.color}">${c.icon || '👤'}</span>
-        <div class="flex-1 grid grid-cols-2 gap-2">
+      <div class="flex items-center gap-2.5 flex-1 min-w-0">
+        <!-- Enable / Disable Toggle for Active Variation -->
+        <button type="button"
+                onclick="toggleCharacterInActiveVariation('${c.id}')"
+                class="shrink-0 px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition flex items-center gap-1.5 ${
+                  isEnabled
+                    ? 'bg-emerald-950/80 text-emerald-300 border-emerald-600/80 hover:bg-emerald-900/80'
+                    : 'bg-gray-900 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-gray-200'
+                }"
+                title="${isEnabled ? `Enabled in V${currentVar.number} dropdown menus (click to disable)` : `Disabled in V${currentVar.number} dropdown menus (click to enable)`}">
+          <span class="w-2 h-2 rounded-full ${isEnabled ? 'bg-emerald-400' : 'bg-gray-500'}"></span>
+          <span>${isEnabled ? `In V${currentVar.number}` : `Off in V${currentVar.number}`}</span>
+        </button>
+
+        <!-- Preview Badge -->
+        <span class="text-xl px-2.5 py-1 rounded-lg border border-white/20 shrink-0 font-bold flex items-center gap-1"
+              style="background-color:${c.color || '#e5e7eb'}; color:${c.textColor || '#1f2937'}"
+              title="Speaker Banner Preview">
+          ${safeIcon}
+        </span>
+
+        <!-- Name & Role Inputs -->
+        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 min-w-0">
           <div>
-            <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">Name</label>
-            <input type="text" class="char-input font-bold text-white text-xs bg-gray-900 border border-gray-700 rounded px-2.5 py-1.5 w-full focus:outline-none focus:border-purple-400" value="${c.name}" onchange="updateCharacterField(${originalIdx}, 'name', this.value)" placeholder="Character Name">
+            <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-0.5">Name</label>
+            <input type="text"
+                   class="char-input font-bold text-white text-xs bg-gray-900 border border-gray-700 rounded px-2.5 py-1.5 w-full focus:outline-none focus:border-purple-400"
+                   value="${safeName}"
+                   onchange="updateCharacterField(${idx}, 'name', this.value)"
+                   placeholder="Character Name">
           </div>
           <div>
-            <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">Role / Title</label>
-            <input type="text" class="char-input text-purple-200 text-xs bg-gray-900 border border-gray-700 rounded px-2.5 py-1.5 w-full focus:outline-none focus:border-purple-400" value="${c.role || ''}" onchange="updateCharacterField(${originalIdx}, 'role', this.value)" placeholder="Officer / Role">
+            <label class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-0.5">Role / Title</label>
+            <input type="text"
+                   class="char-input text-purple-200 text-xs bg-gray-900 border border-gray-700 rounded px-2.5 py-1.5 w-full focus:outline-none focus:border-purple-400"
+                   value="${safeRole}"
+                   onchange="updateCharacterField(${idx}, 'role', this.value)"
+                   placeholder="Officer / Role">
           </div>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <input type="color" class="w-8 h-8 rounded-lg cursor-pointer border border-gray-700 bg-gray-900 p-0.5" value="${c.color || '#e5e7eb'}" onchange="updateCharacterField(${originalIdx}, 'color', this.value)" title="Banner Color">
-          <input type="text" class="char-input w-10 text-center text-base font-bold text-white bg-gray-900 border border-gray-700 rounded py-1 focus:outline-none focus:border-purple-400" value="${c.icon || '👤'}" onchange="updateCharacterField(${originalIdx}, 'icon', this.value)" title="Icon Emoji">
         </div>
       </div>
-      <button type="button" onclick="removeCharacterFromActiveVariation('${c.id}')" class="text-xs text-red-400 hover:text-red-300 font-bold px-2.5 py-1 rounded bg-red-950/50 border border-red-800/80 hover:bg-red-900/60 transition" title="Remove character from this variation">
-        ✕ Remove from V${currentVar.number}
-      </button>
+
+      <!-- Right Controls: Icon, Banner Color, Text Color, Usage Badge, Delete -->
+      <div class="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-800/80">
+        <div class="flex items-center gap-1.5">
+          <input type="text"
+                 class="char-input w-9 text-center text-sm font-bold text-white bg-gray-900 border border-gray-700 rounded py-1 focus:outline-none focus:border-purple-400"
+                 value="${safeIcon}"
+                 onchange="updateCharacterField(${idx}, 'icon', this.value)"
+                 title="Icon Emoji">
+          <input type="color"
+                 class="w-7 h-7 rounded cursor-pointer border border-gray-700 bg-gray-900 p-0.5"
+                 value="${c.color || '#e5e7eb'}"
+                 onchange="updateCharacterField(${idx}, 'color', this.value)"
+                 title="Banner Background Color">
+          <input type="color"
+                 class="w-7 h-7 rounded cursor-pointer border border-gray-700 bg-gray-900 p-0.5"
+                 value="${c.textColor || '#1f2937'}"
+                 onchange="updateCharacterField(${idx}, 'textColor', this.value)"
+                 title="Banner Text Color">
+        </div>
+
+        <span class="text-[10px] font-mono px-2 py-1 rounded bg-gray-900 border border-gray-800 text-gray-400" title="Number of dialogue lines using this character">
+          💬 ${usageCount}
+        </span>
+
+        <button type="button"
+                onclick="deleteCharacterById('${c.id}')"
+                class="text-xs text-red-400 hover:text-red-200 font-bold px-2.5 py-1.5 rounded-lg bg-red-950/50 border border-red-800/70 hover:bg-red-900/70 transition flex items-center gap-1"
+                title="Permanently delete character from Global Pool">
+          🗑 Delete
+        </button>
+      </div>
     `;
     grid.appendChild(card);
   });
 
-  if (assignedChars.length === 0) {
+  if (allChars.length === 0) {
     const emptyNotice = document.createElement('div');
     emptyNotice.className = 'p-6 text-center text-gray-400 italic bg-gray-950 rounded-xl border border-gray-800 col-span-full';
-    emptyNotice.innerHTML = `No characters assigned to Variation ${currentVar.number} yet. Add from pool below or create a new character.`;
+    emptyNotice.innerHTML = `No characters in the Global Pool yet. Use the form above to add a character.`;
     grid.appendChild(emptyNotice);
   }
-
-  // Quick Action Bar: Add existing character or create new character
-  let addSection = document.getElementById('char-assign-section');
-  if (!addSection) {
-    addSection = document.createElement('div');
-    addSection.id = 'char-assign-section';
-    addSection.className = 'mt-4 pt-3 border-t border-gray-800 flex items-center justify-between gap-3';
-    grid.parentElement.appendChild(addSection);
-  }
-
-  let unassignedOptions = unassignedChars.map(u => `<option value="${u.id}">${u.name} (${u.role || 'Crew'})</option>`).join('');
-
-  addSection.innerHTML = `
-    <div class="flex items-center gap-2">
-      ${unassignedChars.length > 0 ? `
-        <select id="select-unassigned-char" class="bg-gray-900 text-purple-300 border border-purple-700 text-xs rounded px-2.5 py-1 font-semibold">
-          ${unassignedOptions}
-        </select>
-        <button type="button" onclick="assignSelectedCharacterToActiveVariation()" class="bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded shadow">
-          + Add to V${currentVar.number}
-        </button>
-      ` : '<span class="text-xs text-gray-500 font-semibold italic">All roster characters active in this variation</span>'}
-    </div>
-    <button type="button" onclick="addNewCharacterForActiveVariation()" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg shadow flex items-center gap-1.5">
-      + Create Character for V${currentVar.number}
-    </button>
-  `;
 
   openModal('modal-characters');
 }
 
-function removeCharacterFromActiveVariation(charId) {
+function toggleCharacterInActiveVariation(charId) {
+  if (!requireAuthToEdit("toggle character variation availability")) return;
   pushUndoState();
-  const c = appData.characters.find(ch => ch.id === charId);
+  const c = (appData.characters || []).find(ch => ch.id === charId);
   if (!c) return;
-  if (!c.variationIds || c.variationIds.length === 0) {
-    // previously in all variations, now exclude active variation
-    c.variationIds = appData.variations.map(v => v.id).filter(id => id !== activeVariationId);
+  if (!Array.isArray(c.disabledVariationIds)) {
+    c.disabledVariationIds = [];
+  }
+  const currentlyEnabled = isCharacterEnabledInVariation(c, activeVariationId);
+  if (currentlyEnabled) {
+    if (!c.disabledVariationIds.includes(activeVariationId)) {
+      c.disabledVariationIds.push(activeVariationId);
+    }
   } else {
-    c.variationIds = c.variationIds.filter(id => id !== activeVariationId);
+    c.disabledVariationIds = c.disabledVariationIds.filter(id => id !== activeVariationId);
   }
   saveProjectToLocalStorage();
   renderCharactersManager();
   renderApp();
-  showToast("Character removed from variation", "info");
+  showToast(currentlyEnabled ? `Disabled "${c.name}" in dropdowns for this variation` : `Enabled "${c.name}" in dropdowns for this variation`, "info");
 }
 
-function assignSelectedCharacterToActiveVariation() {
-  const sel = document.getElementById('select-unassigned-char');
-  if (!sel || !sel.value) return;
+function setAllCharactersInActiveVariation(enableAll) {
+  if (!requireAuthToEdit("change character variation availability")) return;
   pushUndoState();
-  const c = appData.characters.find(ch => ch.id === sel.value);
-  if (c) {
-    if (!c.variationIds) c.variationIds = [];
-    if (!c.variationIds.includes(activeVariationId)) c.variationIds.push(activeVariationId);
-    saveProjectToLocalStorage();
-    renderCharactersManager();
-    renderApp();
-    showToast("Character added to variation", "success");
+  (appData.characters || []).forEach(c => {
+    if (!Array.isArray(c.disabledVariationIds)) c.disabledVariationIds = [];
+    if (enableAll) {
+      c.disabledVariationIds = c.disabledVariationIds.filter(id => id !== activeVariationId);
+    } else {
+      if (!c.disabledVariationIds.includes(activeVariationId)) {
+        c.disabledVariationIds.push(activeVariationId);
+      }
+    }
+  });
+  saveProjectToLocalStorage();
+  renderCharactersManager();
+  renderApp();
+  showToast(enableAll ? "All characters enabled for this variation" : "All characters disabled for this variation", "info");
+}
+
+function createCharacterFromModalForm() {
+  if (!requireAuthToEdit("add characters")) return;
+  const nameInput = document.getElementById('new-char-name-input');
+  const roleInput = document.getElementById('new-char-role-input');
+  const iconInput = document.getElementById('new-char-icon-input');
+  const colorInput = document.getElementById('new-char-color-input');
+  const textColorInput = document.getElementById('new-char-textcolor-input');
+
+  const rawName = nameInput ? nameInput.value.trim() : '';
+  if (!rawName) {
+    showToast("Please enter a Character Name first", "warning");
+    if (nameInput) nameInput.focus();
+    return;
   }
-}
 
-function addNewCharacterForActiveVariation() {
+  // Prevent duplicate character names
+  const existing = (appData.characters || []).find(c => (c.name || '').trim().toLowerCase() === rawName.toLowerCase());
+  if (existing) {
+    showToast(`Character "${existing.name}" already exists in the Global Pool`, "warning");
+    return;
+  }
+
   pushUndoState();
-  const name = prompt("Enter Character Name:", "New Officer");
-  if (!name) return;
-  const role = prompt("Enter Role / Title:", "Tactical Specialist") || "Officer";
+  const slug = rawName.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').substring(0, 24) || 'char';
+  const uniqueId = (appData.characters || []).some(c => c.id === slug) ? `${slug}_${Date.now().toString().slice(-4)}` : slug;
 
   const newChar = {
-    id: `char_${Date.now()}`,
-    name: name,
-    role: role,
-    color: "#f3e8ff",
-    textColor: "#6b21a8",
-    icon: "👤",
-    variationIds: [activeVariationId]
+    id: uniqueId,
+    name: rawName,
+    role: (roleInput && roleInput.value.trim()) ? roleInput.value.trim() : 'Officer',
+    icon: (iconInput && iconInput.value.trim()) ? iconInput.value.trim() : '👤',
+    color: (colorInput && colorInput.value) ? colorInput.value : '#e0f2fe',
+    textColor: (textColorInput && textColorInput.value) ? textColorInput.value : '#0369a1',
+    disabledVariationIds: []
   };
+
   if (!appData.characters) appData.characters = [];
   appData.characters.push(newChar);
+
+  if (nameInput) nameInput.value = '';
+  if (roleInput) roleInput.value = '';
+
   saveProjectToLocalStorage();
   renderCharactersManager();
   renderApp();
-  showToast("New character created for variation", "success");
+  showToast(`Added "${newChar.name}" to Global Pool`, "success");
 }
 
 function updateCharacterField(idx, field, value) {
+  if (!requireAuthToEdit("edit characters")) return;
   if (appData.characters && appData.characters[idx]) {
+    const charObj = appData.characters[idx];
+    if (field === 'name') {
+      const trimmed = (value || '').trim();
+      if (!trimmed) {
+        showToast("Character name cannot be empty. Use Delete to remove a character.", "warning");
+        renderCharactersManager();
+        return;
+      }
+      value = trimmed;
+      // Also update speakerName on dialogue lines referencing this character ID
+      const oldName = charObj.name;
+      (appData.dialogues || []).forEach(d => {
+        (d.lines || []).forEach(l => {
+          if (l.speakerId === charObj.id || (oldName && l.speakerName === oldName)) {
+            l.speakerId = charObj.id;
+            l.speakerName = trimmed;
+          }
+        });
+      });
+    }
     pushUndoState();
-    appData.characters[idx][field] = value;
+    charObj[field] = value;
     saveProjectToLocalStorage();
+    renderCharactersManager();
     renderApp();
   }
 }
 
 function addNewCharacter() {
-  addNewCharacterForActiveVariation();
+  createCharacterFromModalForm();
+}
+
+function deleteCharacterById(charId) {
+  if (!requireAuthToEdit("delete characters")) return;
+  if (!appData.characters) return;
+  if (appData.characters.length <= 1) {
+    showToast("Cannot delete the last remaining character in the Global Pool", "warning");
+    return;
+  }
+  const idx = appData.characters.findIndex(c => c.id === charId);
+  if (idx === -1) return;
+  const targetChar = appData.characters[idx];
+  const usageCount = getCharacterDialogueUsageCount(targetChar);
+
+  if (usageCount > 0) {
+    const ok = confirm(`"${targetChar.name}" is currently used in ${usageCount} dialogue line(s).\n\nDelete "${targetChar.name}" from the Global Pool anyway?`);
+    if (!ok) return;
+  }
+
+  pushUndoState();
+  appData.characters.splice(idx, 1);
+  saveProjectToLocalStorage();
+  renderCharactersManager();
+  renderApp();
+  showToast(`Deleted "${targetChar.name}" from Global Pool`, "info");
 }
 
 function deleteCharacter(idx) {
-  if (appData.characters && appData.characters.length > 1) {
-    pushUndoState();
-    appData.characters.splice(idx, 1);
-    saveProjectToLocalStorage();
-    renderCharactersManager();
-    renderApp();
-    showToast("Character deleted", "info");
+  if (appData.characters && appData.characters[idx]) {
+    deleteCharacterById(appData.characters[idx].id);
   }
 }
 
@@ -5999,10 +6209,12 @@ function insertDialogueLineBelow(dialogueId, lineIdx) {
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag || !diag.lines) return;
 
+  const enabledChars = getEnabledCharactersForVariation(activeVariationId);
+  const allChars = getGlobalCharactersPool();
+  const defaultChar = enabledChars[0] || allChars[0] || { id: 'voss', name: 'Voss' };
   const currentLine = diag.lines[lineIdx];
-  const currentSpeakerId = currentLine ? currentLine.speakerId : 'voss';
-  const allChars = appData.characters || getDefaultCharactersList();
-  const currentChar = allChars.find(c => c.id === currentSpeakerId) || { id: currentSpeakerId, name: (currentLine ? currentLine.speakerName : 'Voss') };
+  const currentSpeakerId = currentLine ? currentLine.speakerId : defaultChar.id;
+  const currentChar = allChars.find(c => c.id === currentSpeakerId) || { id: currentSpeakerId, name: (currentLine ? currentLine.speakerName : defaultChar.name) };
 
   const newLine = {
     id: `l_${Date.now()}`,
@@ -6021,10 +6233,11 @@ function addDialogueLineTurn(dialogueId) {
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
-    const allChars = appData.characters || getDefaultCharactersList();
+    const enabledChars = getEnabledCharactersForVariation(activeVariationId);
+    const pool = enabledChars.length > 0 ? enabledChars : getGlobalCharactersPool();
     const lastLine = diag.lines && diag.lines.length > 0 ? diag.lines[diag.lines.length - 1] : null;
     const lastSpeaker = lastLine ? lastLine.speakerId : null;
-    const altChar = allChars.find(c => c.id !== lastSpeaker) || allChars[0];
+    const altChar = pool.find(c => c.id !== lastSpeaker) || pool[0];
 
     diag.lines.push({
       id: `l_${Date.now()}`,
@@ -7353,28 +7566,33 @@ function findMatchingCharacter(speakerQuery) {
   const q = speakerQuery.trim().toLowerCase().replace(/[:—\-\*\#_]/g, '').trim();
   if (!q) return null;
 
-  const characters = (appData.characters && appData.characters.length > 0) 
-    ? appData.characters 
-    : getDefaultCharactersList();
+  const characters = getGlobalCharactersPool();
 
   // 1. Exact match by ID or full name
-  let found = characters.find(c => c.id.toLowerCase() === q || c.name.toLowerCase() === q);
+  let found = characters.find(c => (c.id || '').toLowerCase() === q || (c.name || '').toLowerCase() === q);
   if (found) return found;
 
   // 2. Starts-with or includes match (e.g. "Khalil" -> "Khalil Arida", "Voss" -> "Voss")
-  found = characters.find(c => c.name.toLowerCase().includes(q) || q.includes(c.name.toLowerCase()) || c.id.toLowerCase().includes(q));
+  found = characters.find(c => {
+    const cName = (c.name || '').toLowerCase();
+    const cId = (c.id || '').toLowerCase();
+    return (cName && (cName.includes(q) || q.includes(cName))) || (cId && cId.includes(q));
+  });
   if (found) return found;
 
   // 3. Match individual words (e.g. "Arida", "Demchuck", "Abbadie")
   const qWords = q.split(/\s+/).filter(w => w.length > 2);
   for (const w of qWords) {
-    found = characters.find(c => c.name.toLowerCase().includes(w) || c.id.toLowerCase().includes(w));
+    found = characters.find(c => (c.name || '').toLowerCase().includes(w) || (c.id || '').toLowerCase().includes(w));
     if (found) return found;
   }
 
-  // 4. Character not registered yet - create a new character definition
-  const fallbackId = q.toLowerCase().replace(/[^a-z0-9]/g, '_').substring(0, 20) || 'speaker';
+  // 4. Character not registered yet - only create if cleanName is non-empty and looks like a valid name
   const cleanName = speakerQuery.replace(/[:—\-\*\#_]/g, '').trim();
+  if (!cleanName || cleanName.length < 2) {
+    return characters[0] || null;
+  }
+  const fallbackId = q.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/^_+|_+$/g, '').substring(0, 20) || 'speaker';
   const titleName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
 
   const newChar = {
@@ -7384,7 +7602,7 @@ function findMatchingCharacter(speakerQuery) {
     color: "#f3f4f6",
     textColor: "#1f2937",
     icon: "👤",
-    variationIds: [activeVariationId]
+    disabledVariationIds: []
   };
 
   if (!appData.characters) appData.characters = [];
@@ -8273,16 +8491,30 @@ function renderMobileStageView() {
 function renderMobileDialogueCardHTML(dialogue, timingMode = 'pre_event', contextEventId = null, contextActionId = null) {
   const isRoute = (timingMode === 'action_option' || timingMode === true);
   const isPostAction = (timingMode === 'post_action' || timingMode === 'post_event');
-  const allChars = appData.characters || getDefaultCharactersList();
+  const allChars = getGlobalCharactersPool();
+  const enabledChars = getEnabledCharactersForVariation(activeVariationId);
   const linesHTML = (dialogue.lines || []).map((l, lIdx) => {
-    const charMeta = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName) || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
+    const matchedChar = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName);
+    const charMeta = matchedChar || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
+    const dropdownChars = [...enabledChars];
+    if (matchedChar && !dropdownChars.some(c => c.id === matchedChar.id)) {
+      dropdownChars.unshift({ ...matchedChar, _isDisabledInVar: true });
+    }
     return `
       <div class="bg-gray-900/80 p-2 rounded-lg border border-gray-800 space-y-1">
-        <div class="flex items-center justify-between text-[11px]">
-          <span class="font-bold flex items-center gap-1" style="color: ${charMeta.color || '#38bdf8'}">
-            <span>${charMeta.icon}</span> ${l.speakerName || 'Speaker'}
-          </span>
-          <button type="button" onclick="removeMobileDialogueLine('${dialogue.id}', ${lIdx})" class="text-gray-500 hover:text-red-400 text-xs">×</button>
+        <div class="flex items-center justify-between text-[11px] gap-2">
+          <div class="flex items-center gap-1.5 min-w-0 flex-1 px-1.5 py-0.5 rounded" style="background-color: ${charMeta.color || '#e5e7eb'}; color: ${charMeta.textColor || '#1f2937'}">
+            <span>${charMeta.icon}</span>
+            <select class="inline-select text-[11px] font-bold bg-transparent border-none focus:outline-none flex-1 min-w-0" onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
+              ${dropdownChars.map(c => {
+                const isSelected = (matchedChar && c.id === matchedChar.id) || c.id === l.speakerId;
+                const roleSuffix = c.role ? ` (${c.role})` : '';
+                const disabledBadge = c._isDisabledInVar ? ' [Disabled]' : '';
+                return `<option value="${c.id}" ${isSelected ? 'selected' : ''}>${c.name}${roleSuffix}${disabledBadge}</option>`;
+              }).join('')}
+            </select>
+          </div>
+          <button type="button" onclick="removeMobileDialogueLine('${dialogue.id}', ${lIdx})" class="text-gray-500 hover:text-red-400 text-xs px-1">×</button>
         </div>
         <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${dialogue.id}', 'lines.${lIdx}.text')">
           ${l.text || 'Dialogue text...'}
