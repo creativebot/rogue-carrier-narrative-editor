@@ -30,7 +30,7 @@
       "id": "var_v2",
       "timelineId": "timeline_1",
       "number": 2,
-      "name": "Once More Into The Frey",
+      "name": "Once More Into The Fray",
       "description": "Debris field gravitational anomalies."
     },
     {
@@ -1611,7 +1611,8 @@
           ],
           "targetNodeId": "node_1791719038295",
           "targetNodeIds": [
-            "node_1791719038295"
+            "node_1791719038295",
+            "node_1791719220382"
           ]
         },
         {
@@ -2823,5 +2824,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T12:48:49.269Z"
+  "_lastModified": "2026-10-11T13:00:02.721Z"
 }
