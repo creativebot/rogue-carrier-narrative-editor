@@ -8149,6 +8149,12 @@ function renderTimelinesManager() {
                     class="px-3 py-1.5 ${isActive ? 'bg-amber-500 hover:bg-amber-400 text-gray-950' : 'bg-cyan-600 hover:bg-cyan-500 text-white'} font-bold rounded-lg text-xs transition shadow">
               ${isActive ? '✓ Active' : 'Open Variation'}
             </button>
+            <button type="button"
+                    onclick="deleteVariation('${v.id}')"
+                    class="px-2.5 py-1.5 bg-red-950/70 hover:bg-red-800 text-red-300 hover:text-white border border-red-800/70 font-bold rounded-lg text-xs transition shadow"
+                    title="Delete Variation V${v.number}">
+              🗑 Delete
+            </button>
           </div>
         </div>
       `;
@@ -8179,9 +8185,14 @@ function renderTimelinesManager() {
             </div>
           </div>
         </div>
-        <button type="button" onclick="addNewVariation('${tl.id}')" class="bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow shrink-0 self-end sm:self-center">
-          + Add Variation to T${tl.number}
-        </button>
+        <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+          <button type="button" onclick="addNewVariation('${tl.id}')" class="bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow">
+            + Add Variation to T${tl.number}
+          </button>
+          <button type="button" onclick="deleteTimeline('${tl.id}')" class="bg-red-900/80 hover:bg-red-700 text-red-200 hover:text-white border border-red-700/80 font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow transition" title="Delete Timeline T${tl.number} and all its variations">
+            🗑 Delete T${tl.number}
+          </button>
+        </div>
       </div>
 
       <div class="space-y-2">
@@ -8395,6 +8406,224 @@ function addNewVariation(targetTimelineId) {
   renderApp();
   showToast(`Added V${nextNum} to ${tlName}`, "success");
 }
+
+function deleteVariation(varId) {
+  if (!requireAuthToEdit("delete variations")) return;
+  const targetVar = (appData.variations || []).find(v => v.id === varId);
+  if (!targetVar) return;
+
+  const tlId = targetVar.timelineId;
+  const tl = (appData.timelines || []).find(t => t.id === tlId);
+  const tlVars = (appData.variations || []).filter(v => v.timelineId === tlId);
+  if (tlVars.length <= 1) {
+    showToast("Cannot delete the last variation in a timeline. Delete the timeline instead if needed.", "warning");
+    return;
+  }
+
+  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool';
+  const varNodes = (appData.nodes || []).filter(n => n && n.variationId === varId && !isPoolCat(n.category));
+  const varNodeIds = new Set(varNodes.map(n => n.id));
+  const varDialogues = (appData.dialogues || []).filter(d => {
+    if (!d) return false;
+    if (d.variationId === varId && !isPoolCat(d.category)) return true;
+    const links = Array.isArray(d.links) && d.links.length > 0
+      ? d.links
+      : (d.targetEventId ? [{ targetEventId: d.targetEventId }] : []);
+    if (links.length > 0 && links.every(l => l && varNodeIds.has(l.targetEventId))) return true;
+    return false;
+  });
+
+  const tlLabel = tl ? `T${tl.number} (${tl.name})` : tlId;
+  const confirmMsg = `Delete Variation V${targetVar.number}: "${targetVar.name}" from ${tlLabel}?\n\n` +
+    (varNodes.length > 0 || varDialogues.length > 0
+      ? `WARNING: This will also delete ${varNodes.length} event(s) and ${varDialogues.length} dialogue(s) belonging to this variation.`
+      : `This variation currently has 0 events and 0 dialogues.`);
+  if (!confirm(confirmMsg)) return;
+
+  pushUndoState();
+
+  // Remove variation
+  appData.variations = (appData.variations || []).filter(v => v.id !== varId);
+
+  // Remove non-pool events in this variation and clean up pool disabledVariationIds
+  appData.nodes = (appData.nodes || []).filter(n => {
+    if (!n) return false;
+    if (n.variationId === varId && !isPoolCat(n.category)) return false;
+    if (Array.isArray(n.disabledVariationIds)) {
+      n.disabledVariationIds = n.disabledVariationIds.filter(id => id !== varId);
+    }
+    return true;
+  });
+
+  // Remove dialogues in this variation or clean up links pointing to deleted nodes
+  appData.dialogues = (appData.dialogues || []).filter(d => {
+    if (!d) return false;
+    if (d.variationId === varId && !isPoolCat(d.category)) return false;
+    if (Array.isArray(d.links) && d.links.length > 0) {
+      d.links = d.links.filter(l => !l || !varNodeIds.has(l.targetEventId));
+      if (d.links.length === 0 && d.targetEventId && varNodeIds.has(d.targetEventId)) return false;
+      if (d.links.length > 0) d.targetEventId = d.links[0].targetEventId;
+    } else if (d.targetEventId && varNodeIds.has(d.targetEventId)) {
+      return false;
+    }
+    return true;
+  });
+
+  // Re-number remaining variations in this timeline 1..N and update structured event codenames
+  const remainingTlVars = (appData.variations || [])
+    .filter(v => v.timelineId === tlId)
+    .sort((a, b) => Number(a.number || 0) - Number(b.number || 0));
+
+  const newNumById = {};
+  remainingTlVars.forEach((v, idx) => {
+    v.number = idx + 1;
+    newNumById[v.id] = v.number;
+  });
+
+  (appData.nodes || []).forEach(node => {
+    if (node && node.variationId && newNumById[node.variationId] && node.codename) {
+      const parsed = parseStructuredCodename(node.codename);
+      if (parsed && parsed.isStructured) {
+        const oldCodename = node.codename;
+        const newCodename = buildStructuredCodename(parsed.timeline, newNumById[node.variationId], parsed.type, parsed.stage, parsed.letter);
+        if (oldCodename !== newCodename) {
+          node.codename = newCodename;
+          if (typeof updateDialogueConditionsForRenamedCodename === 'function') {
+            updateDialogueConditionsForRenamedCodename(node.id, oldCodename, newCodename);
+          }
+        }
+      }
+    }
+  });
+
+  if (activeVariationId === varId) {
+    const fallbackVar = remainingTlVars[0] || (appData.variations || [])[0];
+    if (fallbackVar) {
+      activeVariationId = fallbackVar.id;
+      activeTimelineId = fallbackVar.timelineId;
+    }
+  }
+
+  saveProjectToLocalStorage();
+  if (typeof syncProjectToDiskServer === 'function') {
+    syncProjectToDiskServer();
+  }
+  renderTimelinesManager();
+  renderApp();
+  showToast(`Deleted Variation "${targetVar.name}"`, "info");
+}
+window.deleteVariation = deleteVariation;
+
+function deleteTimeline(tlId) {
+  if (!requireAuthToEdit("delete timelines")) return;
+  const timelines = appData.timelines || [];
+  const targetTl = timelines.find(t => t.id === tlId);
+  if (!targetTl) return;
+
+  if (timelines.length <= 1) {
+    showToast("Cannot delete the only remaining timeline.", "warning");
+    return;
+  }
+
+  const tlVars = (appData.variations || []).filter(v => v.timelineId === tlId);
+  const tlVarIds = new Set(tlVars.map(v => v.id));
+  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool';
+
+  const tlNodes = (appData.nodes || []).filter(n => n && tlVarIds.has(n.variationId) && !isPoolCat(n.category));
+  const tlNodeIds = new Set(tlNodes.map(n => n.id));
+  const tlDialogues = (appData.dialogues || []).filter(d => {
+    if (!d) return false;
+    if (tlVarIds.has(d.variationId) && !isPoolCat(d.category)) return true;
+    const links = Array.isArray(d.links) && d.links.length > 0
+      ? d.links
+      : (d.targetEventId ? [{ targetEventId: d.targetEventId }] : []);
+    if (links.length > 0 && links.every(l => l && tlNodeIds.has(l.targetEventId))) return true;
+    return false;
+  });
+
+  const confirmMsg = `Delete Timeline T${targetTl.number}: "${targetTl.name}" and all ${tlVars.length} of its variations?\n\n` +
+    (tlNodes.length > 0 || tlDialogues.length > 0
+      ? `WARNING: This will permanently delete ${tlNodes.length} event(s) and ${tlDialogues.length} dialogue(s) belonging to this timeline.`
+      : `This timeline currently has 0 events and 0 dialogues.`);
+  if (!confirm(confirmMsg)) return;
+
+  pushUndoState();
+
+  // Remove timeline and its variations
+  appData.timelines = (appData.timelines || []).filter(t => t.id !== tlId);
+  appData.variations = (appData.variations || []).filter(v => v.timelineId !== tlId);
+
+  // Remove non-pool events in this timeline and clean up pool disabledVariationIds
+  appData.nodes = (appData.nodes || []).filter(n => {
+    if (!n) return false;
+    if (tlVarIds.has(n.variationId) && !isPoolCat(n.category)) return false;
+    if (Array.isArray(n.disabledVariationIds)) {
+      n.disabledVariationIds = n.disabledVariationIds.filter(id => !tlVarIds.has(id));
+    }
+    return true;
+  });
+
+  // Remove dialogues in this timeline or clean up links pointing to deleted nodes
+  appData.dialogues = (appData.dialogues || []).filter(d => {
+    if (!d) return false;
+    if (tlVarIds.has(d.variationId) && !isPoolCat(d.category)) return false;
+    if (Array.isArray(d.links) && d.links.length > 0) {
+      d.links = d.links.filter(l => !l || !tlNodeIds.has(l.targetEventId));
+      if (d.links.length === 0 && d.targetEventId && tlNodeIds.has(d.targetEventId)) return false;
+      if (d.links.length > 0) d.targetEventId = d.links[0].targetEventId;
+    } else if (d.targetEventId && tlNodeIds.has(d.targetEventId)) {
+      return false;
+    }
+    return true;
+  });
+
+  // Re-number remaining timelines 1..M and update structured event codenames if timeline numbers shifted
+  const remainingTimelines = (appData.timelines || []).sort((a, b) => Number(a.number || 1) - Number(b.number || 1));
+  const newTlNumById = {};
+  remainingTimelines.forEach((t, idx) => {
+    t.number = idx + 1;
+    newTlNumById[t.id] = t.number;
+  });
+
+  const varToTlNum = {};
+  (appData.variations || []).forEach(v => {
+    if (newTlNumById[v.timelineId]) {
+      varToTlNum[v.id] = newTlNumById[v.timelineId];
+    }
+  });
+
+  (appData.nodes || []).forEach(node => {
+    if (node && node.variationId && varToTlNum[node.variationId] && node.codename) {
+      const parsed = parseStructuredCodename(node.codename);
+      if (parsed && parsed.isStructured) {
+        const oldCodename = node.codename;
+        const newCodename = buildStructuredCodename(varToTlNum[node.variationId], parsed.variation, parsed.type, parsed.stage, parsed.letter);
+        if (oldCodename !== newCodename) {
+          node.codename = newCodename;
+          if (typeof updateDialogueConditionsForRenamedCodename === 'function') {
+            updateDialogueConditionsForRenamedCodename(node.id, oldCodename, newCodename);
+          }
+        }
+      }
+    }
+  });
+
+  if (activeTimelineId === tlId || tlVarIds.has(activeVariationId)) {
+    const firstTl = remainingTimelines[0];
+    const firstVar = (appData.variations || []).find(v => firstTl && v.timelineId === firstTl.id) || (appData.variations || [])[0];
+    if (firstTl) activeTimelineId = firstTl.id;
+    if (firstVar) activeVariationId = firstVar.id;
+  }
+
+  saveProjectToLocalStorage();
+  if (typeof syncProjectToDiskServer === 'function') {
+    syncProjectToDiskServer();
+  }
+  renderTimelinesManager();
+  renderApp();
+  showToast(`Deleted Timeline "${targetTl.name}" and its ${tlVars.length} variations`, "info");
+}
+window.deleteTimeline = deleteTimeline;
 
 function getActiveBoardEventBlocks() {
   const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
