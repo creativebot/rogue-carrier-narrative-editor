@@ -3362,10 +3362,16 @@ function createEventNodeDOM(node) {
     const targetIds = getActionTargetIds(act, node.id);
     const targetNodeObjs = targetIds.map(tid => (appData.nodes || []).find(n => n.id === tid)).filter(Boolean);
     const targetPillsHTML = targetNodeObjs.map(tObj => `
-      <span class="inline-flex items-center gap-0.5 bg-blue-100 text-blue-950 border border-blue-400 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold shadow-2xs">
-        <span class="cursor-pointer hover:underline" title="Jump to ${tObj.codename} (${tObj.name})" onclick="event.stopPropagation(); zoomInToBlock('${tObj.id}', false)">→ ${tObj.codename}</span>
+      <span class="inline-flex items-center gap-0.5 bg-blue-100 hover:bg-blue-200 text-blue-950 border border-blue-400 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold shadow-2xs transition"
+            onmousedown="event.stopPropagation();">
+        <button type="button"
+                class="linked-event-jump-btn cursor-pointer hover:underline text-blue-950 font-mono font-bold bg-transparent border-0 p-0 leading-none"
+                title="Jump to ${tObj.codename} (${tObj.name})"
+                onmousedown="event.stopPropagation();"
+                onclick="event.stopPropagation(); navigateToLinkedEvent('${tObj.id}')">→ ${tObj.codename}</button>
         <button type="button" class="ml-0.5 text-red-600 hover:text-red-800 font-bold leading-none px-0.5 cursor-pointer"
                 title="Disconnect link to ${tObj.codename}"
+                onmousedown="event.stopPropagation();"
                 onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}', '${tObj.id}')">×</button>
       </span>
     `).join('');
@@ -3373,7 +3379,7 @@ function createEventNodeDOM(node) {
     actionButtonsHTML += `
       <td class="event-value-cell text-center py-2 bg-yellow-100/50" id="action-btn-cell-${node.id}-${idx}">
         <div class="action-handle-group flex-wrap justify-center gap-1">
-          <button type="button" class="action-handle" title="Click to link another target event by codename or spawn a new branch event" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
+          <button type="button" class="action-handle" title="Click to link another target event by codename or spawn a new branch event" onmousedown="event.stopPropagation();" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
             ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}
           </button>
           ${targetPillsHTML}
@@ -3483,18 +3489,27 @@ function createEventNodeDOM(node) {
       inaction.targetNodeId = null;
     }
     const inactionTargetObj = inaction.targetNodeId ? (appData.nodes || []).find(n => n.id === inaction.targetNodeId) : null;
-    const unlinkInactionBtn = inactionTargetObj ? `
-      <button type="button" class="ml-1 px-1.5 py-0.5 rounded-full bg-red-600 hover:bg-red-500 text-white text-[10px] font-bold leading-none shadow transition cursor-pointer"
-              title="Disconnect inaction link to ${inactionTargetObj.codename}"
-              onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', 'inaction')">×</button>` : '';
+    const inactionTargetPillHTML = inactionTargetObj ? `
+      <span class="inline-flex items-center gap-0.5 bg-red-100 hover:bg-red-200 text-red-950 border border-red-400 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold shadow-2xs transition"
+            onmousedown="event.stopPropagation();">
+        <button type="button"
+                class="linked-event-jump-btn cursor-pointer hover:underline text-red-950 font-mono font-bold bg-transparent border-0 p-0 leading-none"
+                title="Jump to ${inactionTargetObj.codename} (${inactionTargetObj.name})"
+                onmousedown="event.stopPropagation();"
+                onclick="event.stopPropagation(); navigateToLinkedEvent('${inactionTargetObj.id}')">→ ${inactionTargetObj.codename}</button>
+        <button type="button" class="ml-0.5 text-red-600 hover:text-red-800 font-bold leading-none px-0.5 cursor-pointer"
+                title="Disconnect inaction link to ${inactionTargetObj.codename}"
+                onmousedown="event.stopPropagation();"
+                onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', 'inaction')">×</button>
+      </span>` : '';
 
     inactionBtnCell = `
       <td class="event-value-cell text-center py-2 bg-red-100/60" id="inaction-btn-cell-${node.id}">
-        <div class="action-handle-group">
-          <button type="button" class="action-handle bg-red-800 hover:bg-red-900 text-white border-red-700 font-bold" onclick="event.stopPropagation(); linkOrEditInaction('${node.id}')">
-            ${inactionTargetObj ? `Penalty → ${inactionTargetObj.codename}` : 'Penalty Resolution'}
+        <div class="action-handle-group flex-wrap justify-center gap-1">
+          <button type="button" class="action-handle bg-red-800 hover:bg-red-900 text-white border-red-700 font-bold" onmousedown="event.stopPropagation();" onclick="event.stopPropagation(); linkOrEditInaction('${node.id}')">
+            Penalty Resolution
           </button>
-          ${unlinkInactionBtn}
+          ${inactionTargetPillHTML}
           <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="inaction" title="Drag line to connect Inaction consequence event"></div>
         </div>
       </td>`;
@@ -7561,6 +7576,139 @@ function linkOrEditChoice(nodeId, actionId) {
   }
 }
 
+function linkOrEditInaction(nodeId) {
+  if (isArrangeMode) return;
+  const node = appData.nodes.find(n => n.id === nodeId);
+  if (!node || !node.inactionThreat) return;
+
+  const targetName = prompt("Enter Target Event Codename for Inaction consequence (or leave empty to create a new connected consequence event):");
+  if (targetName === null) return;
+
+  if (targetName.trim() === '') {
+    pushUndoState();
+    const nextFloorIdx = Math.min((Number(node.floorIndex) || 0) + 1, FLOOR_Y.length - 1);
+    const newCodename = generateNewEventCodename(node.category || 'KeyChain', nextFloorIdx, node.variationId || activeVariationId);
+    const newNode = {
+      id: `node_${Date.now()}`,
+      codename: newCodename,
+      name: `Inaction Consequence from ${node.name || node.codename}`,
+      type: node.type || 'World',
+      category: node.category || 'KeyChain',
+      variationId: node.variationId || activeVariationId,
+      floorIndex: nextFloorIdx,
+      spawnConditions: `Triggered by ${node.codename} Inaction`,
+      eventIntro: "Initial event context...",
+      eventDescription: "Enter inaction consequence narrative body text...",
+      reactionTimerHours: "Infinite",
+      hasInactionThreat: false,
+      inactionThreat: null,
+      position: { x: Math.round((node.position ? node.position.x : 140) + 200), y: FLOOR_Y[nextFloorIdx] },
+      actions: [
+        { id: `c_${Date.now()}`, codeSuffix: "A", shortDescription: "Continue", description: "Next step narrative", requirements: [], timerHours: 5, resultDescription: "", rewards: ["🧠 Knowledge +100"] }
+      ]
+    };
+    appData.nodes.push(newNode);
+    node.inactionThreat.targetNodeId = newNode.id;
+    preventNodeOverlap(newNode.id);
+    resequenceStageEventCodenames(nextFloorIdx, node.category || 'KeyChain', node.variationId || activeVariationId);
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Created & linked inaction consequence event ${newNode.codename}`, 'success');
+  } else {
+    const existing = appData.nodes.find(n => n.codename && n.codename.toLowerCase() === targetName.trim().toLowerCase());
+    if (existing) {
+      if (existing.id === nodeId) {
+        alert("An event cannot lead into itself.");
+        return;
+      }
+      pushUndoState();
+      node.inactionThreat.targetNodeId = existing.id;
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Linked ${node.codename} (Inaction) → ${existing.codename}`, 'success');
+    } else {
+      alert(`Node with codename ${targetName} not found.`);
+    }
+  }
+}
+
+function pulseTargetBlockHighlight(el) {
+  if (!el) return;
+  el.style.transition = 'box-shadow 0.25s ease, outline 0.25s ease';
+  el.style.outline = '4px solid #22d3ee';
+  el.style.boxShadow = '0 0 0 8px rgba(34, 211, 238, 0.35), 0 20px 35px rgba(0, 0, 0, 0.5)';
+  setTimeout(() => {
+    if (el) {
+      el.style.outline = '';
+      el.style.boxShadow = '';
+    }
+  }, 1800);
+}
+
+function navigateToLinkedEvent(targetIdOrCodename) {
+  if (!targetIdOrCodename) return;
+  const raw = String(targetIdOrCodename).trim();
+  const targetNode = (appData.nodes || []).find(n => n.id === raw) ||
+    (appData.nodes || []).find(n => n.codename && n.codename.toLowerCase() === raw.toLowerCase());
+  if (!targetNode) {
+    showToast(`Linked event "${raw}" not found`, 'warning');
+    return;
+  }
+
+  const targetCat = targetNode.category || 'KeyChain';
+  const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool');
+  let needsReRender = false;
+
+  if (targetCat !== activeCategoryFilter) {
+    activeCategoryFilter = targetCat;
+    syncCategoryFilterButtonsUI(targetCat);
+    needsReRender = true;
+  }
+
+  if (!isPool && targetNode.variationId && targetNode.variationId !== activeVariationId) {
+    activeVariationId = targetNode.variationId;
+    const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
+    if (vObj && vObj.timelineId) {
+      activeTimelineId = vObj.timelineId;
+    }
+    needsReRender = true;
+  }
+
+  if (currentAppViewMode === 'mobile-stage') {
+    const targetFloor = (targetNode.floorIndex !== undefined && targetNode.floorIndex !== null)
+      ? Number(targetNode.floorIndex)
+      : (targetNode.tier ? Math.max(0, Number(targetNode.tier) - 1) : 0);
+    if (activeMobileStageIndex !== targetFloor || needsReRender) {
+      activeMobileStageIndex = targetFloor;
+      renderApp();
+    }
+    setTimeout(() => {
+      const mobEl = document.getElementById(`mob-node-${targetNode.id}`);
+      if (mobEl) {
+        mobEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        pulseTargetBlockHighlight(mobEl);
+      }
+    }, 40);
+    showToast(`Jumped to ${targetNode.codename}`, 'info');
+    return;
+  }
+
+  if (needsReRender) {
+    renderApp();
+  }
+
+  zoomInToBlock(targetNode.id, false);
+  const desktopEl = document.getElementById(`node-${targetNode.id}`);
+  if (desktopEl) {
+    pulseTargetBlockHighlight(desktopEl);
+  }
+  showToast(`Jumped to ${targetNode.codename}`, 'info');
+}
+
+window.linkOrEditChoice = linkOrEditChoice;
+window.linkOrEditInaction = linkOrEditInaction;
+window.navigateToLinkedEvent = navigateToLinkedEvent;
+
 // Block-Specific Floating Zoom-In & Zoom-Out Engine
 function getFloatingZoomButtonsHTML(blockId, isDialogue = false) {
   const currentScale = transform.scale;
@@ -7620,6 +7768,26 @@ function updateBlockZoomButtons() {
 function zoomInToBlock(blockId, isDialogue) {
   const obj = isDialogue ? appData.dialogues.find(d => d.id === blockId) : appData.nodes.find(n => n.id === blockId);
   if (!obj || !obj.position) return;
+
+  if (!isDialogue) {
+    const targetCat = obj.category || 'KeyChain';
+    const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool');
+    let switched = false;
+    if (targetCat !== activeCategoryFilter) {
+      activeCategoryFilter = targetCat;
+      syncCategoryFilterButtonsUI(targetCat);
+      switched = true;
+    }
+    if (!isPool && obj.variationId && obj.variationId !== activeVariationId) {
+      activeVariationId = obj.variationId;
+      const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
+      if (vObj && vObj.timelineId) activeTimelineId = vObj.timelineId;
+      switched = true;
+    }
+    if (switched) {
+      renderApp();
+    }
+  }
 
   const el = document.getElementById(isDialogue ? `dialogue-${blockId}` : `node-${blockId}`);
   const blockW = isDialogue ? 490 : 880;
@@ -7793,6 +7961,7 @@ function makeNodesDraggable() {
       if (isArrangeMode) {
         if (e.target.closest('.connector-port') ||
             e.target.closest('.dialogue-trigger-port') ||
+            e.target.closest('.linked-event-jump-btn') ||
             e.target.closest('.btn-zoom-corner') ||
             e.target.closest('.block-floating-btn')) {
           return;
@@ -7801,6 +7970,8 @@ function makeNodesDraggable() {
         // Pan & Edit Mode: Do not drag card if clicking inside an editable spot or button
         if (e.target.closest('.editable-spot') || 
             e.target.closest('button') || 
+            e.target.closest('.linked-event-jump-btn') ||
+            e.target.closest('.action-handle-group') ||
             e.target.closest('input') || 
             e.target.closest('textarea') || 
             e.target.closest('select') || 
@@ -9224,8 +9395,8 @@ function renderMobileStageView() {
         const targetIds = getActionTargetIds(act, node.id);
         const targetNodes = targetIds.map(tid => (appData.nodes || []).find(n => n.id === tid)).filter(Boolean);
         const targetBadgesHTML = targetNodes.map(tn => `
-          <span class="text-[10px] font-mono font-bold text-blue-300 bg-blue-950/80 border border-blue-800/70 px-1.5 py-0.5 rounded inline-flex items-center gap-1" title="Leads to ${tn.name}">
-            <span>→ ${tn.codename}</span>
+          <span class="text-[10px] font-mono font-bold text-blue-300 bg-blue-950/80 border border-blue-800/70 px-1.5 py-0.5 rounded inline-flex items-center gap-1" title="Jump to ${tn.codename} (${tn.name})">
+            <button type="button" class="linked-event-jump-btn cursor-pointer hover:underline text-blue-300 hover:text-white bg-transparent border-0 p-0 font-mono font-bold" onclick="event.stopPropagation(); navigateToLinkedEvent('${tn.id}')">→ ${tn.codename}</button>
             <button type="button" class="text-red-400 hover:text-red-200 font-bold" onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}', '${tn.id}')" title="Disconnect">×</button>
           </span>
         `).join('');
@@ -9290,7 +9461,7 @@ function renderMobileStageView() {
                   🏁 Event Outcome (Action Result)
                 </span>
                 <div class="flex items-center gap-1.5">
-                  ${targetNodes.length > 0 ? `<span class="text-[10px] font-mono text-blue-300">Outcome → ${targetNodes.map(t => t.codename).join(', ')}</span>` : ''}
+                  ${targetNodes.length > 0 ? `<span class="text-[10px] font-mono text-blue-300">Outcome → ${targetNodes.map(t => `<button type="button" class="linked-event-jump-btn cursor-pointer hover:underline text-blue-300 hover:text-white bg-transparent border-0 p-0 font-mono font-bold" onclick="event.stopPropagation(); navigateToLinkedEvent('${t.id}')">${t.codename}</button>`).join(', ')}</span>` : ''}
                   ${getSymbolCounterBadgeHTML(resDescStr, 'eventOutcome', true)}
                 </div>
               </div>
@@ -9326,6 +9497,13 @@ function renderMobileStageView() {
       let inactionHTML = '';
       if (node.hasInactionThreat && node.inactionThreat) {
         const inact = node.inactionThreat;
+        const inactTarget = inact.targetNodeId ? (appData.nodes || []).find(n => n.id === inact.targetNodeId) : null;
+        const inactTargetBadgeHTML = inactTarget ? `
+          <span class="text-[10px] font-mono font-bold text-red-200 bg-red-950/90 border border-red-700/80 px-1.5 py-0.5 rounded inline-flex items-center gap-1" title="Jump to ${inactTarget.codename} (${inactTarget.name})">
+            <button type="button" class="linked-event-jump-btn cursor-pointer hover:underline text-red-200 hover:text-white bg-transparent border-0 p-0 font-mono font-bold" onclick="event.stopPropagation(); navigateToLinkedEvent('${inactTarget.id}')">→ ${inactTarget.codename}</button>
+            <button type="button" class="text-red-400 hover:text-red-200 font-bold" onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', 'inaction')" title="Disconnect">×</button>
+          </span>
+        ` : '';
         const inactPostDiags = (appData.dialogues || []).filter(d =>
           getDialogueLinks(d).some(l =>
             l.targetEventId === node.id &&
@@ -9340,9 +9518,12 @@ function renderMobileStageView() {
 
         inactionHTML = `
           <div class="mobile-action-box border-red-800/60 bg-red-950/20 space-y-2">
-            <div class="flex items-center justify-between border-b border-red-800/40 pb-1.5">
+            <div class="flex items-center justify-between border-b border-red-800/40 pb-1.5 gap-2 flex-wrap">
               <span class="font-bold text-xs text-red-300 font-mono">⚠️ Inaction: ${inact.shortDescription || 'Timeout'}</span>
-              <span class="text-[10px] text-red-300 font-mono">⏱️ ${inact.timerHours || node.reactionTimerHours || 'Infinite'}</span>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                ${inactTargetBadgeHTML}
+                <span class="text-[10px] text-red-300 font-mono">⏱️ ${inact.timerHours || node.reactionTimerHours || 'Infinite'}</span>
+              </div>
             </div>
             <p class="text-xs text-gray-300 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.description')">
               ${inact.description || inact.consequenceText || 'Triggered if timer expires without choice.'}
