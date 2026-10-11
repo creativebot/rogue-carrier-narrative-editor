@@ -2731,8 +2731,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3597,
-        "y": 2170
+        "x": 3543,
+        "y": 2401
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2824,7 +2824,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:42:05.462Z",
+  "_lastModified": "2026-10-11T13:51:59.296Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
