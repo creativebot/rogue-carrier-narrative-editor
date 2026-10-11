@@ -1555,7 +1555,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2541,
+        "x": 2439,
         "y": 2070
       },
       "actions": [
@@ -2824,5 +2824,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:06:01.495Z"
+  "_lastModified": "2026-10-11T13:06:02.987Z"
 }
