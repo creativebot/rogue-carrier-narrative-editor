@@ -608,16 +608,7 @@
           "rewards": [
             "📜 Blueprints +3",
             "Nano Parts x15",
-            "🧠 Knowledge +350",
-            {
-              "resourceId": "criteria_sick_survivors",
-              "name": "Sick survivors",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
+            "🧠 Knowledge +350"
           ],
           "targetNodeId": "node_1791706248386",
           "targetNodeIds": [
@@ -2687,7 +2678,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T18:08:50.660Z",
+  "_lastModified": "2026-10-11T18:08:53.788Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
