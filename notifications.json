@@ -1,3 +1,18 @@
 {
-  "notifications": []
+  "notifications": [
+    {
+      "id": "notif_1791723288309_0",
+      "recipientEmail": "vkuznietsov@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "node_1791717900687",
+      "targetType": "event",
+      "targetTitle": "T1-V2-K1A - New Event Block",
+      "commentText": "@vkuznietsov second test to see if my name is displayed correctly",
+      "commentId": "cmt_1791723288305",
+      "createdAt": "2026-10-11T12:54:48.305503Z",
+      "displayTime": "Oct 11, 12:54",
+      "read": false
+    }
+  ]
 }
