@@ -1694,8 +1694,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1283,
-        "y": 2616
+        "x": 1482,
+        "y": 2636
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2748,7 +2748,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:55:32.988Z",
+  "_lastModified": "2026-10-11T13:55:35.054Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
