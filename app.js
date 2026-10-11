@@ -314,6 +314,52 @@ function inspectDatasetForTargetEdits(data) {
   };
 }
 
+// Accurately counts unique Event Blocks and Dialogue Blocks on the active board for any dataset snapshot
+function countDatasetBlocksForActiveBoard(data, categoryFilter = activeCategoryFilter, variationId = activeVariationId) {
+  if (!data || typeof data !== 'object') return { eventCount: 0, dialogueCount: 0 };
+  const isPoolPage = (categoryFilter === 'GenericPool' || categoryFilter === 'DeckPool');
+  const seenNodeIds = new Set();
+  const nodes = Array.isArray(data.nodes) ? data.nodes : [];
+  nodes.forEach(n => {
+    if (!n || !n.id || seenNodeIds.has(n.id)) return;
+    const cat = n.category || 'KeyChain';
+    if (cat !== categoryFilter) return;
+    if (!isPoolPage && n.variationId && n.variationId !== variationId) return;
+    seenNodeIds.add(n.id);
+  });
+
+  const seenDialogueIds = new Set();
+  const dialogues = Array.isArray(data.dialogues) ? data.dialogues : [];
+  dialogues.forEach(d => {
+    if (!d || !d.id || seenDialogueIds.has(d.id)) return;
+    const links = [];
+    if (Array.isArray(d.links) && d.links.length > 0) {
+      d.links.forEach(l => {
+        if (l && l.targetEventId) links.push(l);
+      });
+    } else if (d.targetEventId) {
+      links.push({ targetEventId: d.targetEventId });
+    }
+
+    if (links.length > 0) {
+      const hasVisibleLink = links.some(link => seenNodeIds.has(link.targetEventId));
+      if (!hasVisibleLink) return;
+      seenDialogueIds.add(d.id);
+      return;
+    }
+
+    const cat = d.category || 'KeyChain';
+    if (cat !== categoryFilter) return;
+    if (!isPoolPage && d.variationId && d.variationId !== variationId) return;
+    seenDialogueIds.add(d.id);
+  });
+
+  return {
+    eventCount: seenNodeIds.size,
+    dialogueCount: seenDialogueIds.size
+  };
+}
+
 // Scans all browser storage keys for saved sessions, safety snapshots, and rolling backups
 function scanAllLocalRecoveryCandidates() {
   const candidates = [];
@@ -321,9 +367,11 @@ function scanAllLocalRecoveryCandidates() {
 
   function addCandidate(cand) {
     if (!cand || !cand.data) return;
-    const nodeCount = cand.nodeCount || (Array.isArray(cand.data.nodes) ? cand.data.nodes.length : 0);
-    const dialogueCount = cand.dialogueCount || (Array.isArray(cand.data.dialogues) ? cand.data.dialogues.length : 0);
-    if (nodeCount === 0 && dialogueCount === 0) return;
+    const boardCounts = countDatasetBlocksForActiveBoard(cand.data);
+    const nodeCount = boardCounts.eventCount;
+    const dialogueCount = boardCounts.dialogueCount;
+    const rawNodesLen = Array.isArray(cand.data.nodes) ? cand.data.nodes.length : 0;
+    if (rawNodesLen === 0 && dialogueCount === 0) return;
 
     const totalTextChars = calculateDatasetTextChars(cand.data);
     const targetInspection = inspectDatasetForTargetEdits(cand.data);
@@ -443,10 +491,11 @@ function scanAllLocalRecoveryCandidates() {
     }
   } catch (e) {}
 
-  // Sort candidates: richest first (totalScore), then newest timestamp
+  // Sort candidates by newest timestamp first so latest state (including deletions) is prioritized
   candidates.sort((a, b) => {
-    if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
-    return new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
+    const tDiff = new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
+    if (tDiff !== 0 && !isNaN(tDiff)) return tDiff;
+    return b.totalScore - a.totalScore;
   });
 
   return candidates;
@@ -463,14 +512,15 @@ function archiveLocalSnapshot(reason, dataToArchive) {
     if (!Array.isArray(list)) list = [];
 
     const now = new Date();
+    const boardCounts = countDatasetBlocksForActiveBoard(payload);
     list.unshift({
       id: `archive_${Date.now()}`,
       name: reason || "Session Backup",
       author: (currentUser && currentUser.name) || (payload.projectInfo && payload.projectInfo.author) || 'User Session',
       timestamp: now.toISOString(),
       displayTime: now.toLocaleDateString() + ' ' + now.toLocaleTimeString(),
-      nodeCount: (payload.nodes || []).length,
-      dialogueCount: (payload.dialogues || []).length,
+      nodeCount: boardCounts.eventCount,
+      dialogueCount: boardCounts.dialogueCount,
       data: payload
     });
 
@@ -599,12 +649,12 @@ async function loadProjectData() {
 
   // 1. Scan all local candidates first
   const localCandidates = scanAllLocalRecoveryCandidates();
-  const bestLocal = localCandidates.length > 0 ? localCandidates[0] : null;
+  const bestLocal = localCandidates.find(c => c.sourceType === 'local_active') || (localCandidates.length > 0 ? localCandidates[0] : null);
 
   // 2. Fetch server disk state (/api/load)
   try {
-    const headers = {};
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+    const headers = typeof getAuthHeaders === 'function' ? getAuthHeaders(false) : {};
+    if (authToken && !headers['Authorization']) headers['Authorization'] = `Bearer ${authToken}`;
     const serverRes = await fetch('/api/load', { headers });
     if (serverRes.ok) {
       serverData = await serverRes.json();
@@ -614,30 +664,30 @@ async function loadProjectData() {
     console.warn("Could not reach server /api/load, checking local storage", err);
   }
 
-  const serverNodesCount = (serverData && Array.isArray(serverData.nodes)) ? serverData.nodes.length : 0;
-  const serverDialoguesCount = (serverData && Array.isArray(serverData.dialogues)) ? serverData.dialogues.length : 0;
+  const serverCounts = countDatasetBlocksForActiveBoard(serverData);
+  const serverNodesCount = serverCounts.eventCount;
+  const serverDialoguesCount = serverCounts.dialogueCount;
   const serverTextChars = calculateDatasetTextChars(serverData);
   const serverScore = (serverNodesCount * 100) + (serverDialoguesCount * 10) + Math.min(serverTextChars, 10000);
+  const serverModTime = (serverData && serverData._lastModified) ? new Date(serverData._lastModified).getTime() : 0;
 
   const localNodesCount = bestLocal ? bestLocal.nodeCount : 0;
-  const localDialoguesCount = bestLocal ? bestLocal.dialogueCount : 0;
   const localTextChars = bestLocal ? (bestLocal.totalTextChars || 0) : 0;
   const localScore = bestLocal ? bestLocal.totalScore : 0;
-  const hasTargetEdits = bestLocal && Boolean(bestLocal.hasTargetEdits);
+  const localModTime = (bestLocal && bestLocal.data && bestLocal.data._lastModified) ? new Date(bestLocal.data._lastModified).getTime() : 0;
 
-  console.log(`[Storage Check] Server: ${serverScore} pts (${serverNodesCount} nodes, ${serverTextChars} chars), Best Local: ${localScore} pts (${localNodesCount} nodes, ${localTextChars} chars, targetEdits: ${hasTargetEdits})`);
+  console.log(`[Storage Check] Server: ${serverNodesCount} events (mod: ${serverModTime}), Local: ${localNodesCount} events (mod: ${localModTime})`);
 
   // 3. Smart Decision Logic:
-  // If local data has MORE content, or MORE text (narrative edits in cards), or target edits in K3A/K3B/K4A:
-  const localIsRicher = bestLocal && (
-    hasTargetEdits ||
-    localScore > serverScore ||
-    (localTextChars > serverTextChars + 15) ||
-    (serverScore <= 1000 && localScore > 1000)
+  // Prioritize whichever state has the newer _lastModified timestamp (or local if server is empty)
+  const localIsNewer = bestLocal && (
+    (localModTime > 0 && serverModTime > 0 && localModTime > serverModTime + 2000) ||
+    (!serverLoadOk && localNodesCount > 0) ||
+    (serverNodesCount === 0 && localNodesCount > 0)
   );
 
-  if (localIsRicher) {
-    console.log("[Data Recovery] Local storage has richer session work than server disk. Prioritizing local data!");
+  if (localIsNewer) {
+    console.log("[Data Recovery] Local active cache is newer than server disk. Syncing local to server!");
     appData = JSON.parse(JSON.stringify(bestLocal.data));
     loaded = true;
     normalizeAllProjectData();
@@ -645,15 +695,14 @@ async function loadProjectData() {
 
     // Auto-heal the server disk immediately
     syncProjectToDiskServer();
-    showToast(`Loaded session with ${bestLocal.nodeCount} events`, 'info');
-  } else if (serverLoadOk && serverData && serverNodesCount > 0) {
-    // Server data is richer or equal.
-    if (bestLocal && localScore > 0) {
+  } else if (serverLoadOk && serverData && Array.isArray(serverData.nodes) && serverData.nodes.length > 0) {
+    if (bestLocal && localScore > 0 && localModTime !== serverModTime) {
       archiveLocalSnapshot("Pre-Server-Sync Local State", bestLocal.data);
     }
     appData = serverData;
     loaded = true;
     normalizeAllProjectData();
+    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   } else if (bestLocal) {
     // Offline or server not available, load best local
     appData = JSON.parse(JSON.stringify(bestLocal.data));
@@ -1355,12 +1404,38 @@ function saveProjectToLocalStorage() {
   }, 400);
 }
 
+// Builds standard auth headers for all server API calls
+function getAuthHeaders(includeJsonContentType = true) {
+  const headers = {};
+  if (includeJsonContentType) {
+    headers['Content-Type'] = 'application/json';
+  }
+  const tok = authToken || localStorage.getItem('rogue_carrier_auth_token') || '';
+  if (tok) {
+    headers['Authorization'] = `Bearer ${tok}`;
+    headers['X-Auth-Token'] = tok;
+  }
+  let userObj = currentUser;
+  if (!userObj) {
+    try {
+      const savedUser = localStorage.getItem('rogue_carrier_auth_user');
+      if (savedUser) userObj = JSON.parse(savedUser);
+    } catch (e) {}
+  }
+  if (userObj) {
+    if (userObj.email) headers['X-User-Email'] = userObj.email;
+    if (userObj.name) headers['X-User-Name'] = userObj.name;
+  }
+  return headers;
+}
+
 // Full manual or automated save triggered by Ctrl+S, Save button, or periodic timer
 async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   clearTimeout(autoSaveDiskTimer);
   if (!appData || !Array.isArray(appData.nodes)) return;
 
   appData._lastModified = new Date().toISOString();
+  // Always keep a local copy in browser storage as well
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
@@ -1378,28 +1453,32 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   if (managerSavedText) managerSavedText.innerText = `(Last saved: ${timeStr})`;
 
   try {
-    const headers = { 'Content-Type': 'application/json' };
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     if (currentUser && currentUser.name && appData.projectInfo) {
       appData.projectInfo.author = currentUser.name;
     }
 
     const res = await fetch('/api/save', {
       method: 'POST',
-      headers: headers,
+      headers: getAuthHeaders(true),
       body: JSON.stringify(appData)
     });
     if (res.ok) {
       const resp = await res.json();
-      if (badgeText) badgeText.innerText = `Saved (${resp.timestamp || timeStr})`;
+      if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || timeStr})`;
       if (isManual) {
-        showToast(`Project saved to disk (${resp.timestamp || timeStr})`, 'success');
+        showToast(`Saved to server & local copy (${resp.timestamp || timeStr})`, 'success');
       }
     } else {
       if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
+      if (isManual) {
+        showToast(`Saved local copy (${timeStr}) — server returned ${res.status}`, 'warning');
+      }
     }
   } catch (e) {
     if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
+    if (isManual) {
+      showToast(`Offline: Saved local copy (${timeStr})`, 'info');
+    }
   }
 
   // Record rolling version snapshot on server disk and local storage
@@ -1410,20 +1489,18 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
 async function syncProjectToDiskServer() {
   const badgeText = document.getElementById('save-status-text');
   try {
-    const headers = { 'Content-Type': 'application/json' };
-    if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     if (currentUser && currentUser.name && appData.projectInfo) {
       appData.projectInfo.author = currentUser.name;
     }
 
     const res = await fetch('/api/save', {
       method: 'POST',
-      headers: headers,
+      headers: getAuthHeaders(true),
       body: JSON.stringify(appData)
     });
     if (res.ok) {
       const resp = await res.json();
-      if (badgeText) badgeText.innerText = `Saved (${resp.timestamp || 'Disk'})`;
+      if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || 'Synced'})`;
     }
   } catch (e) {
     if (badgeText) badgeText.innerText = 'Saved Locally';
@@ -1435,34 +1512,43 @@ async function recordVersionSnapshot(name, author = 'Wild Fields', notify = fals
   const time = new Date();
   const timestamp = time.toISOString();
   const displayTime = time.toLocaleDateString() + ' ' + time.toLocaleTimeString();
+  const boardCounts = countDatasetBlocksForActiveBoard(appData);
 
-  const versionMeta = {
-    id: `save_${Date.now()}`,
-    name: name,
-    author: author,
-    timestamp: timestamp,
-    displayTime: displayTime,
-    nodeCount: (appData.nodes || []).length,
-    dialogueCount: (appData.dialogues || []).length,
-    data: appData
-  };
+  let serverSaveId = `save_${Date.now()}`;
 
-  // 1. Try saving to server disk /api/saves
+  // 1. Save to server disk /api/saves
   try {
-    await fetch('/api/saves', {
+    const res = await fetch('/api/saves', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(true),
       body: JSON.stringify({
         name: name,
         author: author,
         data: appData
       })
     });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.save && json.save.id) {
+        serverSaveId = json.save.id;
+      }
+    }
   } catch (e) {
     console.warn("Could not reach /api/saves on server, persisting in localStorage", e);
   }
 
-  // 2. Always persist in localStorage as well (offline fallback)
+  const versionMeta = {
+    id: serverSaveId,
+    name: name,
+    author: author,
+    timestamp: timestamp,
+    displayTime: displayTime,
+    nodeCount: boardCounts.eventCount,
+    dialogueCount: boardCounts.dialogueCount,
+    data: appData
+  };
+
+  // 2. Always persist in localStorage as well (local copy & offline fallback)
   try {
     const raw = localStorage.getItem('rc_local_saved_versions');
     let list = raw ? JSON.parse(raw) : [];
@@ -1483,7 +1569,7 @@ async function recordVersionSnapshot(name, author = 'Wild Fields', notify = fals
   }
 
   if (notify) {
-    showToast(`Version '${name}' stored successfully!`, 'success');
+    showToast(`Version '${name}' saved to server & local copy!`, 'success');
   }
 }
 
@@ -1496,7 +1582,7 @@ async function saveSafetyBackup(reason) {
     }));
     await fetch('/api/saves', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(true),
       body: JSON.stringify({
         name: `Backup (${reason})`,
         author: 'Auto Backup',
@@ -1511,7 +1597,10 @@ async function saveSafetyBackup(reason) {
 async function fetchAllSavedVersions() {
   let serverSaves = [];
   try {
-    const res = await fetch('/api/saves');
+    const qs = `?category=${encodeURIComponent(activeCategoryFilter)}&variationId=${encodeURIComponent(activeVariationId)}`;
+    const res = await fetch(`/api/saves${qs}`, {
+      headers: getAuthHeaders(false)
+    });
     if (res.ok) {
       const json = await res.json();
       serverSaves = json.saves || [];
@@ -1527,10 +1616,27 @@ async function fetchAllSavedVersions() {
   } catch (e) {}
 
   const map = new Map();
-  serverSaves.forEach(s => map.set(s.id, { ...s, source: 'disk' }));
+  serverSaves.forEach(s => {
+    map.set(s.id, { ...s, source: 'disk' });
+  });
   localSaves.forEach(s => {
+    if (!s) return;
+    const boardCounts = s.data ? countDatasetBlocksForActiveBoard(s.data) : {
+      eventCount: s.nodeCount || 0,
+      dialogueCount: s.dialogueCount || 0
+    };
+    const normalizedLocal = {
+      ...s,
+      nodeCount: boardCounts.eventCount,
+      dialogueCount: boardCounts.dialogueCount,
+      source: 'local'
+    };
     if (!map.has(s.id)) {
-      map.set(s.id, { ...s, source: 'local' });
+      // Also check if a server save with the exact same name was created at the same time
+      const dupServer = serverSaves.find(srv => srv.name === s.name && Math.abs(new Date(srv.timestamp || 0) - new Date(s.timestamp || 0)) < 5000);
+      if (!dupServer) {
+        map.set(s.id, normalizedLocal);
+      }
     }
   });
 
@@ -1578,7 +1684,7 @@ async function renderSavedVersionsList() {
         <div class="flex items-center gap-2 flex-wrap">
           <span class="font-bold text-white text-xs truncate">${s.name || 'Untitled Version'}</span>
           <span class="text-[10px] font-mono px-1.5 py-0.5 rounded ${s.source === 'disk' ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-cyan-950 text-cyan-300 border border-cyan-800'}">
-            ${s.source === 'disk' ? '💾 Disk File' : '🌐 Local Mirror'}
+            ${s.source === 'disk' ? '☁️ Server & Local' : '🌐 Local Copy'}
           </span>
           <span class="text-[10px] text-gray-400 bg-gray-900 px-1.5 py-0.5 rounded border border-gray-800">
             ${s.author || 'User'}
@@ -1626,7 +1732,7 @@ async function loadSpecificVersion(saveId, saveName, filename) {
 
   try {
     const fn = filename || `${saveId}.json`;
-    const res = await fetch(`/api/saves/${fn}`);
+    const res = await fetch(`/api/saves/${fn}`, { headers: getAuthHeaders(false) });
     if (res.ok) {
       const json = await res.json();
       loadedData = json.data || json;
@@ -1664,7 +1770,7 @@ async function downloadSpecificVersion(saveId, saveName, filename) {
   let dataToDownload = null;
   try {
     const fn = filename || `${saveId}.json`;
-    const res = await fetch(`/api/saves/${fn}`);
+    const res = await fetch(`/api/saves/${fn}`, { headers: getAuthHeaders(false) });
     if (res.ok) {
       dataToDownload = await res.json();
     }
@@ -1698,7 +1804,7 @@ async function deleteSpecificVersion(saveId, saveName, filename) {
 
   try {
     const fn = filename || `${saveId}.json`;
-    await fetch(`/api/saves/${fn}`, { method: 'DELETE' });
+    await fetch(`/api/saves/${fn}`, { method: 'DELETE', headers: getAuthHeaders(false) });
   } catch (e) {}
 
   try {
@@ -8313,7 +8419,14 @@ window.refreshLayoutHealthModal = refreshLayoutHealthModal;
 /* ==========================================================================
    AUTHENTICATION & DOMAIN ACCESS CONTROL (@n-ix.com)
    ========================================================================== */
-let currentUser = null;
+let currentUser = (() => {
+  try {
+    const raw = localStorage.getItem('rogue_carrier_auth_user');
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+})();
 let authToken = localStorage.getItem('rogue_carrier_auth_token') || '';
 let allNixUsers = [];
 
@@ -8340,13 +8453,16 @@ async function initAuthSystem() {
   if (authToken) {
     try {
       const res = await fetch('/api/auth/me', {
-        headers: { 'Authorization': `Bearer ${authToken}` }
+        headers: getAuthHeaders(false)
       });
       if (res.ok) {
         const data = await res.json();
         if (data.status === 'success' && data.user) {
           currentUser = data.user;
-        } else {
+          try {
+            localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
+          } catch (e) {}
+        } else if (!currentUser) {
           authToken = '';
           localStorage.removeItem('rogue_carrier_auth_token');
         }
@@ -8550,6 +8666,9 @@ async function handleGoogleSignInResponse(response) {
       authToken = data.token;
       currentUser = data.user;
       localStorage.setItem('rogue_carrier_auth_token', authToken);
+      try {
+        localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
+      } catch (e) {}
       updateAuthHeaderUI();
       closeModal('modal-auth');
       showToast(data.message || `Signed in with Google as ${currentUser.name}!`, 'success');
@@ -8644,6 +8763,9 @@ async function submitUserLogin() {
       authToken = data.token;
       currentUser = data.user;
       localStorage.setItem('rogue_carrier_auth_token', authToken);
+      try {
+        localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
+      } catch (e) {}
       updateAuthHeaderUI();
       closeModal('modal-auth');
 
@@ -8717,6 +8839,9 @@ async function submitUserRegister() {
       authToken = data.token;
       currentUser = data.user;
       localStorage.setItem('rogue_carrier_auth_token', authToken);
+      try {
+        localStorage.setItem('rogue_carrier_auth_user', JSON.stringify(currentUser));
+      } catch (e) {}
       updateAuthHeaderUI();
       closeModal('modal-auth');
 
@@ -8750,6 +8875,7 @@ function logoutUser() {
   authToken = '';
   currentUser = null;
   localStorage.removeItem('rogue_carrier_auth_token');
+  localStorage.removeItem('rogue_carrier_auth_user');
   updateAuthHeaderUI();
   showToast('Signed out of Rogue Carrier Editor.', 'info');
 }
@@ -8899,10 +9025,13 @@ async function loadBackupsList() {
   // 1. Gather browser local storage candidates
   const localCandidates = scanAllLocalRecoveryCandidates();
 
-  // 2. Gather server backups
+  // 2. Gather server backups with active board filter
   let serverBackups = [];
   try {
-    const res = await fetch('/api/backups');
+    const qs = `?category=${encodeURIComponent(activeCategoryFilter)}&variationId=${encodeURIComponent(activeVariationId)}`;
+    const res = await fetch(`/api/backups${qs}`, {
+      headers: getAuthHeaders(false)
+    });
     if (res.ok) {
       const data = await res.json();
       serverBackups = data.backups || [];
@@ -8970,7 +9099,7 @@ async function loadBackupsList() {
           <div class="space-y-1 min-w-0 flex-1">
             <div class="flex items-center gap-2 flex-wrap">
               <span class="font-bold text-gray-200 text-xs truncate">${cand.name}</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Browser Cache</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Local Copy</span>
               <span class="text-[10px] text-gray-400 font-mono">🕒 ${cand.displayTime}</span>
               <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-gray-900 text-gray-400">👤 ${cand.author || 'User'}</span>
             </div>
@@ -9019,11 +9148,11 @@ async function createManualSnapshot() {
   try {
     const res = await fetch('/api/backups/create', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(true),
       body: JSON.stringify({ reason: reason.trim() || 'Manual Snapshot', author })
     });
     if (res.ok) {
-      showToast("Manual snapshot captured successfully!", "success");
+      showToast("Manual snapshot captured on server & local copy!", "success");
       loadBackupsList();
     }
   } catch (e) {
@@ -9039,7 +9168,7 @@ async function restoreSnapshot(snapshotId) {
   try {
     const res = await fetch('/api/backups/restore', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(true),
       body: JSON.stringify({ id: snapshotId })
     });
     if (res.ok) {

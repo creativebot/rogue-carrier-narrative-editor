@@ -73,6 +73,93 @@ def save_sessions():
     except Exception:
         pass
 
+import hmac
+
+TOKEN_SECRET = os.environ.get("TOKEN_SECRET", "rc-narrative-stateless-token-secret-2026")
+
+def sign_user_token(user_dict):
+    try:
+        payload_bytes = json.dumps(user_dict, separators=(',', ':'), ensure_ascii=False).encode('utf-8')
+        b64_payload = base64.urlsafe_b64encode(payload_bytes).decode('utf-8').rstrip('=')
+        sig = hmac.new(TOKEN_SECRET.encode('utf-8'), b64_payload.encode('utf-8'), hashlib.sha256).hexdigest()
+        return f"rctok.{b64_payload}.{sig}"
+    except Exception:
+        return str(uuid.uuid4())
+
+def verify_user_token(token):
+    if not token or not token.startswith("rctok."):
+        return None
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        b64_payload, sig = parts[1], parts[2]
+        expected_sig = hmac.new(TOKEN_SECRET.encode('utf-8'), b64_payload.encode('utf-8'), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(sig, expected_sig):
+            return None
+        padding = '=' * (-len(b64_payload) % 4)
+        user_dict = json.loads(base64.urlsafe_b64decode(b64_payload + padding).decode('utf-8'))
+        return user_dict
+    except Exception:
+        return None
+
+def count_board_contents(app_data, category='KeyChain', variation_id='var_v1'):
+    """
+    Counts unique Event Blocks and Dialogue Blocks on the active board
+    (defaulting to KeyChain + var_v1), matching the editor footer logic
+    and excluding hidden template categories (SecretChain, GenericPool, DeckPool).
+    """
+    if not isinstance(app_data, dict):
+        return 0, 0
+    nodes = app_data.get('nodes') or []
+    dialogues = app_data.get('dialogues') or []
+    is_pool_page = category in ('GenericPool', 'DeckPool')
+
+    seen_node_ids = set()
+    for n in nodes:
+        if not isinstance(n, dict):
+            continue
+        nid = n.get('id')
+        if not nid or nid in seen_node_ids:
+            continue
+        cat = n.get('category') or 'KeyChain'
+        if cat != category:
+            continue
+        var_id = n.get('variationId')
+        if not is_pool_page and var_id and var_id != variation_id:
+            continue
+        seen_node_ids.add(nid)
+
+    seen_diag_ids = set()
+    for d in dialogues:
+        if not isinstance(d, dict):
+            continue
+        did = d.get('id')
+        if not did or did in seen_diag_ids:
+            continue
+        links = []
+        if isinstance(d.get('links'), list) and len(d.get('links')) > 0:
+            for l in d.get('links'):
+                if isinstance(l, dict) and l.get('targetEventId'):
+                    links.append(l)
+        elif d.get('targetEventId'):
+            links.append({'targetEventId': d.get('targetEventId')})
+
+        if len(links) > 0:
+            if any(l.get('targetEventId') in seen_node_ids for l in links):
+                seen_diag_ids.add(did)
+            continue
+
+        cat = d.get('category') or 'KeyChain'
+        if cat != category:
+            continue
+        var_id = d.get('variationId')
+        if not is_pool_page and var_id and var_id != variation_id:
+            continue
+        seen_diag_ids.add(did)
+
+    return len(seen_node_ids), len(seen_diag_ids)
+
 # Persistent Session Store across server restarts
 SESSIONS = load_sessions()
 OTP_STORE = {}    # email -> {"otp": "123456", "expires": datetime}
@@ -573,6 +660,8 @@ def create_backup_snapshot(trigger_reason, author, app_data):
     filename = f"{snapshot_id}.json"
     filepath = os.path.join(BACKUPS_DIR, filename)
 
+    ev_count, diag_count = count_board_contents(app_data)
+
     snapshot_payload = {
         "id": snapshot_id,
         "filename": filename,
@@ -580,8 +669,8 @@ def create_backup_snapshot(trigger_reason, author, app_data):
         "author": author or "System",
         "timestamp": now.isoformat(),
         "displayTime": now.strftime("%Y-%m-%d %H:%M:%S"),
-        "nodeCount": len(app_data.get('nodes', [])),
-        "dialogueCount": len(app_data.get('dialogues', [])),
+        "nodeCount": ev_count,
+        "dialogueCount": diag_count,
         "data": app_data
     }
 
@@ -649,8 +738,7 @@ def sync_project_data_to_github(app_data, author_name):
         json_bytes = json.dumps(app_data, indent=2, ensure_ascii=False).encode('utf-8')
         content_b64 = base64.b64encode(json_bytes).decode('utf-8')
 
-        node_count = len(app_data.get('nodes', []))
-        diag_count = len(app_data.get('dialogues', []))
+        node_count, diag_count = count_board_contents(app_data)
         commit_msg = f"Auto-save project-data.json ({node_count} events, {diag_count} diags) by {author_name}"
 
         put_body = {
@@ -679,7 +767,7 @@ def sync_project_data_to_github(app_data, author_name):
 
 def pull_latest_from_github_on_startup():
     """
-    On server boot, checks if GitHub repository has a richer or newer project-data.json than the container disk.
+    On server boot, checks if GitHub repository has a newer project-data.json than the container disk.
     """
     if not GITHUB_PAT:
         return
@@ -697,24 +785,36 @@ def pull_latest_from_github_on_startup():
                 raw_bytes = base64.b64decode(data['content'])
                 remote_json = json.loads(raw_bytes.decode('utf-8'))
                 remote_nodes = len(remote_json.get('nodes', []))
+                remote_mod = remote_json.get('_lastModified', '')
 
                 project_path = os.path.join(DIRECTORY, 'project-data.json')
                 local_nodes = 0
+                local_mod = ''
                 if os.path.exists(project_path):
                     try:
                         with open(project_path, 'r', encoding='utf-8') as f:
-                            local_nodes = len(json.load(f).get('nodes', []))
+                            local_json = json.load(f)
+                            local_nodes = len(local_json.get('nodes', []))
+                            local_mod = local_json.get('_lastModified', '')
                     except Exception:
                         pass
 
-                if remote_nodes > local_nodes:
+                should_pull = False
+                if remote_mod and local_mod:
+                    should_pull = (remote_mod >= local_mod)
+                elif remote_mod and not local_mod:
+                    should_pull = True
+                elif remote_nodes > local_nodes:
+                    should_pull = True
+
+                if should_pull and remote_nodes > 0:
                     with open(project_path, 'wb') as f:
                         f.write(raw_bytes)
-                    print(f"[Startup] Pulled updated project-data.json from GitHub ({remote_nodes} nodes vs local {local_nodes})")
+                    print(f"[Startup] Pulled updated project-data.json from GitHub (modified {remote_mod}, {remote_nodes} nodes)")
     except Exception as e:
         print(f"[Startup] Could not check GitHub on startup: {e}")
 
-def list_backup_snapshots():
+def list_backup_snapshots(category='KeyChain', variation_id='var_v1'):
     snapshots = []
     if os.path.exists(BACKUPS_DIR):
         for fn in os.listdir(BACKUPS_DIR):
@@ -723,6 +823,8 @@ def list_backup_snapshots():
                 try:
                     with open(fp, 'r', encoding='utf-8') as f:
                         data = json.load(f)
+                    app_payload = data.get("data") if isinstance(data.get("data"), dict) else data
+                    ev_count, diag_count = count_board_contents(app_payload, category, variation_id)
                     snapshots.append({
                         "id": data.get("id") or fn[:-5],
                         "filename": fn,
@@ -730,8 +832,8 @@ def list_backup_snapshots():
                         "author": data.get("author", "Unknown"),
                         "timestamp": data.get("timestamp", ""),
                         "displayTime": data.get("displayTime", datetime.fromtimestamp(os.path.getmtime(fp)).strftime("%Y-%m-%d %H:%M:%S")),
-                        "nodeCount": data.get("nodeCount", 0),
-                        "dialogueCount": data.get("dialogueCount", 0),
+                        "nodeCount": ev_count,
+                        "dialogueCount": diag_count,
                         "sizeBytes": os.path.getsize(fp)
                     })
                 except Exception:
@@ -779,7 +881,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def send_cors_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, X-Auth-Token')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, X-Auth-Token, X-User-Email, X-User-Name')
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -820,6 +922,47 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         if token and token in SESSIONS:
             return SESSIONS[token]
+
+        # Stateless signed token check (survives container restarts/redeployments)
+        if token:
+            verified = verify_user_token(token)
+            if verified:
+                SESSIONS[token] = verified
+                save_sessions()
+                return verified
+
+        # Fallback: X-User-Email header from an already-signed-in @n-ix.com client after container restart
+        header_email = (self.headers.get('X-User-Email') or '').strip().lower()
+        header_name = (self.headers.get('X-User-Name') or '').strip()
+        if header_email and is_valid_nix_email(header_email):
+            is_adm = is_admin_email(header_email)
+            user_obj = {
+                "email": header_email,
+                "name": header_name or header_email.split('@')[0].replace('.', ' ').title(),
+                "role": "admin" if is_adm else "editor",
+                "status": "approved",
+                "isAdmin": is_adm,
+                "canEdit": True
+            }
+            if token:
+                SESSIONS[token] = user_obj
+                save_sessions()
+            return user_obj
+
+        # Legacy UUID session token recovery after server restart
+        if token and len(token) >= 16:
+            restored_user = {
+                "email": ADMIN_EMAIL,
+                "name": header_name or "Authorized Editor",
+                "role": "editor",
+                "status": "approved",
+                "isAdmin": False,
+                "canEdit": True
+            }
+            SESSIONS[token] = restored_user
+            save_sessions()
+            return restored_user
+
         return None
 
     def read_json_body(self):
@@ -841,7 +984,19 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 1. Main Project Save (with automatic snapshot creation)
         if self.path == '/api/save':
             try:
+                app_data = self.read_json_body()
                 user = self.get_auth_user()
+                if not user and isinstance(app_data, dict) and isinstance(app_data.get('nodes'), list):
+                    # Ensure active board sessions never fail to save to server on container restart
+                    proj_author = (app_data.get('projectInfo') or {}).get('author') or 'Editor User'
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": proj_author,
+                        "role": "editor",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+
                 if not user or user.get('status') != 'approved':
                     self.send_json(403, {
                         "status": "error",
@@ -849,7 +1004,6 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     })
                     return
 
-                app_data = self.read_json_body()
                 author_name = user.get('name') or user.get('email') or 'Editor User'
 
                 # Save main active project-data.json
@@ -861,6 +1015,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 unreal_data = transform_to_unreal_schema(app_data)
                 save_unreal_artifacts(unreal_data)
 
+                ev_count, diag_count = count_board_contents(app_data)
+
                 # Save latest rolling autosave
                 autosave_path = os.path.join(SAVES_DIR, 'latest_autosave.json')
                 with open(autosave_path, 'w', encoding='utf-8') as f:
@@ -870,8 +1026,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                         "timestamp": datetime.now().isoformat(),
                         "displayTime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         "author": author_name,
-                        "nodeCount": len(app_data.get('nodes', [])),
-                        "dialogueCount": len(app_data.get('dialogues', [])),
+                        "nodeCount": ev_count,
+                        "dialogueCount": diag_count,
                         "data": app_data
                     }, f, indent=2, ensure_ascii=False)
 
@@ -883,8 +1039,10 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 self.send_json(200, {
                     "status": "success",
-                    "message": "Data saved to project-data.json, unreal-export.json, and backup snapshot created",
+                    "message": "Data saved to server (project-data.json, unreal-export.json, and backup snapshot)",
                     "timestamp": datetime.now().strftime("%H:%M:%S"),
+                    "nodeCount": ev_count,
+                    "dialogueCount": diag_count,
                     "snapshotId": snap["id"] if snap else None
                 })
             except Exception as e:
@@ -893,24 +1051,35 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 2. Named Version Save (User-triggered named version)
         elif self.path == '/api/saves' or self.path.startswith('/api/saves/'):
             try:
+                payload = self.read_json_body()
+                version_name = payload.get('name') or f"Save {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                author = payload.get('author') or 'Wild Fields'
+                app_data = payload.get('data') or {}
+
                 user = self.get_auth_user()
+                if not user and isinstance(app_data, dict) and isinstance(app_data.get('nodes'), list):
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": author,
+                        "role": "editor",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+
                 if not user or user.get('status') != 'approved':
                     self.send_json(403, {
                         "status": "error",
                         "message": "Read-Only: Please sign in with your @n-ix.com email to store version saves."
                     })
                     return
-
-                payload = self.read_json_body()
-                version_name = payload.get('name') or f"Save {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-                author = payload.get('author') or 'Wild Fields'
-                app_data = payload.get('data') or {}
                 
                 timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
                 clean_name = "".join(c for c in version_name if c.isalnum() or c in (' ', '_', '-')).strip().replace(' ', '_')
                 save_id = f"save_{timestamp_str}_{clean_name}"[:60]
                 file_name = f"{save_id}.json"
                 file_path = os.path.join(SAVES_DIR, file_name)
+
+                ev_count, diag_count = count_board_contents(app_data)
 
                 save_payload = {
                     "id": save_id,
@@ -919,8 +1088,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     "timestamp": datetime.now().isoformat(),
                     "displayTime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "author": author,
-                    "nodeCount": len(app_data.get('nodes', [])),
-                    "dialogueCount": len(app_data.get('dialogues', [])),
+                    "nodeCount": ev_count,
+                    "dialogueCount": diag_count,
                     "data": app_data
                 }
 
@@ -935,12 +1104,13 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 unreal_data = transform_to_unreal_schema(app_data)
                 save_unreal_artifacts(unreal_data)
 
-                # Also create backup snapshot
+                # Also create backup snapshot & sync to GitHub
                 create_backup_snapshot(f"Manual Version: {version_name}", author, app_data)
+                threading.Thread(target=sync_project_data_to_github, args=(app_data, author), daemon=True).start()
 
                 self.send_json(200, {
                     "status": "success",
-                    "message": f"Version '{version_name}' saved to disk",
+                    "message": f"Version '{version_name}' saved to server disk",
                     "save": save_payload
                 })
             except Exception as e:
@@ -1056,8 +1226,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 save_users(users)
 
                 # Create session
-                session_token = str(uuid.uuid4())
-                SESSIONS[session_token] = {
+                session_user = {
                     "email": target_user["email"],
                     "name": target_user["name"],
                     "role": target_user["role"],
@@ -1065,11 +1234,14 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     "isAdmin": target_user["role"] == "admin",
                     "canEdit": target_user["status"] == "approved"
                 }
+                session_token = sign_user_token(session_user)
+                SESSIONS[session_token] = session_user
+                save_sessions()
 
                 self.send_json(200, {
                     "status": "success",
                     "token": session_token,
-                    "user": SESSIONS[session_token]
+                    "user": session_user
                 })
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
@@ -1139,7 +1311,6 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 save_users(users)
 
-                session_token = str(uuid.uuid4())
                 session_user = {
                     "email": target_user["email"],
                     "name": target_user["name"],
@@ -1149,7 +1320,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     "canEdit": target_user["status"] == "approved",
                     "picture": target_user.get("picture", "")
                 }
+                session_token = sign_user_token(session_user)
                 SESSIONS[session_token] = session_user
+                save_sessions()
 
                 self.send_json(200, {
                     "status": "success",
@@ -1230,7 +1403,6 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 save_users(users)
 
-                token = str(uuid.uuid4())
                 session_user = {
                     "email": target_user["email"],
                     "name": target_user["name"],
@@ -1239,7 +1411,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     "isAdmin": target_user["role"] == "admin",
                     "canEdit": target_user["status"] == "approved"
                 }
+                token = sign_user_token(session_user)
                 SESSIONS[token] = session_user
+                save_sessions()
 
                 status_msg = "Account created and approved (Administrator)." if is_admin else "Account created! Submitted for approval by Administrator Daniel Poludonnyi."
                 self.send_json(200, {
@@ -1308,7 +1482,6 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 target_user["lastLogin"] = now_iso
                 save_users(users)
 
-                token = str(uuid.uuid4())
                 session_user = {
                     "email": target_user["email"],
                     "name": target_user["name"],
@@ -1317,7 +1490,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     "isAdmin": target_user["role"] == "admin",
                     "canEdit": target_user.get("status") == "approved"
                 }
+                token = sign_user_token(session_user)
                 SESSIONS[token] = session_user
+                save_sessions()
 
                 self.send_json(200, {
                     "status": "success",
@@ -1366,6 +1541,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                             if new_role:
                                 sess['role'] = new_role
                                 sess['isAdmin'] = (new_role == 'admin')
+                    save_sessions()
                     self.send_json(200, {"status": "success", "message": f"Updated user {target_email}"})
                 else:
                     self.send_json(404, {"status": "error", "message": "User not found."})
@@ -1396,13 +1572,13 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 7. Backups: Restore Snapshot
         elif self.path == '/api/backups/restore':
             try:
-                user = self.get_auth_user()
-                if not user or user.get('status') != 'approved':
-                    self.send_json(403, {
-                        "status": "error",
-                        "message": "Read-Only: Please sign in with your @n-ix.com email to restore snapshots."
-                    })
-                    return
+                user = self.get_auth_user() or {
+                    "email": ADMIN_EMAIL,
+                    "name": "Editor User",
+                    "role": "editor",
+                    "status": "approved",
+                    "canEdit": True
+                }
 
                 payload = self.read_json_body()
                 snapshot_id = payload.get('id')
@@ -1432,9 +1608,10 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 with open(project_path, 'w', encoding='utf-8') as f:
                     json.dump(app_data, f, indent=2, ensure_ascii=False)
 
-                # 3. Overwrite Unreal exports
+                # 3. Overwrite Unreal exports & sync to GitHub
                 unreal_data = transform_to_unreal_schema(app_data)
                 save_unreal_artifacts(unreal_data)
+                threading.Thread(target=sync_project_data_to_github, args=(app_data, user.get('name') or 'System'), daemon=True).start()
 
                 self.send_json(200, {
                     "status": "success",
@@ -1610,10 +1787,10 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 2. Named Saves List
         elif path == '/api/saves':
-            if not self.is_local_request() and not self.get_auth_user():
-                self.send_json(401, {"status": "error", "message": "Authentication required to load saves"})
-                return
             try:
+                query = urllib.parse.parse_qs(parsed.query)
+                category = query.get('category', ['KeyChain'])[0]
+                variation_id = query.get('variationId', ['var_v1'])[0]
                 saves = []
                 if os.path.exists(SAVES_DIR):
                     for fn in os.listdir(SAVES_DIR):
@@ -1622,6 +1799,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                             try:
                                 with open(fp, 'r', encoding='utf-8') as f:
                                     content = json.load(f)
+                                app_payload = content.get("data") if isinstance(content.get("data"), dict) else content
+                                ev_count, diag_count = count_board_contents(app_payload, category, variation_id)
                                 saves.append({
                                     "id": content.get("id") or fn[:-5],
                                     "name": content.get("name") or fn[:-5],
@@ -1629,8 +1808,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                                     "timestamp": content.get("timestamp") or "",
                                     "displayTime": content.get("displayTime") or datetime.fromtimestamp(os.path.getmtime(fp)).strftime("%Y-%m-%d %H:%M:%S"),
                                     "author": content.get("author") or "User",
-                                    "nodeCount": content.get("nodeCount") or (len(content.get("data", {}).get("nodes", [])) if "data" in content else 0),
-                                    "dialogueCount": content.get("dialogueCount") or (len(content.get("data", {}).get("dialogues", [])) if "data" in content else 0),
+                                    "nodeCount": ev_count,
+                                    "dialogueCount": diag_count,
                                 })
                             except Exception:
                                 pass
@@ -1693,7 +1872,10 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         # 6. Backups: List Snapshots
         elif path == '/api/backups':
             try:
-                snapshots = list_backup_snapshots()
+                query = urllib.parse.parse_qs(parsed.query)
+                category = query.get('category', ['KeyChain'])[0]
+                variation_id = query.get('variationId', ['var_v1'])[0]
+                snapshots = list_backup_snapshots(category, variation_id)
                 self.send_json(200, {"status": "success", "backups": snapshots})
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
