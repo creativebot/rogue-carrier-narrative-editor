@@ -4120,7 +4120,17 @@ function renderTempConnectorPath(x1, y1, x2, y2) {
     svgConnectors.appendChild(tempPath);
   }
   const isDialogue = portDragState && (portDragState.sourceType === 'pre_event_dialogue' || portDragState.sourceType === 'post_action_dialogue' || portDragState.sourceType === 'action_option_dialogue');
-  const d = drawOrthogonalLine(x1, y1, x2, y2);
+  let sourceRect = null;
+  if (!isDialogue && portDragState && portDragState.sourceNodeId) {
+    const sourceNode = appData.nodes.find(n => n.id === portDragState.sourceNodeId);
+    if (sourceNode) {
+      const sourceEl = document.getElementById(`node-${sourceNode.id}`);
+      const sw = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
+      const sh = (sourceEl && sourceEl.offsetHeight > 100) ? sourceEl.offsetHeight : 520;
+      sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sw, h: sh };
+    }
+  }
+  const d = drawOrthogonalLine(x1, y1, x2, y2, sourceRect, null, 0);
   tempPath.setAttribute('d', d);
   if (isDialogue) {
     tempPath.style.stroke = (portDragState && portDragState.sourceType === 'action_option_dialogue') ? '#8b5cf6' : '#a855f7';
@@ -4145,7 +4155,8 @@ function renderConnectors() {
 
   const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
 
-  // 1. Draw Action -> Event Connections (Filtered by Category & Variation for critical chains, all pool connectors on pool pages)
+  // 1. Collect & Draw Action/Inaction -> Event Connections so all blue/red lines enter orthogonally at the TOP edge
+  const eventLinks = [];
   appData.nodes.forEach(sourceNode => {
     if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
     if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
@@ -4153,6 +4164,7 @@ function renderConnectors() {
     const sourceEl = document.getElementById(`node-${sourceNode.id}`);
     const sourceHeight = sourceEl ? sourceEl.offsetHeight : 520;
     const sourceWidth = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
+    const sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sourceWidth, h: sourceHeight };
     const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
     const actionCount = Math.max((sourceNode.actions || []).length, 1);
     const totalCols = actionCount + (hasInaction ? 1 : 0);
@@ -4168,32 +4180,24 @@ function renderConnectors() {
 
       const targetEl = document.getElementById(`node-${targetNode.id}`);
       const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 880;
+      const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
+      const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
       const startX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
       const startY = sourceNode.position.y + sourceHeight;
 
-      const endX = targetNode.position.x + (targetWidth / 2);
-      const endY = targetNode.position.y;
-
-      const orthoPath = drawOrthogonalLine(startX, startY, endX, endY);
-      const isDimmedLink = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));
-      
-      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('d', orthoPath);
-      path.setAttribute('class', 'connector-path-ortho' + (isDimmedLink ? ' is-pool-dimmed' : ''));
-      path.setAttribute('marker-end', 'url(#arrow)');
-      
-      path.onclick = (e) => {
-        e.stopPropagation();
-        if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetNode.codename}?`)) {
-          pushUndoState();
-          action.targetNodeId = null;
-          saveProjectToLocalStorage();
-          renderApp();
-        }
-      };
-
-      svgConnectors.appendChild(path);
+      eventLinks.push({
+        type: 'action',
+        sourceNode,
+        targetNode,
+        action,
+        actIdx,
+        startX,
+        startY,
+        sourceRect,
+        targetRect,
+        targetWidth
+      });
     });
 
     // Inaction Threat -> Consequence Node Connection
@@ -4205,31 +4209,83 @@ function renderConnectors() {
 
         const targetEl = document.getElementById(`node-${targetNode.id}`);
         const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 880;
+        const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
+        const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
         const startX = sourceNode.position.x + LABEL_WIDTH + (actionCount + 0.5) * colWidth;
         const startY = sourceNode.position.y + sourceHeight;
-        const endX = targetNode.position.x + (targetWidth / 2);
-        const endY = targetNode.position.y;
-        const orthoPath = drawOrthogonalLine(startX, startY, endX, endY);
-        const isDimmedInaction = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));
 
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', orthoPath);
-        path.setAttribute('class', 'connector-path-ortho' + (isDimmedInaction ? ' is-pool-dimmed' : ''));
-        path.setAttribute('marker-end', 'url(#arrow)');
-        path.style.stroke = '#ef4444';
-        path.onclick = (e) => {
-          e.stopPropagation();
-          if (confirm(`Remove inaction failure link from ${sourceNode.codename} to ${targetNode.codename}?`)) {
-            pushUndoState();
-            sourceNode.inactionThreat.targetNodeId = null;
-            saveProjectToLocalStorage();
-            renderApp();
-          }
-        };
-        svgConnectors.appendChild(path);
+        eventLinks.push({
+          type: 'inaction',
+          sourceNode,
+          targetNode,
+          action: null,
+          actIdx: actionCount,
+          startX,
+          startY,
+          sourceRect,
+          targetRect,
+          targetWidth
+        });
       }
     }
+  });
+
+  // Group incoming links by targetNode.id so multiple lines entering the same event top edge stay distinct
+  const incomingByTarget = new Map();
+  eventLinks.forEach(link => {
+    const tid = link.targetNode.id;
+    if (!incomingByTarget.has(tid)) incomingByTarget.set(tid, []);
+    incomingByTarget.get(tid).push(link);
+  });
+  incomingByTarget.forEach(list => {
+    list.sort((a, b) => a.startX - b.startX);
+  });
+
+  eventLinks.forEach((link, linkIdx) => {
+    const { sourceNode, targetNode, action, startX, startY, sourceRect, targetRect, targetWidth } = link;
+    const incomingList = incomingByTarget.get(targetNode.id) || [link];
+    const incomingIdx = incomingList.indexOf(link);
+    const incomingCount = incomingList.length;
+    const topEntryOffset = incomingCount > 1
+      ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 32)
+      : 0;
+
+    const endX = targetNode.position.x + (targetWidth / 2) + topEntryOffset;
+    const endY = targetNode.position.y;
+
+    const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx);
+    const isDimmedLink = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', orthoPath);
+    path.setAttribute('class', 'connector-path-ortho' + (isDimmedLink ? ' is-pool-dimmed' : ''));
+    path.setAttribute('marker-end', 'url(#arrow)');
+
+    if (link.type === 'inaction') {
+      path.style.stroke = '#ef4444';
+      path.onclick = (e) => {
+        e.stopPropagation();
+        if (confirm(`Remove inaction failure link from ${sourceNode.codename} to ${targetNode.codename}?`)) {
+          pushUndoState();
+          sourceNode.inactionThreat.targetNodeId = null;
+          saveProjectToLocalStorage();
+          renderApp();
+        }
+      };
+    } else {
+      path.onclick = (e) => {
+        e.stopPropagation();
+        if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetNode.codename}?`)) {
+          pushUndoState();
+          action.targetNodeId = null;
+          saveProjectToLocalStorage();
+          renderApp();
+        }
+      };
+    }
+
+    svgConnectors.appendChild(path);
   });
 
   // 2. Draw Event -> Dialogue Connections (Closest Direct Line with Arrow Jump Button & Middle Trigger Description Badge)
@@ -4379,9 +4435,65 @@ function renderConnectors() {
   });
 }
 
-function drawOrthogonalLine(x1, y1, x2, y2) {
-  const midY = y1 + (y2 - y1) / 2;
-  return `M ${x1} ${y1} V ${midY} H ${x2} V ${y2}`;
+function drawOrthogonalLine(x1, y1, x2, y2, sourceRect = null, targetRect = null, routeOffset = 0) {
+  const EXIT_DROP = 38 + (routeOffset * 10);
+  const ENTRY_CLEARANCE = 44 + (routeOffset * 10);
+
+  // Standard forward/downward connection (target event top edge is comfortably below source port)
+  if (y2 >= y1 + 68) {
+    const midY = Math.round(y1 + (y2 - y1) / 2);
+    return `M ${x1} ${y1} V ${midY} H ${x2} V ${y2}`;
+  }
+
+  // Same-stage, earlier-stage, or vertically close/overlapping connection:
+  // Always exit downward from the source port, break orthogonally to a clear vertical corridor,
+  // route above the target event's top edge, and drop straight down into the top edge (x2, y2).
+  const exitY = Math.round(y1 + EXIT_DROP);
+  const entryY = Math.round(y2 - ENTRY_CLEARANCE);
+
+  let corridorX;
+  if (sourceRect && targetRect) {
+    const sLeft = sourceRect.x;
+    const sRight = sourceRect.x + sourceRect.w;
+    const tLeft = targetRect.x;
+    const tRight = targetRect.x + targetRect.w;
+
+    if (tLeft >= sRight + 24) {
+      // Target is to the right of source: route up through the horizontal gap between them
+      corridorX = Math.round((sRight + tLeft) / 2 + (routeOffset * 12));
+    } else if (sLeft >= tRight + 24) {
+      // Target is to the left of source: route up through the horizontal gap between them
+      corridorX = Math.round((tRight + sLeft) / 2 - (routeOffset * 12));
+    } else {
+      // Cards overlap horizontally (e.g. Stage 2 event connecting back up to Stage 1 event above it):
+      // Route around the closer outer vertical side of both cards
+      const outerLeft = Math.min(sLeft, tLeft) - 48 - (routeOffset * 12);
+      const outerRight = Math.max(sRight, tRight) + 48 + (routeOffset * 12);
+      const distLeft = Math.abs(x1 - outerLeft) + Math.abs(x2 - outerLeft);
+      const distRight = Math.abs(outerRight - x1) + Math.abs(outerRight - x2);
+      corridorX = Math.round(distLeft <= distRight ? outerLeft : outerRight);
+    }
+  } else if (sourceRect) {
+    const sLeft = sourceRect.x;
+    const sRight = sourceRect.x + sourceRect.w;
+    if (x2 >= sRight + 24) {
+      corridorX = Math.round((sRight + x2) / 2);
+    } else if (x2 <= sLeft - 24) {
+      corridorX = Math.round((sLeft + x2) / 2);
+    } else {
+      const outerLeft = sLeft - 48;
+      const outerRight = sRight + 48;
+      const distLeft = Math.abs(x1 - outerLeft) + Math.abs(x2 - outerLeft);
+      const distRight = Math.abs(outerRight - x1) + Math.abs(outerRight - x2);
+      corridorX = Math.round(distLeft <= distRight ? outerLeft : outerRight);
+    }
+  } else {
+    corridorX = Math.abs(x2 - x1) > 80
+      ? Math.round(x1 + (x2 - x1) / 2)
+      : Math.round(x1 + (x2 >= x1 ? 240 : -240));
+  }
+
+  return `M ${x1} ${y1} V ${exitY} H ${corridorX} V ${entryY} H ${x2} V ${y2}`;
 }
 
 // Orthogonal Connector Engine for Dialogue Cards:
