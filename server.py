@@ -470,15 +470,66 @@ def load_users():
     except Exception:
         return []
 
-def save_users(users_list):
+def save_users(users_list, sync_github=True):
     with open(USERS_FILE, 'w', encoding='utf-8') as f:
         json.dump({"users": users_list}, f, indent=2, ensure_ascii=False)
+    if sync_github and 'sync_users_to_github' in globals():
+        try:
+            threading.Thread(target=sync_users_to_github, args=(users_list,), daemon=True).start()
+        except Exception:
+            pass
 
 def is_valid_nix_email(email):
     if not email or not isinstance(email, str):
         return False
     e = email.strip().lower()
     return (e.endswith(ALLOWED_DOMAIN) and len(e) > len(ALLOWED_DOMAIN)) or e in ALLOWED_EMAILS
+
+def ensure_user_registered(user_obj):
+    """
+    Ensures any authenticated @n-ix.com user (from Google OAuth, OTP, stateless token, or X-User-Email header)
+    is persisted in users.json so they appear in @mention autocomplete and Team Manager even after container restarts.
+    """
+    if not isinstance(user_obj, dict):
+        return
+    email = (user_obj.get('email') or '').strip().lower()
+    if not email or not is_valid_nix_email(email):
+        return
+    name = (user_obj.get('name') or '').strip()
+    if name in ('Authorized Editor', 'Editor User', 'Daniel (Local PC)', 'User', 'N-iX Member'):
+        name = ''
+    default_name = name or email.split('@')[0].replace('.', ' ').replace('_', ' ').title()
+    users = load_users()
+    found = None
+    for u in users:
+        if (u.get('email') or '').strip().lower() == email:
+            found = u
+            break
+    now_iso = datetime.utcnow().isoformat() + "Z"
+    is_adm = is_admin_email(email)
+    if not found:
+        new_u = {
+            "email": email,
+            "name": default_name,
+            "picture": user_obj.get('picture', ''),
+            "role": "admin" if is_adm else user_obj.get('role', 'editor'),
+            "status": "approved",
+            "authProvider": user_obj.get('authProvider', 'google'),
+            "createdAt": now_iso,
+            "lastLogin": now_iso
+        }
+        users.append(new_u)
+        save_users(users, sync_github=True)
+    else:
+        changed = False
+        if name and found.get('name') != name and not found.get('name'):
+            found['name'] = name
+            changed = True
+        if found.get('status') != 'approved':
+            found['status'] = 'approved'
+            changed = True
+        if changed:
+            save_users(users, sync_github=True)
 
 # ----------------- Notifications & Emails -----------------
 
@@ -780,19 +831,63 @@ def sync_project_data_to_github(app_data, author_name):
     except Exception as err:
         print(f"[GitHub Sync] GitHub background push error: {err}")
 
-def pull_latest_from_github_on_startup():
+def sync_users_to_github(users_list=None):
     """
-    On server boot, checks if GitHub repository has a newer project-data.json than the container disk.
+    Asynchronously syncs corporate @n-ix.com users in users.json to GitHub main branch
+    so registered team members are never lost across Render container redeployments.
     """
     if not GITHUB_PAT:
         return
     try:
-        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/project-data.json"
+        if users_list is None:
+            users_list = load_users()
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/users.json"
         headers = {
             "Authorization": f"Bearer {GITHUB_PAT}",
             "Accept": "application/vnd.github.v3+json",
             "User-Agent": "RogueCarrierNarrativeEditor"
         }
+        sha = None
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode('utf-8'))
+                sha = data.get('sha')
+        except Exception:
+            pass
+
+        json_bytes = json.dumps({"users": users_list}, indent=2, ensure_ascii=False).encode('utf-8')
+        content_b64 = base64.b64encode(json_bytes).decode('utf-8')
+        put_body = {
+            "message": f"Sync team users ({len(users_list)} members)",
+            "content": content_b64,
+            "branch": "main",
+            "committer": {"name": "CreativeBot", "email": "bot@creativebot.dev"},
+            "author": {"name": "CreativeBot", "email": "bot@creativebot.dev"}
+        }
+        if sha:
+            put_body["sha"] = sha
+        put_data = json.dumps(put_body).encode('utf-8')
+        put_req = urllib.request.Request(url, data=put_data, headers={**headers, "Content-Type": "application/json"}, method="PUT")
+        with urllib.request.urlopen(put_req, timeout=15) as put_resp:
+            if put_resp.status in (200, 201):
+                print(f"[GitHub Sync] Synced users.json ({len(users_list)} users) to GitHub main")
+    except Exception as err:
+        print(f"[GitHub Sync] users.json sync error: {err}")
+
+def pull_latest_from_github_on_startup():
+    """
+    On server boot, checks if GitHub repository has a newer project-data.json and merges users.json.
+    """
+    if not GITHUB_PAT:
+        return
+    headers = {
+        "Authorization": f"Bearer {GITHUB_PAT}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "RogueCarrierNarrativeEditor"
+    }
+    try:
+        url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/project-data.json"
         req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read().decode('utf-8'))
@@ -827,7 +922,30 @@ def pull_latest_from_github_on_startup():
                         f.write(raw_bytes)
                     print(f"[Startup] Pulled updated project-data.json from GitHub (modified {remote_mod}, {remote_nodes} nodes)")
     except Exception as e:
-        print(f"[Startup] Could not check GitHub on startup: {e}")
+        print(f"[Startup] Could not check GitHub project-data.json on startup: {e}")
+
+    try:
+        users_url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/users.json"
+        ureq = urllib.request.Request(users_url, headers=headers)
+        with urllib.request.urlopen(ureq, timeout=10) as uresp:
+            udata = json.loads(uresp.read().decode('utf-8'))
+            if 'content' in udata:
+                remote_users_json = json.loads(base64.b64decode(udata['content']).decode('utf-8'))
+                remote_users = remote_users_json.get('users', [])
+                local_users = load_users()
+                by_email = {(u.get('email') or '').strip().lower(): u for u in local_users if u.get('email')}
+                merged_changed = False
+                for ru in remote_users:
+                    remail = (ru.get('email') or '').strip().lower()
+                    if remail and remail not in by_email:
+                        local_users.append(ru)
+                        by_email[remail] = ru
+                        merged_changed = True
+                if merged_changed:
+                    save_users(local_users, sync_github=False)
+                    print(f"[Startup] Merged {len(local_users)} team users from GitHub users.json")
+    except Exception as e:
+        print(f"[Startup] Could not check GitHub users.json on startup: {e}")
 
 def list_backup_snapshots(category='KeyChain', variation_id='var_v1'):
     snapshots = []
@@ -988,6 +1106,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 token = self.path.split('?token=')[-1].split('&')[0]
 
         if token and token in SESSIONS:
+            ensure_user_registered(SESSIONS[token])
             return SESSIONS[token]
 
         # Stateless signed token check (survives container restarts/redeployments)
@@ -996,6 +1115,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             if verified:
                 SESSIONS[token] = verified
                 save_sessions()
+                ensure_user_registered(verified)
                 return verified
 
         # Fallback: X-User-Email header from an already-signed-in @n-ix.com client after container restart
@@ -1014,6 +1134,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             if token:
                 SESSIONS[token] = user_obj
                 save_sessions()
+            ensure_user_registered(user_obj)
             return user_obj
 
         # Legacy UUID session token recovery after server restart
@@ -1632,6 +1753,39 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
 
+        # 5b. Auth: Add / Ensure Team Member (For @mention roster or Admin)
+        elif self.path == '/api/auth/users/add':
+            try:
+                payload = self.read_json_body()
+                email = payload.get('email', '').strip().lower()
+                name = payload.get('name', '').strip()
+                if not email:
+                    self.send_json(400, {"status": "error", "message": "Email or handle is required."})
+                    return
+                if '@' not in email:
+                    email = f"{email}@n-ix.com"
+                if not is_allowed_user_email(email):
+                    self.send_json(403, {"status": "error", "message": f"Only @{ALLOWED_EMAIL_DOMAIN} team addresses can be added."})
+                    return
+                if not name:
+                    name = email.split('@')[0].replace('.', ' ').title()
+                ensure_user_registered({
+                    "email": email,
+                    "name": name,
+                    "role": "editor",
+                    "status": "approved"
+                })
+                users = load_users()
+                safe_users = [{
+                    "email": u.get("email"),
+                    "name": u.get("name"),
+                    "role": u.get("role"),
+                    "status": u.get("status")
+                } for u in users if u.get("email") and u.get("email").lower() not in ALLOWED_EMAILS]
+                self.send_json(200, {"status": "success", "message": f"Added {name} ({email})", "users": safe_users, "handle": email.split('@')[0]})
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+
         # 6. Backups: Create Manual Snapshot
         elif self.path == '/api/backups/create':
             try:
@@ -1716,6 +1870,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 author = payload.get('author', 'Anonymous')
                 author_email = payload.get('authorEmail', '')
 
+                if author_email and is_allowed_user_email(author_email):
+                    ensure_user_registered({"email": author_email, "name": author})
+
                 if not target_id or not text:
                     self.send_json(400, {"status": "error", "message": "targetId and text are required."})
                     return
@@ -1723,20 +1880,29 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 comment_id = f"cmt_{int(datetime.now().timestamp()*1000)}"
                 now_iso = datetime.utcnow().isoformat() + "Z"
 
-                # Parse @ mentions in text (e.g., @dpoludonnyi or @dpoludonnyi@n-ix.com or @name)
+                # Parse @ mentions in text (e.g., @dpoludonnyi or @dpoludonnyi@n-ix.com or @First.Last)
                 mention_matches = re.findall(r"@([a-zA-Z0-9._-]+(?:@n-ix\.com)?)", text)
                 all_users = load_users()
                 notified_users = []
 
                 for match in mention_matches:
-                    match_clean = match.strip().lower()
+                    match_clean = match.strip().lower().rstrip('.,!?;:')
+                    matched_any = False
                     for u in all_users:
                         u_email = u.get('email', '').lower()
                         u_name = u.get('name', '').lower()
+                        u_name_slug = u_name.replace(' ', '.')
+                        u_name_parts = [p for p in u_name.split() if len(p) >= 2]
                         u_handle = u_email.split('@')[0]
-                        if match_clean in (u_handle, u_email, u_name):
+                        if match_clean in (u_handle, u_email, u_name, u_name_slug) or match_clean in u_name_parts:
+                            matched_any = True
                             if u_email not in notified_users and u_email != author_email.lower():
                                 notified_users.append(u_email)
+                    # If someone explicitly tagged @handle@n-ix.com not yet in users.json, auto-register & notify them
+                    if not matched_any and match_clean.endswith(f"@{ALLOWED_EMAIL_DOMAIN}"):
+                        ensure_user_registered({"email": match_clean, "name": match_clean.split('@')[0].replace('.', ' ').title()})
+                        if match_clean not in notified_users and match_clean != author_email.lower():
+                            notified_users.append(match_clean)
 
                 new_comment = {
                     "id": comment_id,
@@ -1952,6 +2118,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 5. Auth: Get User List (For @mention autocomplete & Admin management)
         elif path == '/api/auth/users':
+            self.get_auth_user()
             users = load_users()
             safe_users = [{
                 "email": u.get("email"),
@@ -2028,6 +2195,8 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 req_email = query.get('email', [''])[0].strip().lower()
                 user = self.get_auth_user()
                 current_email = req_email or (user.get('email', '').lower() if user else '')
+                if current_email and is_allowed_user_email(current_email):
+                    ensure_user_registered({"email": current_email, "name": (user.get('name') if user else '') or current_email.split('@')[0]})
                 
                 all_notifs = load_notifications()
                 if current_email:

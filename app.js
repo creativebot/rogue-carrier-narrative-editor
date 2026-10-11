@@ -9602,7 +9602,7 @@ function logoutUser() {
 
 async function preloadTeamUsers() {
   try {
-    const res = await fetch('/api/auth/users');
+    const res = await fetch('/api/auth/users', { headers: getAuthHeaders(false) });
     if (res.ok) {
       const data = await res.json();
       allNixUsers = data.users || [];
@@ -9612,16 +9612,60 @@ async function preloadTeamUsers() {
   }
 }
 
+async function promptAddTeammateForMention(insertIntoComment = false) {
+  const rawEmail = prompt("Enter teammate's @n-ix.com email or handle (e.g. jsmith@n-ix.com or jsmith):", "");
+  if (!rawEmail || !rawEmail.trim()) return;
+  let email = rawEmail.trim().toLowerCase();
+  if (!email.includes('@')) email = `${email}@n-ix.com`;
+  const defaultName = email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const name = prompt(`Enter display name for ${email}:`, defaultName);
+  if (name === null) return;
+
+  try {
+    const res = await fetch('/api/auth/users/add', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ email, name: (name || defaultName).trim() })
+    });
+    const data = await res.json();
+    if (res.ok && data.status === 'success') {
+      allNixUsers = data.users || allNixUsers;
+      showToast(data.message || `Added ${email} to team list!`, 'success');
+      if (insertIntoComment && data.handle) {
+        insertMention(data.handle);
+      } else {
+        const modalTeam = document.getElementById('modal-team-manager');
+        if (modalTeam && modalTeam.classList.contains('is-open')) {
+          openTeamManagementModal();
+        }
+      }
+    } else {
+      showToast(data.message || 'Could not add teammate.', 'error');
+    }
+  } catch (e) {
+    showToast('Error adding teammate: ' + e.message, 'error');
+  }
+}
+
 async function openTeamManagementModal() {
   await preloadTeamUsers();
   const listContainer = document.getElementById('team-manager-list');
   if (!listContainer) return;
 
+  const addBarHtml = `
+    <div class="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-gray-800">
+      <span class="text-xs text-gray-400">All registered <span class="text-cyan-400 font-mono">@n-ix.com</span> members available for <span class="text-cyan-300 font-mono">@mention</span> tagging:</span>
+      <button type="button" onclick="promptAddTeammateForMention(false)" class="px-2.5 py-1 rounded bg-cyan-700 hover:bg-cyan-600 text-white font-bold text-xs shadow transition flex items-center gap-1 shrink-0">
+        + Add Teammate
+      </button>
+    </div>
+  `;
+
   if (allNixUsers.length === 0) {
-    listContainer.innerHTML = '<div class="text-center py-6 text-gray-500">No users registered yet.</div>';
+    listContainer.innerHTML = addBarHtml + '<div class="text-center py-6 text-gray-500">No users registered yet.</div>';
   } else {
     const isAdmin = currentUser && currentUser.role === 'admin';
-    listContainer.innerHTML = `
+    listContainer.innerHTML = addBarHtml + `
       <table class="w-full text-left border-collapse">
         <thead>
           <tr class="border-b border-gray-800 text-gray-400 text-[11px] uppercase">
@@ -9970,8 +10014,10 @@ async function openCommentsDrawer(targetId, targetType, targetTitle) {
   if (backdrop) backdrop.classList.add('is-open');
   if (drawer) drawer.classList.add('is-open');
 
-  await loadCommentsStream(targetId);
-  if (allNixUsers.length === 0) preloadTeamUsers();
+  await Promise.all([
+    loadCommentsStream(targetId),
+    preloadTeamUsers()
+  ]);
 
   if (inputEl) setTimeout(() => inputEl.focus(), 250);
 }
@@ -10088,7 +10134,7 @@ async function postComment() {
       updateCommentBadgesInDOM();
 
       if (data.notifiedCount > 0) {
-        showToast(`Comment posted! Email notification sent to ${data.notifiedUsers.join(', ')}`, 'success');
+        showToast(`Comment posted! Notification sent to ${data.notifiedUsers.join(', ')}`, 'success');
       } else {
         showToast('Comment posted', 'info');
       }
@@ -10135,25 +10181,30 @@ function setupMentionAutocomplete() {
     const text = inputEl.value;
     const cursorPos = inputEl.selectionStart;
     const textBefore = text.slice(0, cursorPos);
-    const mentionMatch = textBefore.match(/@([a-zA-Z0-9._-]*)$/);
+    const mentionMatch = textBefore.match(/(?:^|\s)@([a-zA-Z0-9._\- ]*)$/);
 
     if (mentionMatch) {
-      const query = mentionMatch[1].toLowerCase();
+      const query = mentionMatch[1].trim().toLowerCase();
       const matches = allNixUsers.filter(u => 
         u.email.toLowerCase().includes(query) || 
         (u.name && u.name.toLowerCase().includes(query))
       );
 
-      if (matches.length > 0) {
-        dropdown.innerHTML = matches.map(u => `
-          <div class="mention-item" onclick="insertMention('${u.email.split('@')[0]}')">
-            <span class="font-bold text-gray-200 text-xs">${u.name || u.email.split('@')[0]}</span>
-            <span class="text-[10px] font-mono text-cyan-400">@${u.email}</span>
-          </div>
-        `).join('');
-        dropdown.classList.remove('hidden');
-        return;
-      }
+      const addTeammateItem = `
+        <div class="mention-item border-t border-gray-800/80 text-cyan-400 hover:text-cyan-300" onclick="promptAddTeammateForMention(true)">
+          <span class="font-semibold text-[11px]">+ Add missing @n-ix.com teammate...</span>
+          <span class="text-[10px] font-mono text-gray-400">Register & tag</span>
+        </div>
+      `;
+
+      dropdown.innerHTML = matches.map(u => `
+        <div class="mention-item" onclick="insertMention('${u.email.split('@')[0]}')">
+          <span class="font-bold text-gray-200 text-xs">${u.name || u.email.split('@')[0]}</span>
+          <span class="text-[10px] font-mono text-cyan-400">@${u.email}</span>
+        </div>
+      `).join('') + addTeammateItem;
+      dropdown.classList.remove('hidden');
+      return;
     }
     dropdown.classList.add('hidden');
   });
@@ -10174,7 +10225,7 @@ function insertMention(handle) {
   const cursorPos = inputEl.selectionStart;
   const textBefore = text.slice(0, cursorPos);
   const textAfter = text.slice(cursorPos);
-  const newBefore = textBefore.replace(/@([a-zA-Z0-9._-]*)$/, `@${handle} `);
+  const newBefore = textBefore.replace(/@([a-zA-Z0-9._\- ]*)$/, `@${handle} `);
 
   inputEl.value = newBefore + textAfter;
   if (dropdown) dropdown.classList.add('hidden');
