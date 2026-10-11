@@ -706,9 +706,16 @@ function normalizeNodeRequirements(node) {
   }
   if (!node.hasInactionThreat) {
     node.inactionThreat = null;
+  } else if (node.inactionThreat && node.inactionThreat.targetNodeId === node.id) {
+    node.inactionThreat.targetNodeId = null;
   }
 
-  (node.actions || []).forEach(normalizeActionRequirements);
+  (node.actions || []).forEach(act => {
+    if (act && act.targetNodeId === node.id) {
+      act.targetNodeId = null;
+    }
+    normalizeActionRequirements(act);
+  });
 }
 
 function normalizeAllProjectData() {
@@ -2747,14 +2754,24 @@ function createEventNodeDOM(node) {
         </div>
       </td>`;
 
-    // Action Button with Blue Connector Port
+    // Action Button with Blue Connector Port & Unlink Button when connected
+    if (act.targetNodeId === node.id) {
+      act.targetNodeId = null;
+    }
+    const targetNodeObj = act.targetNodeId ? (appData.nodes || []).find(n => n.id === act.targetNodeId) : null;
+    const unlinkActionBtn = targetNodeObj ? `
+      <button type="button" class="ml-1 px-1.5 py-0.5 rounded-full bg-red-600 hover:bg-red-500 text-white text-[10px] font-bold leading-none shadow transition cursor-pointer"
+              title="Disconnect link to ${targetNodeObj.codename}"
+              onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}')">×</button>` : '';
+
     actionButtonsHTML += `
       <td class="event-value-cell text-center py-2 bg-yellow-100/50" id="action-btn-cell-${node.id}-${idx}">
         <div class="action-handle-group">
           <button type="button" class="action-handle" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
-            ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}
+            ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}${targetNodeObj ? ` → ${targetNodeObj.codename}` : ''}
           </button>
-          <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="${act.id}" title="Drag line to connect or spawn new block"></div>
+          ${unlinkActionBtn}
+          <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="${act.id}" title="${targetNodeObj ? `Connected to ${targetNodeObj.codename} (click × or line to disconnect, or drag to reconnect)` : 'Drag line to connect or spawn new block'}"></div>
         </div>
       </td>`;
   });
@@ -2852,12 +2869,22 @@ function createEventNodeDOM(node) {
         </div>
       </td>`;
 
+    if (inaction.targetNodeId === node.id) {
+      inaction.targetNodeId = null;
+    }
+    const inactionTargetObj = inaction.targetNodeId ? (appData.nodes || []).find(n => n.id === inaction.targetNodeId) : null;
+    const unlinkInactionBtn = inactionTargetObj ? `
+      <button type="button" class="ml-1 px-1.5 py-0.5 rounded-full bg-red-600 hover:bg-red-500 text-white text-[10px] font-bold leading-none shadow transition cursor-pointer"
+              title="Disconnect inaction link to ${inactionTargetObj.codename}"
+              onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', 'inaction')">×</button>` : '';
+
     inactionBtnCell = `
       <td class="event-value-cell text-center py-2 bg-red-100/60" id="inaction-btn-cell-${node.id}">
         <div class="action-handle-group">
           <button type="button" class="action-handle bg-red-800 hover:bg-red-900 text-white border-red-700 font-bold" onclick="event.stopPropagation(); linkOrEditInaction('${node.id}')">
-            ${inaction.targetNodeId ? getCodenameById(inaction.targetNodeId) : 'Penalty Resolution'}
+            ${inactionTargetObj ? `Penalty → ${inactionTargetObj.codename}` : 'Penalty Resolution'}
           </button>
+          ${unlinkInactionBtn}
           <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="inaction" title="Drag line to connect Inaction consequence event"></div>
         </div>
       </td>`;
@@ -3940,11 +3967,11 @@ function setupPortDragEvents() {
 
   function endPortDrag(clientX, clientY) {
     if (!portDragState.isDragging) return;
-    pushUndoState();
 
     const stageRect = canvasStage.getBoundingClientRect();
     const mouseX = (clientX - stageRect.left) / transform.scale;
     const mouseY = (clientY - stageRect.top) / transform.scale;
+    const dragDist = Math.hypot(mouseX - portDragState.startPos.x, mouseY - portDragState.startPos.y);
 
     const elementUnderMouse = document.elementFromPoint(clientX, clientY);
     const targetCard = elementUnderMouse ? elementUnderMouse.closest('.event-card') : null;
@@ -3956,8 +3983,22 @@ function setupPortDragEvents() {
         if (portDragState.sourceActionId === 'inaction') {
           if (!sourceNode.inactionThreat) sourceNode.inactionThreat = {};
           if (targetCard) {
-            sourceNode.inactionThreat.targetNodeId = targetCard.id.replace('node-', '');
-          } else {
+            const targetId = targetCard.id.replace('node-', '');
+            if (targetId === sourceNode.id) {
+              // Never allow an event to connect to itself; if clicked on port while connected, offer to disconnect
+              if (dragDist < 24 && sourceNode.inactionThreat.targetNodeId) {
+                portDragState.isDragging = false;
+                disconnectActionTarget(sourceNode.id, 'inaction');
+                return;
+              }
+              portDragState.isDragging = false;
+              renderApp();
+              return;
+            }
+            pushUndoState();
+            sourceNode.inactionThreat.targetNodeId = targetId;
+          } else if (dragDist >= 30) {
+            pushUndoState();
             let closestFloorIdx = 0;
             let minDistance = Infinity;
             FLOOR_Y.forEach((fy, idx) => {
@@ -3988,14 +4029,31 @@ function setupPortDragEvents() {
             sourceNode.inactionThreat.targetNodeId = newNode.id;
             preventNodeOverlap(newNode.id);
             resequenceStageEventCodenames(closestFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
+          } else {
+            portDragState.isDragging = false;
+            renderApp();
+            return;
           }
         } else {
           const action = (sourceNode.actions || []).find(a => a.id === portDragState.sourceActionId);
           if (action) {
             if (targetCard) {
               const targetId = targetCard.id.replace('node-', '');
+              if (targetId === sourceNode.id) {
+                // Never allow an event to connect to itself; if clicked on port while connected, offer to disconnect
+                if (dragDist < 24 && action.targetNodeId) {
+                  portDragState.isDragging = false;
+                  disconnectActionTarget(sourceNode.id, action.id);
+                  return;
+                }
+                portDragState.isDragging = false;
+                renderApp();
+                return;
+              }
+              pushUndoState();
               action.targetNodeId = targetId;
-            } else {
+            } else if (dragDist >= 30) {
+              pushUndoState();
               let closestFloorIdx = 0;
               let minDistance = Infinity;
               FLOOR_Y.forEach((fy, idx) => {
@@ -4027,11 +4085,16 @@ function setupPortDragEvents() {
               action.targetNodeId = newNode.id;
               preventNodeOverlap(newNode.id);
               resequenceStageEventCodenames(closestFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
+            } else {
+              portDragState.isDragging = false;
+              renderApp();
+              return;
             }
           }
         }
       }
     } else if (portDragState.sourceType === 'pre_event_dialogue' || portDragState.sourceType === 'post_action_dialogue' || portDragState.sourceType === 'action_option_dialogue') {
+      pushUndoState();
       if (targetDialogue) {
         const diagId = targetDialogue.id.replace('dialogue-', '');
         const diag = appData.dialogues.find(d => d.id === diagId);
@@ -4111,6 +4174,38 @@ function setupPortDragEvents() {
   });
 }
 
+function disconnectActionTarget(nodeId, actionId) {
+  const sourceNode = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!sourceNode) return;
+
+  if (actionId === 'inaction') {
+    if (!sourceNode.inactionThreat || !sourceNode.inactionThreat.targetNodeId) return;
+    const targetNode = (appData.nodes || []).find(n => n.id === sourceNode.inactionThreat.targetNodeId);
+    const targetLabel = targetNode ? targetNode.codename : sourceNode.inactionThreat.targetNodeId;
+    if (confirm(`Remove inaction failure link from ${sourceNode.codename} to ${targetLabel}?`)) {
+      pushUndoState();
+      sourceNode.inactionThreat.targetNodeId = null;
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Disconnected ${sourceNode.codename} inaction link`, 'info');
+    }
+    return;
+  }
+
+  const action = (sourceNode.actions || []).find(a => a.id === actionId);
+  if (!action || !action.targetNodeId) return;
+  const targetNode = (appData.nodes || []).find(n => n.id === action.targetNodeId);
+  const targetLabel = targetNode ? targetNode.codename : action.targetNodeId;
+  if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
+    pushUndoState();
+    action.targetNodeId = null;
+    saveProjectToLocalStorage();
+    renderApp();
+    showToast(`Disconnected ${sourceNode.codename} → ${targetLabel}`, 'info');
+  }
+}
+window.disconnectActionTarget = disconnectActionTarget;
+
 function renderTempConnectorPath(x1, y1, x2, y2) {
   let tempPath = document.getElementById('svg-temp-path');
   if (!tempPath) {
@@ -4157,7 +4252,20 @@ function renderConnectors() {
 
   // 1. Collect & Draw Action/Inaction -> Event Connections so all blue/red lines enter orthogonally at the TOP edge
   const eventLinks = [];
+  let cleanedSelfLoop = false;
   appData.nodes.forEach(sourceNode => {
+    // Always strip any invalid self-links where an event points to itself
+    (sourceNode.actions || []).forEach(act => {
+      if (act && act.targetNodeId === sourceNode.id) {
+        act.targetNodeId = null;
+        cleanedSelfLoop = true;
+      }
+    });
+    if (sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId === sourceNode.id) {
+      sourceNode.inactionThreat.targetNodeId = null;
+      cleanedSelfLoop = true;
+    }
+
     if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
     if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -4171,10 +4279,10 @@ function renderConnectors() {
     const colWidth = (sourceWidth - LABEL_WIDTH) / Math.max(totalCols, 1);
 
     (sourceNode.actions || []).forEach((action, actIdx) => {
-      if (!action.targetNodeId) return;
+      if (!action.targetNodeId || action.targetNodeId === sourceNode.id) return;
 
       const targetNode = appData.nodes.find(n => n.id === action.targetNodeId);
-      if (!targetNode) return;
+      if (!targetNode || targetNode.id === sourceNode.id) return;
       if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
       if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -4201,9 +4309,9 @@ function renderConnectors() {
     });
 
     // Inaction Threat -> Consequence Node Connection
-    if (hasInaction && sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId) {
+    if (hasInaction && sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId && sourceNode.inactionThreat.targetNodeId !== sourceNode.id) {
       const targetNode = appData.nodes.find(n => n.id === sourceNode.inactionThreat.targetNodeId);
-      if (targetNode) {
+      if (targetNode && targetNode.id !== sourceNode.id) {
         if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -4231,6 +4339,10 @@ function renderConnectors() {
     }
   });
 
+  if (cleanedSelfLoop) {
+    saveProjectToLocalStorage();
+  }
+
   // Group incoming links by targetNode.id so multiple lines entering the same event top edge stay distinct
   const incomingByTarget = new Map();
   eventLinks.forEach(link => {
@@ -4242,7 +4354,7 @@ function renderConnectors() {
     list.sort((a, b) => a.startX - b.startX);
   });
 
-  eventLinks.forEach((link, linkIdx) => {
+  eventLinks.forEach((link) => {
     const { sourceNode, targetNode, action, startX, startY, sourceRect, targetRect, targetWidth } = link;
     const incomingList = incomingByTarget.get(targetNode.id) || [link];
     const incomingIdx = incomingList.indexOf(link);
@@ -4257,35 +4369,33 @@ function renderConnectors() {
     const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx);
     const isDimmedLink = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));
 
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    group.setAttribute('class', 'connector-link-group');
+
+    const hitPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    hitPath.setAttribute('d', orthoPath);
+    hitPath.setAttribute('class', 'connector-path-hit');
+
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', orthoPath);
     path.setAttribute('class', 'connector-path-ortho' + (isDimmedLink ? ' is-pool-dimmed' : ''));
     path.setAttribute('marker-end', 'url(#arrow)');
 
+    const handleDisconnect = (e) => {
+      e.stopPropagation();
+      disconnectActionTarget(sourceNode.id, link.type === 'inaction' ? 'inaction' : action.id);
+    };
+
     if (link.type === 'inaction') {
       path.style.stroke = '#ef4444';
-      path.onclick = (e) => {
-        e.stopPropagation();
-        if (confirm(`Remove inaction failure link from ${sourceNode.codename} to ${targetNode.codename}?`)) {
-          pushUndoState();
-          sourceNode.inactionThreat.targetNodeId = null;
-          saveProjectToLocalStorage();
-          renderApp();
-        }
-      };
-    } else {
-      path.onclick = (e) => {
-        e.stopPropagation();
-        if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetNode.codename}?`)) {
-          pushUndoState();
-          action.targetNodeId = null;
-          saveProjectToLocalStorage();
-          renderApp();
-        }
-      };
     }
+    group.onclick = handleDisconnect;
+    hitPath.onclick = handleDisconnect;
+    path.onclick = handleDisconnect;
 
-    svgConnectors.appendChild(path);
+    group.appendChild(hitPath);
+    group.appendChild(path);
+    svgConnectors.appendChild(group);
   });
 
   // 2. Draw Event -> Dialogue Connections (Closest Direct Line with Arrow Jump Button & Middle Trigger Description Badge)
@@ -6170,6 +6280,7 @@ function updateNodeField(nodeId, field, value) {
 }
 
 function linkOrEditChoice(nodeId, actionId) {
+  if (isArrangeMode) return;
   const targetName = prompt("Enter Target Event Codename to link (or leave empty to create new branch node):");
   if (targetName === null) return;
 
@@ -6181,6 +6292,11 @@ function linkOrEditChoice(nodeId, actionId) {
   } else {
     const existing = appData.nodes.find(n => n.codename.toLowerCase() === targetName.trim().toLowerCase());
     if (existing) {
+      if (existing.id === nodeId) {
+        alert("An event cannot lead into itself.");
+        return;
+      }
+      pushUndoState();
       act.targetNodeId = existing.id;
       saveProjectToLocalStorage();
       renderApp();

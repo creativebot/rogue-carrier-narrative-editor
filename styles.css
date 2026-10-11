@@ -76,9 +76,17 @@ html, body {
   left: 0;
   width: 6000px;
   height: 6000px;
-  pointer-events: auto;
+  pointer-events: none;
   z-index: 10;
   overflow: visible;
+}
+
+#nodes-layer {
+  pointer-events: none;
+}
+
+#nodes-layer > * {
+  pointer-events: auto;
 }
 
 .stage-band,
@@ -919,8 +927,19 @@ html, body {
   transition: stroke 0.15s ease, stroke-width 0.15s ease;
 }
 
-.connector-path-ortho:hover {
-  stroke: #ef4444;
+.connector-path-hit {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0);
+  stroke-width: 18px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.connector-path-ortho:hover,
+.connector-link-group:hover .connector-path-ortho {
+  stroke: #ef4444 !important;
   stroke-width: 6px;
 }
 
