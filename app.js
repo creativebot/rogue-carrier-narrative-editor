@@ -1756,6 +1756,9 @@ function setArrangeMode(active) {
   const container = document.getElementById('canvas-container');
 
   if (isArrangeMode) {
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
     if (btnPan) {
       btnPan.className = 'px-2 py-1 rounded text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 transition';
     }
@@ -1765,7 +1768,7 @@ function setArrangeMode(active) {
     if (banner) banner.classList.remove('hidden');
     if (tools) tools.classList.add('arrange-glow');
     if (container) container.classList.add('arrange-mode-active');
-    showToast("📐 Arrange Mode: Drag blocks to move, connect wires, and add events.", "info");
+    showToast("📐 Arrange Mode: Editing locked. Drag blocks to move, or use ports/lines to connect & disconnect.", "info");
   } else {
     if (btnPan) {
       btnPan.className = 'px-2 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 flex items-center gap-1 shadow transition';
@@ -1776,7 +1779,7 @@ function setArrangeMode(active) {
     if (banner) banner.classList.add('hidden');
     if (tools) tools.classList.remove('arrange-glow');
     if (container) container.classList.remove('arrange-mode-active');
-    showToast("🖐️ Pan Mode: Swipe with 1 finger to pan, pinch to zoom.", "info");
+    showToast("🖐️ Pan & Edit Mode: Swipe to pan, tap fields to edit content.", "info");
   }
 }
 
@@ -1819,14 +1822,20 @@ function setupCanvasEvents() {
     }
 
     // Return if clicking on interactive controls
-    if (e.target.closest('.editable-spot') || 
-        e.target.closest('button') || 
-        e.target.closest('input') || 
-        e.target.closest('textarea') || 
-        e.target.closest('select') || 
-        e.target.closest('.connector-port') ||
-        e.target.closest('.dialogue-trigger-port') ||
-        e.target.closest('.req-pill')) {
+    if (isArrangeMode) {
+      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue')) {
+        return;
+      }
+    } else if (
+      e.target.closest('.editable-spot') || 
+      e.target.closest('button') || 
+      e.target.closest('input') || 
+      e.target.closest('textarea') || 
+      e.target.closest('select') || 
+      e.target.closest('.connector-port') ||
+      e.target.closest('.dialogue-trigger-port') ||
+      e.target.closest('.req-pill')
+    ) {
       return;
     }
 
@@ -1906,7 +1915,10 @@ function setupCanvasEvents() {
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       const targetCard = e.target.closest('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
-      const isInteractive = e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner');
+      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue');
+      const isInteractive = isArrangeMode
+        ? isPortOrZoom
+        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .block-floating-btn');
 
       // If in Arrange Mode AND touch starts on an event/dialogue card body:
       if (isArrangeMode && targetCard && !isInteractive) {
@@ -5328,6 +5340,7 @@ function deleteCharacter(idx) {
 
 // REQUIREMENT 2 FIX: Instant Working Inline Text Editing (Click or Double Click)
 function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
+  if (isArrangeMode) return;
   if (!requireAuthToEdit("edit dialogue lines")) return;
   if (element.querySelector('textarea')) return;
   const currentText = element.innerText;
@@ -5369,6 +5382,7 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
 }
 
 function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
+  if (isArrangeMode) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag && diag.lines[lineIdx] && diag.lines[lineIdx].speakerId !== speakerId) {
     pushUndoState();
@@ -5381,6 +5395,7 @@ function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
 }
 
 function deleteDialogueLine(dialogueId, lineIdx) {
+  if (isArrangeMode) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag && diag.lines) {
@@ -5391,6 +5406,7 @@ function deleteDialogueLine(dialogueId, lineIdx) {
 }
 
 function moveDialogueLine(dialogueId, lineIdx, direction) {
+  if (isArrangeMode) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag || !diag.lines) return;
@@ -5406,6 +5422,7 @@ function moveDialogueLine(dialogueId, lineIdx, direction) {
 }
 
 function insertDialogueLineBelow(dialogueId, lineIdx) {
+  if (isArrangeMode) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag || !diag.lines) return;
@@ -5428,6 +5445,7 @@ function insertDialogueLineBelow(dialogueId, lineIdx) {
 }
 
 function addDialogueLineTurn(dialogueId) {
+  if (isArrangeMode) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
@@ -5448,6 +5466,7 @@ function addDialogueLineTurn(dialogueId) {
 }
 
 function makeInlineTextEditable(element, nodeId, fieldPath) {
+  if (isArrangeMode) return;
   if (!requireAuthToEdit("edit text content")) return;
   if (element.querySelector('textarea')) return;
   const currentText = element.innerText;
@@ -5487,6 +5506,7 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
 }
 
 function makeInlineNumberEditable(element, nodeId, fieldPath) {
+  if (isArrangeMode) return;
   if (!requireAuthToEdit("edit numerical values")) return;
   if (element.querySelector('input')) return;
   const currentVal = parseInt(element.innerText) || 5;
@@ -5593,6 +5613,7 @@ function updateNodeReactionTimer(nodeId, val) {
 }
 
 function makeInlineReactionTimerEditable(element, nodeId) {
+  if (isArrangeMode) return;
   if (!requireAuthToEdit("edit reaction timer")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
@@ -5818,6 +5839,7 @@ function updateEventCodenameWithSwapping(nodeId, rawInput) {
 }
 
 function makeInlineCodenameEditable(element, nodeId) {
+  if (isArrangeMode) return;
   if (!requireAuthToEdit("edit event codename")) return;
   if (element.querySelector('input')) return;
   const node = appData.nodes.find(n => n.id === nodeId);
@@ -6285,19 +6307,28 @@ function makeNodesDraggable() {
         return;
       }
 
-      // REQUIREMENT 2 FIX: Do not drag card if clicking inside an editable spot or button
-      if (e.target.closest('.editable-spot') || 
-          e.target.closest('button') || 
-          e.target.closest('input') || 
-          e.target.closest('textarea') || 
-          e.target.closest('select') || 
-          e.target.closest('.rx-timer-select') ||
-          e.target.closest('.inline-select') ||
-          e.target.closest('.connector-port') ||
-          e.target.closest('.dialogue-trigger-port') ||
-          e.target.closest('.pool-event-switch-bar') ||
-          e.target.closest('.req-pill')) {
-        return;
+      if (isArrangeMode) {
+        if (e.target.closest('.connector-port') ||
+            e.target.closest('.dialogue-trigger-port') ||
+            e.target.closest('.btn-zoom-corner') ||
+            e.target.closest('.block-floating-btn')) {
+          return;
+        }
+      } else {
+        // Pan & Edit Mode: Do not drag card if clicking inside an editable spot or button
+        if (e.target.closest('.editable-spot') || 
+            e.target.closest('button') || 
+            e.target.closest('input') || 
+            e.target.closest('textarea') || 
+            e.target.closest('select') || 
+            e.target.closest('.rx-timer-select') ||
+            e.target.closest('.inline-select') ||
+            e.target.closest('.connector-port') ||
+            e.target.closest('.dialogue-trigger-port') ||
+            e.target.closest('.pool-event-switch-bar') ||
+            e.target.closest('.req-pill')) {
+          return;
+        }
       }
 
       if (document.activeElement && typeof document.activeElement.blur === 'function' && !e.target.closest('input, textarea, select')) {
