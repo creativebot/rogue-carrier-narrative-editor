@@ -2694,11 +2694,17 @@ const DEFAULT_SYMBOL_LIMITS = {
   eventIntro: 475,
   eventDescription: 475,
   actionDescription: 120,
+  actionDescription3Opt: 200,
   actionButtonText: 24,
   eventOutcome: 925,
   inactionResult: 475,
   variationDescription: 280
 };
+
+function getActionChoiceLimitKey(node) {
+  const count = (node && Array.isArray(node.actions)) ? node.actions.length : 0;
+  return count >= 3 ? 'actionDescription3Opt' : 'actionDescription';
+}
 
 function getSymbolLimits() {
   let savedLocal = {};
@@ -2715,11 +2721,11 @@ function getSymbolLimits() {
   return merged;
 }
 
-function getSymbolLimitKeyForFieldPath(fieldPath) {
+function getSymbolLimitKeyForFieldPath(fieldPath, node = null) {
   if (!fieldPath) return null;
   if (fieldPath === 'eventIntro') return 'eventIntro';
   if (fieldPath === 'eventDescription') return 'eventDescription';
-  if (/^actions\.\d+\.description$/.test(fieldPath)) return 'actionDescription';
+  if (/^actions\.\d+\.description$/.test(fieldPath)) return getActionChoiceLimitKey(node);
   if (/^actions\.\d+\.shortDescription$/.test(fieldPath)) return 'actionButtonText';
   if (/^actions\.\d+\.resultDescription$/.test(fieldPath)) return 'eventOutcome';
   if (fieldPath === 'inactionThreat.resultDescription') return 'inactionResult';
@@ -3218,13 +3224,14 @@ function createEventNodeDOM(node) {
         </div>
       </th>`;
 
+    const actChoiceLimitKey = getActionChoiceLimitKey(node);
     const actDescText = act.description || '';
-    const actDescOver = isFieldTextOverLimit(actDescText, 'actionDescription');
+    const actDescOver = isFieldTextOverLimit(actDescText, actChoiceLimitKey);
     actionDescHTML += `
       <td class="event-value-cell">
         <div class="flex items-start justify-between gap-1.5">
           <div class="editable-spot flex-1 min-w-0 ${actDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.description')">${actDescText || 'Add description...'}</div>
-          ${getSymbolCounterBadgeHTML(actDescText, 'actionDescription')}
+          ${getSymbolCounterBadgeHTML(actDescText, actChoiceLimitKey)}
         </div>
       </td>`;
 
@@ -3628,7 +3635,7 @@ function createEventNodeDOM(node) {
         <tr>
           <td class="event-label-cell">
             <div>Event Choice</div>
-            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits.actionDescription}</div>
+            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits[getActionChoiceLimitKey(node)]}</div>
           </td>
           ${actionDescHTML}
           ${inactionDescCell}
@@ -6886,7 +6893,8 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
   input.focus();
   input.select();
 
-  const limitKey = getSymbolLimitKeyForFieldPath(fieldPath);
+  const targetNode = (appData && Array.isArray(appData.nodes)) ? appData.nodes.find(n => n.id === nodeId) : null;
+  const limitKey = getSymbolLimitKeyForFieldPath(fieldPath, targetNode);
   const limits = limitKey ? getSymbolLimits() : null;
   const limitVal = (limits && limitKey) ? limits[limitKey] : null;
 
@@ -8252,6 +8260,7 @@ function calculateVariationSymbolStats(variationId) {
     if (isFieldTextOverLimit(introStr, 'eventIntro')) overLimitCount++;
     if (isFieldTextOverLimit(descStr, 'eventDescription')) overLimitCount++;
 
+    const nodeChoiceLimitKey = getActionChoiceLimitKey(n);
     (n.actions || []).forEach(act => {
       if (!act) return;
       const btnStr = String(act.shortDescription || '');
@@ -8260,7 +8269,7 @@ function calculateVariationSymbolStats(variationId) {
       eventSymbols += btnStr.length + choiceStr.length + outStr.length;
 
       if (isFieldTextOverLimit(btnStr, 'actionButtonText')) overLimitCount++;
-      if (isFieldTextOverLimit(choiceStr, 'actionDescription')) overLimitCount++;
+      if (isFieldTextOverLimit(choiceStr, nodeChoiceLimitKey)) overLimitCount++;
       if (isFieldTextOverLimit(outStr, 'eventOutcome')) overLimitCount++;
     });
 
@@ -9221,10 +9230,11 @@ function renderMobileStageView() {
           </span>
         `).join('');
 
+        const actChoiceKey = getActionChoiceLimitKey(node);
         const btnTextStr = act.shortDescription || '';
         const isBtnOver = isFieldTextOverLimit(btnTextStr, 'actionButtonText');
         const actDescStr = act.description || '';
-        const isActDescOver = isFieldTextOverLimit(actDescStr, 'actionDescription');
+        const isActDescOver = isFieldTextOverLimit(actDescStr, actChoiceKey);
         const resDescStr = act.resultDescription || '';
         const isResDescOver = isFieldTextOverLimit(resDescStr, 'eventOutcome');
 
@@ -9246,7 +9256,7 @@ function renderMobileStageView() {
             <div>
               <div class="flex items-center justify-between gap-2 mb-0.5">
                 <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Event Choice Description</div>
-                ${getSymbolCounterBadgeHTML(actDescStr, 'actionDescription', true)}
+                ${getSymbolCounterBadgeHTML(actDescStr, actChoiceKey, true)}
               </div>
               <p class="text-xs text-gray-200 leading-relaxed editable-spot ${isActDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
                 ${act.description || 'Action description...'}
