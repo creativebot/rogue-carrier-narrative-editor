@@ -2682,8 +2682,230 @@ function renderNodes() {
   if (window.lucide) lucide.createIcons();
 }
 
-// Format Reward & Penalty Pills with Resource Icons & Ranges (e.g., 20-30 items)
+/* ==========================================================================
+   SYMBOL COUNT TRACKING & LIMITATIONS ENGINE + CRITERIA + MULTI-TARGET LINKS
+   ========================================================================== */
+const DEFAULT_SYMBOL_LIMITS = {
+  eventIntro: 475,
+  eventDescription: 475,
+  actionDescription: 120,
+  actionButtonText: 24,
+  eventOutcome: 925,
+  inactionResult: 475,
+  variationDescription: 280
+};
+
+function getSymbolLimits() {
+  let savedLocal = {};
+  try {
+    const raw = localStorage.getItem('rc_symbol_limits');
+    if (raw) savedLocal = JSON.parse(raw) || {};
+  } catch (e) {}
+  const fromProject = (appData && appData.symbolLimits && typeof appData.symbolLimits === 'object') ? appData.symbolLimits : {};
+  const merged = { ...DEFAULT_SYMBOL_LIMITS, ...savedLocal, ...fromProject };
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const n = parseInt(merged[k], 10);
+    merged[k] = (!isNaN(n) && n > 0) ? n : DEFAULT_SYMBOL_LIMITS[k];
+  });
+  return merged;
+}
+
+function getSymbolLimitKeyForFieldPath(fieldPath) {
+  if (!fieldPath) return null;
+  if (fieldPath === 'eventIntro') return 'eventIntro';
+  if (fieldPath === 'eventDescription') return 'eventDescription';
+  if (/^actions\.\d+\.description$/.test(fieldPath)) return 'actionDescription';
+  if (/^actions\.\d+\.shortDescription$/.test(fieldPath)) return 'actionButtonText';
+  if (/^actions\.\d+\.resultDescription$/.test(fieldPath)) return 'eventOutcome';
+  if (fieldPath === 'inactionThreat.resultDescription') return 'inactionResult';
+  if (fieldPath === 'variationDescription') return 'variationDescription';
+  return null;
+}
+
+function isFieldTextOverLimit(text, limitKey) {
+  const limits = getSymbolLimits();
+  const limit = limits[limitKey] || DEFAULT_SYMBOL_LIMITS[limitKey] || 475;
+  const count = (text !== undefined && text !== null) ? String(text).length : 0;
+  return count > limit;
+}
+
+function getSymbolCounterBadgeHTML(text, limitKey, isDarkBg = false, extraId = '') {
+  const limits = getSymbolLimits();
+  const limit = limits[limitKey] || DEFAULT_SYMBOL_LIMITS[limitKey] || 475;
+  const count = (text !== undefined && text !== null) ? String(text).length : 0;
+  const isOver = count > limit;
+  const idAttr = extraId ? `id="${extraId}"` : '';
+  return `<span ${idAttr} class="symbol-count-badge ${isDarkBg ? 'is-dark-bg' : ''} ${isOver ? 'is-over-limit' : ''}" data-limit-key="${limitKey}" title="Symbol count: ${count} / ${limit}${isOver ? ' (LIMIT SURPASSED!)' : ''}">${count}/${limit}</span>`;
+}
+
+function openSymbolLimitsModal() {
+  const limits = getSymbolLimits();
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) inp.value = limits[k];
+  });
+  openModal('modal-symbol-limits');
+  if (window.lucide) lucide.createIcons();
+}
+
+function saveSymbolLimitsFromModal() {
+  const current = getSymbolLimits();
+  const updated = { ...current };
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) {
+      const val = parseInt(inp.value, 10);
+      updated[k] = (!isNaN(val) && val > 0) ? val : DEFAULT_SYMBOL_LIMITS[k];
+    }
+  });
+  if (appData) {
+    appData.symbolLimits = updated;
+  }
+  try {
+    localStorage.setItem('rc_symbol_limits', JSON.stringify(updated));
+  } catch (e) {}
+  saveProjectToLocalStorage();
+  closeModal('modal-symbol-limits');
+  const timelinesModal = document.getElementById('modal-timelines');
+  if (timelinesModal && !timelinesModal.classList.contains('hidden')) {
+    renderTimelinesManager();
+  }
+  renderApp();
+  showToast("Symbol limitations updated", "success");
+}
+
+function resetSymbolLimitsToDefault() {
+  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+    const inp = document.getElementById(`limit-input-${k}`);
+    if (inp) inp.value = DEFAULT_SYMBOL_LIMITS[k];
+  });
+  showToast("Reset inputs to default symbol limits — click Save Limits to apply", "info");
+}
+
+window.openSymbolLimitsModal = openSymbolLimitsModal;
+window.saveSymbolLimitsFromModal = saveSymbolLimitsFromModal;
+window.resetSymbolLimitsToDefault = resetSymbolLimitsToDefault;
+
+// Multi-Target Action Link Helpers (allows 1 action to link to multiple downstream events)
+function getActionTargetIds(act, sourceNodeId = null) {
+  if (!act) return [];
+  const rawList = [];
+  if (Array.isArray(act.targetNodeIds)) {
+    act.targetNodeIds.forEach(id => {
+      if (id && typeof id === 'string') rawList.push(id);
+    });
+  }
+  if (act.targetNodeId && typeof act.targetNodeId === 'string' && !rawList.includes(act.targetNodeId)) {
+    rawList.unshift(act.targetNodeId);
+  }
+  const existingNodeIds = new Set(((appData && appData.nodes) || []).map(n => n.id));
+  const seen = new Set();
+  const valid = [];
+  rawList.forEach(id => {
+    if (sourceNodeId && id === sourceNodeId) return;
+    if (existingNodeIds.size > 0 && !existingNodeIds.has(id)) return;
+    if (!seen.has(id)) {
+      seen.add(id);
+      valid.push(id);
+    }
+  });
+  act.targetNodeIds = valid;
+  act.targetNodeId = valid[0] || null;
+  return valid;
+}
+
+function addActionTargetId(act, targetId, sourceNodeId = null) {
+  if (!act || !targetId || (sourceNodeId && targetId === sourceNodeId)) return false;
+  const current = getActionTargetIds(act, sourceNodeId);
+  if (!current.includes(targetId)) {
+    current.push(targetId);
+  }
+  act.targetNodeIds = current;
+  act.targetNodeId = current[0] || null;
+  return true;
+}
+
+function removeActionTargetId(act, targetId = null, sourceNodeId = null) {
+  if (!act) return;
+  if (!targetId) {
+    act.targetNodeIds = [];
+    act.targetNodeId = null;
+    return;
+  }
+  const current = getActionTargetIds(act, sourceNodeId).filter(id => id !== targetId);
+  act.targetNodeIds = current;
+  act.targetNodeId = current[0] || null;
+}
+
+// Criteria (Story Flags / Textual Variables) Helpers
+function isCriteriaObject(item) {
+  if (!item) return false;
+  if (typeof item === 'object') {
+    return item.category === 'Criteria' || item.kind === 'criteria' || String(item.resourceId || '').startsWith('criteria_');
+  }
+  if (typeof item === 'string') {
+    return item.trim().startsWith('🔑') || item.trim().toLowerCase().startsWith('criteria:');
+  }
+  return false;
+}
+
+function getGlobalCriteriaPool() {
+  if (!appData) return ['Orange Box'];
+  if (!Array.isArray(appData.criteriaPool)) {
+    appData.criteriaPool = ['Orange Box'];
+  }
+  const seen = new Map();
+  const addName = (rawName) => {
+    const clean = String(rawName || '').replace(/^🔑\s*/, '').replace(/^criteria:\s*/i, '').trim();
+    if (!clean) return;
+    const key = clean.toLowerCase();
+    if (!seen.has(key)) seen.set(key, clean);
+  };
+  appData.criteriaPool.forEach(addName);
+  if (seen.size === 0) addName('Orange Box');
+
+  // Also scan all nodes' requirements and rewards for any Criteria items
+  (appData.nodes || []).forEach(n => {
+    (n.actions || []).forEach(act => {
+      (act.requirements || []).forEach(clause => {
+        const items = (clause && Array.isArray(clause.items)) ? clause.items : [clause];
+        items.forEach(it => {
+          if (isCriteriaObject(it)) addName(typeof it === 'object' ? it.name : it);
+        });
+      });
+      (act.rewards || []).forEach(rw => {
+        if (isCriteriaObject(rw)) addName(typeof rw === 'object' ? rw.name : rw);
+      });
+    });
+  });
+
+  appData.criteriaPool = Array.from(seen.values());
+  return appData.criteriaPool;
+}
+
+// Format Reward & Penalty Pills with Resource Icons, Ranges & Criteria Flags
 function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
+  if (isCriteriaObject(rw)) {
+    const rawName = typeof rw === 'object' ? (rw.name || 'Criteria') : String(rw).replace(/^🔑\s*/, '').replace(/^criteria:\s*/i, '').trim();
+    const removeFn = isPenalty
+      ? `removeInactionPenalty('${nodeId}', ${rwIdx})`
+      : `removeRewardItem('${nodeId}', ${actionIdx}, ${rwIdx})`;
+    const editFn = isPenalty
+      ? `openResourcePickerModal('${nodeId}', -1, 'inaction_penalty', ${rwIdx})`
+      : `openResourcePickerModal('${nodeId}', ${actionIdx}, 'reward', ${rwIdx})`;
+    return `
+      <span class="req-pill criteria-pill inline-flex items-center gap-1 cursor-pointer transition shadow-2xs"
+            onclick="event.stopPropagation(); ${editFn}"
+            title="Story Criteria Flag (Textual Variable) — Click to change">
+        <span class="text-xs">🔑</span>
+        <span class="text-[9px] font-mono font-extrabold uppercase px-1 py-0.2 rounded bg-fuchsia-200/90 text-fuchsia-950 border border-fuchsia-400">Criteria</span>
+        <span class="font-bold text-fuchsia-950">${rawName}</span>
+        <button type="button" class="req-remove-btn" title="Remove criteria"
+                onclick="event.stopPropagation(); event.preventDefault(); ${removeFn}">×</button>
+      </span>
+    `;
+  }
+
   let name = '';
   let amount = '';
   let iconImg = '';
@@ -2806,7 +3028,7 @@ function isPoolNodeDimmed(nodeId, variationId, visited = new Set()) {
   const isUpstreamDisabled = (appData.nodes || []).some(parent => {
     if (parent.id === nodeId) return false;
     if ((parent.category || 'KeyChain') !== (node.category || 'KeyChain')) return false;
-    const leadsToThis = (parent.actions || []).some(a => (a.targetNodeId === nodeId || a.targetEventId === nodeId)) ||
+    const leadsToThis = (parent.actions || []).some(a => getActionTargetIds(a, parent.id).includes(nodeId) || a.targetEventId === nodeId) ||
                         Boolean(parent.inactionThreat && (parent.inactionThreat.targetNodeId === nodeId || parent.inactionThreat.targetEventId === nodeId));
     if (leadsToThis) {
       return isPoolNodeDimmed(parent.id, targetVarId, visited);
@@ -2829,10 +3051,11 @@ function getConnectedPoolEventIds(startNodeId) {
     if (!currNode) continue;
 
     (currNode.actions || []).forEach(act => {
-      const tgt = act.targetNodeId || act.targetEventId;
-      if (tgt && !connectedIds.has(tgt)) {
-        queue.push(tgt);
-      }
+      const tgts = getActionTargetIds(act, currNode.id);
+      if (act.targetEventId && !tgts.includes(act.targetEventId)) tgts.push(act.targetEventId);
+      tgts.forEach(tgt => {
+        if (tgt && !connectedIds.has(tgt)) queue.push(tgt);
+      });
     });
 
     if (currNode.inactionThreat) {
@@ -2911,7 +3134,7 @@ function getPoolSwitchBarHTML(node, isDimmed, currentVar) {
   `;
 }
 
-// Key Event Block DOM Creation (Inaction Threat Add/Remove, Infinite Reaction by default, Replaceable Resource Requirements)
+// Key Event Block DOM Creation (with Symbol Count Tracking, Criteria Flags & Multi-Target Links)
 function createEventNodeDOM(node) {
   const hasInaction = Boolean(node.hasInactionThreat && node.inactionThreat);
   const actionCols = node.actions || [];
@@ -2931,6 +3154,7 @@ function createEventNodeDOM(node) {
   wrapper.style.top = `${node.position.y}px`;
 
   const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
+  const limits = getSymbolLimits();
 
   let actionHeadersHTML = '';
   let actionDescHTML = '';
@@ -2989,15 +3213,41 @@ function createEventNodeDOM(node) {
         </div>
       </th>`;
 
-    actionDescHTML += `<td class="event-value-cell editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.description')">${act.description || 'Add description...'}</td>`;
-    actionShortDescHTML += `<td class="event-value-cell font-bold text-center editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.shortDescription')">${act.shortDescription || 'Choice'}</td>`;
+    const actDescText = act.description || '';
+    const actDescOver = isFieldTextOverLimit(actDescText, 'actionDescription');
+    actionDescHTML += `
+      <td class="event-value-cell">
+        <div class="flex items-start justify-between gap-1.5">
+          <div class="editable-spot flex-1 min-w-0 ${actDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.description')">${actDescText || 'Add description...'}</div>
+          ${getSymbolCounterBadgeHTML(actDescText, 'actionDescription')}
+        </div>
+      </td>`;
+
+    const actBtnText = act.shortDescription || '';
+    const actBtnOver = isFieldTextOverLimit(actBtnText, 'actionButtonText');
+    actionShortDescHTML += `
+      <td class="event-value-cell">
+        <div class="flex items-center justify-between gap-1.5">
+          <div class="font-bold text-center editable-spot flex-1 min-w-0 ${actBtnOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.shortDescription')">${actBtnText || 'Choice'}</div>
+          ${getSymbolCounterBadgeHTML(actBtnText, 'actionButtonText')}
+        </div>
+      </td>`;
     
-    // Interactive Requirement Clauses with AND / OR Badges & Alternatives
+    // Interactive Requirement Clauses with AND / OR Badges, Alternatives & Criteria Flags
     normalizeActionRequirements(act);
     const reqList = act.requirements || [];
     let clausesHTML = reqList.map((clause, clauseIdx) => {
       const itemsList = clause.items || [];
       let itemsHTML = itemsList.map((r, itemIdx) => {
+        if (isCriteriaObject(r)) {
+          return `
+            <span class="req-pill criteria-pill" onclick="event.stopPropagation(); openEditRequirementItem('${node.id}', ${idx}, ${clauseIdx}, ${itemIdx})" title="Required Story Criteria Flag — click to change">
+              <span>🔑</span>
+              <span class="text-[9px] font-mono font-extrabold uppercase px-1 py-0.2 rounded bg-fuchsia-200/90 text-fuchsia-950 border border-fuchsia-400">Criteria</span>
+              <span class="font-bold text-fuchsia-950">${r.name}</span>
+              <button type="button" class="req-remove-btn" title="Remove requirement item" onclick="event.stopPropagation(); event.preventDefault(); removeRequirementItem('${node.id}', ${idx}, ${clauseIdx}, ${itemIdx})">×</button>
+            </span>`;
+        }
         const iconMarkup = r.iconImg ? `<img src="${r.iconImg}" class="w-4 h-4 object-contain inline-block mr-1">` : `${r.icon || '📦'} `;
         return `
           <span class="req-pill" onclick="event.stopPropagation(); openEditRequirementItem('${node.id}', ${idx}, ${clauseIdx}, ${itemIdx})">
@@ -3062,17 +3312,22 @@ function createEventNodeDOM(node) {
         }).join('') + `</div>`;
     }
 
-    // Action Result with Post-Action Purple Dot
+    // Action Result with Symbol Counter & Post-Action Purple Dot
+    const actResText = act.resultDescription || '';
+    const actResOver = isFieldTextOverLimit(actResText, 'eventOutcome');
     actionResultHTML += `
       <td class="event-value-cell">
-        <div class="flex items-start justify-between gap-1">
+        <div class="flex items-start justify-between gap-1.5">
           <div class="flex-1 min-w-0">
-            <div class="editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
-              ${act.resultDescription || 'Action result description...'}
+            <div class="editable-spot ${actResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
+              ${actResText || 'Action result description...'}
             </div>
             ${postDiagPills}
           </div>
-          <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer ${hasPostDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
+          <div class="flex flex-col items-end gap-1 shrink-0">
+            ${getSymbolCounterBadgeHTML(actResText, 'eventOutcome')}
+            <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer ${hasPostDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
+          </div>
         </div>
       </td>`;
     
@@ -3091,24 +3346,26 @@ function createEventNodeDOM(node) {
         </div>
       </td>`;
 
-    // Action Button with Blue Connector Port & Unlink Button when connected
-    if (act.targetNodeId === node.id) {
-      act.targetNodeId = null;
-    }
-    const targetNodeObj = act.targetNodeId ? (appData.nodes || []).find(n => n.id === act.targetNodeId) : null;
-    const unlinkActionBtn = targetNodeObj ? `
-      <button type="button" class="ml-1 px-1.5 py-0.5 rounded-full bg-red-600 hover:bg-red-500 text-white text-[10px] font-bold leading-none shadow transition cursor-pointer"
-              title="Disconnect link to ${targetNodeObj.codename}"
-              onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}')">×</button>` : '';
+    // Action Button with Multi-Target Event Links & Blue Connector Port
+    const targetIds = getActionTargetIds(act, node.id);
+    const targetNodeObjs = targetIds.map(tid => (appData.nodes || []).find(n => n.id === tid)).filter(Boolean);
+    const targetPillsHTML = targetNodeObjs.map(tObj => `
+      <span class="inline-flex items-center gap-0.5 bg-blue-100 text-blue-950 border border-blue-400 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold shadow-2xs">
+        <span class="cursor-pointer hover:underline" title="Jump to ${tObj.codename} (${tObj.name})" onclick="event.stopPropagation(); zoomInToBlock('${tObj.id}', false)">→ ${tObj.codename}</span>
+        <button type="button" class="ml-0.5 text-red-600 hover:text-red-800 font-bold leading-none px-0.5 cursor-pointer"
+                title="Disconnect link to ${tObj.codename}"
+                onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}', '${tObj.id}')">×</button>
+      </span>
+    `).join('');
 
     actionButtonsHTML += `
       <td class="event-value-cell text-center py-2 bg-yellow-100/50" id="action-btn-cell-${node.id}-${idx}">
-        <div class="action-handle-group">
-          <button type="button" class="action-handle" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
-            ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}${targetNodeObj ? ` → ${targetNodeObj.codename}` : ''}
+        <div class="action-handle-group flex-wrap justify-center gap-1">
+          <button type="button" class="action-handle" title="Click to link another target event by codename or spawn a new branch event" onclick="event.stopPropagation(); linkOrEditChoice('${node.id}', '${act.id}')">
+            ${act.codeSuffix || String.fromCharCode(65 + idx)}: ${act.shortDescription || 'Choice'}
           </button>
-          ${unlinkActionBtn}
-          <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="${act.id}" title="${targetNodeObj ? `Connected to ${targetNodeObj.codename} (click × or line to disconnect, or drag to reconnect)` : 'Drag line to connect or spawn new block'}"></div>
+          ${targetPillsHTML}
+          <div class="connector-port action-port" data-node-id="${node.id}" data-action-id="${act.id}" title="${targetNodeObjs.length > 0 ? `Connected to ${targetNodeObjs.map(t => t.codename).join(', ')} — drag from blue circle to link additional events!` : 'Drag from blue circle to connect to one or more events'}"></div>
         </div>
       </td>`;
   });
@@ -3149,7 +3406,8 @@ function createEventNodeDOM(node) {
     const inactionDesc = inaction.description || inaction.consequenceText || 'Survivors perish.';
     const inactionShort = inaction.shortDescription || 'Timeout';
     const inactionTimer = inaction.timerHours !== undefined ? inaction.timerHours : (node.reactionTimerHours || 'Infinite');
-    const inactionResult = inaction.resultDescription || 'Catastrophic failure';
+    const inactionResult = inaction.resultDescription || '';
+    const inactResOver = isFieldTextOverLimit(inactionResult, 'inactionResult');
 
     let inactionPenaltyPills = (inaction.penalties || []).map((p, pIdx) => {
       return formatRewardPillHTML(p, node.id, -1, pIdx, true);
@@ -3188,11 +3446,14 @@ function createEventNodeDOM(node) {
 
     inactionResultCell = `
       <td class="event-value-cell bg-red-50/70">
-        <div class="flex items-start justify-between gap-1">
-          <div class="flex-1 editable-spot text-red-950" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
-            ${inactionResult}
+        <div class="flex items-start justify-between gap-1.5">
+          <div class="flex-1 editable-spot text-red-950 ${inactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
+            ${inactionResult || 'Catastrophic failure'}
           </div>
-          <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer" data-node-id="${node.id}" data-action-id="inaction" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', 'inaction')"></div>
+          <div class="flex flex-col items-end gap-1 shrink-0">
+            ${getSymbolCounterBadgeHTML(inactionResult, 'inactionResult')}
+            <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer" data-node-id="${node.id}" data-action-id="inaction" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', 'inaction')"></div>
+          </div>
         </div>
       </td>`;
 
@@ -3243,6 +3504,11 @@ function createEventNodeDOM(node) {
       </button>
     `;
   }).join('') : '';
+
+  const introText = node.eventIntro || '';
+  const introOver = isFieldTextOverLimit(introText, 'eventIntro');
+  const descText = node.eventDescription || '';
+  const descOver = isFieldTextOverLimit(descText, 'eventDescription');
 
   wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
@@ -3306,11 +3572,12 @@ function createEventNodeDOM(node) {
 
       <div class="flex items-start gap-2 flex-1 min-w-0 mx-1">
         <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 mt-0.5 theme-substrip-label">Intro:</span>
-        <div class="editable-spot text-xs italic leading-snug text-gray-800 flex-1 break-words" 
+        <div class="editable-spot text-xs italic leading-snug text-gray-800 flex-1 break-words ${introOver ? 'is-over-limit' : ''}" 
              title="Click to edit event intro text"
              onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
-          ${node.eventIntro || 'Distress signal coming from Keeling island...'}
+          ${introText || 'Distress signal coming from Keeling island...'}
         </div>
+        ${getSymbolCounterBadgeHTML(introText, 'eventIntro')}
       </div>
 
       <div class="flex items-center gap-1.5 shrink-0 pt-0.5 whitespace-nowrap">
@@ -3328,9 +3595,10 @@ function createEventNodeDOM(node) {
     <div class="event-desc-row px-3 py-1.5 text-xs">
       <div class="flex items-start gap-2">
         <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 mt-0.5 theme-substrip-label">Description:</span>
-        <div class="editable-spot leading-snug text-gray-800 flex-1" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
-          ${node.eventDescription || 'Event context description...'}
+        <div class="editable-spot leading-snug text-gray-800 flex-1 ${descOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
+          ${descText || 'Event context description...'}
         </div>
+        ${getSymbolCounterBadgeHTML(descText, 'eventDescription')}
       </div>
     </div>
 
@@ -3353,13 +3621,19 @@ function createEventNodeDOM(node) {
       </thead>
       <tbody>
         <tr>
-          <td class="event-label-cell">Action Description</td>
+          <td class="event-label-cell">
+            <div>Event Choice</div>
+            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits.actionDescription}</div>
+          </td>
           ${actionDescHTML}
           ${inactionDescCell}
         </tr>
 
         <tr>
-          <td class="event-label-cell">Action Short Desc</td>
+          <td class="event-label-cell">
+            <div>Action Button Text</div>
+            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits.actionButtonText}</div>
+          </td>
           ${actionShortDescHTML}
           ${inactionShortDescCell}
         </tr>
@@ -3377,7 +3651,10 @@ function createEventNodeDOM(node) {
         </tr>
 
         <tr>
-          <td class="event-label-cell">Action Result Desc</td>
+          <td class="event-label-cell">
+            <div>Event Outcome</div>
+            <div class="text-[9px] font-mono text-gray-500 font-normal">Limit: ${limits.eventOutcome}${hasInaction ? ` (Inact: ${limits.inactionResult})` : ''}</div>
+          </td>
           ${actionResultHTML}
           ${inactionResultCell}
         </tr>
@@ -3416,8 +3693,11 @@ function deleteEventNode(nodeId) {
   // Clear incoming target references
   appData.nodes.forEach(n => {
     (n.actions || []).forEach(act => {
-      if (act.targetNodeId === nodeId) act.targetNodeId = null;
+      removeActionTargetId(act, nodeId, n.id);
     });
+    if (n.inactionThreat && n.inactionThreat.targetNodeId === nodeId) {
+      n.inactionThreat.targetNodeId = null;
+    }
   });
 
   // Clear dialogue links
@@ -4550,11 +4830,12 @@ function setupPortDragEvents() {
         } else {
           const action = (sourceNode.actions || []).find(a => a.id === portDragState.sourceActionId);
           if (action) {
+            const currentTargets = getActionTargetIds(action, sourceNode.id);
             if (targetCard) {
               const targetId = targetCard.id.replace('node-', '');
               if (targetId === sourceNode.id) {
                 // Never allow an event to connect to itself; if clicked on port while connected, offer to disconnect
-                if (dragDist < 24 && action.targetNodeId) {
+                if (dragDist < 24 && currentTargets.length > 0) {
                   portDragState.isDragging = false;
                   disconnectActionTarget(sourceNode.id, action.id);
                   return;
@@ -4564,7 +4845,11 @@ function setupPortDragEvents() {
                 return;
               }
               pushUndoState();
-              action.targetNodeId = targetId;
+              addActionTargetId(action, targetId, sourceNode.id);
+              const linkedNode = appData.nodes.find(n => n.id === targetId);
+              if (linkedNode) {
+                showToast(`Linked ${sourceNode.codename} (${action.shortDescription || 'Choice'}) → ${linkedNode.codename}`, 'success');
+              }
             } else if (dragDist >= 30) {
               pushUndoState();
               let closestFloorIdx = 0;
@@ -4595,7 +4880,7 @@ function setupPortDragEvents() {
               };
 
               appData.nodes.push(newNode);
-              action.targetNodeId = newNode.id;
+              addActionTargetId(action, newNode.id, sourceNode.id);
               preventNodeOverlap(newNode.id);
               resequenceStageEventCodenames(closestFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
             } else {
@@ -4682,7 +4967,7 @@ function setupPortDragEvents() {
   });
 }
 
-function disconnectActionTarget(nodeId, actionId) {
+function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
   const sourceNode = (appData.nodes || []).find(n => n.id === nodeId);
   if (!sourceNode) return;
 
@@ -4701,15 +4986,47 @@ function disconnectActionTarget(nodeId, actionId) {
   }
 
   const action = (sourceNode.actions || []).find(a => a.id === actionId);
-  if (!action || !action.targetNodeId) return;
-  const targetNode = (appData.nodes || []).find(n => n.id === action.targetNodeId);
-  const targetLabel = targetNode ? targetNode.codename : action.targetNodeId;
-  if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
-    pushUndoState();
-    action.targetNodeId = null;
-    saveProjectToLocalStorage();
-    renderApp();
-    showToast(`Disconnected ${sourceNode.codename} → ${targetLabel}`, 'info');
+  if (!action) return;
+  const targetIds = getActionTargetIds(action, sourceNode.id);
+  if (targetIds.length === 0) return;
+
+  if (specificTargetNodeId) {
+    const targetNode = (appData.nodes || []).find(n => n.id === specificTargetNodeId);
+    const targetLabel = targetNode ? targetNode.codename : specificTargetNodeId;
+    if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
+      pushUndoState();
+      removeActionTargetId(action, specificTargetNodeId, sourceNode.id);
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Disconnected ${sourceNode.codename} → ${targetLabel}`, 'info');
+    }
+    return;
+  }
+
+  if (targetIds.length === 1) {
+    const onlyId = targetIds[0];
+    const targetNode = (appData.nodes || []).find(n => n.id === onlyId);
+    const targetLabel = targetNode ? targetNode.codename : onlyId;
+    if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
+      pushUndoState();
+      removeActionTargetId(action, onlyId, sourceNode.id);
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Disconnected ${sourceNode.codename} → ${targetLabel}`, 'info');
+    }
+  } else {
+    const labels = targetIds.map(tid => {
+      const tn = (appData.nodes || []).find(n => n.id === tid);
+      return tn ? tn.codename : tid;
+    }).join(', ');
+    if (confirm(`Remove all ${targetIds.length} connection links (${labels}) from ${sourceNode.codename} (${action.shortDescription || 'Choice'})?`)) {
+      pushUndoState();
+      action.targetNodeIds = [];
+      action.targetNodeId = null;
+      saveProjectToLocalStorage();
+      renderApp();
+      showToast(`Disconnected all links from ${sourceNode.codename} (${action.shortDescription || 'Choice'})`, 'info');
+    }
   }
 }
 window.disconnectActionTarget = disconnectActionTarget;
@@ -4728,7 +5045,7 @@ function renderTempConnectorPath(x1, y1, x2, y2) {
     const sourceNode = appData.nodes.find(n => n.id === portDragState.sourceNodeId);
     if (sourceNode) {
       const sourceEl = document.getElementById(`node-${sourceNode.id}`);
-      const sw = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
+      const sw = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 940;
       const sh = (sourceEl && sourceEl.offsetHeight > 100) ? sourceEl.offsetHeight : 520;
       sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sw, h: sh };
     }
@@ -4753,7 +5070,7 @@ function renderConnectors() {
   const overlaysLayer = document.getElementById('connector-overlays-layer');
   if (overlaysLayer) overlaysLayer.innerHTML = '';
 
-  const NODE_WIDTH = 880;
+  const NODE_WIDTH = 940;
   const LABEL_WIDTH = 190;
 
   const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
@@ -4764,8 +5081,13 @@ function renderConnectors() {
   appData.nodes.forEach(sourceNode => {
     // Always strip any invalid self-links where an event points to itself
     (sourceNode.actions || []).forEach(act => {
-      if (act && act.targetNodeId === sourceNode.id) {
+      if (!act) return;
+      if (act.targetNodeId === sourceNode.id) {
         act.targetNodeId = null;
+        cleanedSelfLoop = true;
+      }
+      if (Array.isArray(act.targetNodeIds) && act.targetNodeIds.includes(sourceNode.id)) {
+        act.targetNodeIds = act.targetNodeIds.filter(id => id !== sourceNode.id);
         cleanedSelfLoop = true;
       }
     });
@@ -4779,7 +5101,7 @@ function renderConnectors() {
 
     const sourceEl = document.getElementById(`node-${sourceNode.id}`);
     const sourceHeight = sourceEl ? sourceEl.offsetHeight : 520;
-    const sourceWidth = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
+    const sourceWidth = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 940;
     const sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sourceWidth, h: sourceHeight };
     const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
     const actionCount = Math.max((sourceNode.actions || []).length, 1);
@@ -4787,32 +5109,36 @@ function renderConnectors() {
     const colWidth = (sourceWidth - LABEL_WIDTH) / Math.max(totalCols, 1);
 
     (sourceNode.actions || []).forEach((action, actIdx) => {
-      if (!action.targetNodeId || action.targetNodeId === sourceNode.id) return;
+      const targetIds = getActionTargetIds(action, sourceNode.id);
+      if (targetIds.length === 0) return;
 
-      const targetNode = appData.nodes.find(n => n.id === action.targetNodeId);
-      if (!targetNode || targetNode.id === sourceNode.id) return;
-      if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
-      if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
+      targetIds.forEach((targetId, targetSubIdx) => {
+        const targetNode = appData.nodes.find(n => n.id === targetId);
+        if (!targetNode || targetNode.id === sourceNode.id) return;
+        if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
+        if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
-      const targetEl = document.getElementById(`node-${targetNode.id}`);
-      const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 880;
-      const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
-      const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
+        const targetEl = document.getElementById(`node-${targetNode.id}`);
+        const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 940;
+        const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
+        const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
-      const startX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
-      const startY = sourceNode.position.y + sourceHeight;
+        const startX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
+        const startY = sourceNode.position.y + sourceHeight;
 
-      eventLinks.push({
-        type: 'action',
-        sourceNode,
-        targetNode,
-        action,
-        actIdx,
-        startX,
-        startY,
-        sourceRect,
-        targetRect,
-        targetWidth
+        eventLinks.push({
+          type: 'action',
+          sourceNode,
+          targetNode,
+          action,
+          actIdx,
+          targetSubIdx,
+          startX,
+          startY,
+          sourceRect,
+          targetRect,
+          targetWidth
+        });
       });
     });
 
@@ -4824,7 +5150,7 @@ function renderConnectors() {
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
         const targetEl = document.getElementById(`node-${targetNode.id}`);
-        const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 880;
+        const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 940;
         const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
         const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
@@ -4874,7 +5200,7 @@ function renderConnectors() {
     const endX = targetNode.position.x + (targetWidth / 2) + topEntryOffset;
     const endY = targetNode.position.y;
 
-    const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx);
+    const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx + (link.targetSubIdx || 0));
     const isDimmedLink = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));
 
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -4891,7 +5217,7 @@ function renderConnectors() {
 
     const handleDisconnect = (e) => {
       e.stopPropagation();
-      disconnectActionTarget(sourceNode.id, link.type === 'inaction' ? 'inaction' : action.id);
+      disconnectActionTarget(sourceNode.id, link.type === 'inaction' ? 'inaction' : action.id, targetNode.id);
     };
 
     if (link.type === 'inaction') {
@@ -5530,6 +5856,27 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   const input = document.getElementById('picker-search-input');
   if (input) input.value = '';
 
+  const criteriaInput = document.getElementById('picker-criteria-input');
+  if (criteriaInput) {
+    criteriaInput.value = '';
+    if (type === 'reward') {
+      const node = appData.nodes.find(n => n.id === nodeId);
+      const act = (node && node.actions) ? node.actions[actionIdx] : null;
+      const existingRw = (act && act.rewards && itemIdx !== null) ? act.rewards[itemIdx] : null;
+      if (existingRw && isCriteriaObject(existingRw)) {
+        criteriaInput.value = existingRw.name || '';
+      }
+    } else if (type === 'requirement_edit') {
+      const node = appData.nodes.find(n => n.id === nodeId);
+      const act = (node && node.actions) ? node.actions[actionIdx] : null;
+      const clause = (act && act.requirements && clauseIdx !== null) ? act.requirements[clauseIdx] : null;
+      const existingReq = (clause && clause.items && itemIdx !== null) ? clause.items[itemIdx] : null;
+      if (existingReq && isCriteriaObject(existingReq)) {
+        criteriaInput.value = existingReq.name || '';
+      }
+    }
+  }
+
   const amountInput = document.getElementById('picker-amount-input');
   if (amountInput) {
     if (type === 'reward') {
@@ -5561,9 +5908,136 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
     }
   }
 
+  renderPickerCriteriaPool();
   filterPickerResources('');
   openModal('modal-resource-picker');
 }
+
+function renderPickerCriteriaPool() {
+  const listEl = document.getElementById('picker-criteria-list');
+  if (!listEl) return;
+  const pool = getGlobalCriteriaPool();
+  if (pool.length === 0) {
+    listEl.innerHTML = `<span class="text-[11px] text-gray-500 italic">No criteria flags created yet. Type a name above (e.g. "Orange Box") and click "+ Add & Select".</span>`;
+    return;
+  }
+  listEl.innerHTML = pool.map(critName => {
+    const safeAttr = critName.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const safeHtml = critName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `
+      <span class="inline-flex items-center gap-1.5 bg-fuchsia-950/80 hover:bg-fuchsia-900/90 border border-fuchsia-600/80 text-fuchsia-200 px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition shadow-xs"
+            onclick="selectCriteriaFromPicker('${safeAttr}')"
+            title="Click to select Criteria '${safeHtml}'">
+        <span>🔑 ${safeHtml}</span>
+        <button type="button"
+                class="text-fuchsia-400 hover:text-red-300 font-bold ml-1 px-1 rounded hover:bg-black/30"
+                onclick="event.stopPropagation(); deleteCriteriaFromPool('${safeAttr}')"
+                title="Remove from Criteria pool">×</button>
+      </span>
+    `;
+  }).join('');
+}
+
+function createAndSelectCriteriaFromPicker() {
+  const input = document.getElementById('picker-criteria-input');
+  const rawName = input ? input.value.trim() : '';
+  if (!rawName) {
+    showToast('Please enter a Criteria name (e.g. "Orange Box")', 'warning');
+    if (input) input.focus();
+    return;
+  }
+  selectCriteriaFromPicker(rawName);
+}
+
+function selectCriteriaFromPicker(criteriaName) {
+  const cleanName = String(criteriaName || '').trim();
+  if (!cleanName) return;
+
+  const { nodeId, actionIdx, type, itemIdx, clauseIdx } = activePickerTarget;
+  const node = appData.nodes.find(n => n.id === nodeId);
+  if (!node) return;
+
+  pushUndoState();
+
+  if (!Array.isArray(appData.criteriaPool)) appData.criteriaPool = [];
+  if (!appData.criteriaPool.some(c => String(c).toLowerCase() === cleanName.toLowerCase())) {
+    appData.criteriaPool.push(cleanName);
+  }
+
+  const critId = `criteria_${cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`;
+  const criteriaObj = {
+    resourceId: critId,
+    name: cleanName,
+    amount: 1,
+    icon: '🔑',
+    iconImg: '',
+    category: 'Criteria',
+    isCriteria: true
+  };
+
+  if (type === 'inaction_penalty') {
+    if (!node.inactionThreat) node.inactionThreat = {};
+    if (!node.inactionThreat.penalties) node.inactionThreat.penalties = [];
+    if (itemIdx !== null && node.inactionThreat.penalties[itemIdx] !== undefined) {
+      node.inactionThreat.penalties[itemIdx] = criteriaObj;
+    } else {
+      node.inactionThreat.penalties.push(criteriaObj);
+    }
+  } else {
+    const act = (node.actions || [])[actionIdx];
+    if (!act) return;
+
+    if (type === 'requirement') {
+      if (!act.requirements) act.requirements = [];
+      act.requirements.push({
+        id: `clause_${Date.now()}`,
+        isReplaceable: false,
+        items: [criteriaObj]
+      });
+    } else if (type === 'requirement_alternative') {
+      const clause = act.requirements[clauseIdx];
+      if (clause) {
+        if (!clause.items) clause.items = [];
+        clause.items.push(criteriaObj);
+        clause.isReplaceable = true;
+      }
+    } else if (type === 'requirement_edit') {
+      const clause = act.requirements[clauseIdx];
+      if (clause && clause.items && clause.items[itemIdx]) {
+        clause.items[itemIdx] = criteriaObj;
+      }
+    } else if (type === 'reward') {
+      if (!act.rewards) act.rewards = [];
+      if (itemIdx !== null && act.rewards[itemIdx] !== undefined) {
+        act.rewards[itemIdx] = criteriaObj;
+      } else {
+        act.rewards.push(criteriaObj);
+      }
+    }
+  }
+
+  saveProjectToLocalStorage();
+  closeModal('modal-resource-picker');
+  renderApp();
+  showToast(`${type === 'reward' ? 'Granted Criteria' : 'Required Criteria'}: "🔑 ${cleanName}"`, 'success');
+}
+
+function deleteCriteriaFromPool(criteriaName) {
+  const cleanName = String(criteriaName || '').trim();
+  if (!cleanName) return;
+  if (Array.isArray(appData.criteriaPool)) {
+    appData.criteriaPool = appData.criteriaPool.filter(c => String(c).toLowerCase() !== cleanName.toLowerCase());
+  }
+  saveProjectToLocalStorage();
+  renderPickerCriteriaPool();
+  const input = document.getElementById('picker-search-input');
+  filterPickerResources(input ? input.value : '');
+  showToast(`Removed "${cleanName}" from global Criteria list`, 'info');
+}
+
+window.createAndSelectCriteriaFromPicker = createAndSelectCriteriaFromPicker;
+window.selectCriteriaFromPicker = selectCriteriaFromPicker;
+window.deleteCriteriaFromPool = deleteCriteriaFromPool;
 
 function renderPickerResources(items) {
   const grid = document.getElementById('picker-resource-grid');
@@ -5585,33 +6059,51 @@ function renderPickerResources(items) {
   items.forEach(item => {
     const card = document.createElement('div');
     const isBuilding = item.kind === 'building' || item.category === 'Building';
+    const isCriteria = Boolean(item.isCriteria || item.category === 'Criteria');
     
-    card.className = `bg-gray-950 border ${isBuilding ? 'border-amber-900/60 hover:border-amber-400 bg-amber-950/10' : 'border-gray-800 hover:border-cyan-400'} p-3 rounded-lg cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg group relative`;
+    card.className = `bg-gray-950 border ${isCriteria ? 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20' : (isBuilding ? 'border-amber-900/60 hover:border-amber-400 bg-amber-950/10' : 'border-gray-800 hover:border-cyan-400')} p-3 rounded-lg cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg group relative`;
     
     const iconMarkup = item.iconImg ? `
       <div class="w-14 h-14 flex items-center justify-center mb-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-700/80 group-hover:border-amber-400 group-hover:scale-105 transition shadow-md">
         <img src="${item.iconImg}" alt="${item.name}" class="w-12 h-12 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
         <span style="display:none;" class="text-2xl">${item.icon || (isBuilding ? '🏛️' : '📦')}</span>
       </div>` : `
-      <div class="w-14 h-14 flex items-center justify-center mb-1.5 bg-slate-900/50 rounded-lg border border-slate-800/80">
-        <span class="text-2xl">${item.icon || (isBuilding ? '🏛️' : '📦')}</span>
+      <div class="w-14 h-14 flex items-center justify-center mb-1.5 ${isCriteria ? 'bg-fuchsia-950/70 border-fuchsia-700/80' : 'bg-slate-900/50 border-slate-800/80'} rounded-lg border">
+        <span class="text-2xl">${item.icon || (isCriteria ? '🔑' : (isBuilding ? '🏛️' : '📦'))}</span>
       </div>`;
     
     card.innerHTML = `
       ${iconMarkup}
-      <div class="font-bold text-gray-200 text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
-      <div class="text-[10px] text-gray-400 uppercase font-mono mt-0.5">${item.category || (isBuilding ? 'Building' : 'Item')}${item.tier !== undefined ? ` • T${item.tier}` : ''}</div>
+      <div class="font-bold ${isCriteria ? 'text-fuchsia-200' : 'text-gray-200'} text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
+      <div class="text-[10px] ${isCriteria ? 'text-fuchsia-400' : 'text-gray-400'} uppercase font-mono mt-0.5">${item.category || (isBuilding ? 'Building' : 'Item')}${item.tier !== undefined ? ` • T${item.tier}` : ''}</div>
     `;
 
-    card.onclick = () => selectResourceFromPicker(item);
+    card.onclick = () => {
+      if (isCriteria) {
+        selectCriteriaFromPicker(item.name);
+      } else {
+        selectResourceFromPicker(item);
+      }
+    };
     grid.appendChild(card);
   });
 }
 
 function filterPickerResources(query) {
   let items = resourceCatalog.resources || [];
-  
-  if (activePickerCategory === 'specialization') {
+  const criteriaItems = getGlobalCriteriaPool().map(cName => ({
+    id: `criteria_${cName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+    name: cName,
+    category: 'Criteria',
+    kind: 'criteria',
+    icon: '🔑',
+    iconImg: '',
+    isCriteria: true
+  }));
+
+  if (activePickerCategory === 'criteria') {
+    items = criteriaItems;
+  } else if (activePickerCategory === 'specialization') {
     items = items.filter(i => i.category === 'Specialization' || i.kind === 'specialization');
   } else if (activePickerCategory === 'building') {
     items = items.filter(i => i.kind === 'building' || i.category === 'Building');
@@ -5619,6 +6111,8 @@ function filterPickerResources(query) {
     items = items.filter(i => i.kind !== 'building' && i.category !== 'Building' && i.category !== 'Stat' && i.category !== 'People' && i.category !== 'Tech' && i.category !== 'Specialization' && i.kind !== 'specialization');
   } else if (activePickerCategory === 'stat') {
     items = items.filter(i => i.category === 'Stat' || i.category === 'People' || i.category === 'Tech' || i.category === 'Key Item');
+  } else {
+    items = [...criteriaItems, ...items];
   }
 
   const q = (query || '').toLowerCase().trim();
@@ -6360,11 +6854,24 @@ function addDialogueLineTurn(dialogueId) {
   }
 }
 
+function getRawModelValueByPath(nodeId, fieldPath) {
+  const obj = (appData.nodes || []).find(n => n.id === nodeId) || (appData.dialogues || []).find(d => d.id === nodeId);
+  if (!obj || !fieldPath) return null;
+  const parts = fieldPath.split('.');
+  let curr = obj;
+  for (let i = 0; i < parts.length; i++) {
+    if (curr === null || curr === undefined) return null;
+    curr = curr[parts[i]];
+  }
+  return (typeof curr === 'string') ? curr : null;
+}
+
 function makeInlineTextEditable(element, nodeId, fieldPath) {
   if (isArrangeMode) return;
   if (!requireAuthToEdit("edit text content")) return;
   if (element.querySelector('textarea')) return;
-  const currentText = element.innerText;
+  const rawVal = getRawModelValueByPath(nodeId, fieldPath);
+  const currentText = (rawVal !== null && rawVal !== undefined) ? rawVal : element.innerText;
   const input = document.createElement('textarea');
   input.className = 'inline-input';
   input.value = currentText;
@@ -6373,6 +6880,27 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
   element.appendChild(input);
   input.focus();
   input.select();
+
+  const limitKey = getSymbolLimitKeyForFieldPath(fieldPath);
+  const limits = limitKey ? getSymbolLimits() : null;
+  const limitVal = (limits && limitKey) ? limits[limitKey] : null;
+
+  const updateLiveBadge = (valStr) => {
+    if (!limitVal) return;
+    const len = String(valStr || '').length;
+    const isOver = len > limitVal;
+    element.classList.toggle('is-over-limit', isOver);
+    const container = element.parentElement;
+    const badge = container ? container.querySelector('.symbol-count-badge') : null;
+    if (badge) {
+      badge.textContent = `${len}/${limitVal}`;
+      badge.classList.toggle('is-over-limit', isOver);
+    }
+  };
+
+  input.addEventListener('input', () => {
+    updateLiveBadge(input.value);
+  });
 
   const stopProp = (e) => e.stopPropagation();
   input.addEventListener('mousedown', stopProp);
@@ -6927,12 +7455,13 @@ function finalizeNodeDrop(obj, el, nodeStartPos, preDragSnapshot) {
 }
 
 function updateNodeFieldByPath(nodeId, fieldPath, value) {
-  const node = appData.nodes.find(n => n.id === nodeId);
+  const node = (appData.nodes || []).find(n => n.id === nodeId) || (appData.dialogues || []).find(d => d.id === nodeId);
   if (!node) return;
 
   const parts = fieldPath.split('.');
   let curr = node;
   for (let i = 0; i < parts.length - 1; i++) {
+    if (!curr[parts[i]]) curr[parts[i]] = {};
     curr = curr[parts[i]];
   }
   curr[parts[parts.length - 1]] = value;
@@ -6952,27 +7481,67 @@ function updateNodeField(nodeId, field, value) {
   }
 }
 
+function spawnChildBranchNode(nodeId, actionId) {
+  const sourceNode = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!sourceNode) return;
+  const act = (sourceNode.actions || []).find(a => a.id === actionId);
+  if (!act) return;
+
+  pushUndoState();
+  const nextFloorIdx = Math.min((Number(sourceNode.floorIndex) || 0) + 1, FLOOR_Y.length - 1);
+  const newCodename = generateNewEventCodename(sourceNode.category || 'KeyChain', nextFloorIdx, sourceNode.variationId || activeVariationId);
+  const newNode = {
+    id: `node_${Date.now()}`,
+    codename: newCodename,
+    name: `Outcome from ${sourceNode.name || sourceNode.codename}`,
+    type: sourceNode.type || 'World',
+    category: sourceNode.category || 'KeyChain',
+    variationId: sourceNode.variationId || activeVariationId,
+    floorIndex: nextFloorIdx,
+    spawnConditions: `Triggered by ${sourceNode.codename}`,
+    eventIntro: "Initial event context...",
+    eventDescription: "Enter new outcome narrative body text...",
+    reactionTimerHours: "Infinite",
+    hasInactionThreat: false,
+    inactionThreat: null,
+    position: { x: Math.round((sourceNode.position ? sourceNode.position.x : 140) + 200), y: FLOOR_Y[nextFloorIdx] },
+    actions: [
+      { id: `c_${Date.now()}`, codeSuffix: "A", shortDescription: "Continue", description: "Next step narrative", requirements: [], timerHours: 5, resultDescription: "", rewards: ["🧠 Knowledge +100"] }
+    ]
+  };
+  appData.nodes.push(newNode);
+  addActionTargetId(act, newNode.id, sourceNode.id);
+  preventNodeOverlap(newNode.id);
+  resequenceStageEventCodenames(nextFloorIdx, sourceNode.category || 'KeyChain', sourceNode.variationId || activeVariationId);
+  saveProjectToLocalStorage();
+  renderApp();
+  showToast(`Created & linked branch event ${newNode.codename}`, 'success');
+}
+
 function linkOrEditChoice(nodeId, actionId) {
   if (isArrangeMode) return;
-  const targetName = prompt("Enter Target Event Codename to link (or leave empty to create new branch node):");
+  const targetName = prompt("Enter Target Event Codename to add link (or leave empty to create a new connected branch event):");
   if (targetName === null) return;
 
   const node = appData.nodes.find(n => n.id === nodeId);
+  if (!node) return;
   const act = (node.actions || []).find(a => a.id === actionId);
+  if (!act) return;
 
   if (targetName.trim() === '') {
     spawnChildBranchNode(nodeId, actionId);
   } else {
-    const existing = appData.nodes.find(n => n.codename.toLowerCase() === targetName.trim().toLowerCase());
+    const existing = appData.nodes.find(n => n.codename && n.codename.toLowerCase() === targetName.trim().toLowerCase());
     if (existing) {
       if (existing.id === nodeId) {
         alert("An event cannot lead into itself.");
         return;
       }
       pushUndoState();
-      act.targetNodeId = existing.id;
+      addActionTargetId(act, existing.id, nodeId);
       saveProjectToLocalStorage();
       renderApp();
+      showToast(`Linked ${node.codename} (${act.shortDescription || 'Choice'}) → ${existing.codename}`, 'success');
     } else {
       alert(`Node with codename ${targetName} not found.`);
     }
@@ -7342,12 +7911,16 @@ function renderTimelinesManager() {
                        class="w-full bg-gray-900 border border-gray-700 focus:border-cyan-400 rounded px-2.5 py-1 text-xs font-bold text-white focus:outline-none">
               </div>
               <div>
-                <label class="text-[9px] text-gray-500 uppercase font-bold tracking-wider block mb-0.5">Description / Notes</label>
+                <div class="flex items-center justify-between gap-1 mb-0.5">
+                  <label class="text-[9px] text-gray-500 uppercase font-bold tracking-wider block">Variation Description</label>
+                  ${getSymbolCounterBadgeHTML(v.description || '', 'variationDescription', true, `var-desc-badge-${v.id}`)}
+                </div>
                 <input type="text"
                        value="${safeVarDesc}"
+                       oninput="updateVariationDescLiveCounter('${v.id}', this)"
                        onchange="updateVariationField('${v.id}', 'description', this.value)"
                        placeholder="Variation description..."
-                       class="w-full bg-gray-900 border border-gray-800 focus:border-cyan-500 rounded px-2.5 py-1 text-[11px] text-gray-300 focus:outline-none">
+                       class="w-full bg-gray-900 border ${isFieldTextOverLimit(v.description || '', 'variationDescription') ? 'border-red-500 bg-red-950/30 text-red-200' : 'border-gray-800 text-gray-300'} focus:border-cyan-500 rounded px-2.5 py-1 text-[11px] focus:outline-none">
               </div>
             </div>
           </div>
@@ -7403,6 +7976,29 @@ function renderTimelinesManager() {
 
   openModal('modal-timelines');
 }
+
+function updateVariationDescLiveCounter(varId, inputEl) {
+  const val = inputEl ? inputEl.value : '';
+  const limits = getSymbolLimits();
+  const limit = limits.variationDescription || DEFAULT_SYMBOL_LIMITS.variationDescription;
+  const len = String(val || '').length;
+  const isOver = len > limit;
+  const badge = document.getElementById(`var-desc-badge-${varId}`);
+  if (badge) {
+    badge.textContent = `${len}/${limit}`;
+    badge.classList.toggle('is-over-limit', isOver);
+  }
+  if (inputEl) {
+    if (isOver) {
+      inputEl.classList.remove('border-gray-800', 'text-gray-300');
+      inputEl.classList.add('border-red-500', 'bg-red-950/30', 'text-red-200');
+    } else {
+      inputEl.classList.remove('border-red-500', 'bg-red-950/30', 'text-red-200');
+      inputEl.classList.add('border-gray-800', 'text-gray-300');
+    }
+  }
+}
+window.updateVariationDescLiveCounter = updateVariationDescLiveCounter;
 
 function updateTimelineField(tlId, field, value) {
   if (!requireAuthToEdit("edit timeline details")) return;
@@ -7622,6 +8218,85 @@ function getActiveBoardDialogueBlocks() {
   });
 }
 
+function calculateVariationSymbolStats(variationId) {
+  const vId = variationId || activeVariationId;
+  const varObj = (appData.variations || []).find(v => v.id === vId);
+  let eventSymbols = 0;
+  let dialogueSymbols = 0;
+  let varDescSymbols = varObj && varObj.description ? String(varObj.description).length : 0;
+  let overLimitCount = 0;
+
+  if (varObj && isFieldTextOverLimit(varObj.description || '', 'variationDescription')) {
+    overLimitCount++;
+  }
+
+  const varNodeIds = new Set();
+  (appData.nodes || []).forEach(n => {
+    if (!n) return;
+    const cat = n.category || 'KeyChain';
+    const isPool = (cat === 'GenericPool' || cat === 'DeckPool');
+    if (isPool) return; // Only count variation-specific events (KeyChain & SecretChain) in variation symbol total
+    if ((n.variationId || 'var_1') !== vId) return;
+    varNodeIds.add(n.id);
+
+    const introStr = String(n.eventIntro || '');
+    const descStr = String(n.eventDescription || '');
+    const nameStr = String(n.name || '');
+    eventSymbols += nameStr.length + introStr.length + descStr.length;
+
+    if (isFieldTextOverLimit(introStr, 'eventIntro')) overLimitCount++;
+    if (isFieldTextOverLimit(descStr, 'eventDescription')) overLimitCount++;
+
+    (n.actions || []).forEach(act => {
+      if (!act) return;
+      const btnStr = String(act.shortDescription || '');
+      const choiceStr = String(act.description || '');
+      const outStr = String(act.resultDescription || '');
+      eventSymbols += btnStr.length + choiceStr.length + outStr.length;
+
+      if (isFieldTextOverLimit(btnStr, 'actionButtonText')) overLimitCount++;
+      if (isFieldTextOverLimit(choiceStr, 'actionDescription')) overLimitCount++;
+      if (isFieldTextOverLimit(outStr, 'eventOutcome')) overLimitCount++;
+    });
+
+    if (n.hasInactionThreat && n.inactionThreat) {
+      const inactDesc = String(n.inactionThreat.description || '');
+      const inactRes = String(n.inactionThreat.resultDescription || '');
+      eventSymbols += inactDesc.length + inactRes.length;
+      if (isFieldTextOverLimit(inactRes, 'inactionResult')) overLimitCount++;
+    }
+  });
+
+  (appData.dialogues || []).forEach(d => {
+    if (!d) return;
+    const links = getDialogueLinks(d);
+    let belongsToVar = false;
+    if (links.length > 0) {
+      belongsToVar = links.some(l => varNodeIds.has(l.targetEventId));
+    } else {
+      const cat = d.category || 'KeyChain';
+      if (cat !== 'GenericPool' && cat !== 'DeckPool' && (d.variationId || 'var_1') === vId) {
+        belongsToVar = true;
+      }
+    }
+    if (belongsToVar) {
+      (d.lines || []).forEach(l => {
+        if (l && l.text) dialogueSymbols += String(l.text).length;
+      });
+    }
+  });
+
+  return {
+    totalSymbols: eventSymbols + dialogueSymbols + varDescSymbols,
+    eventSymbols,
+    dialogueSymbols,
+    varDescSymbols,
+    overLimitCount,
+    varNumber: varObj ? varObj.number : 1,
+    varName: varObj ? varObj.name : 'Variation'
+  };
+}
+
 function updateStats() {
   const activeEvents = getActiveBoardEventBlocks();
   const activeDialogues = getActiveBoardDialogueBlocks();
@@ -7636,6 +8311,17 @@ function updateStats() {
   if (diagStat) {
     diagStat.innerText = `Dialogues: ${activeDialogues.length}`;
     diagStat.title = `Dialogue blocks on current board: ${activeDialogues.length}`;
+  }
+
+  const symStat = document.getElementById('stat-variation-symbols');
+  if (symStat) {
+    const stats = calculateVariationSymbolStats(activeVariationId);
+    if (stats.overLimitCount > 0) {
+      symStat.innerHTML = `<span class="text-red-400 font-bold">Symbols (V${stats.varNumber}): ${stats.totalSymbols.toLocaleString()} ⚠️ (${stats.overLimitCount} over limit)</span>`;
+    } else {
+      symStat.innerHTML = `Symbols (V${stats.varNumber}): <span class="text-white">${stats.totalSymbols.toLocaleString()}</span>`;
+    }
+    symStat.title = `V${stats.varNumber} (${stats.varName}) Total Symbols: ${stats.totalSymbols.toLocaleString()}\n• Events (Intro, Desc, Choices, Buttons, Outcomes): ${stats.eventSymbols.toLocaleString()} symbols\n• Dialogues: ${stats.dialogueSymbols.toLocaleString()} symbols\n• Variation Description: ${stats.varDescSymbols.toLocaleString()} symbols${stats.overLimitCount > 0 ? `\n⚠️ ${stats.overLimitCount} text field(s) exceed configured symbol limits` : ''}`;
   }
 }
 
@@ -8506,46 +9192,67 @@ function renderMobileStageView() {
         // Req pills
         normalizeActionRequirements(act);
         const reqHTML = (act.requirements || []).map((c, cIdx) => {
-          return (c.items || []).map((item, iIdx) => `
-            <span class="req-pill text-[10px]" onclick="event.stopPropagation(); openEditRequirementItem('${node.id}', ${actIdx}, ${cIdx}, ${iIdx})">
-              ${item.iconImg ? `<img src="${item.iconImg}" class="w-3.5 h-3.5 inline">` : (item.icon || '📦')}
-              <span>${item.name}</span>
-              <span class="font-mono font-bold">x${item.amount || 1}</span>
-            </span>
-          `).join('');
+          return (c.items || []).map((item, iIdx) => {
+            const isCrit = isCriteriaObject(item);
+            return `
+              <span class="req-pill ${isCrit ? 'criteria-pill' : ''} text-[10px]" onclick="event.stopPropagation(); openEditRequirementItem('${node.id}', ${actIdx}, ${cIdx}, ${iIdx})">
+                ${isCrit ? '🔑' : (item.iconImg ? `<img src="${item.iconImg}" class="w-3.5 h-3.5 inline">` : (item.icon || '📦'))}
+                <span>${item.name}</span>
+                ${isCrit ? '' : `<span class="font-mono font-bold">x${item.amount || 1}</span>`}
+              </span>
+            `;
+          }).join('');
         }).join('');
 
         // Reward pills
         const rwHTML = (act.rewards || []).map((rw, rwIdx) => formatRewardPillHTML(rw, node.id, actIdx, rwIdx, false)).join('');
 
-        const targetNodeObj = act.targetNodeId ? (appData.nodes || []).find(n => n.id === act.targetNodeId) : null;
+        const targetIds = getActionTargetIds(act, node.id);
+        const targetNodes = targetIds.map(tid => (appData.nodes || []).find(n => n.id === tid)).filter(Boolean);
+        const targetBadgesHTML = targetNodes.map(tn => `
+          <span class="text-[10px] font-mono font-bold text-blue-300 bg-blue-950/80 border border-blue-800/70 px-1.5 py-0.5 rounded inline-flex items-center gap-1" title="Leads to ${tn.name}">
+            <span>→ ${tn.codename}</span>
+            <button type="button" class="text-red-400 hover:text-red-200 font-bold" onclick="event.stopPropagation(); disconnectActionTarget('${node.id}', '${act.id}', '${tn.id}')" title="Disconnect">×</button>
+          </span>
+        `).join('');
+
+        const btnTextStr = act.shortDescription || '';
+        const isBtnOver = isFieldTextOverLimit(btnTextStr, 'actionButtonText');
+        const actDescStr = act.description || '';
+        const isActDescOver = isFieldTextOverLimit(actDescStr, 'actionDescription');
+        const resDescStr = act.resultDescription || '';
+        const isResDescOver = isFieldTextOverLimit(resDescStr, 'eventOutcome');
 
         return `
           <div class="mobile-action-box space-y-2.5">
-            <div class="flex items-center justify-between border-b border-gray-700/60 pb-1.5 gap-2">
-              <div class="flex items-center gap-1 min-w-0">
+            <div class="flex items-center justify-between border-b border-gray-700/60 pb-1.5 gap-2 flex-wrap">
+              <div class="flex items-center gap-1.5 min-w-0">
                 <span class="font-bold text-xs text-amber-300 font-mono shrink-0">${act.codeSuffix || String.fromCharCode(65 + actIdx)}:</span>
-                <span class="font-bold text-xs text-amber-300 font-mono truncate editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.shortDescription')">${act.shortDescription || 'Choice Option'}</span>
+                <span class="font-bold text-xs text-amber-300 font-mono truncate editable-spot ${isBtnOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.shortDescription')">${act.shortDescription || 'Choice Option'}</span>
+                ${getSymbolCounterBadgeHTML(btnTextStr, 'actionButtonText', true)}
               </div>
-              <div class="flex items-center gap-1.5 shrink-0">
-                ${targetNodeObj ? `<span class="text-[10px] font-mono font-bold text-blue-300 bg-blue-950/80 border border-blue-800/70 px-1.5 py-0.5 rounded" title="Leads to ${targetNodeObj.name}">→ ${targetNodeObj.codename}</span>` : ''}
+              <div class="flex items-center gap-1.5 shrink-0 flex-wrap">
+                ${targetBadgesHTML}
                 <span class="text-[10px] text-gray-300 font-mono bg-gray-900/80 px-1.5 py-0.5 rounded border border-gray-700 editable-spot" onclick="event.stopPropagation(); makeInlineNumberEditable(this, '${node.id}', 'actions.${actIdx}.timerHours')">⏱️ ${act.timerHours || 1}h</span>
               </div>
             </div>
 
-            <!-- Action Description -->
+            <!-- Action Description (Event Choice) -->
             <div>
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Action Description</div>
-              <p class="text-xs text-gray-200 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
+              <div class="flex items-center justify-between gap-2 mb-0.5">
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Event Choice Description</div>
+                ${getSymbolCounterBadgeHTML(actDescStr, 'actionDescription', true)}
+              </div>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot ${isActDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
                 ${act.description || 'Action description...'}
               </p>
             </div>
             
             <!-- Requirements -->
             <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
-              <span class="text-[10px] font-bold text-gray-400 uppercase">Requirements:</span>
+              <span class="text-[10px] font-bold text-gray-400 uppercase">Requirements / Criteria:</span>
               ${reqHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
-              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openAddRequirementModal('${node.id}', ${actIdx})">+ Req</button>
+              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openAddRequirementModal('${node.id}', ${actIdx})">+ Req / Criteria</button>
             </div>
 
             <!-- Route Suggestion Dialogues (Pre-Choice Advice) -->
@@ -8561,24 +9268,27 @@ function renderMobileStageView() {
               ${optDiagsHTML || '<p class="text-[11px] text-gray-500 italic">No route advice dialogue attached to this choice.</p>'}
             </div>
 
-            <!-- Action Result Description -->
+            <!-- Action Result Description (Event Outcome) -->
             <div class="bg-gray-950/65 p-2.5 rounded-xl border border-emerald-900/50 space-y-1">
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
                 <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                  🏁 Action Result Description
+                  🏁 Event Outcome (Action Result)
                 </span>
-                ${targetNodeObj ? `<span class="text-[10px] font-mono text-blue-300">Outcome → ${targetNodeObj.codename}</span>` : ''}
+                <div class="flex items-center gap-1.5">
+                  ${targetNodes.length > 0 ? `<span class="text-[10px] font-mono text-blue-300">Outcome → ${targetNodes.map(t => t.codename).join(', ')}</span>` : ''}
+                  ${getSymbolCounterBadgeHTML(resDescStr, 'eventOutcome', true)}
+                </div>
               </div>
-              <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.resultDescription')">
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line ${isResDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.resultDescription')">
                 ${act.resultDescription ? act.resultDescription : '<span class="text-gray-500 italic">Tap to enter action result description...</span>'}
               </p>
             </div>
 
             <!-- Rewards -->
             <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
-              <span class="text-[10px] font-bold text-amber-400 uppercase">Rewards:</span>
+              <span class="text-[10px] font-bold text-amber-400 uppercase">Rewards / Criteria:</span>
               ${rwHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
-              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openResourcePickerModal('${node.id}', ${actIdx}, 'reward', null)">+ Reward</button>
+              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openResourcePickerModal('${node.id}', ${actIdx}, 'reward', null)">+ Reward / Criteria</button>
             </div>
 
             <!-- Post-Action / Outcome Dialogues -->
@@ -8610,6 +9320,8 @@ function renderMobileStageView() {
         );
         const inactDiagsHTML = inactPostDiags.map(d => renderMobileDialogueCardHTML(d, 'post_action', node.id, 'inaction')).join('');
         const penHTML = (inact.penalties || []).map((p, pIdx) => formatRewardPillHTML(p, node.id, -1, pIdx, true)).join('');
+        const inactResStr = inact.resultDescription || '';
+        const isInactResOver = isFieldTextOverLimit(inactResStr, 'inactionResult');
 
         inactionHTML = `
           <div class="mobile-action-box border-red-800/60 bg-red-950/20 space-y-2">
@@ -8621,8 +9333,11 @@ function renderMobileStageView() {
               ${inact.description || inact.consequenceText || 'Triggered if timer expires without choice.'}
             </p>
             <div class="bg-gray-950/65 p-2.5 rounded-xl border border-red-900/50 space-y-1">
-              <span class="text-[10px] font-bold text-red-400 uppercase tracking-wider block">🏁 Inaction Result Description</span>
-              <p class="text-xs text-gray-200 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] font-bold text-red-400 uppercase tracking-wider block">🏁 Event Inaction Result</span>
+                ${getSymbolCounterBadgeHTML(inactResStr, 'inactionResult', true)}
+              </div>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot ${isInactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
                 ${inact.resultDescription || 'Catastrophic failure.'}
               </p>
             </div>
@@ -8653,6 +9368,11 @@ function renderMobileStageView() {
           ${generalPostDiags.map(d => renderMobileDialogueCardHTML(d, 'post_action', node.id, null)).join('')}
         </div>
       ` : '';
+
+      const introStr = node.eventIntro || '';
+      const isIntroOver = isFieldTextOverLimit(introStr, 'eventIntro');
+      const descStr = node.eventDescription || '';
+      const isDescOver = isFieldTextOverLimit(descStr, 'eventDescription');
 
       return `
         <div class="mobile-event-card ${isDimmed ? 'is-pool-dimmed' : ''}" id="mob-node-${node.id}">
@@ -8694,12 +9414,21 @@ function renderMobileStageView() {
 
             <!-- Intro & Body -->
             <div class="space-y-2">
-              <div class="text-xs text-amber-200/90 italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-900/30 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
-                <span class="font-bold text-amber-400 not-italic mr-1">Intro:</span>${node.eventIntro || 'Enter event intro...'}
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-0.5">
+                  <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Event Intro</span>
+                  ${getSymbolCounterBadgeHTML(introStr, 'eventIntro', true)}
+                </div>
+                <div class="text-xs text-amber-200/90 italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-900/30 editable-spot ${isIntroOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
+                  ${node.eventIntro || 'Enter event intro...'}
+                </div>
               </div>
               <div>
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Event Description</div>
-                <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
+                <div class="flex items-center justify-between gap-2 mb-0.5">
+                  <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Event Description</div>
+                  ${getSymbolCounterBadgeHTML(descStr, 'eventDescription', true)}
+                </div>
+                <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line ${isDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
                   ${node.eventDescription || 'Enter event description context...'}
                 </p>
               </div>

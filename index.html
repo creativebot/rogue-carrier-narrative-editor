@@ -188,6 +188,9 @@
               <button id="btn-layout-health" class="px-2 py-1.5 rounded-lg text-xs font-semibold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-800/60 flex items-center gap-1.5 transition">
                 <i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-emerald-400"></i> Health Check
               </button>
+              <button id="btn-open-symbol-settings" type="button" onclick="openSymbolLimitsModal(); closeMasterMenuDropdown();" class="col-span-2 px-2 py-1.5 rounded-lg text-xs font-bold bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 border border-amber-700/60 flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-amber-400"></i> Settings: Symbol Limits
+              </button>
             </div>
           </div>
 
@@ -281,14 +284,17 @@
     <div id="canvas-viewport-controls" class="hidden"></div>
 
     <!-- Bottom Status Bar -->
-    <div class="absolute bottom-2 left-4 z-30 bg-gray-900/90 border border-gray-800/80 px-3 py-1.5 rounded-full text-xs text-gray-400 flex items-center space-x-4 backdrop-blur shadow-lg">
-      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Mode: Visual Editor</span>
+    <div class="absolute bottom-2 left-4 z-30 bg-gray-900/90 border border-gray-800/80 px-3 py-1.5 rounded-full text-xs text-gray-400 flex items-center space-x-3 backdrop-blur shadow-lg">
+      <span id="stat-variation-symbols" class="flex items-center gap-1.5 text-cyan-300 font-bold font-mono cursor-pointer hover:text-cyan-200 transition" onclick="openSymbolLimitsModal()" title="Total symbol count in selected variation (click to configure symbol limits)">Symbols (Var): 0</span>
+      <button type="button" onclick="openSymbolLimitsModal()" class="px-2 py-0.5 rounded-full bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 text-[10px] font-bold transition flex items-center gap-1" title="Configure Text Field Symbol Limits">
+        ⚙️ Limits
+      </button>
       <span>•</span>
       <span id="stat-event-count">Events: 0</span>
       <span>•</span>
       <span id="stat-dialogue-count">Dialogues: 0</span>
       <span>•</span>
-      <span class="text-amber-400 font-semibold">Nodes snap to 4 Horizontal Stages • Click (+) / (x) on requirements & rewards to customize</span>
+      <span class="text-amber-400 font-semibold hidden sm:inline">Nodes snap to 4 Horizontal Stages • Click (+) / (x) on requirements & rewards to customize</span>
     </div>
   </div>
 
@@ -297,23 +303,44 @@
     <!-- Dynamic Stage tabs, event cards and nested dialogues rendered here -->
   </div>
 
-  <!-- MODAL: Visual Resource & Stat Context Picker -->
+  <!-- MODAL: Visual Resource, Criteria & Stat Context Picker -->
   <div id="modal-resource-picker" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
-    <div class="bg-gray-900 border border-amber-500/40 rounded-xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="bg-gray-950 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
+    <div class="bg-gray-900 border border-amber-500/40 rounded-xl w-full max-w-3xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="bg-gray-950 px-6 py-3.5 border-b border-gray-800 flex justify-between items-center">
         <h3 class="text-base font-bold text-amber-400 flex items-center gap-2">
-          <i data-lucide="package-search" class="w-5 h-5"></i> Select Game Resource, Item, Building or Stat
+          <i data-lucide="package-search" class="w-5 h-5"></i> Select Criteria, Resource, Item, Building or Stat
         </h3>
         <button onclick="closeModal('modal-resource-picker')" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="p-4 border-b border-gray-800 bg-gray-950 flex flex-col gap-3">
+      <div class="p-4 border-b border-gray-800 bg-gray-950 flex flex-col gap-3 overflow-y-auto max-h-[54vh]">
+        <!-- Story Criteria (Textual Variables / Story Flags) Section -->
+        <div class="bg-fuchsia-950/25 border border-fuchsia-700/50 rounded-xl p-3 space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <div class="text-[11px] font-bold text-fuchsia-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🔑 Criteria (Textual Story Variables / Unlocked Flags)</span>
+              </div>
+              <p class="text-[10px] text-gray-400 mt-0.5">Grant a textual criteria in an outcome reward (e.g. "Orange Box") and require it later to unlock choices in future events or variations.</p>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <input type="text" id="picker-criteria-input" class="w-44 bg-gray-900 border border-fuchsia-500/60 focus:border-fuchsia-400 rounded-lg px-2.5 py-1 text-xs text-white font-semibold focus:outline-none" placeholder="e.g. Orange Box" onkeydown="if(event.key==='Enter'){event.preventDefault(); createAndSelectCriteriaFromPicker();}">
+              <button type="button" onclick="createAndSelectCriteriaFromPicker()" class="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold px-3 py-1 rounded-lg text-xs shadow transition active:scale-95 whitespace-nowrap">
+                + Add &amp; Select
+              </button>
+            </div>
+          </div>
+          <div id="picker-criteria-list" class="flex flex-wrap items-center gap-1.5 pt-1">
+            <!-- Dynamically populated Criteria pills from Global Criteria Pool -->
+          </div>
+        </div>
+
         <!-- Intangible Resources Quick Selector (Knowledge, Morale, Entropy, Crew, Health, Blueprints) -->
         <div>
           <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span>Intangible Resources & Currencies (Click to apply with Amount)</span>
+            <span>Intangible Resources &amp; Currencies (Click to apply with Amount)</span>
             <div class="flex items-center gap-2">
               <label class="text-gray-400 text-xs font-normal">Amount / Range / Delta:</label>
               <input type="text" id="picker-amount-input" class="w-36 bg-gray-900 border border-amber-500/60 rounded px-2.5 py-1 text-xs text-amber-300 font-bold text-center" value="10" placeholder="e.g. 10 or 20-30">
@@ -392,11 +419,14 @@
         <div class="space-y-2 pt-2 border-t border-gray-800">
           <div class="relative">
             <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
-            <input type="text" id="picker-search-input" class="w-full bg-gray-900 border border-gray-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Search buildings, items, tools, components, resources, specializations...">
+            <input type="text" id="picker-search-input" class="w-full bg-gray-900 border border-gray-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Search criteria, buildings, items, tools, components, resources...">
           </div>
           <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5" id="picker-category-tabs">
             <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 transition" onclick="setPickerCategoryFilter('all', this)">
               All Resources
+            </button>
+            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-fuchsia-300 border border-gray-800 hover:border-fuchsia-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('criteria', this)">
+              🔑 Criteria
             </button>
             <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-cyan-300 border border-gray-800 hover:border-cyan-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('specialization', this)">
               👨‍🚀 Specializations (4)
@@ -405,7 +435,7 @@
               🏛️ Buildings (75)
             </button>
             <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-cyan-300 border border-gray-800 hover:border-cyan-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('item', this)">
-              📦 Items & Raw (80)
+              📦 Items &amp; Raw (80)
             </button>
             <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-purple-300 border border-gray-800 hover:border-purple-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('stat', this)">
               🧠 Intangible Stats
@@ -415,8 +445,8 @@
       </div>
 
       <!-- Scrollable Resource Grid with Icons -->
-      <div class="p-6 overflow-y-auto grid grid-cols-4 gap-3 text-xs" id="picker-resource-grid">
-        <!-- Dynamically rendered 161 resource cards -->
+      <div class="p-4 sm:p-6 overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs flex-1" id="picker-resource-grid">
+        <!-- Dynamically rendered resource cards -->
       </div>
 
       <div class="bg-gray-950 px-6 py-3 border-t border-gray-800 flex justify-end">
@@ -1088,8 +1118,100 @@ And what about you? Disappointed, as well?"></textarea>
     <button type="button" onclick="setArrangeMode(false)" class="ml-2 bg-gray-950 text-amber-300 px-2.5 py-0.5 rounded-full text-[11px] font-bold hover:bg-gray-900 transition active:scale-95">Done</button>
   </div>
 
+  <!-- MODAL: Symbol Limitations Settings -->
+  <div id="modal-symbol-limits" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-amber-500/50 rounded-xl w-full max-w-lg flex flex-col shadow-2xl overflow-hidden">
+      <div class="bg-gray-950 px-5 py-4 border-b border-gray-800 flex justify-between items-center">
+        <div>
+          <h3 class="text-sm sm:text-base font-bold text-amber-400 flex items-center gap-2">
+            <i data-lucide="sliders-horizontal" class="w-4 h-4 text-amber-400"></i>
+            <span>Settings: Text Field Symbol Limitations</span>
+          </h3>
+          <p class="text-[11px] text-gray-400 mt-0.5">Configure maximum symbol (character) limits. Surpassed limits are highlighted in red.</p>
+        </div>
+        <button onclick="closeModal('modal-symbol-limits')" class="text-gray-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-3 text-xs overflow-y-auto max-h-[70vh]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Event Intro Limit</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-eventIntro" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="475">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Event Description Limit</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-eventDescription" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="475">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Event Choice (Action Desc)</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-actionDescription" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="120">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Action Button Text</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-actionButtonText" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="24">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Event Outcome (Action Result)</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-eventOutcome" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="925">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800">
+            <label class="text-[10px] font-bold uppercase text-gray-400 block mb-1">Event Inaction Result</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-inactionResult" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="475">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+
+          <div class="bg-gray-950 p-3 rounded-lg border border-gray-800 sm:col-span-2">
+            <label class="text-[10px] font-bold uppercase text-cyan-400 block mb-1">Variation Description (Timeline Editor)</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="limit-input-variationDescription" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-cyan-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="280">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-950 px-5 py-3 border-t border-gray-800 flex items-center justify-between gap-2">
+        <button type="button" onclick="resetSymbolLimitsToDefault()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 transition">
+          Reset Defaults
+        </button>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="closeModal('modal-symbol-limits')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-400 hover:bg-gray-800">
+            Cancel
+          </button>
+          <button type="button" onclick="saveSymbolLimitsFromModal()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-amber-500 hover:bg-amber-400 text-gray-950 shadow transition">
+            Save Limits
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Application Logic -->
-  <script src="app.js?v=20261011_v5"></script>
+  <script src="app.js?v=20261011_v6"></script>
   <script>
     lucide.createIcons();
   </script>

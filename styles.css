@@ -178,7 +178,7 @@ html, body {
   --theme-btn-hover: #eab308;
   --theme-btn-text: #713f12;
 
-  width: 880px;
+  width: 940px;
   background-color: var(--theme-card-bg, #fef9c3);
   color: #1c1917;
   border: 2px solid var(--theme-card-border, #ca8a04);
@@ -191,11 +191,11 @@ html, body {
 }
 
 .event-card.cols-3 {
-  width: 980px;
+  width: 1060px;
 }
 
 .event-card.cols-4 {
-  width: 1140px;
+  width: 1220px;
 }
 
 /* Event & Dialogue Color Scheme Themes */
@@ -1975,6 +1975,70 @@ html, body {
   #mobile-stage-view {
     -webkit-overflow-scrolling: touch;
   }
+}
+
+/* Symbol Count Tracking Badges & Over-Limit Red Highlight */
+.symbol-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background-color: rgba(15, 23, 42, 0.08);
+  color: #475569;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.symbol-count-badge.is-dark-bg {
+  background-color: rgba(15, 23, 42, 0.75);
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.symbol-count-badge.is-over-limit {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  border: 1.5px solid #ef4444 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.symbol-count-badge.is-dark-bg.is-over-limit {
+  background-color: #7f1d1d !important;
+  color: #fecaca !important;
+  border: 1.5px solid #f87171 !important;
+}
+
+.editable-spot.is-over-limit {
+  background-color: rgba(254, 202, 202, 0.55) !important;
+  outline: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
+}
+
+.mobile-event-card .editable-spot.is-over-limit {
+  background-color: rgba(127, 29, 29, 0.45) !important;
+  outline: 1.5px solid #f87171 !important;
+  color: #fecaca !important;
+}
+
+/* Criteria Requirement & Reward Pill Styling */
+.criteria-pill {
+  background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%) !important;
+  border: 1.5px solid #c026d3 !important;
+  color: #701a75 !important;
+}
+
+.criteria-pill:hover {
+  background: #f5d0fe !important;
+  border-color: #a21caf !important;
 }
 
 
