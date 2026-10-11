@@ -1366,17 +1366,35 @@ let autoSaveDiskTimer = null;
 let lastSavedTimestamp = null;
 let periodicAutoSaveIntervalId = null;
 let autoSaveIntervalSeconds = parseInt(localStorage.getItem('rc_autosave_interval_sec') || '60', 10);
+let lastSavedContentSignature = '';
+
+function computeBoardContentSignature(data) {
+  if (!data || typeof data !== 'object') return '';
+  try {
+    const clone = { ...data };
+    delete clone._lastModified;
+    return JSON.stringify(clone);
+  } catch (e) {
+    return '';
+  }
+}
 
 function initPeriodicAutoSave() {
+  if (!lastSavedContentSignature && appData) {
+    lastSavedContentSignature = computeBoardContentSignature(appData);
+  }
   if (periodicAutoSaveIntervalId) {
     clearInterval(periodicAutoSaveIntervalId);
     periodicAutoSaveIntervalId = null;
   }
   if (autoSaveIntervalSeconds > 0) {
     periodicAutoSaveIntervalId = setInterval(() => {
-      // Periodic automatic save to disk & backups every X seconds
+      // Periodic automatic save to disk & backups only when board content has actually changed
       if (typeof appData === 'object' && appData && Array.isArray(appData.nodes) && appData.nodes.length > 0) {
-        saveCurrentProject(false, 'Auto-Save');
+        const currentSig = computeBoardContentSignature(appData);
+        if (currentSig && currentSig !== lastSavedContentSignature) {
+          saveCurrentProject(false, 'Auto-Save');
+        }
       }
     }, autoSaveIntervalSeconds * 1000);
   }
@@ -1394,6 +1412,7 @@ function updateAutoSaveInterval(val) {
 }
 
 function saveProjectToLocalStorage() {
+  appData._lastModified = new Date().toISOString();
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
@@ -1433,6 +1452,10 @@ function getAuthHeaders(includeJsonContentType = true) {
 async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   clearTimeout(autoSaveDiskTimer);
   if (!appData || !Array.isArray(appData.nodes)) return;
+
+  const currentSig = computeBoardContentSignature(appData);
+  const hasContentChanged = (currentSig !== lastSavedContentSignature);
+  lastSavedContentSignature = currentSig;
 
   appData._lastModified = new Date().toISOString();
   // Always keep a local copy in browser storage as well
@@ -1481,9 +1504,11 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
     }
   }
 
-  // Record rolling version snapshot on server disk and local storage
-  const author = (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'User';
-  recordVersionSnapshot(`${triggerLabel} (${timeStr})`, author, false);
+  // Record rolling version snapshot on server disk and local storage if manual or content changed
+  if (isManual || hasContentChanged) {
+    const author = (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'User';
+    recordVersionSnapshot(`${triggerLabel} (${timeStr})`, author, false);
+  }
 }
 
 async function syncProjectToDiskServer() {

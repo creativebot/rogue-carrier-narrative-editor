@@ -709,15 +709,29 @@ def get_github_pat():
 
 GITHUB_PAT = get_github_pat()
 GITHUB_REPO = "creativebot/rogue-carrier-narrative-editor"
+_last_github_synced_sig = None
+
+def _compute_content_sig(app_data):
+    if not isinstance(app_data, dict):
+        return ""
+    try:
+        copy_data = {k: v for k, v in app_data.items() if k != '_lastModified'}
+        return hashlib.sha256(json.dumps(copy_data, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest()
+    except Exception:
+        return ""
 
 def sync_project_data_to_github(app_data, author_name):
     """
     Asynchronously commits and pushes project-data.json directly to GitHub repository main branch.
     This guarantees that Render redeployments or container restarts NEVER lose saved work.
     """
+    global _last_github_synced_sig
     if not GITHUB_PAT or not app_data:
         return
     try:
+        sig = _compute_content_sig(app_data)
+        if sig and sig == _last_github_synced_sig:
+            return
         url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/project-data.json"
         headers = {
             "Authorization": f"Bearer {GITHUB_PAT}",
@@ -761,6 +775,7 @@ def sync_project_data_to_github(app_data, author_name):
         put_req = urllib.request.Request(url, data=put_data, headers={**headers, "Content-Type": "application/json"}, method="PUT")
         with urllib.request.urlopen(put_req, timeout=15) as put_resp:
             if put_resp.status in (200, 201):
+                _last_github_synced_sig = sig
                 print(f"[GitHub Sync] Successfully committed and pushed project-data.json to GitHub main ({node_count} events)")
     except Exception as err:
         print(f"[GitHub Sync] GitHub background push error: {err}")
@@ -1095,6 +1110,23 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 with open(file_path, 'w', encoding='utf-8') as f:
                     json.dump(save_payload, f, indent=2, ensure_ascii=False)
+
+                # Cleanup rolling auto-saves beyond 100 while preserving custom user-named versions forever
+                try:
+                    rolling_prefixes = ('_Auto-Save_', '_Save_', '_CtrlS_', '_Backup_')
+                    rolling_files = [
+                        f for f in os.listdir(SAVES_DIR)
+                        if f.startswith("save_") and f.endswith(".json") and any(p in f for p in rolling_prefixes)
+                    ]
+                    if len(rolling_files) > 100:
+                        rolling_files.sort()
+                        for old_f in rolling_files[:-100]:
+                            try:
+                                os.remove(os.path.join(SAVES_DIR, old_f))
+                            except Exception:
+                                pass
+                except Exception:
+                    pass
 
                 # Sync active project-data.json & Unreal
                 project_path = os.path.join(DIRECTORY, 'project-data.json')
