@@ -2656,7 +2656,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4863,
-        "y": 2480
+        "y": 2437
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2824,7 +2824,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:52:16.066Z",
+  "_lastModified": "2026-10-11T13:52:19.062Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
