@@ -2068,8 +2068,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 972,
-        "y": 1424
+        "x": 1028,
+        "y": 1442
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2678,7 +2678,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T18:20:05.466Z",
+  "_lastModified": "2026-10-11T18:20:07.243Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
