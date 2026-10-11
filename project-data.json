@@ -2824,5 +2824,15 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T13:35:36.019Z"
+  "_lastModified": "2026-10-11T13:41:23.715Z",
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 200,
+    "actionDescription3Opt": 120,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  }
 }
