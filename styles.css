@@ -68,9 +68,6 @@ html, body {
   width: 6000px;
   height: 6000px;
   transform-origin: 0 0;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 #svg-connectors {
@@ -82,7 +79,6 @@ html, body {
   pointer-events: none;
   z-index: 10;
   overflow: visible;
-  shape-rendering: optimizeSpeed;
 }
 
 #nodes-layer {
@@ -96,14 +92,13 @@ html, body {
 .stage-band,
 .floor-band {
   position: absolute;
-  left: -4000px;
-  width: 16000px;
+  left: -2500px;
+  width: 10000px;
   height: 940px;
   border-top: 2px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 2px dashed rgba(234, 179, 8, 0.4);
   background-color: rgba(255, 255, 255, 0.015);
   pointer-events: none;
-  contain: layout style paint;
 }
 
 .stage-label,
@@ -1529,22 +1524,20 @@ html, body {
 }
 
 /* Dimmed / Inactive Card Body Styling */
-.event-card-body.is-pool-dimmed {
-  opacity: 0.38 !important;
-  filter: grayscale(45%) contrast(90%);
+.event-card-body.is-pool-dimmed,
+.lod-overview-card.is-pool-dimmed {
+  opacity: 0.35 !important;
   pointer-events: auto;
-  transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
-.event-card-body.is-pool-dimmed:hover {
+.event-card-body.is-pool-dimmed:hover,
+.lod-overview-card.is-pool-dimmed:hover {
   opacity: 0.55 !important;
 }
 
 /* Dimmed Dialogue Block */
 .dialogue-card.is-pool-dimmed {
   opacity: 0.35 !important;
-  filter: grayscale(45%) contrast(90%);
-  transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .dialogue-card.is-pool-dimmed:hover {
@@ -2047,54 +2040,192 @@ html, body {
 }
 
 /* ==========================================================================
-   GPU Acceleration & Zoomed-Out Overview Rendering Optimizations
+   Schematic Level-of-Detail (LOD) Overview Mode (< 58% Zoom)
+   Eliminates rendering of 4,500+ internal table cells, <select> widgets,
+   <img> icons, and multi-line text paragraphs when zoomed out, replacing
+   each block with an ultra-lightweight, exact-dimension schematic card.
    ========================================================================== */
-.event-card,
-.deck-event-card,
-.generic-event-card,
-.dialogue-card {
-  contain: layout style;
+.lod-overview-card {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--theme-card-bg, #fefce8);
+  color: #0f172a;
+  box-sizing: border-box;
+  user-select: none;
 }
 
-/* When zoomed out (< 65% scale), eliminate expensive multi-layer Gaussian blur shadows,
-   subpixel font antialiasing, and micro-badge repaints while keeping full card structure visible */
+.lod-overview-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background-color: var(--theme-header-bg, #fef08a);
+  border-bottom: 3px solid var(--theme-header-border, #eab308);
+  color: var(--theme-header-text, #713f12);
+}
+
+.lod-codename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #facc15;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.lod-dialogue-overview .lod-codename {
+  font-size: 22px;
+  padding: 3px 10px;
+  color: #e9d5ff;
+}
+
+.lod-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lod-dialogue-overview .lod-title {
+  font-size: 22px;
+}
+
+.lod-type-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px solid var(--theme-card-border, #ca8a04);
+  color: var(--theme-header-text, #713f12);
+  flex-shrink: 0;
+}
+
+.lod-overview-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  overflow: hidden;
+}
+
+.lod-overview-desc {
+  font-size: 22px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lod-overview-actions {
+  display: flex;
+  align-items: stretch;
+  border-top: 3px solid var(--theme-header-border, #eab308);
+  background-color: var(--theme-substrip-bg, #fef9c3);
+  min-height: 64px;
+}
+
+.lod-action-label-col {
+  width: 190px;
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--theme-label-text, #451a03);
+  background-color: var(--theme-label-bg, #fef9c3);
+  border-right: 2px solid var(--theme-table-border, #fde047);
+}
+
+.lod-action-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-right: 2px solid var(--theme-table-border, #fde047);
+  min-width: 0;
+}
+
+.lod-action-col:last-child {
+  border-right: none;
+}
+
+.lod-action-pill {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: #2563eb;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.lod-action-inaction .lod-action-pill {
+  background: #dc2626;
+}
+
+/* Active Zoomed-Out Mode (< 58% scale): Swap heavy DOM for Schematic LOD Card */
 #canvas-stage.is-zoomed-out .event-card,
-#canvas-stage.is-zoomed-out .deck-event-card,
-#canvas-stage.is-zoomed-out .generic-event-card,
 #canvas-stage.is-zoomed-out .dialogue-card {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
-  text-rendering: optimizeSpeed;
+  height: var(--card-exact-height, auto) !important;
+  box-shadow: none !important;
 }
 
-#canvas-stage.is-zoomed-out .req-pill,
-#canvas-stage.is-zoomed-out .reward-pill,
-#canvas-stage.is-zoomed-out .action-handle-group,
-#canvas-stage.is-zoomed-out .dialogue-trigger-badge,
-#canvas-stage.is-zoomed-out .dialogue-jump-arrow-btn,
-#canvas-stage.is-zoomed-out .connector-port,
-#canvas-stage.is-zoomed-out .dialogue-trigger-port {
+#canvas-stage.is-zoomed-out .event-card-inner,
+#canvas-stage.is-zoomed-out .dialogue-card-inner {
+  display: none !important;
+}
+
+#canvas-stage.is-zoomed-out .lod-overview-card {
+  display: flex !important;
+}
+
+#canvas-stage.is-zoomed-out #connector-overlays-layer,
+#canvas-stage.is-zoomed-out .connector-path-hit {
+  display: none !important;
+}
+
+#canvas-stage.is-zoomed-out .connector-path-dialogue {
+  stroke-dasharray: none !important;
+}
+
+#canvas-stage.is-zoomed-out .stage-band,
+#canvas-stage.is-zoomed-out .floor-band,
+#canvas-stage.is-zoomed-out .tier-column-band {
+  border-top-style: solid !important;
+  border-bottom-style: solid !important;
+  border-left-style: solid !important;
+  border-right-style: solid !important;
+}
+
+#canvas-stage.is-zoomed-out .block-floating-btn {
   box-shadow: none !important;
   transition: none !important;
 }
 
-#canvas-stage.is-zoomed-out .symbol-count-badge {
-  display: none !important;
-}
-
-#canvas-stage.is-zoomed-out .req-pill img,
-#canvas-stage.is-zoomed-out .reward-pill img {
-  image-rendering: optimizeSpeed;
-}
-
-/* During active canvas drag/wheel/pinch, freeze pointer hit-testing & CSS transitions inside cards */
-#canvas-stage.is-interacting-viewport #nodes-layer,
-#canvas-stage.is-interacting-viewport #svg-connectors {
-  pointer-events: none !important;
-}
-
-#canvas-stage.is-interacting-viewport * {
-  transition: none !important;
-}
 
 
 

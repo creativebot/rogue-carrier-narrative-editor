@@ -102,21 +102,13 @@ function setupCanvasEvents() {
     isDraggingCanvas = true;
     dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
     canvasContainer.style.cursor = 'grabbing';
-    if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
   });
 
-  let panRafPending = false;
   window.addEventListener('mousemove', (e) => {
     if (isDraggingCanvas) {
       transform.x = e.clientX - dragStart.x;
       transform.y = e.clientY - dragStart.y;
-      if (!panRafPending) {
-        panRafPending = true;
-        requestAnimationFrame(() => {
-          panRafPending = false;
-          updateCanvasTransform();
-        });
-      }
+      updateCanvasTransform();
     }
   });
 
@@ -124,8 +116,6 @@ function setupCanvasEvents() {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
       canvasContainer.style.cursor = 'default';
-      if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
-      updateCanvasTransform();
     }
   });
 
@@ -140,8 +130,6 @@ function setupCanvasEvents() {
       cachedContainerRect = canvasContainer.getBoundingClientRect();
       cachedRectTimestamp = now;
     }
-
-    if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
 
     const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
     const newScale = Math.min(Math.max(transform.scale * zoomFactor, 0.15), 3.0);
@@ -161,7 +149,6 @@ function setupCanvasEvents() {
 
     if (wheelEndTimer) clearTimeout(wheelEndTimer);
     wheelEndTimer = setTimeout(() => {
-      if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
       updateBlockZoomButtons();
     }, 120);
   }, { passive: false });
@@ -195,7 +182,6 @@ function setupCanvasEvents() {
         y: (e.touches[0].clientY + e.touches[1].clientY) / 2
       };
       touchState.transformStart = { ...transform };
-      if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
       return;
     }
 
@@ -237,7 +223,6 @@ function setupCanvasEvents() {
         touchState.startX = touch.clientX;
         touchState.startY = touch.clientY;
         touchState.transformStart = { ...transform };
-        if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
       }
     }
   }, { passive: false });
@@ -304,7 +289,6 @@ function setupCanvasEvents() {
   }, { passive: false });
 
   const finishTouch = () => {
-    if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
     if (touchState.mode === 'node-drag' && touchState.dragNodeObj && touchState.hasDragged) {
       const obj = touchState.dragNodeObj;
       const el = touchState.dragNodeEl;
@@ -324,12 +308,12 @@ function setupCanvasEvents() {
 let lastAppliedScale = null;
 function updateCanvasTransform() {
   if (!canvasStage) return;
-  canvasStage.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
+  canvasStage.style.transform = `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`;
 
-  // Only recalculate CSS custom properties and zoomed-out class when scale actually changes
+  // Only recalculate CSS custom properties and zoomed-out LOD class when scale actually changes
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;
-    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.65);
+    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.58);
 
     const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
     canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
@@ -578,12 +562,12 @@ function renderFloorBands() {
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-100000px`;
-      band.style.width = `200000px`;
+      band.style.left = `-2500px`;
+      band.style.width = `10000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals including negative X space
-      const labelXPositions = [-4800, -3200, -1600, 40, 1600, 3200, 4800];
+      // Stage label badges starting from STAGE 1, placed at visible intervals
+      const labelXPositions = [-1600, 40, 2000, 4000];
       labelXPositions.forEach(lx => {
         const label = document.createElement('div');
         label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
@@ -617,6 +601,24 @@ function renderFloorBands() {
       band.appendChild(header);
       floorBandsLayer.appendChild(band);
     });
+  }
+}
+
+function measureAndLockCardHeights() {
+  if (!nodesLayer) return;
+  const wasZoomedOut = canvasStage && canvasStage.classList.contains('is-zoomed-out');
+  if (wasZoomedOut) {
+    canvasStage.classList.remove('is-zoomed-out');
+  }
+  const cards = Array.from(nodesLayer.children);
+  const heights = cards.map(el => el.offsetHeight);
+  cards.forEach((el, idx) => {
+    if (heights[idx] > 40) {
+      el.style.setProperty('--card-exact-height', `${heights[idx]}px`);
+    }
+  });
+  if (canvasStage) {
+    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.58);
   }
 }
 
@@ -665,6 +667,7 @@ function renderNodes() {
     nodesLayer.appendChild(diagEl);
   });
 
+  measureAndLockCardHeights();
   makeNodesDraggable();
   if (window.lucide) lucide.createIcons();
 }
@@ -1072,7 +1075,16 @@ function createEventNodeDOM(node) {
     ? `<span class="font-bold text-xs" title="Inherited from Variation (${escapeHtml(node.name)})">${escapeHtml(node.name)}</span>`
     : `<span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">${escapeHtml(node.name)}</span>`;
 
-  wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
+  const lodActionItemsHTML = actionCols.map((act, idx) => {
+    const suffix = escapeHtml(act.codeSuffix || String.fromCharCode(65 + idx));
+    const label = escapeHtml(act.shortDescription || 'Choice');
+    return `<div class="lod-action-col"><span class="lod-action-pill">${suffix}: ${label}</span></div>`;
+  }).join('') + (hasInaction ? `<div class="lod-action-col lod-action-inaction"><span class="lod-action-pill">⚠️ ${escapeHtml((node.inactionThreat && node.inactionThreat.shortDescription) || 'Timeout')}</span></div>` : '');
+
+  const lodSummaryText = escapeHtml((introText || descText || node.spawnConditions || '').slice(0, 160));
+  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col">OPTIONS</div>${lodActionItemsHTML}</div></div>`;
+
+  wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
@@ -1721,8 +1733,11 @@ function createDialogueNodeDOM(dialogue) {
     : '';
 
   const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
+  const uniqueSpeakers = Array.from(new Set((dialogue.lines || []).map(l => l.speakerName || l.speakerId || 'Speaker'))).join(', ');
+  const firstLinePreview = escapeHtml(((dialogue.lines && dialogue.lines[0] && dialogue.lines[0].text) || dialogue.triggerCondition || '').slice(0, 120));
+  const lodDiagOverviewHTML = `<div class="lod-overview-card lod-dialogue-overview ${isTargetDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${dialogue.id}', true)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">💬 ${targetNode ? escapeHtml(targetNode.codename) : 'DIALOGUE'}</span><span class="lod-title">${escapeHtml(uniqueSpeakers || 'Dialogue')} (${(dialogue.lines || []).length})</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${firstLinePreview}</div></div></div>`;
 
-  wrapper.innerHTML = `${zoomControlsHTML}<div class="dialogue-card-inner">
+  wrapper.innerHTML = `${zoomControlsHTML}${lodDiagOverviewHTML}<div class="dialogue-card-inner">
       <div class="dialogue-header pb-1.5">
         <div class="flex justify-between items-center gap-2 mb-1.5 flex-nowrap">
           <div class="flex items-center gap-1.5 cursor-grab flex-1 min-w-0" title="Drag dialogue block anywhere">
@@ -3170,15 +3185,9 @@ function rerenderNode(nodeId) {
     renderApp();
     return;
   }
-  let newEl = null;
-  if (node.category === 'DeckPool') {
-    newEl = createDeckNodeDOM(node);
-  } else if (node.category === 'GenericPool') {
-    newEl = createGenericNodeDOM(node);
-  } else {
-    newEl = createEventNodeDOM(node);
-  }
+  const newEl = createEventNodeDOM(node);
   existingEl.replaceWith(newEl);
+  measureAndLockCardHeights();
   makeNodesDraggable();
   setupPortDragEvents();
   renderConnectors();
@@ -3199,6 +3208,7 @@ function rerenderDialogue(dialogueId) {
   }
   const newEl = createDialogueNodeDOM(diag);
   existingEl.replaceWith(newEl);
+  measureAndLockCardHeights();
   makeNodesDraggable();
   setupPortDragEvents();
   renderConnectors();
