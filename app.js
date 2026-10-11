@@ -2866,14 +2866,43 @@ function createEventNodeDOM(node) {
 
     actionTimerHTML += `<td class="event-value-cell text-center font-semibold editable-spot" onclick="event.stopPropagation(); makeInlineNumberEditable(this, '${node.id}', 'actions.${idx}.timerHours')">${act.timerHours ? act.timerHours + ' hours' : '—'}</td>`;
     
+    // Check if this action option has connected post-action dialogues
+    const linkedPostDialogues = (appData.dialogues || []).filter(d =>
+      getDialogueLinks(d).some(l =>
+        l.targetEventId === node.id &&
+        (l.triggerTiming === 'post_action' || l.triggerTiming === 'post_event') &&
+        l.triggerActionId === act.id
+      )
+    );
+    const hasPostDiag = linkedPostDialogues.length > 0;
+    let postDiagPills = '';
+    if (hasPostDiag) {
+      postDiagPills = `<div class="flex flex-wrap items-center gap-1 mt-1.5 pt-1 border-t border-gray-200/70">` +
+        linkedPostDialogues.map(d => {
+          const firstSpeaker = d.lines && d.lines[0] ? d.lines[0].speakerName : 'Dialogue';
+          const delayBadge = d.delayHours ? ` (+${d.delayHours}h)` : '';
+          return `
+            <button type="button"
+                    class="text-[10px] font-bold text-purple-900 hover:text-purple-950 bg-purple-100 hover:bg-purple-200 border border-purple-300 px-1.5 py-0.5 rounded-full transition inline-flex items-center gap-0.5 shadow-2xs"
+                    title="Post-Action Dialogue (${firstSpeaker}${delayBadge}) — click to jump to dialogue block"
+                    onclick="event.stopPropagation(); zoomInToBlock('${d.id}', true)">
+              <span>💬</span><span class="truncate max-w-[95px]">${firstSpeaker}${delayBadge}</span>
+            </button>
+          `;
+        }).join('') + `</div>`;
+    }
+
     // Action Result with Post-Action Purple Dot
     actionResultHTML += `
       <td class="event-value-cell">
         <div class="flex items-start justify-between gap-1">
-          <div class="flex-1 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
-            ${act.resultDescription || 'Action result description...'}
+          <div class="flex-1 min-w-0">
+            <div class="editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
+              ${act.resultDescription || 'Action result description...'}
+            </div>
+            ${postDiagPills}
           </div>
-          <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
+          <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer ${hasPostDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
         </div>
       </td>`;
     
@@ -3028,6 +3057,23 @@ function createEventNodeDOM(node) {
       </td>`;
   }
 
+  // Check if this event has connected pre-event dialogues
+  const linkedPreDialogues = (appData.dialogues || []).filter(d =>
+    getDialogueLinks(d).some(l => l.targetEventId === node.id && l.triggerTiming === 'pre_event')
+  );
+  const hasPreDiag = linkedPreDialogues.length > 0;
+  const preDiagPills = hasPreDiag ? linkedPreDialogues.map(d => {
+    const firstSpeaker = d.lines && d.lines[0] ? d.lines[0].speakerName : 'Pre-Event';
+    return `
+      <button type="button"
+              class="text-[10px] font-bold text-purple-900 hover:text-purple-950 bg-purple-100 hover:bg-purple-200 border border-purple-300 px-1.5 py-0.5 rounded-full transition flex items-center gap-0.5 shadow-2xs"
+              title="Pre-Event Dialogue (${firstSpeaker}) — click to jump to dialogue block"
+              onclick="event.stopPropagation(); zoomInToBlock('${d.id}', true)">
+        <span>⚡</span><span class="truncate max-w-[75px]">${firstSpeaker}</span>
+      </button>
+    `;
+  }).join('') : '';
+
   wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
@@ -3038,7 +3084,8 @@ function createEventNodeDOM(node) {
           <span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">
             ${node.name}
           </span>
-          <div class="dialogue-trigger-port pre-event-port cursor-pointer" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
+          <div class="dialogue-trigger-port pre-event-port cursor-pointer ${hasPreDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
+          ${preDiagPills}
         </div>
 
         <div class="flex items-center gap-1.5">
@@ -7864,26 +7911,48 @@ function renderMobileStageView() {
         { label: 'Stage 4', title: 'Stage 4: Submerged Bay (Floor 3)' }
       ];
 
+  const resolveNodeStageIndex = (n) => {
+    if (n.floorIndex !== undefined && n.floorIndex !== null) return Number(n.floorIndex);
+    if (isPool && n.tier) return Number(n.tier) - 1;
+    if (n.position && typeof n.position.y === 'number' && Array.isArray(FLOOR_Y)) {
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      FLOOR_Y.forEach((fy, fIdx) => {
+        const d = Math.abs(n.position.y - fy);
+        if (d < bestDist) {
+          bestDist = d;
+          bestIdx = fIdx;
+        }
+      });
+      return bestIdx;
+    }
+    return 0;
+  };
+
   const currentStageMeta = stageLabels[activeMobileStageIndex] || stageLabels[0];
   const currentVar = (appData.variations || []).find(v => v.id === activeVariationId) || { number: 1, name: 'Variation 1' };
 
-  // Filter events belonging to this stage
-  const stageNodes = (appData.nodes || []).filter(n => {
+  // All nodes matching current category & variation
+  const boardNodes = (appData.nodes || []).filter(n => {
     const cat = n.category || 'KeyChain';
     if (cat !== activeCategoryFilter) return false;
     if (!isPool && n.variationId && n.variationId !== activeVariationId) return false;
-    const floor = (n.floorIndex !== undefined && n.floorIndex !== null) ? n.floorIndex : (isPool && n.tier ? n.tier - 1 : 0);
-    return floor === activeMobileStageIndex;
+    return true;
   });
 
-  // Stage Tabs HTML
+  // Filter events belonging to this stage
+  const stageNodes = boardNodes.filter(n => resolveNodeStageIndex(n) === activeMobileStageIndex);
+
+  // Stage Tabs HTML with per-stage event counts
   const tabsHTML = stageLabels.map((st, idx) => {
     const isActive = idx === activeMobileStageIndex;
+    const countInStage = boardNodes.filter(n => resolveNodeStageIndex(n) === idx).length;
     return `
       <button type="button" 
               onclick="setMobileStage(${idx})"
-              class="mobile-stage-tab-btn ${isActive ? 'is-active' : ''}">
+              class="mobile-stage-tab-btn ${isActive ? 'is-active' : ''} flex items-center gap-1">
         <span>${st.label}</span>
+        <span class="text-[10px] opacity-80 font-mono">(${countInStage})</span>
       </button>
     `;
   }).join('');
@@ -7906,21 +7975,33 @@ function renderMobileStageView() {
       const isDimmed = isPool && isPoolNodeDimmed(node.id, activeVariationId);
       const poolSwitchBar = isPool ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
 
-      // Pre-event Dialogues attached to this event
+      // 1. Pre-Event Dialogues attached to this event
       const preEventDiags = (appData.dialogues || []).filter(d =>
-        getDialogueLinks(d).some(l => l.targetEventId === node.id && l.triggerTiming === 'pre_event')
+        getDialogueLinks(d).some(l => l.targetEventId === node.id && (l.triggerTiming === 'pre_event' || !l.triggerTiming))
       );
-      let preDiagsHTML = preEventDiags.map(d => renderMobileDialogueCardHTML(d)).join('');
+      const preDiagsHTML = preEventDiags.map(d => renderMobileDialogueCardHTML(d, 'pre_event', node.id, null)).join('');
 
-      // Actions & nested dialogues
-      let actionsHTML = (node.actions || []).map((act, actIdx) => {
+      const actionIdsSet = new Set((node.actions || []).map(a => a.id));
+
+      // 2. Actions & nested dialogues (Route Advice + Action Result Description + Post-Action Dialogues)
+      const actionsHTML = (node.actions || []).map((act, actIdx) => {
         const optionDiags = (appData.dialogues || []).filter(d =>
           getDialogueLinks(d).some(l => l.targetEventId === node.id && l.triggerTiming === 'action_option' && l.triggerActionId === act.id)
         );
-        const optDiagsHTML = optionDiags.map(d => renderMobileDialogueCardHTML(d, true)).join('');
+        const optDiagsHTML = optionDiags.map(d => renderMobileDialogueCardHTML(d, 'action_option', node.id, act.id)).join('');
+
+        const postActionDiags = (appData.dialogues || []).filter(d =>
+          getDialogueLinks(d).some(l =>
+            l.targetEventId === node.id &&
+            (l.triggerTiming === 'post_action' || l.triggerTiming === 'post_event') &&
+            l.triggerActionId === act.id
+          )
+        );
+        const postDiagsHTML = postActionDiags.map(d => renderMobileDialogueCardHTML(d, 'post_action', node.id, act.id)).join('');
 
         // Req pills
-        let reqHTML = (act.requirements || []).map((c, cIdx) => {
+        normalizeActionRequirements(act);
+        const reqHTML = (act.requirements || []).map((c, cIdx) => {
           return (c.items || []).map((item, iIdx) => `
             <span class="req-pill text-[10px]" onclick="event.stopPropagation(); openEditRequirementItem('${node.id}', ${actIdx}, ${cIdx}, ${iIdx})">
               ${item.iconImg ? `<img src="${item.iconImg}" class="w-3.5 h-3.5 inline">` : (item.icon || '📦')}
@@ -7931,45 +8012,143 @@ function renderMobileStageView() {
         }).join('');
 
         // Reward pills
-        let rwHTML = (act.rewards || []).map((rw, rwIdx) => formatRewardPillHTML(rw, node.id, actIdx, rwIdx, false)).join('');
+        const rwHTML = (act.rewards || []).map((rw, rwIdx) => formatRewardPillHTML(rw, node.id, actIdx, rwIdx, false)).join('');
+
+        const targetNodeObj = act.targetNodeId ? (appData.nodes || []).find(n => n.id === act.targetNodeId) : null;
 
         return `
-          <div class="mobile-action-box space-y-2">
-            <div class="flex items-center justify-between border-b border-gray-700/60 pb-1.5">
-              <span class="font-bold text-xs text-amber-300 font-mono">${act.codeSuffix}: ${act.shortDescription || 'Choice Option'}</span>
-              <span class="text-[10px] text-gray-400 font-mono">⏱️ ${act.timerHours || 1}h</span>
+          <div class="mobile-action-box space-y-2.5">
+            <div class="flex items-center justify-between border-b border-gray-700/60 pb-1.5 gap-2">
+              <div class="flex items-center gap-1 min-w-0">
+                <span class="font-bold text-xs text-amber-300 font-mono shrink-0">${act.codeSuffix || String.fromCharCode(65 + actIdx)}:</span>
+                <span class="font-bold text-xs text-amber-300 font-mono truncate editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.shortDescription')">${act.shortDescription || 'Choice Option'}</span>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                ${targetNodeObj ? `<span class="text-[10px] font-mono font-bold text-blue-300 bg-blue-950/80 border border-blue-800/70 px-1.5 py-0.5 rounded" title="Leads to ${targetNodeObj.name}">→ ${targetNodeObj.codename}</span>` : ''}
+                <span class="text-[10px] text-gray-300 font-mono bg-gray-900/80 px-1.5 py-0.5 rounded border border-gray-700 editable-spot" onclick="event.stopPropagation(); makeInlineNumberEditable(this, '${node.id}', 'actions.${actIdx}.timerHours')">⏱️ ${act.timerHours || 1}h</span>
+              </div>
             </div>
-            <p class="text-xs text-gray-300 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
-              ${act.description || 'Action description...'}
-            </p>
+
+            <!-- Action Description -->
+            <div>
+              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Action Description</div>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
+                ${act.description || 'Action description...'}
+              </p>
+            </div>
             
-            <div class="flex flex-wrap items-center gap-1.5 pt-1">
+            <!-- Requirements -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
               <span class="text-[10px] font-bold text-gray-400 uppercase">Requirements:</span>
               ${reqHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
-              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openResourcePickerModal('${node.id}', ${actIdx}, 'requirement', null)">+ Req</button>
+              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openAddRequirementModal('${node.id}', ${actIdx})">+ Req</button>
             </div>
 
-            <div class="flex flex-wrap items-center gap-1.5 pt-1">
-              <span class="text-[10px] font-bold text-amber-400 uppercase">Rewards:</span>
-              ${rwHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
-              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openResourcePickerModal('${node.id}', ${actIdx}, 'reward', null)">+ Reward</button>
-            </div>
-
-            <!-- Route Suggestion Dialogues -->
+            <!-- Route Suggestion Dialogues (Pre-Choice Advice) -->
             <div class="pt-2 border-t border-gray-800/80">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-[10px] font-bold text-indigo-300 flex items-center gap-1">
-                  💬 Route Advice Dialogues
+                  💬 Route Advice Dialogues (During Choice)
                 </span>
                 <button type="button" onclick="createMobileAttachedDialogue('${node.id}', 'action_option', '${act.id}')" class="text-[10px] text-indigo-400 hover:text-indigo-200 font-semibold">
                   + Attach Dialogue
                 </button>
               </div>
-              ${optDiagsHTML || '<p class="text-[11px] text-gray-500 italic">No dialogue attached to this choice option.</p>'}
+              ${optDiagsHTML || '<p class="text-[11px] text-gray-500 italic">No route advice dialogue attached to this choice.</p>'}
+            </div>
+
+            <!-- Action Result Description -->
+            <div class="bg-gray-950/65 p-2.5 rounded-xl border border-emerald-900/50 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                  🏁 Action Result Description
+                </span>
+                ${targetNodeObj ? `<span class="text-[10px] font-mono text-blue-300">Outcome → ${targetNodeObj.codename}</span>` : ''}
+              </div>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.resultDescription')">
+                ${act.resultDescription ? act.resultDescription : '<span class="text-gray-500 italic">Tap to enter action result description...</span>'}
+              </p>
+            </div>
+
+            <!-- Rewards -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+              <span class="text-[10px] font-bold text-amber-400 uppercase">Rewards:</span>
+              ${rwHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
+              <button type="button" class="req-add-btn text-[10px]" onclick="event.stopPropagation(); openResourcePickerModal('${node.id}', ${actIdx}, 'reward', null)">+ Reward</button>
+            </div>
+
+            <!-- Post-Action / Outcome Dialogues -->
+            <div class="pt-2 border-t border-gray-800/80">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold text-emerald-300 flex items-center gap-1">
+                  🏁 Post-Event Dialogues (After Choice Outcome)
+                </span>
+                <button type="button" onclick="createMobileAttachedDialogue('${node.id}', 'post_action', '${act.id}')" class="text-[10px] text-emerald-400 hover:text-emerald-200 font-semibold">
+                  + Attach Dialogue
+                </button>
+              </div>
+              ${postDiagsHTML || '<p class="text-[11px] text-gray-500 italic">No post-action dialogue attached to this outcome.</p>'}
             </div>
           </div>
         `;
       }).join('');
+
+      // 3. Inaction Threat (if enabled on this event)
+      let inactionHTML = '';
+      if (node.hasInactionThreat && node.inactionThreat) {
+        const inact = node.inactionThreat;
+        const inactPostDiags = (appData.dialogues || []).filter(d =>
+          getDialogueLinks(d).some(l =>
+            l.targetEventId === node.id &&
+            (l.triggerTiming === 'post_action' || l.triggerTiming === 'post_event') &&
+            l.triggerActionId === 'inaction'
+          )
+        );
+        const inactDiagsHTML = inactPostDiags.map(d => renderMobileDialogueCardHTML(d, 'post_action', node.id, 'inaction')).join('');
+        const penHTML = (inact.penalties || []).map((p, pIdx) => formatRewardPillHTML(p, node.id, -1, pIdx, true)).join('');
+
+        inactionHTML = `
+          <div class="mobile-action-box border-red-800/60 bg-red-950/20 space-y-2">
+            <div class="flex items-center justify-between border-b border-red-800/40 pb-1.5">
+              <span class="font-bold text-xs text-red-300 font-mono">⚠️ Inaction: ${inact.shortDescription || 'Timeout'}</span>
+              <span class="text-[10px] text-red-300 font-mono">⏱️ ${inact.timerHours || node.reactionTimerHours || 'Infinite'}</span>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.description')">
+              ${inact.description || inact.consequenceText || 'Triggered if timer expires without choice.'}
+            </p>
+            <div class="bg-gray-950/65 p-2.5 rounded-xl border border-red-900/50 space-y-1">
+              <span class="text-[10px] font-bold text-red-400 uppercase tracking-wider block">🏁 Inaction Result Description</span>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
+                ${inact.resultDescription || 'Catastrophic failure.'}
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+              <span class="text-[10px] font-bold text-red-400 uppercase">Penalties:</span>
+              ${penHTML || '<span class="text-[10px] text-gray-500 italic">None</span>'}
+            </div>
+            ${inactDiagsHTML ? `<div class="pt-2 border-t border-red-900/40">${inactDiagsHTML}</div>` : ''}
+          </div>
+        `;
+      }
+
+      // 4. Event-level Post-Event Dialogues (if any post_action dialogue is linked to the event without a specific action ID)
+      const generalPostDiags = (appData.dialogues || []).filter(d =>
+        getDialogueLinks(d).some(l =>
+          l.targetEventId === node.id &&
+          (l.triggerTiming === 'post_action' || l.triggerTiming === 'post_event') &&
+          (!l.triggerActionId || (!actionIdsSet.has(l.triggerActionId) && l.triggerActionId !== 'inaction'))
+        )
+      );
+      const generalPostHTML = generalPostDiags.length > 0 ? `
+        <div class="space-y-1.5 bg-gray-950/40 p-2.5 rounded-xl border border-emerald-800/50">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1">
+              🏁 Post-Event Dialogues (General)
+            </span>
+          </div>
+          ${generalPostDiags.map(d => renderMobileDialogueCardHTML(d, 'post_action', node.id, null)).join('')}
+        </div>
+      ` : '';
 
       return `
         <div class="mobile-event-card ${isDimmed ? 'is-pool-dimmed' : ''}" id="mob-node-${node.id}">
@@ -7978,9 +8157,9 @@ function renderMobileStageView() {
             <!-- Event Header -->
             <div class="flex items-start justify-between gap-2 border-b border-gray-800 pb-3">
               <div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
                   <span class="mobile-stage-badge bg-amber-950 text-amber-300 border border-amber-600/40 editable-spot cursor-pointer" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')" title="Tap to edit codename">${node.codename}</span>
-                  <span class="text-[10px] text-gray-400 uppercase font-semibold editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'location')" title="Tap to edit location">${node.location || 'Location'}</span>
+                  <span class="text-[10px] text-gray-400 uppercase font-semibold editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'spawnConditions')" title="Tap to edit spawn conditions">${node.spawnConditions || node.location || 'Spawn conditions'}</span>
                 </div>
                 <h3 class="text-sm font-bold text-gray-100 mt-1 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">
                   ${node.name}
@@ -7997,10 +8176,10 @@ function renderMobileStageView() {
             </div>
 
             <!-- Pre-Event Dialogue Stream -->
-            <div class="space-y-1.5 bg-gray-950/40 p-2.5 rounded-xl border border-gray-800/60">
+            <div class="space-y-1.5 bg-gray-950/40 p-2.5 rounded-xl border border-purple-900/50">
               <div class="flex items-center justify-between">
                 <span class="text-[10px] font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1">
-                  💬 Pre-Event Dialogues (Spawn Window)
+                  ⚡ Pre-Event Dialogues (Before Event Window)
                 </span>
                 <button type="button" onclick="createMobileAttachedDialogue('${node.id}', 'pre_event', null)" class="text-[10px] text-purple-400 hover:text-purple-200 font-semibold">
                   + Attach Dialogue
@@ -8014,21 +8193,27 @@ function renderMobileStageView() {
               <div class="text-xs text-amber-200/90 italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-900/30 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
                 <span class="font-bold text-amber-400 not-italic mr-1">Intro:</span>${node.eventIntro || 'Enter event intro...'}
               </div>
-              <p class="text-xs text-gray-300 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
-                ${node.eventDescription || 'Enter event description context...'}
-              </p>
+              <div>
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Event Description</div>
+                <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
+                  ${node.eventDescription || 'Enter event description context...'}
+                </p>
+              </div>
             </div>
 
             <!-- Action Choices -->
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Action Options</span>
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Action Options (${(node.actions || []).length})</span>
                 <button type="button" onclick="addActionColumn('${node.id}')" class="text-xs text-cyan-400 hover:text-cyan-300 font-bold">
                   + Add Choice
                 </button>
               </div>
               ${actionsHTML}
+              ${inactionHTML}
             </div>
+
+            ${generalPostHTML}
           </div>
         </div>
       `;
@@ -8036,20 +8221,24 @@ function renderMobileStageView() {
   }
 
   // Unlinked Dialogues for this stage
-  const unlinkedDiags = (appData.dialogues || []).filter(d => (!d.targetEventId) && ((d.floorIndex || 0) === activeMobileStageIndex) && ((d.category || 'KeyChain') === activeCategoryFilter));
+  const unlinkedDiags = (appData.dialogues || []).filter(d =>
+    getDialogueLinks(d).length === 0 &&
+    ((d.floorIndex || 0) === activeMobileStageIndex) &&
+    ((d.category || 'KeyChain') === activeCategoryFilter)
+  );
   let unlinkedHTML = '';
   if (unlinkedDiags.length > 0) {
     unlinkedHTML = `
       <div class="mt-8 pt-6 border-t border-gray-800 space-y-3">
         <h4 class="text-xs font-bold text-purple-400 uppercase tracking-wider">Unlinked Dialogues in this Stage (${unlinkedDiags.length})</h4>
-        ${unlinkedDiags.map(d => renderMobileDialogueCardHTML(d)).join('')}
+        ${unlinkedDiags.map(d => renderMobileDialogueCardHTML(d, 'unlinked', null, null)).join('')}
       </div>
     `;
   }
 
   container.innerHTML = `
     <!-- Sticky Mobile Stage Nav -->
-    <div class="mobile-stage-nav-bar px-4 py-2.5 flex items-center justify-between gap-2 overflow-x-auto">
+    <div class="mobile-stage-nav-bar px-3 sm:px-4 py-2.5 flex items-center justify-between gap-2 overflow-x-auto">
       <div class="flex items-center gap-1.5 overflow-x-auto py-1">
         ${tabsHTML}
       </div>
@@ -8059,14 +8248,14 @@ function renderMobileStageView() {
     </div>
 
     <!-- Main Content Container -->
-    <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+    <div class="max-w-2xl mx-auto px-3 sm:px-4 py-5 space-y-6">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-sm font-bold text-gray-100 flex items-center gap-2">
+          <h2 class="text-sm font-bold text-gray-100 flex items-center gap-2 flex-wrap">
             <span>${currentStageMeta.title}</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-800">${stageNodes.length} Events</span>
           </h2>
-          <p class="text-[11px] text-gray-400 mt-0.5">Mobile stage-centric narrative flow • Automatic zero-collision desktop placement</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">Stage-centric narrative flow • Pre-Event, Route Advice & Post-Event dialogues shown inline</p>
         </div>
         <div class="text-right">
           <span class="text-[10px] font-mono font-bold text-amber-300 bg-gray-900 border border-gray-800 px-2 py-1 rounded">V${currentVar.number}</span>
@@ -8081,10 +8270,12 @@ function renderMobileStageView() {
   if (window.lucide) lucide.createIcons();
 }
 
-function renderMobileDialogueCardHTML(dialogue, isRoute = false) {
+function renderMobileDialogueCardHTML(dialogue, timingMode = 'pre_event', contextEventId = null, contextActionId = null) {
+  const isRoute = (timingMode === 'action_option' || timingMode === true);
+  const isPostAction = (timingMode === 'post_action' || timingMode === 'post_event');
   const allChars = appData.characters || getDefaultCharactersList();
   const linesHTML = (dialogue.lines || []).map((l, lIdx) => {
-    const charMeta = allChars.find(c => c.name === l.speakerName) || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
+    const charMeta = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName) || { color: '#e5e7eb', textColor: '#1f2937', icon: '👤' };
     return `
       <div class="bg-gray-900/80 p-2 rounded-lg border border-gray-800 space-y-1">
         <div class="flex items-center justify-between text-[11px]">
@@ -8093,25 +8284,43 @@ function renderMobileDialogueCardHTML(dialogue, isRoute = false) {
           </span>
           <button type="button" onclick="removeMobileDialogueLine('${dialogue.id}', ${lIdx})" class="text-gray-500 hover:text-red-400 text-xs">×</button>
         </div>
-        <p class="text-xs text-gray-200 leading-relaxed editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${dialogue.id}', 'lines.${lIdx}.text')">
+        <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${dialogue.id}', 'lines.${lIdx}.text')">
           ${l.text || 'Dialogue text...'}
         </p>
       </div>
     `;
   }).join('');
 
+  let timingBadgeHTML = '';
+  if (isRoute) {
+    timingBadgeHTML = `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-indigo-950 text-indigo-300 border border-indigo-700/60 uppercase">💬 Route Advice</span>`;
+  } else if (isPostAction) {
+    const delayLabel = dialogue.delayHours ? ` (+${dialogue.delayHours}${dialogue.delayUnit === 'minutes' ? 'm' : 'h'})` : '';
+    timingBadgeHTML = `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/60 uppercase">🏁 Post-Event${delayLabel}</span>`;
+  } else if (timingMode === 'pre_event') {
+    timingBadgeHTML = `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-purple-950 text-purple-300 border border-purple-700/60 uppercase">⚡ Pre-Event</span>`;
+  }
+
+  const extraClass = isRoute ? 'is-route-suggestion' : (isPostAction ? 'is-post-action' : '');
+  const unlinkCall = contextEventId
+    ? `unlinkMobileDialogue('${dialogue.id}', '${contextEventId}', '${timingMode}', ${contextActionId ? `'${contextActionId}'` : 'null'})`
+    : `unlinkMobileDialogue('${dialogue.id}')`;
+
   return `
-    <div class="mobile-nested-dialogue ${isRoute ? 'is-route-suggestion' : ''} space-y-2" id="mob-diag-${dialogue.id}">
-      <div class="flex items-center justify-between border-b border-purple-800/40 pb-1">
-        <span class="text-[10px] font-bold text-purple-300 font-mono flex items-center gap-1">
-          <span>💬</span> ${dialogue.triggerCondition || 'Dialogue Block'}
-        </span>
-        <div class="flex items-center gap-2">
+    <div class="mobile-nested-dialogue ${extraClass} space-y-2" id="mob-diag-${dialogue.id}">
+      <div class="flex items-center justify-between border-b border-purple-800/40 pb-1.5 gap-1.5 flex-wrap">
+        <div class="flex items-center gap-1.5 min-w-0 flex-wrap">
+          ${timingBadgeHTML}
+          <span class="text-[10px] font-bold text-purple-200 font-mono truncate">
+            ${dialogue.triggerCondition || 'Dialogue Block'}
+          </span>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
           <button type="button" class="comment-trigger-badge" title="Comments" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue')">
             💬 <span class="cmt-cnt-${dialogue.id}">${getCommentCount(dialogue.id)}</span>
           </button>
           <button type="button" onclick="addMobileDialogueLine('${dialogue.id}')" class="text-[10px] text-cyan-400 hover:text-cyan-200 font-semibold">+ Line</button>
-          <button type="button" onclick="unlinkMobileDialogue('${dialogue.id}')" class="text-[10px] text-red-400 hover:text-red-300" title="Unlink dialogue">Unlink</button>
+          ${timingMode !== 'unlinked' ? `<button type="button" onclick="${unlinkCall}" class="text-[10px] text-red-400 hover:text-red-300" title="Unlink dialogue">Unlink</button>` : ''}
         </div>
       </div>
       <div class="space-y-1.5">
@@ -8191,6 +8400,13 @@ function createMobileAttachedDialogue(eventId, timing, actionId) {
     delayHours: 0,
     delayUnit: "hours",
     triggerCondition: condText,
+    links: [{
+      id: `dlink_${Date.now()}`,
+      targetEventId: eventId,
+      triggerTiming: timing,
+      triggerActionId: actionId || null,
+      triggerCondition: condText
+    }],
     position: { x: slot.x, y: slot.y },
     variationId: activeVariationId,
     category: targetNode.category || activeCategoryFilter,
@@ -8257,7 +8473,12 @@ function deleteMobileEvent(eventId) {
 
   appData.nodes = (appData.nodes || []).filter(n => n.id !== eventId);
   (appData.dialogues || []).forEach(d => {
-    if (d.targetEventId === eventId) d.targetEventId = null;
+    if (Array.isArray(d.links)) {
+      d.links = d.links.filter(l => l && l.targetEventId !== eventId);
+      syncDialoguePrimaryFields(d);
+    } else if (d.targetEventId === eventId) {
+      d.targetEventId = null;
+    }
   });
 
   if (floor !== null && floor !== undefined) {
@@ -8269,14 +8490,25 @@ function deleteMobileEvent(eventId) {
   showToast("Event block deleted", "info");
 }
 
-function unlinkMobileDialogue(diagId) {
+function unlinkMobileDialogue(diagId, targetEventId = null, triggerTiming = null, triggerActionId = null) {
   if (!requireAuthToEdit("unlink dialogues")) return;
   pushUndoState();
   const diag = (appData.dialogues || []).find(d => d.id === diagId);
   if (diag) {
-    diag.targetEventId = null;
-    diag.triggerTiming = null;
-    diag.triggerActionId = null;
+    const links = getDialogueLinks(diag);
+    if (targetEventId && links.length > 1) {
+      diag.links = links.filter(l => !(
+        l.targetEventId === targetEventId &&
+        (!triggerTiming || l.triggerTiming === triggerTiming) &&
+        (!triggerActionId || l.triggerActionId === triggerActionId)
+      ));
+      syncDialoguePrimaryFields(diag);
+    } else {
+      diag.links = [];
+      diag.targetEventId = null;
+      diag.triggerTiming = null;
+      diag.triggerActionId = null;
+    }
   }
   saveProjectToLocalStorage();
   renderApp();
