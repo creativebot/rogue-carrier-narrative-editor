@@ -102,13 +102,21 @@ function setupCanvasEvents() {
     isDraggingCanvas = true;
     dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
     canvasContainer.style.cursor = 'grabbing';
+    if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
   });
 
+  let panRafPending = false;
   window.addEventListener('mousemove', (e) => {
     if (isDraggingCanvas) {
       transform.x = e.clientX - dragStart.x;
       transform.y = e.clientY - dragStart.y;
-      updateCanvasTransform();
+      if (!panRafPending) {
+        panRafPending = true;
+        requestAnimationFrame(() => {
+          panRafPending = false;
+          updateCanvasTransform();
+        });
+      }
     }
   });
 
@@ -116,16 +124,30 @@ function setupCanvasEvents() {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
       canvasContainer.style.cursor = 'default';
+      if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
+      updateCanvasTransform();
     }
   });
 
+  let wheelEndTimer = null;
+  let cachedContainerRect = null;
+  let cachedRectTimestamp = 0;
+
   canvasContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
+    const now = performance.now();
+    if (!cachedContainerRect || (now - cachedRectTimestamp) > 250) {
+      cachedContainerRect = canvasContainer.getBoundingClientRect();
+      cachedRectTimestamp = now;
+    }
+
+    if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
+
     const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
     const newScale = Math.min(Math.max(transform.scale * zoomFactor, 0.15), 3.0);
 
-    const mouseX = e.clientX - canvasContainer.getBoundingClientRect().left;
-    const mouseY = e.clientY - canvasContainer.getBoundingClientRect().top;
+    const mouseX = e.clientX - cachedContainerRect.left;
+    const mouseY = e.clientY - cachedContainerRect.top;
 
     transform.x = mouseX - (mouseX - transform.x) * (newScale / transform.scale);
     transform.y = mouseY - (mouseY - transform.y) * (newScale / transform.scale);
@@ -135,8 +157,13 @@ function setupCanvasEvents() {
       maxZoomedBlockId = null;
     }
 
-    updateBlockZoomButtons();
     updateCanvasTransform();
+
+    if (wheelEndTimer) clearTimeout(wheelEndTimer);
+    wheelEndTimer = setTimeout(() => {
+      if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
+      updateBlockZoomButtons();
+    }, 120);
   }, { passive: false });
 
   // -------------------------------------------------------------
@@ -168,6 +195,7 @@ function setupCanvasEvents() {
         y: (e.touches[0].clientY + e.touches[1].clientY) / 2
       };
       touchState.transformStart = { ...transform };
+      if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
       return;
     }
 
@@ -209,6 +237,7 @@ function setupCanvasEvents() {
         touchState.startX = touch.clientX;
         touchState.startY = touch.clientY;
         touchState.transformStart = { ...transform };
+        if (canvasStage) canvasStage.classList.add('is-interacting-viewport');
       }
     }
   }, { passive: false });
@@ -275,6 +304,7 @@ function setupCanvasEvents() {
   }, { passive: false });
 
   const finishTouch = () => {
+    if (canvasStage) canvasStage.classList.remove('is-interacting-viewport');
     if (touchState.mode === 'node-drag' && touchState.dragNodeObj && touchState.hasDragged) {
       const obj = touchState.dragNodeObj;
       const el = touchState.dragNodeEl;
@@ -284,26 +314,32 @@ function setupCanvasEvents() {
     touchState.hasDragged = false;
     touchState.dragNodeObj = null;
     touchState.dragNodeEl = null;
+    updateBlockZoomButtons();
   };
 
   canvasContainer.addEventListener('touchend', finishTouch);
   canvasContainer.addEventListener('touchcancel', finishTouch);
 }
 
+let lastAppliedScale = null;
 function updateCanvasTransform() {
   if (!canvasStage) return;
-  canvasStage.style.transform = `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`;
+  canvasStage.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
 
-  // Keep floating buttons comfortably sized at minimal zoom without over-scaling
-  const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
-  canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
+  // Only recalculate CSS custom properties and zoomed-out class when scale actually changes
+  if (lastAppliedScale !== transform.scale) {
+    lastAppliedScale = transform.scale;
+    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.65);
 
-  // Scale touch buttons compensatory hitboxes when zoomed out so thumbs hit easily
-  const touchBtnScale = transform.scale < 1.0 ? Math.min(1.4, 1 / Math.sqrt(transform.scale)).toFixed(2) : '1.0';
-  canvasStage.style.setProperty('--touch-btn-scale', touchBtnScale);
+    const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
+    canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
 
-  const resetBtn = document.getElementById('btn-zoom-reset');
-  if (resetBtn) resetBtn.innerText = `${Math.round(transform.scale * 100)}%`;
+    const touchBtnScale = transform.scale < 1.0 ? Math.min(1.4, 1 / Math.sqrt(transform.scale)).toFixed(2) : '1.0';
+    canvasStage.style.setProperty('--touch-btn-scale', touchBtnScale);
+
+    const resetBtn = document.getElementById('btn-zoom-reset');
+    if (resetBtn) resetBtn.innerText = `${Math.round(transform.scale * 100)}%`;
+  }
 }
 
 function setupToolbarEvents() {

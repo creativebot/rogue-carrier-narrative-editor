@@ -68,6 +68,9 @@ html, body {
   width: 6000px;
   height: 6000px;
   transform-origin: 0 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 #svg-connectors {
@@ -79,6 +82,7 @@ html, body {
   pointer-events: none;
   z-index: 10;
   overflow: visible;
+  shape-rendering: optimizeSpeed;
 }
 
 #nodes-layer {
@@ -92,13 +96,14 @@ html, body {
 .stage-band,
 .floor-band {
   position: absolute;
-  left: -50000px;
-  width: 100000px;
+  left: -4000px;
+  width: 16000px;
   height: 940px;
   border-top: 2px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 2px dashed rgba(234, 179, 8, 0.4);
   background-color: rgba(255, 255, 255, 0.015);
   pointer-events: none;
+  contain: layout style paint;
 }
 
 .stage-label,
@@ -2040,6 +2045,57 @@ html, body {
   background: #f5d0fe !important;
   border-color: #a21caf !important;
 }
+
+/* ==========================================================================
+   GPU Acceleration & Zoomed-Out Overview Rendering Optimizations
+   ========================================================================== */
+.event-card,
+.deck-event-card,
+.generic-event-card,
+.dialogue-card {
+  contain: layout style;
+}
+
+/* When zoomed out (< 65% scale), eliminate expensive multi-layer Gaussian blur shadows,
+   subpixel font antialiasing, and micro-badge repaints while keeping full card structure visible */
+#canvas-stage.is-zoomed-out .event-card,
+#canvas-stage.is-zoomed-out .deck-event-card,
+#canvas-stage.is-zoomed-out .generic-event-card,
+#canvas-stage.is-zoomed-out .dialogue-card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+  text-rendering: optimizeSpeed;
+}
+
+#canvas-stage.is-zoomed-out .req-pill,
+#canvas-stage.is-zoomed-out .reward-pill,
+#canvas-stage.is-zoomed-out .action-handle-group,
+#canvas-stage.is-zoomed-out .dialogue-trigger-badge,
+#canvas-stage.is-zoomed-out .dialogue-jump-arrow-btn,
+#canvas-stage.is-zoomed-out .connector-port,
+#canvas-stage.is-zoomed-out .dialogue-trigger-port {
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+#canvas-stage.is-zoomed-out .symbol-count-badge {
+  display: none !important;
+}
+
+#canvas-stage.is-zoomed-out .req-pill img,
+#canvas-stage.is-zoomed-out .reward-pill img {
+  image-rendering: optimizeSpeed;
+}
+
+/* During active canvas drag/wheel/pinch, freeze pointer hit-testing & CSS transitions inside cards */
+#canvas-stage.is-interacting-viewport #nodes-layer,
+#canvas-stage.is-interacting-viewport #svg-connectors {
+  pointer-events: none !important;
+}
+
+#canvas-stage.is-interacting-viewport * {
+  transition: none !important;
+}
+
 
 
 
