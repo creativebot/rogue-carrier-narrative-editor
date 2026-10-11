@@ -2246,11 +2246,14 @@ function renderVariationSelect() {
   if (!variationSelect) return;
   variationSelect.innerHTML = '';
   appData.variations.forEach(v => {
-    const t = appData.timelines.find(tl => tl.id === v.timelineId) || { name: 'Timeline 1' };
+    const t = appData.timelines.find(tl => tl.id === v.timelineId) || { name: 'Timeline 1', number: 1 };
     const opt = document.createElement('option');
     opt.value = v.id;
     opt.innerText = `${t.name} — V${v.number}: ${v.name}`;
-    if (v.id === activeVariationId) opt.selected = true;
+    if (v.id === activeVariationId) {
+      opt.selected = true;
+      variationSelect.title = opt.innerText;
+    }
     variationSelect.appendChild(opt);
   });
 }
