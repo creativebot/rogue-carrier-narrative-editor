@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="icons/dodecahedron.png">
   <link rel="shortcut icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261011_v3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -474,12 +474,12 @@
       </div>
 
       <div class="p-6 overflow-y-auto space-y-4 text-xs">
-        <div class="flex justify-between items-center bg-gray-950 p-4 border border-gray-800 rounded-lg">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 bg-gray-950 p-4 border border-gray-800 rounded-lg">
           <div>
             <h4 class="text-sm font-bold text-cyan-300">Timelines & Variations Hierarchy</h4>
-            <p class="text-gray-400 text-xs mt-0.5">Create timelines representing different reality branches and add variations into them.</p>
+            <p class="text-gray-400 text-xs mt-0.5">Edit timeline names, rename variations inline, or use ▲ / ▼ to reorder variations within a timeline.</p>
           </div>
-          <button id="btn-add-timeline" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-3 py-1.5 rounded flex items-center gap-1 shadow">
+          <button id="btn-add-timeline" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-3 py-1.5 rounded flex items-center gap-1 shadow shrink-0 self-start sm:self-center">
             <i data-lucide="plus-circle" class="w-4 h-4"></i> Add New Timeline
           </button>
         </div>
@@ -1089,7 +1089,7 @@ And what about you? Disappointed, as well?"></textarea>
   </div>
 
   <!-- Application Logic -->
-  <script src="app.js"></script>
+  <script src="app.js?v=20261011_v3"></script>
   <script>
     lucide.createIcons();
   </script>

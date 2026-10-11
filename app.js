@@ -14,15 +14,15 @@ let appData = {
   ],
   variations: [
     { id: "var_v1", timelineId: "timeline_1", number: 1, name: "The Moment After the End", description: "First variation containing primary critical event chain." },
-    { id: "var_v2", timelineId: "timeline_1", number: 2, name: "Orbital Rift", description: "Debris field gravitational anomalies." },
-    { id: "var_v3", timelineId: "timeline_1", number: 3, name: "Deep Submersion", description: "Keeling ocean trawler exploration." },
-    { id: "var_v4", timelineId: "timeline_1", number: 4, name: "Predator Nest", description: "Keeling island predator swarms." },
-    { id: "var_v5", timelineId: "timeline_1", number: 5, name: "Bioweapon Outbreak", description: "Ebola strain contagion response." },
-    { id: "var_v6", timelineId: "timeline_1", number: 6, name: "Zephyrus Wreckage", description: "Disassembly of smoldering wreckage." },
-    { id: "var_v7", timelineId: "timeline_1", number: 7, name: "Chronos Paradox", description: "Time displacement hypercell anomaly." },
-    { id: "var_v8", timelineId: "timeline_1", number: 8, name: "Sub-Oceanic Abyss", description: "Sunken flight recorder retrieval." },
-    { id: "var_v9", timelineId: "timeline_1", number: 9, name: "Behemoth Encounter", description: "Combat with leviathan predator." },
-    { id: "var_v10", timelineId: "timeline_1", number: 10, name: "Echoes of the Fleet", description: "Final escape pod signals." }
+    { id: "var_v2", timelineId: "timeline_1", number: 2, name: "Once More Into The Frey", description: "Debris field gravitational anomalies." },
+    { id: "var_v3", timelineId: "timeline_1", number: 3, name: "Too Many Variables", description: "Keeling ocean trawler exploration." },
+    { id: "var_v4", timelineId: "timeline_1", number: 4, name: "Gain The Upper Hand", description: "Keeling island predator swarms." },
+    { id: "var_v5", timelineId: "timeline_1", number: 5, name: "Hunted!", description: "Ebola strain contagion response." },
+    { id: "var_v6", timelineId: "timeline_1", number: 6, name: "On A Cold Trail", description: "Disassembly of smoldering wreckage." },
+    { id: "var_v7", timelineId: "timeline_1", number: 7, name: "Prism Glitch", description: "Time displacement hypercell anomaly." },
+    { id: "var_v8", timelineId: "timeline_1", number: 8, name: "The Problem of Probability", description: "Sunken flight recorder retrieval." },
+    { id: "var_v9", timelineId: "timeline_1", number: 9, name: "Facing Shadows", description: "Combat with leviathan predator." },
+    { id: "var_v10", timelineId: "timeline_1", number: 10, name: "The Finite Infinity", description: "Final escape pod signals." }
   ],
   characters: [],
   nodes: [],
@@ -803,13 +803,27 @@ function normalizeAllProjectData() {
     "Behemoth Encounter",
     "Echoes of the Fleet"
   ]);
+  let migratedLegacyVarNames = false;
   appData.variations.forEach(v => {
-    if (v && (v.timelineId === 'timeline_1' || (v.id && v.id.startsWith('var_v'))) && t1CanonicalVarNames[v.number]) {
-      if (!v.name || t1LegacyVarNames.has(v.name) || v.name.startsWith('Variation ')) {
-        v.name = t1CanonicalVarNames[v.number];
+    if (!v) return;
+    const varNum = Number(v.number);
+    const isTimeline1 = (v.timelineId === 'timeline_1' || (v.id && /^var_v\d+$/.test(v.id)));
+    if (isTimeline1 && t1CanonicalVarNames[varNum]) {
+      const curName = (v.name || '').trim();
+      if (!curName || t1LegacyVarNames.has(curName) || /^Variation\s+\d+$/i.test(curName)) {
+        v.name = t1CanonicalVarNames[varNum];
+        migratedLegacyVarNames = true;
       }
     }
   });
+  if (migratedLegacyVarNames) {
+    try {
+      localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+      if (typeof syncProjectToDiskServer === 'function') {
+        setTimeout(() => syncProjectToDiskServer(), 200);
+      }
+    } catch (e) {}
+  }
 
   if (!appData.projectInfo) {
     appData.projectInfo = { title: "Rogue Carrier Narrative", version: "2.6", author: "Wild Fields" };
@@ -2489,8 +2503,17 @@ function renderApp() {
 function renderVariationSelect() {
   if (!variationSelect) return;
   variationSelect.innerHTML = '';
-  appData.variations.forEach(v => {
-    const t = appData.timelines.find(tl => tl.id === v.timelineId) || { name: 'Timeline 1', number: 1 };
+  const timelines = appData.timelines || [];
+  const sortedVariations = [...(appData.variations || [])].sort((a, b) => {
+    const tlA = timelines.find(tl => tl.id === a.timelineId);
+    const tlB = timelines.find(tl => tl.id === b.timelineId);
+    const numTlA = tlA ? Number(tlA.number || 1) : 999;
+    const numTlB = tlB ? Number(tlB.number || 1) : 999;
+    if (numTlA !== numTlB) return numTlA - numTlB;
+    return Number(a.number || 0) - Number(b.number || 0);
+  });
+  sortedVariations.forEach(v => {
+    const t = timelines.find(tl => tl.id === v.timelineId) || { name: 'Timeline 1', number: 1 };
     const opt = document.createElement('option');
     opt.value = v.id;
     opt.innerText = `${t.name} — V${v.number}: ${v.name}`;
@@ -7206,40 +7229,111 @@ function renderTimelinesManager() {
   if (!container) return;
   container.innerHTML = '';
 
-  const timelines = appData.timelines || [];
+  const timelines = [...(appData.timelines || [])].sort((a, b) => Number(a.number || 1) - Number(b.number || 1));
   const variations = appData.variations || [];
 
   timelines.forEach(tl => {
     const tlSection = document.createElement('div');
     tlSection.className = 'bg-cyan-950/30 border border-cyan-800/60 p-4 rounded-xl space-y-3';
-    
-    const tlVars = variations.filter(v => v.timelineId === tl.id);
 
-    let varListHTML = tlVars.map(v => `
-      <div class="bg-gray-950 border border-gray-800 p-3 rounded-lg flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span class="font-mono font-bold text-cyan-300 bg-cyan-950 px-2 py-1 rounded border border-cyan-800">V${v.number}</span>
-          <div>
-            <h5 class="font-bold text-white text-xs">${v.name}</h5>
-            <p class="text-gray-400 text-[11px]">${v.description}</p>
+    const tlVars = variations
+      .filter(v => v.timelineId === tl.id)
+      .sort((a, b) => Number(a.number || 0) - Number(b.number || 0));
+
+    const safeTlName = (tl.name || '').replace(/"/g, '&quot;');
+    const safeTlDesc = (tl.description || '').replace(/"/g, '&quot;');
+
+    const varListHTML = tlVars.map((v, vIdx) => {
+      const isFirst = vIdx === 0;
+      const isLast = vIdx === tlVars.length - 1;
+      const isActive = v.id === activeVariationId;
+      const safeVarName = (v.name || '').replace(/"/g, '&quot;');
+      const safeVarDesc = (v.description || '').replace(/"/g, '&quot;');
+
+      return `
+        <div class="bg-gray-950 border ${isActive ? 'border-amber-500/80 ring-1 ring-amber-500/30' : 'border-gray-800'} p-2.5 sm:p-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 transition">
+          <div class="flex items-center gap-2.5 flex-1 min-w-0">
+            <!-- Reorder Variation Up / Down Buttons -->
+            <div class="flex flex-col gap-0.5 shrink-0">
+              <button type="button"
+                      onclick="moveVariationOrder('${v.id}', -1)"
+                      ${isFirst ? 'disabled' : ''}
+                      class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-gray-900 border border-gray-700 text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-600 transition ${isFirst ? 'opacity-25 cursor-not-allowed' : 'active:scale-95'}"
+                      title="Move variation up (to V${v.number - 1})">
+                ▲
+              </button>
+              <button type="button"
+                      onclick="moveVariationOrder('${v.id}', 1)"
+                      ${isLast ? 'disabled' : ''}
+                      class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-gray-900 border border-gray-700 text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-600 transition ${isLast ? 'opacity-25 cursor-not-allowed' : 'active:scale-95'}"
+                      title="Move variation down (to V${v.number + 1})">
+                ▼
+              </button>
+            </div>
+
+            <!-- Variation Number Badge -->
+            <span class="font-mono font-bold text-xs ${isActive ? 'text-amber-300 bg-amber-950/80 border-amber-600' : 'text-cyan-300 bg-cyan-950 border-cyan-800'} px-2.5 py-1.5 rounded border shrink-0">
+              V${v.number}
+            </span>
+
+            <!-- Editable Variation Name & Description -->
+            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 min-w-0">
+              <div>
+                <label class="text-[9px] text-gray-500 uppercase font-bold tracking-wider block mb-0.5">Variation Name</label>
+                <input type="text"
+                       value="${safeVarName}"
+                       onchange="updateVariationField('${v.id}', 'name', this.value)"
+                       placeholder="Variation Name"
+                       class="w-full bg-gray-900 border border-gray-700 focus:border-cyan-400 rounded px-2.5 py-1 text-xs font-bold text-white focus:outline-none">
+              </div>
+              <div>
+                <label class="text-[9px] text-gray-500 uppercase font-bold tracking-wider block mb-0.5">Description / Notes</label>
+                <input type="text"
+                       value="${safeVarDesc}"
+                       onchange="updateVariationField('${v.id}', 'description', this.value)"
+                       placeholder="Variation description..."
+                       class="w-full bg-gray-900 border border-gray-800 focus:border-cyan-500 rounded px-2.5 py-1 text-[11px] text-gray-300 focus:outline-none">
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-end gap-2 shrink-0">
+            <button type="button"
+                    onclick="selectVariationFromManager('${v.id}')"
+                    class="px-3 py-1.5 ${isActive ? 'bg-amber-500 hover:bg-amber-400 text-gray-950' : 'bg-cyan-600 hover:bg-cyan-500 text-white'} font-bold rounded-lg text-xs transition shadow">
+              ${isActive ? '✓ Active' : 'Open Variation'}
+            </button>
           </div>
         </div>
-        <button type="button" onclick="selectVariationFromManager('${v.id}')" class="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded text-xs">
-          Open Variation
-        </button>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     tlSection.innerHTML = `
-      <div class="flex justify-between items-center border-b border-cyan-900/60 pb-2">
-        <div>
-          <h4 class="text-sm font-bold text-cyan-300 flex items-center gap-2">
-            <span class="font-mono bg-cyan-900/80 px-2 py-0.5 rounded text-xs">T${tl.number}</span>
-            ${tl.name}
-          </h4>
-          <p class="text-gray-400 text-xs mt-0.5">${tl.description}</p>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cyan-900/60 pb-3">
+        <div class="flex items-start sm:items-center gap-2.5 flex-1 min-w-0">
+          <span class="font-mono font-bold bg-cyan-900/90 text-cyan-200 border border-cyan-700 px-2.5 py-1.5 rounded-lg text-xs shrink-0">
+            T${tl.number}
+          </span>
+          <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 min-w-0">
+            <div>
+              <label class="text-[9px] text-cyan-400/80 uppercase font-bold tracking-wider block mb-0.5">Timeline Name</label>
+              <input type="text"
+                     value="${safeTlName}"
+                     onchange="updateTimelineField('${tl.id}', 'name', this.value)"
+                     placeholder="Timeline Name"
+                     class="w-full bg-gray-950 border border-cyan-800/80 focus:border-cyan-400 rounded px-2.5 py-1 text-xs font-bold text-cyan-200 focus:outline-none">
+            </div>
+            <div>
+              <label class="text-[9px] text-cyan-400/80 uppercase font-bold tracking-wider block mb-0.5">Timeline Description</label>
+              <input type="text"
+                     value="${safeTlDesc}"
+                     onchange="updateTimelineField('${tl.id}', 'description', this.value)"
+                     placeholder="Timeline description..."
+                     class="w-full bg-gray-950 border border-cyan-900/60 focus:border-cyan-500 rounded px-2.5 py-1 text-[11px] text-gray-300 focus:outline-none">
+            </div>
+          </div>
         </div>
-        <button type="button" onclick="addNewVariation('${tl.id}')" class="bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-3 py-1 rounded text-xs flex items-center gap-1 shadow">
+        <button type="button" onclick="addNewVariation('${tl.id}')" class="bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow shrink-0 self-end sm:self-center">
           + Add Variation to T${tl.number}
         </button>
       </div>
@@ -7255,15 +7349,118 @@ function renderTimelinesManager() {
   openModal('modal-timelines');
 }
 
+function updateTimelineField(tlId, field, value) {
+  if (!requireAuthToEdit("edit timeline details")) return;
+  const tl = (appData.timelines || []).find(t => t.id === tlId);
+  if (!tl) return;
+  const trimmed = (value || '').trim();
+  if (field === 'name' && !trimmed) {
+    showToast("Timeline name cannot be empty", "warning");
+    renderTimelinesManager();
+    return;
+  }
+  pushUndoState();
+  tl[field] = field === 'name' ? trimmed : value;
+  saveProjectToLocalStorage();
+  renderTimelinesManager();
+  renderApp();
+  showToast(field === 'name' ? `Renamed Timeline T${tl.number} to "${tl.name}"` : `Updated Timeline T${tl.number} description`, "success");
+}
+
+function updateVariationField(varId, field, value) {
+  if (!requireAuthToEdit("edit variation details")) return;
+  const v = (appData.variations || []).find(x => x.id === varId);
+  if (!v) return;
+  const trimmed = (value || '').trim();
+  if (field === 'name' && !trimmed) {
+    showToast("Variation name cannot be empty", "warning");
+    renderTimelinesManager();
+    return;
+  }
+  pushUndoState();
+  v[field] = field === 'name' ? trimmed : value;
+  saveProjectToLocalStorage();
+  renderTimelinesManager();
+  renderApp();
+  showToast(field === 'name' ? `Renamed V${v.number} to "${v.name}"` : `Updated V${v.number} description`, "success");
+}
+
+function moveVariationOrder(varId, direction) {
+  if (!requireAuthToEdit("reorder variations")) return;
+  if (!appData.variations) return;
+  const targetVar = appData.variations.find(v => v.id === varId);
+  if (!targetVar) return;
+
+  const tlId = targetVar.timelineId;
+  const tlVars = appData.variations
+    .filter(v => v.timelineId === tlId)
+    .sort((a, b) => Number(a.number || 0) - Number(b.number || 0));
+
+  const currentIdx = tlVars.findIndex(v => v.id === varId);
+  const swapIdx = currentIdx + direction;
+  if (currentIdx === -1 || swapIdx < 0 || swapIdx >= tlVars.length) return;
+
+  pushUndoState();
+
+  // Swap positions in the timeline's variation list
+  const temp = tlVars[currentIdx];
+  tlVars[currentIdx] = tlVars[swapIdx];
+  tlVars[swapIdx] = temp;
+
+  // Re-number sequentially 1..N within this timeline
+  tlVars.forEach((v, idx) => {
+    v.number = idx + 1;
+  });
+
+  // Update structured event codenames (T{tl}-V{num}-{K|S}{stage}{letter}) if any events belong to the moved variations
+  const swappedIds = new Set([tlVars[currentIdx].id, tlVars[swapIdx].id]);
+  const newNumById = {};
+  tlVars.forEach(v => { newNumById[v.id] = v.number; });
+
+  (appData.nodes || []).forEach(node => {
+    if (node && node.variationId && swappedIds.has(node.variationId) && node.codename) {
+      const parsed = parseStructuredCodename(node.codename);
+      if (parsed && parsed.isStructured) {
+        const oldCodename = node.codename;
+        const newCodename = buildStructuredCodename(parsed.timeline, newNumById[node.variationId], parsed.type, parsed.stage, parsed.letter);
+        if (oldCodename !== newCodename) {
+          node.codename = newCodename;
+          if (typeof updateDialogueConditionsForRenamedCodename === 'function') {
+            updateDialogueConditionsForRenamedCodename(node.id, oldCodename, newCodename);
+          }
+        }
+      }
+    }
+  });
+
+  // Keep appData.variations sorted cleanly by timeline number then variation number
+  const timelines = appData.timelines || [];
+  appData.variations.sort((a, b) => {
+    const tlA = timelines.find(tl => tl.id === a.timelineId);
+    const tlB = timelines.find(tl => tl.id === b.timelineId);
+    const numTlA = tlA ? Number(tlA.number || 1) : 999;
+    const numTlB = tlB ? Number(tlB.number || 1) : 999;
+    if (numTlA !== numTlB) return numTlA - numTlB;
+    return Number(a.number || 0) - Number(b.number || 0);
+  });
+
+  saveProjectToLocalStorage();
+  renderTimelinesManager();
+  renderApp();
+  showToast(`Moved "${targetVar.name}" to V${targetVar.number}`, "info");
+}
+
 function addNewTimeline() {
+  if (!requireAuthToEdit("create timelines")) return;
   const num = (appData.timelines || []).length + 1;
   const name = prompt("Enter New Timeline Name:", `Timeline ${num}: Multiverse Branch`);
   if (!name) return;
 
+  pushUndoState();
   const newTl = {
     id: `timeline_${num}`,
     number: num,
-    name: name,
+    name: name.trim(),
     description: "New parallel timeline hypercell reality branch."
   };
 
@@ -7277,8 +7474,8 @@ function addNewTimeline() {
       id: `var_t${num}_v${v}`,
       timelineId: newTl.id,
       number: v,
-      name: `${name} - Variation ${v}`,
-      description: `Variation ${v} for ${name}`
+      name: `${newTl.name} - Variation ${v}`,
+      description: `Variation ${v} for ${newTl.name}`
     });
   }
 
@@ -7303,6 +7500,7 @@ function selectVariationFromManager(varId) {
 }
 
 function addNewVariation(targetTimelineId) {
+  if (!requireAuthToEdit("create variations")) return;
   const tlId = targetTimelineId || activeTimelineId;
   const tl = (appData.timelines || []).find(t => t.id === tlId);
   const existingInTl = (appData.variations || []).filter(v => v.timelineId === tlId);
@@ -7311,11 +7509,12 @@ function addNewVariation(targetTimelineId) {
   const name = prompt("Enter Variation Name:", `Variation ${nextNum}`);
   if (!name) return;
 
+  pushUndoState();
   const newVar = {
     id: `var_${tlId}_v${nextNum}_${Date.now()}`,
     timelineId: tlId,
     number: nextNum,
-    name: name,
+    name: name.trim(),
     description: `Variation ${nextNum} for ${tlName}`
   };
 

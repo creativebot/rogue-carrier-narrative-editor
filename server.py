@@ -889,9 +889,61 @@ def save_notifications(notifications_list):
 
 # ----------------- HTTP Request Handler -----------------
 
+T1_CANONICAL_VAR_NAMES = {
+    2: "Once More Into The Frey",
+    3: "Too Many Variables",
+    4: "Gain The Upper Hand",
+    5: "Hunted!",
+    6: "On A Cold Trail",
+    7: "Prism Glitch",
+    8: "The Problem of Probability",
+    9: "Facing Shadows",
+    10: "The Finite Infinity",
+}
+T1_LEGACY_VAR_NAMES = {
+    "Orbital Rift",
+    "Deep Submersion",
+    "Predator Nest",
+    "Bioweapon Outbreak",
+    "Zephyrus Wreckage",
+    "Chronos Paradox",
+    "Sub-Oceanic Abyss",
+    "Behemoth Encounter",
+    "Echoes of the Fleet",
+}
+
+def normalize_t1_variations(app_data):
+    if not isinstance(app_data, dict):
+        return False
+    variations = app_data.get("variations")
+    if not isinstance(variations, list):
+        return False
+    changed = False
+    for v in variations:
+        if not isinstance(v, dict):
+            continue
+        tl_id = v.get("timelineId")
+        vid = v.get("id") or ""
+        try:
+            v_num = int(v.get("number") or 0)
+        except (ValueError, TypeError):
+            v_num = 0
+        if (tl_id == "timeline_1" or vid.startswith("var_v")) and v_num in T1_CANONICAL_VAR_NAMES:
+            cur_name = (v.get("name") or "").strip()
+            if not cur_name or cur_name in T1_LEGACY_VAR_NAMES:
+                v["name"] = T1_CANONICAL_VAR_NAMES[v_num]
+                changed = True
+    return changed
+
 class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
+
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
+        super().end_headers()
 
     def send_cors_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
@@ -1808,12 +1860,20 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 return
             project_path = os.path.join(DIRECTORY, 'project-data.json')
             if os.path.exists(project_path):
-                self.send_response(200)
-                self.send_header('Content-Type', 'application/json; charset=utf-8')
-                self.send_cors_headers()
-                self.end_headers()
-                with open(project_path, 'rb') as f:
-                    self.wfile.write(f.read())
+                try:
+                    with open(project_path, 'r', encoding='utf-8') as f:
+                        pdata = json.load(f)
+                    if normalize_t1_variations(pdata):
+                        with open(project_path, 'w', encoding='utf-8') as wf:
+                            json.dump(pdata, wf, indent=2, ensure_ascii=False)
+                    self.send_json(200, pdata)
+                except Exception:
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json; charset=utf-8')
+                    self.send_cors_headers()
+                    self.end_headers()
+                    with open(project_path, 'rb') as f:
+                        self.wfile.write(f.read())
             else:
                 self.send_json(404, {"status": "error", "message": "project-data.json not found"})
 
