@@ -779,6 +779,38 @@ function normalizeAllProjectData() {
   }
   if (!Array.isArray(appData.timelines)) appData.timelines = [];
   if (!Array.isArray(appData.variations)) appData.variations = [];
+
+  // Ensure Timeline 1 (The Fate of Zephyrus) Variations 2-10 reflect official titles
+  const t1CanonicalVarNames = {
+    2: "Once More Into The Frey",
+    3: "Too Many Variables",
+    4: "Gain The Upper Hand",
+    5: "Hunted!",
+    6: "On A Cold Trail",
+    7: "Prism Glitch",
+    8: "The Problem of Probability",
+    9: "Facing Shadows",
+    10: "The Finite Infinity"
+  };
+  const t1LegacyVarNames = new Set([
+    "Orbital Rift",
+    "Deep Submersion",
+    "Predator Nest",
+    "Bioweapon Outbreak",
+    "Zephyrus Wreckage",
+    "Chronos Paradox",
+    "Sub-Oceanic Abyss",
+    "Behemoth Encounter",
+    "Echoes of the Fleet"
+  ]);
+  appData.variations.forEach(v => {
+    if (v && (v.timelineId === 'timeline_1' || (v.id && v.id.startsWith('var_v'))) && t1CanonicalVarNames[v.number]) {
+      if (!v.name || t1LegacyVarNames.has(v.name) || v.name.startsWith('Variation ')) {
+        v.name = t1CanonicalVarNames[v.number];
+      }
+    }
+  });
+
   if (!appData.projectInfo) {
     appData.projectInfo = { title: "Rogue Carrier Narrative", version: "2.6", author: "Wild Fields" };
   }
