@@ -61,6 +61,20 @@
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1791724017477",
+      "targetId": "node_1791717900687",
+      "targetType": "event",
+      "targetTitle": "T1-V2-K1A - New Event Block",
+      "text": "Let's not use dot at the and of action button text. @vkuznietsov",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-11T13:06:57.477974Z",
+      "displayTime": "2026-10-11 13:06",
+      "mentions": [
+        "vkuznietsov@n-ix.com"
+      ]
     }
   ]
 }
