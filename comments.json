@@ -49,20 +49,6 @@
       "mentions": []
     },
     {
-      "id": "cmt_1791723288305",
-      "targetId": "node_1791717900687",
-      "targetType": "event",
-      "targetTitle": "T1-V2-K1A - New Event Block",
-      "text": "@vkuznietsov second test to see if my name is displayed correctly",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-11T12:54:48.305503Z",
-      "displayTime": "2026-10-11 12:54",
-      "mentions": [
-        "vkuznietsov@n-ix.com"
-      ]
-    },
-    {
       "id": "cmt_1791724017477",
       "targetId": "node_1791717900687",
       "targetType": "event",
