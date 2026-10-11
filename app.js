@@ -6733,11 +6733,56 @@ function addNewVariation(targetTimelineId) {
   showToast(`Added V${nextNum} to ${tlName}`, "success");
 }
 
+function getActiveBoardEventBlocks() {
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const seenIds = new Set();
+  return (appData.nodes || []).filter(n => {
+    if (!n || !n.id || seenIds.has(n.id)) return false;
+    const cat = n.category || 'KeyChain';
+    if (cat !== activeCategoryFilter) return false;
+    if (!isPoolPage && n.variationId && n.variationId !== activeVariationId) return false;
+    seenIds.add(n.id);
+    return true;
+  });
+}
+
+function getActiveBoardDialogueBlocks() {
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const seenIds = new Set();
+  return (appData.dialogues || []).filter(d => {
+    if (!d || !d.id || seenIds.has(d.id)) return false;
+    if (d.targetEventId) {
+      const targetNode = (appData.nodes || []).find(n => n.id === d.targetEventId);
+      if (!targetNode) return false;
+      const targetCat = targetNode.category || 'KeyChain';
+      if (targetCat !== activeCategoryFilter) return false;
+      if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return false;
+      seenIds.add(d.id);
+      return true;
+    }
+    const cat = d.category || 'KeyChain';
+    if (cat !== activeCategoryFilter) return false;
+    if (!isPoolPage && d.variationId && d.variationId !== activeVariationId) return false;
+    seenIds.add(d.id);
+    return true;
+  });
+}
+
 function updateStats() {
+  const activeEvents = getActiveBoardEventBlocks();
+  const activeDialogues = getActiveBoardDialogueBlocks();
   const evStat = document.getElementById('stat-event-count');
-  if (evStat) evStat.innerText = `Events: ${appData.nodes.length}`;
+  if (evStat) {
+    evStat.innerText = `Events: ${activeEvents.length}`;
+    evStat.title = activeEvents.length > 0
+      ? `Event blocks on current board (${activeEvents.length}): ${activeEvents.map(n => n.codename || n.id).join(', ')}`
+      : 'No event blocks on current board';
+  }
   const diagStat = document.getElementById('stat-dialogue-count');
-  if (diagStat) diagStat.innerText = `Dialogues: ${appData.dialogues.length}`;
+  if (diagStat) {
+    diagStat.innerText = `Dialogues: ${activeDialogues.length}`;
+    diagStat.title = `Dialogue blocks on current board: ${activeDialogues.length}`;
+  }
 }
 
 function openModal(id) {
@@ -7929,14 +7974,8 @@ function unlinkMobileDialogue(diagId) {
 // Layout Health Check Diagnostic Engine
 function runDesktopLayoutHealthCheck() {
   const cat = activeCategoryFilter;
-  const nodes = (appData.nodes || []).filter(n => (n.category || 'KeyChain') === cat);
-  const dialogues = (appData.dialogues || []).filter(d => {
-    if (d.targetEventId) {
-      const tgt = (appData.nodes || []).find(n => n.id === d.targetEventId);
-      return tgt && (tgt.category || 'KeyChain') === cat;
-    }
-    return (d.category || 'KeyChain') === cat;
-  });
+  const nodes = getActiveBoardEventBlocks();
+  const dialogues = getActiveBoardDialogueBlocks();
 
   const collisions = [];
   const MARGIN = 20;
