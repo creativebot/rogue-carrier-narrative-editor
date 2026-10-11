@@ -761,22 +761,24 @@ function normalizeAllProjectData() {
       if (d.delayHours === undefined && d.delayMinutes !== undefined) {
         d.delayHours = d.delayMinutes;
       }
-      if (d.targetEventId) {
-        const targetNode = (appData.nodes || []).find(n => n.id === d.targetEventId);
+      const links = getDialogueLinks(d);
+      links.forEach(link => {
+        const targetNode = (appData.nodes || []).find(n => n.id === link.targetEventId);
         if (targetNode) {
-          const current = (d.triggerCondition || '').trim();
+          const current = (link.triggerCondition || '').trim();
           const isLegacy = !current ||
             current.includes('Appears') ||
             current.startsWith('Route Suggestion:') ||
             current.startsWith('On Inaction Threat') ||
             (current.startsWith('After ') && (!current.includes(`(${targetNode.codename})`) || current.indexOf(`(${targetNode.codename})`) > 8)) ||
             (current.startsWith('Before ') && (!current.includes(`(${targetNode.codename})`)));
-          
+
           if (isLegacy) {
-            d.triggerCondition = formatDialogueTriggerCondition(d.triggerTiming || 'pre_event', targetNode, d.triggerActionId);
+            link.triggerCondition = formatDialogueTriggerCondition(link.triggerTiming || 'pre_event', targetNode, link.triggerActionId);
           }
         }
-      }
+      });
+      syncDialoguePrimaryFields(d);
     });
   }
   if (appData.characters) {
@@ -2353,13 +2355,16 @@ function renderNodes() {
 
   // Dialogues: Filter by active category (and variation for critical chains, all pool dialogues for pool pages)
   const filteredDialogues = appData.dialogues.filter(d => {
-    if (d.targetEventId) {
-      const targetNode = appData.nodes.find(n => n.id === d.targetEventId);
-      if (!targetNode) return false;
-      const targetCat = targetNode.category || 'KeyChain';
-      if (targetCat !== activeCategoryFilter) return false;
-      if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return false;
-      return true;
+    const links = getDialogueLinks(d);
+    if (links.length > 0) {
+      return links.some(link => {
+        const targetNode = appData.nodes.find(n => n.id === link.targetEventId);
+        if (!targetNode) return false;
+        const targetCat = targetNode.category || 'KeyChain';
+        if (targetCat !== activeCategoryFilter) return false;
+        if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return false;
+        return true;
+      });
     }
     const cat = d.category || 'KeyChain';
     if (cat !== activeCategoryFilter) return false;
@@ -2644,9 +2649,11 @@ function createEventNodeDOM(node) {
 
     // Check if this action option has connected route suggestion dialogues (shown during event window review)
     const linkedRouteDialogues = (appData.dialogues || []).filter(d => 
-      d.targetEventId === node.id && 
-      d.triggerTiming === 'action_option' && 
-      d.triggerActionId === act.id
+      getDialogueLinks(d).some(l =>
+        l.targetEventId === node.id && 
+        l.triggerTiming === 'action_option' && 
+        l.triggerActionId === act.id
+      )
     );
     const hasRouteDiag = linkedRouteDialogues.length > 0;
 
@@ -3287,7 +3294,94 @@ function createGenericNodeDOM(node) {
   return wrapper;
 }
 
-// Dialogue Block DOM Creation (REQUIREMENT 4 FIX: Structured Time Delay & Trigger Badges)
+// Multi-Link Dialogue Helpers: Allow connecting one dialogue block to multiple action outcomes / events
+function getDialogueLinks(diag) {
+  if (!diag) return [];
+  if (Array.isArray(diag.links)) {
+    diag.links = diag.links.filter(l => l && l.targetEventId);
+    if (diag.links.length > 0) {
+      return diag.links;
+    }
+  }
+  if (diag.targetEventId) {
+    const sourceNode = (appData && appData.nodes) ? appData.nodes.find(n => n.id === diag.targetEventId) : null;
+    const timing = diag.triggerTiming || 'pre_event';
+    const actId = diag.triggerActionId || null;
+    diag.links = [{
+      id: `dlink_0`,
+      targetEventId: diag.targetEventId,
+      triggerTiming: timing,
+      triggerActionId: actId,
+      triggerCondition: diag.triggerCondition || formatDialogueTriggerCondition(timing, sourceNode, actId)
+    }];
+    return diag.links;
+  }
+  diag.links = [];
+  return diag.links;
+}
+
+function syncDialoguePrimaryFields(diag) {
+  if (!diag) return;
+  const links = Array.isArray(diag.links) ? diag.links.filter(l => l && l.targetEventId) : [];
+  diag.links = links;
+  if (links.length > 0) {
+    diag.targetEventId = links[0].targetEventId;
+    diag.triggerTiming = links[0].triggerTiming || 'pre_event';
+    diag.triggerActionId = links[0].triggerActionId || null;
+    if (links.length === 1) {
+      diag.triggerCondition = links[0].triggerCondition || '';
+    } else {
+      diag.triggerCondition = links.map(l => l.triggerCondition || 'Trigger').join(' • ');
+    }
+  } else {
+    diag.targetEventId = null;
+    diag.triggerTiming = null;
+    diag.triggerActionId = null;
+  }
+}
+
+function addDialogueLink(diag, targetEventId, triggerTiming, triggerActionId) {
+  if (!diag || !targetEventId) return;
+  const links = getDialogueLinks(diag);
+  const timing = triggerTiming || 'post_action';
+  const actId = triggerActionId || null;
+  const sourceNode = (appData.nodes || []).find(n => n.id === targetEventId);
+  const cond = formatDialogueTriggerCondition(timing, sourceNode, actId);
+
+  const existingIdx = links.findIndex(l =>
+    l.targetEventId === targetEventId &&
+    (l.triggerTiming || 'pre_event') === timing &&
+    (l.triggerActionId || null) === actId
+  );
+
+  if (existingIdx !== -1) {
+    links[existingIdx].triggerCondition = cond;
+  } else {
+    links.push({
+      id: `dlink_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+      targetEventId,
+      triggerTiming: timing,
+      triggerActionId: actId,
+      triggerCondition: cond
+    });
+  }
+  syncDialoguePrimaryFields(diag);
+}
+
+function removeDialogueLinkAt(dialogueId, linkIdx) {
+  const diag = (appData.dialogues || []).find(d => d.id === dialogueId);
+  if (!diag) return;
+  const links = getDialogueLinks(diag);
+  if (linkIdx < 0 || linkIdx >= links.length) return;
+  pushUndoState();
+  links.splice(linkIdx, 1);
+  syncDialoguePrimaryFields(diag);
+  saveProjectToLocalStorage();
+  renderApp();
+  showToast("Disconnected dialogue link", "info");
+}
+
+// Dialogue Block DOM Creation (REQUIREMENT 4 FIX: Structured Time Delay & Trigger Badges + Multi-Link Support)
 function createDialogueNodeDOM(dialogue) {
   const wrapper = document.createElement('div');
   wrapper.id = `dialogue-${dialogue.id}`;
@@ -3301,11 +3395,20 @@ function createDialogueNodeDOM(dialogue) {
     return c.variationIds.includes(activeVariationId);
   });
 
-  const targetNode = appData.nodes.find(n => n.id === dialogue.targetEventId);
-  const isDetached = !targetNode || !dialogue.targetEventId;
-  const isActionOption = !isDetached && dialogue.triggerTiming === 'action_option';
+  const links = getDialogueLinks(dialogue);
+  const validLinks = links.map((l, idx) => ({
+    link: l,
+    idx,
+    node: appData.nodes.find(n => n.id === l.targetEventId)
+  })).filter(item => Boolean(item.node));
 
-  const isTargetDimmed = targetNode && isPoolNodeDimmed(targetNode.id, activeVariationId);
+  const primaryItem = validLinks[0] || null;
+  const targetNode = primaryItem ? primaryItem.node : null;
+  const primaryLink = primaryItem ? primaryItem.link : null;
+  const isDetached = validLinks.length === 0;
+  const isActionOption = !isDetached && validLinks.some(item => item.link.triggerTiming === 'action_option');
+
+  const isTargetDimmed = !isDetached && validLinks.every(item => isPoolNodeDimmed(item.node.id, activeVariationId));
   const theme = dialogue.colorScheme || 'purple';
   wrapper.className = `absolute dialogue-card dialogue-theme-${theme} cursor-move ${isDetached ? 'is-detached' : ''} ${isActionOption ? 'is-action-option' : ''} ${isTargetDimmed ? 'is-pool-dimmed' : ''}`;
 
@@ -3368,6 +3471,57 @@ function createDialogueNodeDOM(dialogue) {
     `;
   }).join('');
 
+  const buildLinkControlsHTML = (item, showRemoveBtn) => {
+    const lNode = item.node;
+    const lObj = item.link;
+    const lIdx = item.idx;
+    const lIsActionOpt = lObj.triggerTiming === 'action_option';
+    return `
+      <div class="flex items-center gap-1 min-w-0">
+        <select class="inline-select text-[10px] font-bold uppercase tracking-wider ${lIsActionOpt ? 'bg-indigo-100 text-indigo-950 border-indigo-400' : 'bg-purple-200 text-purple-950 border-purple-400'} border rounded px-1.5 py-0.5 max-w-[205px] truncate cursor-pointer shadow-xs shrink"
+                title="Change dialogue trigger timing: Pre-Event, Route Suggestion, or Post-Action"
+                onchange="updateDialogueTriggerTiming('${dialogue.id}', this.value, ${lIdx})">
+          <option value="pre_event" ${lObj.triggerTiming === 'pre_event' ? 'selected' : ''}>⚡ Pre-Event (Before Window)</option>
+          ${(lNode.actions || []).map((act, aIdx) => `
+            <option value="action_option:${act.id}" ${(lObj.triggerTiming === 'action_option' && lObj.triggerActionId === act.id) ? 'selected' : ''}>
+              💬 Suggest Route: Option ${aIdx + 1} (${act.shortDescription || 'Choice'})
+            </option>
+          `).join('')}
+          ${(lNode.actions || []).map((act, aIdx) => `
+            <option value="post_action:${act.id}" ${(lObj.triggerTiming === 'post_action' && lObj.triggerActionId === act.id) ? 'selected' : ''}>
+              🏁 Post-Action: Option ${aIdx + 1} (${act.shortDescription || 'Choice'})
+            </option>
+          `).join('')}
+          ${lNode.hasInactionThreat ? `
+            <option value="post_action:inaction" ${(lObj.triggerTiming === 'post_action' && lObj.triggerActionId === 'inaction') ? 'selected' : ''}>
+              💀 Post-Inaction Failure
+            </option>
+          ` : ''}
+        </select>
+        <button type="button" 
+                class="card-btn card-btn-jump shrink-0" 
+                title="Jump to Event ${lNode.codename}"
+                onclick="event.stopPropagation(); zoomInToBlock('${lNode.id}', false)">
+          ${lNode.codename} ↗
+        </button>
+        ${showRemoveBtn ? `
+          <button type="button"
+                  class="text-[11px] font-bold text-red-700 hover:text-red-900 bg-red-100 hover:bg-red-200 border border-red-300 rounded px-1.5 py-0.5 shrink-0 transition"
+                  title="Disconnect this specific trigger link"
+                  onclick="event.stopPropagation(); removeDialogueLinkAt('${dialogue.id}', ${lIdx})">
+            ×
+          </button>
+        ` : ''}
+      </div>
+    `;
+  };
+
+  const extraLinksHTML = validLinks.length > 1
+    ? `<div class="flex flex-col gap-1 mb-1.5 pl-4 border-l-2 border-purple-400/60">
+        ${validLinks.slice(1).map(item => buildLinkControlsHTML(item, true)).join('')}
+       </div>`
+    : '';
+
   const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
 
   wrapper.innerHTML = `${zoomControlsHTML}<div class="dialogue-card-inner">
@@ -3382,44 +3536,17 @@ function createDialogueNodeDOM(dialogue) {
               <span class="text-[10px] font-semibold text-amber-700 italic px-0.5 truncate">
                 (No Event Linked)
               </span>
-            ` : `
-              <select class="inline-select text-[10px] font-bold uppercase tracking-wider ${isActionOption ? 'bg-indigo-100 text-indigo-950 border-indigo-400' : 'bg-purple-200 text-purple-950 border-purple-400'} border rounded px-1.5 py-0.5 max-w-[210px] truncate cursor-pointer shadow-xs shrink"
-                      title="Change dialogue trigger timing: Pre-Event, Route Suggestion, or Post-Action"
-                      onchange="updateDialogueTriggerTiming('${dialogue.id}', this.value)">
-                <option value="pre_event" ${dialogue.triggerTiming === 'pre_event' ? 'selected' : ''}>⚡ Pre-Event (Before Window)</option>
-                ${(targetNode.actions || []).map((act, aIdx) => `
-                  <option value="action_option:${act.id}" ${(dialogue.triggerTiming === 'action_option' && dialogue.triggerActionId === act.id) ? 'selected' : ''}>
-                    💬 Suggest Route: Option ${aIdx + 1} (${act.shortDescription || 'Choice'})
-                  </option>
-                `).join('')}
-                ${(targetNode.actions || []).map((act, aIdx) => `
-                  <option value="post_action:${act.id}" ${(dialogue.triggerTiming === 'post_action' && dialogue.triggerActionId === act.id) ? 'selected' : ''}>
-                    🏁 Post-Action: Option ${aIdx + 1} (${act.shortDescription || 'Choice'})
-                  </option>
-                `).join('')}
-                ${targetNode.hasInactionThreat ? `
-                  <option value="post_action:inaction" ${(dialogue.triggerTiming === 'post_action' && dialogue.triggerActionId === 'inaction') ? 'selected' : ''}>
-                    💀 Post-Inaction Failure
-                  </option>
-                ` : ''}
-              </select>
-              <button type="button" 
-                      class="card-btn card-btn-jump shrink-0" 
-                      title="Jump to Event ${targetNode.codename}"
-                      onclick="event.stopPropagation(); zoomInToBlock('${targetNode.id}', false)">
-                ${targetNode.codename} ↗
-              </button>
-            `}
+            ` : buildLinkControlsHTML(primaryItem, validLinks.length > 1)}
           </div>
 
           <div class="flex items-center gap-1.5 shrink-0">
             <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue')">
               💬 <span class="cmt-cnt-${dialogue.id}">${getCommentCount(dialogue.id)}</span>
             </button>
-            ${targetNode ? `
+            ${!isDetached ? `
               <button type="button" class="card-btn card-btn-unlink" 
-                      title="Disconnect from Event" onclick="event.stopPropagation(); disconnectDialogueLink('${dialogue.id}')">
-                ⊘ Unlink
+                      title="${validLinks.length > 1 ? 'Disconnect all linked triggers' : 'Disconnect from Event'}" onclick="event.stopPropagation(); disconnectDialogueLink('${dialogue.id}')">
+                ⊘ ${validLinks.length > 1 ? 'Unlink All' : 'Unlink'}
               </button>
             ` : ''}
             <button type="button" class="card-btn card-btn-delete" 
@@ -3428,6 +3555,7 @@ function createDialogueNodeDOM(dialogue) {
             </button>
           </div>
         </div>
+        ${extraLinksHTML}
 
         <!-- Structured Time Delay Controls (Measured strictly in hours) -->
         <div class="dialogue-delay-strip flex items-center justify-between p-1.5 rounded-lg border text-xs">
@@ -3442,7 +3570,7 @@ function createDialogueNodeDOM(dialogue) {
 
           <div class="text-[10px] font-semibold italic truncate cursor-pointer hover:underline editable-spot flex-1 text-right ml-2" 
                title="Click to edit trigger condition"
-               onclick="event.stopPropagation(); makeInlineDialogueConditionEditable(this, '${dialogue.id}')">
+               onclick="event.stopPropagation(); makeInlineDialogueConditionEditable(this, '${dialogue.id}', 0)">
             ${dialogue.triggerCondition || (isDetached ? 'Detached Conversation' : 'Dialog spawn trigger')}
           </div>
         </div>
@@ -3481,12 +3609,14 @@ function createDialogueNodeDOM(dialogue) {
   return wrapper;
 }
 
-function makeInlineDialogueConditionEditable(element, dialogueId) {
+function makeInlineDialogueConditionEditable(element, dialogueId, linkIdx = 0) {
   if (element.querySelector('input')) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
 
-  const currentText = diag.triggerCondition || '';
+  const links = getDialogueLinks(diag);
+  const targetLink = links[linkIdx] || null;
+  const currentText = targetLink ? (targetLink.triggerCondition || '') : (diag.triggerCondition || '');
   const input = document.createElement('input');
   input.type = 'text';
   input.className = 'inline-input font-semibold text-[11px] text-purple-950 bg-purple-50 border border-purple-400 w-full px-1 py-0.5 rounded';
@@ -3512,18 +3642,26 @@ function makeInlineDialogueConditionEditable(element, dialogueId) {
     if (saved) return;
     saved = true;
     pushUndoState();
-    diag.triggerCondition = input.value.trim();
+    const val = input.value.trim();
+    if (targetLink) {
+      targetLink.triggerCondition = val;
+      syncDialoguePrimaryFields(diag);
+    } else {
+      diag.triggerCondition = val;
+    }
     saveProjectToLocalStorage();
     renderApp();
   };
 }
 
-function makeInlineDialogueTriggerBadgeEditable(badgeEl, dialogueId) {
+function makeInlineDialogueTriggerBadgeEditable(badgeEl, dialogueId, linkIdx = 0) {
   if (badgeEl.querySelector('input')) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
 
-  const currentText = diag.triggerCondition || '';
+  const links = getDialogueLinks(diag);
+  const targetLink = links[linkIdx] || null;
+  const currentText = targetLink ? (targetLink.triggerCondition || '') : (diag.triggerCondition || '');
   const input = document.createElement('input');
   input.type = 'text';
   input.className = 'dialogue-trigger-inline-input';
@@ -3551,7 +3689,13 @@ function makeInlineDialogueTriggerBadgeEditable(badgeEl, dialogueId) {
     if (saved) return;
     saved = true;
     pushUndoState();
-    diag.triggerCondition = input.value.trim();
+    const val = input.value.trim();
+    if (targetLink) {
+      targetLink.triggerCondition = val;
+      syncDialoguePrimaryFields(diag);
+    } else {
+      diag.triggerCondition = val;
+    }
     saveProjectToLocalStorage();
     renderApp();
   };
@@ -3629,6 +3773,13 @@ function createConnectedDialogueFromPort(nodeId, timing, actionId, customX, cust
     targetEventId: sourceNode.id,
     triggerTiming: timing,
     triggerActionId: actionId,
+    links: [{
+      id: `dlink_${Date.now()}`,
+      targetEventId: sourceNode.id,
+      triggerTiming: timing,
+      triggerActionId: actionId || null,
+      triggerCondition: condText
+    }],
     delayHours: 0,
     delayUnit: 'hours',
     triggerCondition: condText,
@@ -3793,28 +3944,32 @@ function updateDialogueDelayHours(dialogueId, val) {
   }
 }
 
-function updateDialogueTriggerTiming(dialogueId, combinedVal) {
+function updateDialogueTriggerTiming(dialogueId, combinedVal, linkIdx = 0) {
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
-  const targetNode = appData.nodes.find(n => n.id === diag.targetEventId);
+  const links = getDialogueLinks(diag);
+  const targetLink = links[linkIdx] || links[0];
+  if (!targetLink) return;
+  const targetNode = appData.nodes.find(n => n.id === targetLink.targetEventId);
 
   if (combinedVal === 'pre_event') {
-    diag.triggerTiming = 'pre_event';
-    diag.triggerActionId = null;
-    diag.triggerCondition = formatDialogueTriggerCondition('pre_event', targetNode, null);
+    targetLink.triggerTiming = 'pre_event';
+    targetLink.triggerActionId = null;
+    targetLink.triggerCondition = formatDialogueTriggerCondition('pre_event', targetNode, null);
   } else if (combinedVal.startsWith('action_option:')) {
     const actId = combinedVal.split(':')[1];
-    diag.triggerTiming = 'action_option';
-    diag.triggerActionId = actId;
-    diag.triggerCondition = formatDialogueTriggerCondition('action_option', targetNode, actId);
+    targetLink.triggerTiming = 'action_option';
+    targetLink.triggerActionId = actId;
+    targetLink.triggerCondition = formatDialogueTriggerCondition('action_option', targetNode, actId);
   } else if (combinedVal.startsWith('post_action:')) {
     const actId = combinedVal.split(':')[1];
-    diag.triggerTiming = 'post_action';
-    diag.triggerActionId = actId;
-    diag.triggerCondition = formatDialogueTriggerCondition('post_action', targetNode, actId);
+    targetLink.triggerTiming = 'post_action';
+    targetLink.triggerActionId = actId;
+    targetLink.triggerCondition = formatDialogueTriggerCondition('post_action', targetNode, actId);
   }
 
+  syncDialoguePrimaryFields(diag);
   saveProjectToLocalStorage();
   renderApp();
   showToast("Dialogue trigger timing updated", "success");
@@ -3824,11 +3979,11 @@ function disconnectDialogueLink(dialogueId) {
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
-    diag.targetEventId = null;
-    diag.triggerTiming = null;
-    diag.triggerActionId = null;
+    diag.links = [];
+    syncDialoguePrimaryFields(diag);
     saveProjectToLocalStorage();
     renderApp();
+    showToast("Disconnected dialogue links", "info");
   }
 }
 
@@ -4101,21 +4256,16 @@ function setupPortDragEvents() {
         const sourceNode = appData.nodes.find(n => n.id === portDragState.sourceNodeId);
 
         if (diag && sourceNode) {
-          diag.targetEventId = sourceNode.id;
-
+          let timing = 'post_action';
+          let actId = portDragState.sourceActionId || null;
           if (portDragState.sourceType === 'pre_event_dialogue') {
-            diag.triggerTiming = 'pre_event';
-            diag.triggerActionId = null;
-            diag.triggerCondition = formatDialogueTriggerCondition('pre_event', sourceNode, null);
+            timing = 'pre_event';
+            actId = null;
           } else if (portDragState.sourceType === 'action_option_dialogue') {
-            diag.triggerTiming = 'action_option';
-            diag.triggerActionId = portDragState.sourceActionId;
-            diag.triggerCondition = formatDialogueTriggerCondition('action_option', sourceNode, portDragState.sourceActionId);
-          } else {
-            diag.triggerTiming = 'post_action';
-            diag.triggerActionId = portDragState.sourceActionId;
-            diag.triggerCondition = formatDialogueTriggerCondition('post_action', sourceNode, portDragState.sourceActionId);
+            timing = 'action_option';
           }
+          addDialogueLink(diag, sourceNode.id, timing, actId);
+          showToast(`Connected ${sourceNode.codename} to dialogue`, 'success');
         }
       } else {
         // Released on empty canvas or clicked: spawn new connected dialogue block!
@@ -4398,150 +4548,171 @@ function renderConnectors() {
     svgConnectors.appendChild(group);
   });
 
-  // 2. Draw Event -> Dialogue Connections (Closest Direct Line with Arrow Jump Button & Middle Trigger Description Badge)
+  // 2. Draw Event -> Dialogue Connections (Supports multiple action outcomes / event triggers connected to a single dialogue block)
   appData.dialogues.forEach(dialogue => {
-    if (!dialogue.targetEventId) return;
-    if (!isPoolPage && dialogue.variationId && dialogue.variationId !== activeVariationId) return;
-    if (dialogue.category && dialogue.category !== activeCategoryFilter) return;
+    const links = getDialogueLinks(dialogue);
+    if (!links || links.length === 0) return;
 
-    const sourceNode = appData.nodes.find(n => n.id === dialogue.targetEventId);
-    if (!sourceNode) return;
-    if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
-    if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
-
-    const sourceEl = document.getElementById(`node-${sourceNode.id}`);
     const diagEl = document.getElementById(`dialogue-${dialogue.id}`);
-    const w1 = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
-    const h1 = (sourceEl && sourceEl.offsetHeight > 100) ? sourceEl.offsetHeight : 540;
     const w2 = (diagEl && diagEl.offsetWidth > 100) ? diagEl.offsetWidth : 420;
     const h2 = (diagEl && diagEl.offsetHeight > 100) ? diagEl.offsetHeight : 260;
 
-    let sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: w1, h: h1 };
-    if (dialogue.triggerTiming === 'action_option' && dialogue.triggerActionId) {
-      const actIdx = (sourceNode.actions || []).findIndex(a => a.id === dialogue.triggerActionId);
-      if (actIdx !== -1) {
+    // Collect valid links visible on the active board
+    const activeLinks = [];
+    links.forEach((link, linkIdx) => {
+      if (!link || !link.targetEventId) return;
+      const sourceNode = appData.nodes.find(n => n.id === link.targetEventId);
+      if (!sourceNode) return;
+      if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
+      if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
+      activeLinks.push({ link, linkIdx, sourceNode });
+    });
+
+    activeLinks.forEach(({ link, linkIdx, sourceNode }, activeIdx) => {
+      const sourceEl = document.getElementById(`node-${sourceNode.id}`);
+      const w1 = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
+      const h1 = (sourceEl && sourceEl.offsetHeight > 100) ? sourceEl.offsetHeight : 540;
+
+      const laneOffset = activeLinks.length > 1
+        ? Math.round((activeIdx - (activeLinks.length - 1) / 2) * 34)
+        : 0;
+
+      let sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: w1, h: h1 };
+      if ((link.triggerTiming === 'action_option' || link.triggerTiming === 'post_action') && link.triggerActionId) {
         const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
         const actionCount = Math.max((sourceNode.actions || []).length, 1);
         const totalCols = actionCount + (hasInaction ? 1 : 0);
-        const colWidth = (w1 - LABEL_WIDTH) / Math.max(totalCols, 1);
-        const colCenterX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
+        const actIdx = link.triggerActionId === 'inaction'
+          ? actionCount
+          : (sourceNode.actions || []).findIndex(a => a.id === link.triggerActionId);
 
-        // If dialogue is above or below the event card, anchor to this specific column bounds
-        if (dialogue.position.y + h2 <= sourceNode.position.y + 40 || dialogue.position.y >= sourceNode.position.y + h1 - 40) {
-          sourceRect = {
-            x: colCenterX - 35,
-            y: sourceNode.position.y,
-            w: 70,
-            h: h1
-          };
+        if (actIdx !== -1) {
+          const colWidth = (w1 - LABEL_WIDTH) / Math.max(totalCols, 1);
+          const colCenterX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
+
+          // If dialogue is above or below the event card, anchor to this specific action column bounds
+          if (dialogue.position.y + h2 <= sourceNode.position.y + 40 || dialogue.position.y >= sourceNode.position.y + h1 - 40) {
+            sourceRect = {
+              x: colCenterX - 35,
+              y: sourceNode.position.y,
+              w: 70,
+              h: h1
+            };
+          }
         }
       }
-    }
 
-    const {
-      path: orthoPath,
-      startX, startY,
-      endX, endY,
-      midX, midY,
-      startAngle, endAngle,
-      startVec, endVec
-    } = calculateOrthogonalDialogueConnector(
-      sourceRect,
-      { x: dialogue.position.x, y: dialogue.position.y, w: w2, h: h2 }
-    );
+      const {
+        path: orthoPath,
+        startX, startY,
+        endX, endY,
+        midX, midY,
+        startAngle, endAngle,
+        startVec, endVec
+      } = calculateOrthogonalDialogueConnector(
+        sourceRect,
+        { x: dialogue.position.x, y: dialogue.position.y, w: w2, h: h2 },
+        laneOffset
+      );
 
-    const isDimmedDiag = isPoolPage && isPoolNodeDimmed(sourceNode.id);
+      const isDimmedDiag = isPoolPage && isPoolNodeDimmed(sourceNode.id);
 
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('id', `connector-path-diag-${dialogue.id}`);
-    path.setAttribute('d', orthoPath);
-    path.setAttribute('class', 'connector-path-dialogue' + (dialogue.triggerTiming === 'action_option' ? ' is-action-option' : '') + (isDimmedDiag ? ' is-pool-dimmed' : ''));
-    path.title = "Click to remove or disconnect dialogue block";
-    
-    path.onclick = (e) => {
-      e.stopPropagation();
-      const shouldDelete = confirm("Remove this dialogue block from the schematic? (Click Cancel if you only want to unlink it)");
-      if (shouldDelete) {
-        deleteDialogueNode(dialogue.id, true);
-      } else {
-        if (confirm("Disconnect dialogue block from event block?")) {
-          pushUndoState();
-          dialogue.targetEventId = null;
-          saveProjectToLocalStorage();
-          renderApp();
+      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      group.setAttribute('class', 'connector-link-group');
+
+      const hitPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      hitPath.setAttribute('d', orthoPath);
+      hitPath.setAttribute('class', 'connector-path-hit');
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('id', `connector-path-diag-${dialogue.id}-${linkIdx}`);
+      path.setAttribute('d', orthoPath);
+      path.setAttribute('class', 'connector-path-dialogue' + (link.triggerTiming === 'action_option' ? ' is-action-option' : '') + (isDimmedDiag ? ' is-pool-dimmed' : ''));
+      path.title = "Click to disconnect this dialogue link";
+
+      const handleDiagDisconnect = (e) => {
+        e.stopPropagation();
+        const condLabel = link.triggerCondition || sourceNode.codename;
+        if (confirm(`Disconnect dialogue link "${condLabel}" from ${sourceNode.codename}?`)) {
+          removeDialogueLinkAt(dialogue.id, linkIdx);
         }
+      };
+
+      group.onclick = handleDiagDisconnect;
+      hitPath.onclick = handleDiagDisconnect;
+      path.onclick = handleDiagDisconnect;
+
+      group.appendChild(hitPath);
+      group.appendChild(path);
+      svgConnectors.appendChild(group);
+
+      if (overlaysLayer) {
+        // Dynamic margin along the connector line: keeps purple jump arrows clearly separated from card edges and zoom controls
+        const lineDist = Math.hypot(endX - startX, endY - startY);
+        const arrowMargin = Math.max(16, Math.min(26, Math.floor(lineDist * 0.22)));
+
+        // 1. Arrow Button at Event edge pointing toward dialogue
+        const arrow1X = Math.round(startX + startVec.x * arrowMargin);
+        const arrow1Y = Math.round(startY + startVec.y * arrowMargin);
+
+        const arrowBtn1 = document.createElement('button');
+        arrowBtn1.type = 'button';
+        arrowBtn1.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-dialogue' + (isDimmedDiag ? ' is-pool-dimmed' : '');
+        arrowBtn1.style.left = `${arrow1X}px`;
+        arrowBtn1.style.top = `${arrow1Y}px`;
+        arrowBtn1.title = "Jump to connected dialogue block";
+        arrowBtn1.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(${startAngle}deg);">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        `;
+        arrowBtn1.onclick = (e) => {
+          e.stopPropagation();
+          zoomInToBlock(dialogue.id, true);
+        };
+        overlaysLayer.appendChild(arrowBtn1);
+
+        // 2. Return Arrow Button at Dialogue edge pointing back toward event
+        const arrow2X = Math.round(endX + endVec.x * arrowMargin);
+        const arrow2Y = Math.round(endY + endVec.y * arrowMargin);
+
+        const arrowBtn2 = document.createElement('button');
+        arrowBtn2.type = 'button';
+        arrowBtn2.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-event' + (isDimmedDiag ? ' is-pool-dimmed' : '');
+        arrowBtn2.style.left = `${arrow2X}px`;
+        arrowBtn2.style.top = `${arrow2Y}px`;
+        arrowBtn2.title = `Jump back to event block: ${sourceNode.codename}`;
+        arrowBtn2.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(${endAngle}deg);">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        `;
+        arrowBtn2.onclick = (e) => {
+          e.stopPropagation();
+          zoomInToBlock(sourceNode.id, false);
+        };
+        overlaysLayer.appendChild(arrowBtn2);
+
+        // 3. Middle Trigger Description Badge
+        const rawCond = link.triggerCondition || dialogue.triggerCondition || '';
+        const triggerText = rawCond.trim() !== '' ? rawCond.trim() : 'Dialog spawn trigger';
+        const isDefault = rawCond.trim() === '';
+
+        const badge = document.createElement('div');
+        badge.className = `dialogue-trigger-badge ${isDefault ? 'is-default' : ''}${isDimmedDiag ? ' is-pool-dimmed' : ''}`;
+        badge.style.left = `${midX}px`;
+        badge.style.top = `${midY}px`;
+        badge.title = "Click to edit dialogue spawn trigger description";
+        badge.innerHTML = `<span class="truncate">${triggerText}</span>`;
+        badge.onclick = (e) => {
+          e.stopPropagation();
+          makeInlineDialogueTriggerBadgeEditable(badge, dialogue.id, linkIdx);
+        };
+        overlaysLayer.appendChild(badge);
       }
-    };
-
-    svgConnectors.appendChild(path);
-
-    if (overlaysLayer) {
-      // Dynamic margin along the connector line: keeps purple jump arrows clearly separated from card edges and zoom controls
-      const lineDist = Math.hypot(endX - startX, endY - startY);
-      const arrowMargin = Math.max(16, Math.min(26, Math.floor(lineDist * 0.22)));
-
-      // 1. Arrow Button at Event edge pointing toward dialogue
-      const arrow1X = Math.round(startX + startVec.x * arrowMargin);
-      const arrow1Y = Math.round(startY + startVec.y * arrowMargin);
-
-      const arrowBtn1 = document.createElement('button');
-      arrowBtn1.type = 'button';
-      arrowBtn1.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-dialogue' + (isDimmedDiag ? ' is-pool-dimmed' : '');
-      arrowBtn1.style.left = `${arrow1X}px`;
-      arrowBtn1.style.top = `${arrow1Y}px`;
-      arrowBtn1.title = "Jump to connected dialogue block";
-      arrowBtn1.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(${startAngle}deg);">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      `;
-      arrowBtn1.onclick = (e) => {
-        e.stopPropagation();
-        zoomInToBlock(dialogue.id, true);
-      };
-      overlaysLayer.appendChild(arrowBtn1);
-
-      // 2. Return Arrow Button at Dialogue edge pointing back toward event
-      const arrow2X = Math.round(endX + endVec.x * arrowMargin);
-      const arrow2Y = Math.round(endY + endVec.y * arrowMargin);
-
-      const arrowBtn2 = document.createElement('button');
-      arrowBtn2.type = 'button';
-      arrowBtn2.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-event' + (isDimmedDiag ? ' is-pool-dimmed' : '');
-      arrowBtn2.style.left = `${arrow2X}px`;
-      arrowBtn2.style.top = `${arrow2Y}px`;
-      arrowBtn2.title = `Jump back to event block: ${sourceNode.codename}`;
-      arrowBtn2.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(${endAngle}deg);">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      `;
-      arrowBtn2.onclick = (e) => {
-        e.stopPropagation();
-        zoomInToBlock(sourceNode.id, false);
-      };
-      overlaysLayer.appendChild(arrowBtn2);
-
-      // 3. Middle Trigger Description Badge
-      const triggerText = (dialogue.triggerCondition && dialogue.triggerCondition.trim() !== '') 
-        ? dialogue.triggerCondition.trim() 
-        : 'Dialog spawn trigger';
-      const isDefault = !dialogue.triggerCondition || dialogue.triggerCondition.trim() === '';
-
-      const badge = document.createElement('div');
-      badge.className = `dialogue-trigger-badge ${isDefault ? 'is-default' : ''}${isDimmedDiag ? ' is-pool-dimmed' : ''}`;
-      badge.style.left = `${midX}px`;
-      badge.style.top = `${midY}px`;
-      badge.title = "Click to edit dialogue spawn trigger description";
-      badge.innerHTML = `<span class="truncate">${triggerText}</span>`;
-      badge.onclick = (e) => {
-        e.stopPropagation();
-        makeInlineDialogueTriggerBadgeEditable(badge, dialogue.id);
-      };
-      overlaysLayer.appendChild(badge);
-    }
+    });
   });
 }
 
@@ -4609,7 +4780,7 @@ function drawOrthogonalLine(x1, y1, x2, y2, sourceRect = null, targetRect = null
 // Orthogonal Connector Engine for Dialogue Cards:
 // 1. Tries to be a single straight horizontal or vertical line if overlapping on that axis.
 // 2. Only if it cannot be a single line (diagonal), breaks orthogonally with right angles (90 degrees).
-function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
+function calculateOrthogonalDialogueConnector(sourceRect, diagRect, laneOffset = 0) {
   const x1 = sourceRect.x, y1 = sourceRect.y, w1 = sourceRect.w, h1 = sourceRect.h;
   const x2 = diagRect.x, y2 = diagRect.y, w2 = diagRect.w, h2 = diagRect.h;
 
@@ -4631,12 +4802,13 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
   if (overlapY && (x2 >= x1 + w1 || x2 + w2 <= x1)) {
     const minY = Math.max(y1, y2);
     const maxY = Math.min(y1 + h1, y2 + h2);
-    let yStar = Math.round((minY + maxY) / 2);
+    let yStar = Math.round((minY + maxY) / 2 + laneOffset);
 
     // Margin safety: keep horizontal connector lines and purple arrows from overlapping header-level zoom buttons (top 50px)
     if (yStar < minY + 52 && (maxY - minY > 70)) {
       yStar = Math.min(maxY - 25, minY + 62);
     }
+    yStar = Math.max(minY + 24, Math.min(maxY - 20, yStar));
 
     if (x2 >= x1 + w1) {
       // Dialogue is to the right
@@ -4667,7 +4839,7 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
   else if (overlapX && (y2 >= y1 + h1 || y2 + h2 <= y1)) {
     const minX = Math.max(x1, x2);
     const maxX = Math.min(x1 + w1, x2 + w2);
-    const xStar = Math.round((minX + maxX) / 2);
+    const xStar = Math.round(Math.max(minX + 20, Math.min(maxX - 20, (minX + maxX) / 2 + laneOffset)));
 
     if (y2 >= y1 + h1) {
       // Dialogue is below event
@@ -4704,9 +4876,9 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
       if (dx >= 0) {
         // Dialogue to the right
         startX = x1 + w1;
-        startY = Math.round(Math.min(Math.max(c2y, y1 + 55), y1 + h1 - 35));
+        startY = Math.round(Math.min(Math.max(c2y + laneOffset, y1 + 55), y1 + h1 - 35));
         endX = x2;
-        endY = Math.round(Math.min(Math.max(c1y, y2 + 55), y2 + h2 - 25));
+        endY = Math.round(Math.min(Math.max(c1y + laneOffset, y2 + 55), y2 + h2 - 25));
         startAngle = 0;
         endAngle = 180;
         startVec = { x: 1, y: 0 };
@@ -4714,15 +4886,15 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
       } else {
         // Dialogue to the left
         startX = x1;
-        startY = Math.round(Math.min(Math.max(c2y, y1 + 55), y1 + h1 - 35));
+        startY = Math.round(Math.min(Math.max(c2y + laneOffset, y1 + 55), y1 + h1 - 35));
         endX = x2 + w2;
-        endY = Math.round(Math.min(Math.max(c1y, y2 + 55), y2 + h2 - 25));
+        endY = Math.round(Math.min(Math.max(c1y + laneOffset, y2 + 55), y2 + h2 - 25));
         startAngle = 180;
         endAngle = 0;
         startVec = { x: -1, y: 0 };
         endVec = { x: 1, y: 0 };
       }
-      midX = Math.round((startX + endX) / 2);
+      midX = Math.round((startX + endX) / 2 + (laneOffset * 0.4));
       midY = Math.round((startY + endY) / 2);
       path = `M ${startX} ${startY} H ${midX} V ${endY} H ${endX}`;
     } else {
@@ -4730,9 +4902,9 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
       if (dy >= 0) {
         // Dialogue below
         startY = y1 + h1;
-        startX = Math.round(Math.min(Math.max(c2x, x1 + 40), x1 + w1 - 40));
+        startX = Math.round(Math.min(Math.max(c1x, x1 + 35), x1 + w1 - 35));
         endY = y2;
-        endX = Math.round(Math.min(Math.max(c1x, x2 + 30), x2 + w2 - 30));
+        endX = Math.round(Math.min(Math.max(c2x + laneOffset, x2 + 30), x2 + w2 - 30));
         startAngle = 90;
         endAngle = -90;
         startVec = { x: 0, y: 1 };
@@ -4740,16 +4912,16 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect) {
       } else {
         // Dialogue above
         startY = y1;
-        startX = Math.round(Math.min(Math.max(c2x, x1 + 40), x1 + w1 - 40));
+        startX = Math.round(Math.min(Math.max(c1x, x1 + 35), x1 + w1 - 35));
         endY = y2 + h2;
-        endX = Math.round(Math.min(Math.max(c1x, x2 + 30), x2 + w2 - 30));
+        endX = Math.round(Math.min(Math.max(c2x + laneOffset, x2 + 30), x2 + w2 - 30));
         startAngle = -90;
         endAngle = 90;
         startVec = { x: 0, y: -1 };
         endVec = { x: 0, y: 1 };
       }
       midX = Math.round((startX + endX) / 2);
-      midY = Math.round((startY + endY) / 2);
+      midY = Math.round((startY + endY) / 2 + (laneOffset * 0.4));
       path = `M ${startX} ${startY} V ${midY} H ${endX} V ${endY}`;
     }
   }
@@ -6751,12 +6923,17 @@ function getActiveBoardDialogueBlocks() {
   const seenIds = new Set();
   return (appData.dialogues || []).filter(d => {
     if (!d || !d.id || seenIds.has(d.id)) return false;
-    if (d.targetEventId) {
-      const targetNode = (appData.nodes || []).find(n => n.id === d.targetEventId);
-      if (!targetNode) return false;
-      const targetCat = targetNode.category || 'KeyChain';
-      if (targetCat !== activeCategoryFilter) return false;
-      if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return false;
+    const links = getDialogueLinks(d);
+    if (links.length > 0) {
+      const hasVisibleLink = links.some(link => {
+        const targetNode = (appData.nodes || []).find(n => n.id === link.targetEventId);
+        if (!targetNode) return false;
+        const targetCat = targetNode.category || 'KeyChain';
+        if (targetCat !== activeCategoryFilter) return false;
+        if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return false;
+        return true;
+      });
+      if (!hasVisibleLink) return false;
       seenIds.add(d.id);
       return true;
     }
@@ -7599,12 +7776,16 @@ function renderMobileStageView() {
       const poolSwitchBar = isPool ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
 
       // Pre-event Dialogues attached to this event
-      const preEventDiags = (appData.dialogues || []).filter(d => d.targetEventId === node.id && d.triggerTiming === 'pre_event');
+      const preEventDiags = (appData.dialogues || []).filter(d =>
+        getDialogueLinks(d).some(l => l.targetEventId === node.id && l.triggerTiming === 'pre_event')
+      );
       let preDiagsHTML = preEventDiags.map(d => renderMobileDialogueCardHTML(d)).join('');
 
       // Actions & nested dialogues
       let actionsHTML = (node.actions || []).map((act, actIdx) => {
-        const optionDiags = (appData.dialogues || []).filter(d => d.targetEventId === node.id && d.triggerTiming === 'action_option' && d.triggerActionId === act.id);
+        const optionDiags = (appData.dialogues || []).filter(d =>
+          getDialogueLinks(d).some(l => l.targetEventId === node.id && l.triggerTiming === 'action_option' && l.triggerActionId === act.id)
+        );
         const optDiagsHTML = optionDiags.map(d => renderMobileDialogueCardHTML(d, true)).join('');
 
         // Req pills
