@@ -2077,7 +2077,21 @@
           "codeSuffix": "C",
           "shortDescription": "Commence the research",
           "description": "We managed to gather a massive amount of data to research. The main problem now is how to process it.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791833504172",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_01",
+                  "name": "AI Core",
+                  "amount": 1,
+                  "iconImg": "icons/T_Ai-Core.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -3218,7 +3232,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:31:25.256Z",
+  "_lastModified": "2026-10-12T19:31:44.172Z",
   "criteriaPool": [
     "Orange Box"
   ]
