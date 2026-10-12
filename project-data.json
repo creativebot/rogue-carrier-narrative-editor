@@ -1995,7 +1995,21 @@
           "codeSuffix": "A",
           "shortDescription": "Commence the research",
           "description": "We only managed to scratch the surface here. More information will be needed to obtain a deeper understanding of the Primordials, but it’s a start.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791833234697",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_05",
+                  "name": "Tricoder",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tricoder.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -3164,7 +3178,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:25:53.047Z",
+  "_lastModified": "2026-10-12T19:27:14.697Z",
   "criteriaPool": [
     "Orange Box"
   ]
