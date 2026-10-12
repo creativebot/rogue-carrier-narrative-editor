@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -10,6 +10,12 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch",
+      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -24,7 +30,7 @@
       "id": "var_v2",
       "timelineId": "timeline_1",
       "number": 2,
-      "name": "Once More Into The Fray",
+      "name": "Once More Into The Frey",
       "description": "Debris field gravitational anomalies."
     },
     {
@@ -82,6 +88,76 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Multiverse Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Multiverse Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Multiverse Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Multiverse Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Multiverse Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Multiverse Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Multiverse Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Multiverse Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Multiverse Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -103,7 +179,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -124,7 +210,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -145,7 +241,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -166,7 +272,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -187,7 +303,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -208,7 +334,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -229,7 +365,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     }
   ],
@@ -318,10 +464,7 @@
             "🧠 Knowledge +300",
             "📜 Blueprints +1"
           ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
+          "targetNodeId": "node_e1"
         },
         {
           "id": "act_e0_2",
@@ -388,10 +531,7 @@
             "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
+          "targetNodeId": "node_e1b"
         }
       ],
       "colorScheme": "amber",
@@ -402,7 +542,7 @@
     {
       "id": "node_e1",
       "codename": "T1-V1-K2A",
-      "name": "The Moment After the End",
+      "name": "Escape Pod Signal",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -463,10 +603,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2a",
-          "targetNodeIds": [
-            "node_e2a"
-          ]
+          "targetNodeId": "node_e2a"
         },
         {
           "id": "act_e1_2",
@@ -536,21 +673,18 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
+          "targetNodeId": "node_e2b"
         }
       ],
       "colorScheme": "blue",
       "location": "On an island with additional escape pod model.",
       "disabledVariationIds": [],
-      "title": "The Moment After the End"
+      "title": "Escape Pod Signal"
     },
     {
       "id": "node_e1b",
       "codename": "T1-V1-K2B",
-      "name": "The Moment After the End",
+      "name": "Smoldering Crater",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -562,7 +696,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3708,
+        "x": 2664,
         "y": 1080
       },
       "actions": [
@@ -610,10 +744,7 @@
             "Nano Parts x15",
             "🧠 Knowledge +350"
           ],
-          "targetNodeId": "node_1791706248386",
-          "targetNodeIds": [
-            "node_1791706248386"
-          ]
+          "targetNodeId": "node_1791706248386"
         },
         {
           "id": "act_1791378373196",
@@ -673,20 +804,17 @@
             },
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_1791705255524",
-          "targetNodeIds": [
-            "node_1791705255524"
-          ]
+          "targetNodeId": "node_1791705255524"
         }
       ],
       "colorScheme": "blue",
       "disabledVariationIds": [],
-      "title": "The Moment After the End"
+      "title": "Smoldering Crater"
     },
     {
       "id": "node_e2a",
       "codename": "T1-V1-K3A",
-      "name": "The Moment After the End",
+      "name": "Predator Ambush",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -774,10 +902,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e3a",
-          "targetNodeIds": [
-            "node_e3a"
-          ]
+          "targetNodeId": "node_e3a"
         },
         {
           "id": "act_1791673301980",
@@ -831,21 +956,18 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
+          "targetNodeId": "node_e2b"
         }
       ],
       "disabledVariationIds": [],
-      "title": "The Moment After the End",
+      "title": "Predator Ambush",
       "colorScheme": "orange",
       "location": "Immediately after 2A choice resolution"
     },
     {
       "id": "node_e2b",
       "codename": "T1-V1-K3B",
-      "name": "The Moment After the End",
+      "name": "Lifeboat Reunion",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -914,8 +1036,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": null
         },
         {
           "id": "act_e2b_2",
@@ -968,19 +1089,18 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
-      "title": "The Moment After the End",
+      "title": "Lifeboat Reunion",
       "colorScheme": "orange",
       "location": "Distance covered X"
     },
     {
       "id": "node_e3a",
       "codename": "T1-V1-K4A",
-      "name": "The Moment After the End",
+      "name": "Submerged Orange Box",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1053,9 +1173,7 @@
               "icon": "🧠",
               "iconImg": ""
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         },
         {
           "id": "act_1791704810788",
@@ -1120,13 +1238,11 @@
               "icon": "🧠",
               "iconImg": ""
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
-      "title": "The Moment After the End",
+      "title": "Submerged Orange Box",
       "location": "Immediately after 2A choice resolution",
       "colorScheme": "orange"
     },
@@ -1341,7 +1457,7 @@
     {
       "id": "node_1791705255524",
       "codename": "T1-V1-K3D",
-      "name": "The Moment After the End",
+      "name": "Blasting through",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1369,9 +1485,7 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         },
         {
           "id": "act_1791705793442",
@@ -1383,19 +1497,17 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "colorScheme": "orange",
-      "title": "The Moment After the End",
+      "title": "New Event Block",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791706248386",
       "codename": "T1-V1-K3C",
-      "name": "The Moment After the End",
+      "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1409,7 +1521,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2439,
+        "x": 2541,
         "y": 2070
       },
       "actions": [
@@ -1423,18 +1535,16 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "title": "The Moment After the End",
+      "title": "New Event Block",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791717900687",
       "codename": "T1-V2-K1A",
-      "name": "Once More Into The Fray",
+      "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1448,7 +1558,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1018,
+        "x": 1019,
         "y": 90
       },
       "actions": [
@@ -1463,11 +1573,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_1791719038295",
-          "targetNodeIds": [
-            "node_1791719038295",
-            "node_1791719220382"
-          ]
+          "targetNodeId": "node_1791719220382"
         },
         {
           "id": "act_1791718168866",
@@ -1479,9 +1585,7 @@
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could retrieve the Orange box or, at least, examine the debris to learn what type of damage the ship suffered.",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         },
         {
           "id": "act_1791718169903",
@@ -1493,18 +1597,16 @@
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could examine them to learn more about what caused such gruesome damage.",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "title": "Once More Into The Fray",
+      "title": "New Event Block",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719038295",
       "codename": "T1-V2-K2A",
-      "name": "Once More Into The Fray",
+      "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1532,18 +1634,16 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "title": "Once More Into The Fray",
+      "title": "New Event Block",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719220382",
       "codename": "T1-V2-K2B",
-      "name": "Once More Into The Fray",
+      "name": "New Event Block",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1571,12 +1671,10 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "title": "Once More Into The Fray",
+      "title": "New Event Block",
       "disabledVariationIds": []
     }
   ],
@@ -1624,8 +1722,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1482,
-        "y": 2636
+        "x": 1283,
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1675,8 +1773,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
-        "x": 1539,
-        "y": 2111
+        "x": 1296,
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1726,8 +1824,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": -448,
-        "y": 3301
+        "x": 465,
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1941,8 +2039,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2913,
-        "y": 777
+        "x": 1870,
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2068,8 +2166,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 1028,
-        "y": 1442
+        "x": 629,
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2206,8 +2304,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 1155,
-        "y": 1129
+        "x": 635,
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2363,8 +2461,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2261,
-        "y": 1240
+        "x": 1275,
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2433,8 +2531,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4166,
-        "y": 2446
+        "x": 4879,
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2509,8 +2607,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4863,
-        "y": 2437
+        "x": 4148,
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2585,8 +2683,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3507,
-        "y": 2444
+        "x": 3540,
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2678,18 +2776,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-11T19:00:17.088Z",
-  "symbolLimits": {
-    "eventIntro": 475,
-    "eventDescription": 475,
-    "actionDescription": 200,
-    "actionDescription3Opt": 120,
-    "actionButtonText": 24,
-    "eventOutcome": 925,
-    "inactionResult": 475,
-    "variationDescription": 280
-  },
-  "criteriaPool": [
-    "Orange Box"
-  ]
+  "_lastModified": "2026-10-12T07:14:56.336Z"
 }
