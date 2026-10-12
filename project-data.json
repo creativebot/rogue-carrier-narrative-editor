@@ -1648,7 +1648,21 @@
           "codeSuffix": "B",
           "shortDescription": "Investigate the attack.",
           "description": "First, we must find out who destroyed Zephyrus and why.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791832831515",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesized_01",
+                  "name": "Biopolymer",
+                  "amount": 1,
+                  "iconImg": "icons/T_Biopolymer.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could retrieve the Orange box or, at least, examine the debris to learn what type of damage the ship suffered.",
           "rewards": [
@@ -3029,7 +3043,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:19:45.088Z",
+  "_lastModified": "2026-10-12T19:20:31.515Z",
   "criteriaPool": [
     "Orange Box"
   ]
