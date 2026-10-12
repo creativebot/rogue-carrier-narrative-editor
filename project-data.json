@@ -776,8 +776,7 @@
           ],
           "targetNodeId": "node_e3a",
           "targetNodeIds": [
-            "node_e3a",
-            "node_e2b"
+            "node_e3a"
           ]
         },
         {
@@ -2698,7 +2697,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:10:19.526Z",
+  "_lastModified": "2026-10-12T15:10:25.101Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
