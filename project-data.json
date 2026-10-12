@@ -1905,21 +1905,7 @@
           "codeSuffix": "A",
           "shortDescription": "Send the scouting team",
           "description": "Scanners show no life or energy signatures. The place is dead. We can send the team in.",
-          "requirements": [
-            {
-              "id": "clause_1791835234937",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "stat_crew",
-                  "name": "Crew Members",
-                  "amount": 1,
-                  "iconImg": "",
-                  "icon": "👨‍🚀"
-                }
-              ]
-            }
-          ],
+          "requirements": [],
           "timerHours": 5,
           "resultDescription": "The place was pillaged a long time ago. Everything was either looted, smashed, or turned to rust & dust. All we can extract from here is some basic materials.",
           "rewards": [
@@ -3397,7 +3383,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:00:43.263Z",
+  "_lastModified": "2026-10-12T20:00:44.161Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
