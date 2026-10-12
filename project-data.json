@@ -1649,7 +1649,7 @@
           "id": "act_1791792722857",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "This looks dangerous. We should investigate before putting our scouts at risk.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:13:08.960Z"
+  "_lastModified": "2026-10-12T08:13:17.282Z"
 }
