@@ -1874,7 +1874,23 @@
           "codeSuffix": "C",
           "shortDescription": "Send the scouting team",
           "description": "Now, when we are sure the place is safe, we can send our scouts.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791835450686",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_station_intelligence",
+                  "name": "Station Intelligence",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "This was a space station, orbiting the Keeling some centuries, if not millennia ago. Most of the tech here is beyond our understanding, and the in a sorry state because of its age and conditions, but despite that, the scouts retrieved several artifacts. This may be the first step to a real breakthrough.",
           "rewards": [
@@ -3434,7 +3450,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:04:00.250Z",
+  "_lastModified": "2026-10-12T20:04:10.686Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
