@@ -542,7 +542,7 @@
     {
       "id": "node_e1",
       "codename": "T1-V1-K2A",
-      "name": "Escape Pod Signal",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -679,12 +679,12 @@
       "colorScheme": "blue",
       "location": "On an island with additional escape pod model.",
       "disabledVariationIds": [],
-      "title": "Escape Pod Signal"
+      "title": "The Moment After the End"
     },
     {
       "id": "node_e1b",
       "codename": "T1-V1-K2B",
-      "name": "Smoldering Crater",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -809,12 +809,12 @@
       ],
       "colorScheme": "blue",
       "disabledVariationIds": [],
-      "title": "Smoldering Crater"
+      "title": "The Moment After the End"
     },
     {
       "id": "node_e2a",
       "codename": "T1-V1-K3A",
-      "name": "Predator Ambush",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -960,14 +960,14 @@
         }
       ],
       "disabledVariationIds": [],
-      "title": "Predator Ambush",
+      "title": "The Moment After the End",
       "colorScheme": "orange",
       "location": "Immediately after 2A choice resolution"
     },
     {
       "id": "node_e2b",
       "codename": "T1-V1-K3B",
-      "name": "Lifeboat Reunion",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1093,14 +1093,14 @@
         }
       ],
       "disabledVariationIds": [],
-      "title": "Lifeboat Reunion",
+      "title": "The Moment After the End",
       "colorScheme": "orange",
       "location": "Distance covered X"
     },
     {
       "id": "node_e3a",
       "codename": "T1-V1-K4A",
-      "name": "Submerged Orange Box",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1242,7 +1242,7 @@
         }
       ],
       "disabledVariationIds": [],
-      "title": "Submerged Orange Box",
+      "title": "The Moment After the End",
       "location": "Immediately after 2A choice resolution",
       "colorScheme": "orange"
     },
@@ -1457,7 +1457,7 @@
     {
       "id": "node_1791705255524",
       "codename": "T1-V1-K3D",
-      "name": "Blasting through",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1501,13 +1501,13 @@
         }
       ],
       "colorScheme": "orange",
-      "title": "New Event Block",
+      "title": "The Moment After the End",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791706248386",
       "codename": "T1-V1-K3C",
-      "name": "New Event Block",
+      "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
@@ -1538,13 +1538,13 @@
           ]
         }
       ],
-      "title": "New Event Block",
+      "title": "The Moment After the End",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791717900687",
       "codename": "T1-V2-K1A",
-      "name": "New Event Block",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1573,7 +1573,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_1791719220382"
+          "targetNodeId": "node_1791719220382",
+          "targetNodeIds": [
+            "node_1791719220382"
+          ]
         },
         {
           "id": "act_1791718168866",
@@ -1585,7 +1588,9 @@
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could retrieve the Orange box or, at least, examine the debris to learn what type of damage the ship suffered.",
           "rewards": [
             "🧠 Knowledge +100"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         },
         {
           "id": "act_1791718169903",
@@ -1597,16 +1602,18 @@
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could examine them to learn more about what caused such gruesome damage.",
           "rewards": [
             "🧠 Knowledge +100"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
-      "title": "New Event Block",
+      "title": "Once More Into The Frey",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719038295",
       "codename": "T1-V2-K2A",
-      "name": "New Event Block",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1634,16 +1641,18 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
-      "title": "New Event Block",
+      "title": "Once More Into The Frey",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719220382",
       "codename": "T1-V2-K2B",
-      "name": "New Event Block",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1671,10 +1680,12 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
-      "title": "New Event Block",
+      "title": "Once More Into The Frey",
       "disabledVariationIds": []
     }
   ],
@@ -2776,5 +2787,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T07:14:56.336Z"
+  "_lastModified": "2026-10-12T07:16:00.196Z"
 }
