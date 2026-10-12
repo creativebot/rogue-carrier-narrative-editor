@@ -1959,7 +1959,7 @@
           "description": "Investigation may take precious time, but it’s the only way to find out how the ship was destroyed.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. Whether as the result of sabotage or because of some alien technology, causing some internal devices to explode is yet unclear.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3337,7 +3337,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:52:53.310Z",
+  "_lastModified": "2026-10-12T19:55:13.489Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge"
