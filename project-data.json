@@ -1793,20 +1793,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1791831543106",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ]
     }
@@ -2909,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:59:03.106Z"
+  "_lastModified": "2026-10-12T18:59:54.217Z"
 }
