@@ -1131,6 +1131,47 @@
       "colorScheme": "orange"
     },
     {
+      "id": "node_1791297604320",
+      "codename": "GEN-E1",
+      "name": "Derelict Beacon (Refurbished AI Core)",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Uncharted Atoll",
+      "spawnConditions": "Random island",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 80,
+        "y": 243
+      },
+      "actions": [
+        {
+          "id": "c_1791297604320",
+          "codeSuffix": "A",
+          "shortDescription": "Board Vessel",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeId": "node_gen_followup",
+          "targetNodeIds": [
+            "node_gen_followup"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Derelict Beacon (Refurbished AI Core)"
+    },
+    {
       "id": "node_sec_1",
       "codename": "T1-V1-S1A",
       "name": "Encrypted Black-Box Beacon",
@@ -1160,10 +1201,7 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         },
         {
           "id": "act_sec_1_2",
@@ -1176,10 +1214,7 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         }
       ],
       "disabledVariationIds": [],
@@ -1215,13 +1250,51 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_gen_followup",
+      "codename": "GEN-E2",
+      "name": "Ancient AI Core",
+      "type": "Ship",
+      "category": "GenericPool",
+      "variationId": "var_v2",
+      "floorIndex": 1,
+      "tier": 1,
+      "location": "Submerged Hull",
+      "spawnConditions": "After boarding beacon",
+      "eventIntro": "The interior atmospheric sensors flicker to life. A faint cybernetic hum resonates through the bulkhead.",
+      "eventDescription": "Deep within the sunken vessel, a dormant intelligence awakens.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 80,
+        "y": 1193
+      },
+      "actions": [
+        {
+          "id": "act_gen2_1",
+          "codeSuffix": "A",
+          "shortDescription": "Extract Core Data",
+          "description": "Interface directly with the terminal.",
+          "requirements": [],
+          "timerHours": 3,
+          "resultDescription": "Data extracted successfully.",
+          "rewards": [
+            "🧠 Knowledge +300",
+            "🔧 Engineering +1"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
-      "title": "The Ghost Skiff"
+      "title": "Ancient AI Core"
     },
     {
       "id": "node_deck_1",
@@ -1264,9 +1337,7 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -2165,6 +2236,36 @@
       ]
     },
     {
+      "id": "diag_gen_beacon",
+      "characterId": "char_catherine",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "targetEventId": "node_1791297604320",
+      "triggerTiming": "post_action",
+      "triggerActionId": "c_1791297604320",
+      "triggerCondition": "After (GEN-E1) Board Vessel",
+      "position": {
+        "x": 30,
+        "y": 872
+      },
+      "lines": [
+        {
+          "speakerName": "Catherine",
+          "text": "Commander, the beacon frequency matches pre-collapse naval telemetry. Proceed with caution.",
+          "mood": "Concerned"
+        }
+      ],
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_1791297604320",
+          "triggerTiming": "post_action",
+          "triggerActionId": "c_1791297604320",
+          "triggerCondition": "After (GEN-E1) Board Vessel"
+        }
+      ]
+    },
+    {
       "id": "diag_imp_1791711758849",
       "targetEventId": "node_e0",
       "triggerTiming": "pre_event",
@@ -2582,7 +2683,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:08:15.754Z",
+  "_lastModified": "2026-10-12T14:15:58.679Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
