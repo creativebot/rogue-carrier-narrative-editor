@@ -1313,7 +1313,7 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Main Hangar Bay",
+      "location": "Carrier underway",
       "spawnConditions": "Carrier underway",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
       "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
@@ -2731,7 +2731,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:50:55.826Z",
+  "_lastModified": "2026-10-12T16:51:24.490Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
