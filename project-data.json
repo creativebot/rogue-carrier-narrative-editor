@@ -1730,7 +1730,7 @@
           "id": "act_1791812022263",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Now, when we are sure the place is safe, we can send our scouts.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:55:48.745Z"
+  "_lastModified": "2026-10-12T18:56:01.048Z"
 }
