@@ -1431,6 +1431,20 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
+        },
+        {
+          "id": "act_1791817688815",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "The Moment After the End",
@@ -2683,7 +2697,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:05:57.809Z",
+  "_lastModified": "2026-10-12T15:08:08.815Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
