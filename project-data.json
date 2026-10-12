@@ -1850,6 +1850,19 @@
                   "icon": "👨‍🚀"
                 }
               ]
+            },
+            {
+              "id": "clause_1791835562393",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3464,7 +3477,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:05:32.804Z",
+  "_lastModified": "2026-10-12T20:06:02.393Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
