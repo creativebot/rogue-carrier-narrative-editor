@@ -1661,6 +1661,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791832834521",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_05",
+                  "name": "Electronic Components",
+                  "amount": 1,
+                  "iconImg": "icons/T_Holo_Display.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3043,7 +3056,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:20:31.515Z",
+  "_lastModified": "2026-10-12T19:20:34.521Z",
   "criteriaPool": [
     "Orange Box"
   ]
