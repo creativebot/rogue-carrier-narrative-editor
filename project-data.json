@@ -2021,6 +2021,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791833290983",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_05",
+                  "name": "Battery Block",
+                  "amount": 1,
+                  "iconImg": "icons/T_Battery-Block.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3191,7 +3204,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:27:43.264Z",
+  "_lastModified": "2026-10-12T19:28:10.983Z",
   "criteriaPool": [
     "Orange Box"
   ]
