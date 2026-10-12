@@ -1770,7 +1770,7 @@
           "id": "c_1791831463894",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Scanners show no life or energy signatures. The place is dead. We can send the team in.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2895,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:59:59.585Z"
+  "_lastModified": "2026-10-12T19:00:25.668Z"
 }
