@@ -1224,46 +1224,6 @@
       "title": "The Ghost Skiff"
     },
     {
-      "id": "node_gen_followup",
-      "codename": "GEN-E2",
-      "name": "Ancient AI Core",
-      "type": "Ship",
-      "category": "GenericPool",
-      "variationId": "var_v2",
-      "floorIndex": 1,
-      "tier": 1,
-      "location": "Submerged Hull",
-      "spawnConditions": "After boarding beacon",
-      "eventIntro": "The interior atmospheric sensors flicker to life. A faint cybernetic hum resonates through the bulkhead.",
-      "eventDescription": "Deep within the sunken vessel, a dormant intelligence awakens.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 80,
-        "y": 1206
-      },
-      "actions": [
-        {
-          "id": "act_gen2_1",
-          "codeSuffix": "A",
-          "shortDescription": "Extract Core Data",
-          "description": "Interface directly with the terminal.",
-          "requirements": [],
-          "timerHours": 3,
-          "resultDescription": "Data extracted successfully.",
-          "rewards": [
-            "🧠 Knowledge +300",
-            "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Ancient AI Core"
-    },
-    {
       "id": "node_deck_1",
       "codename": "DECK-E1",
       "name": "Hangar Deck Fire Drill",
@@ -2622,7 +2582,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:23:19.830Z",
+  "_lastModified": "2026-10-12T14:23:21.417Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
