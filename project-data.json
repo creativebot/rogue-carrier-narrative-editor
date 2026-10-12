@@ -1612,8 +1612,7 @@
           "targetNodeId": "node_1791719220382",
           "targetNodeIds": [
             "node_1791719220382",
-            "node_1791831463894",
-            "node_1791831743764"
+            "node_1791831463894"
           ]
         },
         {
@@ -1833,41 +1832,6 @@
           "targetNodeId": null
         }
       ]
-    },
-    {
-      "id": "node_1791831743764",
-      "codename": "T1-V2-K2D",
-      "name": "Once More Into The Frey",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v2",
-      "floorIndex": 1,
-      "spawnConditions": "Triggered by T1-V2-K1A",
-      "eventDescription": "Enter new outcome narrative body text...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2729,
-        "y": 1080
-      },
-      "actions": [
-        {
-          "id": "c_1791831743764",
-          "codeSuffix": "A",
-          "shortDescription": "Continue",
-          "description": "Next step narrative",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "title": "Once More Into The Frey"
     }
   ],
   "dialogues": [
@@ -2968,5 +2932,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:02:23.764Z"
+  "_lastModified": "2026-10-12T19:02:43.273Z"
 }
