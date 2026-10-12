@@ -1729,7 +1729,7 @@
         {
           "id": "act_1791812022263",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Send the scouting team",
           "description": "Now, when we are sure the place is safe, we can send our scouts.",
           "requirements": [],
           "timerHours": 5,
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:56:43.263Z"
+  "_lastModified": "2026-10-12T18:56:55.309Z"
 }
