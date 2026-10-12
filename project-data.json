@@ -1694,7 +1694,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1210,
+        "x": 592,
         "y": 1080
       },
       "actions": [
@@ -2895,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:01:34.844Z"
+  "_lastModified": "2026-10-12T19:01:36.910Z"
 }
