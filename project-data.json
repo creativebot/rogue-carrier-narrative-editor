@@ -1702,7 +1702,7 @@
           "id": "c_1791719220382",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Despite the sorry state of the structure, we might recover artifacts",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:55:26.044Z"
+  "_lastModified": "2026-10-12T18:55:37.467Z"
 }
