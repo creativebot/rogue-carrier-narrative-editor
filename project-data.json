@@ -1689,8 +1689,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 653,
-        "y": 1080
+        "x": 168,
+        "y": 1607
       },
       "actions": [
         {
@@ -2856,7 +2856,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:00:19.000Z",
+  "_lastModified": "2026-10-12T20:00:24.371Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
