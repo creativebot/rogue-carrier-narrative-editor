@@ -1783,7 +1783,7 @@
         {
           "id": "act_1791831540523",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Send the science team",
           "description": "We need archeologists here, not looters. We must act carefully.",
           "requirements": [],
           "timerHours": 5,
@@ -2895,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:00:43.277Z"
+  "_lastModified": "2026-10-12T19:00:56.662Z"
 }
