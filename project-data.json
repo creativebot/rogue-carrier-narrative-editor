@@ -1970,7 +1970,7 @@
           "id": "act_1791834161899",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Time is of the essence. A quick check will do. We know the weapon was of devastating power, so the knowledge won’t save us from it anyhow.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3260,7 +3260,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:42:46.502Z",
+  "_lastModified": "2026-10-12T19:42:52.484Z",
   "criteriaPool": [
     "Orange Box"
   ]
