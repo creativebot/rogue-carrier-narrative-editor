@@ -1784,7 +1784,7 @@
           "id": "act_1791831540523",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "We need archeologists here, not looters. We must act carefully.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2895,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:59:54.217Z"
+  "_lastModified": "2026-10-12T18:59:59.585Z"
 }
