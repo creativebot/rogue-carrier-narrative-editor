@@ -2021,7 +2021,7 @@
         {
           "id": "act_1791832963509",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Commence the research",
           "description": "We managed to gather a massive amount of data to research. The main problem now is how to process it.",
           "requirements": [],
           "timerHours": 5,
@@ -3164,7 +3164,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:25:47.032Z",
+  "_lastModified": "2026-10-12T19:25:53.047Z",
   "criteriaPool": [
     "Orange Box"
   ]
