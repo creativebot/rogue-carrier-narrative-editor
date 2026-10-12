@@ -2753,12 +2753,6 @@
       "category": "DeckPool",
       "lines": [
         {
-          "id": "l_1791823992964",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "Enter dialogue line here..."
-        },
-        {
           "id": "l_1791824005569",
           "speakerId": "orest",
           "speakerName": "Orest Demchuck",
@@ -2769,7 +2763,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:53:25.569Z",
+  "_lastModified": "2026-10-12T16:53:28.101Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
