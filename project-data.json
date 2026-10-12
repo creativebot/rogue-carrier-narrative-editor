@@ -1993,7 +1993,7 @@
         {
           "id": "c_1791832874715",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Commence the research",
           "description": "We only managed to scratch the surface here. More information will be needed to obtain a deeper understanding of the Primordials, but it’s a start.",
           "requirements": [],
           "timerHours": 5,
@@ -3164,7 +3164,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:23:12.810Z",
+  "_lastModified": "2026-10-12T19:25:44.846Z",
   "criteriaPool": [
     "Orange Box"
   ]
