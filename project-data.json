@@ -1638,7 +1638,7 @@
           "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Scouts managed to stay there only briefly before their protection began to fail.  They managed to escape, taking with them several slabs of an Eldritium, a rare metal. It probably was mined or refined there. Unfortunately, they also carried radiation sickness.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:15:11.847Z"
+  "_lastModified": "2026-10-12T08:22:02.610Z"
 }
