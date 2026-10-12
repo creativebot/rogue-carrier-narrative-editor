@@ -1980,7 +1980,7 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "All the points of interest are checked. We can start the research.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -3136,7 +3136,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:21:27.475Z",
+  "_lastModified": "2026-10-12T19:22:18.805Z",
   "criteriaPool": [
     "Orange Box"
   ]
