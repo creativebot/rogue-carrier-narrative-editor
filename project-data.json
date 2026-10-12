@@ -2978,8 +2978,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 731,
-        "y": 137
+        "x": 1753,
+        "y": -238
       },
       "variationId": "var_v2",
       "category": "KeyChain",
@@ -2991,9 +2991,10 @@
           "text": "Enter dialogue line here..."
         }
       ],
-      "links": []
+      "links": [],
+      "floorIndex": 0
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:08:14.238Z"
+  "_lastModified": "2026-10-12T19:08:17.677Z"
 }
