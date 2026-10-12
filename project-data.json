@@ -1579,7 +1579,7 @@
     },
     {
       "id": "node_1791717900687",
-      "codename": "T1-V2-K1B",
+      "codename": "T1-V2-K1A",
       "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
@@ -2148,13 +2148,13 @@
     },
     {
       "id": "node_1791834582822",
-      "codename": "T1-V2-K1A",
+      "codename": "T1-V2-K2E",
       "name": "Once More Into The Frey",
       "title": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
-      "floorIndex": 0,
+      "floorIndex": 1,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2164,8 +2164,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 724,
-        "y": 90
+        "x": 3676,
+        "y": 1080
       },
       "actions": [
         {
@@ -3314,7 +3314,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:49:43.268Z",
+  "_lastModified": "2026-10-12T19:49:47.023Z",
   "criteriaPool": [
     "Orange Box"
   ]
