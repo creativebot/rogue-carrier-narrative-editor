@@ -1322,8 +1322,8 @@
         ]
       },
       "position": {
-        "x": 100,
-        "y": 220
+        "x": 80,
+        "y": 124
       },
       "actions": [
         {
@@ -2685,7 +2685,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:14:07.489Z",
+  "_lastModified": "2026-10-12T16:42:46.054Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
