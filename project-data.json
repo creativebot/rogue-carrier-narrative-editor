@@ -1689,7 +1689,21 @@
           "codeSuffix": "C",
           "shortDescription": "Search for the debris.",
           "description": "As we previously found out, the attack could be preceded by sabotage.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791832837902",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesized_01",
+                  "name": "Biopolymer",
+                  "amount": 1,
+                  "iconImg": "icons/T_Biopolymer.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could examine them to learn more about what caused such gruesome damage.",
           "rewards": [
@@ -3056,7 +3070,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:20:34.521Z",
+  "_lastModified": "2026-10-12T19:20:37.902Z",
   "criteriaPool": [
     "Orange Box"
   ]
