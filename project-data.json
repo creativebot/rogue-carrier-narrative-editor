@@ -1622,7 +1622,7 @@
       "location": "Click to set spawn conditions...",
       "spawnConditions": "Click to set spawn conditions...",
       "eventIntro": "Approaching the Primordial structure.",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The complex is built on the floating island. We detect an unknown type of EM-field surrounding the structures.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -2787,5 +2787,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T07:59:42.297Z"
+  "_lastModified": "2026-10-12T08:11:55.540Z"
 }
