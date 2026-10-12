@@ -1701,7 +1701,7 @@
         {
           "id": "c_1791719220382",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Send the scouting team",
           "description": "Despite the sorry state of the structure, we might recover artifacts",
           "requirements": [],
           "timerHours": 5,
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:56:01.048Z"
+  "_lastModified": "2026-10-12T18:56:24.843Z"
 }
