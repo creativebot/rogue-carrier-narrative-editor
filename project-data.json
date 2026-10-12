@@ -2989,6 +2989,12 @@
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and "
+        },
+        {
+          "id": "l_1791832119337",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -2996,5 +3002,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:08:32.689Z"
+  "_lastModified": "2026-10-12T19:08:39.337Z"
 }
