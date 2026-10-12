@@ -2236,36 +2236,6 @@
       ]
     },
     {
-      "id": "diag_gen_beacon",
-      "characterId": "char_catherine",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "targetEventId": "node_1791297604320",
-      "triggerTiming": "post_action",
-      "triggerActionId": "c_1791297604320",
-      "triggerCondition": "After (GEN-E1) Board Vessel",
-      "position": {
-        "x": 30,
-        "y": 872
-      },
-      "lines": [
-        {
-          "speakerName": "Catherine",
-          "text": "Commander, the beacon frequency matches pre-collapse naval telemetry. Proceed with caution.",
-          "mood": "Concerned"
-        }
-      ],
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_1791297604320",
-          "triggerTiming": "post_action",
-          "triggerActionId": "c_1791297604320",
-          "triggerCondition": "After (GEN-E1) Board Vessel"
-        }
-      ]
-    },
-    {
       "id": "diag_imp_1791711758849",
       "targetEventId": "node_e0",
       "triggerTiming": "pre_event",
@@ -2683,7 +2653,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:22:29.481Z",
+  "_lastModified": "2026-10-12T14:23:07.680Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
