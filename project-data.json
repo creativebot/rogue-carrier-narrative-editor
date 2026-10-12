@@ -1644,6 +1644,20 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
+        },
+        {
+          "id": "act_1791792722857",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "Once More Into The Frey",
@@ -2787,5 +2801,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:11:55.540Z"
+  "_lastModified": "2026-10-12T08:12:02.857Z"
 }
