@@ -2159,7 +2159,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Zephyrus fragment spotted",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3314,7 +3314,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:49:58.456Z",
+  "_lastModified": "2026-10-12T19:50:11.575Z",
   "criteriaPool": [
     "Orange Box"
   ]
