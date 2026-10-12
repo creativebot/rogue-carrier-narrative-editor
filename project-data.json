@@ -2159,7 +2159,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Zephyrus fragment spotted",
-      "eventDescription": "Zephyrus fragment spotted",
+      "eventDescription": "This fragment is badly damaged, but the damage itself is a bit strange. A closer look shows that the wreck was looted by someone.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3314,7 +3314,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:50:14.297Z",
+  "_lastModified": "2026-10-12T19:50:21.884Z",
   "criteriaPool": [
     "Orange Box"
   ]
