@@ -1635,7 +1635,7 @@
           "id": "c_1791719038295",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:12:31.285Z"
+  "_lastModified": "2026-10-12T08:13:08.960Z"
 }
