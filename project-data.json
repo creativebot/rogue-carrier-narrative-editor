@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -1148,7 +1148,7 @@
       "inactionThreat": null,
       "position": {
         "x": 80,
-        "y": 167
+        "y": 243
       },
       "actions": [
         {
@@ -1274,7 +1274,7 @@
       "inactionThreat": null,
       "position": {
         "x": 80,
-        "y": 1122
+        "y": 1193
       },
       "actions": [
         {
@@ -1337,7 +1337,9 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1423,20 +1425,6 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791817688815",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1643,8 +1631,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1533,
-        "y": 2655
+        "x": 1482,
+        "y": 2636
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2259,8 +2247,8 @@
       "triggerActionId": "c_1791297604320",
       "triggerCondition": "After (GEN-E1) Board Vessel",
       "position": {
-        "x": -82,
-        "y": 839
+        "x": 30,
+        "y": 872
       },
       "lines": [
         {
@@ -2382,8 +2370,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2261,
-        "y": 1240
+        "x": 2108,
+        "y": 1340
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2697,7 +2685,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:10:58.872Z",
+  "_lastModified": "2026-10-12T15:14:07.489Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
