@@ -2007,7 +2007,7 @@
         {
           "id": "act_1791832960506",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Commence the research",
           "description": "We’ve gathered a lot of data. The Primordials are an advanced and mysterious species, but this research may become a first step in understanding their motives.",
           "requirements": [],
           "timerHours": 5,
@@ -3164,7 +3164,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:25:44.846Z",
+  "_lastModified": "2026-10-12T19:25:47.032Z",
   "criteriaPool": [
     "Orange Box"
   ]
