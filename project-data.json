@@ -2245,8 +2245,8 @@
       "triggerActionId": "c_1791297604320",
       "triggerCondition": "After (GEN-E1) Board Vessel",
       "position": {
-        "x": 30,
-        "y": 872
+        "x": -82,
+        "y": 839
       },
       "lines": [
         {
@@ -2683,7 +2683,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:05:53.032Z",
+  "_lastModified": "2026-10-12T15:05:54.446Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
