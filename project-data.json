@@ -1916,6 +1916,13 @@
               "amount": "20-30",
               "iconImg": "icons/T_Metals_W.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_16_Lithium",
+              "name": "Lithium",
+              "amount": "20-30",
+              "iconImg": "icons/T_Lithium.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -3362,7 +3369,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:59:16.237Z",
+  "_lastModified": "2026-10-12T19:59:33.288Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
