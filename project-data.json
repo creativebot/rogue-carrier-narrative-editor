@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -10,6 +10,12 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch",
+      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -24,7 +30,7 @@
       "id": "var_v2",
       "timelineId": "timeline_1",
       "number": 2,
-      "name": "Once More Into The Fray",
+      "name": "Once More Into The Frey",
       "description": "Debris field gravitational anomalies."
     },
     {
@@ -82,6 +88,76 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Multiverse Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Multiverse Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Multiverse Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Multiverse Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Multiverse Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Multiverse Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Multiverse Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Multiverse Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Multiverse Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -103,7 +179,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -124,7 +210,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -145,7 +241,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -166,7 +272,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -187,7 +303,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -208,7 +334,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -229,7 +365,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     }
   ],
@@ -318,10 +464,7 @@
             "🧠 Knowledge +300",
             "📜 Blueprints +1"
           ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
+          "targetNodeId": "node_e1"
         },
         {
           "id": "act_e0_2",
@@ -388,10 +531,7 @@
             "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
+          "targetNodeId": "node_e1b"
         }
       ],
       "colorScheme": "amber",
@@ -463,10 +603,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2a",
-          "targetNodeIds": [
-            "node_e2a"
-          ]
+          "targetNodeId": "node_e2a"
         },
         {
           "id": "act_e1_2",
@@ -536,10 +673,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
+          "targetNodeId": "node_e2b"
         }
       ],
       "colorScheme": "blue",
@@ -562,7 +696,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3750,
+        "x": 2664,
         "y": 1080
       },
       "actions": [
@@ -610,10 +744,7 @@
             "Nano Parts x15",
             "🧠 Knowledge +350"
           ],
-          "targetNodeId": "node_1791706248386",
-          "targetNodeIds": [
-            "node_1791706248386"
-          ]
+          "targetNodeId": "node_1791706248386"
         },
         {
           "id": "act_1791378373196",
@@ -673,10 +804,7 @@
             },
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_1791705255524",
-          "targetNodeIds": [
-            "node_1791705255524"
-          ]
+          "targetNodeId": "node_1791705255524"
         }
       ],
       "colorScheme": "blue",
@@ -774,10 +902,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e3a",
-          "targetNodeIds": [
-            "node_e3a"
-          ]
+          "targetNodeId": "node_e3a"
         },
         {
           "id": "act_1791673301980",
@@ -831,10 +956,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
+          "targetNodeId": "node_e2b"
         }
       ],
       "disabledVariationIds": [],
@@ -857,7 +979,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 300,
+        "x": 111,
         "y": 2070
       },
       "actions": [
@@ -914,8 +1036,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": null
         },
         {
           "id": "act_e2b_2",
@@ -968,8 +1089,7 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1053,9 +1173,7 @@
               "icon": "🧠",
               "iconImg": ""
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         },
         {
           "id": "act_1791704810788",
@@ -1120,9 +1238,7 @@
               "icon": "🧠",
               "iconImg": ""
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1162,10 +1278,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1201,10 +1314,7 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         },
         {
           "id": "act_sec_1_2",
@@ -1217,10 +1327,7 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         }
       ],
       "disabledVariationIds": [],
@@ -1256,9 +1363,7 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1296,9 +1401,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1313,7 +1416,7 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Carrier underway",
+      "location": "Main Hangar Bay",
       "spawnConditions": "Carrier underway",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
       "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
@@ -1330,8 +1433,8 @@
         ]
       },
       "position": {
-        "x": 80,
-        "y": 125
+        "x": 100,
+        "y": 220
       },
       "actions": [
         {
@@ -1345,9 +1448,7 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1384,9 +1485,7 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         },
         {
           "id": "act_1791705793442",
@@ -1398,9 +1497,7 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "colorScheme": "orange",
@@ -1424,7 +1521,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2439,
+        "x": 2541,
         "y": 2070
       },
       "actions": [
@@ -1438,9 +1535,7 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "title": "The Moment After the End",
@@ -1449,7 +1544,7 @@
     {
       "id": "node_1791717900687",
       "codename": "T1-V2-K1A",
-      "name": "Once More Into The Fray",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1463,14 +1558,14 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1018,
+        "x": 1662,
         "y": 90
       },
       "actions": [
         {
           "id": "c_1791717900687",
           "codeSuffix": "A",
-          "shortDescription": "Scan for the Primordial structures",
+          "shortDescription": "Search for the ruins",
           "description": "There are other Primordial structures on Keeling. To understand their technology, we must first study.",
           "requirements": [],
           "timerHours": 5,
@@ -1478,9 +1573,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_1791719038295",
+          "targetNodeId": "node_1791719220382",
           "targetNodeIds": [
-            "node_1791719038295",
             "node_1791719220382"
           ]
         },
@@ -1513,13 +1607,13 @@
           "targetNodeId": null
         }
       ],
-      "title": "Once More Into The Fray",
+      "title": "Once More Into The Frey",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719038295",
       "codename": "T1-V2-K2A",
-      "name": "Once More Into The Fray",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1528,7 +1622,7 @@
       "location": "Click to set spawn conditions...",
       "spawnConditions": "Click to set spawn conditions...",
       "eventIntro": "Approaching the Primordial structure.",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The complex is built on the floating island. We detect an unknown type of EM-field surrounding the structures.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1540,11 +1634,39 @@
         {
           "id": "c_1791719038295",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
+          "shortDescription": "Send the scouting team",
+          "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Scouts managed to stay there only briefly before their protection began to fail.  They managed to escape, taking with them several slabs of an Eldritium, a rare metal. It probably was mined or refined there. Unfortunately, they also carried radiation sickness.",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791792722857",
+          "codeSuffix": "B",
+          "shortDescription": "Gather data beforehand",
+          "description": "This looks dangerous. We should investigate before putting our scouts at risk.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "We still don’t exactly understand what this field is or what its purpose is. But now we know the possible hazards and how to avoid them. ",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791792723899",
+          "codeSuffix": "C",
+          "shortDescription": "Use HEV-suits",
+          "description": "Using the gathered information, we can providereliable protection for our scouts.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The scouts still have precious little time to explore the complex. Presumably, it was a refinery for Eldritium, with a significant supply of the material still there. Scouts couldn’t take all, but gathered data about the industrial capacities of the Primordials.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1552,13 +1674,13 @@
           "targetNodeId": null
         }
       ],
-      "title": "Once More Into The Fray",
+      "title": "Once More Into The Frey",
       "disabledVariationIds": []
     },
     {
       "id": "node_1791719220382",
       "codename": "T1-V2-K2B",
-      "name": "Once More Into The Fray",
+      "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v2",
@@ -1572,7 +1694,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1012,
+        "x": 1149,
         "y": 1080
       },
       "actions": [
@@ -1589,46 +1711,26 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        }
-      ],
-      "title": "Once More Into The Fray",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791823852122",
-      "codename": "DECK-S1-E2",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
-      },
-      "position": {
-        "x": 80,
-        "y": 648
-      },
-      "actions": [
+        },
         {
-          "id": "c_1791823852122",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
+          "id": "act_1791812011267",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791812022263",
+          "codeSuffix": "C",
+          "shortDescription": "Choice C",
+          "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1638,7 +1740,9 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "title": "Once More Into The Frey",
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -1685,8 +1789,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1482,
-        "y": 2636
+        "x": 1283,
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1736,8 +1840,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
-        "x": 1539,
-        "y": 2111
+        "x": 1296,
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1787,8 +1891,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": -448,
-        "y": 3301
+        "x": 465,
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2002,8 +2106,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2913,
-        "y": 777
+        "x": 1870,
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2129,8 +2233,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 1028,
-        "y": 1442
+        "x": 629,
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2267,8 +2371,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 1155,
-        "y": 1129
+        "x": 635,
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2424,8 +2528,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2108,
-        "y": 1340
+        "x": 1275,
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2494,8 +2598,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4166,
-        "y": 2446
+        "x": 4879,
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2570,8 +2674,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4863,
-        "y": 2437
+        "x": 4148,
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2646,8 +2750,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3507,
-        "y": 2444
+        "x": 3540,
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2736,69 +2840,8 @@
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
         }
       ]
-    },
-    {
-      "id": "diag_1791823992963",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
-      "position": {
-        "x": 153,
-        "y": 1198
-      },
-      "variationId": "var_v1",
-      "category": "DeckPool",
-      "lines": [
-        {
-          "id": "l_1791825997802",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1791825999604",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1791826001912",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1791826003080",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1791826009247",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
-        }
-      ],
-      "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T17:26:49.247Z",
-  "symbolLimits": {
-    "eventIntro": 475,
-    "eventDescription": 475,
-    "actionDescription": 200,
-    "actionDescription3Opt": 120,
-    "actionButtonText": 24,
-    "eventOutcome": 925,
-    "inactionResult": 475,
-    "variationDescription": 280
-  },
-  "criteriaPool": [
-    "Orange Box"
-  ]
+  "_lastModified": "2026-10-12T18:53:33.197Z"
 }
