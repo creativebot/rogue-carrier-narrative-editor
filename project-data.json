@@ -2978,8 +2978,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 1753,
-        "y": -238
+        "x": 1763,
+        "y": -303
       },
       "variationId": "var_v2",
       "category": "KeyChain",
@@ -3002,5 +3002,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:08:43.263Z"
+  "_lastModified": "2026-10-12T19:08:44.860Z"
 }
