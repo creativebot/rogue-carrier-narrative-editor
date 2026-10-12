@@ -2185,7 +2185,7 @@
         {
           "id": "act_1791834624868",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Secure the perimeter",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -3328,7 +3328,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:50:24.868Z",
+  "_lastModified": "2026-10-12T19:50:46.107Z",
   "criteriaPool": [
     "Orange Box"
   ]
