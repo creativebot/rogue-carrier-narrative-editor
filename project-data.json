@@ -1201,7 +1201,10 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         },
         {
           "id": "act_sec_1_2",
@@ -1214,7 +1217,10 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1250,7 +1256,9 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -2685,7 +2693,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:43:28.094Z",
+  "_lastModified": "2026-10-12T16:48:28.179Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
