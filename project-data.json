@@ -1756,7 +1756,7 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "Approaching the Primordial structure.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -2881,5 +2881,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:57:56.391Z"
+  "_lastModified": "2026-10-12T18:58:42.359Z"
 }
