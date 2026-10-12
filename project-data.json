@@ -549,12 +549,12 @@
     },
     {
       "id": "node_e1b",
-      "codename": "T1-V1-K1B",
+      "codename": "T1-V1-K2B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 1,
       "spawnConditions": "Data processed",
       "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
       "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
@@ -562,8 +562,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3413,
-        "y": 90
+        "x": 3708,
+        "y": 1080
       },
       "actions": [
         {
@@ -2431,7 +2431,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Disassemble",
+      "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4166,
         "y": 2446
@@ -2507,7 +2507,7 @@
       "triggerActionId": "act_1791378373196",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Blast through!",
+      "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4863,
         "y": 2437
@@ -2583,7 +2583,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Disassemble",
+      "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3507,
         "y": 2444
@@ -2678,7 +2678,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T10:29:02.260Z",
+  "_lastModified": "2026-10-12T10:29:03.679Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
