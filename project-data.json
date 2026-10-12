@@ -2172,7 +2172,7 @@
           "id": "c_1791834582822",
           "codeSuffix": "A",
           "shortDescription": "Send team to scavenge",
-          "description": "Action description...",
+          "description": "Have to be quicker next time. Let's retrieve what we can and move on.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3328,7 +3328,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:51:28.135Z",
+  "_lastModified": "2026-10-12T19:51:39.218Z",
   "criteriaPool": [
     "Orange Box"
   ]
