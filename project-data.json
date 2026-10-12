@@ -1948,7 +1948,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2249,
+        "x": 2502,
         "y": 1080
       },
       "actions": [
@@ -3232,7 +3232,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:34:43.812Z",
+  "_lastModified": "2026-10-12T19:39:24.739Z",
   "criteriaPool": [
     "Orange Box"
   ]
