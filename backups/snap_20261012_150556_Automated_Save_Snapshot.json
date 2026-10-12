@@ -3,7 +3,7 @@
   "filename": "snap_20261012_150556_Automated_Save_Snapshot.json",
   "reason": "Automated Save Snapshot",
   "author": "Daniel Poludyonny",
-  "timestamp": "2026-10-12T15:05:56.258286",
+  "timestamp": "2026-10-12T15:05:56.995348",
   "displayTime": "2026-10-12 15:05:56",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -1283,7 +1283,7 @@
         "inactionThreat": null,
         "position": {
           "x": 80,
-          "y": 1198
+          "y": 1412
         },
         "actions": [
           {
@@ -2692,7 +2692,7 @@
       }
     ],
     "schemaVersion": 1,
-    "_lastModified": "2026-10-12T15:05:55.840Z",
+    "_lastModified": "2026-10-12T15:05:56.571Z",
     "symbolLimits": {
       "eventIntro": 475,
       "eventDescription": 475,
