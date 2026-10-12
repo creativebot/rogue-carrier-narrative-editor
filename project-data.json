@@ -1616,6 +1616,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791832785088",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 1,
+                  "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3016,7 +3029,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:18:17.330Z",
+  "_lastModified": "2026-10-12T19:19:45.088Z",
   "criteriaPool": [
     "Orange Box"
   ]
