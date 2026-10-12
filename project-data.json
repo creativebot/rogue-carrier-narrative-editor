@@ -2775,13 +2775,19 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1791826009247",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T17:26:46.955Z",
+  "_lastModified": "2026-10-12T17:26:49.247Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
