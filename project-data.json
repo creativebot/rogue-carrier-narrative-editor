@@ -2994,7 +2994,7 @@
           "id": "l_1791832119337",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
         }
       ],
       "links": [],
@@ -3002,5 +3002,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:09:43.266Z"
+  "_lastModified": "2026-10-12T19:09:44.341Z"
 }
