@@ -1715,7 +1715,7 @@
         {
           "id": "act_1791812011267",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Send reconn drones",
           "description": "The structure doesn’t look stable. We’ll be putting our crew at risk, sending them without any prior exploration. ",
           "requirements": [],
           "timerHours": 5,
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:56:24.843Z"
+  "_lastModified": "2026-10-12T18:56:41.360Z"
 }
