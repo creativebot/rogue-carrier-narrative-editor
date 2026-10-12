@@ -3112,8 +3112,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 1763,
-        "y": -303
+        "x": 1800,
+        "y": -414
       },
       "variationId": "var_v2",
       "category": "KeyChain",
@@ -3136,7 +3136,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:21:22.028Z",
+  "_lastModified": "2026-10-12T19:21:27.475Z",
   "criteriaPool": [
     "Orange Box"
   ]
