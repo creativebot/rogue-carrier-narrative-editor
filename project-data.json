@@ -1715,6 +1715,21 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791832846072",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_orange_box",
+                  "name": "Orange Box",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3083,7 +3098,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:20:43.263Z",
+  "_lastModified": "2026-10-12T19:20:46.072Z",
   "criteriaPool": [
     "Orange Box"
   ]
