@@ -1682,14 +1682,14 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "spawnConditions": "Inaction Failure on DECK-S1-E2",
       "eventDescription": "Catastrophic outcome occurred due to inaction...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 168,
+        "x": 653,
         "y": 1607
       },
       "actions": [
@@ -1707,7 +1707,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "tier": 1
     }
   ],
   "dialogues": [
@@ -2856,7 +2857,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:00:24.371Z",
+  "_lastModified": "2026-10-12T20:00:24.760Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
