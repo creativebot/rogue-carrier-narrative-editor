@@ -2175,7 +2175,7 @@
           "description": "Have to be quicker next time. Let's retrieve what we can and move on.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The looters were there, and now they are gone. They took almost everything of value. At least all that survived the crash.  All that is left for us is just the basic materials like metal and plastic.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3328,7 +3328,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:51:39.218Z",
+  "_lastModified": "2026-10-12T19:52:06.360Z",
   "criteriaPool": [
     "Orange Box"
   ]
