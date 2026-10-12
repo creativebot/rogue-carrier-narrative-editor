@@ -2736,10 +2736,34 @@
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
         }
       ]
+    },
+    {
+      "id": "diag_1791823992963",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 338,
+        "y": 1149
+      },
+      "variationId": "var_v1",
+      "category": "DeckPool",
+      "lines": [
+        {
+          "id": "l_1791823992964",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ],
+      "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:52:05.949Z",
+  "_lastModified": "2026-10-12T16:53:12.964Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
