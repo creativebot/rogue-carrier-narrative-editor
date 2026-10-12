@@ -1967,6 +1967,44 @@
           "targetNodeId": null
         }
       ]
+    },
+    {
+      "id": "node_1791832874715",
+      "codename": "T1-V2-K3A",
+      "name": "Once More Into The Frey",
+      "title": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -754,
+        "y": 2070
+      },
+      "actions": [
+        {
+          "id": "c_1791832874715",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -3098,7 +3136,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:20:46.072Z",
+  "_lastModified": "2026-10-12T19:21:14.715Z",
   "criteriaPool": [
     "Orange Box"
   ]
