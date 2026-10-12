@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -464,10 +464,7 @@
             "🧠 Knowledge +300",
             "📜 Blueprints +1"
           ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
+          "targetNodeId": "node_e1"
         },
         {
           "id": "act_e0_2",
@@ -534,10 +531,7 @@
             "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
+          "targetNodeId": "node_e1b"
         }
       ],
       "colorScheme": "amber",
@@ -2793,5 +2787,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T07:26:40.647Z"
+  "_lastModified": "2026-10-12T07:59:42.297Z"
 }
