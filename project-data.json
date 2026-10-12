@@ -2747,8 +2747,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 169,
-        "y": 1238
+        "x": 173,
+        "y": 1242
       },
       "variationId": "var_v1",
       "category": "DeckPool",
@@ -2782,7 +2782,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:01:19.502Z",
+  "_lastModified": "2026-10-12T20:01:23.728Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
