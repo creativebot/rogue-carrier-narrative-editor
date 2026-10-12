@@ -2021,19 +2021,6 @@
                   "icon": "📦"
                 }
               ]
-            },
-            {
-              "id": "clause_1791833290983",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_05",
-                  "name": "Battery Block",
-                  "amount": 1,
-                  "iconImg": "icons/T_Battery-Block.png",
-                  "icon": "📦"
-                }
-              ]
             }
           ],
           "timerHours": 5,
@@ -2049,7 +2036,21 @@
           "codeSuffix": "B",
           "shortDescription": "Commence the research",
           "description": "We’ve gathered a lot of data. The Primordials are an advanced and mysterious species, but this research may become a first step in understanding their motives.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791833477818",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 1,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -3204,7 +3205,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:28:10.983Z",
+  "_lastModified": "2026-10-12T19:31:17.818Z",
   "criteriaPool": [
     "Orange Box"
   ]
