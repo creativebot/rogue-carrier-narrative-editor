@@ -1618,7 +1618,7 @@
         "penalties": [
           "💀 Entropy +10"
         ],
-        "targetNodeId": null
+        "targetNodeId": "node_1791835219000"
       },
       "position": {
         "x": 80,
@@ -1661,6 +1661,40 @@
       "actions": [
         {
           "id": "c_1791835208818",
+          "codeSuffix": "A",
+          "shortDescription": "Recover",
+          "description": "Attempt salvage",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "💀 Entropy +5"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    },
+    {
+      "id": "node_1791835219000",
+      "codename": "DECK-S2-E4",
+      "name": "Consequence of New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Inaction Failure on DECK-S1-E2",
+      "eventDescription": "Catastrophic outcome occurred due to inaction...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 653,
+        "y": 1080
+      },
+      "actions": [
+        {
+          "id": "c_1791835219000",
           "codeSuffix": "A",
           "shortDescription": "Recover",
           "description": "Attempt salvage",
@@ -2822,7 +2856,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:00:14.210Z",
+  "_lastModified": "2026-10-12T20:00:19.000Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
