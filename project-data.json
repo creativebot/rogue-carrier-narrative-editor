@@ -1618,7 +1618,7 @@
         "penalties": [
           "💀 Entropy +10"
         ],
-        "targetNodeId": "node_1791835208818"
+        "targetNodeId": null
       },
       "position": {
         "x": 80,
@@ -2822,7 +2822,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:00:08.819Z",
+  "_lastModified": "2026-10-12T20:00:14.210Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
