@@ -2757,13 +2757,19 @@
           "speakerId": "orest",
           "speakerName": "Orest Demchuck",
           "text": "Enter dialogue line here..."
+        },
+        {
+          "id": "l_1791824005569",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:53:22.590Z",
+  "_lastModified": "2026-10-12T16:53:25.569Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
