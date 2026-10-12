@@ -1543,7 +1543,7 @@
     },
     {
       "id": "node_1791717900687",
-      "codename": "T1-V2-K1A",
+      "codename": "T1-V2-K1B",
       "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
@@ -1743,6 +1743,44 @@
       ],
       "title": "Once More Into The Frey",
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791831463894",
+      "codename": "T1-V2-K1A",
+      "name": "Once More Into The Frey",
+      "title": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 715,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791831463894",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -2843,5 +2881,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:57:25.343Z"
+  "_lastModified": "2026-10-12T18:57:43.895Z"
 }
