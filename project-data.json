@@ -1131,47 +1131,6 @@
       "colorScheme": "orange"
     },
     {
-      "id": "node_1791297604320",
-      "codename": "GEN-E1",
-      "name": "Derelict Beacon (Refurbished AI Core)",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Uncharted Atoll",
-      "spawnConditions": "Random island",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 80,
-        "y": 243
-      },
-      "actions": [
-        {
-          "id": "c_1791297604320",
-          "codeSuffix": "A",
-          "shortDescription": "Board Vessel",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Derelict Beacon (Refurbished AI Core)"
-    },
-    {
       "id": "node_sec_1",
       "codename": "T1-V1-S1A",
       "name": "Encrypted Black-Box Beacon",
@@ -1201,7 +1160,10 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         },
         {
           "id": "act_sec_1_2",
@@ -1214,7 +1176,10 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1250,7 +1215,9 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1337,7 +1304,9 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -2653,7 +2622,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:23:07.680Z",
+  "_lastModified": "2026-10-12T14:23:19.830Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
