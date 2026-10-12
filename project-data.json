@@ -2191,7 +2191,16 @@
           "timerHours": 5,
           "resultDescription": "Whoever did this has some industrial equipment. Not that advanced, but effective. We found some remnants of it: broken parts, exhausted batterys etc. The looters took all they could, even the metal plates that they managed to tear off. They had to have a large vessel to carry all that of the island. Also they picked up all the surviving electronics for some reason.\nWere they just occasional marauders or intently covered the tracks of the attack?\nOne of them lost some kind of decoration, abadge or something. Maybe it will guide us to the marauders in the future.\n",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "criteria_nasobi_tc_badge",
+              "name": "Nasobi TC Badge",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3328,8 +3337,9 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:52:24.547Z",
+  "_lastModified": "2026-10-12T19:52:53.310Z",
   "criteriaPool": [
-    "Orange Box"
+    "Orange Box",
+    "Nasobi TC Badge"
   ]
 }
