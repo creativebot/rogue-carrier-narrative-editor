@@ -2968,8 +2968,32 @@
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
         }
       ]
+    },
+    {
+      "id": "diag_1791832094238",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 731,
+        "y": 137
+      },
+      "variationId": "var_v2",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791832094238",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ],
+      "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:03:43.818Z"
+  "_lastModified": "2026-10-12T19:08:14.238Z"
 }
