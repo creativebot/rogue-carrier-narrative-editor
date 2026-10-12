@@ -2751,12 +2751,19 @@
       },
       "variationId": "var_v1",
       "category": "DeckPool",
-      "lines": [],
+      "lines": [
+        {
+          "id": "l_1791825997802",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        }
+      ],
       "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:53:28.929Z",
+  "_lastModified": "2026-10-12T17:26:37.802Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
