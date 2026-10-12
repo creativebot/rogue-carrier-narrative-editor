@@ -1593,6 +1593,44 @@
       ],
       "title": "Once More Into The Fray",
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791823852122",
+      "codename": "DECK-S1-E2",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -15,
+        "y": 651
+      },
+      "actions": [
+        {
+          "id": "c_1791823852122",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -2693,7 +2731,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:48:28.179Z",
+  "_lastModified": "2026-10-12T16:50:52.122Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
