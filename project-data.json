@@ -1985,7 +1985,23 @@
           "codeSuffix": "C",
           "shortDescription": "Send the investigators",
           "description": "We can base the investigation on the Orange box data to add more pieces to this puzzle.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791834323979",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_orange_box",
+                  "name": "Orange Box",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -3260,7 +3276,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:45:03.308Z",
+  "_lastModified": "2026-10-12T19:45:23.979Z",
   "criteriaPool": [
     "Orange Box"
   ]
