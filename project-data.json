@@ -1863,6 +1863,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791835569419",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_05",
+                  "name": "Battery Block",
+                  "amount": 1,
+                  "iconImg": "icons/T_Battery-Block.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3477,7 +3490,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:06:02.393Z",
+  "_lastModified": "2026-10-12T20:06:09.419Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
