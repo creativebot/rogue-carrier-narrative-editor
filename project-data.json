@@ -1955,7 +1955,7 @@
         {
           "id": "c_1791831814739",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Send the investigators",
           "description": "Investigation may take precious time, but it’s the only way to find out how the ship was destroyed.",
           "requirements": [],
           "timerHours": 5,
@@ -3260,7 +3260,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:42:59.482Z",
+  "_lastModified": "2026-10-12T19:44:05.328Z",
   "criteriaPool": [
     "Orange Box"
   ]
