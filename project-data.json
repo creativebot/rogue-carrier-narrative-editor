@@ -2757,13 +2757,19 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1791825999604",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": []
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T17:26:37.802Z",
+  "_lastModified": "2026-10-12T17:26:39.604Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
