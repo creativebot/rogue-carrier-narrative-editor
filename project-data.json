@@ -2049,6 +2049,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791833485256",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_03",
+                  "name": "Tech Voxel",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tech-Voxel.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3205,7 +3218,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:31:17.818Z",
+  "_lastModified": "2026-10-12T19:31:25.256Z",
   "criteriaPool": [
     "Orange Box"
   ]
