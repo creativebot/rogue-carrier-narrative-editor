@@ -1550,8 +1550,8 @@
       "variationId": "var_v2",
       "floorIndex": 0,
       "tier": null,
-      "location": "5 mis",
-      "spawnConditions": "5 mis",
+      "location": "5 mins after the variaions start",
+      "spawnConditions": "5 mins after the variaions start",
       "eventIntro": "So, captain… What should we do next?",
       "eventDescription": "At least that explains the time loop. But we need to choose a course of action to break it, preferably with Zephyrus still in one piece.",
       "reactionTimerHours": "Infinite",
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:54:05.434Z"
+  "_lastModified": "2026-10-12T18:54:31.909Z"
 }
