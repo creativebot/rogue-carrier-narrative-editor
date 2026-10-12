@@ -1662,7 +1662,7 @@
         {
           "id": "act_1791792723899",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Use HEV-suits",
           "description": "Using the gathered information, we can providereliable protection for our scouts.",
           "requirements": [],
           "timerHours": 5,
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:14:28.134Z"
+  "_lastModified": "2026-10-12T08:15:11.847Z"
 }
