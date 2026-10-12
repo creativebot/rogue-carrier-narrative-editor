@@ -1648,7 +1648,7 @@
         {
           "id": "act_1791792722857",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Gather data beforehand",
           "description": "This looks dangerous. We should investigate before putting our scouts at risk.",
           "requirements": [],
           "timerHours": 5,
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:13:50.825Z"
+  "_lastModified": "2026-10-12T08:14:28.134Z"
 }
