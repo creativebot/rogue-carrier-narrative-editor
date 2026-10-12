@@ -1264,7 +1264,7 @@
       "category": "GenericPool",
       "variationId": "var_v2",
       "floorIndex": 1,
-      "tier": 1,
+      "tier": 2,
       "location": "Submerged Hull",
       "spawnConditions": "After boarding beacon",
       "eventIntro": "The interior atmospheric sensors flicker to life. A faint cybernetic hum resonates through the bulkhead.",
@@ -1273,8 +1273,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
-        "y": 1193
+        "x": 1040,
+        "y": 1187
       },
       "actions": [
         {
@@ -2683,7 +2683,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:15:58.679Z",
+  "_lastModified": "2026-10-12T14:22:28.807Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
