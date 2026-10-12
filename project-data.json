@@ -1579,7 +1579,7 @@
     },
     {
       "id": "node_1791717900687",
-      "codename": "T1-V2-K1A",
+      "codename": "T1-V2-K1B",
       "name": "Once More Into The Frey",
       "type": "World",
       "category": "KeyChain",
@@ -2138,6 +2138,44 @@
           ],
           "timerHours": 5,
           "resultDescription": "The data shows that the first contact we had wasn’t a direct contact. At least not as direct as we thought it was. The Primodial wasn’t there in full, and we aren’t even sure that he could be present in a full material form. The one Voss talked to could be either an AI avatar, a transdimensional projection, or even an interactive semi-intelligent recording of the person long gone. The artifacts collected are mostly functional and can be studied to gain a better understanding of the prims’ technology, especially the Prism. What we know now is that the Prism is autonomous and powered by the source beyond our 4 dimensions. All attempts to mess with it will lead to the safety reboot, as well as any serious damage to the ship and crew. We can’t help but wonder: could Zephyrus survive the attack if the Prism were still aboard it?",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    },
+    {
+      "id": "node_1791834582822",
+      "codename": "T1-V2-K1A",
+      "name": "Once More Into The Frey",
+      "title": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 724,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791834582822",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3276,7 +3314,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:45:32.996Z",
+  "_lastModified": "2026-10-12T19:49:42.823Z",
   "criteriaPool": [
     "Orange Box"
   ]
