@@ -1689,7 +1689,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Approaching the Primordial structure.",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "This looks more like a spacecraft than a marine building. Or even a space station. Crash-landed in these shallows.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:55:18.023Z"
+  "_lastModified": "2026-10-12T18:55:26.044Z"
 }
