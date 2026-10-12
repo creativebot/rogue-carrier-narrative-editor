@@ -1,18 +1,6 @@
 {
   "comments": [
     {
-      "id": "cmt_1791467850374",
-      "targetId": "node_e0",
-      "targetType": "event",
-      "targetTitle": "The Moment After the End",
-      "text": "Comment test",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-08T13:57:30.374132Z",
-      "displayTime": "2026-10-08 15:57",
-      "mentions": []
-    },
-    {
       "id": "cmt_1791468621763",
       "targetId": "node_e1",
       "targetType": "event",
@@ -40,6 +28,7 @@
     }
   ],
   "deletedIds": [
+    "cmt_1791467850374",
     "cmt_1791569583368",
     "cmt_1791569647034",
     "cmt_1791723288305"
