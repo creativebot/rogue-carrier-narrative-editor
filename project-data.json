@@ -1603,7 +1603,21 @@
           "codeSuffix": "A",
           "shortDescription": "Search for the ruins",
           "description": "There are other Primordial structures on Keeling. To understand their technology, we must first study it.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791832697330",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_04",
+                  "name": "Nanomaterials",
+                  "amount": 1,
+                  "iconImg": "icons/T_Graphene.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "We spotted several structures that can be identified as potentially built by the Primordials. They are all in close proximity and potentially reachable by our means of transportation.",
           "rewards": [
@@ -3002,5 +3016,8 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:14:35.270Z"
+  "_lastModified": "2026-10-12T19:18:17.330Z",
+  "criteriaPool": [
+    "Orange Box"
+  ]
 }
