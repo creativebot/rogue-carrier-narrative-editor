@@ -1716,7 +1716,7 @@
           "id": "act_1791812011267",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "The structure doesn’t look stable. We’ll be putting our crew at risk, sending them without any prior exploration. ",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2843,5 +2843,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T18:55:37.467Z"
+  "_lastModified": "2026-10-12T18:55:48.745Z"
 }
