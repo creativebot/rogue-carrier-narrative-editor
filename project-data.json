@@ -1637,20 +1637,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1791823906267",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ]
     }
@@ -2753,7 +2739,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:52:03.483Z",
+  "_lastModified": "2026-10-12T16:52:05.949Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
