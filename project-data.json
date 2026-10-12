@@ -1162,10 +1162,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": null,
+          "targetNodeIds": []
         }
       ],
       "disabledVariationIds": [],
@@ -1201,7 +1199,10 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         },
         {
           "id": "act_sec_1_2",
@@ -1214,7 +1215,10 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1250,51 +1254,13 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Ghost Skiff"
-    },
-    {
-      "id": "node_gen_followup",
-      "codename": "GEN-E2",
-      "name": "Ancient AI Core",
-      "type": "Ship",
-      "category": "GenericPool",
-      "variationId": "var_v2",
-      "floorIndex": 1,
-      "tier": 1,
-      "location": "Submerged Hull",
-      "spawnConditions": "After boarding beacon",
-      "eventIntro": "The interior atmospheric sensors flicker to life. A faint cybernetic hum resonates through the bulkhead.",
-      "eventDescription": "Deep within the sunken vessel, a dormant intelligence awakens.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 80,
-        "y": 1193
-      },
-      "actions": [
-        {
-          "id": "act_gen2_1",
-          "codeSuffix": "A",
-          "shortDescription": "Extract Core Data",
-          "description": "Interface directly with the terminal.",
-          "requirements": [],
-          "timerHours": 3,
-          "resultDescription": "Data extracted successfully.",
-          "rewards": [
-            "🧠 Knowledge +300",
-            "🔧 Engineering +1"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
-      "title": "Ancient AI Core"
+      "title": "The Ghost Skiff"
     },
     {
       "id": "node_deck_1",
@@ -1337,7 +1303,9 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -2653,7 +2621,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T14:07:59.467Z",
+  "_lastModified": "2026-10-12T14:08:14.165Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
