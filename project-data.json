@@ -1986,7 +1986,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -1072,
+        "x": -1068,
         "y": 2070
       },
       "actions": [
@@ -3232,7 +3232,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:31:44.172Z",
+  "_lastModified": "2026-10-12T19:31:52.748Z",
   "criteriaPool": [
     "Orange Box"
   ]
