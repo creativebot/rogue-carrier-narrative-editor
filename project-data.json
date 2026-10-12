@@ -2928,40 +2928,8 @@
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
         }
       ]
-    },
-    {
-      "id": "diag_1791831718349",
-      "targetEventId": "node_1791719038295",
-      "triggerTiming": "pre_event",
-      "triggerActionId": null,
-      "links": [
-        {
-          "id": "dlink_1791831718349",
-          "targetEventId": "node_1791719038295",
-          "triggerTiming": "pre_event",
-          "triggerActionId": null,
-          "triggerCondition": "Before (T1-V2-K2A)"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V2-K2A)",
-      "position": {
-        "x": -221,
-        "y": 810
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791831718349",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ]
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:01:58.409Z"
+  "_lastModified": "2026-10-12T19:02:04.718Z"
 }
