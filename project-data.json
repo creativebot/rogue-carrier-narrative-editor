@@ -1773,7 +1773,7 @@
           "description": "Scanners show no life or energy signatures. The place is dead. We can send the team in.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The place was pillaged a long time ago. Everything was either looted, smashed, or turned to rust & dust. All we can extract from here is some basic materials.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2895,5 +2895,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:00:56.662Z"
+  "_lastModified": "2026-10-12T19:01:05.722Z"
 }
