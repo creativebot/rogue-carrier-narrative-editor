@@ -2003,7 +2003,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. The Orange box data shows the critical malfunction in the battery block safety systems in this sector of the ship, seconds before the explosion. Further study is required to clarify the connection between these two occurrences.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3337,7 +3337,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:55:18.560Z",
+  "_lastModified": "2026-10-12T19:55:25.627Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge"
