@@ -1609,8 +1609,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 80,
         "y": 648
@@ -2745,7 +2753,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T16:51:55.905Z",
+  "_lastModified": "2026-10-12T16:52:03.483Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
