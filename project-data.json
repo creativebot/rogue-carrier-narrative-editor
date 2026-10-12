@@ -1634,7 +1634,7 @@
         {
           "id": "c_1791719038295",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Send the scouting team",
           "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
           "requirements": [],
           "timerHours": 5,
@@ -2815,5 +2815,5 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T08:13:30.630Z"
+  "_lastModified": "2026-10-12T08:13:50.825Z"
 }
