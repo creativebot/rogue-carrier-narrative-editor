@@ -1994,7 +1994,7 @@
           "id": "c_1791832874715",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "We only managed to scratch the surface here. More information will be needed to obtain a deeper understanding of the Primordials, but it’s a start.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3164,7 +3164,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:23:01.324Z",
+  "_lastModified": "2026-10-12T19:23:12.810Z",
   "criteriaPool": [
     "Orange Box"
   ]
