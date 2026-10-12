@@ -2024,7 +2024,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Despite the first meeting with the Prims, all the structures we’ve found were deserted many centuries ago. What was the creature the Captain spoke to? A ghost? Or maybe they moved on – deeper into the sea perhaps? However, we didn’t find anything that could help us with the riddle of the Prism. We must continue our search.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3232,7 +3232,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:31:52.748Z",
+  "_lastModified": "2026-10-12T19:32:21.485Z",
   "criteriaPool": [
     "Orange Box"
   ]
