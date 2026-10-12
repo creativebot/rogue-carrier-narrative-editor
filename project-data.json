@@ -1943,7 +1943,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "This fragment has traces of an explosion. A careful study can unveil the details of the attack. However, the fragment is small and badly damaged. We aren’t likely to find any surviving data or gear here.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3232,7 +3232,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T19:39:24.739Z",
+  "_lastModified": "2026-10-12T19:39:31.213Z",
   "criteriaPool": [
     "Orange Box"
   ]
