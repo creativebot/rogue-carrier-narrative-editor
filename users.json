@@ -48,6 +48,16 @@
       "authProvider": "google",
       "createdAt": "2026-10-12T06:36:26.668210Z",
       "lastLogin": "2026-10-12T06:36:26.668210Z"
+    },
+    {
+      "email": "volodymyrkuznietsov@n-ix.com",
+      "name": "Volodymyr Kuznietsov",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-12T06:40:57.152532Z",
+      "lastLogin": "2026-10-12T06:40:57.152532Z"
     }
   ]
 }
