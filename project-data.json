@@ -1274,7 +1274,7 @@
       "inactionThreat": null,
       "position": {
         "x": 80,
-        "y": 1283
+        "y": 1122
       },
       "actions": [
         {
@@ -2683,7 +2683,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T15:05:57.180Z",
+  "_lastModified": "2026-10-12T15:05:57.809Z",
   "symbolLimits": {
     "eventIntro": 475,
     "eventDescription": 475,
