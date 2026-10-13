@@ -20,6 +20,7 @@ function setupPortDragEvents() {
     }
 
     if (actionPort) {
+      document.body.classList.add('is-port-dragging');
       const nodeId = actionPort.getAttribute('data-node-id');
       const actionId = actionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
@@ -53,6 +54,7 @@ function setupPortDragEvents() {
       };
       return true;
     } else if (preEventPort) {
+      document.body.classList.add('is-port-dragging');
       const nodeId = preEventPort.getAttribute('data-node-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
       if (!sourceNode) return false;
@@ -75,6 +77,7 @@ function setupPortDragEvents() {
       };
       return true;
     } else if (actionOptionPort) {
+      document.body.classList.add('is-port-dragging');
       const nodeId = actionOptionPort.getAttribute('data-node-id');
       const actionId = actionOptionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
@@ -98,6 +101,7 @@ function setupPortDragEvents() {
       };
       return true;
     } else if (postActionPort) {
+      document.body.classList.add('is-port-dragging');
       const nodeId = postActionPort.getAttribute('data-node-id');
       const actionId = postActionPort.getAttribute('data-action-id');
       const sourceNode = appData.nodes.find(n => n.id === nodeId);
@@ -137,6 +141,7 @@ function setupPortDragEvents() {
 
   function endPortDrag(clientX, clientY) {
     if (!portDragState.isDragging) return;
+    document.body.classList.remove('is-port-dragging');
 
     const stageRect = canvasStage.getBoundingClientRect();
     const mouseX = (clientX - stageRect.left) / transform.scale;
@@ -144,7 +149,9 @@ function setupPortDragEvents() {
     const dragDist = Math.hypot(mouseX - portDragState.startPos.x, mouseY - portDragState.startPos.y);
 
     const elementUnderMouse = document.elementFromPoint(clientX, clientY);
-    const targetCard = elementUnderMouse ? elementUnderMouse.closest('.event-card') : null;
+    const targetInbound = elementUnderMouse ? elementUnderMouse.closest('.inbound-event-port') : null;
+    const targetCard = elementUnderMouse ? elementUnderMouse.closest('.event-card, .deck-event-card, .generic-event-card') : null;
+    const targetId = targetInbound ? targetInbound.getAttribute('data-node-id') : (targetCard ? targetCard.id.replace('node-', '') : null);
     const targetDialogue = elementUnderMouse ? elementUnderMouse.closest('.dialogue-card') : null;
 
     if (portDragState.sourceType === 'action') {
@@ -152,21 +159,24 @@ function setupPortDragEvents() {
       if (sourceNode) {
         if (portDragState.sourceActionId === 'inaction') {
           if (!sourceNode.inactionThreat) sourceNode.inactionThreat = {};
-          if (targetCard) {
-            const targetId = targetCard.id.replace('node-', '');
+          if (targetId) {
             if (targetId === sourceNode.id) {
-              // Never allow an event to connect to itself; if clicked on port while connected, offer to disconnect
-              if (dragDist < 24 && sourceNode.inactionThreat.targetNodeId) {
+              if (dragDist < 20 && sourceNode.inactionThreat.targetNodeId === sourceNode.id) {
                 portDragState.isDragging = false;
-                disconnectActionTarget(sourceNode.id, 'inaction');
+                disconnectActionTarget(sourceNode.id, 'inaction', sourceNode.id);
                 return;
               }
-              portDragState.isDragging = false;
-              renderApp();
-              return;
+              pushUndoState();
+              sourceNode.inactionThreat.targetNodeId = sourceNode.id;
+              showToast(`Inaction timeout loops back to ${sourceNode.codename}`, 'success');
+            } else {
+              pushUndoState();
+              sourceNode.inactionThreat.targetNodeId = targetId;
+              const linkedNode = appData.nodes.find(n => n.id === targetId);
+              if (linkedNode) {
+                showToast(`Inaction failure links ${sourceNode.codename} → ${linkedNode.codename}`, 'success');
+              }
             }
-            pushUndoState();
-            sourceNode.inactionThreat.targetNodeId = targetId;
           } else if (dragDist >= 30) {
             pushUndoState();
             let closestFloorIdx = 0;
@@ -208,24 +218,23 @@ function setupPortDragEvents() {
           const action = (sourceNode.actions || []).find(a => a.id === portDragState.sourceActionId);
           if (action) {
             const currentTargets = getActionTargetIds(action, sourceNode.id);
-            if (targetCard) {
-              const targetId = targetCard.id.replace('node-', '');
+            if (targetId) {
               if (targetId === sourceNode.id) {
-                // Never allow an event to connect to itself; if clicked on port while connected, offer to disconnect
-                if (dragDist < 24 && currentTargets.length > 0) {
+                if (dragDist < 20 && currentTargets.includes(sourceNode.id)) {
                   portDragState.isDragging = false;
-                  disconnectActionTarget(sourceNode.id, action.id);
+                  disconnectActionTarget(sourceNode.id, action.id, sourceNode.id);
                   return;
                 }
-                portDragState.isDragging = false;
-                renderApp();
-                return;
-              }
-              pushUndoState();
-              addActionTargetId(action, targetId, sourceNode.id);
-              const linkedNode = appData.nodes.find(n => n.id === targetId);
-              if (linkedNode) {
-                showToast(`Linked ${sourceNode.codename} (${action.shortDescription || 'Choice'}) → ${linkedNode.codename}`, 'success');
+                pushUndoState();
+                addActionTargetId(action, sourceNode.id, null);
+                showToast(`Action "${action.shortDescription || 'Choice'}" loops back to ${sourceNode.codename}`, 'success');
+              } else {
+                pushUndoState();
+                addActionTargetId(action, targetId, sourceNode.id);
+                const linkedNode = appData.nodes.find(n => n.id === targetId);
+                if (linkedNode) {
+                  showToast(`Linked ${sourceNode.codename} (${action.shortDescription || 'Choice'}) → ${linkedNode.codename}`, 'success');
+                }
               }
             } else if (dragDist >= 30) {
               pushUndoState();
@@ -351,7 +360,8 @@ function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
   if (actionId === 'inaction') {
     if (!sourceNode.inactionThreat || !sourceNode.inactionThreat.targetNodeId) return;
     const targetNode = (appData.nodes || []).find(n => n.id === sourceNode.inactionThreat.targetNodeId);
-    const targetLabel = targetNode ? targetNode.codename : sourceNode.inactionThreat.targetNodeId;
+    const isSelf = targetNode && targetNode.id === sourceNode.id;
+    const targetLabel = targetNode ? (isSelf ? `${targetNode.codename} (Self-loop)` : targetNode.codename) : sourceNode.inactionThreat.targetNodeId;
     if (confirm(`Remove inaction failure link from ${sourceNode.codename} to ${targetLabel}?`)) {
       pushUndoState();
       sourceNode.inactionThreat.targetNodeId = null;
@@ -369,7 +379,8 @@ function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
 
   if (specificTargetNodeId) {
     const targetNode = (appData.nodes || []).find(n => n.id === specificTargetNodeId);
-    const targetLabel = targetNode ? targetNode.codename : specificTargetNodeId;
+    const isSelf = targetNode && targetNode.id === sourceNode.id;
+    const targetLabel = targetNode ? (isSelf ? `${targetNode.codename} (Self-loop)` : targetNode.codename) : specificTargetNodeId;
     if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
       pushUndoState();
       removeActionTargetId(action, specificTargetNodeId, sourceNode.id);
@@ -383,7 +394,8 @@ function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
   if (targetIds.length === 1) {
     const onlyId = targetIds[0];
     const targetNode = (appData.nodes || []).find(n => n.id === onlyId);
-    const targetLabel = targetNode ? targetNode.codename : onlyId;
+    const isSelf = targetNode && targetNode.id === sourceNode.id;
+    const targetLabel = targetNode ? (isSelf ? `${targetNode.codename} (Self-loop)` : targetNode.codename) : onlyId;
     if (confirm(`Remove connection link from ${sourceNode.codename} (${action.shortDescription || 'Choice'}) to ${targetLabel}?`)) {
       pushUndoState();
       removeActionTargetId(action, onlyId, sourceNode.id);
@@ -394,7 +406,7 @@ function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
   } else {
     const labels = targetIds.map(tid => {
       const tn = (appData.nodes || []).find(n => n.id === tid);
-      return tn ? tn.codename : tid;
+      return tn ? (tn.id === sourceNode.id ? `${tn.codename} (Self-loop)` : tn.codename) : tid;
     }).join(', ');
     if (confirm(`Remove all ${targetIds.length} connection links (${labels}) from ${sourceNode.codename} (${action.shortDescription || 'Choice'})?`)) {
       pushUndoState();
@@ -452,27 +464,9 @@ function renderConnectors() {
 
   const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
 
-  // 1. Collect & Draw Action/Inaction -> Event Connections so all blue/red lines enter orthogonally at the TOP edge
+  // 1. Collect & Draw Action/Inaction -> Event Connections (including self-loops and multi-target links)
   const eventLinks = [];
-  let cleanedSelfLoop = false;
   appData.nodes.forEach(sourceNode => {
-    // Always strip any invalid self-links where an event points to itself
-    (sourceNode.actions || []).forEach(act => {
-      if (!act) return;
-      if (act.targetNodeId === sourceNode.id) {
-        act.targetNodeId = null;
-        cleanedSelfLoop = true;
-      }
-      if (Array.isArray(act.targetNodeIds) && act.targetNodeIds.includes(sourceNode.id)) {
-        act.targetNodeIds = act.targetNodeIds.filter(id => id !== sourceNode.id);
-        cleanedSelfLoop = true;
-      }
-    });
-    if (sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId === sourceNode.id) {
-      sourceNode.inactionThreat.targetNodeId = null;
-      cleanedSelfLoop = true;
-    }
-
     if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
     if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -491,7 +485,7 @@ function renderConnectors() {
 
       targetIds.forEach((targetId, targetSubIdx) => {
         const targetNode = appData.nodes.find(n => n.id === targetId);
-        if (!targetNode || targetNode.id === sourceNode.id) return;
+        if (!targetNode) return;
         if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -519,10 +513,10 @@ function renderConnectors() {
       });
     });
 
-    // Inaction Threat -> Consequence Node Connection
-    if (hasInaction && sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId && sourceNode.inactionThreat.targetNodeId !== sourceNode.id) {
+    // Inaction Threat -> Consequence Node Connection (supports consequence in self or external event)
+    if (hasInaction && sourceNode.inactionThreat && sourceNode.inactionThreat.targetNodeId) {
       const targetNode = appData.nodes.find(n => n.id === sourceNode.inactionThreat.targetNodeId);
-      if (targetNode && targetNode.id !== sourceNode.id) {
+      if (targetNode) {
         if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
@@ -550,10 +544,6 @@ function renderConnectors() {
     }
   });
 
-  if (cleanedSelfLoop) {
-    saveProjectToLocalStorage();
-  }
-
   // Group incoming links by targetNode.id so multiple lines entering the same event top edge stay distinct
   const incomingByTarget = new Map();
   eventLinks.forEach(link => {
@@ -565,17 +555,49 @@ function renderConnectors() {
     list.sort((a, b) => a.startX - b.startX);
   });
 
+  // Update inbound port classes and tooltips across all rendered nodes (both overview and full headers)
+  appData.nodes.forEach(node => {
+    const el = document.getElementById(`node-${node.id}`);
+    if (!el) return;
+    const ports = el.querySelectorAll('.inbound-event-port');
+    const incList = incomingByTarget.get(node.id) || [];
+    ports.forEach(p => {
+      if (incList.length > 0) {
+        p.classList.add('has-inbound-links');
+        p.title = `Attachment node: ${incList.length} incoming action link(s). Click to view details.`;
+      } else {
+        p.classList.remove('has-inbound-links');
+        p.title = `Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices).`;
+      }
+    });
+  });
+
   eventLinks.forEach((link) => {
     const { sourceNode, targetNode, action, startX, startY, sourceRect, targetRect, targetWidth } = link;
     const incomingList = incomingByTarget.get(targetNode.id) || [link];
     const incomingIdx = incomingList.indexOf(link);
     const incomingCount = incomingList.length;
-    const topEntryOffset = incomingCount > 1
-      ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 32)
-      : 0;
 
-    const endX = targetNode.position.x + (targetWidth / 2) + topEntryOffset;
-    const endY = targetNode.position.y;
+    // Anchor connector line into the inbound attachment node in the header
+    const targetEl = document.getElementById(`node-${targetNode.id}`);
+    const portEl = targetEl ? targetEl.querySelector('.inbound-event-port') : null;
+    let endX, endY;
+
+    if (portEl && canvasStage) {
+      const portRect = portEl.getBoundingClientRect();
+      const stageRect = canvasStage.getBoundingClientRect();
+      const topEntryOffset = incomingCount > 1
+        ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 6)
+        : 0;
+      endX = (portRect.left + portRect.width / 2 - stageRect.left) / transform.scale + topEntryOffset;
+      endY = (portRect.top - stageRect.top) / transform.scale;
+    } else {
+      const topEntryOffset = incomingCount > 1
+        ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 16)
+        : 0;
+      endX = targetNode.position.x + 36 + topEntryOffset;
+      endY = targetNode.position.y + 12;
+    }
 
     const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx + (link.targetSubIdx || 0));
     const isDimmedLink = isPoolPage && (isPoolNodeDimmed(sourceNode.id) || isPoolNodeDimmed(targetNode.id));

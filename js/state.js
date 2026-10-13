@@ -1628,7 +1628,7 @@ window.openSymbolLimitsModal = openSymbolLimitsModal;
 window.saveSymbolLimitsFromModal = saveSymbolLimitsFromModal;
 window.resetSymbolLimitsToDefault = resetSymbolLimitsToDefault;
 
-// Multi-Target Action Link Helpers (allows 1 action to link to multiple downstream events)
+// Multi-Target Action Link Helpers (allows 1 action to link to multiple downstream events, or loop back to itself)
 function getActionTargetIds(act, sourceNodeId = null) {
   if (!act) return [];
   const rawList = [];
@@ -1644,7 +1644,6 @@ function getActionTargetIds(act, sourceNodeId = null) {
   const seen = new Set();
   const valid = [];
   rawList.forEach(id => {
-    if (sourceNodeId && id === sourceNodeId) return;
     if (existingNodeIds.size > 0 && !existingNodeIds.has(id)) return;
     if (!seen.has(id)) {
       seen.add(id);
@@ -1657,7 +1656,7 @@ function getActionTargetIds(act, sourceNodeId = null) {
 }
 
 function addActionTargetId(act, targetId, sourceNodeId = null) {
-  if (!act || !targetId || (sourceNodeId && targetId === sourceNodeId)) return false;
+  if (!act || !targetId) return false;
   const current = getActionTargetIds(act, sourceNodeId);
   if (!current.includes(targetId)) {
     current.push(targetId);

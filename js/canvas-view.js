@@ -1320,14 +1320,15 @@ function createEventNodeDOM(node) {
     </button>
   ` : '';
 
-  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span>${lodPoolToggleHTML}</div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
+  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><div class="inbound-event-port cursor-pointer mr-1" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event"><div class="inbound-port-dot"></div></div><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span>${lodPoolToggleHTML}</div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
 
   const poolSwitchBarHTML = isPoolEvent ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
 
   wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
-        <!-- Event Block Header with Pre-Event Trigger Port -->
+        <!-- Event Block Header with Inbound Attachment Port and Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
+          <div class="inbound-event-port cursor-pointer" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
           <span class="codename-badge editable-spot font-mono font-bold" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')">
             ${node.codename}
           </span>
@@ -1649,6 +1650,7 @@ function createDeckNodeDOM(node) {
 
   wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-start mb-3">
+      <div class="inbound-event-port cursor-pointer mr-2 mt-1" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="space-y-2">
         <div class="deck-tag-condition">Conditions: <span class="editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'conditions')">${node.conditions || 'in the open sea'}</span></div>
         <div class="deck-tag-target">Target: <span class="editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'target')">${node.target || 'Behemoth'}</span></div>
@@ -1709,6 +1711,7 @@ function createGenericNodeDOM(node) {
 
   wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-center mb-3">
+      <div class="inbound-event-port cursor-pointer mr-2" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="generic-banner flex-1">${node.codename}</div>
       <div class="generic-premise-card ml-4 w-64 bg-amber-100 border border-amber-300 p-2 rounded text-xs text-amber-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
         ${node.eventDescription}
@@ -3457,5 +3460,42 @@ function rerenderDialogue(dialogueId) {
   if (window.lucide) lucide.createIcons();
 }
 
+function showInboundConnectionsInfo(nodeId) {
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return;
+  
+  const inboundSources = [];
+  (appData.nodes || []).forEach(src => {
+    (src.actions || []).forEach(act => {
+      const targets = getActionTargetIds(act, src.id);
+      if (targets.includes(nodeId)) {
+        inboundSources.push({
+          sourceNode: src,
+          action: act,
+          isSelf: (src.id === nodeId),
+          label: `${src.codename} → Choice: ${act.shortDescription || 'Action'}`
+        });
+      }
+    });
+    if (src.inactionThreat && src.inactionThreat.targetNodeId === nodeId) {
+      inboundSources.push({
+        sourceNode: src,
+        action: { id: 'inaction', shortDescription: 'Inaction Timeout' },
+        isSelf: (src.id === nodeId),
+        label: `${src.codename} → Inaction Timeout`
+      });
+    }
+  });
+
+  if (inboundSources.length === 0) {
+    showToast(`Inbound Attachment Node: No actions currently lead into ${node.codename}. Drag an action port from the bottom of any event (or this block) to connect here.`, 'info');
+    return;
+  }
+
+  const lines = inboundSources.map(s => `• ${s.label}${s.isSelf ? ' (Self-loop)' : ''}`).join('\n');
+  showToast(`Inbound Connections to ${node.codename} (${inboundSources.length}):\n${lines}`, 'info');
+}
+
+window.showInboundConnectionsInfo = showInboundConnectionsInfo;
 window.rerenderNode = rerenderNode;
 window.rerenderDialogue = rerenderDialogue;
