@@ -652,12 +652,15 @@ function renderFloorBands() {
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-8000px`;
-      band.style.width = `24000px`;
+      band.style.left = `-80000px`;
+      band.style.width = `160000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals
-      const labelXPositions = [-2500, -800, 40, 1800, 3600, 5600, 8000, 11000];
+      // Stage label badges starting from STAGE 1, placed at visible intervals across the infinite stripe
+      const labelXPositions = [];
+      for (let lx = -60000; lx <= 60000; lx += 3000) {
+        labelXPositions.push(lx + 40);
+      }
       labelXPositions.forEach(lx => {
         const label = document.createElement('div');
         label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
@@ -714,8 +717,8 @@ function renderFloorBands() {
       band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
       band.style.left = `${tierStarts[t]}px`;
       band.style.width = `${tierWidths[t]}px`;
-      band.style.top = `-1500px`;
-      band.style.height = `16000px`;
+      band.style.top = `-20000px`;
+      band.style.height = `50000px`;
       floorBandsLayer.appendChild(band);
 
       const header = document.createElement('div');
@@ -740,9 +743,12 @@ function updateDynamicBandDimensions() {
       const bandTop = y - 45;
 
       let maxBottomInStage = bandTop + STAGE_BAND_HEIGHT;
+      const stageMinY = idx === 0 ? -Infinity : (FLOOR_Y[idx] + FLOOR_Y[idx - 1]) / 2;
+      const stageMaxY = (idx === FLOOR_Y.length - 1) ? Infinity : (FLOOR_Y[idx] + FLOOR_Y[idx + 1]) / 2;
+
       const cardsInStage = Array.from(nodesLayer.children).filter(el => {
         const top = parseFloat(el.style.top) || 0;
-        return Math.abs(top - y) < 450;
+        return top >= stageMinY && top < stageMaxY;
       });
 
       cardsInStage.forEach(cardEl => {
@@ -754,9 +760,19 @@ function updateDynamicBandDimensions() {
         }
       });
 
-      // Band height adapts to the highest element with 60px bottom padding buffer
-      const requiredHeight = Math.max(STAGE_BAND_HEIGHT, (maxBottomInStage - bandTop) + 60);
-      band.style.height = `${requiredHeight}px`;
+      const isLastStage = (idx === FLOOR_Y.length - 1);
+      if (isLastStage) {
+        // Last stage has no subsequent stage below it: expand generously to fit all elements + bottom buffer
+        const requiredHeight = Math.max(1100, (maxBottomInStage - bandTop) + 120);
+        band.style.height = `${requiredHeight}px`;
+      } else {
+        // Earlier stages (Stages 1-3): clamp so bottom border NEVER exceeds or overlaps the top of the next stage
+        const nextStageTop = FLOOR_Y[idx + 1] - 45;
+        const maxSafeHeight = Math.max(STAGE_BAND_HEIGHT, nextStageTop - bandTop - 15);
+        const calculatedHeight = Math.max(STAGE_BAND_HEIGHT, (maxBottomInStage - bandTop) + 60);
+        const finalHeight = Math.min(calculatedHeight, maxSafeHeight);
+        band.style.height = `${finalHeight}px`;
+      }
     });
   } else {
     // Generic / Deck Pools: Check if any rendered card in a tier is wider than allocated
