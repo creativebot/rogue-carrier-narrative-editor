@@ -2143,17 +2143,31 @@ html, body {
 }
 
 .lod-action-label-col {
-  width: 190px;
-  min-width: 190px;
+  width: 220px;
+  min-width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 18px;
   font-weight: 800;
   color: var(--theme-label-text, #451a03);
   background-color: var(--theme-label-bg, #fef9c3);
   border-right: 2px solid var(--theme-table-border, #fde047);
+}
+
+.lod-options-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 900;
+  background: #f59e0b;
+  color: #030712;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .lod-action-col {
@@ -2187,7 +2201,7 @@ html, body {
   background: #dc2626;
 }
 
-/* Active Zoomed-Out Mode (< 58% scale): Swap heavy DOM for Schematic LOD Card */
+/* Active Zoomed-Out Mode (< 58% scale or LOD Forced ON): Swap heavy DOM for Schematic LOD Card */
 #canvas-stage.is-zoomed-out .event-card,
 #canvas-stage.is-zoomed-out .dialogue-card {
   height: var(--card-exact-height, auto) !important;
@@ -2201,6 +2215,16 @@ html, body {
 
 #canvas-stage.is-zoomed-out .lod-overview-card {
   display: flex !important;
+}
+
+/* Focused block in max-zoom always reveals full card even under LOD */
+#canvas-stage.is-zoomed-out .event-card.is-max-zoomed .event-card-inner,
+#canvas-stage.is-zoomed-out .dialogue-card.is-max-zoomed .dialogue-card-inner {
+  display: block !important;
+}
+#canvas-stage.is-zoomed-out .event-card.is-max-zoomed .lod-overview-card,
+#canvas-stage.is-zoomed-out .dialogue-card.is-max-zoomed .lod-overview-card {
+  display: none !important;
 }
 
 #canvas-stage.is-zoomed-out #connector-overlays-layer,

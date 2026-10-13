@@ -305,6 +305,40 @@ function setupCanvasEvents() {
   canvasContainer.addEventListener('touchcancel', finishTouch);
 }
 
+let isLodModeEnabled = (localStorage.getItem('rc_lod_mode') === 'true');
+
+function updateLodUIState() {
+  const btn = document.getElementById('btn-toggle-lod');
+  const label = document.getElementById('lod-status-label');
+  if (label) {
+    label.innerText = isLodModeEnabled ? 'ON' : 'OFF';
+    label.className = isLodModeEnabled ? 'font-mono font-extrabold text-amber-300' : 'font-mono font-extrabold text-gray-400';
+  }
+  if (btn) {
+    if (isLodModeEnabled) {
+      btn.className = 'px-2 py-1 rounded-lg text-xs font-bold bg-amber-950/80 text-amber-300 border border-amber-500 hover:bg-amber-900/90 flex items-center gap-1 transition shadow-sm active:scale-95';
+    } else {
+      btn.className = 'px-2 py-1 rounded-lg text-xs font-bold bg-gray-900 text-gray-400 border border-gray-700 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition shadow-xs active:scale-95';
+    }
+  }
+
+  if (canvasStage) {
+    canvasStage.classList.toggle('is-zoomed-out', isLodModeEnabled);
+  }
+}
+
+function toggleLodMode() {
+  isLodModeEnabled = !isLodModeEnabled;
+  localStorage.setItem('rc_lod_mode', isLodModeEnabled ? 'true' : 'false');
+  updateLodUIState();
+  if (typeof showToast === 'function') {
+    showToast(isLodModeEnabled ? '⚡ LOD Mode ON: Showing simplified schematic view with option counts' : '📋 LOD Mode OFF: Full detailed view', 'info');
+  }
+}
+
+window.toggleLodMode = toggleLodMode;
+window.updateLodUIState = updateLodUIState;
+
 let lastAppliedScale = null;
 function updateCanvasTransform() {
   if (!canvasStage) return;
@@ -313,7 +347,7 @@ function updateCanvasTransform() {
   // Only recalculate CSS custom properties and zoomed-out LOD class when scale actually changes
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;
-    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.58);
+    canvasStage.classList.toggle('is-zoomed-out', isLodModeEnabled);
 
     const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
     canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
@@ -529,6 +563,7 @@ function renderApp() {
     setTimeout(() => renderConnectors(), 50);
   }
   updateStats();
+  updateLodUIState();
 }
 
 function renderVariationSelect() {
@@ -1087,8 +1122,12 @@ function createEventNodeDOM(node) {
     return `<div class="lod-action-col"><span class="lod-action-pill">${suffix}: ${label}</span></div>`;
   }).join('') + (hasInaction ? `<div class="lod-action-col lod-action-inaction"><span class="lod-action-pill">⚠️ ${escapeHtml((node.inactionThreat && node.inactionThreat.shortDescription) || 'Timeout')}</span></div>` : '');
 
+  const optionsBadgeHTML = hasInaction
+    ? `<span class="lod-options-badge" title="${actionCols.length} Choices + 1 Inaction Timeout">${actionCols.length}+1</span>`
+    : `<span class="lod-options-badge" title="${actionCols.length} Choices">${actionCols.length}</span>`;
+
   const lodSummaryText = escapeHtml((introText || descText || node.spawnConditions || '').slice(0, 160));
-  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col">OPTIONS</div>${lodActionItemsHTML}</div></div>`;
+  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
 
   wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
@@ -2889,6 +2928,7 @@ function updateBlockZoomButtons() {
     const isEvent = card.classList.contains('event-card') || card.classList.contains('deck-event-card') || card.classList.contains('generic-event-card');
     const blockId = card.id.replace(isEvent ? 'node-' : 'dialogue-', '');
     const isThisBlockAtMax = (maxZoomedBlockId === blockId && currentScale >= (maxZoomScale * 0.95));
+    card.classList.toggle('is-max-zoomed', isThisBlockAtMax);
 
     const zoomInBtn = card.querySelector('.block-zoom-in-btn');
     if (zoomInBtn) {
