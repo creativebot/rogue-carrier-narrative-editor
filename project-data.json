@@ -1478,7 +1478,9 @@
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -3504,7 +3506,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T08:02:13.091Z",
+  "_lastModified": "2026-10-13T08:03:33.160Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
