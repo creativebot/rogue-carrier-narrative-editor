@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -10,6 +10,12 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch",
+      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -82,6 +88,76 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Multiverse Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Multiverse Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Multiverse Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Multiverse Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Multiverse Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Multiverse Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Multiverse Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Multiverse Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Multiverse Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -1217,8 +1293,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 265
+        "x": 80,
+        "y": 243
       },
       "actions": [
         {
@@ -1232,10 +1308,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1333,7 +1406,7 @@
       "type": "Ship",
       "category": "GenericPool",
       "variationId": "var_v2",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "tier": 1,
       "location": "Submerged Hull",
       "spawnConditions": "After boarding beacon",
@@ -1343,8 +1416,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 1560
+        "x": 80,
+        "y": 1193
       },
       "actions": [
         {
@@ -1358,9 +1431,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1392,8 +1463,8 @@
         ]
       },
       "position": {
-        "x": 110,
-        "y": 154
+        "x": 100,
+        "y": 220
       },
       "actions": [
         {
@@ -1486,7 +1557,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2418,
+        "x": 2541,
         "y": 2070
       },
       "actions": [
@@ -2402,7 +2473,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3827,
+        "x": 3647,
         "y": 1080
       },
       "actions": [
@@ -2439,45 +2510,6 @@
               "category": "Criteria",
               "isCriteria": true
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791874839712",
-      "codename": "DECK-S1-E2",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 799
-      },
-      "actions": [
-        {
-          "id": "c_1791874839712",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3112,8 +3144,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 628,
-        "y": 1070
+        "x": 635,
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3146,8 +3178,8 @@
       "triggerActionId": "c_1791297604320",
       "triggerCondition": "After (GEN-E1) Board Vessel",
       "position": {
-        "x": -7,
-        "y": 968
+        "x": 30,
+        "y": 872
       },
       "lines": [
         {
@@ -3339,8 +3371,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4851,
-        "y": 2200
+        "x": 4879,
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3415,8 +3447,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4194,
-        "y": 2219
+        "x": 4148,
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3492,7 +3524,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 2271
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3615,7 +3647,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:18:16.533Z",
+  "_lastModified": "2026-10-13T15:20:53.128Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
