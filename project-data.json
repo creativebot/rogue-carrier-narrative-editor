@@ -1828,7 +1828,23 @@
           "codeSuffix": "C",
           "shortDescription": "Use HEV-suits",
           "description": "Using the gathered information, we can providereliable protection for our scouts.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791889479769",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_refinery_intelligence",
+                  "name": "Refinery Intelligence",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The scouts still have precious little time to explore the complex. Presumably, it was a refinery for Eldritium, with a significant supply of the material still there. Scouts couldn’t take all, but gathered data about the industrial capacities of the Primordials.",
           "rewards": [
@@ -3538,7 +3554,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:04:29.403Z",
+  "_lastModified": "2026-10-13T11:04:39.769Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
