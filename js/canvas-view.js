@@ -305,7 +305,7 @@ function setupCanvasEvents() {
   canvasContainer.addEventListener('touchcancel', finishTouch);
 }
 
-let isLodModeEnabled = (localStorage.getItem('rc_lod_mode') === 'true');
+let isLodModeEnabled = localStorage.getItem('rc_lod_mode') !== null ? (localStorage.getItem('rc_lod_mode') === 'true') : true;
 
 function updateLodUIState() {
   const btn = document.getElementById('btn-toggle-lod');
@@ -322,32 +322,53 @@ function updateLodUIState() {
     }
   }
 
-  if (canvasStage) {
-    canvasStage.classList.toggle('is-zoomed-out', isLodModeEnabled);
+  const stage = canvasStage || document.getElementById('canvas-stage');
+  if (stage) {
+    const scale = (typeof transform !== 'undefined' && transform && typeof transform.scale === 'number') ? transform.scale : 1.0;
+    const isMaxZoomed = (typeof maxZoomedBlockId !== 'undefined' && Boolean(maxZoomedBlockId));
+    const shouldApplyLod = isLodModeEnabled && (scale < 0.58) && !isMaxZoomed;
+    stage.classList.toggle('is-zoomed-out', shouldApplyLod);
   }
 }
 
 function toggleLodMode() {
   isLodModeEnabled = !isLodModeEnabled;
-  localStorage.setItem('rc_lod_mode', isLodModeEnabled ? 'true' : 'false');
+  try {
+    localStorage.setItem('rc_lod_mode', isLodModeEnabled ? 'true' : 'false');
+  } catch (err) {
+    console.warn('Could not persist rc_lod_mode:', err);
+  }
   updateLodUIState();
   if (typeof showToast === 'function') {
-    showToast(isLodModeEnabled ? '⚡ LOD Mode ON: Showing simplified schematic view with option counts' : '📋 LOD Mode OFF: Full detailed view', 'info');
+    showToast(isLodModeEnabled ? '⚡ LOD Mode ON: Active when zoomed out (< 58%)' : '📋 LOD Mode OFF: Full detailed content always visible', 'info');
   }
 }
 
 window.toggleLodMode = toggleLodMode;
 window.updateLodUIState = updateLodUIState;
 
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateLodUIState);
+  } else {
+    updateLodUIState();
+  }
+}
+
 let lastAppliedScale = null;
 function updateCanvasTransform() {
+  if (!canvasStage) {
+    canvasStage = document.getElementById('canvas-stage');
+  }
   if (!canvasStage) return;
   canvasStage.style.transform = `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`;
 
-  // Only recalculate CSS custom properties and zoomed-out LOD class when scale actually changes
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;
-    canvasStage.classList.toggle('is-zoomed-out', isLodModeEnabled);
+    // When LOD switch is ON: apply LOD only at high-level zoom (< 0.58)
+    // When LOD switch is OFF: NEVER apply LOD (always false)
+    const shouldApplyLod = isLodModeEnabled && (transform.scale < 0.58) && !maxZoomedBlockId;
+    canvasStage.classList.toggle('is-zoomed-out', shouldApplyLod);
 
     const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
     canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
@@ -405,6 +426,18 @@ function setupToolbarEvents() {
 
   const btnFit = document.getElementById('btn-fit-schematic');
   if (btnFit) btnFit.onclick = () => fitWholeSchematic();
+
+  const btnToggleLod = document.getElementById('btn-toggle-lod');
+  if (btnToggleLod) {
+    btnToggleLod.onclick = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      toggleLodMode();
+    };
+  }
+  updateLodUIState();
 
   // Save (Ctrl+S) Button
   const btnSaveProject = document.getElementById('btn-save-project');
