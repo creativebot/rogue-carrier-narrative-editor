@@ -1843,6 +1843,19 @@
                   "isCriteria": true
                 }
               ]
+            },
+            {
+              "id": "clause_1791889572558",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_02",
+                  "name": "Alloyed Metal",
+                  "amount": 1,
+                  "iconImg": "icons/T_Alloy_Steel.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3554,7 +3567,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:04:39.769Z",
+  "_lastModified": "2026-10-13T11:06:12.558Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
