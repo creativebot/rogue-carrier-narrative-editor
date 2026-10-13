@@ -1814,7 +1814,21 @@
           "codeSuffix": "B",
           "shortDescription": "Gather data beforehand",
           "description": "This looks dangerous. We should investigate before putting our scouts at risk.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791889634537",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 1,
+                  "iconImg": "icons/T_Conductive-Materials.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "We still don’t exactly understand what this field is or what its purpose is. But now we know the possible hazards and how to avoid them. ",
           "rewards": [
@@ -3594,7 +3608,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:06:55.726Z",
+  "_lastModified": "2026-10-13T11:07:14.537Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
