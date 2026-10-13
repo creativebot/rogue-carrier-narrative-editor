@@ -83,7 +83,7 @@ function setupCanvasEvents() {
 
     // Return if clicking on interactive controls
     if (isArrangeMode) {
-      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue')) {
+      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn')) {
         return;
       }
     } else if (
@@ -94,7 +94,10 @@ function setupCanvasEvents() {
       e.target.closest('select') || 
       e.target.closest('.connector-port') ||
       e.target.closest('.dialogue-trigger-port') ||
-      e.target.closest('.req-pill')
+      e.target.closest('.req-pill') ||
+      e.target.closest('.pool-event-switch-bar') ||
+      e.target.closest('.pool-switch-toggle-btn') ||
+      e.target.closest('.lod-pool-toggle-btn')
     ) {
       return;
     }
@@ -204,10 +207,10 @@ function setupCanvasEvents() {
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       const targetCard = e.target.closest('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
-      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue');
+      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn');
       const isInteractive = isArrangeMode
         ? isPortOrZoom
-        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .block-floating-btn');
+        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .block-floating-btn, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn');
 
       // If in Arrange Mode AND touch starts on an event/dialogue card body:
       if (isArrangeMode && targetCard && !isInteractive) {
@@ -410,7 +413,10 @@ function setupToolbarEvents() {
         syncActiveBoardLock();
       }
       if (currentAppViewMode !== 'mobile-stage') {
-        setTimeout(() => fitWholeSchematic(), 50);
+        const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool';
+        if (!isPool) {
+          setTimeout(() => fitWholeSchematic(), 50);
+        }
       }
     });
   }
@@ -1304,9 +1310,21 @@ function createEventNodeDOM(node) {
     : `<span class="lod-options-badge" title="${actionCols.length} Choices">${actionCols.length}</span>`;
 
   const lodSummaryText = escapeHtml((introText || descText || node.spawnConditions || '').slice(0, 160));
-  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
+  const varLabel = `V${currentVar.number}`;
+  const lodPoolToggleHTML = isPoolEvent ? `
+    <button type="button" class="lod-pool-toggle-btn ${isDimmed ? 'is-off' : 'is-on'}"
+            onclick="event.stopPropagation(); window.togglePoolNodeVariationState('${node.id}', event)"
+            onmousedown="event.stopPropagation()"
+            title="Click to toggle: ${isDimmed ? `DISABLED in ${varLabel}` : `ACTIVE in ${varLabel}`}">
+      ${isDimmed ? `✕ OFF (${varLabel})` : `✔ ON (${varLabel})`}
+    </button>
+  ` : '';
 
-  wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner"><div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
+  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span>${lodPoolToggleHTML}</div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
+
+  const poolSwitchBarHTML = isPoolEvent ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
+
+  wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">

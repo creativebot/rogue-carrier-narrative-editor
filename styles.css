@@ -1526,6 +1526,41 @@ html, body {
   background-color: #94a3b8;
 }
 
+/* LOD Overview Pool Switch Button (Zoomed-out compact toggle) */
+.lod-pool-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s ease;
+  user-select: none;
+  margin-left: 4px;
+}
+.lod-pool-toggle-btn.is-on {
+  background: rgba(6, 78, 59, 0.9);
+  border-color: #10b981;
+  color: #a7f3d0;
+}
+.lod-pool-toggle-btn.is-on:hover {
+  background: rgba(6, 95, 70, 1);
+  border-color: #34d399;
+}
+.lod-pool-toggle-btn.is-off {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #dc2626;
+  color: #f87171;
+}
+.lod-pool-toggle-btn.is-off:hover {
+  background: rgba(30, 41, 59, 1);
+  border-color: #ef4444;
+}
+
 /* Dimmed / Inactive Card Body Styling */
 .event-card-body.is-pool-dimmed,
 .lod-overview-card.is-pool-dimmed {

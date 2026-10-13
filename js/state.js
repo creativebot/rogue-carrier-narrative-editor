@@ -1790,8 +1790,14 @@ function isPoolNodeDimmed(nodeId, variationId, visited = new Set()) {
   const isUpstreamDisabled = (appData.nodes || []).some(parent => {
     if (parent.id === nodeId) return false;
     if ((parent.category || 'KeyChain') !== (node.category || 'KeyChain')) return false;
-    const leadsToThis = (parent.actions || []).some(a => getActionTargetIds(a, parent.id).includes(nodeId) || a.targetEventId === nodeId) ||
-                        Boolean(parent.inactionThreat && (parent.inactionThreat.targetNodeId === nodeId || parent.inactionThreat.targetEventId === nodeId));
+    const leadsToThis = (parent.actions || []).some(a => {
+      const tgts = getActionTargetIds(a, parent.id);
+      return tgts.includes(nodeId) || a.targetEventId === nodeId || a.targetNodeId === nodeId;
+    }) || Boolean(parent.inactionThreat && (
+      parent.inactionThreat.targetNodeId === nodeId || 
+      parent.inactionThreat.targetEventId === nodeId ||
+      (Array.isArray(parent.inactionThreat.targetNodeIds) && parent.inactionThreat.targetNodeIds.includes(nodeId))
+    ));
     if (leadsToThis) {
       return isPoolNodeDimmed(parent.id, targetVarId, visited);
     }
@@ -1815,23 +1821,55 @@ function getConnectedPoolEventIds(startNodeId) {
     (currNode.actions || []).forEach(act => {
       const tgts = getActionTargetIds(act, currNode.id);
       if (act.targetEventId && !tgts.includes(act.targetEventId)) tgts.push(act.targetEventId);
+      if (act.targetNodeId && !tgts.includes(act.targetNodeId)) tgts.push(act.targetNodeId);
       tgts.forEach(tgt => {
         if (tgt && !connectedIds.has(tgt)) queue.push(tgt);
       });
     });
 
     if (currNode.inactionThreat) {
-      const inactTgt = currNode.inactionThreat.targetNodeId || currNode.inactionThreat.targetEventId;
-      if (inactTgt && !connectedIds.has(inactTgt)) {
-        queue.push(inactTgt);
-      }
+      const inactTgts = [];
+      if (currNode.inactionThreat.targetNodeId) inactTgts.push(currNode.inactionThreat.targetNodeId);
+      if (currNode.inactionThreat.targetEventId) inactTgts.push(currNode.inactionThreat.targetEventId);
+      if (Array.isArray(currNode.inactionThreat.targetNodeIds)) inactTgts.push(...currNode.inactionThreat.targetNodeIds);
+      inactTgts.forEach(t => {
+        if (t && !connectedIds.has(t)) queue.push(t);
+      });
     }
   }
   return Array.from(connectedIds);
 }
 
+function getUpstreamPoolEventIds(targetNodeId) {
+  const upstreamIds = new Set();
+  const queue = [targetNodeId];
+  while (queue.length > 0) {
+    const currId = queue.shift();
+    (appData.nodes || []).forEach(parent => {
+      if (parent.id === currId || upstreamIds.has(parent.id)) return;
+      const leadsToThis = (parent.actions || []).some(a => {
+        const tgts = getActionTargetIds(a, parent.id);
+        return tgts.includes(currId) || a.targetEventId === currId || a.targetNodeId === currId;
+      }) || Boolean(parent.inactionThreat && (
+        parent.inactionThreat.targetNodeId === currId || 
+        parent.inactionThreat.targetEventId === currId ||
+        (Array.isArray(parent.inactionThreat.targetNodeIds) && parent.inactionThreat.targetNodeIds.includes(currId))
+      ));
+      if (leadsToThis) {
+        upstreamIds.add(parent.id);
+        queue.push(parent.id);
+      }
+    });
+  }
+  return Array.from(upstreamIds);
+}
+
 function togglePoolNodeVariationState(nodeId, e) {
   if (e) e.stopPropagation();
+  if (typeof canUserEdit === 'function' && !canUserEdit()) {
+    if (typeof requireAuthToEdit === 'function') requireAuthToEdit("enable or disable pool events");
+    return;
+  }
   pushUndoState();
   const node = (appData.nodes || []).find(n => n.id === nodeId);
   if (!node) return;
@@ -1856,6 +1894,18 @@ function togglePoolNodeVariationState(nodeId, e) {
     }
   });
 
+  if (!willDisable) {
+    // When switching ON, also ensure all upstream nodes in the chain leading to this node are enabled
+    const upstreamIds = getUpstreamPoolEventIds(nodeId);
+    upstreamIds.forEach(upId => {
+      const upNode = (appData.nodes || []).find(n => n.id === upId);
+      if (upNode && Array.isArray(upNode.disabledVariationIds)) {
+        const upIdx = upNode.disabledVariationIds.indexOf(activeVariationId);
+        if (upIdx !== -1) upNode.disabledVariationIds.splice(upIdx, 1);
+      }
+    });
+  }
+
   saveProjectToLocalStorage();
   renderApp();
 
@@ -1866,6 +1916,10 @@ function togglePoolNodeVariationState(nodeId, e) {
 }
 
 window.togglePoolNodeVariationState = togglePoolNodeVariationState;
+window.getConnectedPoolEventIds = getConnectedPoolEventIds;
+window.getUpstreamPoolEventIds = getUpstreamPoolEventIds;
+window.isPoolNodeDimmed = isPoolNodeDimmed;
+window.getPoolSwitchBarHTML = getPoolSwitchBarHTML;
 
 function getPoolSwitchBarHTML(node, isDimmed, currentVar) {
   const varLabel = `V${currentVar.number}`;
