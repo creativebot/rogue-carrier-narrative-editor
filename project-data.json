@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Volodymyr Kuznietsov"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -3504,7 +3504,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-12T20:06:44.673Z",
+  "_lastModified": "2026-10-13T08:02:13.091Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
