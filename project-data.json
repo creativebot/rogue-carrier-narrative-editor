@@ -1774,21 +1774,6 @@
           "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
           "requirements": [
             {
-              "id": "clause_1791889416893",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "criteria_refinery_intelligence",
-                  "name": "Refinery Intelligence",
-                  "amount": 1,
-                  "icon": "🔑",
-                  "iconImg": "",
-                  "category": "Criteria",
-                  "isCriteria": true
-                }
-              ]
-            },
-            {
               "id": "clause_1791889437308",
               "isReplaceable": false,
               "items": [
@@ -3553,7 +3538,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:04:15.580Z",
+  "_lastModified": "2026-10-13T11:04:24.837Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
