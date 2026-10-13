@@ -2548,7 +2548,14 @@
           "timerHours": 5,
           "resultDescription": "No use. Our divers reached the fragment but barely had time to explore it. The local fauna is very aggressive there, so they had to withdraw soon. Still, they managed to recover a data cluster.",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "+20-30",
+              "icon": "📜",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3708,7 +3715,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:31:19.036Z",
+  "_lastModified": "2026-10-13T15:32:55.570Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
