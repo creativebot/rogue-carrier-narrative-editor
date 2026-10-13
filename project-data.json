@@ -2624,7 +2624,7 @@
         {
           "id": "act_1791905955269",
           "codeSuffix": "B",
-          "shortDescription": "Ranalyse the Orange box",
+          "shortDescription": "Ranalyse the OB data",
           "description": "R&D proposes deeper research of the Orange Box data to match the gathered data on the explosion",
           "requirements": [],
           "timerHours": 5,
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:42:41.022Z",
+  "_lastModified": "2026-10-13T15:42:59.496Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
