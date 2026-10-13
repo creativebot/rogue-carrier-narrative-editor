@@ -1,6 +1,20 @@
 {
   "notifications": [
     {
+      "id": "notif_1791878810054_0",
+      "recipientEmail": "vkuznietsov@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "diag_1791832094238",
+      "targetType": "dialogue",
+      "targetTitle": "Standalone Conversation",
+      "commentText": "@vkuznietsov а нашо це? чи треба система наліпок / коментарів?",
+      "commentId": "cmt_1791878810052",
+      "createdAt": "2026-10-13T08:06:50.052818Z",
+      "displayTime": "Oct 13, 08:06",
+      "read": false
+    },
+    {
       "id": "notif_1791724017478_0",
       "recipientEmail": "vkuznietsov@n-ix.com",
       "senderName": "Daniel Poludyonny",
@@ -28,5 +42,6 @@
       "displayTime": "Oct 11, 12:54",
       "read": false
     }
-  ]
+  ],
+  "deletedIds": []
 }
