@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -1463,7 +1463,7 @@
         ]
       },
       "position": {
-        "x": 110,
+        "x": 100,
         "y": 220
       },
       "actions": [
@@ -2583,19 +2583,18 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
-      "id": "node_1791905644698",
-      "codename": "DECK-S1-E2",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
+      "id": "node_1791905801725",
+      "codename": "T1-V2-K3B",
+      "name": "Once More Into The Frey",
+      "title": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 2,
+      "tier": null,
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
@@ -2604,12 +2603,12 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 840
+        "x": 2952,
+        "y": 2070
       },
       "actions": [
         {
-          "id": "c_1791905644698",
+          "id": "c_1791905801725",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
@@ -3754,7 +3753,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:34:58.181Z",
+  "_lastModified": "2026-10-13T15:36:41.725Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
