@@ -580,23 +580,37 @@ function renderConnectors() {
 
     // Anchor connector line into the inbound attachment node in the header
     const targetEl = document.getElementById(`node-${targetNode.id}`);
-    const portEl = targetEl ? targetEl.querySelector('.inbound-event-port') : null;
+    let portEl = null;
+    if (targetEl) {
+      // Find the currently visible inbound attachment node (prioritize visible full header port)
+      const allPorts = Array.from(targetEl.querySelectorAll('.inbound-event-port'));
+      portEl = allPorts.find(p => p.offsetWidth > 0 && p.offsetHeight > 0) || allPorts[0];
+    }
+
     let endX, endY;
+    let foundValidPort = false;
 
     if (portEl && canvasStage) {
       const portRect = portEl.getBoundingClientRect();
-      const stageRect = canvasStage.getBoundingClientRect();
-      const topEntryOffset = incomingCount > 1
-        ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 6)
-        : 0;
-      endX = (portRect.left + portRect.width / 2 - stageRect.left) / transform.scale + topEntryOffset;
-      endY = (portRect.top - stageRect.top) / transform.scale;
-    } else {
+      if (portRect.width > 2 && portRect.height > 2 && portRect.left > 0 && portRect.top > 0) {
+        const stageRect = canvasStage.getBoundingClientRect();
+        const topEntryOffset = incomingCount > 1
+          ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 6)
+          : 0;
+        endX = (portRect.left + portRect.width / 2 - stageRect.left) / transform.scale + topEntryOffset;
+        endY = (portRect.top - stageRect.top) / transform.scale;
+        foundValidPort = true;
+      }
+    }
+
+    if (!foundValidPort) {
+      const isPoolEvent = (targetNode.category === 'GenericPool' || targetNode.category === 'DeckPool' || activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
       const topEntryOffset = incomingCount > 1
         ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 16)
         : 0;
-      endX = targetNode.position.x + 36 + topEntryOffset;
-      endY = targetNode.position.y + 12;
+      // Robust pure stage coordinates fallback: inside the event header at top left
+      endX = targetNode.position.x + 20 + topEntryOffset;
+      endY = targetNode.position.y + (isPoolEvent ? 34 : 6);
     }
 
     const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx + (link.targetSubIdx || 0));
