@@ -1763,7 +1763,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -1029,
+        "x": -1270,
         "y": 1080
       },
       "actions": [
@@ -3640,7 +3640,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:45:25.149Z",
+  "_lastModified": "2026-10-13T11:45:28.667Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
