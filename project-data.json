@@ -2516,6 +2516,44 @@
         }
       ],
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791904903648",
+      "codename": "T1-V2-K2F",
+      "name": "Once More Into The Frey",
+      "title": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 1,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 5172,
+        "y": 1080
+      },
+      "actions": [
+        {
+          "id": "c_1791904903648",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -3647,7 +3685,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:20:53.128Z",
+  "_lastModified": "2026-10-13T15:21:43.648Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
