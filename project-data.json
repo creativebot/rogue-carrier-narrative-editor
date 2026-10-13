@@ -1827,6 +1827,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791889641065",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 1,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3608,7 +3621,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:07:14.537Z",
+  "_lastModified": "2026-10-13T11:07:21.065Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
