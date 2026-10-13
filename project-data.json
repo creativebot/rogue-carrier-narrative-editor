@@ -2595,8 +2595,8 @@
       "variationId": "var_v2",
       "floorIndex": 2,
       "tier": null,
-      "location": "6 mins after both choices resolution",
-      "spawnConditions": "6 mins after both choices resolution",
+      "location": "6 mins after [Inner Explosion] criteria aquired",
+      "spawnConditions": "6 mins after [Inner Explosion] criteria aquired",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -3753,7 +3753,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:37:03.699Z",
+  "_lastModified": "2026-10-13T15:38:26.115Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
