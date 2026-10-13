@@ -1801,6 +1801,19 @@
                   "category": "Specialization"
                 }
               ]
+            },
+            {
+              "id": "clause_1791889455580",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 1,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3540,7 +3553,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:03:57.308Z",
+  "_lastModified": "2026-10-13T11:04:15.580Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
