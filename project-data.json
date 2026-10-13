@@ -2530,7 +2530,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "This fragment had sunken by the time we arrived, but scanners detected a strange signal nearby.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3685,7 +3685,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:21:43.648Z",
+  "_lastModified": "2026-10-13T15:29:04.736Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
