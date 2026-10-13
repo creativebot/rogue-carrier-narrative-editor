@@ -2542,7 +2542,7 @@
         {
           "id": "c_1791904903648",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Organize the diving team",
           "description": "The waters are shallow here. Maybe we can use divers to reach the Fragment?",
           "requirements": [],
           "timerHours": 5,
@@ -3699,7 +3699,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:29:45.170Z",
+  "_lastModified": "2026-10-13T15:29:50.201Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
