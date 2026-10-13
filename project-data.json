@@ -1856,6 +1856,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791889601223",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_02",
+                  "name": "Microcontrollers",
+                  "amount": 1,
+                  "iconImg": "icons/T_Microcontrollers.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3567,7 +3580,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:06:12.558Z",
+  "_lastModified": "2026-10-13T11:06:41.223Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
