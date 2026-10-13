@@ -2053,6 +2053,30 @@ html, body {
   border: 1.5px solid #f87171 !important;
 }
 
+.symbol-count-badge.is-under-rec {
+  border-color: rgba(6, 182, 212, 0.5);
+  color: #0284c7;
+}
+
+.symbol-count-badge.is-dark-bg.is-under-rec {
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #38bdf8;
+}
+
+.symbol-rec-tag {
+  opacity: 0.75;
+  font-size: 8.5px;
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+#board-update-notification-banner {
+  background: rgba(8, 51, 68, 0.96);
+  border: 1px solid rgba(6, 182, 212, 0.6);
+  color: #cffafe;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(6, 182, 212, 0.25);
+}
+
 .editable-spot.is-over-limit {
   background-color: rgba(254, 202, 202, 0.55) !important;
   outline: 1.5px solid #ef4444 !important;

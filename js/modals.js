@@ -1614,27 +1614,29 @@ function getActiveBoardDialogueBlocks() {
   });
 }
 
-function calculateVariationSymbolStats(variationId) {
-  const vId = variationId || activeVariationId;
-  const varObj = (appData.variations || []).find(v => v.id === vId);
+function calculateActiveBoardSymbolStats() {
+  const isPool = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const varObj = (appData.variations || []).find(v => v.id === activeVariationId);
+  const vNum = varObj ? varObj.number : 1;
+  const vName = varObj ? varObj.name : 'Variation';
+
+  const activeNodes = getActiveBoardEventBlocks();
+  const activeDialogues = getActiveBoardDialogueBlocks();
+
   let eventSymbols = 0;
   let dialogueSymbols = 0;
-  let varDescSymbols = varObj && varObj.description ? String(varObj.description).length : 0;
+  let varDescSymbols = 0;
   let overLimitCount = 0;
+  let underRecCount = 0;
 
-  if (varObj && isFieldTextOverLimit(varObj.description || '', 'variationDescription')) {
-    overLimitCount++;
+  if (activeCategoryFilter === 'KeyChain' && varObj && varObj.description) {
+    varDescSymbols = String(varObj.description).length;
+    if (isFieldTextOverLimit(varObj.description, 'variationDescription')) overLimitCount++;
+    if (isFieldTextUnderRecommended(varObj.description, 'variationDescription')) underRecCount++;
   }
 
-  const varNodeIds = new Set();
-  (appData.nodes || []).forEach(n => {
+  activeNodes.forEach(n => {
     if (!n) return;
-    const cat = n.category || 'KeyChain';
-    const isPool = (cat === 'GenericPool' || cat === 'DeckPool');
-    if (isPool) return; // Only count variation-specific events (KeyChain & SecretChain) in variation symbol total
-    if ((n.variationId || 'var_1') !== vId) return;
-    varNodeIds.add(n.id);
-
     const introStr = String(n.eventIntro || '');
     const descStr = String(n.eventDescription || '');
     const nameStr = String(n.name || '');
@@ -1642,8 +1644,10 @@ function calculateVariationSymbolStats(variationId) {
 
     if (isFieldTextOverLimit(introStr, 'eventIntro')) overLimitCount++;
     if (isFieldTextOverLimit(descStr, 'eventDescription')) overLimitCount++;
+    if (isFieldTextUnderRecommended(introStr, 'eventIntro')) underRecCount++;
+    if (isFieldTextUnderRecommended(descStr, 'eventDescription')) underRecCount++;
 
-    const nodeChoiceLimitKey = getActionChoiceLimitKey(n);
+    const choiceKey = getActionChoiceLimitKey(n);
     (n.actions || []).forEach(act => {
       if (!act) return;
       const btnStr = String(act.shortDescription || '');
@@ -1652,8 +1656,12 @@ function calculateVariationSymbolStats(variationId) {
       eventSymbols += btnStr.length + choiceStr.length + outStr.length;
 
       if (isFieldTextOverLimit(btnStr, 'actionButtonText')) overLimitCount++;
-      if (isFieldTextOverLimit(choiceStr, nodeChoiceLimitKey)) overLimitCount++;
+      if (isFieldTextOverLimit(choiceStr, choiceKey)) overLimitCount++;
       if (isFieldTextOverLimit(outStr, 'eventOutcome')) overLimitCount++;
+
+      if (isFieldTextUnderRecommended(btnStr, 'actionButtonText')) underRecCount++;
+      if (isFieldTextUnderRecommended(choiceStr, choiceKey)) underRecCount++;
+      if (isFieldTextUnderRecommended(outStr, 'eventOutcome')) underRecCount++;
     });
 
     if (n.hasInactionThreat && n.inactionThreat) {
@@ -1661,64 +1669,95 @@ function calculateVariationSymbolStats(variationId) {
       const inactRes = String(n.inactionThreat.resultDescription || '');
       eventSymbols += inactDesc.length + inactRes.length;
       if (isFieldTextOverLimit(inactRes, 'inactionResult')) overLimitCount++;
+      if (isFieldTextUnderRecommended(inactRes, 'inactionResult')) underRecCount++;
     }
   });
 
-  (appData.dialogues || []).forEach(d => {
+  activeDialogues.forEach(d => {
     if (!d) return;
-    const links = getDialogueLinks(d);
-    let belongsToVar = false;
-    if (links.length > 0) {
-      belongsToVar = links.some(l => varNodeIds.has(l.targetEventId));
-    } else {
-      const cat = d.category || 'KeyChain';
-      if (cat !== 'GenericPool' && cat !== 'DeckPool' && (d.variationId || 'var_1') === vId) {
-        belongsToVar = true;
+    (d.lines || []).forEach(l => {
+      if (l && l.text) {
+        dialogueSymbols += String(l.text).length;
       }
-    }
-    if (belongsToVar) {
-      (d.lines || []).forEach(l => {
-        if (l && l.text) dialogueSymbols += String(l.text).length;
-      });
-    }
+    });
   });
+
+  let boardTypeLabel = 'Key Chain';
+  let symbolsTag = `Symbols (Key V${vNum})`;
+  if (activeCategoryFilter === 'SecretChain') {
+    boardTypeLabel = 'Secret Chain';
+    symbolsTag = `Symbols (Secret V${vNum})`;
+  } else if (activeCategoryFilter === 'GenericPool') {
+    boardTypeLabel = 'Generic Pool';
+    symbolsTag = `Symbols (Generic Pool)`;
+  } else if (activeCategoryFilter === 'DeckPool') {
+    boardTypeLabel = 'Deck Pool';
+    symbolsTag = `Symbols (Deck Pool)`;
+  }
 
   return {
+    category: activeCategoryFilter,
+    boardTypeLabel,
+    symbolsTag,
     totalSymbols: eventSymbols + dialogueSymbols + varDescSymbols,
     eventSymbols,
     dialogueSymbols,
     varDescSymbols,
     overLimitCount,
-    varNumber: varObj ? varObj.number : 1,
-    varName: varObj ? varObj.name : 'Variation'
+    underRecCount,
+    activeEventsCount: activeNodes.length,
+    activeDialoguesCount: activeDialogues.length,
+    varNumber: vNum,
+    varName: vName
   };
 }
 
 function updateStats() {
+  const stats = calculateActiveBoardSymbolStats();
   const activeEvents = getActiveBoardEventBlocks();
   const activeDialogues = getActiveBoardDialogueBlocks();
+
   const evStat = document.getElementById('stat-event-count');
   if (evStat) {
-    evStat.innerText = `Events: ${activeEvents.length}`;
-    evStat.title = activeEvents.length > 0
-      ? `Event blocks on current board (${activeEvents.length}): ${activeEvents.map(n => n.codename || n.id).join(', ')}`
-      : 'No event blocks on current board';
+    if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
+      const activeInVar = activeEvents.filter(n => !isPoolNodeDimmed(n.id, activeVariationId)).length;
+      const typeLabel = activeCategoryFilter === 'DeckPool' ? 'Deck Events' : 'Generic Events';
+      evStat.innerText = `${typeLabel}: ${activeEvents.length} (${activeInVar} active in V${stats.varNumber})`;
+      evStat.title = `${typeLabel} in pool: ${activeEvents.length} total, ${activeInVar} currently active/included in V${stats.varNumber}`;
+    } else {
+      const typeLabel = activeCategoryFilter === 'SecretChain' ? 'Secret Events' : 'Key Events';
+      evStat.innerText = `${typeLabel}: ${activeEvents.length}`;
+      evStat.title = `${typeLabel} in V${stats.varNumber} (${stats.varName}): ${activeEvents.map(n => n.codename || n.id).join(', ')}`;
+    }
   }
+
   const diagStat = document.getElementById('stat-dialogue-count');
   if (diagStat) {
     diagStat.innerText = `Dialogues: ${activeDialogues.length}`;
-    diagStat.title = `Dialogue blocks on current board: ${activeDialogues.length}`;
+    diagStat.title = `Dialogue cards belonging to current board: ${activeDialogues.length}`;
   }
 
   const symStat = document.getElementById('stat-variation-symbols');
   if (symStat) {
-    const stats = calculateVariationSymbolStats(activeVariationId);
     if (stats.overLimitCount > 0) {
-      symStat.innerHTML = `<span class="text-red-400 font-bold">Symbols (V${stats.varNumber}): ${stats.totalSymbols.toLocaleString()} ⚠️ (${stats.overLimitCount} over limit)</span>`;
+      symStat.innerHTML = `<span class="text-red-400 font-bold">${stats.symbolsTag}: ${stats.totalSymbols.toLocaleString()} ⚠️ (${stats.overLimitCount} over limit)</span>`;
     } else {
-      symStat.innerHTML = `Symbols (V${stats.varNumber}): <span class="text-white">${stats.totalSymbols.toLocaleString()}</span>`;
+      symStat.innerHTML = `${stats.symbolsTag}: <span class="text-white">${stats.totalSymbols.toLocaleString()}</span>`;
     }
-    symStat.title = `V${stats.varNumber} (${stats.varName}) Total Symbols: ${stats.totalSymbols.toLocaleString()}\n• Events (Intro, Desc, Choices, Buttons, Outcomes): ${stats.eventSymbols.toLocaleString()} symbols\n• Dialogues: ${stats.dialogueSymbols.toLocaleString()} symbols\n• Variation Description: ${stats.varDescSymbols.toLocaleString()} symbols${stats.overLimitCount > 0 ? `\n⚠️ ${stats.overLimitCount} text field(s) exceed configured symbol limits` : ''}`;
+    const underInfo = stats.underRecCount > 0 ? `\n💡 ${stats.underRecCount} field(s) below recommended length` : '';
+    const overInfo = stats.overLimitCount > 0 ? `\n⚠️ ${stats.overLimitCount} field(s) exceed configured maximum limits` : '';
+    symStat.title = `${stats.boardTypeLabel} Total Symbols: ${stats.totalSymbols.toLocaleString()}\n• Events (Intro, Desc, Choices, Buttons, Outcomes): ${stats.eventSymbols.toLocaleString()} symbols\n• Dialogues: ${stats.dialogueSymbols.toLocaleString()} symbols${stats.varDescSymbols > 0 ? `\n• Variation Description: ${stats.varDescSymbols.toLocaleString()} symbols` : ''}${overInfo}${underInfo}`;
+  }
+
+  const hintEl = document.getElementById('stat-footer-hint');
+  if (hintEl) {
+    if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
+      hintEl.innerText = `5 Vertical Tier Columns (Tier I–V) • Common pool • Toggle switch bar to include/exclude in V${stats.varNumber}`;
+    } else if (activeCategoryFilter === 'SecretChain') {
+      hintEl.innerText = `Nodes snap to 4 Secret Stages • Secret Chain flow for V${stats.varNumber} • Click (+) / (x) to edit requirements`;
+    } else {
+      hintEl.innerText = `Nodes snap to 4 Horizontal Stages • Key Chain flow for V${stats.varNumber} • Click (+) / (x) to edit requirements`;
+    }
   }
 }
 

@@ -1498,6 +1498,11 @@ function isCurrentUserAdmin() {
   return email === 'dpoludonnyi@n-ix.com' || email === 'daniel.poludyonny@gmail.com' || currentUser.isAdmin === true || currentUser.role === 'admin';
 }
 
+let lastLoadedBoardRevisions = {};
+let collabSyncPollInterval = null;
+let lockTouchDebounceTimer = null;
+let pendingBoardRevision = null;
+
 function formatLockRemaining(totalSeconds) {
   if (totalSeconds <= 0) return '0:00';
   const m = Math.floor(totalSeconds / 60);
@@ -1525,9 +1530,10 @@ function renderBoardLockBanner(mode) {
     banner.className = 'absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl backdrop-blur-md border border-emerald-500/40 bg-emerald-950/80 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
     iconEl.innerHTML = `<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>`;
     const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
-    msgEl.innerHTML = `<span>Editing <strong class="text-white">${bName}</strong> (Active Lock)</span>`;
+    const remSec = (currentBoardLock?.remainingSeconds !== undefined) ? currentBoardLock.remainingSeconds : 180;
+    msgEl.innerHTML = `<span>Editing <strong class="text-white">${bName}</strong> (Lock expires in <span id="lock-countdown-timer-owned" class="font-mono text-white font-bold">${formatLockRemaining(remSec)}</span>)</span>`;
     actionsEl.innerHTML = `
-      <button type="button" onclick="releaseActiveBoardLock()" class="text-emerald-400 hover:text-emerald-100 text-[11px] underline ml-2 transition">
+      <button type="button" onclick="releaseActiveBoardLock()" class="text-emerald-400 hover:text-emerald-100 text-[11px] underline ml-2 transition cursor-pointer">
         Release
       </button>
     `;
@@ -1539,8 +1545,8 @@ function renderBoardLockBanner(mode) {
     iconEl.innerHTML = `<i data-lucide="lock" class="w-4 h-4 text-rose-400 shrink-0"></i>`;
     const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
     const ownerName = currentBoardLock?.userName || 'another designer';
-    const remSec = currentBoardLock?.remainingSeconds || 0;
-    msgEl.innerHTML = `<span><strong>${bName}</strong> is locked by <strong class="text-white">${ownerName}</strong> (Expires in <span id="lock-countdown-timer" class="font-mono text-white">${formatLockRemaining(remSec)}</span>) • <strong class="text-rose-300 uppercase tracking-wide">Read-Only Mode</strong></span>`;
+    const remSec = (currentBoardLock?.remainingSeconds !== undefined) ? currentBoardLock.remainingSeconds : 0;
+    msgEl.innerHTML = `<span><strong>${bName}</strong> is locked by <strong class="text-white">${ownerName}</strong> (Expires in <span id="lock-countdown-timer" class="font-mono text-white font-bold">${formatLockRemaining(remSec)}</span>) • <strong class="text-rose-300 uppercase tracking-wide">Read-Only Mode</strong></span>`;
     
     let adminBtnHtml = '';
     if (isCurrentUserAdmin()) {
@@ -1584,23 +1590,62 @@ function updateEditControlsLockState() {
 function startLockCountdown() {
   if (boardLockCountdownTimer) clearInterval(boardLockCountdownTimer);
   boardLockCountdownTimer = setInterval(() => {
-    if (!currentBoardLock || !isCurrentBoardReadOnly) {
+    if (!currentBoardLock) {
       clearInterval(boardLockCountdownTimer);
       boardLockCountdownTimer = null;
       return;
     }
     if (currentBoardLock.remainingSeconds > 0) {
       currentBoardLock.remainingSeconds -= 1;
-      const timerEl = document.getElementById('lock-countdown-timer');
-      if (timerEl) {
-        timerEl.innerText = formatLockRemaining(currentBoardLock.remainingSeconds);
+      const timerLocked = document.getElementById('lock-countdown-timer');
+      if (timerLocked) {
+        timerLocked.innerText = formatLockRemaining(currentBoardLock.remainingSeconds);
+      }
+      const timerOwned = document.getElementById('lock-countdown-timer-owned');
+      if (timerOwned) {
+        timerOwned.innerText = formatLockRemaining(currentBoardLock.remainingSeconds);
       }
     } else {
       clearInterval(boardLockCountdownTimer);
       boardLockCountdownTimer = null;
-      syncActiveBoardLock();
+      if (!isCurrentBoardReadOnly) {
+        // Lock owner ran out of time due to inactivity!
+        showToast("Board lock expired due to inactivity (3 min). Switched to Read-Only mode.", "warning");
+        releaseActiveBoardLock(false);
+      } else {
+        // Spectator: lock expired on server!
+        syncActiveBoardLock();
+      }
     }
   }, 1000);
+}
+
+async function touchActiveBoardLock() {
+  if (!currentBoardLock || isCurrentBoardReadOnly) return;
+  if (lockTouchDebounceTimer) return;
+  lockTouchDebounceTimer = setTimeout(async () => {
+    lockTouchDebounceTimer = null;
+    if (!currentBoardLock || isCurrentBoardReadOnly) return;
+    try {
+      const boardId = getCurrentBoardIdentifier();
+      const res = await fetch('/api/lock/heartbeat', {
+        method: 'POST',
+        headers: getAuthHeaders(true),
+        body: JSON.stringify({ boardId })
+      });
+      const data = await res.json();
+      if (res.ok && data.success && data.lock) {
+        currentBoardLock = data.lock;
+        currentBoardLock.remainingSeconds = 180;
+        const timerOwned = document.getElementById('lock-countdown-timer-owned');
+        if (timerOwned) {
+          timerOwned.innerText = formatLockRemaining(180);
+        }
+      } else if (data.status === 'lost') {
+        syncActiveBoardLock();
+      }
+    } catch (e) {}
+  }, 400);
 }
 
 async function syncActiveBoardLock() {
@@ -1622,71 +1667,201 @@ async function syncActiveBoardLock() {
 
     if (res.ok && data.success) {
       currentBoardLock = data.lock;
+      currentBoardLock.remainingSeconds = (data.lock && data.lock.remainingSeconds) || 180;
       isCurrentBoardReadOnly = false;
       renderBoardLockBanner('owned');
-      startLockHeartbeat(boardId);
+      startLockCountdown();
       updateEditControlsLockState();
+      startCollabSyncPoll();
     } else if (res.status === 423 || data.status === 'locked') {
       currentBoardLock = data.lock;
       isCurrentBoardReadOnly = true;
-      stopLockHeartbeat();
       renderBoardLockBanner('locked');
       startLockCountdown();
       updateEditControlsLockState();
+      startCollabSyncPoll();
     } else {
       isCurrentBoardReadOnly = false;
       renderBoardLockBanner('hidden');
       updateEditControlsLockState();
+      startCollabSyncPoll();
     }
   } catch (err) {
     isCurrentBoardReadOnly = false;
     renderBoardLockBanner('hidden');
     updateEditControlsLockState();
+    startCollabSyncPoll();
   }
 }
 
-function startLockHeartbeat(boardId) {
-  stopLockHeartbeat();
-  boardLockHeartbeatTimer = setInterval(async () => {
+function startCollabSyncPoll() {
+  if (collabSyncPollInterval) return;
+  collabSyncPollInterval = setInterval(async () => {
     try {
-      const res = await fetch('/api/lock/heartbeat', {
+      const res = await fetch('/api/locks', { headers: getAuthHeaders(false) });
+      if (!res.ok) return;
+      const data = await res.json();
+      const boardId = getCurrentBoardIdentifier();
+      const allLocks = data.locks || {};
+      const revisions = data.boardRevisions || {};
+
+      // 1. Sync lock status & countdown for active board
+      if (isCurrentBoardReadOnly) {
+        const activeLock = allLocks[boardId];
+        if (activeLock) {
+          currentBoardLock = activeLock;
+          const timerLocked = document.getElementById('lock-countdown-timer');
+          if (timerLocked) {
+            timerLocked.innerText = formatLockRemaining(activeLock.remainingSeconds);
+          }
+        } else if (currentBoardLock) {
+          // Lock was released or expired on server
+          syncActiveBoardLock();
+        }
+      } else {
+        // We hold the lock: verify we haven't been overridden by admin
+        const activeLock = allLocks[boardId];
+        const myEmail = (currentUser?.email || '').trim().toLowerCase();
+        if (activeLock && activeLock.userEmail && activeLock.userEmail.toLowerCase() !== myEmail) {
+          showToast(`Lock for ${activeLock.boardName} was taken over by ${activeLock.userName}.`, "warning");
+          syncActiveBoardLock();
+        }
+      }
+
+      // 2. Real-time board update notification (Option 1)
+      const serverRev = revisions[boardId];
+      if (serverRev && serverRev.lastModified) {
+        const myRev = lastLoadedBoardRevisions[boardId];
+        const myName = (currentUser?.name || '').trim().toLowerCase();
+        const authorName = (serverRev.author || '').trim().toLowerCase();
+        const isMyOwnSave = Boolean(authorName && myName && (authorName === myName || authorName.includes(myName) || myName.includes(authorName)));
+
+        if (!myRev) {
+          // Record current server revision baseline if not set yet
+          lastLoadedBoardRevisions[boardId] = serverRev;
+        } else if (serverRev.lastModified > myRev.lastModified && !isMyOwnSave) {
+          showBoardUpdateNotification(serverRev);
+        }
+      }
+    } catch (e) {}
+  }, 6000);
+}
+
+function showBoardUpdateNotification(rev) {
+  pendingBoardRevision = rev;
+  const banner = document.getElementById('board-update-notification-banner');
+  const msgEl = document.getElementById('board-update-notification-message');
+  if (!banner || !msgEl) return;
+  msgEl.innerHTML = `<span><strong>${rev.author || 'A teammate'}</strong> saved updates to this board (${rev.timestamp || 'recently'}).</span>`;
+  banner.classList.remove('hidden');
+  banner.classList.add('flex');
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons({ root: banner });
+  }
+}
+
+function dismissBoardUpdateNotification() {
+  const banner = document.getElementById('board-update-notification-banner');
+  if (banner) {
+    banner.classList.add('hidden');
+    banner.classList.remove('flex');
+  }
+  if (pendingBoardRevision) {
+    const boardId = getCurrentBoardIdentifier();
+    lastLoadedBoardRevisions[boardId] = pendingBoardRevision;
+  }
+}
+
+function nodeBelongsToBoard(node, boardId) {
+  if (!node || !boardId) return false;
+  const cat = node.category || 'KeyChain';
+  const varId = node.variationId || '';
+  if (boardId === 'GenericPool') return cat === 'GenericPool';
+  if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  const parts = boardId.split(':');
+  if (parts[0] === 'KeyChain') return cat === 'KeyChain' && (!parts[2] || varId === parts[2]);
+  if (parts[0] === 'SecretChain') return cat === 'SecretChain' && (!parts[2] || varId === parts[2]);
+  return false;
+}
+
+function dialogueBelongsToBoard(diag, boardId, activeNodeIds) {
+  if (!diag || !boardId) return false;
+  const links = Array.isArray(diag.links) ? diag.links : (diag.targetEventId ? [{ targetEventId: diag.targetEventId }] : []);
+  const linkedIds = links.map(l => l.targetEventId).filter(Boolean);
+  if (diag.targetEventId) linkedIds.push(diag.targetEventId);
+
+  if (linkedIds.length > 0 && activeNodeIds) {
+    return linkedIds.some(eid => activeNodeIds.has(eid));
+  }
+  const cat = diag.category || 'KeyChain';
+  const varId = diag.variationId || '';
+  if (boardId === 'GenericPool') return cat === 'GenericPool';
+  if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  const parts = boardId.split(':');
+  if (parts[0] === 'KeyChain' || parts[0] === 'SecretChain') {
+    return cat === parts[0] && (!parts[2] || varId === parts[2]);
+  }
+  return false;
+}
+
+async function refreshActiveBoardFromServer() {
+  dismissBoardUpdateNotification();
+  showToast("Updating board view with latest changes...", "info");
+  try {
+    const res = await fetch('/api/load', { headers: getAuthHeaders(false) });
+    if (!res.ok) {
+      showToast("Could not fetch latest board data.", "error");
+      return;
+    }
+    const fullData = await res.json();
+    const boardId = getCurrentBoardIdentifier();
+
+    const serverNodes = (fullData.nodes || []).filter(n => nodeBelongsToBoard(n, boardId));
+    const serverActiveNodeIds = new Set(serverNodes.map(n => n.id));
+    const serverDialogues = (fullData.dialogues || []).filter(d => dialogueBelongsToBoard(d, boardId, serverActiveNodeIds));
+
+    appData.nodes = (appData.nodes || []).filter(n => !nodeBelongsToBoard(n, boardId)).concat(serverNodes);
+    const localExistingNodeIds = new Set((appData.nodes || []).filter(n => nodeBelongsToBoard(n, boardId)).map(n => n.id));
+    appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoard(d, boardId, localExistingNodeIds)).concat(serverDialogues);
+
+    normalizeAllProjectData();
+    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+
+    lastLoadedBoardRevisions[boardId] = {
+      boardId,
+      lastModified: fullData._lastModified || new Date().toISOString(),
+      author: fullData.projectInfo?.author || 'Server'
+    };
+
+    renderApp();
+    showToast("Board refreshed with latest team updates!", "success");
+  } catch (err) {
+    showToast("Error refreshing board: " + err.message, "error");
+  }
+}
+
+async function releaseActiveBoardLock(notifyServer = true) {
+  const boardId = getCurrentBoardIdentifier();
+  if (boardLockCountdownTimer) {
+    clearInterval(boardLockCountdownTimer);
+    boardLockCountdownTimer = null;
+  }
+  if (notifyServer) {
+    try {
+      await fetch('/api/lock/release', {
         method: 'POST',
         headers: getAuthHeaders(true),
         body: JSON.stringify({ boardId })
       });
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        stopLockHeartbeat();
-        syncActiveBoardLock();
-      } else if (data.lock) {
-        currentBoardLock = data.lock;
-      }
     } catch (e) {}
-  }, 45000);
-}
-
-function stopLockHeartbeat() {
-  if (boardLockHeartbeatTimer) {
-    clearInterval(boardLockHeartbeatTimer);
-    boardLockHeartbeatTimer = null;
   }
-}
-
-async function releaseActiveBoardLock() {
-  const boardId = getCurrentBoardIdentifier();
-  stopLockHeartbeat();
-  try {
-    await fetch('/api/lock/release', {
-      method: 'POST',
-      headers: getAuthHeaders(true),
-      body: JSON.stringify({ boardId })
-    });
-  } catch (e) {}
   currentBoardLock = null;
   isCurrentBoardReadOnly = true;
   renderBoardLockBanner('hidden');
   updateEditControlsLockState();
-  showToast(`Released lock for ${getCurrentBoardDisplayName()}. Board in spectator mode.`, 'info');
+  if (notifyServer) {
+    showToast(`Released lock for ${getCurrentBoardDisplayName()}. Board in spectator mode.`, 'info');
+  }
 }
 
 async function performAdminLockOverride() {
@@ -1713,9 +1888,10 @@ async function performAdminLockOverride() {
     if (res.ok && data.success) {
       showToast(`⚡ Lock successfully overridden! You now hold edit lock for ${boardName}.`, 'success');
       currentBoardLock = data.lock;
+      currentBoardLock.remainingSeconds = (data.lock && data.lock.remainingSeconds) || 180;
       isCurrentBoardReadOnly = false;
       renderBoardLockBanner('owned');
-      startLockHeartbeat(boardId);
+      startLockCountdown();
       updateEditControlsLockState();
     } else {
       showToast(`Override error: ${data.message || 'Unauthorized'}`, 'error');
@@ -1735,7 +1911,13 @@ window.addEventListener('beforeunload', () => {
 window.syncActiveBoardLock = syncActiveBoardLock;
 window.releaseActiveBoardLock = releaseActiveBoardLock;
 window.performAdminLockOverride = performAdminLockOverride;
+window.touchActiveBoardLock = touchActiveBoardLock;
+window.refreshActiveBoardFromServer = refreshActiveBoardFromServer;
+window.dismissBoardUpdateNotification = dismissBoardUpdateNotification;
+window.nodeBelongsToBoard = nodeBelongsToBoard;
+window.dialogueBelongsToBoard = dialogueBelongsToBoard;
 window.getCurrentBoardIdentifier = getCurrentBoardIdentifier;
 window.getCurrentBoardDisplayName = getCurrentBoardDisplayName;
 window.isCurrentBoardReadOnly = () => isCurrentBoardReadOnly;
 window.getCurrentBoardLock = () => currentBoardLock;
+window.lastLoadedBoardRevisions = lastLoadedBoardRevisions;

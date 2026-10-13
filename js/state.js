@@ -868,6 +868,10 @@ function saveProjectToLocalStorage() {
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
+  if (typeof touchActiveBoardLock === 'function') {
+    touchActiveBoardLock();
+  }
+
   // Debounced auto-sync to server disk
   clearTimeout(autoSaveDiskTimer);
   autoSaveDiskTimer = setTimeout(() => {
@@ -1418,6 +1422,28 @@ const DEFAULT_SYMBOL_LIMITS = {
   variationDescription: 280
 };
 
+const DEFAULT_RECOMMENDED_LIMITS = {
+  eventIntro: 120,
+  eventDescription: 180,
+  actionDescription: 40,
+  actionDescription3Opt: 60,
+  actionButtonText: 8,
+  eventOutcome: 200,
+  inactionResult: 120,
+  variationDescription: 80
+};
+
+const SYMBOL_LIMIT_FIELD_CONFIGS = [
+  { key: 'eventIntro', label: 'Event Intro', max: 475, rec: 120 },
+  { key: 'eventDescription', label: 'Event Description', max: 475, rec: 180 },
+  { key: 'actionDescription', label: 'Action Description / Event Choice (2 Options)', max: 120, rec: 40 },
+  { key: 'actionDescription3Opt', label: 'Action Description / Event Choice (3 Options)', max: 200, rec: 60 },
+  { key: 'actionButtonText', label: 'Action Button Text', max: 24, rec: 8 },
+  { key: 'eventOutcome', label: 'Event Outcome (Action Result)', max: 925, rec: 200 },
+  { key: 'inactionResult', label: 'Event Inaction Result', max: 475, rec: 120 },
+  { key: 'variationDescription', label: 'Variation Description (Timeline Editor)', max: 280, rec: 80 }
+];
+
 function getActionChoiceLimitKey(node) {
   const count = (node && Array.isArray(node.actions)) ? node.actions.length : 0;
   return count >= 3 ? 'actionDescription3Opt' : 'actionDescription';
@@ -1434,6 +1460,25 @@ function getSymbolLimits() {
   Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
     const n = parseInt(merged[k], 10);
     merged[k] = (!isNaN(n) && n > 0) ? n : DEFAULT_SYMBOL_LIMITS[k];
+  });
+  return merged;
+}
+
+function getRecommendedLimits() {
+  let savedLocal = {};
+  try {
+    const raw = localStorage.getItem('rc_recommended_limits');
+    if (raw) savedLocal = JSON.parse(raw) || {};
+  } catch (e) {}
+  const fromProject = (appData && appData.recommendedLimits && typeof appData.recommendedLimits === 'object')
+    ? appData.recommendedLimits
+    : ((appData && appData.symbolLimits && typeof appData.symbolLimits === 'object') ? appData.symbolLimits : {});
+  const merged = { ...DEFAULT_RECOMMENDED_LIMITS, ...savedLocal };
+  Object.keys(DEFAULT_RECOMMENDED_LIMITS).forEach(k => {
+    const candidate = fromProject[k + '_rec'] !== undefined ? fromProject[k + '_rec'] : (fromProject[k] !== undefined && fromProject[k] < DEFAULT_SYMBOL_LIMITS[k] ? fromProject[k] : undefined);
+    const val = savedLocal[k] !== undefined ? savedLocal[k] : candidate;
+    const n = parseInt(val, 10);
+    merged[k] = (!isNaN(n) && n >= 0) ? n : DEFAULT_RECOMMENDED_LIMITS[k];
   });
   return merged;
 }
@@ -1457,13 +1502,24 @@ function isFieldTextOverLimit(text, limitKey) {
   return count > limit;
 }
 
+function isFieldTextUnderRecommended(text, limitKey) {
+  const recs = getRecommendedLimits();
+  const rec = recs[limitKey] || DEFAULT_RECOMMENDED_LIMITS[limitKey] || 0;
+  const count = (text !== undefined && text !== null) ? String(text).length : 0;
+  return count > 0 && count < rec;
+}
+
 function getSymbolCounterBadgeHTML(text, limitKey, isDarkBg = false, extraId = '') {
   const limits = getSymbolLimits();
+  const recs = getRecommendedLimits();
   const limit = limits[limitKey] || DEFAULT_SYMBOL_LIMITS[limitKey] || 475;
+  const rec = recs[limitKey] || DEFAULT_RECOMMENDED_LIMITS[limitKey] || 0;
   const count = (text !== undefined && text !== null) ? String(text).length : 0;
   const isOver = count > limit;
+  const isUnder = count > 0 && count < rec;
   const idAttr = extraId ? `id="${extraId}"` : '';
-  return `<span ${idAttr} class="symbol-count-badge ${isDarkBg ? 'is-dark-bg' : ''} ${isOver ? 'is-over-limit' : ''}" data-limit-key="${limitKey}" title="Symbol count: ${count} / ${limit}${isOver ? ' (LIMIT SURPASSED!)' : ''}">${count}/${limit}</span>`;
+  const tooltip = `Symbol count: ${count} / ${limit} (Recommended min: ${rec})${isOver ? ' (LIMIT SURPASSED!)' : (isUnder ? ' (Below recommended length)' : '')}`;
+  return `<span ${idAttr} class="symbol-count-badge ${isDarkBg ? 'is-dark-bg' : ''} ${isOver ? 'is-over-limit' : (isUnder ? 'is-under-rec' : '')}" data-limit-key="${limitKey}" title="${tooltip}">${count}/${limit}<span class="symbol-rec-tag" title="Recommended minimum"> (rec: ${rec})</span></span>`;
 }
 
 function ensureSymbolLimitsModalFields() {
@@ -1472,60 +1528,81 @@ function ensureSymbolLimitsModalFields() {
   const grid = modal.querySelector('.grid');
   if (!grid) return;
 
-  // Ensure both 2-option and 3-option Action Description / Event Choice inputs exist with clear labels
-  const inp2 = document.getElementById('limit-input-actionDescription');
-  if (inp2 && inp2.parentElement && inp2.parentElement.previousElementSibling) {
-    inp2.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (2 Options)';
-  }
+  const limits = getSymbolLimits();
+  const recs = getRecommendedLimits();
 
-  let inp3 = document.getElementById('limit-input-actionDescription3Opt');
-  if (!inp3) {
-    const card3 = document.createElement('div');
-    card3.className = 'bg-gray-950 p-3 rounded-lg border border-amber-500/40';
-    card3.innerHTML = `
-      <label class="text-[10px] font-bold uppercase text-amber-300 block mb-1">Action Description / Event Choice (3 Options)</label>
-      <div class="flex items-center gap-2">
-        <input type="number" id="limit-input-actionDescription3Opt" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded px-2.5 py-1.5 text-xs font-mono font-bold text-white" value="200">
-        <span class="text-[10px] text-gray-500 font-mono shrink-0">symbols</span>
+  grid.innerHTML = SYMBOL_LIMIT_FIELD_CONFIGS.map(cfg => {
+    const k = cfg.key;
+    const maxVal = limits[k] !== undefined ? limits[k] : cfg.max;
+    const recVal = recs[k] !== undefined ? recs[k] : cfg.rec;
+    return `
+      <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex flex-col justify-between">
+        <label class="text-[11px] font-bold uppercase text-amber-300 block mb-2">${cfg.label}</label>
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-gray-400 font-bold block mb-1">Max Limit</span>
+            <div class="flex items-center gap-1.5">
+              <input type="number" id="limit-input-${k}" min="1" class="w-full bg-gray-900 border border-gray-700 focus:border-amber-400 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold text-white focus:outline-none" value="${maxVal}">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">sym</span>
+            </div>
+          </div>
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-cyan-400 font-bold block mb-1">Recommended (Min)</span>
+            <div class="flex items-center gap-1.5">
+              <input type="number" id="limit-rec-input-${k}" min="0" class="w-full bg-gray-900 border border-cyan-700/60 focus:border-cyan-400 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold text-cyan-200 focus:outline-none" value="${recVal}">
+              <span class="text-[10px] text-gray-500 font-mono shrink-0">sym</span>
+            </div>
+          </div>
+        </div>
       </div>
     `;
-    if (inp2 && inp2.closest('.bg-gray-950')) {
-      inp2.closest('.bg-gray-950').insertAdjacentElement('afterend', card3);
-    } else {
-      grid.appendChild(card3);
-    }
-  } else if (inp3.parentElement && inp3.parentElement.previousElementSibling) {
-    inp3.parentElement.previousElementSibling.textContent = 'Action Description / Event Choice (3 Options)';
-  }
+  }).join('');
 }
 
 function openSymbolLimitsModal() {
   ensureSymbolLimitsModalFields();
   const limits = getSymbolLimits();
-  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+  const recs = getRecommendedLimits();
+  SYMBOL_LIMIT_FIELD_CONFIGS.forEach(cfg => {
+    const k = cfg.key;
     const inp = document.getElementById(`limit-input-${k}`);
-    if (inp) inp.value = limits[k];
+    if (inp) inp.value = limits[k] !== undefined ? limits[k] : cfg.max;
+    const recInp = document.getElementById(`limit-rec-input-${k}`);
+    if (recInp) recInp.value = recs[k] !== undefined ? recs[k] : cfg.rec;
   });
   openModal('modal-symbol-limits');
   if (window.lucide) lucide.createIcons();
 }
 
 function saveSymbolLimitsFromModal() {
-  const current = getSymbolLimits();
-  const updated = { ...current };
-  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+  const currentLimits = getSymbolLimits();
+  const currentRecs = getRecommendedLimits();
+  const updatedLimits = { ...currentLimits };
+  const updatedRecs = { ...currentRecs };
+
+  SYMBOL_LIMIT_FIELD_CONFIGS.forEach(cfg => {
+    const k = cfg.key;
     const inp = document.getElementById(`limit-input-${k}`);
     if (inp) {
       const val = parseInt(inp.value, 10);
-      updated[k] = (!isNaN(val) && val > 0) ? val : DEFAULT_SYMBOL_LIMITS[k];
+      updatedLimits[k] = (!isNaN(val) && val > 0) ? val : cfg.max;
+    }
+    const recInp = document.getElementById(`limit-rec-input-${k}`);
+    if (recInp) {
+      const val = parseInt(recInp.value, 10);
+      updatedRecs[k] = (!isNaN(val) && val >= 0) ? val : cfg.rec;
     }
   });
+
   if (appData) {
-    appData.symbolLimits = updated;
+    appData.symbolLimits = updatedLimits;
+    appData.recommendedLimits = updatedRecs;
   }
   try {
-    localStorage.setItem('rc_symbol_limits', JSON.stringify(updated));
+    localStorage.setItem('rc_symbol_limits', JSON.stringify(updatedLimits));
+    localStorage.setItem('rc_recommended_limits', JSON.stringify(updatedRecs));
   } catch (e) {}
+
   saveProjectToLocalStorage();
   closeModal('modal-symbol-limits');
   const timelinesModal = document.getElementById('modal-timelines');
@@ -1533,13 +1610,16 @@ function saveSymbolLimitsFromModal() {
     renderTimelinesManager();
   }
   renderApp();
-  showToast("Symbol limitations updated", "success");
+  showToast("Symbol maximum & recommended limits saved!", "success");
 }
 
 function resetSymbolLimitsToDefault() {
-  Object.keys(DEFAULT_SYMBOL_LIMITS).forEach(k => {
+  SYMBOL_LIMIT_FIELD_CONFIGS.forEach(cfg => {
+    const k = cfg.key;
     const inp = document.getElementById(`limit-input-${k}`);
-    if (inp) inp.value = DEFAULT_SYMBOL_LIMITS[k];
+    if (inp) inp.value = cfg.max;
+    const recInp = document.getElementById(`limit-rec-input-${k}`);
+    if (recInp) recInp.value = cfg.rec;
   });
   showToast("Reset inputs to default symbol limits — click Save Limits to apply", "info");
 }

@@ -15,6 +15,26 @@ from backend.github_sync import sync_project_data_to_github
 LOCKS_FILE = os.path.join(DIRECTORY, 'locks.json')
 _LOCKS_MUTEX = threading.Lock()
 ACTIVE_LOCKS = {}
+BOARD_REVISIONS = {}
+
+def record_board_save(board_id, author_name):
+    global BOARD_REVISIONS
+    with _LOCKS_MUTEX:
+        now = datetime.now()
+        curr_ver = (BOARD_REVISIONS.get(board_id, {}).get("version") or 0) + 1
+        record = {
+            "boardId": board_id,
+            "lastModified": now.isoformat(),
+            "timestamp": now.strftime("%H:%M:%S"),
+            "author": author_name or "Editor",
+            "version": curr_ver
+        }
+        BOARD_REVISIONS[board_id] = record
+        return record
+
+def get_board_revisions():
+    with _LOCKS_MUTEX:
+        return dict(BOARD_REVISIONS)
 
 def _parse_iso(iso_str):
     if not iso_str:
@@ -344,10 +364,13 @@ def merge_and_save_board(board_id, board_nodes, board_dialogues, author_name):
     snap = create_backup_snapshot(f"Save Board ({board_id})", author_name, full_project)
     threading.Thread(target=sync_project_data_to_github, args=(full_project, author_name), daemon=True).start()
 
+    rev = record_board_save(board_id, author_name)
+
     return {
         "status": "success",
         "timestamp": datetime.now().strftime("%H:%M:%S"),
         "boardId": board_id,
+        "revision": rev,
         "totalNodeCount": len(merged_nodes),
         "totalDialogueCount": len(merged_dialogues),
         "boardNodeCount": len(board_nodes or []),

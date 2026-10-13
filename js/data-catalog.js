@@ -72,6 +72,9 @@ function pushUndoState() {
       undoStack.shift();
     }
     redoStack.length = 0;
+    if (typeof touchActiveBoardLock === 'function') {
+      touchActiveBoardLock();
+    }
   } catch (e) {
     console.warn("Undo snapshot failed", e);
   }

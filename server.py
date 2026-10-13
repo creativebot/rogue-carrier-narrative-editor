@@ -72,6 +72,8 @@ from backend.locks import (
     get_all_locks,
     merge_and_save_board,
     is_admin_user,
+    get_board_revisions,
+    record_board_save,
 )
 class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -1138,9 +1140,12 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
-        # 0. Active Board Locks List
+        # 0. Active Board Locks List & Real-time Board Revisions
         if path == '/api/locks':
-            self.send_json(200, {"locks": get_all_locks()})
+            self.send_json(200, {
+                "locks": get_all_locks(),
+                "boardRevisions": get_board_revisions()
+            })
             return
 
         # 1. Main Project Load
