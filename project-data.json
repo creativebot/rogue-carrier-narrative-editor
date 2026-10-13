@@ -1869,6 +1869,20 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1791889615726",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 1,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3580,7 +3594,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:06:41.223Z",
+  "_lastModified": "2026-10-13T11:06:55.726Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
