@@ -2610,7 +2610,7 @@
         {
           "id": "c_1791905801725",
           "codeSuffix": "A",
-          "shortDescription": "Investigate the source of the explosion",
+          "shortDescription": "Find the cause of explosion",
           "description": "Engineers can research on the Zephyrus design to explain what exactly happened",
           "requirements": [],
           "timerHours": 5,
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:40:37.816Z",
+  "_lastModified": "2026-10-13T15:41:25.453Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
