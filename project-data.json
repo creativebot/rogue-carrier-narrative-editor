@@ -2546,7 +2546,7 @@
           "description": "The waters are shallow here. Maybe we can use divers to reach the Fragment?",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "No use. Our divers reached the fragment but barely had time to explore it. The local fauna is very aggressive there, so they had to withdraw soon. Still, they managed to recover a data cluster.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3699,7 +3699,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:29:56.480Z",
+  "_lastModified": "2026-10-13T15:30:20.704Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
