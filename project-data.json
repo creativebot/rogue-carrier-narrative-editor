@@ -2624,7 +2624,7 @@
         {
           "id": "act_1791905955269",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Run the deep data analysis",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:39:32.341Z",
+  "_lastModified": "2026-10-13T15:39:36.828Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
