@@ -104,11 +104,21 @@ function setupCanvasEvents() {
     canvasContainer.style.cursor = 'grabbing';
   });
 
+  let panRafId = null;
+  function scheduleCanvasTransform() {
+    if (!panRafId) {
+      panRafId = requestAnimationFrame(() => {
+        updateCanvasTransform();
+        panRafId = null;
+      });
+    }
+  }
+
   window.addEventListener('mousemove', (e) => {
     if (isDraggingCanvas) {
       transform.x = e.clientX - dragStart.x;
       transform.y = e.clientY - dragStart.y;
-      updateCanvasTransform();
+      scheduleCanvasTransform();
     }
   });
 
@@ -116,6 +126,11 @@ function setupCanvasEvents() {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
       canvasContainer.style.cursor = 'default';
+      if (panRafId) {
+        cancelAnimationFrame(panRafId);
+        panRafId = null;
+      }
+      updateCanvasTransform();
     }
   });
 
@@ -283,7 +298,7 @@ function setupCanvasEvents() {
 
       transform.x = touchState.transformStart.x + dx;
       transform.y = touchState.transformStart.y + dy;
-      updateCanvasTransform();
+      scheduleCanvasTransform();
       return;
     }
   }, { passive: false });
@@ -361,7 +376,7 @@ function updateCanvasTransform() {
     canvasStage = document.getElementById('canvas-stage');
   }
   if (!canvasStage) return;
-  canvasStage.style.transform = `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`;
+  canvasStage.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
 
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;
@@ -637,15 +652,12 @@ function renderFloorBands() {
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-200000px`;
-      band.style.width = `400000px`;
+      band.style.left = `-8000px`;
+      band.style.width = `24000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals across active horizontal range
-      const labelXPositions = [
-        -15000, -11000, -8000, -5000, -3000, -1500, -500,
-        40, 1600, 3200, 5000, 7500, 10500, 14000, 18000
-      ];
+      // Stage label badges starting from STAGE 1, placed at visible intervals
+      const labelXPositions = [-2500, -800, 40, 1800, 3600, 5600, 8000, 11000];
       labelXPositions.forEach(lx => {
         const label = document.createElement('div');
         label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
@@ -695,29 +707,25 @@ function renderFloorBands() {
       currentX += tierWidths[t] + tierGap;
     }
 
-    // 3. Render vertical column bands running endlessly with repeated headers
+    // 3. Render vertical column bands with hardware-composited bounds & clean header
     for (let t = 0; t < 5; t++) {
       const band = document.createElement('div');
       band.id = `tier-band-${t}`;
       band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
       band.style.left = `${tierStarts[t]}px`;
       band.style.width = `${tierWidths[t]}px`;
-      band.style.top = `-200000px`;
-      band.style.height = `400000px`;
+      band.style.top = `-1500px`;
+      band.style.height = `16000px`;
       floorBandsLayer.appendChild(band);
 
-      // Repeat header markers vertically so they stay visible when scrolling down
-      const headerYPositions = [50, 1800, 3600, 5400, 7200, 9500];
-      headerYPositions.forEach(hy => {
-        const header = document.createElement('div');
-        header.className = `tier-column-header ${isDeck ? 'tier-column-header-deck' : ''}`;
-        header.style.top = `${hy}px`;
-        header.style.left = `${tierStarts[t] + Math.round((tierWidths[t] - 280) / 2)}px`;
-        header.style.width = `280px`;
-        header.style.textAlign = 'center';
-        header.innerText = tierLabels[t];
-        floorBandsLayer.appendChild(header);
-      });
+      const header = document.createElement('div');
+      header.className = `tier-column-header ${isDeck ? 'tier-column-header-deck' : ''}`;
+      header.style.top = `40px`;
+      header.style.left = `${tierStarts[t] + Math.round((tierWidths[t] - 280) / 2)}px`;
+      header.style.width = `280px`;
+      header.style.textAlign = 'center';
+      header.innerText = tierLabels[t];
+      floorBandsLayer.appendChild(header);
     }
   }
 }
