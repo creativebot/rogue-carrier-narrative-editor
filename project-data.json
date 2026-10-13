@@ -2556,7 +2556,7 @@
         {
           "id": "act_1791905372390",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Investigate the strange signal",
           "description": "It might be just our luck, but we should definitely check it.",
           "requirements": [],
           "timerHours": 5,
@@ -3699,7 +3699,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:29:50.201Z",
+  "_lastModified": "2026-10-13T15:29:56.480Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
