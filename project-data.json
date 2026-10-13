@@ -1934,6 +1934,13 @@
               "amount": "+200",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "8",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -3640,7 +3647,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:45:28.667Z",
+  "_lastModified": "2026-10-13T11:45:41.603Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
