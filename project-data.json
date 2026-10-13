@@ -2610,7 +2610,7 @@
         {
           "id": "c_1791905801725",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Investigate the source of the explosion",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:39:36.828Z",
+  "_lastModified": "2026-10-13T15:39:42.014Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
