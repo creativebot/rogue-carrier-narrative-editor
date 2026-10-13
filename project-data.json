@@ -1804,7 +1804,13 @@
           "timerHours": 5,
           "resultDescription": "Scouts managed to stay there only briefly before their protection began to fail.  They managed to escape, taking with them several slabs of an Eldritium, a rare metal. It probably was mined or refined there. Unfortunately, they also carried radiation sickness.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3621,7 +3627,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:07:54.845Z",
+  "_lastModified": "2026-10-13T11:09:56.136Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
