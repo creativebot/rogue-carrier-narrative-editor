@@ -2625,7 +2625,7 @@
           "id": "act_1791905955269",
           "codeSuffix": "B",
           "shortDescription": "Run the deep data analysis",
-          "description": "Description for action choice B...",
+          "description": "Investigate the source of the explosion",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:39:42.014Z",
+  "_lastModified": "2026-10-13T15:39:46.820Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
