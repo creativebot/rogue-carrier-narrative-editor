@@ -724,26 +724,64 @@ function normalizeAllProjectData() {
   }
 
   // Seamless migration of old stage coordinates to new enlarged FLOOR_Y
-  const oldFloorY = [90, 840, 1590, 2340];
+  // Migrates both intermediate [90, 1080, 2070, 3060] and legacy [90, 840, 1590, 2340]
+  // to the new spacious [90, 1540, 2990, 4440] layout
+  const legacyFloorSets = [
+    [90, 1080, 2070, 3060],
+    [90, 840, 1590, 2340]
+  ];
   if (appData.nodes) {
+    const shiftedDialogues = new Set();
     appData.nodes.forEach(node => {
-      if (node.category === 'KeyChain' && node.position) {
-        for (let i = 1; i < oldFloorY.length; i++) {
-          if (Math.abs(node.position.y - oldFloorY[i]) < 10) {
-            const deltaY = FLOOR_Y[i] - node.position.y;
-            node.position.y = FLOOR_Y[i];
-            if (appData.dialogues) {
-              appData.dialogues.forEach(d => {
-                if (d.targetEventId === node.id && d.position) {
-                  d.position.y += deltaY;
-                }
-              });
+      if ((node.category === 'KeyChain' || node.category === 'SecretChain' || !node.category) && node.position) {
+        for (const oldFloors of legacyFloorSets) {
+          let matched = false;
+          for (let i = 1; i < oldFloors.length; i++) {
+            if (Math.abs(node.position.y - oldFloors[i]) <= 35) {
+              const deltaY = FLOOR_Y[i] - node.position.y;
+              node.position.y = FLOOR_Y[i];
+              if (typeof node.floorIndex === 'undefined' || node.floorIndex !== i) {
+                node.floorIndex = i;
+              }
+              if (appData.dialogues) {
+                appData.dialogues.forEach(d => {
+                  if (shiftedDialogues.has(d.id)) return;
+                  const isLinkedToNode = (d.targetEventId === node.id) ||
+                    (typeof getDialogueLinks === 'function' && getDialogueLinks(d).some(l => l.targetEventId === node.id));
+                  if (isLinkedToNode && d.position) {
+                    d.position.y += deltaY;
+                    shiftedDialogues.add(d.id);
+                  }
+                });
+              }
+              matched = true;
+              break;
             }
-            break;
           }
+          if (matched) break;
         }
       }
     });
+
+    // Also migrate unlinked dialogue cards situated within old stage bands
+    if (appData.dialogues) {
+      appData.dialogues.forEach(d => {
+        if (shiftedDialogues.has(d.id) || !d.position) return;
+        for (const oldFloors of legacyFloorSets) {
+          for (let i = 1; i < oldFloors.length; i++) {
+            const minBound = (oldFloors[i - 1] + oldFloors[i]) / 2;
+            const maxBound = (i === oldFloors.length - 1) ? Infinity : (oldFloors[i] + oldFloors[i + 1]) / 2;
+            if (d.position.y >= minBound && d.position.y < maxBound) {
+              const deltaY = FLOOR_Y[i] - oldFloors[i];
+              d.position.y += deltaY;
+              shiftedDialogues.add(d.id);
+              break;
+            }
+          }
+          if (shiftedDialogues.has(d.id)) break;
+        }
+      });
+    }
   }
 }
 

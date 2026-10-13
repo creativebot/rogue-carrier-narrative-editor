@@ -769,7 +769,7 @@ function updateDynamicBandDimensions() {
       const isLastStage = (idx === FLOOR_Y.length - 1);
       if (isLastStage) {
         // Last stage has no subsequent stage below it: expand generously to fit all elements + bottom buffer
-        const requiredHeight = Math.max(1100, (maxBottomInStage - bandTop) + 120);
+        const requiredHeight = Math.max(STAGE_BAND_HEIGHT, (maxBottomInStage - bandTop) + 120);
         band.style.height = `${requiredHeight}px`;
       } else {
         // Earlier stages (Stages 1-3): clamp so bottom border NEVER exceeds or overlaps the top of the next stage
