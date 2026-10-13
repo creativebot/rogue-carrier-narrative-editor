@@ -2598,7 +2598,7 @@
       "location": "6 mins after [Inner Explosion] criteria aquired",
       "spawnConditions": "6 mins after [Inner Explosion] criteria aquired",
       "eventIntro": "The R&D formed a task force to study the Explosion",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The data gathered from the damaged Zephyrus fragment could shed some light on the circumstances of the Zephyrus destruction",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3753,7 +3753,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:38:54.791Z",
+  "_lastModified": "2026-10-13T15:39:08.880Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
