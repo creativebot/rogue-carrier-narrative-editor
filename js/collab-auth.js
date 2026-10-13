@@ -131,12 +131,27 @@ async function initAuthSystem() {
   preloadTeamUsers();
 }
 
+let isCurrentBoardReadOnly = false;
+let currentBoardLock = null;
+let boardLockHeartbeatTimer = null;
+let boardLockCountdownTimer = null;
+
 function canUserEdit() {
+  if (isCurrentBoardReadOnly) return false;
   if (isLocalEnvironment()) return true;
   return Boolean(currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
 }
 
 function requireAuthToEdit(actionDesc = "edit this element") {
+  if (isCurrentBoardReadOnly) {
+    const owner = currentBoardLock?.userName || 'another editor';
+    const expSec = currentBoardLock?.remainingSeconds || 0;
+    const min = Math.floor(expSec / 60);
+    const sec = expSec % 60;
+    const timeStr = expSec > 0 ? ` (lease expires in ${min}m ${sec}s)` : '';
+    showToast(`🔒 Read-Only: This board is currently locked by ${owner}${timeStr}.`, "warning");
+    return false;
+  }
   if (isLocalEnvironment()) return true;
   if (canUserEdit()) return true;
   showToast(`🔒 Read-Only: Please sign in with your @n-ix.com email to ${actionDesc}.`, "warning");
@@ -1446,5 +1461,281 @@ window.clearAllNotifications = clearAllNotifications;
 window.deleteNotificationItem = deleteNotificationItem;
 window.openNotificationTarget = openNotificationTarget;
 
+/* ==========================================================================
+   BOARD RESERVATION LOCKS & MULTI-USER COORDINATION
+   ========================================================================== */
 
+function getCurrentBoardIdentifier() {
+  if (typeof activeCategoryFilter !== 'undefined') {
+    if (activeCategoryFilter === 'GenericPool') return 'GenericPool';
+    if (activeCategoryFilter === 'DeckPool') return 'DeckPool';
+    const tl = typeof activeTimelineId !== 'undefined' ? activeTimelineId : 'timeline_1';
+    const v = typeof activeVariationId !== 'undefined' ? activeVariationId : 'var_v1';
+    if (activeCategoryFilter === 'SecretChain') return `SecretChain:${tl}:${v}`;
+    return `KeyChain:${tl}:${v}`;
+  }
+  return 'KeyChain:timeline_1:var_v1';
+}
 
+function getCurrentBoardDisplayName() {
+  if (typeof activeCategoryFilter !== 'undefined') {
+    if (activeCategoryFilter === 'GenericPool') return 'Generic Event Pool';
+    if (activeCategoryFilter === 'DeckPool') return 'Deck Event Pool';
+    const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
+    const varName = vObj ? (vObj.name || vObj.id) : (typeof activeVariationId !== 'undefined' ? activeVariationId : 'Var 1');
+    const tlObj = (appData.timelines || []).find(tl => tl.id === activeTimelineId);
+    const tlName = tlObj ? `Timeline ${tlObj.number || 1}` : 'Timeline 1';
+    if (activeCategoryFilter === 'SecretChain') return `Secret Events (${tlName} • ${varName})`;
+    return `Key Events (${tlName} • ${varName})`;
+  }
+  return 'Key Events';
+}
+
+function isCurrentUserAdmin() {
+  if (isLocalEnvironment()) return true;
+  if (!currentUser) return false;
+  const email = (currentUser.email || '').toLowerCase();
+  return email === 'dpoludonnyi@n-ix.com' || email === 'daniel.poludyonny@gmail.com' || currentUser.isAdmin === true || currentUser.role === 'admin';
+}
+
+function formatLockRemaining(totalSeconds) {
+  if (totalSeconds <= 0) return '0:00';
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+function renderBoardLockBanner(mode) {
+  const banner = document.getElementById('board-lock-banner');
+  const iconEl = document.getElementById('board-lock-icon');
+  const msgEl = document.getElementById('board-lock-message');
+  const actionsEl = document.getElementById('board-lock-actions');
+  if (!banner || !iconEl || !msgEl || !actionsEl) return;
+
+  if (mode === 'hidden') {
+    banner.classList.add('hidden');
+    banner.classList.remove('flex');
+    return;
+  }
+
+  banner.classList.remove('hidden');
+  banner.classList.add('flex');
+
+  if (mode === 'owned') {
+    banner.className = 'absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl backdrop-blur-md border border-emerald-500/40 bg-emerald-950/80 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
+    iconEl.innerHTML = `<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>`;
+    const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
+    msgEl.innerHTML = `<span>Editing <strong class="text-white">${bName}</strong> (Active Lock)</span>`;
+    actionsEl.innerHTML = `
+      <button type="button" onclick="releaseActiveBoardLock()" class="text-emerald-400 hover:text-emerald-100 text-[11px] underline ml-2 transition">
+        Release
+      </button>
+    `;
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons({ root: banner });
+    }
+  } else if (mode === 'locked') {
+    banner.className = 'absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-2 rounded-full shadow-2xl backdrop-blur-md border border-rose-500/50 bg-rose-950/90 text-rose-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
+    iconEl.innerHTML = `<i data-lucide="lock" class="w-4 h-4 text-rose-400 shrink-0"></i>`;
+    const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
+    const ownerName = currentBoardLock?.userName || 'another designer';
+    const remSec = currentBoardLock?.remainingSeconds || 0;
+    msgEl.innerHTML = `<span><strong>${bName}</strong> is locked by <strong class="text-white">${ownerName}</strong> (Expires in <span id="lock-countdown-timer" class="font-mono text-white">${formatLockRemaining(remSec)}</span>) • <strong class="text-rose-300 uppercase tracking-wide">Read-Only Mode</strong></span>`;
+    
+    let adminBtnHtml = '';
+    if (isCurrentUserAdmin()) {
+      adminBtnHtml = `
+        <button type="button" onclick="performAdminLockOverride()" class="bg-amber-500 hover:bg-amber-400 text-gray-950 px-2.5 py-1 rounded-full text-xs font-bold shadow transition cursor-pointer flex items-center gap-1 active:scale-95">
+          <i data-lucide="zap" class="w-3 h-3 text-gray-950"></i> Admin Override
+        </button>
+      `;
+    }
+    actionsEl.innerHTML = adminBtnHtml;
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons({ root: banner });
+    }
+  }
+}
+
+function updateEditControlsLockState() {
+  const btnAddEvent = document.getElementById('btn-add-event');
+  const btnAddDialogue = document.getElementById('btn-add-dialogue');
+  if (isCurrentBoardReadOnly) {
+    if (btnAddEvent) {
+      btnAddEvent.classList.add('opacity-40', 'cursor-not-allowed');
+      btnAddEvent.title = 'Board is locked in Read-Only mode by another editor';
+    }
+    if (btnAddDialogue) {
+      btnAddDialogue.classList.add('opacity-40', 'cursor-not-allowed');
+      btnAddDialogue.title = 'Board is locked in Read-Only mode by another editor';
+    }
+  } else {
+    if (btnAddEvent) {
+      btnAddEvent.classList.remove('opacity-40', 'cursor-not-allowed');
+      btnAddEvent.title = 'Add new event block to canvas';
+    }
+    if (btnAddDialogue) {
+      btnAddDialogue.classList.remove('opacity-40', 'cursor-not-allowed');
+      btnAddDialogue.title = 'Create a standalone dialogue card';
+    }
+  }
+}
+
+function startLockCountdown() {
+  if (boardLockCountdownTimer) clearInterval(boardLockCountdownTimer);
+  boardLockCountdownTimer = setInterval(() => {
+    if (!currentBoardLock || !isCurrentBoardReadOnly) {
+      clearInterval(boardLockCountdownTimer);
+      boardLockCountdownTimer = null;
+      return;
+    }
+    if (currentBoardLock.remainingSeconds > 0) {
+      currentBoardLock.remainingSeconds -= 1;
+      const timerEl = document.getElementById('lock-countdown-timer');
+      if (timerEl) {
+        timerEl.innerText = formatLockRemaining(currentBoardLock.remainingSeconds);
+      }
+    } else {
+      clearInterval(boardLockCountdownTimer);
+      boardLockCountdownTimer = null;
+      syncActiveBoardLock();
+    }
+  }, 1000);
+}
+
+async function syncActiveBoardLock() {
+  const boardId = getCurrentBoardIdentifier();
+  const boardName = getCurrentBoardDisplayName();
+
+  if (boardLockCountdownTimer) {
+    clearInterval(boardLockCountdownTimer);
+    boardLockCountdownTimer = null;
+  }
+
+  try {
+    const res = await fetch('/api/lock/acquire', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ boardId, boardName })
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      currentBoardLock = data.lock;
+      isCurrentBoardReadOnly = false;
+      renderBoardLockBanner('owned');
+      startLockHeartbeat(boardId);
+      updateEditControlsLockState();
+    } else if (res.status === 423 || data.status === 'locked') {
+      currentBoardLock = data.lock;
+      isCurrentBoardReadOnly = true;
+      stopLockHeartbeat();
+      renderBoardLockBanner('locked');
+      startLockCountdown();
+      updateEditControlsLockState();
+    } else {
+      isCurrentBoardReadOnly = false;
+      renderBoardLockBanner('hidden');
+      updateEditControlsLockState();
+    }
+  } catch (err) {
+    isCurrentBoardReadOnly = false;
+    renderBoardLockBanner('hidden');
+    updateEditControlsLockState();
+  }
+}
+
+function startLockHeartbeat(boardId) {
+  stopLockHeartbeat();
+  boardLockHeartbeatTimer = setInterval(async () => {
+    try {
+      const res = await fetch('/api/lock/heartbeat', {
+        method: 'POST',
+        headers: getAuthHeaders(true),
+        body: JSON.stringify({ boardId })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        stopLockHeartbeat();
+        syncActiveBoardLock();
+      } else if (data.lock) {
+        currentBoardLock = data.lock;
+      }
+    } catch (e) {}
+  }, 45000);
+}
+
+function stopLockHeartbeat() {
+  if (boardLockHeartbeatTimer) {
+    clearInterval(boardLockHeartbeatTimer);
+    boardLockHeartbeatTimer = null;
+  }
+}
+
+async function releaseActiveBoardLock() {
+  const boardId = getCurrentBoardIdentifier();
+  stopLockHeartbeat();
+  try {
+    await fetch('/api/lock/release', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ boardId })
+    });
+  } catch (e) {}
+  currentBoardLock = null;
+  isCurrentBoardReadOnly = true;
+  renderBoardLockBanner('hidden');
+  updateEditControlsLockState();
+  showToast(`Released lock for ${getCurrentBoardDisplayName()}. Board in spectator mode.`, 'info');
+}
+
+async function performAdminLockOverride() {
+  const boardId = getCurrentBoardIdentifier();
+  const boardName = getCurrentBoardDisplayName();
+  const ownerName = currentBoardLock?.userName || 'the current editor';
+
+  const confirmed = confirm(
+    `⚡ ADMIN OVERRIDE CONFIRMATION\n\n` +
+    `You are about to break the lock held by "${ownerName}" on:\n` +
+    `▶ ${boardName}\n\n` +
+    `Any future saves from their open tab will be safely prevented from overwriting.\n\n` +
+    `Do you wish to proceed with taking over this board?`
+  );
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch('/api/lock/override', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ boardId, boardName })
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      showToast(`⚡ Lock successfully overridden! You now hold edit lock for ${boardName}.`, 'success');
+      currentBoardLock = data.lock;
+      isCurrentBoardReadOnly = false;
+      renderBoardLockBanner('owned');
+      startLockHeartbeat(boardId);
+      updateEditControlsLockState();
+    } else {
+      showToast(`Override error: ${data.message || 'Unauthorized'}`, 'error');
+    }
+  } catch (err) {
+    showToast(`Override request failed: ${err.message}`, 'error');
+  }
+}
+
+window.addEventListener('beforeunload', () => {
+  if (currentBoardLock && !isCurrentBoardReadOnly) {
+    const boardId = getCurrentBoardIdentifier();
+    navigator.sendBeacon('/api/lock/release', JSON.stringify({ boardId }));
+  }
+});
+
+window.syncActiveBoardLock = syncActiveBoardLock;
+window.releaseActiveBoardLock = releaseActiveBoardLock;
+window.performAdminLockOverride = performAdminLockOverride;
+window.getCurrentBoardIdentifier = getCurrentBoardIdentifier;
+window.getCurrentBoardDisplayName = getCurrentBoardDisplayName;
+window.isCurrentBoardReadOnly = () => isCurrentBoardReadOnly;
+window.getCurrentBoardLock = () => currentBoardLock;

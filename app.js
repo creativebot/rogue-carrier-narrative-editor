@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (isLocalEnvironment() || canUserEdit()) {
     await loadProjectData();
+    if (typeof syncActiveBoardLock === 'function') {
+      syncActiveBoardLock();
+    }
     await loadAllCommentCounts();
     setupCanvasEvents();
     setupPdfImportEvents();

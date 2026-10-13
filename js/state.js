@@ -932,21 +932,77 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   const managerSavedText = document.getElementById('save-manager-last-saved');
   if (managerSavedText) managerSavedText.innerText = `(Last saved: ${timeStr})`;
 
+function getActiveBoardPartitionPayload() {
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  
+  const boardNodes = (appData.nodes || []).filter(n => {
+    if (!n) return false;
+    const cat = n.category || 'KeyChain';
+    const varId = n.variationId || '';
+    if (boardId === 'GenericPool') return cat === 'GenericPool';
+    if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+    const parts = boardId.split(':');
+    if (parts[0] === 'KeyChain') return cat === 'KeyChain' && (!parts[2] || varId === parts[2]);
+    if (parts[0] === 'SecretChain') return cat === 'SecretChain' && (!parts[2] || varId === parts[2]);
+    return false;
+  });
+
+  const activeNodeIds = new Set(boardNodes.map(n => n.id));
+
+  const boardDialogues = (appData.dialogues || []).filter(d => {
+    if (!d) return false;
+    const links = Array.isArray(d.links) ? d.links : (d.targetEventId ? [{ targetEventId: d.targetEventId }] : []);
+    const linkedNodeIds = links.map(l => l.targetEventId).filter(Boolean);
+    if (d.targetEventId) linkedNodeIds.push(d.targetEventId);
+
+    if (linkedNodeIds.length > 0) {
+      return linkedNodeIds.some(eid => activeNodeIds.has(eid));
+    }
+
+    const cat = d.category || 'KeyChain';
+    const varId = d.variationId || '';
+    if (boardId === 'GenericPool') return cat === 'GenericPool';
+    if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+    const parts = boardId.split(':');
+    if (parts[0] === 'KeyChain' || parts[0] === 'SecretChain') {
+      return cat === parts[0] && (!parts[2] || varId === parts[2]);
+    }
+    return false;
+  });
+
+  return {
+    boardId,
+    nodes: boardNodes,
+    dialogues: boardDialogues,
+    author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User'
+  };
+}
+
   try {
     if (currentUser && currentUser.name && appData.projectInfo) {
       appData.projectInfo.author = currentUser.name;
     }
 
-    const res = await fetch('/api/save', {
+    const boardPayload = getActiveBoardPartitionPayload();
+    let res = await fetch('/api/save-board', {
       method: 'POST',
       headers: getAuthHeaders(true),
-      body: JSON.stringify(appData)
+      body: JSON.stringify(boardPayload)
     });
+
+    if (!res.ok && res.status !== 403) {
+      res = await fetch('/api/save', {
+        method: 'POST',
+        headers: getAuthHeaders(true),
+        body: JSON.stringify(appData)
+      });
+    }
+
     if (res.ok) {
       const resp = await res.json();
       if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || timeStr})`;
       if (isManual) {
-        showToast(`Saved to server & local copy (${resp.timestamp || timeStr})`, 'success');
+        showToast(`Saved ${boardPayload.boardId} to server & local copy (${resp.timestamp || timeStr})`, 'success');
       }
     } else {
       if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
@@ -975,11 +1031,19 @@ async function syncProjectToDiskServer() {
       appData.projectInfo.author = currentUser.name;
     }
 
-    const res = await fetch('/api/save', {
+    const boardPayload = getActiveBoardPartitionPayload();
+    let res = await fetch('/api/save-board', {
       method: 'POST',
       headers: getAuthHeaders(true),
-      body: JSON.stringify(appData)
+      body: JSON.stringify(boardPayload)
     });
+    if (!res.ok) {
+      res = await fetch('/api/save', {
+        method: 'POST',
+        headers: getAuthHeaders(true),
+        body: JSON.stringify(appData)
+      });
+    }
     if (res.ok) {
       const resp = await res.json();
       if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || 'Synced'})`;

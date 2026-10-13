@@ -71,6 +71,15 @@
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-cyan-400"></i> <span class="hidden lg:inline">Stage</span>
         </button>
       </div>
+
+      <!-- Direct LOD (Level of Detail) On/Off Toggle -->
+      <button id="btn-toggle-lod" type="button" onclick="toggleLodMode()"
+              class="px-2 py-1 rounded-lg text-xs font-bold bg-gray-900 text-gray-400 border border-gray-700 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition shadow-xs active:scale-95"
+              title="Toggle Simplified LOD View On/Off (fast schematic cards vs full detailed tables)">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>LOD:</span>
+        <span id="lod-status-label" class="font-mono font-extrabold">OFF</span>
+      </button>
     </div>
 
     <!-- Right: Save, Status, Bell & Master Dropdown Menu -->
@@ -247,6 +256,12 @@
   <!-- Main Work Area (Canvas) -->
   <div class="relative flex-1 min-h-0 w-full overflow-hidden canvas-bg" id="canvas-container">
     
+    <!-- Board Reservation Lock Status Banner -->
+    <div id="board-lock-banner" class="absolute top-4 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 px-4 py-2 rounded-full shadow-2xl backdrop-blur-md border text-xs font-semibold pointer-events-auto transition-all duration-300">
+      <div id="board-lock-icon" class="flex items-center"></div>
+      <div id="board-lock-message" class="tracking-wide"></div>
+      <div id="board-lock-actions" class="flex items-center gap-2"></div>
+    </div>
 
     <!-- Canvas Stage Layer (Holds Nodes + Stage-Embedded SVG Connectors + Floor Bands) -->
     <div id="canvas-stage" class="absolute top-0 left-0 origin-top-left z-20">

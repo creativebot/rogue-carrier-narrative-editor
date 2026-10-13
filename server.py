@@ -64,6 +64,15 @@ from backend.storage import (
     T1_LEGACY_VAR_NAMES,
     normalize_t1_variations,
 )
+from backend.locks import (
+    acquire_board_lock,
+    heartbeat_board_lock,
+    release_board_lock,
+    override_board_lock,
+    get_all_locks,
+    merge_and_save_board,
+    is_admin_user,
+)
 class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
@@ -183,8 +192,95 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
     # ==================== POST ====================
     def do_POST(self):
+        # 0. Board-Scoped Save (Saves only active board, preventing cross-board overwrites)
+        if self.path == '/api/save-board':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                board_nodes = body.get('nodes', [])
+                board_dialogues = body.get('dialogues', [])
+                user = self.get_auth_user()
+                if not user:
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": body.get('author') or 'Editor User',
+                        "role": "editor",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+                if not user or user.get('status') != 'approved':
+                    self.send_json(403, {"status": "error", "message": "Sign-in required to save board."})
+                    return
+
+                author_name = user.get('name') or user.get('email') or 'Editor User'
+                result = merge_and_save_board(board_id, board_nodes, board_dialogues, author_name)
+                self.send_json(200, result)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Board Lock: Acquire
+        elif self.path == '/api/lock/acquire':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                board_name = body.get('boardName')
+                user = self.get_auth_user()
+                if not user:
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": "Local Editor",
+                        "role": "admin",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+                res = acquire_board_lock(board_id, board_name, user)
+                code = 200 if res.get('success') else 423
+                self.send_json(code, res)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Board Lock: Heartbeat
+        elif self.path == '/api/lock/heartbeat':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                user = self.get_auth_user()
+                res = heartbeat_board_lock(board_id, user)
+                self.send_json(200 if res.get('success') else 410, res)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Board Lock: Release
+        elif self.path == '/api/lock/release':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                user = self.get_auth_user()
+                res = release_board_lock(board_id, user)
+                self.send_json(200, res)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Board Lock: Admin Override (Only Daniel Poludyonny / Admin)
+        elif self.path == '/api/lock/override':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                board_name = body.get('boardName')
+                user = self.get_auth_user()
+                res = override_board_lock(board_id, board_name, user)
+                code = 200 if res.get('success') else (403 if res.get('status') == 'forbidden' else 400)
+                self.send_json(code, res)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
         # 1. Main Project Save (with automatic snapshot creation)
-        if self.path == '/api/save':
+        elif self.path == '/api/save':
             try:
                 app_data = self.read_json_body()
                 user = self.get_auth_user()
@@ -1041,6 +1137,11 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
+
+        # 0. Active Board Locks List
+        if path == '/api/locks':
+            self.send_json(200, {"locks": get_all_locks()})
+            return
 
         # 1. Main Project Load
         if path == '/api/load':

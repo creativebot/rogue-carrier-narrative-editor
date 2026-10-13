@@ -336,6 +336,9 @@ function setupToolbarEvents() {
       }
       saveActiveWorkspacePosition();
       renderApp();
+      if (typeof syncActiveBoardLock === 'function') {
+        syncActiveBoardLock();
+      }
       if (currentAppViewMode !== 'mobile-stage') {
         setTimeout(() => fitWholeSchematic(), 50);
       }
@@ -501,6 +504,9 @@ function setCategoryFilter(filter) {
   syncCategoryFilterButtonsUI(filter);
   saveActiveWorkspacePosition();
   renderApp();
+  if (typeof syncActiveBoardLock === 'function') {
+    syncActiveBoardLock();
+  }
 }
 
 function updateProjectSubtitle() {
