@@ -2597,7 +2597,7 @@
       "tier": null,
       "location": "6 mins after [Inner Explosion] criteria aquired",
       "spawnConditions": "6 mins after [Inner Explosion] criteria aquired",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "The R&D formed a task force to study the Explosion",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -3753,7 +3753,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T15:38:26.115Z",
+  "_lastModified": "2026-10-13T15:38:54.791Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
