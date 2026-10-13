@@ -633,15 +633,19 @@ function renderFloorBands() {
     const isSecret = activeCategoryFilter === 'SecretChain';
     FLOOR_Y.forEach((y, idx) => {
       const band = document.createElement('div');
+      band.id = `stage-band-${idx}`;
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-2500px`;
-      band.style.width = `10000px`;
+      band.style.left = `-200000px`;
+      band.style.width = `400000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals
-      const labelXPositions = [-1600, 40, 2000, 4000];
+      // Stage label badges starting from STAGE 1, placed at visible intervals across active horizontal range
+      const labelXPositions = [
+        -15000, -11000, -8000, -5000, -3000, -1500, -500,
+        40, 1600, 3200, 5000, 7500, 10500, 14000, 18000
+      ];
       labelXPositions.forEach(lx => {
         const label = document.createElement('div');
         label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
@@ -652,7 +656,7 @@ function renderFloorBands() {
       });
     });
   } else {
-    // Requirement 5: 5 Vertical Difficulty Tier Columns (Tier I to Tier V)
+    // 5 Vertical Difficulty Tier Columns (Tier I to Tier V for Generic & Deck Event Pools)
     const tierLabels = [
       'TIER I (Introductory / Low Risk)',
       'TIER II (Standard Operations)',
@@ -661,20 +665,127 @@ function renderFloorBands() {
       'TIER V (Apex / Extreme Hazard)'
     ];
     const isDeck = activeCategoryFilter === 'DeckPool';
+    const poolNodes = (appData.nodes || []).filter(n => (n.category || 'GenericPool') === activeCategoryFilter);
 
-    TIER_X.forEach((x, idx) => {
+    // 1. Calculate dynamic width for each tier based on the largest element in it
+    const tierWidths = [1020, 1020, 1020, 1020, 1020];
+    for (let t = 0; t < 5; t++) {
+      const tierNum = t + 1;
+      const nodesInTier = poolNodes.filter(n => (Number(n.tier) || 1) === tierNum);
+      let maxWidth = 940;
+      nodesInTier.forEach(node => {
+        const actionCols = (node.actions || []).length;
+        const hasInaction = Boolean(node.hasInactionThreat && node.inactionThreat);
+        const totalCols = actionCols + (hasInaction ? 1 : 0);
+        let nodeWidth = 940;
+        if (totalCols >= 4) nodeWidth = 1220;
+        else if (totalCols === 3) nodeWidth = 1060;
+        if (nodeWidth > maxWidth) maxWidth = nodeWidth;
+      });
+      tierWidths[t] = Math.max(1020, maxWidth + 80); // 40px buffer on each side
+    }
+
+    // 2. Compute dynamic start X for each tier column
+    const tierStarts = [];
+    let currentX = 80;
+    const tierGap = 50;
+    for (let t = 0; t < 5; t++) {
+      tierStarts.push(currentX);
+      TIER_X[t] = currentX + 30; // node snap anchor
+      currentX += tierWidths[t] + tierGap;
+    }
+
+    // 3. Render vertical column bands running endlessly with repeated headers
+    for (let t = 0; t < 5; t++) {
       const band = document.createElement('div');
+      band.id = `tier-band-${t}`;
       band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
-      band.style.left = `${x - 20}px`;
-      band.style.width = `920px`;
-
-      const header = document.createElement('div');
-      header.className = `tier-column-header ${isDeck ? 'tier-column-header-deck' : ''}`;
-      header.innerText = tierLabels[idx];
-
-      band.appendChild(header);
+      band.style.left = `${tierStarts[t]}px`;
+      band.style.width = `${tierWidths[t]}px`;
+      band.style.top = `-200000px`;
+      band.style.height = `400000px`;
       floorBandsLayer.appendChild(band);
+
+      // Repeat header markers vertically so they stay visible when scrolling down
+      const headerYPositions = [50, 1800, 3600, 5400, 7200, 9500];
+      headerYPositions.forEach(hy => {
+        const header = document.createElement('div');
+        header.className = `tier-column-header ${isDeck ? 'tier-column-header-deck' : ''}`;
+        header.style.top = `${hy}px`;
+        header.style.left = `${tierStarts[t] + Math.round((tierWidths[t] - 280) / 2)}px`;
+        header.style.width = `280px`;
+        header.style.textAlign = 'center';
+        header.innerText = tierLabels[t];
+        floorBandsLayer.appendChild(header);
+      });
+    }
+  }
+}
+
+function updateDynamicBandDimensions() {
+  if (!nodesLayer || !floorBandsLayer) return;
+
+  if (activeCategoryFilter === 'KeyChain' || activeCategoryFilter === 'SecretChain') {
+    FLOOR_Y.forEach((y, idx) => {
+      const band = document.getElementById(`stage-band-${idx}`);
+      if (!band) return;
+      const bandTop = y - 45;
+
+      let maxBottomInStage = bandTop + STAGE_BAND_HEIGHT;
+      const cardsInStage = Array.from(nodesLayer.children).filter(el => {
+        const top = parseFloat(el.style.top) || 0;
+        return Math.abs(top - y) < 450;
+      });
+
+      cardsInStage.forEach(cardEl => {
+        const top = parseFloat(cardEl.style.top) || 0;
+        const h = cardEl.offsetHeight || 0;
+        const bottom = top + h;
+        if (bottom > maxBottomInStage) {
+          maxBottomInStage = bottom;
+        }
+      });
+
+      // Band height adapts to the highest element with 60px bottom padding buffer
+      const requiredHeight = Math.max(STAGE_BAND_HEIGHT, (maxBottomInStage - bandTop) + 60);
+      band.style.height = `${requiredHeight}px`;
     });
+  } else {
+    // Generic / Deck Pools: Check if any rendered card in a tier is wider than allocated
+    const tierCards = Array.from(nodesLayer.children);
+    let needsTierReflow = false;
+
+    for (let t = 0; t < 5; t++) {
+      const band = document.getElementById(`tier-band-${t}`);
+      if (!band) continue;
+      const currentWidth = parseFloat(band.style.width) || 1020;
+      const bandLeft = parseFloat(band.style.left) || 80;
+
+      tierCards.forEach(cardEl => {
+        const left = parseFloat(cardEl.style.left) || 0;
+        const width = cardEl.offsetWidth || 0;
+        if (left >= bandLeft - 50 && left < bandLeft + currentWidth) {
+          const cardRequiredWidth = (left - bandLeft) + width + 60;
+          if (cardRequiredWidth > currentWidth) {
+            band.style.width = `${Math.round(cardRequiredWidth)}px`;
+            needsTierReflow = true;
+          }
+        }
+      });
+    }
+
+    if (needsTierReflow) {
+      let curX = 80;
+      const tierGap = 50;
+      for (let t = 0; t < 5; t++) {
+        const band = document.getElementById(`tier-band-${t}`);
+        if (!band) continue;
+        const w = parseFloat(band.style.width) || 1020;
+        band.style.left = `${curX}px`;
+        TIER_X[t] = curX + 30;
+        curX += w + tierGap;
+      }
+    }
   }
 }
 
@@ -691,6 +802,9 @@ function measureAndLockCardHeights() {
       el.style.setProperty('--card-exact-height', `${heights[idx]}px`);
     }
   });
+
+  updateDynamicBandDimensions();
+
   if (canvasStage) {
     canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.58);
   }
@@ -712,7 +826,13 @@ function renderNodes() {
   });
 
   filteredNodes.forEach(node => {
-    // Requirement 5: Generic and Deck pools use the EXACT same event block layout as critical events
+    // If on a pool page and node has a tier, align its position to the dynamic tier anchor
+    if (isPoolPage && node.tier) {
+      const tierIdx = Math.max(0, Math.min(4, Number(node.tier) - 1));
+      if (TIER_X[tierIdx] !== undefined) {
+        node.position.x = TIER_X[tierIdx];
+      }
+    }
     const nodeEl = createEventNodeDOM(node);
     nodesLayer.appendChild(nodeEl);
   });
