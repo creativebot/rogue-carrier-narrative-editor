@@ -1787,6 +1787,20 @@
                   "isCriteria": true
                 }
               ]
+            },
+            {
+              "id": "clause_1791889437308",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 1,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3526,7 +3540,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T11:03:36.893Z",
+  "_lastModified": "2026-10-13T11:03:57.308Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
