@@ -25,6 +25,20 @@
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1791878810052",
+      "targetId": "diag_1791832094238",
+      "targetType": "dialogue",
+      "targetTitle": "Standalone Conversation",
+      "text": "@vkuznietsov а нашо це? чи треба система наліпок / коментарів?",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-13T08:06:50.052818Z",
+      "displayTime": "2026-10-13 08:06",
+      "mentions": [
+        "vkuznietsov@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
