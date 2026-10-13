@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -1772,7 +1772,23 @@
           "codeSuffix": "A",
           "shortDescription": "Send the scouting team",
           "description": "Ask for volunteers. Give them the best protection gear we can provide. We have no time to waste.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791889416893",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_refinery_intelligence",
+                  "name": "Refinery Intelligence",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Scouts managed to stay there only briefly before their protection began to fail.  They managed to escape, taking with them several slabs of an Eldritium, a rare metal. It probably was mined or refined there. Unfortunately, they also carried radiation sickness.",
           "rewards": [
@@ -2079,7 +2095,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791831814739",
@@ -2179,7 +2196,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791832874715",
@@ -2313,7 +2331,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791834582822",
@@ -2374,7 +2393,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -3506,11 +3526,12 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-13T09:34:28.395Z",
+  "_lastModified": "2026-10-13T11:03:36.893Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
     "Inner Explosion",
-    "Station Intelligence"
+    "Station Intelligence",
+    "Refinery Intelligence"
   ]
 }
