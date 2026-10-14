@@ -2378,6 +2378,13 @@
               "amount": "20-30",
               "iconImg": "icons/T_Chromium.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_08_Titan",
+              "name": "Titanium",
+              "amount": "20-30",
+              "iconImg": "icons/T_Metals_Ti.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -3980,7 +3987,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:28:51.994Z",
+  "_lastModified": "2026-10-14T20:28:55.682Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
