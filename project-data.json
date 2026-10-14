@@ -1583,7 +1583,7 @@
       "id": "node_1791717900687",
       "codename": "T1-V2-K1A",
       "name": "Once More Into The Frey",
-      "type": "World",
+      "type": "Deck",
       "category": "KeyChain",
       "variationId": "var_v2",
       "floorIndex": 0,
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:17:45.602Z",
+  "_lastModified": "2026-10-14T20:18:15.231Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
