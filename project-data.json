@@ -2720,7 +2720,23 @@
           "codeSuffix": "C",
           "shortDescription": "Study the jammer",
           "description": "We can study the retrieved fragments of the jammer in the lab",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791994472553",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_jammer_found",
+                  "name": "Jammer Found",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The Jammer is a sample of a highly advanced space tech. Whether the ones who made it are locals or aliens to this planet, they are on the same or even higher level than us. We have (at least for now) no effective means to counter such a jammer.",
           "rewards": [
@@ -3861,7 +3877,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:14:14.605Z",
+  "_lastModified": "2026-10-14T16:14:32.553Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
