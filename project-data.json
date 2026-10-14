@@ -2772,7 +2772,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "The Jammer is a sample of a highly advanced space tech. Whether the ones who made it are locals or aliens to this planet, they are on the same or even higher level than us. We have (at least for now) no effective means to counter such a jammer.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -3912,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:15:36.302Z",
+  "_lastModified": "2026-10-14T20:15:43.387Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
