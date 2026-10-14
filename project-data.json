@@ -2044,7 +2044,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 6,
           "resultDescription": "Turns out, this was a space station, orbiting the Keeling some centuries, if not millennia ago. Most of the tech here is beyond our understanding, and the in a sorry state because of its age and conditions, but despite that, the scouts retrieved several artifacts. This may be the first step to a real breakthrough.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -3912,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:10:54.017Z",
+  "_lastModified": "2026-10-14T20:11:04.420Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
