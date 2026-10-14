@@ -2286,7 +2286,13 @@
           "timerHours": 7,
           "resultDescription": "The place was pillaged a long time ago. However, the scientists manage to gather intel about the pillagers. This was a native Keeling civilization, primitive but resourceful, capable of recycling the tech, not only extracting precious metals and gems from it. It also seems that they didn’t quite finish their business here. There may be something of value still hidden there.\nThey went on, but to no avail. Yet just as the search began to look futile, archeologists found a hidden chamber with a strange device, possibly still functional.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+250",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [
             "node_1791832874715"
@@ -3954,7 +3960,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:26:04.989Z",
+  "_lastModified": "2026-10-14T20:26:14.478Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
