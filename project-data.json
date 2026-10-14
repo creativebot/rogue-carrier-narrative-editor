@@ -2155,8 +2155,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Immediatly after T1-V2-K1A A resolution",
+      "spawnConditions": "Immediatly after T1-V2-K1A A resolution",
       "eventIntro": "Approaching the Primordial structure.",
       "eventDescription": "The structure is in very bad shape. Once levitating, it is now half-buried in the soil and heavily damaged. ",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:19:54.522Z",
+  "_lastModified": "2026-10-14T20:20:28.561Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
