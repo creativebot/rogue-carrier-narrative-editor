@@ -1781,8 +1781,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "Click to set spawn conditions...",
-      "spawnConditions": "Click to set spawn conditions...",
+      "location": "Immediatly after resolution",
+      "spawnConditions": "Immediatly after resolution",
       "eventIntro": "Approaching the Primordial structure.",
       "eventDescription": "The complex is built on the floating island. We detect an unknown type of EM-field surrounding the structures.",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:18:30.884Z",
+  "_lastModified": "2026-10-14T20:19:04.076Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
