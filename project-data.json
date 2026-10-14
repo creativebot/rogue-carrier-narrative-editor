@@ -1690,7 +1690,8 @@
             "🧠 Knowledge +100"
           ],
           "targetNodeIds": [
-            "node_1791831814739"
+            "node_1791831814739",
+            "node_1792007511191"
           ],
           "targetNodeId": "node_1791831814739"
         },
@@ -2469,7 +2470,7 @@
     },
     {
       "id": "node_1791834582822",
-      "codename": "T1-V2-K2E",
+      "codename": "T1-V2-K2F",
       "name": "Once More Into The Frey",
       "title": "Once More Into The Frey",
       "type": "World",
@@ -2535,7 +2536,7 @@
     },
     {
       "id": "node_1791904903648",
-      "codename": "T1-V2-K2F",
+      "codename": "T1-V2-K2G",
       "name": "Once More Into The Frey",
       "title": "Once More Into The Frey",
       "type": "World",
@@ -2668,7 +2669,7 @@
       "floorIndex": 2,
       "tier": null,
       "location": "Both T1-V2-K2E and T1-V2-K2F are resolved",
-      "spawnConditions": "Both T1-V2-K2E and T1-V2-K2F are resolved",
+      "spawnConditions": "Both T1-V2-K2F and T1-V2-K2G are resolved",
       "eventIntro": "All the fragments in the vicinity are investigated. We can go on with the conclusion",
       "eventDescription": "We gathered enough cues to figure at least some part of the tragedy.",
       "reactionTimerHours": "Infinite",
@@ -2754,6 +2755,41 @@
           "targetNodeId": null
         }
       ]
+    },
+    {
+      "id": "node_1792007511191",
+      "codename": "T1-V2-K2E",
+      "name": "Once More Into The Frey",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v2",
+      "floorIndex": 1,
+      "spawnConditions": "Triggered by T1-V2-K1A",
+      "eventDescription": "Enter new outcome narrative body text...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2757,
+        "y": 1080
+      },
+      "actions": [
+        {
+          "id": "c_1792007511191",
+          "codeSuffix": "A",
+          "shortDescription": "Continue",
+          "description": "Next step narrative",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "Once More Into The Frey"
     }
   ],
   "dialogues": [
@@ -3885,7 +3921,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:51:39.985Z",
+  "_lastModified": "2026-10-14T19:51:51.191Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
