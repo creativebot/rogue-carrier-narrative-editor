@@ -49,9 +49,8 @@ let selectedBlockId = null;
 let currentAppViewMode = 'desktop'; // 'desktop' | 'mobile-stage'
 let activeMobileStageIndex = 0; // 0 = Stage 1 / Tier 1, 1 = Stage 2 / Tier 2, etc.
 
-// Floor Snap Y Positions - Extra clearance to guarantee enlarged event blocks fit comfortably inside stage stripes
-const FLOOR_Y = [90, 1540, 2990, 4440];
-const STAGE_BAND_HEIGHT = 1380;
+const FLOOR_Y = [90, 1080, 2070, 3060];
+const STAGE_BAND_HEIGHT = 940;
 
 // Vertical Difficulty Tier Column X Coordinates (Tier I to Tier V for Generic & Deck Pools)
 const TIER_X = [80, 1040, 2000, 2960, 3920];

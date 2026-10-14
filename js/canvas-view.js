@@ -821,23 +821,29 @@ function updateDynamicBandDimensions() {
 
 function measureAndLockCardHeights() {
   if (!nodesLayer) return;
-  const wasZoomedOut = canvasStage && canvasStage.classList.contains('is-zoomed-out');
-  if (wasZoomedOut) {
-    canvasStage.classList.remove('is-zoomed-out');
-  }
+  const isZoomedOut = canvasStage && canvasStage.classList.contains('is-zoomed-out');
   const cards = Array.from(nodesLayer.children);
-  const heights = cards.map(el => el.offsetHeight);
-  cards.forEach((el, idx) => {
-    if (heights[idx] > 40) {
-      el.style.setProperty('--card-exact-height', `${heights[idx]}px`);
-    }
-  });
+
+  if (!isZoomedOut) {
+    // Only update and lock exact heights when viewed in full detail mode (prevents flicker at low zoom)
+    cards.forEach(el => {
+      const h = el.offsetHeight;
+      if (h > 40) {
+        el.style.setProperty('--card-exact-height', `${h}px`);
+      }
+    });
+  } else {
+    // When zoomed out, ensure any card missing --card-exact-height gets a sensible default without stripping LOD
+    cards.forEach(el => {
+      const existing = el.style.getPropertyValue('--card-exact-height');
+      if (!existing) {
+        const isEvent = el.classList.contains('event-card') || el.classList.contains('deck-event-card') || el.classList.contains('generic-event-card');
+        el.style.setProperty('--card-exact-height', isEvent ? '780px' : '260px');
+      }
+    });
+  }
 
   updateDynamicBandDimensions();
-
-  if (canvasStage) {
-    canvasStage.classList.toggle('is-zoomed-out', transform.scale < 0.58);
-  }
 }
 
 // Render All Nodes on Stage (Unified Event Block Layout for Critical, Generic & Deck Pools)
@@ -3378,6 +3384,7 @@ function makeNodesDraggable() {
       nodeStartPos = { ...obj.position };
       mouseStartPos = { x: e.clientX, y: e.clientY };
 
+      let dragRafId = null;
       const onMouseMove = (ev) => {
         if (!isDraggingNode) return;
         const rawDist = Math.hypot(ev.clientX - mouseStartPos.x, ev.clientY - mouseStartPos.y);
@@ -3395,12 +3402,21 @@ function makeNodesDraggable() {
         el.style.left = `${obj.position.x}px`;
         el.style.top = `${obj.position.y}px`;
 
-        renderConnectors();
+        if (!dragRafId) {
+          dragRafId = requestAnimationFrame(() => {
+            dragRafId = null;
+            renderConnectors();
+          });
+        }
       };
 
       const onMouseUp = () => {
         if (!isDraggingNode) return;
         isDraggingNode = false;
+        if (dragRafId) {
+          cancelAnimationFrame(dragRafId);
+          dragRafId = null;
+        }
 
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);

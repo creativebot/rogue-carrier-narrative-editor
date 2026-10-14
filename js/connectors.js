@@ -555,19 +555,20 @@ function renderConnectors() {
     list.sort((a, b) => a.startX - b.startX);
   });
 
-  // Update inbound port classes and tooltips across all rendered nodes (both overview and full headers)
+  // Update inbound port classes and tooltips across all rendered nodes (only mutate when changed)
   appData.nodes.forEach(node => {
     const el = document.getElementById(`node-${node.id}`);
     if (!el) return;
     const ports = el.querySelectorAll('.inbound-event-port');
     const incList = incomingByTarget.get(node.id) || [];
+    const hasInbound = incList.length > 0;
     ports.forEach(p => {
-      if (incList.length > 0) {
-        p.classList.add('has-inbound-links');
-        p.title = `Attachment node: ${incList.length} incoming action link(s). Click to view details.`;
-      } else {
-        p.classList.remove('has-inbound-links');
-        p.title = `Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices).`;
+      const alreadyHas = p.classList.contains('has-inbound-links');
+      if (hasInbound !== alreadyHas) {
+        p.classList.toggle('has-inbound-links', hasInbound);
+        p.title = hasInbound
+          ? `Attachment node: ${incList.length} incoming action link(s). Click to view details.`
+          : `Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices).`;
       }
     });
   });
