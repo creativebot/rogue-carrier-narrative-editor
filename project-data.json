@@ -1950,7 +1950,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 4,
           "resultDescription": "The scouts still have precious little time to explore the complex. Presumably, it was a refinery for Eldritium, with a significant supply of the material still there. Scouts couldn’t take all, but gathered data about the industrial capacities of the Primordials.",
           "rewards": [
             {
@@ -3912,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:09:50.742Z",
+  "_lastModified": "2026-10-14T20:09:58.079Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
