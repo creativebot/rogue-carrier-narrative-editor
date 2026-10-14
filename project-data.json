@@ -2611,7 +2611,7 @@
           "shortDescription": "Follow the signal",
           "description": "It might be just our luck, but we should definitely check it.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "We found an alien device, damaged by the impact of the fragment’s fall. The device is not functioning, but the examination proves it was a powerful jamming device, perhaps one of those that interfered with the signal from Zephyrus. Hard to tell who built it: the tech is clearly alien and relatively complex.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -3912,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:14:30.875Z",
+  "_lastModified": "2026-10-14T20:14:47.181Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
