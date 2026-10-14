@@ -2703,7 +2703,7 @@
           "id": "act_1791990116558",
           "codeSuffix": "C",
           "shortDescription": "Study the jammer",
-          "description": "Description for action choice C...",
+          "description": "We can study the retrieved fragments of the jammer in the lab",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3845,7 +3845,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:13:04.208Z",
+  "_lastModified": "2026-10-14T16:13:12.447Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
