@@ -2282,8 +2282,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "Immediatly after T1-V2-K1A resolution",
-      "spawnConditions": "Immediatly after T1-V2-K1A resolution",
+      "location": "Immediatly after T1-V2-K1A B resolution",
+      "spawnConditions": "Immediatly after T1-V2-K1A B resolution",
       "eventIntro": "Zephyrus fragment spotted",
       "eventDescription": "This fragment has traces of an explosion. A careful study can unveil the details of the attack. However, the fragment is small and badly damaged. We aren’t likely to find any surviving data or gear here.",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:20:58.899Z",
+  "_lastModified": "2026-10-14T20:21:18.796Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
