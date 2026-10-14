@@ -2675,7 +2675,7 @@
           "id": "c_1791988044467",
           "codeSuffix": "A",
           "shortDescription": "Study the Data clusters",
-          "description": "Action description...",
+          "description": "We can analyze the retrieved data from Zephyrus",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3845,7 +3845,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T15:03:00.356Z",
+  "_lastModified": "2026-10-14T15:06:16.435Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
