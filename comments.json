@@ -39,6 +39,20 @@
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792008559640",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "@ttretilova no need to specify status effects as \"criteria\" at the moment. I will soon add the status effects with their icons.",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-14T20:09:19.655902Z",
+      "displayTime": "2026-10-14 20:09",
+      "mentions": [
+        "ttretilova@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
