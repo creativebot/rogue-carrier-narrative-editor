@@ -1877,7 +1877,7 @@
             {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
-              "amount": "+150",
+              "amount": "+50",
               "icon": "🧠",
               "iconImg": ""
             },
@@ -3918,7 +3918,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:16:34.765Z",
+  "_lastModified": "2026-10-14T20:17:17.290Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
