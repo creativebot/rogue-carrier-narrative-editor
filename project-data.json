@@ -2628,7 +2628,7 @@
           "description": "Abbadie suggest deeper research of the Orange Box data to match the gathered data on the explosion",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The results show that the malfunction of the battery block, leading to the explosion, started 78 seconds before the explosion. This makes the sabotage theory highly improbable, for in such a short time, the saboteur couldn’t possibly escape the explosion, not to say reach the escape pods. It could have been the result of the outer action, most likely the penetrative radiation, strong enough to break through the Zephyrus’s shields.\nYet one group of researchers states that the earlier records contain data on the safety system breach in this sector, which suggests the sabotage was a planned-ahead action.\nThis could mean that the saboteur left Zephyrus. Perhaps even as a part of the Behemoth crew.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T08:21:22.641Z",
+  "_lastModified": "2026-10-14T08:21:49.210Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
