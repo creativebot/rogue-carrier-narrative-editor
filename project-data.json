@@ -2690,7 +2690,23 @@
           "codeSuffix": "B",
           "shortDescription": "Study gathered relics",
           "description": "We have to learn more about the looters",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1791994454605",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_nasobi_tc_badge",
+                  "name": "Nasobi TC Badge",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The overall analysis shows that the looters present the civilization in its industrial age. They use heat and electricity, but not nuclear power. They have heavy machinery developed sea fleet, and a complex social structure. Yet it seems unlikely that they are capable of shooting down Zephyrus size ship from orbit. Why the uninstalled electronic equipment remains unclear. Perhaps, relics provided us with a limited perspective of these species. We have to find and contact them to learn more.",
           "rewards": [
@@ -3845,7 +3861,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:14:10.257Z",
+  "_lastModified": "2026-10-14T16:14:14.605Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
