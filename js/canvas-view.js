@@ -163,7 +163,7 @@ function setupCanvasEvents() {
       maxZoomedBlockId = null;
     }
 
-    updateCanvasTransform();
+    scheduleCanvasTransform();
 
     if (wheelEndTimer) clearTimeout(wheelEndTimer);
     wheelEndTimer = setTimeout(() => {

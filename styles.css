@@ -172,6 +172,17 @@ html, body {
   font-weight: 600;
 }
 
+.event-card,
+.dialogue-card,
+.deck-event-card,
+.generic-event-card {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: layout;
+}
+
 /* Event Table Node Styling - Rounded Edges & Premium Shadows */
 .event-card {
   --theme-card-bg: #fefce8;
@@ -382,7 +393,7 @@ html, body {
   cursor: pointer;
   z-index: 35;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 2px 5px rgba(0, 0, 0, 0.25);
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.18s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.18s ease;
   user-select: none;
   outline: none;
 }
@@ -2378,10 +2389,25 @@ body.is-port-dragging .inbound-event-port {
 }
 
 #canvas-stage.is-zoomed-out .block-floating-btn {
-  display: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  pointer-events: auto !important;
 }
 
+/* Real-time Collaboration & Lock Status Viewport Banners */
+#board-lock-banner,
+#board-update-notification-banner {
+  position: fixed !important;
+  top: 60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 90 !important;
+  isolation: isolate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 
-
-
+#board-update-notification-banner {
+  top: 108px !important;
+}
 
