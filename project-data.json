@@ -561,7 +561,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -709,7 +709,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2664,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -845,7 +845,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1004,7 +1004,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1139,7 +1139,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 3060
+        "y": 4890
       },
       "actions": [
         {
@@ -1306,7 +1306,10 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         },
         {
           "id": "act_sec_1_2",
@@ -1319,7 +1322,10 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1341,7 +1347,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -1355,7 +1361,9 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1387,7 +1395,7 @@
         ]
       },
       "position": {
-        "x": 100,
+        "x": 110,
         "y": 220
       },
       "actions": [
@@ -1428,7 +1436,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1482,7 +1490,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2541,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1560,13 +1568,7 @@
           "timerHours": 5,
           "resultDescription": "We spotted several structures that can be identified as potentially built by the Primordials. They are all in close proximity and potentially reachable by our means of transportation.",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+150",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeId": "node_1791719220382",
           "targetNodeIds": [
@@ -1613,12 +1615,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [
-            "node_1791831814739",
-            "node_1791834582822",
-            "node_1791904903648"
-          ],
-          "targetNodeId": "node_1791831814739"
+          "targetNodeIds": [],
+          "targetNodeId": null
         },
         {
           "id": "act_1791718169903",
@@ -1673,12 +1671,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [
-            "node_1791904903648",
-            "node_1791831814739",
-            "node_1791834582822"
-          ],
-          "targetNodeId": "node_1791904903648"
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "Once More Into The Frey",
@@ -1701,8 +1695,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -1370,
-        "y": 1080
+        "x": -1270,
+        "y": 1690
       },
       "actions": [
         {
@@ -1739,7 +1733,7 @@
               ]
             }
           ],
-          "timerHours": 8,
+          "timerHours": 5,
           "resultDescription": "Scouts managed to stay there only briefly before their protection began to fail.  They managed to escape, taking with them several slabs of an Eldritium, a rare metal. It probably was mined or refined there. Unfortunately, they also carried radiation sickness.",
           "rewards": [
             {
@@ -1757,10 +1751,8 @@
               "icon": "📦"
             }
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         },
         {
           "id": "act_1791792722857",
@@ -1795,19 +1787,10 @@
               ]
             }
           ],
-          "timerHours": 4,
+          "timerHours": 5,
           "resultDescription": "We still don’t exactly understand what this field is or what its purpose is. But now we know the possible hazards and how to avoid them. ",
           "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "criteria_refinery_intelligence",
-              "name": "Refinery Intelligence",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1874,7 +1857,7 @@
               ]
             }
           ],
-          "timerHours": 4,
+          "timerHours": 5,
           "resultDescription": "The scouts still have precious little time to explore the complex. Presumably, it was a refinery for Eldritium, with a significant supply of the material still there. Scouts couldn’t take all, but gathered data about the industrial capacities of the Primordials.",
           "rewards": [
             {
@@ -1892,10 +1875,8 @@
               "icon": "📦"
             }
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "Once More Into The Frey",
@@ -1918,8 +1899,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -2,
-        "y": 1080
+        "x": 52,
+        "y": 1690
       },
       "actions": [
         {
@@ -1973,15 +1954,13 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         },
         {
           "id": "act_1791812011267",
           "codeSuffix": "B",
-          "shortDescription": "Send recon drones",
+          "shortDescription": "Send reconn drones",
           "description": "The structure doesn’t look stable. We’ll be putting our crew at risk, sending them without any prior exploration. ",
           "requirements": [
             {
@@ -2042,10 +2021,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "title": "Once More Into The Frey",
@@ -2070,7 +2047,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2126,10 +2103,8 @@
               "icon": "📦"
             }
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         },
         {
           "id": "act_1791831540523",
@@ -2170,10 +2145,8 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [
-            "node_1791832874715"
-          ],
-          "targetNodeId": "node_1791832874715"
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": []
@@ -2196,8 +2169,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2234,
-        "y": 1080
+        "x": 2470,
+        "y": 1690
       },
       "actions": [
         {
@@ -2302,7 +2275,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -2436,8 +2409,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3358,
-        "y": 1080
+        "x": 3647,
+        "y": 1690
       },
       "actions": [
         {
@@ -2502,8 +2475,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4402,
-        "y": 1080
+        "x": 4672,
+        "y": 1690
       },
       "actions": [
         {
@@ -2554,7 +2527,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -2575,7 +2549,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -2606,7 +2580,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -2627,7 +2602,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4074,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -2704,7 +2679,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791996044351",
@@ -3218,7 +3194,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 2616
+        "y": 4446
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3269,7 +3245,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 2123
+        "y": 3343
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3320,7 +3296,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 3349
+        "y": 5179
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3357,7 +3333,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 3248
+        "y": 5078
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3535,7 +3511,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1870,
-        "y": 1038
+        "y": 1648
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3629,7 +3605,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1164
+        "y": 1774
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3662,7 +3638,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 1432
+        "y": 2042
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3714,7 +3690,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 1988
+        "y": 3208
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3800,7 +3776,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1055
+        "y": 1665
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3927,7 +3903,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1275,
-        "y": 1110
+        "y": 1720
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3997,7 +3973,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 2403
+        "y": 3623
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4073,7 +4049,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4148,
-        "y": 2240
+        "y": 3460
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4149,7 +4125,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 2162
+        "y": 3382
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4272,14 +4248,17 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:10:26.116964",
+  "_lastModified": "2026-10-14T20:10:26.090Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found"
+    "Jammer Found",
+    "Resistance to diseases",
+    "Temporal immunity",
+    "any number of items"
   ],
   "stageLayoutVersion": 2
 }
