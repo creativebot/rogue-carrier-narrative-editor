@@ -1869,6 +1869,21 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792007915516",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_refinery_intelligence",
+                  "name": "Refinery Intelligence",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3912,7 +3927,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:58:14.941Z",
+  "_lastModified": "2026-10-14T19:58:35.516Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
