@@ -2371,7 +2371,14 @@
           "timerHours": 4,
           "resultDescription": "No luck. The fragment is burned out to ash, leaving nothing of value. We managed to retrieve just a small quantity of rare metals.",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "res_06_Chrom",
+              "name": "Chromium",
+              "amount": "20-30",
+              "iconImg": "icons/T_Chromium.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3973,7 +3980,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:28:46.511Z",
+  "_lastModified": "2026-10-14T20:28:51.994Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
