@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -561,7 +561,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -709,7 +709,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2664,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -845,7 +845,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1004,7 +1004,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1139,7 +1139,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 4890
+        "y": 3060
       },
       "actions": [
         {
@@ -1293,7 +1293,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -1308,10 +1308,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1382,7 +1379,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -1419,7 +1416,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 1193
       },
       "actions": [
@@ -1434,9 +1431,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1509,7 +1504,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1563,7 +1558,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2541,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1783,7 +1778,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1370,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2000,7 +1995,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2151,7 +2146,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2278,7 +2273,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2234,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2287,7 +2282,7 @@
           "shortDescription": "Send the investigators",
           "description": "Investigation may take precious time, but it’s the only way to find out how the ship was destroyed.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. Whether as the result of sabotage or because of some alien technology, causing some internal devices to explode is yet unclear.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -2312,7 +2307,7 @@
           "shortDescription": "Look for data clusters",
           "description": "Time is of the essence. A quick check will do. We know the weapon was of devastating power, so the knowledge won’t save us from it anyhow.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 4,
           "resultDescription": "No luck. The fragment is burned out to ash, leaving nothing of value. We managed to retrieve just a small quantity of rare metals.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -2342,7 +2337,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. The Orange box data shows the critical malfunction in the battery block safety systems in this sector of the ship, seconds before the explosion. Further study is required to clarify the connection between these two occurrences.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -2383,7 +2378,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2460,7 +2455,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 6,
           "resultDescription": "We had a first contact, but what was the creature that contacted us? All the structures we explored, even those that were still functioning, were deserted ages ago! Yet, the artifacts we’ve found and the processed data show the possibility of the multidimensional technology being used by the Primordals. However, such tech might require huge amounts of energy. How the Prism is functioning without the potent energy source, and whether there is a limit to its uses, remains unknown.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -2488,7 +2483,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "The data shows that the first contact we had wasn’t a direct contact. At least not as direct as we thought it was. The Primodial wasn’t there in full, and we aren’t even sure that he could be present in a full material form. The one Voss talked to could be either an AI avatar, a transdimensional projection, or even an interactive semi-intelligent recording of the person long gone. The artifacts collected are mostly functional and can be studied to gain a better understanding of the prims’ technology, especially the Prism. What we know now is that the Prism is autonomous and powered by the source beyond our 4 dimensions. All attempts to mess with it will lead to the safety reboot, as well as any serious damage to the ship and crew. We can’t help but wonder: could Zephyrus survive the attack if the Prism were still aboard it?",
           "rewards": [
             "🧠 Knowledge +100"
@@ -2518,7 +2513,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3358,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2543,7 +2538,7 @@
           "shortDescription": "Secure the perimeter",
           "description": "Secure the wreck in case the looters are still around and then extract the valuables.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 8,
           "resultDescription": "Whoever did this has some industrial equipment. Not that advanced, but effective. We found some remnants of it: broken parts, exhausted batterys etc. The looters took all they could, even the metal plates that they managed to tear off. They had to have a large vessel to carry all that of the island. Also they picked up all the surviving electronics for some reason.\nWere they just occasional marauders or intently covered the tracks of the attack?\nOne of them lost some kind of decoration, abadge or something. Maybe it will guide us to the marauders in the future.\n",
           "rewards": [
             "🧠 Knowledge +100",
@@ -2584,7 +2579,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4402,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2593,7 +2588,7 @@
           "shortDescription": "Organize the diving team",
           "description": "The waters are shallow here. Maybe we can use divers to reach the Fragment?",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 1,
           "resultDescription": "No use. Our divers reached the fragment but barely had time to explore it. The local fauna is very aggressive there, so they had to withdraw soon. Still, they managed to recover a data cluster.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -2635,8 +2630,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -2657,7 +2651,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2688,8 +2682,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -2710,7 +2703,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4074,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2787,8 +2780,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     }
   ],
   "dialogues": [
@@ -2836,7 +2828,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 4446
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2887,7 +2879,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 3343
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2938,7 +2930,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 5179
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2975,7 +2967,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 5078
+        "y": 3248
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3153,7 +3145,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1870,
-        "y": 1648
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3247,7 +3239,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1774
+        "y": 1164
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3280,7 +3272,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 2042
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3332,7 +3324,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 3208
+        "y": 1988
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3418,7 +3410,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1665
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3575,7 +3567,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1275,
-        "y": 1720
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3645,7 +3637,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 3623
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3721,7 +3713,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4148,
-        "y": 3460
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3797,7 +3789,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 3382
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3920,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:13:43.777Z",
+  "_lastModified": "2026-10-14T20:14:27.463Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
@@ -3928,6 +3920,5 @@
     "Station Intelligence",
     "Refinery Intelligence",
     "Jammer Found"
-  ],
-  "stageLayoutVersion": 2
+  ]
 }
