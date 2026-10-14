@@ -2588,8 +2588,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Immediatly after T1-V2-K1A B/C resolution",
+      "spawnConditions": "Immediatly after T1-V2-K1A B/C resolution",
       "eventIntro": "Zephyrus fragment spotted",
       "eventDescription": "This fragment had sunken by the time we arrived, but scanners detected a strange signal nearby.",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:21:56.063Z",
+  "_lastModified": "2026-10-14T20:22:04.051Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
