@@ -2424,6 +2424,13 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
+            },
+            {
+              "resourceId": "res_01_Gold",
+              "name": "Gold",
+              "amount": "20-30",
+              "iconImg": "icons/T_Gold.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [
@@ -3987,7 +3994,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:28:55.682Z",
+  "_lastModified": "2026-10-14T20:28:59.418Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
