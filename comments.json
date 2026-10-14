@@ -67,6 +67,18 @@
       "mentions": [
         "dpoludonnyi@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792012119865",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "OK will add",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-14T21:08:39.865197Z",
+      "displayTime": "2026-10-14 21:08",
+      "mentions": []
     }
   ],
   "deletedIds": [
