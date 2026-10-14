@@ -2222,7 +2222,13 @@
           "timerHours": 5,
           "resultDescription": "The place was pillaged a long time ago. Everything was either looted, smashed, or turned to rust & dust. All we can extract from here is some basic materials.",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "res_10_Tung",
               "name": "Tungsten",
@@ -3948,7 +3954,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:24:20.505Z",
+  "_lastModified": "2026-10-14T20:26:04.989Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
