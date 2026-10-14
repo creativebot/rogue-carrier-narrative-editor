@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -561,7 +561,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -709,7 +709,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2664,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -845,7 +845,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1004,7 +1004,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1139,7 +1139,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 4890
+        "y": 3060
       },
       "actions": [
         {
@@ -1293,7 +1293,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -1308,10 +1308,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1347,10 +1344,7 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         },
         {
           "id": "act_sec_1_2",
@@ -1363,10 +1357,7 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         }
       ],
       "disabledVariationIds": [],
@@ -1388,7 +1379,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -1402,9 +1393,7 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1427,7 +1416,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 1193
       },
       "actions": [
@@ -1442,9 +1431,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1476,7 +1463,7 @@
         ]
       },
       "position": {
-        "x": 110,
+        "x": 100,
         "y": 220
       },
       "actions": [
@@ -1517,7 +1504,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1571,7 +1558,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2541,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1649,7 +1636,13 @@
           "timerHours": 5,
           "resultDescription": "We spotted several structures that can be identified as potentially built by the Primordials. They are all in close proximity and potentially reachable by our means of transportation.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeId": "node_1791719220382",
           "targetNodeIds": [
@@ -1777,7 +1770,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1270,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -1981,7 +1974,7 @@
       "inactionThreat": null,
       "position": {
         "x": 52,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2128,7 +2121,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2251,7 +2244,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2470,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2356,7 +2349,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2491,7 +2484,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3647,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2557,7 +2550,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4672,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2608,8 +2601,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -2630,7 +2622,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2661,8 +2653,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -2683,7 +2674,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4074,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2760,553 +2751,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791996044351",
-      "codename": "GEN-S1-E3",
-      "name": "Field Research",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
-      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
-      "eventIntro": "Your scouts find a lot of animals' carcasses. Studying them could be useful.",
-      "eventDescription": "While exploring the island, your scouts discover a group of dead and dying land animals scattered along the shore. They are apparently struck by an unknown disease. Examining them could help you learn more about local viruses or toxins.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 1752
-      },
-      "actions": [
-        {
-          "id": "c_1791996044351",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Extract Tissue",
-          "requirements": [
-            {
-              "id": "clause_1791996222092",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected  samples from both diseased and apparently healthy organs and tissues. These samples will improve your understanding of the local fauna.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "spec_science",
-              "name": "Science Spec",
-              "amount": "+20-30",
-              "icon": "🔬",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "20-30",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791996581486",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Neutralise the virus",
-          "requirements": [
-            {
-              "id": "clause_1791996623956",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_05",
-                  "name": "Composite Enzymes",
-                  "amount": 10,
-                  "iconImg": "icons/T_Composite-Enzymes.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, the scouts reported that the virus had been neutralized and no longer posed a threat to humans or your food supplies.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "spec_science",
-              "name": "Science Spec",
-              "amount": "+20-30",
-              "icon": "🔬",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "criteria_resistance_to_diseases",
-              "name": "Resistance to diseases",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791996584187",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Reverse the sickness",
-          "requirements": [
-            {
-              "id": "clause_1791996954490",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_02",
-                  "name": "Biochem Compounds",
-                  "amount": 10,
-                  "iconImg": "icons/T_Chem-Compound.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, they developed a custom batch of MedGel that not only neutralized the virus but also reversed its effects, saving several creatures on the brink of death.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_temporal_immunity",
-              "name": "Temporal immunity",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            },
-            {
-              "resourceId": "medres_01",
-              "name": "Med Gel",
-              "amount": "5",
-              "iconImg": "icons/T_Med-Gel.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "colorScheme": "rose"
-    },
-    {
-      "id": "node_1792001314991",
-      "codename": "GEN-S1-E4",
-      "name": "Supply Beacon",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "any island",
-      "spawnConditions": "any island",
-      "eventIntro": "A supply beacon has crashed. Something inside might still be useful.",
-      "eventDescription": "The supply beacon has crashed into the island and turned into a jumble of metal. Whatever contents it transported must have been smashed into smithereens and less. And yet, with proper tools, your specialists may be able to salvage something.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 2712
-      },
-      "actions": [
-        {
-          "id": "c_1792001314991",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Extract Contents",
-          "requirements": [
-            {
-              "id": "clause_1792001422239",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_03",
-                  "name": "Chemical Fuel",
-                  "amount": 5,
-                  "iconImg": "icons/T_Chemical-Fuel.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies and modular containers have been added to your stockpile.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "questres_01",
-              "name": "Modular Container",
-              "amount": "20-30",
-              "iconImg": "icons/T_Container.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "criteria_any_number_of_items",
-              "name": "any number of items",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792001373747",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Scrap the beacon",
-          "requirements": [
-            {
-              "id": "clause_1792001576997",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_01",
-                  "name": "Basic Extractor",
-                  "amount": 1,
-                  "iconImg": "icons/T_ExtractorBasic.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering usable metals, structural parts, thermoplastic, and conductive materials.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "processing_02",
-              "name": "Alloyed Metal",
-              "amount": "10",
-              "iconImg": "icons/T_Alloy_Steel.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_03",
-              "name": "Thermoplastic",
-              "amount": "10",
-              "iconImg": "icons/T_Thermoplastic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_01",
-              "name": "Metal Constructions",
-              "amount": "10",
-              "iconImg": "icons/T_Metal_Frames.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_04",
-              "name": "Conductive Materials",
-              "amount": "10",
-              "iconImg": "icons/T_Conductive-Materials.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792001374593",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Extract Hull's Electronics",
-          "requirements": [
-            {
-              "id": "clause_1792001924527",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 10,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering electronic components, conductive materials, microcontrollers, and a battery block.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "electronics_05",
-              "name": "Electronic Components",
-              "amount": "1",
-              "iconImg": "icons/T_Holo_Display.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "electronics_02",
-              "name": "Microcontrollers",
-              "amount": "1",
-              "iconImg": "icons/T_Microcontrollers.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "machinery_05",
-              "name": "Battery Block",
-              "amount": "1",
-              "iconImg": "icons/T_Battery-Block.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "colorScheme": "rose"
-    },
-    {
-      "id": "node_1792002182916",
-      "codename": "GEN-S1-E5",
-      "name": "Distress Call",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 4,
-      "tier": 1,
-      "location": "any island",
-      "spawnConditions": "any island",
-      "eventIntro": "A wrecked escape pod is on fire. There may be survivors inside.",
-      "eventDescription": "The escape pod must have crashed into the island with high enough speed, given its battered appearance. What is worse — it is now on fire. Your people start shouting to identify if there are survivors inside.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 3589
-      },
-      "actions": [
-        {
-          "id": "c_1792002182916",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Pick the lock",
-          "requirements": [
-            {
-              "id": "clause_1792005168321",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 1,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists picked the lock, but wiring, damaged while pod had crushed, electrified the capsules hull. One crew member suffered an electric shock during the operation. However all three survivors were rescued and joined your crew, boosting morale.  ",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792004879350",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Melt the lock",
-          "requirements": [
-            {
-              "id": "clause_1792005183045",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_03",
-                  "name": "Chemical Fuel",
-                  "amount": 1,
-                  "iconImg": "icons/T_Chemical-Fuel.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists slowly melted  through the lock. The air pressure between an airlock and outside the capsule equilized, allowing them to open the door safely. All three survivors were rescued and joined your crew, boosting morale.  ",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792004880168",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Pry the door open",
-          "requirements": [
-            {
-              "id": "clause_1792005228466",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "processing_02",
-                  "name": "Alloyed Metal",
-                  "amount": 10,
-                  "iconImg": "icons/T_Alloy_Steel.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "processing_01",
-                  "name": "Metal Constructions",
-                  "amount": 10,
-                  "iconImg": "icons/T_Metal_Frames.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your specialists forced the pod open with a lever crafted from debris. The  pressure difference between a hatch and the outside  caused explosive decompression. All three survivors were injured  as well as one of your crew. But all survivors were rescued and joined your crew, boosting morale.  ",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792004981483",
-          "codeSuffix": "D",
-          "shortDescription": "Choice D",
-          "description": "Do nothing",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
-          "rewards": [
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "-1",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "colorScheme": "rose"
+      ]
     }
   ],
   "dialogues": [
@@ -3354,7 +2799,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 4446
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3405,7 +2850,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 3343
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3456,7 +2901,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 5179
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3493,7 +2938,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 5078
+        "y": 3248
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3671,7 +3116,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1870,
-        "y": 1648
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3765,7 +3210,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1774
+        "y": 1164
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3798,7 +3243,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 2042
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3850,7 +3295,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 3208
+        "y": 1988
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3936,7 +3381,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1665
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4093,7 +3538,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1275,
-        "y": 1720
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4163,7 +3608,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 3623
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4239,7 +3684,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4148,
-        "y": 3460
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4315,7 +3760,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 3382
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4438,17 +3883,13 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:46:58.494Z",
+  "_lastModified": "2026-10-14T19:50:11.325Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found",
-    "Resistance to diseases",
-    "Temporal immunity",
-    "any number of items"
-  ],
-  "stageLayoutVersion": 2
+    "Jammer Found"
+  ]
 }
