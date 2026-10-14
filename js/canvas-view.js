@@ -378,8 +378,9 @@ function updateCanvasTransform() {
   if (!canvasStage) {
     canvasStage = document.getElementById('canvas-stage');
   }
-  if (!canvasStage) return;
-  canvasStage.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
+  const tx = Math.round(transform.x);
+  const ty = Math.round(transform.y);
+  canvasStage.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${transform.scale})`;
 
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;

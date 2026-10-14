@@ -10,12 +10,6 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
-    },
-    {
-      "id": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch",
-      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -88,76 +82,6 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
-    },
-    {
-      "id": "var_t2_v1",
-      "timelineId": "timeline_2",
-      "number": 1,
-      "name": "Timeline 2: Multiverse Branch - Variation 1",
-      "description": "Variation 1 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v2",
-      "timelineId": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch - Variation 2",
-      "description": "Variation 2 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v3",
-      "timelineId": "timeline_2",
-      "number": 3,
-      "name": "Timeline 2: Multiverse Branch - Variation 3",
-      "description": "Variation 3 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v4",
-      "timelineId": "timeline_2",
-      "number": 4,
-      "name": "Timeline 2: Multiverse Branch - Variation 4",
-      "description": "Variation 4 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v5",
-      "timelineId": "timeline_2",
-      "number": 5,
-      "name": "Timeline 2: Multiverse Branch - Variation 5",
-      "description": "Variation 5 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v6",
-      "timelineId": "timeline_2",
-      "number": 6,
-      "name": "Timeline 2: Multiverse Branch - Variation 6",
-      "description": "Variation 6 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v7",
-      "timelineId": "timeline_2",
-      "number": 7,
-      "name": "Timeline 2: Multiverse Branch - Variation 7",
-      "description": "Variation 7 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v8",
-      "timelineId": "timeline_2",
-      "number": 8,
-      "name": "Timeline 2: Multiverse Branch - Variation 8",
-      "description": "Variation 8 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v9",
-      "timelineId": "timeline_2",
-      "number": 9,
-      "name": "Timeline 2: Multiverse Branch - Variation 9",
-      "description": "Variation 9 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v10",
-      "timelineId": "timeline_2",
-      "number": 10,
-      "name": "Timeline 2: Multiverse Branch - Variation 10",
-      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -179,17 +103,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -210,17 +124,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -241,17 +145,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -272,17 +166,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -303,17 +187,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -334,17 +208,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -365,17 +229,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     }
   ],
@@ -3006,8 +2860,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1870,
-        "y": 1648
+        "x": 1997,
+        "y": 1720
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3574,8 +3428,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4091,
-        "y": 3771
+        "x": 4037,
+        "y": 3310
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3650,8 +3504,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3418,
-        "y": 3761
+        "x": 3316,
+        "y": 3322
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3774,7 +3628,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T10:18:40.477Z",
+  "_lastModified": "2026-10-14T12:02:01.405Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
