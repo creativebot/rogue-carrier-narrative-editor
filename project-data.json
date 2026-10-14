@@ -1753,7 +1753,13 @@
           "timerHours": 5,
           "resultDescription": "We have detected several large fragments of Zephyrus nearby. Maybe we could examine them to learn more about what caused such gruesome damage.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [
             "node_1791904903648",
@@ -3924,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:17:37.647Z",
+  "_lastModified": "2026-10-14T20:17:45.602Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
