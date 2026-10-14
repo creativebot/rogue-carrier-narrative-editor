@@ -2702,7 +2702,7 @@
         {
           "id": "act_1791990116558",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Study the jammer",
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
@@ -3845,7 +3845,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:12:44.387Z",
+  "_lastModified": "2026-10-14T16:13:04.208Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
