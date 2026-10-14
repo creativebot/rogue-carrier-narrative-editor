@@ -2614,7 +2614,7 @@
           "description": "Engineers can research on the Zephyrus design to explain what exactly happened",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The report shows that the source of the explosion was the large battery block that feeds the entire Zephyrus section. It is highly unlikely that it exploded due to a critical malfunction. It could be either a concentrated, highly penetrative radiation beam, used as a weapon. Or, it was a planned diversion. Someone either infiltrated the ship or was already aboard to prepare and execute it.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3767,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T08:21:49.210Z",
+  "_lastModified": "2026-10-14T08:21:55.465Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
