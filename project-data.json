@@ -2455,7 +2455,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 6,
           "resultDescription": "We had a first contact, but what was the creature that contacted us? All the structures we explored, even those that were still functioning, were deserted ages ago! Yet, the artifacts we’ve found and the processed data show the possibility of the multidimensional technology being used by the Primordals. However, such tech might require huge amounts of energy. How the Prism is functioning without the potent energy source, and whether there is a limit to its uses, remains unknown.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -3912,7 +3912,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:11:43.647Z",
+  "_lastModified": "2026-10-14T20:11:54.515Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
