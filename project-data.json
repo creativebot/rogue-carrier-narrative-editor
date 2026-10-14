@@ -2101,7 +2101,13 @@
           "timerHours": 3,
           "resultDescription": "Surprisingly, the structure still holds. Now we can clearly tell it was a large orbital station, which, for some reason, left the orbit and landed in the shallows of this archipelago. There is structural damage here and there, but mostly the station is intact. Whatever caused the station to fall didn’t destroy it. We can proceed with the scouting team.",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+50",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "criteria_station_intelligence",
               "name": "Station Intelligence",
@@ -3942,7 +3948,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:24:12.092Z",
+  "_lastModified": "2026-10-14T20:24:20.505Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
