@@ -3077,11 +3077,31 @@
           "codeSuffix": "C",
           "shortDescription": "Choice C",
           "description": "Extract Hull's Electronics",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792001924527",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 10,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
-          "resultDescription": "Electronic Components, Conductive Materials, Microcontrollers, Battery Block",
+          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering electronic components, conductive materials, microcontrollers, and a battery block.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4218,7 +4238,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T18:18:09.493496",
+  "_lastModified": "2026-10-14T18:19:09.487961",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
