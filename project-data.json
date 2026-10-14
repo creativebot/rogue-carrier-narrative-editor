@@ -2908,12 +2908,19 @@
           "timerHours": 5,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, they developed a custom batch of MedGel that not only neutralized the virus but also reversed its effects, saving several creatures on the brink of death.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -4045,7 +4052,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T17:18:54.148736",
+  "_lastModified": "2026-10-14T17:20:05.659535",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
