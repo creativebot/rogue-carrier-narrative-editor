@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -10,6 +10,12 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch",
+      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -82,6 +88,76 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Multiverse Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Multiverse Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Multiverse Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Multiverse Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Multiverse Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Multiverse Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Multiverse Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Multiverse Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Multiverse Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -103,7 +179,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -124,7 +210,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -145,7 +241,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -166,7 +272,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -187,7 +303,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -208,7 +334,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -229,7 +365,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     }
   ],
@@ -415,7 +561,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -562,8 +708,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2909,
-        "y": 1540
+        "x": 2664,
+        "y": 1080
       },
       "actions": [
         {
@@ -699,7 +845,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 2990
+        "y": 2070
       },
       "actions": [
         {
@@ -857,8 +1003,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 143,
-        "y": 2990
+        "x": 111,
+        "y": 2070
       },
       "actions": [
         {
@@ -992,8 +1138,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -2145,
-        "y": 4440
+        "x": -2095,
+        "y": 3060
       },
       "actions": [
         {
@@ -1147,7 +1293,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -1162,10 +1308,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1201,10 +1344,7 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         },
         {
           "id": "act_sec_1_2",
@@ -1217,10 +1357,7 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
+          "targetNodeId": "node_sec_2"
         }
       ],
       "disabledVariationIds": [],
@@ -1242,7 +1379,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -1256,9 +1393,7 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1281,7 +1416,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 1193
       },
       "actions": [
@@ -1296,9 +1431,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1330,7 +1463,7 @@
         ]
       },
       "position": {
-        "x": 110,
+        "x": 100,
         "y": 220
       },
       "actions": [
@@ -1370,8 +1503,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5096,
-        "y": 2990
+        "x": 5462,
+        "y": 2070
       },
       "actions": [
         {
@@ -1424,8 +1557,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1972,
-        "y": 2990
+        "x": 2541,
+        "y": 2070
       },
       "actions": [
         {
@@ -1630,8 +1763,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -1469,
-        "y": 1540
+        "x": -1270,
+        "y": 1080
       },
       "actions": [
         {
@@ -1835,7 +1968,7 @@
       "inactionThreat": null,
       "position": {
         "x": 52,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -1982,7 +2115,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -2105,7 +2238,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2470,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -2206,7 +2339,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 2990
+        "y": 2070
       },
       "actions": [
         {
@@ -2341,7 +2474,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3647,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -2403,7 +2536,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4672,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
@@ -2450,8 +2583,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -2472,7 +2604,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 2990
+        "y": 2070
       },
       "actions": [
         {
@@ -2503,89 +2635,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791921021620",
-      "codename": "T1-V3-K1A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1534,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1791921021620",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [
-            "node_1791921021620",
-            "node_1791921030715"
-          ],
-          "targetNodeId": "node_1791921021620"
-        }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791921030715",
-      "codename": "T1-V3-K2A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 1,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1426,
-        "y": 1540
-      },
-      "actions": [
-        {
-          "id": "c_1791921030715",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
+      ]
     }
   ],
   "dialogues": [
@@ -2632,8 +2682,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1402,
-        "y": 6674
+        "x": 1283,
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2683,8 +2733,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
-        "x": 1335,
-        "y": 6025
+        "x": 1296,
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2732,10 +2782,10 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2B) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 662,
-        "y": 7418
+        "x": 465,
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2771,8 +2821,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
-        "x": -718,
-        "y": 7408
+        "x": -2920,
+        "y": 3248
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2850,8 +2900,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
-        "x": -767,
-        "y": 94
+        "x": -691,
+        "y": -62
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2949,8 +2999,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1323,
-        "y": 2854
+        "x": 1870,
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3043,8 +3093,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
-        "x": -1775,
-        "y": 4663
+        "x": -1533,
+        "y": 1164
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3056,7 +3106,7 @@
           "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
         }
       ],
-      "floorIndex": 2,
+      "floorIndex": 1,
       "links": [
         {
           "id": "dlink_0",
@@ -3076,8 +3126,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
-        "x": -1535,
-        "y": 4008
+        "x": 629,
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3128,12 +3178,12 @@
       "delayUnit": "hours",
       "triggerCondition": "Imported Dialogue Script",
       "position": {
-        "x": -3267,
-        "y": 6620
+        "x": -2113,
+        "y": 1988
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "colorScheme": "purple",
       "lines": [
         {
@@ -3214,8 +3264,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
-        "x": 1014,
-        "y": 4788
+        "x": 635,
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3227,7 +3277,7 @@
           "text": "Let's stay focused on the pod. The Reckon Craft cargo space is limited and we will need all the gear we can get."
         }
       ],
-      "floorIndex": 2,
+      "floorIndex": 1,
       "links": [
         {
           "id": "dlink_0",
@@ -3249,7 +3299,7 @@
       "triggerCondition": "After (GEN-E1) Board Vessel",
       "position": {
         "x": 30,
-        "y": 6852
+        "y": 872
       },
       "lines": [
         {
@@ -3283,7 +3333,7 @@
       "variationId": "var_v1",
       "category": "KeyChain",
       "floorIndex": 0,
-      "colorScheme": "purple",
+      "colorScheme": "amber",
       "lines": [
         {
           "id": "l_imp_1791711758849_0",
@@ -3371,8 +3421,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 550,
-        "y": 3426
+        "x": 1275,
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3441,8 +3491,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4458,
-        "y": 5913
+        "x": 4879,
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3517,8 +3567,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3827,
-        "y": 5907
+        "x": 4148,
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3593,8 +3643,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3141,
-        "y": 5835
+        "x": 3540,
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3717,7 +3767,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T07:28:42.591Z",
+  "_lastModified": "2026-10-14T08:21:22.641Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
