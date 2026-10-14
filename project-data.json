@@ -2950,7 +2950,7 @@
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "A supply beacon has crashed. Something inside might still be useful.",
       "eventDescription": "The supply beacon has crashed into the island and turned into a jumble of metal. Whatever contents it transported must have been smashed into smithereens and less. And yet, with proper tools, your specialists may be able to salvage something.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -4259,7 +4259,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T18:21:23.173882",
+  "_lastModified": "2026-10-14T18:22:58.685386",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
