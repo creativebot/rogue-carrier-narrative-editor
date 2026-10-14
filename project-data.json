@@ -2004,8 +2004,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Immediatly after T1-V2-K1A resolution",
+      "spawnConditions": "Immediatly after T1-V2-K1A resolution",
       "eventIntro": "Approaching the Primordial structure.",
       "eventDescription": "This looks more like a spacecraft than a marine building. Or even a space station. Crash-landed in these shallows.",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:19:30.871Z",
+  "_lastModified": "2026-10-14T20:19:42.181Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
