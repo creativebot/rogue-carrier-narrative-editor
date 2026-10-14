@@ -1959,8 +1959,10 @@
               "icon": "📦"
             }
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1791832874715"
+          ],
+          "targetNodeId": "node_1791832874715"
         }
       ],
       "title": "Once More Into The Frey",
@@ -3901,7 +3903,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:56:44.683Z",
+  "_lastModified": "2026-10-14T19:56:50.111Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
