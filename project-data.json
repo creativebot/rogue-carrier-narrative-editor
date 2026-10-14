@@ -2105,8 +2105,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1791832874715"
+          ],
+          "targetNodeId": "node_1791832874715"
         }
       ],
       "title": "Once More Into The Frey",
@@ -3897,7 +3899,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:55:35.791Z",
+  "_lastModified": "2026-10-14T19:55:40.584Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
