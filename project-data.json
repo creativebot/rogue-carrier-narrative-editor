@@ -3764,42 +3764,10 @@
       ],
       "links": [],
       "floorIndex": 0
-    },
-    {
-      "id": "diag_1791987859635",
-      "targetEventId": "node_1791905801725",
-      "triggerTiming": "pre_event",
-      "triggerActionId": null,
-      "links": [
-        {
-          "id": "dlink_1791987859635",
-          "targetEventId": "node_1791905801725",
-          "triggerTiming": "pre_event",
-          "triggerActionId": null,
-          "triggerCondition": "Before (T1-V2-K3B)"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V2-K3B)",
-      "position": {
-        "x": 3892,
-        "y": 2070
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791987859635",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ]
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T14:24:19.731Z",
+  "_lastModified": "2026-10-14T14:24:30.425Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
