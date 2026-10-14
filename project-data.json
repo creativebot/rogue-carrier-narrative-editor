@@ -3076,10 +3076,10 @@
           "id": "act_1792001374593",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Extract Hull's Electronics",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Electronic Components, Conductive Materials, Microcontrollers, Battery Block",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -4218,7 +4218,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T18:17:08.695Z",
+  "_lastModified": "2026-10-14T18:18:08.699Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
