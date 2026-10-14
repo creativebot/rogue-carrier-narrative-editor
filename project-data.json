@@ -1443,6 +1443,55 @@
       "title": "Ancient AI Core"
     },
     {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Main Hangar Bay",
+      "spawnConditions": "Carrier underway",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 220
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
+    },
+    {
       "id": "node_1791705255524",
       "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
@@ -2707,53 +2756,42 @@
       "disabledVariationIds": []
     },
     {
-      "id": "node_deck_1",
-      "codename": "DECK-E1",
-      "name": "Hangar Deck Fire Drill",
-      "type": "Carrier",
-      "category": "DeckPool",
+      "id": "node_1791996044351",
+      "codename": "GEN-S1-E3",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Main Hangar Bay",
-      "spawnConditions": "Carrier underway",
-      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
-      "reactionTimerHours": "2",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "consequenceText": "Drill failure creates crew demoralization.",
-        "timerHours": 2,
-        "shortDescription": "Failed Drill",
-        "description": "No team responded in time.",
-        "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
-      },
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 220
+        "y": 1752
       },
       "actions": [
         {
-          "id": "act_deck_1",
+          "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
           "requirements": [],
-          "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
+          "timerHours": 5,
+          "resultDescription": "",
           "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": [],
-      "title": "Hangar Deck Fire Drill"
+      ]
     }
   ],
   "dialogues": [
@@ -3885,7 +3923,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:40:59.087440",
+  "_lastModified": "2026-10-14T16:40:58.279Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
