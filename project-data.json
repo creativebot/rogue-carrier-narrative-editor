@@ -2517,8 +2517,10 @@
               "isCriteria": true
             }
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1791988044467"
+          ],
+          "targetNodeId": "node_1791988044467"
         }
       ],
       "disabledVariationIds": []
@@ -3811,7 +3813,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T14:59:50.486Z",
+  "_lastModified": "2026-10-14T14:59:56.498Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
