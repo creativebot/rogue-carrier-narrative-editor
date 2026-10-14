@@ -2522,8 +2522,8 @@
       "variationId": "var_v2",
       "floorIndex": 1,
       "tier": null,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Immediatly after T1-V2-K1A B/C resolution",
+      "spawnConditions": "Immediatly after T1-V2-K1A B/C resolution",
       "eventIntro": "Zephyrus fragment spotted",
       "eventDescription": "This fragment is badly damaged, but the damage itself is a bit strange. A closer look shows that the wreck was looted by someone.",
       "reactionTimerHours": "Infinite",
@@ -3930,7 +3930,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:21:18.796Z",
+  "_lastModified": "2026-10-14T20:21:44.074Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
