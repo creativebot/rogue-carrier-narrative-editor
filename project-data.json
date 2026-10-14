@@ -2803,7 +2803,13 @@
           "timerHours": 5,
           "resultDescription": "Gathered data showed the massive cyber attack on the ship's internal network several minutes before the attack. This proves the attack was planned and orchestrated with frightening accuracy. We are facing a fearsome and cunning foe, and must be prepared that they may strike again at any time.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4000,7 +4006,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:29:43.215Z",
+  "_lastModified": "2026-10-14T20:30:49.876Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
