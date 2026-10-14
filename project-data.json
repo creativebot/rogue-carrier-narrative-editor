@@ -2044,7 +2044,7 @@
         {
           "id": "act_1791812011267",
           "codeSuffix": "B",
-          "shortDescription": "Send reconn drones",
+          "shortDescription": "Send recon drones",
           "description": "The structure doesn’t look stable. We’ll be putting our crew at risk, sending them without any prior exploration. ",
           "requirements": [
             {
@@ -3899,7 +3899,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:56:20.139Z",
+  "_lastModified": "2026-10-14T19:56:31.786Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
