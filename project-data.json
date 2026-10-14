@@ -2333,7 +2333,13 @@
           "timerHours": 7,
           "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. Whether as the result of sabotage or because of some alien technology, causing some internal devices to explode is yet unclear.",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "criteria_inner_explosion",
               "name": "Inner Explosion",
@@ -3960,7 +3966,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:28:11.129Z",
+  "_lastModified": "2026-10-14T20:28:34.768Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
