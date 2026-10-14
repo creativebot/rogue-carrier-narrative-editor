@@ -2661,7 +2661,7 @@
       "tier": null,
       "location": "Both T1-V2-K2E and T1-V2-K2F are resolved",
       "spawnConditions": "Both T1-V2-K2E and T1-V2-K2F are resolved",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "All the fragments in the vicinity are investigated. We can go on with the conclusion",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -3817,7 +3817,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T15:01:31.616Z",
+  "_lastModified": "2026-10-14T15:01:41.936Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
