@@ -2678,7 +2678,7 @@
           "description": "We can analyze the retrieved data from Zephyrus",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Gathered data showed the massive cyber attack on the ship's internal network several minutes before the attack. This proves the attack was planned and orchestrated with frightening accuracy. We are facing a fearsome and cunning foe, and must be prepared that they may strike again at any time.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3845,7 +3845,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:13:16.174Z",
+  "_lastModified": "2026-10-14T16:13:26.309Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
