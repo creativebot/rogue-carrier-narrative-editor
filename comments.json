@@ -53,6 +53,20 @@
       "mentions": [
         "ttretilova@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792008940377",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "@dpoludonnyi ok. It would be nice to be able to comment on or flag parameters or text that might change during balancing.",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-14T20:15:40.377562Z",
+      "displayTime": "2026-10-14 20:15",
+      "mentions": [
+        "dpoludonnyi@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
