@@ -10,12 +10,6 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
-    },
-    {
-      "id": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch",
-      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -88,76 +82,6 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
-    },
-    {
-      "id": "var_t2_v1",
-      "timelineId": "timeline_2",
-      "number": 1,
-      "name": "Timeline 2: Multiverse Branch - Variation 1",
-      "description": "Variation 1 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v2",
-      "timelineId": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch - Variation 2",
-      "description": "Variation 2 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v3",
-      "timelineId": "timeline_2",
-      "number": 3,
-      "name": "Timeline 2: Multiverse Branch - Variation 3",
-      "description": "Variation 3 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v4",
-      "timelineId": "timeline_2",
-      "number": 4,
-      "name": "Timeline 2: Multiverse Branch - Variation 4",
-      "description": "Variation 4 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v5",
-      "timelineId": "timeline_2",
-      "number": 5,
-      "name": "Timeline 2: Multiverse Branch - Variation 5",
-      "description": "Variation 5 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v6",
-      "timelineId": "timeline_2",
-      "number": 6,
-      "name": "Timeline 2: Multiverse Branch - Variation 6",
-      "description": "Variation 6 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v7",
-      "timelineId": "timeline_2",
-      "number": 7,
-      "name": "Timeline 2: Multiverse Branch - Variation 7",
-      "description": "Variation 7 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v8",
-      "timelineId": "timeline_2",
-      "number": 8,
-      "name": "Timeline 2: Multiverse Branch - Variation 8",
-      "description": "Variation 8 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v9",
-      "timelineId": "timeline_2",
-      "number": 9,
-      "name": "Timeline 2: Multiverse Branch - Variation 9",
-      "description": "Variation 9 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v10",
-      "timelineId": "timeline_2",
-      "number": 10,
-      "name": "Timeline 2: Multiverse Branch - Variation 10",
-      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "characters": [
@@ -561,7 +485,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -709,7 +633,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3301,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -845,7 +769,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1004,7 +928,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1139,7 +1063,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 3060
+        "y": 4890
       },
       "actions": [
         {
@@ -1382,7 +1306,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -1509,7 +1433,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1563,7 +1487,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2082,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1769,7 +1693,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1270,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -1973,7 +1897,7 @@
       "inactionThreat": null,
       "position": {
         "x": 52,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2120,7 +2044,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2243,7 +2167,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2470,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2344,7 +2268,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -2479,7 +2403,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3647,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2541,7 +2465,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4672,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -2610,7 +2534,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -2690,7 +2614,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 2616
+        "y": 4446
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2741,7 +2665,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 2123
+        "y": 3343
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2792,7 +2716,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 3349
+        "y": 5179
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2829,7 +2753,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 3248
+        "y": 5078
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3007,7 +2931,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1870,
-        "y": 1038
+        "y": 1648
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3101,7 +3025,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1164
+        "y": 1774
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3134,7 +3058,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 1432
+        "y": 2042
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3186,7 +3110,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 1988
+        "y": 3208
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3272,7 +3196,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1055
+        "y": 1665
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3429,7 +3353,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1275,
-        "y": 1110
+        "y": 1720
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3499,7 +3423,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 2403
+        "y": 3623
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3574,8 +3498,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4091,
-        "y": 2551
+        "x": 4037,
+        "y": 3310
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3650,8 +3574,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3418,
-        "y": 2541
+        "x": 3316,
+        "y": 3322
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3774,7 +3698,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T10:18:40.477Z",
+  "_lastModified": "2026-10-14T11:52:47.054Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
@@ -3782,5 +3706,6 @@
     "Station Intelligence",
     "Refinery Intelligence",
     "Jammer Found"
-  ]
+  ],
+  "stageLayoutVersion": 2
 }
