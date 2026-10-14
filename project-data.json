@@ -2692,7 +2692,7 @@
           "description": "We have to learn more about the looters",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The overall analysis shows that the looters present the civilization in its industrial age. They use heat and electricity, but not nuclear power. They have heavy machinery developed sea fleet, and a complex social structure. Yet it seems unlikely that they are capable of shooting down Zephyrus size ship from orbit. Why the uninstalled electronic equipment remains unclear. Perhaps, relics provided us with a limited perspective of these species. We have to find and contact them to learn more.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3845,7 +3845,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T16:13:30.889Z",
+  "_lastModified": "2026-10-14T16:13:53.471Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
