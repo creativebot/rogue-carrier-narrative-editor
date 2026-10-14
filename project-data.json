@@ -1874,7 +1874,13 @@
           "timerHours": 4,
           "resultDescription": "We still don’t exactly understand what this field is or what its purpose is. But now we know the possible hazards and how to avoid them. ",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+150",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "criteria_refinery_intelligence",
               "name": "Refinery Intelligence",
@@ -3912,7 +3918,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:15:43.387Z",
+  "_lastModified": "2026-10-14T20:16:34.765Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
