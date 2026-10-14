@@ -47,8 +47,6 @@ html, body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  contain: paint layout size;
-  isolation: isolate;
 }
 
 #canvas-viewport-controls {
@@ -176,11 +174,8 @@ html, body {
 .dialogue-card,
 .deck-event-card,
 .generic-event-card {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  contain: layout;
 }
 
 /* Event Table Node Styling - Rounded Edges & Premium Shadows */
@@ -208,7 +203,7 @@ html, body {
   border-radius: 14px;
   position: absolute;
   overflow: visible;
-  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   font-size: 11px;
   user-select: text;
 }
@@ -870,7 +865,7 @@ html, body {
   border-radius: 14px;
   position: absolute;
   overflow: visible;
-  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.22), 0 10px 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   font-size: 12px;
   user-select: text;
   cursor: grab;
@@ -2411,3 +2406,23 @@ body.is-port-dragging .inbound-event-port {
   top: 108px !important;
 }
 
+/* Canvas Dragging & Far-Zoom Performance Optimization (Prevents GPU Tile Drops) */
+body.is-canvas-dragging .event-card,
+body.is-canvas-dragging .dialogue-card,
+body.is-canvas-dragging .deck-event-card,
+body.is-canvas-dragging .generic-event-card {
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+body.is-canvas-dragging .event-card *,
+body.is-canvas-dragging .dialogue-card * {
+  pointer-events: none !important;
+}
+
+#canvas-stage.is-scale-zoomed-out .event-card,
+#canvas-stage.is-scale-zoomed-out .dialogue-card,
+#canvas-stage.is-scale-zoomed-out .deck-event-card,
+#canvas-stage.is-scale-zoomed-out .generic-event-card {
+  box-shadow: none !important;
+}

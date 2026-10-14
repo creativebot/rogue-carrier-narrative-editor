@@ -105,6 +105,7 @@ function setupCanvasEvents() {
     isDraggingCanvas = true;
     dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
     canvasContainer.style.cursor = 'grabbing';
+    document.body.classList.add('is-canvas-dragging');
   });
 
   let panRafId = null;
@@ -129,6 +130,7 @@ function setupCanvasEvents() {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
       canvasContainer.style.cursor = 'default';
+      document.body.classList.remove('is-canvas-dragging');
       if (panRafId) {
         cancelAnimationFrame(panRafId);
         panRafId = null;
@@ -388,6 +390,7 @@ function updateCanvasTransform() {
     // When LOD switch is OFF: NEVER apply LOD (always false)
     const shouldApplyLod = isLodModeEnabled && (transform.scale < 0.58) && !maxZoomedBlockId;
     canvasStage.classList.toggle('is-zoomed-out', shouldApplyLod);
+    canvasStage.classList.toggle('is-scale-zoomed-out', transform.scale < 0.65);
 
     const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
     canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
@@ -659,13 +662,13 @@ function renderFloorBands() {
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-80000px`;
-      band.style.width = `160000px`;
+      band.style.left = `-5000px`;
+      band.style.width = `16000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals across the infinite stripe
+      // Stage label badges starting from STAGE 1, placed at visible intervals
       const labelXPositions = [];
-      for (let lx = -60000; lx <= 60000; lx += 3000) {
+      for (let lx = -4000; lx <= 10000; lx += 2500) {
         labelXPositions.push(lx + 40);
       }
       labelXPositions.forEach(lx => {
@@ -724,8 +727,8 @@ function renderFloorBands() {
       band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
       band.style.left = `${tierStarts[t]}px`;
       band.style.width = `${tierWidths[t]}px`;
-      band.style.top = `-20000px`;
-      band.style.height = `50000px`;
+      band.style.top = `-4000px`;
+      band.style.height = `16000px`;
       floorBandsLayer.appendChild(band);
 
       const header = document.createElement('div');
