@@ -2492,8 +2492,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1791988044467"
+          ],
+          "targetNodeId": "node_1791988044467"
         },
         {
           "id": "act_1791834624868",
@@ -3809,7 +3811,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T14:27:24.467Z",
+  "_lastModified": "2026-10-14T14:59:50.486Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
