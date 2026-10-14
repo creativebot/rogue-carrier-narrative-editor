@@ -2659,8 +2659,8 @@
       "variationId": "var_v2",
       "floorIndex": 2,
       "tier": null,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Both T1-V2-K2E and T1-V2-K2F are resolved",
+      "spawnConditions": "Both T1-V2-K2E and T1-V2-K2F are resolved",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -3817,7 +3817,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T15:00:07.029Z",
+  "_lastModified": "2026-10-14T15:01:28.834Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
