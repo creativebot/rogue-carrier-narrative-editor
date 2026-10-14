@@ -3140,7 +3140,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 4,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -3151,7 +3151,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 3631
+        "y": 3589
       },
       "actions": [
         {
@@ -3182,6 +3182,13 @@
               "name": "Knowledge",
               "amount": "+30",
               "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
               "iconImg": ""
             }
           ],
@@ -3216,6 +3223,13 @@
               "name": "Knowledge",
               "amount": "+30",
               "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
               "iconImg": ""
             }
           ],
@@ -3275,7 +3289,7 @@
             {
               "resourceId": "stat_morale",
               "name": "Morale",
-              "amount": "-30",
+              "amount": "-1",
               "icon": "😊",
               "iconImg": ""
             }
@@ -4417,7 +4431,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:30:05.636282",
+  "_lastModified": "2026-10-14T19:31:11.294860",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
