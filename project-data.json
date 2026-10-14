@@ -3144,7 +3144,7 @@
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "A wrecked escape pod is on fire. A wrecked escape pod is on fire. Your people call out for survivors.",
       "eventDescription": "The escape pod must have crashed into the island with high enough speed, given its battered appearance. What is worse — it is now on fire. Your people start shouting to identify if there are survivors inside.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -4438,7 +4438,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T19:44:54.738031",
+  "_lastModified": "2026-10-14T19:45:59.930034",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
