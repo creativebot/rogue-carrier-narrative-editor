@@ -201,6 +201,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 board_id = body.get('boardId')
                 board_nodes = body.get('nodes', [])
                 board_dialogues = body.get('dialogues', [])
+                timelines = body.get('timelines')
+                variations = body.get('variations')
+                stage_layout_version = body.get('stageLayoutVersion')
                 user = self.get_auth_user()
                 if not user:
                     user = {
@@ -210,12 +213,12 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                         "status": "approved",
                         "canEdit": True
                     }
-                if not user or user.get('status') != 'approved':
-                    self.send_json(403, {"status": "error", "message": "Sign-in required to save board."})
+                if not user or user.get('status') != 'approved' or user.get('canEdit') is False or user.get('role') == 'viewer':
+                    self.send_json(403, {"status": "error", "message": "Sign-in and editor permissions required to save board."})
                     return
 
                 author_name = user.get('name') or user.get('email') or 'Editor User'
-                result = merge_and_save_board(board_id, board_nodes, board_dialogues, author_name)
+                result = merge_and_save_board(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version)
                 self.send_json(200, result)
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
@@ -236,6 +239,9 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                         "status": "approved",
                         "canEdit": True
                     }
+                if user.get('status') != 'approved' or user.get('canEdit') is False or user.get('role') == 'viewer':
+                    self.send_json(403, {"success": False, "status": "forbidden", "message": "You do not have editing permissions."})
+                    return
                 res = acquire_board_lock(board_id, board_name, user)
                 code = 200 if res.get('success') else 423
                 self.send_json(code, res)

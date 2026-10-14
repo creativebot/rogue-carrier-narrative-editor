@@ -819,6 +819,45 @@ function updateDynamicBandDimensions() {
   }
 }
 
+function estimateDialogueCardHeight(dialogue) {
+  if (!dialogue) return 260;
+  const lines = Array.isArray(dialogue.lines) ? dialogue.lines : [];
+  const validLinks = (dialogue.links || []).filter(l => l && l.targetEventId);
+  let h = 60; // header bar with trigger controls & comment badge
+  if (validLinks.length > 1) {
+    h += (validLinks.length - 1) * 32; // extra link pills
+  }
+  h += 48; // delay strip & condition text
+  lines.forEach(l => {
+    const textLen = (l.text || '').length;
+    const textLines = Math.max(1, Math.ceil(textLen / 42));
+    const textHeight = textLines * 18 + 14;
+    h += 34 + textHeight + 8; // speaker banner + speech text + margins
+  });
+  h += 56; // footer "+ Add Line" button and theme dropdown
+  return Math.max(220, Math.round(h));
+}
+
+function estimateEventCardHeight(node) {
+  if (!node) return 780;
+  const acts = Array.isArray(node.actions) ? node.actions : [];
+  const hasInaction = Boolean(node.hasInactionThreat && node.inactionThreat);
+  let h = 68; // header bar with codename & comment
+  const descLen = (node.eventDescription || '').length;
+  const descLines = Math.max(1, Math.ceil(descLen / 80));
+  h += Math.max(42, descLines * 18 + 14); // description row
+  h += 36; // table header
+  h += 110; // choice description row
+  h += 42; // action button text row
+  h += 110; // requirements row
+  h += 36; // timer row
+  h += 120; // result outcome row
+  h += 46; // rewards row
+  h += 52; // action resolution row
+  if (hasInaction) h += 30;
+  return Math.max(720, Math.round(h));
+}
+
 function measureAndLockCardHeights() {
   if (!nodesLayer) return;
   const isZoomedOut = canvasStage && canvasStage.classList.contains('is-zoomed-out');
@@ -833,12 +872,18 @@ function measureAndLockCardHeights() {
       }
     });
   } else {
-    // When zoomed out, ensure any card missing --card-exact-height gets a sensible default without stripping LOD
+    // When zoomed out, ensure any card missing --card-exact-height gets its calculated content height
     cards.forEach(el => {
       const existing = el.style.getPropertyValue('--card-exact-height');
       if (!existing) {
-        const isEvent = el.classList.contains('event-card') || el.classList.contains('deck-event-card') || el.classList.contains('generic-event-card');
-        el.style.setProperty('--card-exact-height', isEvent ? '780px' : '260px');
+        const id = el.id ? el.id.replace('node-', '').replace('dialogue-', '') : '';
+        const diagObj = (appData.dialogues || []).find(d => d.id === id);
+        if (diagObj) {
+          el.style.setProperty('--card-exact-height', `${estimateDialogueCardHeight(diagObj)}px`);
+        } else {
+          const nodeObj = (appData.nodes || []).find(n => n.id === id);
+          el.style.setProperty('--card-exact-height', `${estimateEventCardHeight(nodeObj)}px`);
+        }
       }
     });
   }
@@ -1585,6 +1630,7 @@ window.updateNodeColorScheme = updateNodeColorScheme;
 window.updateDialogueColorScheme = updateDialogueColorScheme;
 
 function addActionColumn(nodeId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("add action option")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   if (!node.actions) node.actions = [];
@@ -1614,6 +1660,7 @@ function addActionColumn(nodeId) {
 }
 
 function removeActionColumn(nodeId, actionIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("remove action option")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node || !node.actions || node.actions.length <= 1) return;
 
@@ -1856,7 +1903,9 @@ function createDialogueNodeDOM(dialogue) {
 
   const isTargetDimmed = !isDetached && validLinks.every(item => isPoolNodeDimmed(item.node.id, activeVariationId));
   const theme = dialogue.colorScheme || 'purple';
+  const estimatedDiagHeight = estimateDialogueCardHeight(dialogue);
   wrapper.className = `absolute dialogue-card dialogue-theme-${theme} cursor-move ${isDetached ? 'is-detached' : ''} ${isActionOption ? 'is-action-option' : ''} ${isTargetDimmed ? 'is-pool-dimmed' : ''}`;
+  wrapper.style.setProperty('--card-exact-height', `${estimatedDiagHeight}px`);
 
   let linesHTML = dialogue.lines.map((l, lIdx) => {
     const matchedChar = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName);
@@ -1983,8 +2032,28 @@ function createDialogueNodeDOM(dialogue) {
 
   const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
   const uniqueSpeakers = Array.from(new Set((dialogue.lines || []).map(l => l.speakerName || l.speakerId || 'Speaker'))).join(', ');
-  const firstLinePreview = escapeHtml(((dialogue.lines && dialogue.lines[0] && dialogue.lines[0].text) || dialogue.triggerCondition || '').slice(0, 120));
-  const lodDiagOverviewHTML = `<div class="lod-overview-card lod-dialogue-overview ${isTargetDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${dialogue.id}', true)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><span class="lod-codename">💬 ${targetNode ? escapeHtml(targetNode.codename) : 'DIALOGUE'}</span><span class="lod-title">${escapeHtml(uniqueSpeakers || 'Dialogue')} (${(dialogue.lines || []).length})</span></div><div class="lod-overview-body"><div class="lod-overview-desc">${firstLinePreview}</div></div></div>`;
+  const delayBadgeHTML = (dialogue.delayHours && Number(dialogue.delayHours) > 0)
+    ? `<span class="lod-options-badge bg-purple-300 text-purple-950 font-mono text-[11px] px-1.5 py-0.5">⏱ +${dialogue.delayHours}h</span>`
+    : '';
+
+  const linesListPreview = (dialogue.lines || []).map((l, lIdx) => {
+    const sName = escapeHtml(l.speakerName || l.speakerId || `Speaker ${lIdx + 1}`);
+    const snippet = escapeHtml((l.text || '').slice(0, 100));
+    return `<div class="lod-dialogue-line-preview text-xs text-gray-800 py-1 border-b border-gray-200/60 last:border-0 flex items-start gap-1.5"><span class="font-bold text-gray-950 shrink-0 truncate max-w-[130px]">${sName}:</span><span class="truncate flex-1">${snippet}</span></div>`;
+  }).join('');
+
+  const lodDiagOverviewHTML = `
+    <div class="lod-overview-card lod-dialogue-overview ${isTargetDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${dialogue.id}', true)" title="Double-click or press 🔍+ to zoom in and edit">
+      <div class="lod-overview-header">
+        <span class="lod-codename">💬 ${targetNode ? escapeHtml(targetNode.codename) : 'DIALOGUE'}</span>
+        <span class="lod-title">${escapeHtml(uniqueSpeakers || 'Dialogue')} (${(dialogue.lines || []).length})</span>
+        ${delayBadgeHTML}
+      </div>
+      <div class="lod-overview-body flex-col items-stretch p-3 overflow-y-auto">
+        <div class="lod-overview-desc mb-2 text-xs italic text-gray-600">${escapeHtml(dialogue.triggerCondition || (isDetached ? 'Detached Conversation' : 'Spawn Condition'))}</div>
+        <div class="lod-dialogue-lines-container flex flex-col gap-1 w-full">${linesListPreview}</div>
+      </div>
+    </div>`;
 
   wrapper.innerHTML = `${zoomControlsHTML}${lodDiagOverviewHTML}<div class="dialogue-card-inner">
       <div class="dialogue-header pb-1.5">
@@ -2728,6 +2797,7 @@ function getReactionTimerOptionsHTML(currentVal) {
 }
 
 function updateNodeReactionTimer(nodeId, val) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change reaction timer")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
 

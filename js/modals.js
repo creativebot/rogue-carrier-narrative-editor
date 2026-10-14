@@ -13,6 +13,7 @@ function setupPickerEvents() {
 let pendingReqContext = { nodeId: null, actionIdx: null };
 
 function openAddRequirementModal(nodeId, actionIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("add requirements")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   const act = (node.actions || [])[actionIdx];
@@ -28,12 +29,14 @@ function openAddRequirementModal(nodeId, actionIdx) {
 }
 
 function chooseRequirementType(type) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("choose requirement type")) return;
   closeModal('modal-req-type');
   const { nodeId, actionIdx } = pendingReqContext;
   openResourcePickerModal(nodeId, actionIdx, 'requirement', null);
 }
 
 function addRequirementAlternative(nodeId, actionIdx, clauseIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("add requirement alternative")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   const act = (node.actions || [])[actionIdx];
@@ -47,10 +50,12 @@ function addRequirementAlternative(nodeId, actionIdx, clauseIdx) {
 }
 
 function openEditRequirementItem(nodeId, actionIdx, clauseIdx, itemIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("edit requirement")) return;
   openResourcePickerModal(nodeId, actionIdx, 'requirement_edit', itemIdx, clauseIdx);
 }
 
 function removeRequirementItem(nodeId, actionIdx, clauseIdx, itemIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("remove requirement")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   const act = (node.actions || [])[actionIdx];
@@ -71,6 +76,7 @@ function removeRequirementItem(nodeId, actionIdx, clauseIdx, itemIdx) {
 }
 
 function addInactionThreat(nodeId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("add inaction threat")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   pushUndoState();
@@ -88,6 +94,7 @@ function addInactionThreat(nodeId) {
 }
 
 function removeInactionThreat(nodeId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("remove inaction threat")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   pushUndoState();
@@ -121,6 +128,7 @@ function setPickerCategoryFilter(cat, btn) {
 }
 
 function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = null) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("modify requirements or rewards")) return;
   activePickerTarget = { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType: 'single' };
   const grid = document.getElementById('picker-resource-grid');
   if (!grid) return;
@@ -675,6 +683,7 @@ function selectResourceFromPicker(item) {
 }
 
 function removeInactionPenalty(nodeId, penaltyIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("remove penalty")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (node && node.inactionThreat && node.inactionThreat.penalties) {
     pushUndoState();
@@ -686,6 +695,7 @@ function removeInactionPenalty(nodeId, penaltyIdx) {
 }
 
 function removeRewardItem(nodeId, actionIdx, rwIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("remove reward")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (node && node.actions && node.actions[actionIdx] && node.actions[actionIdx].rewards) {
     pushUndoState();
@@ -1568,6 +1578,13 @@ function deleteTimeline(tlId) {
   if (typeof syncProjectToDiskServer === 'function') {
     syncProjectToDiskServer();
   }
+  try {
+    fetch('/api/save', {
+      method: 'POST',
+      headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
+      body: JSON.stringify(appData)
+    }).catch(e => console.warn('Sync /api/save timeline deletion:', e));
+  } catch (e) {}
   renderTimelinesManager();
   renderApp();
   showToast(`Deleted Timeline "${targetTl.name}" and its ${tlVars.length} variations`, "info");

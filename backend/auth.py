@@ -190,19 +190,22 @@ def enrich_user_session(user_obj):
     is_adm = is_admin_email(email)
     reg_role = None
     reg_pic = None
+    reg_status = None
     for u in load_users():
         if (u.get('email') or '').strip().lower() == email:
             reg_role = u.get('role')
             reg_pic = u.get('picture')
+            reg_status = u.get('status')
             break
-    role = 'admin' if (is_adm or reg_role == 'admin') else (user_obj.get('role') or 'editor')
+    role = 'admin' if is_adm else (reg_role or user_obj.get('role') or 'editor')
     resolved_name = resolve_user_display_name(email, user_obj.get('name', ''))
+    status = 'approved' if is_adm else (reg_status or user_obj.get('status') or 'approved')
     user_obj['email'] = email
     user_obj['name'] = resolved_name
     user_obj['role'] = role
-    user_obj['status'] = 'approved'
+    user_obj['status'] = status
     user_obj['isAdmin'] = (role == 'admin')
-    user_obj['canEdit'] = True
+    user_obj['canEdit'] = (status == 'approved' and role != 'viewer')
     if reg_pic and not user_obj.get('picture'):
         user_obj['picture'] = reg_pic
     return user_obj
@@ -235,7 +238,7 @@ def ensure_user_registered(user_obj):
             "name": default_name,
             "picture": user_obj.get('picture', ''),
             "role": "admin" if is_adm else user_obj.get('role', 'editor'),
-            "status": "approved",
+            "status": "approved" if is_adm else user_obj.get('status', 'approved'),
             "authProvider": user_obj.get('authProvider', 'google'),
             "createdAt": now_iso,
             "lastLogin": now_iso
@@ -250,12 +253,19 @@ def ensure_user_registered(user_obj):
         elif is_placeholder_name(found.get('name')):
             found['name'] = default_name
             changed = True
-        if found.get('status') != 'approved':
+        if is_adm and found.get('status') != 'approved':
             found['status'] = 'approved'
             changed = True
         if changed:
             save_users(users, sync_github=True)
-    user_obj['name'] = found.get('name') if found and not is_placeholder_name(found.get('name')) else default_name
+    if found:
+        user_obj['name'] = found.get('name') if not is_placeholder_name(found.get('name')) else default_name
+        if not is_adm:
+            user_obj['status'] = found.get('status', 'approved')
+            user_obj['role'] = found.get('role', 'editor')
+            user_obj['canEdit'] = (user_obj['status'] == 'approved' and user_obj['role'] != 'viewer')
+    else:
+        user_obj['name'] = default_name
 
 
 # ----------------- Notifications & Emails -----------------

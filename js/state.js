@@ -591,10 +591,59 @@ function normalizeNodeRequirements(node) {
   });
 }
 
+function migrateStageLayoutV2(data) {
+  if (!data || typeof data !== 'object') return false;
+  if (data.stageLayoutVersion && data.stageLayoutVersion >= 2) return false;
+
+  const nodes = Array.isArray(data.nodes) ? data.nodes : [];
+  const dialogues = Array.isArray(data.dialogues) ? data.dialogues : [];
+
+  nodes.forEach(n => {
+    if (!n || !n.position || typeof n.position.y !== 'number') return;
+    const cat = n.category || 'KeyChain';
+    if (cat === 'KeyChain' || cat === 'SecretChain') {
+      const fIdx = Number(n.floorIndex);
+      const oldY = n.position.y;
+      if (fIdx === 1 || (fIdx !== 0 && fIdx !== 2 && fIdx !== 3 && oldY >= 600 && oldY < 1600)) {
+        n.position.y = Math.round(1690 + (oldY - 1080));
+        n.floorIndex = 1;
+      } else if (fIdx === 2 || (fIdx !== 0 && fIdx !== 1 && fIdx !== 3 && oldY >= 1600 && oldY < 2600)) {
+        n.position.y = Math.round(3290 + (oldY - 2070));
+        n.floorIndex = 2;
+      } else if (fIdx === 3 || (fIdx !== 0 && fIdx !== 1 && fIdx !== 2 && oldY >= 2600)) {
+        n.position.y = Math.round(4890 + (oldY - 3060));
+        n.floorIndex = 3;
+      }
+    }
+  });
+
+  dialogues.forEach(d => {
+    if (!d || !d.position || typeof d.position.y !== 'number') return;
+    const cat = d.category || 'KeyChain';
+    if (cat === 'KeyChain' || cat === 'SecretChain') {
+      const oldY = d.position.y;
+      if (oldY >= 600 && oldY < 1600) {
+        d.position.y = Math.round(oldY + 610);
+      } else if (oldY >= 1600 && oldY < 2600) {
+        d.position.y = Math.round(oldY + 1220);
+      } else if (oldY >= 2600) {
+        d.position.y = Math.round(oldY + 1830);
+      }
+    }
+  });
+
+  data.stageLayoutVersion = 2;
+  return true;
+}
+
 function normalizeAllProjectData() {
   if (!appData || typeof appData !== 'object') appData = {};
   if (!appData.schemaVersion) appData.schemaVersion = 1;
   appData._lastModified = appData._lastModified || new Date().toISOString();
+
+  if (!appData.stageLayoutVersion || appData.stageLayoutVersion < 2) {
+    migrateStageLayoutV2(appData);
+  }
 
   if (!Array.isArray(appData.nodes)) appData.nodes = [];
   if (!Array.isArray(appData.dialogues)) appData.dialogues = [];
@@ -957,7 +1006,10 @@ function getActiveBoardPartitionPayload() {
     boardId,
     nodes: boardNodes,
     dialogues: boardDialogues,
-    author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User'
+    author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User',
+    timelines: appData.timelines,
+    variations: appData.variations,
+    stageLayoutVersion: appData.stageLayoutVersion || 2
   };
 }
 

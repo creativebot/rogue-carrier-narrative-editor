@@ -119,6 +119,8 @@ def acquire_board_lock(board_id, board_name, user):
         return {"success": False, "status": "error", "message": "Missing boardId"}
     if not user:
         return {"success": False, "status": "unauthorized", "message": "Authentication required"}
+    if user.get('status') != 'approved' or user.get('canEdit') is False or user.get('role') == 'viewer':
+        return {"success": False, "status": "forbidden", "message": "You do not have editing permissions on this board."}
 
     user_email = (user.get('email') or '').strip().lower()
     user_name = user.get('name') or resolve_user_display_name(user_email, '')
@@ -319,10 +321,11 @@ def dialogue_belongs_to_board(diag, board_id, active_board_node_ids):
 
     return False
 
-def merge_and_save_board(board_id, board_nodes, board_dialogues, author_name):
+def merge_and_save_board(board_id, board_nodes, board_dialogues, author_name, timelines=None, variations=None, stage_layout_version=None):
     """
     Atomically updates ONLY the nodes and dialogues belonging to `board_id`
     in project-data.json, leaving all other boards completely untouched.
+    Also updates timelines and variations if provided.
     """
     project_path = os.path.join(DIRECTORY, 'project-data.json')
     with open(project_path, 'r', encoding='utf-8') as f:
@@ -343,6 +346,12 @@ def merge_and_save_board(board_id, board_nodes, board_dialogues, author_name):
 
     full_project["nodes"] = merged_nodes
     full_project["dialogues"] = merged_dialogues
+    if timelines is not None and isinstance(timelines, list):
+        full_project["timelines"] = timelines
+    if variations is not None and isinstance(variations, list):
+        full_project["variations"] = variations
+    if stage_layout_version is not None:
+        full_project["stageLayoutVersion"] = stage_layout_version
     full_project["_lastModified"] = datetime.now().isoformat()
     if full_project.get("projectInfo"):
         full_project["projectInfo"]["author"] = author_name
