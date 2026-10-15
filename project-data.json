@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T13:28:17.951684",
+  "_lastModified": "2026-10-15T13:28:39.141396",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -997,12 +997,12 @@
     },
     {
       "id": "node_e0",
-      "codename": "T1-V1-K1A",
+      "codename": "T1-V1-K2B",
       "name": "The Moment After the End",
       "type": "Deck",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 1,
       "spawnConditions": "End of Tutorial / Zephyrus Collapse",
       "eventIntro": "N/A",
       "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
@@ -1010,8 +1010,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 898,
-        "y": 90
+        "x": 2434,
+        "y": 1690
       },
       "actions": [
         {
@@ -1310,7 +1310,7 @@
     },
     {
       "id": "node_e1b",
-      "codename": "T1-V1-K2B",
+      "codename": "T1-V1-K2C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -3646,7 +3646,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 3,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
+      "triggerCondition": "After (T1-V1-K2B) Build a transmitter",
       "position": {
         "x": -691,
         "y": -62
@@ -3745,7 +3745,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
+      "triggerCondition": "After (T1-V1-K2B) Process the data",
       "position": {
         "x": 1934,
         "y": 1690
@@ -4043,7 +4043,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K1A)",
+      "triggerCondition": "Before (T1-V1-K2B)",
       "position": {
         "x": 1106,
         "y": -1043
@@ -4137,7 +4137,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
+      "triggerCondition": "After (T1-V1-K2B) Process the data",
       "position": {
         "x": 1283,
         "y": 1758
@@ -4207,7 +4207,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2B) Disassemble",
+      "triggerCondition": "After (T1-V1-K2C) Disassemble",
       "position": {
         "x": 2979,
         "y": 3454
@@ -4283,7 +4283,7 @@
       "triggerActionId": "act_1791378373196",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2B) Blast through!",
+      "triggerCondition": "After (T1-V1-K2C) Blast through!",
       "position": {
         "x": 4220,
         "y": 3467
@@ -4359,7 +4359,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2B) Disassemble",
+      "triggerCondition": "After (T1-V1-K2C) Disassemble",
       "position": {
         "x": 3585,
         "y": 3469
