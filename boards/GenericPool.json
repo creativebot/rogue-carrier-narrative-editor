@@ -79,9 +79,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "title": "Ancient AI Core"
     },
     {
@@ -279,8 +277,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 2712
+        "x": 306,
+        "y": 2391
       },
       "actions": [
         {
@@ -463,7 +461,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 5,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -474,7 +472,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 3589
+        "y": 3637
       },
       "actions": [
         {
@@ -666,5 +664,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T14:18:14.042814"
+  "_lastModified": "2026-10-15T16:15:23.124372"
 }
