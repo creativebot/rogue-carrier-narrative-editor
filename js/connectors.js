@@ -136,13 +136,15 @@ function setupPortDragEvents() {
     const mouseX = (clientX - stageRect.left) / transform.scale;
     const mouseY = (clientY - stageRect.top) / transform.scale;
 
-    renderConnectors();
     renderTempConnectorPath(portDragState.startPos.x, portDragState.startPos.y, mouseX, mouseY);
   }
 
   function endPortDrag(clientX, clientY) {
     if (!portDragState.isDragging) return;
     document.body.classList.remove('is-port-dragging');
+
+    const tempPath = document.getElementById('svg-temp-path');
+    if (tempPath) tempPath.remove();
 
     const stageRect = canvasStage.getBoundingClientRect();
     const mouseX = (clientX - stageRect.left) / transform.scale;
@@ -449,6 +451,225 @@ function renderTempConnectorPath(x1, y1, x2, y2) {
   }
 }
 
+// Dimension caching to eliminate layout thrashing during 60 FPS schematic drag
+const _nodeDimensionsCache = new Map();
+
+function invalidateNodeDimensionsCache(nodeId = null) {
+  if (nodeId) {
+    _nodeDimensionsCache.delete('node_' + nodeId);
+    _nodeDimensionsCache.delete('diag_' + nodeId);
+  } else {
+    _nodeDimensionsCache.clear();
+  }
+}
+window.invalidateNodeDimensionsCache = invalidateNodeDimensionsCache;
+
+function getNodeDimensions(id, isDialogue) {
+  const key = (isDialogue ? 'diag_' : 'node_') + id;
+  const cached = _nodeDimensionsCache.get(key);
+  if (cached) return cached;
+
+  let w = isDialogue ? 420 : 940;
+  let h = isDialogue ? 260 : 520;
+
+  const el = document.getElementById(isDialogue ? `dialogue-${id}` : `node-${id}`);
+  if (el) {
+    if (el.offsetWidth > 100) w = el.offsetWidth;
+    if (el.offsetHeight > 100) h = el.offsetHeight;
+  }
+  const dims = { w, h };
+  _nodeDimensionsCache.set(key, dims);
+  return dims;
+}
+window.getNodeDimensions = getNodeDimensions;
+
+function cacheAllNodeDimensions() {
+  if (window.appData && Array.isArray(appData.nodes)) {
+    appData.nodes.forEach(n => {
+      const el = document.getElementById(`node-${n.id}`);
+      if (el) {
+        const w = el.offsetWidth > 100 ? el.offsetWidth : 940;
+        const h = el.offsetHeight > 100 ? el.offsetHeight : 520;
+        _nodeDimensionsCache.set('node_' + n.id, { w, h });
+      }
+    });
+  }
+  if (window.appData && Array.isArray(appData.dialogues)) {
+    appData.dialogues.forEach(d => {
+      const el = document.getElementById(`dialogue-${d.id}`);
+      if (el) {
+        const w = el.offsetWidth > 100 ? el.offsetWidth : 420;
+        const h = el.offsetHeight > 100 ? el.offsetHeight : 260;
+        _nodeDimensionsCache.set('diag_' + d.id, { w, h });
+      }
+    });
+  }
+}
+window.cacheAllNodeDimensions = cacheAllNodeDimensions;
+
+// Real-Time In-Place Connector Updates (Pure 90-degree orthogonal, 0ms overhead, no DOM recreation)
+function updateDialogueConnectorGroups(diagGroups) {
+  const LABEL_WIDTH = 190;
+  diagGroups.forEach(group => {
+    const dialogueId = group.dataset.dialogueId;
+    const sourceId = group.dataset.sourceId;
+    const linkIdx = parseInt(group.dataset.linkIdx, 10);
+    const activeIdx = parseInt(group.dataset.activeIdx || '0', 10);
+    const activeCount = parseInt(group.dataset.activeCount || '1', 10);
+    const triggerTiming = group.dataset.triggerTiming || '';
+    const triggerActionId = group.dataset.triggerActionId || '';
+
+    const dialogue = (appData.dialogues || []).find(d => d.id === dialogueId);
+    const sourceNode = (appData.nodes || []).find(n => n.id === sourceId);
+    if (!dialogue || !sourceNode) return;
+
+    const dDim = getNodeDimensions(dialogueId, true);
+    const sDim = getNodeDimensions(sourceId, false);
+
+    let sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sDim.w, h: sDim.h };
+    if ((triggerTiming === 'action_option' || triggerTiming === 'post_action') && triggerActionId) {
+      const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
+      const actionCount = Math.max((sourceNode.actions || []).length, 1);
+      const totalCols = actionCount + (hasInaction ? 1 : 0);
+      const actIdx = triggerActionId === 'inaction'
+        ? actionCount
+        : (sourceNode.actions || []).findIndex(a => a.id === triggerActionId);
+
+      if (actIdx !== -1) {
+        const colWidth = (sDim.w - LABEL_WIDTH) / Math.max(totalCols, 1);
+        const colCenterX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
+
+        if (dialogue.position.y + dDim.h <= sourceNode.position.y + 40 || dialogue.position.y >= sourceNode.position.y + sDim.h - 40) {
+          sourceRect = {
+            x: colCenterX - 35,
+            y: sourceNode.position.y,
+            w: 70,
+            h: sDim.h
+          };
+        }
+      }
+    }
+
+    const laneOffset = activeCount > 1
+      ? Math.round((activeIdx - (activeCount - 1) / 2) * 34)
+      : 0;
+
+    const {
+      path: orthoPath,
+      startX, startY,
+      endX, endY,
+      midX, midY,
+      startAngle, endAngle,
+      startVec, endVec
+    } = calculateOrthogonalDialogueConnector(
+      sourceRect,
+      { x: dialogue.position.x, y: dialogue.position.y, w: dDim.w, h: dDim.h },
+      laneOffset
+    );
+
+    const hitPath = group.querySelector('.connector-path-hit');
+    const diagPath = group.querySelector('.connector-path-dialogue');
+    if (hitPath) hitPath.setAttribute('d', orthoPath);
+    if (diagPath) diagPath.setAttribute('d', orthoPath);
+
+    // Update overlay elements in place
+    const arrowBtn1 = document.getElementById(`dialogue-arrow-event-${dialogueId}-${linkIdx}`);
+    const arrowBtn2 = document.getElementById(`dialogue-arrow-diag-${dialogueId}-${linkIdx}`);
+    const badge = document.getElementById(`dialogue-badge-${dialogueId}-${linkIdx}`);
+
+    const lineDist = Math.hypot(endX - startX, endY - startY);
+    const arrowMargin = Math.max(16, Math.min(26, Math.floor(lineDist * 0.22)));
+
+    if (arrowBtn1) {
+      const arrow1X = Math.round(startX + startVec.x * arrowMargin);
+      const arrow1Y = Math.round(startY + startVec.y * arrowMargin);
+      arrowBtn1.style.left = `${arrow1X}px`;
+      arrowBtn1.style.top = `${arrow1Y}px`;
+      const svgIcon = arrowBtn1.querySelector('svg');
+      if (svgIcon) svgIcon.style.transform = `rotate(${startAngle}deg)`;
+    }
+
+    if (arrowBtn2) {
+      const arrow2X = Math.round(endX + endVec.x * arrowMargin);
+      const arrow2Y = Math.round(endY + endVec.y * arrowMargin);
+      arrowBtn2.style.left = `${arrow2X}px`;
+      arrowBtn2.style.top = `${arrow2Y}px`;
+      const svgIcon = arrowBtn2.querySelector('svg');
+      if (svgIcon) svgIcon.style.transform = `rotate(${endAngle}deg)`;
+    }
+
+    if (badge) {
+      badge.style.left = `${midX}px`;
+      badge.style.top = `${midY}px`;
+    }
+  });
+}
+
+function updateConnectedConnectorsForNode(draggedId, isDialogue) {
+  if (!svgConnectors) return;
+  const LABEL_WIDTH = 190;
+
+  if (!isDialogue) {
+    // 1. Event node dragged: update all connected event-to-event links
+    const eventGroups = svgConnectors.querySelectorAll(
+      `g.connector-link-group[data-link-type="event"][data-source-id="${draggedId}"], g.connector-link-group[data-link-type="event"][data-target-id="${draggedId}"]`
+    );
+
+    eventGroups.forEach(group => {
+      const sourceId = group.dataset.sourceId;
+      const targetId = group.dataset.targetId;
+      const actIdx = parseInt(group.dataset.actIdx, 10);
+      const targetSubIdx = parseInt(group.dataset.targetSubIdx || '0', 10);
+      const incomingIdx = parseInt(group.dataset.incomingIdx || '0', 10);
+      const incomingCount = parseInt(group.dataset.incomingCount || '1', 10);
+
+      const sourceNode = (appData.nodes || []).find(n => n.id === sourceId);
+      const targetNode = (appData.nodes || []).find(n => n.id === targetId);
+      if (!sourceNode || !targetNode) return;
+
+      const sDim = getNodeDimensions(sourceId, false);
+      const tDim = getNodeDimensions(targetId, false);
+      const sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sDim.w, h: sDim.h };
+      const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: tDim.w, h: tDim.h };
+
+      const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
+      const actionCount = Math.max((sourceNode.actions || []).length, 1);
+      const totalCols = actionCount + (hasInaction ? 1 : 0);
+      const colWidth = (sDim.w - LABEL_WIDTH) / Math.max(totalCols, 1);
+
+      const startX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
+      const startY = sourceNode.position.y + sDim.h;
+
+      const topEntryOffset = incomingCount > 1
+        ? Math.round((incomingIdx - (incomingCount - 1) / 2) * 32)
+        : 0;
+
+      const endX = targetNode.position.x + (tDim.w / 2) + topEntryOffset;
+      const endY = targetNode.position.y;
+
+      const orthoPath = drawOrthogonalLine(startX, startY, endX, endY, sourceRect, targetRect, incomingIdx + targetSubIdx);
+
+      const hitPath = group.querySelector('.connector-path-hit');
+      const orthoPathEl = group.querySelector('.connector-path-ortho');
+      if (hitPath) hitPath.setAttribute('d', orthoPath);
+      if (orthoPathEl) orthoPathEl.setAttribute('d', orthoPath);
+    });
+
+    // 2. Event node dragged: update dialogue links where this node is the event source
+    const diagGroups = svgConnectors.querySelectorAll(
+      `g.connector-link-group[data-link-type="dialogue"][data-source-id="${draggedId}"]`
+    );
+    updateDialogueConnectorGroups(diagGroups);
+  } else {
+    // Dialogue node dragged: update dialogue links where this dialogue is connected
+    const diagGroups = svgConnectors.querySelectorAll(
+      `g.connector-link-group[data-link-type="dialogue"][data-dialogue-id="${draggedId}"]`
+    );
+    updateDialogueConnectorGroups(diagGroups);
+  }
+}
+window.updateConnectedConnectorsForNode = updateConnectedConnectorsForNode;
+
 // Stage-Embedded Pure Stage Coordinate Connector Renderer (Zero Drift on Zoom/Pan)
 function renderConnectors() {
   if (!svgConnectors) return;
@@ -471,9 +692,9 @@ function renderConnectors() {
     if (!isPoolPage && sourceNode.variationId && sourceNode.variationId !== activeVariationId) return;
     if ((sourceNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
-    const sourceEl = document.getElementById(`node-${sourceNode.id}`);
-    const sourceHeight = sourceEl ? sourceEl.offsetHeight : 520;
-    const sourceWidth = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 940;
+    const sourceDims = getNodeDimensions(sourceNode.id, false);
+    const sourceHeight = sourceDims.h;
+    const sourceWidth = sourceDims.w;
     const sourceRect = { x: sourceNode.position.x, y: sourceNode.position.y, w: sourceWidth, h: sourceHeight };
     const hasInaction = Boolean(sourceNode.hasInactionThreat && sourceNode.inactionThreat);
     const actionCount = Math.max((sourceNode.actions || []).length, 1);
@@ -490,9 +711,9 @@ function renderConnectors() {
         if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
-        const targetEl = document.getElementById(`node-${targetNode.id}`);
-        const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 940;
-        const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
+        const targetDims = getNodeDimensions(targetNode.id, false);
+        const targetWidth = targetDims.w;
+        const targetHeight = targetDims.h;
         const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
         const startX = sourceNode.position.x + LABEL_WIDTH + (actIdx + 0.5) * colWidth;
@@ -521,9 +742,9 @@ function renderConnectors() {
         if (!isPoolPage && targetNode.variationId && targetNode.variationId !== activeVariationId) return;
         if ((targetNode.category || 'KeyChain') !== activeCategoryFilter) return;
 
-        const targetEl = document.getElementById(`node-${targetNode.id}`);
-        const targetWidth = (targetEl && targetEl.offsetWidth > 100) ? targetEl.offsetWidth : 940;
-        const targetHeight = (targetEl && targetEl.offsetHeight > 100) ? targetEl.offsetHeight : 520;
+        const targetDims = getNodeDimensions(targetNode.id, false);
+        const targetWidth = targetDims.w;
+        const targetHeight = targetDims.h;
         const targetRect = { x: targetNode.position.x, y: targetNode.position.y, w: targetWidth, h: targetHeight };
 
         const startX = sourceNode.position.x + LABEL_WIDTH + (actionCount + 0.5) * colWidth;
@@ -592,6 +813,15 @@ function renderConnectors() {
 
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     group.setAttribute('class', 'connector-link-group');
+    group.dataset.linkType = 'event';
+    group.dataset.sourceId = sourceNode.id;
+    group.dataset.targetId = targetNode.id;
+    group.dataset.linkKind = link.type;
+    group.dataset.actionId = link.type === 'inaction' ? 'inaction' : (action ? action.id : '');
+    group.dataset.actIdx = link.actIdx;
+    group.dataset.targetSubIdx = link.targetSubIdx || 0;
+    group.dataset.incomingIdx = incomingIdx;
+    group.dataset.incomingCount = incomingCount;
 
     const hitPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     hitPath.setAttribute('d', orthoPath);
@@ -624,9 +854,9 @@ function renderConnectors() {
     const links = getDialogueLinks(dialogue);
     if (!links || links.length === 0) return;
 
-    const diagEl = document.getElementById(`dialogue-${dialogue.id}`);
-    const w2 = (diagEl && diagEl.offsetWidth > 100) ? diagEl.offsetWidth : 420;
-    const h2 = (diagEl && diagEl.offsetHeight > 100) ? diagEl.offsetHeight : 260;
+    const diagDims = getNodeDimensions(dialogue.id, true);
+    const w2 = diagDims.w;
+    const h2 = diagDims.h;
 
     // Collect valid links visible on the active board
     const activeLinks = [];
@@ -640,9 +870,9 @@ function renderConnectors() {
     });
 
     activeLinks.forEach(({ link, linkIdx, sourceNode }, activeIdx) => {
-      const sourceEl = document.getElementById(`node-${sourceNode.id}`);
-      const w1 = (sourceEl && sourceEl.offsetWidth > 100) ? sourceEl.offsetWidth : 880;
-      const h1 = (sourceEl && sourceEl.offsetHeight > 100) ? sourceEl.offsetHeight : 540;
+      const sourceDims = getNodeDimensions(sourceNode.id, false);
+      const w1 = sourceDims.w;
+      const h1 = sourceDims.h;
 
       const laneOffset = activeLinks.length > 1
         ? Math.round((activeIdx - (activeLinks.length - 1) / 2) * 34)
@@ -690,6 +920,14 @@ function renderConnectors() {
 
       const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       group.setAttribute('class', 'connector-link-group');
+      group.dataset.linkType = 'dialogue';
+      group.dataset.dialogueId = dialogue.id;
+      group.dataset.sourceId = sourceNode.id;
+      group.dataset.linkIdx = linkIdx;
+      group.dataset.activeIdx = activeIdx;
+      group.dataset.activeCount = activeLinks.length;
+      group.dataset.triggerTiming = link.triggerTiming || '';
+      group.dataset.triggerActionId = link.triggerActionId || '';
 
       const hitPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       hitPath.setAttribute('d', orthoPath);
@@ -728,6 +966,7 @@ function renderConnectors() {
 
         const arrowBtn1 = document.createElement('button');
         arrowBtn1.type = 'button';
+        arrowBtn1.id = `dialogue-arrow-event-${dialogue.id}-${linkIdx}`;
         arrowBtn1.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-dialogue' + (isDimmedDiag ? ' is-pool-dimmed' : '');
         arrowBtn1.style.left = `${arrow1X}px`;
         arrowBtn1.style.top = `${arrow1Y}px`;
@@ -750,6 +989,7 @@ function renderConnectors() {
 
         const arrowBtn2 = document.createElement('button');
         arrowBtn2.type = 'button';
+        arrowBtn2.id = `dialogue-arrow-diag-${dialogue.id}-${linkIdx}`;
         arrowBtn2.className = 'dialogue-jump-arrow-btn dialogue-arrow-to-event' + (isDimmedDiag ? ' is-pool-dimmed' : '');
         arrowBtn2.style.left = `${arrow2X}px`;
         arrowBtn2.style.top = `${arrow2Y}px`;
@@ -772,6 +1012,7 @@ function renderConnectors() {
         const isDefault = rawCond.trim() === '';
 
         const badge = document.createElement('div');
+        badge.id = `dialogue-badge-${dialogue.id}-${linkIdx}`;
         badge.className = `dialogue-trigger-badge ${isDefault ? 'is-default' : ''}${isDimmedDiag ? ' is-pool-dimmed' : ''}`;
         badge.style.left = `${midX}px`;
         badge.style.top = `${midY}px`;

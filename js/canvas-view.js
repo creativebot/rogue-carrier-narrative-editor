@@ -276,7 +276,12 @@ function setupCanvasEvents() {
       if (!touchState.hasDragged && rawDist < 4) {
         return;
       }
-      touchState.hasDragged = true;
+      if (!touchState.hasDragged) {
+        touchState.hasDragged = true;
+        if (typeof cacheAllNodeDimensions === 'function') {
+          cacheAllNodeDimensions();
+        }
+      }
       e.preventDefault();
       const dx = (touch.clientX - touchState.startX) / transform.scale;
       const dy = (touch.clientY - touchState.startY) / transform.scale;
@@ -287,7 +292,12 @@ function setupCanvasEvents() {
       touchState.dragNodeEl.style.left = `${touchState.dragNodeObj.position.x}px`;
       touchState.dragNodeEl.style.top = `${touchState.dragNodeObj.position.y}px`;
 
-      renderConnectors();
+      const isEventNode = (appData.nodes || []).some(n => n.id === touchState.dragNodeObj.id);
+      if (typeof updateConnectedConnectorsForNode === 'function') {
+        updateConnectedConnectorsForNode(touchState.dragNodeObj.id, !isEventNode);
+      } else {
+        renderConnectors();
+      }
       return;
     }
 
@@ -562,6 +572,9 @@ function renderApp() {
   saveActiveWorkspacePosition();
   updateProjectSubtitle();
   renderVariationSelect();
+  if (typeof invalidateNodeDimensionsCache === 'function') {
+    invalidateNodeDimensionsCache();
+  }
   if (currentAppViewMode === 'mobile-stage') {
     renderMobileStageView();
   } else {
@@ -3303,6 +3316,9 @@ function makeNodesDraggable() {
           if (rawDist < 4) return;
           hasExceededDragThreshold = true;
           preDragSnapshot = JSON.stringify(appData);
+          if (typeof cacheAllNodeDimensions === 'function') {
+            cacheAllNodeDimensions();
+          }
         }
         const dx = (ev.clientX - mouseStartPos.x) / transform.scale;
         const dy = (ev.clientY - mouseStartPos.y) / transform.scale;
@@ -3316,7 +3332,11 @@ function makeNodesDraggable() {
         if (!dragRafId) {
           dragRafId = requestAnimationFrame(() => {
             dragRafId = null;
-            renderConnectors();
+            if (typeof updateConnectedConnectorsForNode === 'function') {
+              updateConnectedConnectorsForNode(obj.id, !isEvent);
+            } else {
+              renderConnectors();
+            }
           });
         }
       };
@@ -3356,6 +3376,9 @@ function rerenderNode(nodeId) {
     renderApp();
     return;
   }
+  if (typeof invalidateNodeDimensionsCache === 'function') {
+    invalidateNodeDimensionsCache(nodeId);
+  }
   const newEl = createEventNodeDOM(node);
   existingEl.replaceWith(newEl);
   updateDynamicBandDimensions();
@@ -3376,6 +3399,9 @@ function rerenderDialogue(dialogueId) {
   if (!diag || !existingEl || !nodesLayer) {
     renderApp();
     return;
+  }
+  if (typeof invalidateNodeDimensionsCache === 'function') {
+    invalidateNodeDimensionsCache(dialogueId);
   }
   const newEl = createDialogueNodeDOM(diag);
   existingEl.replaceWith(newEl);
