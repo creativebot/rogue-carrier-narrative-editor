@@ -1,6 +1,20 @@
 {
   "notifications": [
     {
+      "id": "notif_1792076235163_0",
+      "recipientEmail": "vkuznietsov@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "node_1791921021620",
+      "targetType": "event",
+      "targetTitle": "T1-V3-K1A - Too Many Variables",
+      "commentText": "@vkuznietsov test",
+      "commentId": "cmt_1792076235161",
+      "createdAt": "2026-10-15T14:57:15.161736Z",
+      "displayTime": "Oct 15, 14:57",
+      "read": false
+    },
+    {
       "id": "notif_1792008940378_0",
       "recipientEmail": "dpoludonnyi@n-ix.com",
       "senderName": "Tetiana Tretilova",
