@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T13:57:43.360753",
+  "_lastModified": "2026-10-15T16:01:06.527885",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -381,7 +381,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -396,10 +396,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -422,7 +419,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 1193
       },
       "actions": [
@@ -437,14 +434,10 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "title": "Ancient AI Core"
     },
     {
@@ -1962,7 +1955,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1964,
+        "x": 2541,
         "y": 3290
       },
       "actions": [
@@ -2782,7 +2775,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -36,
+        "x": 54,
         "y": 3290
       },
       "actions": [
@@ -3035,8 +3028,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3056,7 +3048,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2613,
+        "x": 2952,
         "y": 3290
       },
       "actions": [
@@ -3088,8 +3080,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3109,7 +3100,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3809,
+        "x": 4074,
         "y": 3290
       },
       "actions": [
@@ -3187,8 +3178,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -3251,7 +3241,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1629,
+        "x": 1426,
         "y": 1690
       },
       "actions": [
@@ -3433,12 +3423,12 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1298,
-        "y": 3839
+        "x": 1283,
+        "y": 4446
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "lines": [
         {
           "id": "l8",
@@ -3535,8 +3525,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": -891,
-        "y": 5102
+        "x": 465,
+        "y": 5179
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3750,8 +3740,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1934,
-        "y": 1690
+        "x": 1870,
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4142,8 +4132,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1283,
-        "y": 1758
+        "x": 1275,
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4212,8 +4202,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3302,
-        "y": 3471
+        "x": 4879,
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4288,8 +4278,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4649,
-        "y": 3467
+        "x": 4148,
+        "y": 2850
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4364,8 +4354,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3933,
-        "y": 3472
+        "x": 3540,
+        "y": 2772
       },
       "variationId": "var_v1",
       "category": "KeyChain",
