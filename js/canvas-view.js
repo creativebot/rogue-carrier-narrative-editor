@@ -83,7 +83,7 @@ function setupCanvasEvents() {
 
     // Return if clicking on interactive controls
     if (isArrangeMode) {
-      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn')) {
+      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn')) {
         return;
       }
     } else if (
@@ -206,10 +206,10 @@ function setupCanvasEvents() {
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       const targetCard = e.target.closest('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
-      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn');
+      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn');
       const isInteractive = isArrangeMode
         ? isPortOrZoom
-        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .pool-event-switch-bar, .pool-switch-toggle-btn');
+        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .block-floating-btn, .pool-event-switch-bar, .pool-switch-toggle-btn');
 
       // If in Arrange Mode AND touch starts on an event/dialogue card body:
       if (isArrangeMode && targetCard && !isInteractive) {
@@ -1231,9 +1231,10 @@ function createEventNodeDOM(node) {
     ? `<span class="font-bold text-xs" title="Inherited from Variation (${escapeHtml(node.name)})">${escapeHtml(node.name)}</span>`
     : `<span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">${escapeHtml(node.name)}</span>`;
 
+  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
   const poolSwitchBarHTML = isPoolEvent ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
 
-  wrapper.innerHTML = `<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
+  wrapper.innerHTML = `${zoomControlsHTML}<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Inbound Attachment Port and Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
@@ -1555,7 +1556,8 @@ function createDeckNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `
+  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
+  wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-start mb-3">
       <div class="inbound-event-port cursor-pointer mr-2 mt-1" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="space-y-2">
@@ -1614,7 +1616,8 @@ function createGenericNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `
+  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
+  wrapper.innerHTML = `${zoomControlsHTML}
     <div class="flex justify-between items-center mb-3">
       <div class="inbound-event-port cursor-pointer mr-2" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="generic-banner flex-1">${node.codename}</div>
@@ -1880,7 +1883,9 @@ function createDialogueNodeDOM(dialogue) {
        </div>`
     : '';
 
-  wrapper.innerHTML = `<div class="dialogue-card-inner">
+  const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
+
+  wrapper.innerHTML = `${zoomControlsHTML}<div class="dialogue-card-inner">
       <div class="dialogue-header pb-1.5">
         <div class="flex justify-between items-center gap-2 mb-1.5 flex-nowrap">
           <div class="flex items-center gap-1.5 cursor-grab flex-1 min-w-0" title="Drag dialogue block anywhere">
@@ -2984,13 +2989,61 @@ window.linkOrEditChoice = linkOrEditChoice;
 window.linkOrEditInaction = linkOrEditInaction;
 window.navigateToLinkedEvent = navigateToLinkedEvent;
 
-// Block-Specific Floating Zoom-In & Zoom-Out Engine (Obsolete - removed for clean rendering)
+// Block-Specific Floating Zoom-In & Zoom-Out Engine
 function getFloatingZoomButtonsHTML(blockId, isDialogue = false) {
-  return '';
+  const currentScale = transform.scale;
+  const isThisBlockAtMax = (maxZoomedBlockId === blockId && currentScale >= (maxZoomScale * 0.95));
+  const isAtMin = (currentScale <= (minOverviewScale * 1.05));
+
+  const zoomInDisplay = isThisBlockAtMax ? 'none' : 'flex';
+  const zoomOutDisplay = isAtMin ? 'none' : 'flex';
+
+  return `
+    <button type="button" class="block-floating-btn block-zoom-in-btn" 
+            onclick="event.stopPropagation(); zoomInToBlock('${blockId}', ${isDialogue ? 'true' : 'false'});" 
+            onmousedown="event.stopPropagation();"
+            title="Zoom in to block" aria-label="Zoom in to block"
+            style="display: ${zoomInDisplay};">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        <line x1="11" y1="8" x2="11" y2="14"></line>
+        <line x1="8" y1="11" x2="14" y2="11"></line>
+      </svg>
+    </button>
+    <button type="button" class="block-floating-btn block-zoom-out-btn" 
+            onclick="event.stopPropagation(); zoomOutToWholeScheme();" 
+            onmousedown="event.stopPropagation();"
+            title="Show the entire scheme" aria-label="Show the entire scheme"
+            style="display: ${zoomOutDisplay};">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+      </svg>
+    </button>
+  `;
 }
 
 function updateBlockZoomButtons() {
-  // Obsolete: floating block zoom buttons removed for clean, stable canvas rendering
+  const currentScale = transform.scale;
+  const isAtMin = (currentScale <= (minOverviewScale * 1.05));
+
+  const cards = document.querySelectorAll('.event-card, .dialogue-card, .deck-event-card, .generic-event-card');
+  cards.forEach(card => {
+    const isEvent = card.classList.contains('event-card') || card.classList.contains('deck-event-card') || card.classList.contains('generic-event-card');
+    const blockId = card.id.replace(isEvent ? 'node-' : 'dialogue-', '');
+    const isThisBlockAtMax = (maxZoomedBlockId === blockId && currentScale >= (maxZoomScale * 0.95));
+    card.classList.toggle('is-max-zoomed', isThisBlockAtMax);
+
+    const zoomInBtn = card.querySelector('.block-zoom-in-btn');
+    if (zoomInBtn) {
+      zoomInBtn.style.display = isThisBlockAtMax ? 'none' : 'flex';
+    }
+
+    const zoomOutBtn = card.querySelector('.block-zoom-out-btn');
+    if (zoomOutBtn) {
+      zoomOutBtn.style.display = isAtMin ? 'none' : 'flex';
+    }
+  });
 }
 
 function zoomInToBlock(blockId, isDialogue) {
@@ -3190,7 +3243,8 @@ function makeNodesDraggable() {
         if (e.target.closest('.connector-port') ||
             e.target.closest('.dialogue-trigger-port') ||
             e.target.closest('.linked-event-jump-btn') ||
-            e.target.closest('.btn-zoom-corner')) {
+            e.target.closest('.btn-zoom-corner') ||
+            e.target.closest('.block-floating-btn')) {
           return;
         }
       } else {
