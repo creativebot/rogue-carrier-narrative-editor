@@ -583,6 +583,9 @@ function renderApp() {
     setTimeout(() => renderConnectors(), 50);
   }
   updateStats();
+  if (typeof onActiveBoardChanged === 'function') {
+    onActiveBoardChanged();
+  }
 }
 
 function renderVariationSelect() {

@@ -79,13 +79,13 @@
         <i data-lucide="save" class="w-3.5 h-3.5 text-emerald-100"></i> <span class="hidden sm:inline">Save</span>
       </button>
 
-      <!-- Backups & Session Recovery Button -->
-      <button id="btn-header-backups" type="button" onclick="openSaveManagerModal('backups')" 
+      <!-- Board Saves & Project Versions Button -->
+      <button id="btn-header-backups" type="button" onclick="openSaveManagerModal('board')" 
               class="hidden sm:flex bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-cyan-800/80 text-xs font-bold px-1.5 sm:px-2 py-1.5 rounded-lg items-center gap-1 transition shadow-xs active:scale-95 shrink-0" 
-              title="Project Backups & Session Recovery">
-        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-        <span class="hidden lg:inline">Backups</span>
-        <span id="header-backups-badge" class="hidden ml-0.5 px-1 py-0.2 text-[9px] font-mono bg-cyan-900 text-cyan-200 rounded-full">0</span>
+              title="Board Saves & Project Versions">
+        <i data-lucide="folder-archive" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span class="hidden lg:inline" id="btn-header-saves-text">Saves</span>
+        <span id="header-backups-badge" class="hidden ml-0.5 px-1.5 py-0.2 text-[9px] font-mono bg-cyan-900 text-cyan-200 rounded-full">0</span>
       </button>
 
       <div id="save-sync-badge" class="hidden xl:flex items-center gap-1 px-2 py-1 rounded bg-gray-950 border border-emerald-500/30 text-[10px] font-mono text-emerald-400 shadow-inner" title="Auto-saved to disk">
@@ -145,8 +145,8 @@
               <button type="button" onclick="saveCurrentProject(true)" class="px-2 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white flex items-center gap-1">
                 <i data-lucide="save" class="w-3.5 h-3.5"></i> Save
               </button>
-              <button type="button" onclick="openSaveManagerModal('backups')" class="px-2 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-cyan-300 border border-cyan-800/80 flex items-center gap-1">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i> Backups
+              <button type="button" onclick="openSaveManagerModal('board')" class="px-2 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-cyan-300 border border-cyan-800/80 flex items-center gap-1">
+                <i data-lucide="folder-archive" class="w-3.5 h-3.5 text-cyan-400"></i> Saves
               </button>
             </div>
           </div>          <!-- Section 1: Pages & Event Pools -->
@@ -897,32 +897,35 @@ And what about you? Disappointed, as well?"></textarea>
 
   <!-- MODAL: Save & Load Versions Manager & Backups -->
   <div id="modal-save-manager" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
-    <div class="bg-gray-900 border border-cyan-500/40 rounded-xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="bg-gray-950 px-6 py-4 border-b border-gray-800 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <h3 class="text-base font-bold text-cyan-400 flex items-center gap-2">
-            <i data-lucide="folder-archive" class="w-5 h-5 text-cyan-400"></i> Project Saves & Backups
+    <div class="bg-gray-900 border border-cyan-500/40 rounded-2xl w-[94vw] max-w-5xl xl:max-w-6xl h-[88vh] max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="bg-gray-950 px-6 py-3.5 border-b border-gray-800 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-4 flex-wrap">
+          <h3 class="text-sm sm:text-base font-bold text-cyan-400 flex items-center gap-2">
+            <i data-lucide="folder-archive" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+            <span>Project Saves & Backups</span>
           </h3>
           <div class="flex bg-gray-900 rounded-lg p-0.5 border border-gray-800 text-xs font-semibold">
-            <button id="tab-btn-board-saves" class="px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5" onclick="switchSaveManagerTab('board')">
+            <button id="tab-btn-board-saves" class="px-3 py-1.5 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5" onclick="switchSaveManagerTab('board')">
               <i data-lucide="layout" class="w-3.5 h-3.5 text-cyan-300"></i>
-              <span id="save-manager-active-board-label">Board Saves & Loads</span>
+              <span id="save-manager-active-board-label">Board Saves</span>
             </button>
-            <button id="tab-btn-saves" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('saves')">
-              Project Versions
+            <button id="tab-btn-saves" class="px-3 py-1.5 rounded-md text-gray-400 hover:text-white transition flex items-center gap-1.5" onclick="switchSaveManagerTab('saves')">
+              <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+              <span>Project Versions</span>
             </button>
-            <button id="tab-btn-backups" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('backups')">
-              🛡️ Session Snapshots
+            <button id="tab-btn-backups" class="px-3 py-1.5 rounded-md text-gray-400 hover:text-white transition flex items-center gap-1.5" onclick="switchSaveManagerTab('backups')">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Session Snapshots</span>
             </button>
           </div>
         </div>
-        <button onclick="closeModal('modal-save-manager')" class="text-gray-400 hover:text-white">
+        <button onclick="closeModal('modal-save-manager')" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-gray-800 transition" title="Close window">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
       <!-- TAB 0: Board Manager (Isolated Board Saves & Loads) -->
-      <div id="save-manager-tab-board" class="p-6 overflow-y-auto space-y-4 text-xs">
+      <div id="save-manager-tab-board" class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
         <!-- Board Selection & Metadata Header -->
         <div class="bg-gray-950 p-4 border border-cyan-800/60 rounded-xl space-y-2.5">
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
@@ -1005,14 +1008,14 @@ And what about you? Disappointed, as well?"></textarea>
             </h4>
             <span class="text-[11px] text-gray-500" id="save-manager-board-save-count">Loading...</span>
           </div>
-          <div id="saved-board-versions-list" class="space-y-2 max-h-[320px] overflow-y-auto pr-1">
+          <div id="saved-board-versions-list" class="space-y-2 max-h-[460px] overflow-y-auto pr-1">
             <!-- Rendered dynamically by renderBoardSavedVersionsList() -->
           </div>
         </div>
       </div>
 
       <!-- TAB 1: Named Saves -->
-      <div id="save-manager-tab-saves" class="hidden p-6 overflow-y-auto space-y-5 text-xs">
+      <div id="save-manager-tab-saves" class="hidden p-6 overflow-y-auto space-y-5 text-xs flex-1">
         <!-- Section 1: Active File & Quick Controls -->
         <div class="bg-gray-950 p-4 border border-gray-800 rounded-xl space-y-3">
           <div class="flex justify-between items-center">
@@ -1078,7 +1081,7 @@ And what about you? Disappointed, as well?"></textarea>
             <span class="text-[11px] text-gray-400">Auto-syncs with server disk saves</span>
           </div>
 
-          <div id="saved-versions-list" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+          <div id="saved-versions-list" class="space-y-2 max-h-[480px] overflow-y-auto pr-1">
             <div class="text-center py-6 text-gray-500">
               Loading saved versions...
             </div>
@@ -1087,7 +1090,7 @@ And what about you? Disappointed, as well?"></textarea>
       </div>
 
       <!-- TAB 2: Point-in-Time Snapshots & Backups -->
-      <div id="save-manager-tab-backups" class="hidden p-6 overflow-y-auto space-y-5 text-xs">
+      <div id="save-manager-tab-backups" class="hidden p-6 overflow-y-auto space-y-5 text-xs flex-1">
         <div class="space-y-2">
           <div class="flex justify-between items-center">
             <h4 class="font-bold text-gray-200 text-sm flex items-center gap-2">
@@ -1096,7 +1099,7 @@ And what about you? Disappointed, as well?"></textarea>
             <span class="text-[11px] text-gray-400">Automatically updated with every save</span>
           </div>
 
-          <div id="backups-snapshots-list" class="space-y-2 max-h-96 overflow-y-auto pr-1">
+          <div id="backups-snapshots-list" class="space-y-2 max-h-[540px] overflow-y-auto pr-1">
             <div class="text-center py-6 text-gray-500">
               Loading backups...
             </div>

@@ -290,20 +290,11 @@ function showRecoveryBanner(text, bestId, totalCount) {
   const banner = document.getElementById('data-recovery-banner');
   const bannerText = document.getElementById('data-recovery-text');
   const badge = document.getElementById('recovery-count-badge');
-  const headerBadge = document.getElementById('header-backups-badge');
-
   if (banner && bannerText) {
     bannerText.innerText = text;
     if (badge) badge.innerText = totalCount || '1';
     banner.classList.remove('hidden');
     if (window.lucide) lucide.createIcons();
-  }
-
-  if (headerBadge) {
-    headerBadge.innerText = totalCount || '0';
-    if (totalCount > 0) {
-      headerBadge.classList.remove('hidden');
-    }
   }
 }
 
@@ -477,12 +468,9 @@ async function loadProjectData() {
   // Initialize periodic 1-minute auto-save
   initPeriodicAutoSave();
 
-  // Update header backups count
-  const headerBadge = document.getElementById('header-backups-badge');
-  if (headerBadge) {
-    const totalBackups = (scanAllLocalRecoveryCandidates() || []).length;
-    headerBadge.innerText = totalBackups;
-    if (totalBackups > 0) headerBadge.classList.remove('hidden');
+  // Update header board saves count
+  if (typeof updateActiveBoardSavesBadge === 'function') {
+    updateActiveBoardSavesBadge();
   }
 }
 
@@ -1269,6 +1257,76 @@ async function fetchAllSavedVersions() {
 }
 
 let selectedSaveManagerBoardId = null;
+let boardSavesCountCache = {};
+
+async function updateActiveBoardSavesBadge() {
+  const headerBadge = document.getElementById('header-backups-badge');
+  const headerBtn = document.getElementById('btn-header-backups');
+  if (!headerBadge) return;
+
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') 
+    ? getCurrentBoardIdentifier() 
+    : 'KeyChain:timeline_1:var_v1';
+  const boardName = (typeof getCurrentBoardDisplayName === 'function') 
+    ? getCurrentBoardDisplayName() 
+    : 'Selected Board';
+
+  if (boardSavesCountCache[boardId] !== undefined) {
+    const count = boardSavesCountCache[boardId];
+    headerBadge.innerText = count;
+    headerBadge.classList.remove('hidden');
+    if (headerBtn) headerBtn.title = `${boardName} Saves (${count})`;
+  }
+
+  try {
+    const res = await fetch(`/api/saves?boardId=${encodeURIComponent(boardId)}`, {
+      headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(false) : {}
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const saves = data.saves || [];
+      const count = saves.length;
+      boardSavesCountCache[boardId] = count;
+      headerBadge.innerText = count;
+      headerBadge.classList.remove('hidden');
+      if (headerBtn) headerBtn.title = `${boardName} Saves (${count})`;
+    }
+  } catch (err) {}
+}
+
+async function onActiveBoardChanged() {
+  const activeBoardId = (typeof getCurrentBoardIdentifier === 'function') 
+    ? getCurrentBoardIdentifier() 
+    : 'KeyChain:timeline_1:var_v1';
+
+  await updateActiveBoardSavesBadge();
+
+  const modal = document.getElementById('modal-save-manager');
+  if (modal && !modal.classList.contains('hidden')) {
+    await syncSaveManagerToActiveBoard(activeBoardId);
+  }
+}
+
+async function syncSaveManagerToActiveBoard(newBoardId) {
+  selectedSaveManagerBoardId = newBoardId;
+  const picker = document.getElementById('save-manager-board-picker');
+  if (picker) {
+    if (!Array.from(picker.options).some(o => o.value === newBoardId)) {
+      await populateSaveManagerBoardPicker();
+    } else {
+      Array.from(picker.options).forEach(opt => {
+        const cleanName = opt.innerText.replace(' (Active Canvas)', '');
+        opt.innerText = cleanName + (opt.value === newBoardId ? ' (Active Canvas)' : '');
+        if (opt.value === newBoardId) {
+          opt.selected = true;
+        }
+      });
+      picker.value = newBoardId;
+    }
+  }
+  await updateSaveManagerSelectedBoardUI();
+  await renderBoardSavedVersionsList();
+}
 
 async function openSaveManagerModal(targetTab = 'board') {
   const managerSavedText = document.getElementById('save-manager-last-saved');
@@ -1471,6 +1529,8 @@ async function saveSelectedBoardSnapshot() {
     const resp = await res.json();
     if (noteInput) noteInput.value = '';
     showToast(`Saved snapshot for ${selectedSaveManagerBoardId} (${resp.boardNodeCount ?? boardPayload.nodes.length} events)`, 'success');
+    boardSavesCountCache[selectedSaveManagerBoardId] = (boardSavesCountCache[selectedSaveManagerBoardId] || 0) + 1;
+    updateActiveBoardSavesBadge();
     renderBoardSavedVersionsList();
   } catch (err) {
     showToast(`Error saving board: ${err.message}`, 'error');
@@ -1588,6 +1648,8 @@ async function handleImportBoardFile(e) {
       }
 
       showToast(`Imported ${nodes.length} events into ${selectedSaveManagerBoardId}. Other boards safe!`, 'success');
+      boardSavesCountCache[selectedSaveManagerBoardId] = (boardSavesCountCache[selectedSaveManagerBoardId] || 0) + 1;
+      updateActiveBoardSavesBadge();
       renderBoardSavedVersionsList();
     } catch (parseErr) {
       showToast(`Error parsing JSON: ${parseErr.message}`, 'error');
@@ -1617,6 +1679,16 @@ async function renderBoardSavedVersionsList() {
     const saves = data.saves || [];
 
     if (countEl) countEl.innerText = `${saves.length} save${saves.length === 1 ? '' : 's'}`;
+
+    boardSavesCountCache[targetBoardId] = saves.length;
+    const activeBoardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+    if (targetBoardId === activeBoardId) {
+      const headerBadge = document.getElementById('header-backups-badge');
+      if (headerBadge) {
+        headerBadge.innerText = saves.length;
+        headerBadge.classList.remove('hidden');
+      }
+    }
 
     if (saves.length === 0) {
       container.innerHTML = `
@@ -2993,5 +3065,8 @@ window.syncBoardFromServer = syncBoardFromServer;
 window.renderBoardSavedVersionsList = renderBoardSavedVersionsList;
 window.restoreBoardVersion = restoreBoardVersion;
 window.openSaveManagerModal = openSaveManagerModal;
+window.updateActiveBoardSavesBadge = updateActiveBoardSavesBadge;
+window.onActiveBoardChanged = onActiveBoardChanged;
+window.syncSaveManagerToActiveBoard = syncSaveManagerToActiveBoard;
 
 

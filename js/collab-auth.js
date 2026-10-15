@@ -721,26 +721,26 @@ function switchSaveManagerTab(tab) {
   if (tabSaves) tabSaves.classList.add('hidden');
   if (tabBackups) tabBackups.classList.add('hidden');
 
-  const inactiveBtn = 'px-3 py-1 rounded-md text-gray-400 hover:text-white transition';
+  const inactiveBtn = 'px-3 py-1.5 rounded-md text-gray-400 hover:text-white transition flex items-center gap-1.5';
   if (btnBoard) btnBoard.className = inactiveBtn;
   if (btnSaves) btnSaves.className = inactiveBtn;
   if (btnBackups) btnBackups.className = inactiveBtn;
 
   if (tab === 'board') {
     if (tabBoard) tabBoard.classList.remove('hidden');
-    if (btnBoard) btnBoard.className = 'px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
+    if (btnBoard) btnBoard.className = 'px-3 py-1.5 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
     if (typeof renderBoardSavedVersionsList === 'function') {
       renderBoardSavedVersionsList();
     }
   } else if (tab === 'saves') {
     if (tabSaves) tabSaves.classList.remove('hidden');
-    if (btnSaves) btnSaves.className = 'px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition';
+    if (btnSaves) btnSaves.className = 'px-3 py-1.5 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
     if (typeof renderSavedVersionsList === 'function') {
       renderSavedVersionsList();
     }
   } else {
     if (tabBackups) tabBackups.classList.remove('hidden');
-    if (btnBackups) btnBackups.className = 'px-3 py-1 rounded-md bg-emerald-600 text-white shadow transition';
+    if (btnBackups) btnBackups.className = 'px-3 py-1.5 rounded-md bg-emerald-600 text-white shadow transition flex items-center gap-1.5';
     loadBackupsList();
   }
 }
