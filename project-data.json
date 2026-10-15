@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T16:05:14.236873",
+  "_lastModified": "2026-10-15T14:18:12.794963",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -381,7 +381,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
+        "x": 110,
         "y": 243
       },
       "actions": [
@@ -396,7 +396,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup"
+          "targetNodeId": "node_gen_followup",
+          "targetNodeIds": [
+            "node_gen_followup"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -419,7 +422,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
+        "x": 110,
         "y": 1193
       },
       "actions": [
@@ -434,10 +437,14 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
+      "disabledVariationIds": [
+        "var_v1"
+      ],
       "title": "Ancient AI Core"
     },
     {
