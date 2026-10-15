@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T10:04:21.095795",
+  "_lastModified": "2026-10-15T12:33:18.589462",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -457,7 +457,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -472,10 +472,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -498,7 +495,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 1193
       },
       "actions": [
@@ -513,14 +510,10 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "title": "Ancient AI Core"
     },
     {
@@ -696,9 +689,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "colorScheme": "rose",
       "pool": "generic"
     },
@@ -3113,8 +3104,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3166,8 +3156,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3265,8 +3254,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -3330,7 +3318,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1426,
-        "y": 1540
+        "y": 1080
       },
       "actions": [
         {
