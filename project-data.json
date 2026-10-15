@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T12:19:15.339Z",
+  "_lastModified": "2026-10-15T12:31:27.659452",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -106,7 +106,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -127,7 +137,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -148,7 +168,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -169,7 +199,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -190,7 +230,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -211,7 +261,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -232,7 +292,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     }
   ],
@@ -2958,8 +3028,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3011,8 +3080,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3110,8 +3178,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -4065,8 +4132,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1275,
-        "y": 1110
+        "x": 1283,
+        "y": 1758
       },
       "variationId": "var_v1",
       "category": "KeyChain",
