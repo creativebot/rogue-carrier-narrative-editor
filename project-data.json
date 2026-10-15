@@ -2829,6 +2829,44 @@
           "targetNodeId": null
         }
       ]
+    },
+    {
+      "id": "node_1792049267156",
+      "codename": "T1-V3-K1A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 470,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1792049267156",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -3960,7 +3998,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T20:26:30.872Z",
+  "_lastModified": "2026-10-15T07:28:32.003241",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
@@ -3968,5 +4006,6 @@
     "Station Intelligence",
     "Refinery Intelligence",
     "Jammer Found"
-  ]
+  ],
+  "stageLayoutVersion": 2
 }
