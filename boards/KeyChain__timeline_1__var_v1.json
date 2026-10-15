@@ -1765,6 +1765,12 @@
           "text": "Thank you, M."
         },
         {
+          "id": "l_1792075959335",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
           "id": "l_imp_1791712222490_2",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
@@ -2059,5 +2065,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T14:44:02.274280"
+  "_lastModified": "2026-10-15T14:52:39.787308"
 }
