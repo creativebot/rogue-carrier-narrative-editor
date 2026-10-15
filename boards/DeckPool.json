@@ -1,0 +1,57 @@
+{
+  "boardId": "DeckPool",
+  "nodes": [
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "iва",
+      "spawnConditions": "iва",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 220
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
+    }
+  ],
+  "dialogues": [],
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-15T17:05:26.529066"
+}
