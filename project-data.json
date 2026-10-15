@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Volodymyr Kuznietsov"
   },
   "timelines": [
     {
@@ -561,7 +561,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -709,7 +709,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2664,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -845,7 +845,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1004,7 +1004,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1139,7 +1139,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 4890
+        "y": 3060
       },
       "actions": [
         {
@@ -1293,7 +1293,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
+        "x": 80,
         "y": 243
       },
       "actions": [
@@ -1308,10 +1308,7 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup",
-          "targetNodeIds": [
-            "node_gen_followup"
-          ]
+          "targetNodeId": "node_gen_followup"
         }
       ],
       "disabledVariationIds": [],
@@ -1382,7 +1379,7 @@
       "inactionThreat": null,
       "position": {
         "x": 450,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -1419,8 +1416,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 1412
+        "x": 80,
+        "y": 1193
       },
       "actions": [
         {
@@ -1434,9 +1431,7 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1468,7 +1463,7 @@
         ]
       },
       "position": {
-        "x": 110,
+        "x": 100,
         "y": 220
       },
       "actions": [
@@ -1509,7 +1504,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1563,7 +1558,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2541,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -1795,7 +1790,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1370,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2018,7 +2013,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2187,7 +2182,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2325,8 +2320,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2147,
-        "y": 1690
+        "x": 2234,
+        "y": 1080
       },
       "actions": [
         {
@@ -2338,13 +2333,7 @@
           "timerHours": 7,
           "resultDescription": "The investigation showed that the explosion was outward, not inward. Which means that something exploded inside the ship. Whether as the result of sabotage or because of some alien technology, causing some internal devices to explode is yet unclear.",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+150",
-              "icon": "🧠",
-              "iconImg": ""
-            },
+            "🧠 Knowledge +100",
             {
               "resourceId": "criteria_inner_explosion",
               "name": "Inner Explosion",
@@ -2353,13 +2342,6 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "20-30",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
             }
           ],
           "targetNodeIds": [
@@ -2376,21 +2358,7 @@
           "timerHours": 4,
           "resultDescription": "No luck. The fragment is burned out to ash, leaving nothing of value. We managed to retrieve just a small quantity of rare metals.",
           "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "res_06_Chrom",
-              "name": "Chromium",
-              "amount": "20-30",
-              "iconImg": "icons/T_Chromium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_08_Titan",
-              "name": "Titanium",
-              "amount": "20-30",
-              "iconImg": "icons/T_Metals_Ti.png",
-              "icon": "📦"
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2429,13 +2397,6 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "20-30",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
             }
           ],
           "targetNodeIds": [
@@ -2465,7 +2426,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2600,7 +2561,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3358,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2628,13 +2589,7 @@
           "timerHours": 8,
           "resultDescription": "Whoever did this has some industrial equipment. Not that advanced, but effective. We found some remnants of it: broken parts, exhausted batterys etc. The looters took all they could, even the metal plates that they managed to tear off. They had to have a large vessel to carry all that of the island. Also they picked up all the surviving electronics for some reason.\nWere they just occasional marauders or intently covered the tracks of the attack?\nOne of them lost some kind of decoration, abadge or something. Maybe it will guide us to the marauders in the future.\n",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+150",
-              "icon": "🧠",
-              "iconImg": ""
-            },
+            "🧠 Knowledge +100",
             {
               "resourceId": "criteria_nasobi_tc_badge",
               "name": "Nasobi TC Badge",
@@ -2672,7 +2627,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4402,
-        "y": 1690
+        "y": 1080
       },
       "actions": [
         {
@@ -2723,8 +2678,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -2745,7 +2699,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2776,8 +2730,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -2798,7 +2751,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4074,
-        "y": 3290
+        "y": 2070
       },
       "actions": [
         {
@@ -2810,13 +2763,7 @@
           "timerHours": 5,
           "resultDescription": "Gathered data showed the massive cyber attack on the ship's internal network several minutes before the attack. This proves the attack was planned and orchestrated with frightening accuracy. We are facing a fearsome and cunning foe, and must be prepared that they may strike again at any time.",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+150",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2846,13 +2793,7 @@
           "timerHours": 5,
           "resultDescription": "The overall analysis shows that the looters present the civilization in its industrial age. They use heat and electricity, but not nuclear power. They have heavy machinery developed sea fleet, and a complex social structure. Yet it seems unlikely that they are capable of shooting down Zephyrus size ship from orbit. Why the uninstalled electronic equipment remains unclear. Perhaps, relics provided us with a limited perspective of these species. We have to find and contact them to learn more.",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+250",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2882,19 +2823,12 @@
           "timerHours": 7,
           "resultDescription": "The Jammer is a sample of a highly advanced space tech. Whether the ones who made it are locals or aliens to this planet, they are on the same or even higher level than us. We have (at least for now) no effective means to counter such a jammer.",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+250",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     }
   ],
   "dialogues": [
@@ -2942,7 +2876,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 4446
+        "y": 2616
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2993,7 +2927,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 3343
+        "y": 2123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3044,7 +2978,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 5179
+        "y": 3349
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3081,7 +3015,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 5078
+        "y": 3248
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3258,8 +3192,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1957,
-        "y": 1691
+        "x": 1870,
+        "y": 1038
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3353,7 +3287,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1774
+        "y": 1164
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3386,7 +3320,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 2042
+        "y": 1432
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3438,7 +3372,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 3208
+        "y": 1988
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3524,7 +3458,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1665
+        "y": 1055
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3681,7 +3615,7 @@
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1275,
-        "y": 1720
+        "y": 1110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3751,7 +3685,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 3623
+        "y": 2403
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3827,7 +3761,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4148,
-        "y": 3460
+        "y": 2240
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3903,7 +3837,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 3382
+        "y": 2162
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4026,7 +3960,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-14T21:10:43.318Z",
+  "_lastModified": "2026-10-14T20:26:30.872Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
@@ -4034,6 +3968,5 @@
     "Station Intelligence",
     "Refinery Intelligence",
     "Jammer Found"
-  ],
-  "stageLayoutVersion": 2
+  ]
 }
