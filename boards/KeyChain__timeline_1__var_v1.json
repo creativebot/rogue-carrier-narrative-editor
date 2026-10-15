@@ -329,7 +329,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3124,
+        "x": 2664,
         "y": 1690
       },
       "actions": [
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T13:26:52.418002"
+  "_lastModified": "2026-10-15T13:26:53.271805"
 }
