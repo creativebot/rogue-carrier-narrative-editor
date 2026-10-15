@@ -372,65 +372,7 @@ html, body {
   width: 100%;
 }
 
-/* Floating Zoom Control Buttons for Event & Dialogue Blocks (Positioned Outside Block Boundaries) */
-.block-floating-btn {
-  position: absolute !important;
-  top: 18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 35;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 2px 5px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.18s ease;
-  user-select: none;
-  outline: none;
-}
 
-.block-zoom-in-btn {
-  left: -48px;
-  transform-origin: center center;
-  transform: translateY(-50%) scale(var(--btn-scale, 1));
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  border: 2px solid #60a5fa;
-  color: #ffffff;
-}
-
-.block-zoom-in-btn:hover {
-  transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 1.15));
-  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  border-color: #93c5fd;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.block-zoom-in-btn:active {
-  transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 0.95));
-}
-
-.block-zoom-out-btn {
-  right: -48px;
-  transform-origin: center center;
-  transform: translateY(-50%) scale(var(--btn-scale, 1));
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  border: 2px solid #34d399;
-  color: #ffffff;
-}
-
-.block-zoom-out-btn:hover {
-  transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 1.15));
-  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border-color: #6ee7b7;
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.block-zoom-out-btn:active {
-  transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 0.95));
-}
 
 .event-header {
   background-color: var(--theme-header-bg, #fef08a);
@@ -1606,50 +1548,13 @@ body.is-port-dragging .inbound-event-port {
   background-color: #94a3b8;
 }
 
-/* LOD Overview Pool Switch Button (Zoomed-out compact toggle) */
-.lod-pool-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  cursor: pointer;
-  border: 1px solid;
-  transition: all 0.15s ease;
-  user-select: none;
-  margin-left: 4px;
-}
-.lod-pool-toggle-btn.is-on {
-  background: rgba(6, 78, 59, 0.9);
-  border-color: #10b981;
-  color: #a7f3d0;
-}
-.lod-pool-toggle-btn.is-on:hover {
-  background: rgba(6, 95, 70, 1);
-  border-color: #34d399;
-}
-.lod-pool-toggle-btn.is-off {
-  background: rgba(15, 23, 42, 0.9);
-  border-color: #dc2626;
-  color: #f87171;
-}
-.lod-pool-toggle-btn.is-off:hover {
-  background: rgba(30, 41, 59, 1);
-  border-color: #ef4444;
-}
-
 /* Dimmed / Inactive Card Body Styling */
-.event-card-body.is-pool-dimmed,
-.lod-overview-card.is-pool-dimmed {
+.event-card-body.is-pool-dimmed {
   opacity: 0.35 !important;
   pointer-events: auto;
 }
 
-.event-card-body.is-pool-dimmed:hover,
-.lod-overview-card.is-pool-dimmed:hover {
+.event-card-body.is-pool-dimmed:hover {
   opacity: 0.55 !important;
 }
 
@@ -1994,9 +1899,8 @@ body.is-port-dragging .inbound-event-port {
 .arrange-mode-active .dialogue-card .line-move-btn,
 .arrange-mode-active .dialogue-card .line-add-btn,
 .arrange-mode-active .event-card .comment-trigger-badge,
-.arrange-mode-active .dialogue-card .comment-trigger-badge,
-.arrange-mode-active .event-card button:not(.block-floating-btn):not(.btn-zoom-corner),
-.arrange-mode-active .dialogue-card button:not(.block-floating-btn):not(.btn-zoom-corner) {
+.arrange-mode-active .event-card button:not(.btn-zoom-corner),
+.arrange-mode-active .dialogue-card button:not(.btn-zoom-corner) {
   pointer-events: none !important;
   cursor: grab !important;
   user-select: none !important;
@@ -2011,7 +1915,6 @@ body.is-port-dragging .inbound-event-port {
   transform: translateY(-50%) scale(calc(var(--btn-scale, 1) * 1.3)) !important;
 }
 
-.arrange-mode-active .block-floating-btn,
 .arrange-mode-active .btn-zoom-corner,
 .arrange-mode-active .connector-path-ortho,
 .arrange-mode-active .connector-path-dialogue {
@@ -2076,8 +1979,8 @@ body.is-port-dragging .inbound-event-port {
   }
 
   /* Comfortable minimum button padding on touchscreens without overlapping pseudo-elements */
-  .event-card button:not(.block-floating-btn),
-  .dialogue-card button:not(.block-floating-btn) {
+  .event-card button,
+  .dialogue-card button {
     min-height: 28px;
   }
 
@@ -2181,224 +2084,6 @@ body.is-port-dragging .inbound-event-port {
   border-color: #a21caf !important;
 }
 
-/* ==========================================================================
-   Schematic Level-of-Detail (LOD) Overview Mode (< 58% Zoom)
-   Eliminates rendering of 4,500+ internal table cells, <select> widgets,
-   <img> icons, and multi-line text paragraphs when zoomed out, replacing
-   each block with an ultra-lightweight, exact-dimension schematic card.
-   ========================================================================== */
-.lod-overview-card {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: var(--theme-card-bg, #fefce8);
-  color: #0f172a;
-  box-sizing: border-box;
-  user-select: none;
-}
-
-.lod-overview-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
-  background-color: var(--theme-header-bg, #fef08a);
-  border-bottom: 3px solid var(--theme-header-border, #eab308);
-  color: var(--theme-header-text, #713f12);
-}
-
-.lod-codename {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 30px;
-  font-weight: 800;
-  padding: 4px 14px;
-  border-radius: 8px;
-  background: rgba(15, 23, 42, 0.88);
-  color: #facc15;
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-}
-
-.lod-dialogue-overview .lod-codename {
-  font-size: 22px;
-  padding: 3px 10px;
-  color: #e9d5ff;
-}
-
-.lod-title {
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.2;
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.lod-dialogue-overview .lod-title {
-  font-size: 22px;
-}
-
-.lod-type-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  font-weight: 800;
-  padding: 4px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 2px solid var(--theme-card-border, #ca8a04);
-  color: var(--theme-header-text, #713f12);
-  flex-shrink: 0;
-}
-
-.lod-overview-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  padding: 16px 24px;
-  overflow: hidden;
-}
-
-.lod-overview-desc {
-  font-size: 22px;
-  font-weight: 600;
-  color: #334155;
-  line-height: 1.35;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.lod-overview-actions {
-  display: flex;
-  align-items: stretch;
-  border-top: 3px solid var(--theme-header-border, #eab308);
-  background-color: var(--theme-substrip-bg, #fef9c3);
-  min-height: 64px;
-}
-
-.lod-action-label-col {
-  width: 220px;
-  min-width: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--theme-label-text, #451a03);
-  background-color: var(--theme-label-bg, #fef9c3);
-  border-right: 2px solid var(--theme-table-border, #fde047);
-}
-
-.lod-options-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  font-size: 15px;
-  font-weight: 900;
-  background: #f59e0b;
-  color: #030712;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.lod-action-col {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 10px;
-  border-right: 2px solid var(--theme-table-border, #fde047);
-  min-width: 0;
-}
-
-.lod-action-col:last-child {
-  border-right: none;
-}
-
-.lod-action-pill {
-  font-size: 20px;
-  font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  background: #2563eb;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.lod-action-inaction .lod-action-pill {
-  background: #dc2626;
-}
-
-/* Active Zoomed-Out Mode (< 58% scale or LOD Forced ON): Swap heavy DOM for Schematic LOD Card */
-#canvas-stage.is-zoomed-out .event-card,
-#canvas-stage.is-zoomed-out .dialogue-card {
-  height: var(--card-exact-height, auto) !important;
-  min-height: var(--card-exact-height, 220px) !important;
-  box-shadow: none !important;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-#canvas-stage.is-zoomed-out .event-card-inner,
-#canvas-stage.is-zoomed-out .dialogue-card-inner {
-  display: none !important;
-}
-
-#canvas-stage.is-zoomed-out .lod-overview-card {
-  display: flex !important;
-  height: 100% !important;
-}
-
-/* Focused block in max-zoom always reveals full card even under LOD */
-#canvas-stage.is-zoomed-out .event-card.is-max-zoomed .event-card-inner,
-#canvas-stage.is-zoomed-out .dialogue-card.is-max-zoomed .dialogue-card-inner {
-  display: block !important;
-}
-#canvas-stage.is-zoomed-out .event-card.is-max-zoomed .lod-overview-card,
-#canvas-stage.is-zoomed-out .dialogue-card.is-max-zoomed .lod-overview-card {
-  display: none !important;
-}
-
-#canvas-stage.is-zoomed-out #connector-overlays-layer,
-#canvas-stage.is-zoomed-out .connector-path-hit {
-  display: none !important;
-}
-
-#canvas-stage.is-zoomed-out .connector-path-dialogue {
-  stroke-dasharray: none !important;
-}
-
-#canvas-stage.is-zoomed-out .stage-band,
-#canvas-stage.is-zoomed-out .floor-band,
-#canvas-stage.is-zoomed-out .tier-column-band {
-  border-top-style: solid !important;
-  border-bottom-style: solid !important;
-  border-left-style: solid !important;
-  border-right-style: solid !important;
-}
-
-#canvas-stage.is-zoomed-out .block-floating-btn {
-  box-shadow: none !important;
-  transition: none !important;
-  pointer-events: auto !important;
-}
-
 /* Real-time Collaboration & Lock Status Viewport Banners */
 #board-lock-banner,
 #board-update-notification-banner {
@@ -2416,49 +2101,18 @@ body.is-port-dragging .inbound-event-port {
   top: 108px !important;
 }
 
-/* Canvas Dragging & Far-Zoom Performance Optimization (Prevents GPU Tile Drops) */
-body.is-canvas-dragging .event-card,
-body.is-canvas-dragging .dialogue-card,
-body.is-canvas-dragging .deck-event-card,
-body.is-canvas-dragging .generic-event-card {
-  box-shadow: none !important;
-  pointer-events: none !important;
+/* High-Performance Hardware-Accelerated Canvas Cards */
+.event-card,
+.dialogue-card,
+.deck-event-card,
+.generic-event-card {
+  contain: layout style;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-body.is-canvas-dragging .event-card *,
-body.is-canvas-dragging .dialogue-card * {
-  pointer-events: none !important;
-}
-
-#canvas-stage.is-scale-zoomed-out .event-card,
-#canvas-stage.is-scale-zoomed-out .dialogue-card,
-#canvas-stage.is-scale-zoomed-out .deck-event-card,
-#canvas-stage.is-scale-zoomed-out .generic-event-card {
-  box-shadow: none !important;
-}
-
-/* Prevent deep table-cell hover recalculations during mouse movement at far zoom */
-#canvas-stage.is-scale-zoomed-out .event-card-inner *,
-#canvas-stage.is-scale-zoomed-out .dialogue-card-inner * {
-  pointer-events: none !important;
-}
-
-/* When a block is max-zoomed, keep its entire contents fully interactive */
-#canvas-stage.is-scale-zoomed-out .event-card.is-max-zoomed .event-card-inner *,
-#canvas-stage.is-scale-zoomed-out .dialogue-card.is-max-zoomed .dialogue-card-inner * {
-  pointer-events: auto !important;
-}
-
-/* Ensure corner zoom buttons, floating buttons, and wire ports remain interactive */
-#canvas-stage.is-scale-zoomed-out .block-floating-btn,
-#canvas-stage.is-scale-zoomed-out .btn-zoom-corner,
-#canvas-stage.is-scale-zoomed-out .connector-port,
-#canvas-stage.is-scale-zoomed-out .dialogue-trigger-port,
-#canvas-stage.is-scale-zoomed-out .action-port,
-#canvas-stage.is-scale-zoomed-out .pre-event-port,
-#canvas-stage.is-scale-zoomed-out .inbound-event-port,
-#canvas-stage.is-scale-zoomed-out .pool-event-switch-bar,
-#canvas-stage.is-scale-zoomed-out .pool-switch-toggle-btn,
-#canvas-stage.is-scale-zoomed-out .lod-pool-toggle-btn {
-  pointer-events: auto !important;
+.event-card-inner,
+.dialogue-card-inner {
+  display: block !important;
 }

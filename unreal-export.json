@@ -1,10 +1,10 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-15T08:11:31.501846Z",
+    "ExportTime": "2026-10-15T08:58:04.251737Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
-    "Author": "Volodymyr Kuznietsov",
+    "Author": "Daniel Poludyonny",
     "TotalEvents": 28,
     "TotalDialogues": 19,
     "TotalTimelines": 2,

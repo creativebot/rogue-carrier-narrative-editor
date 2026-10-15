@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T10:11:31.495839",
+  "_lastModified": "2026-10-15T10:58:04.244737",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Volodymyr Kuznietsov"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {

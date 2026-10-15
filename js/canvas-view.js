@@ -83,7 +83,7 @@ function setupCanvasEvents() {
 
     // Return if clicking on interactive controls
     if (isArrangeMode) {
-      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn')) {
+      if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn')) {
         return;
       }
     } else if (
@@ -96,8 +96,7 @@ function setupCanvasEvents() {
       e.target.closest('.dialogue-trigger-port') ||
       e.target.closest('.req-pill') ||
       e.target.closest('.pool-event-switch-bar') ||
-      e.target.closest('.pool-switch-toggle-btn') ||
-      e.target.closest('.lod-pool-toggle-btn')
+      e.target.closest('.pool-switch-toggle-btn')
     ) {
       return;
     }
@@ -105,7 +104,6 @@ function setupCanvasEvents() {
     isDraggingCanvas = true;
     dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
     canvasContainer.style.cursor = 'grabbing';
-    document.body.classList.add('is-canvas-dragging');
   });
 
   let panRafId = null;
@@ -130,7 +128,6 @@ function setupCanvasEvents() {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
       canvasContainer.style.cursor = 'default';
-      document.body.classList.remove('is-canvas-dragging');
       if (panRafId) {
         cancelAnimationFrame(panRafId);
         panRafId = null;
@@ -209,10 +206,10 @@ function setupCanvasEvents() {
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       const targetCard = e.target.closest('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
-      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn');
+      const isPortOrZoom = e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn');
       const isInteractive = isArrangeMode
         ? isPortOrZoom
-        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .block-floating-btn, .pool-event-switch-bar, .pool-switch-toggle-btn, .lod-pool-toggle-btn');
+        : e.target.closest('button, input, textarea, select, .connector-port, .dialogue-trigger-port, .req-pill, .editable-spot, .btn-zoom-corner, .pool-event-switch-bar, .pool-switch-toggle-btn');
 
       // If in Arrange Mode AND touch starts on an event/dialogue card body:
       if (isArrangeMode && targetCard && !isInteractive) {
@@ -325,83 +322,29 @@ function setupCanvasEvents() {
   canvasContainer.addEventListener('touchcancel', finishTouch);
 }
 
-let isLodModeEnabled = localStorage.getItem('rc_lod_mode') !== null ? (localStorage.getItem('rc_lod_mode') === 'true') : true;
-
-function updateLodUIState() {
-  const btn = document.getElementById('btn-toggle-lod');
-  const label = document.getElementById('lod-status-label');
-  if (label) {
-    label.innerText = isLodModeEnabled ? 'ON' : 'OFF';
-    label.className = isLodModeEnabled ? 'font-mono font-extrabold text-amber-300' : 'font-mono font-extrabold text-gray-400';
-  }
-  if (btn) {
-    if (isLodModeEnabled) {
-      btn.className = 'px-2 py-1 rounded-lg text-xs font-bold bg-amber-950/80 text-amber-300 border border-amber-500 hover:bg-amber-900/90 flex items-center gap-1 transition shadow-sm active:scale-95';
-    } else {
-      btn.className = 'px-2 py-1 rounded-lg text-xs font-bold bg-gray-900 text-gray-400 border border-gray-700 hover:text-white hover:bg-gray-800 flex items-center gap-1 transition shadow-xs active:scale-95';
-    }
-  }
-
-  const stage = canvasStage || document.getElementById('canvas-stage');
-  if (stage) {
-    const scale = (typeof transform !== 'undefined' && transform && typeof transform.scale === 'number') ? transform.scale : 1.0;
-    const isMaxZoomed = (typeof maxZoomedBlockId !== 'undefined' && Boolean(maxZoomedBlockId));
-    const shouldApplyLod = isLodModeEnabled && (scale < 0.58) && !isMaxZoomed;
-    stage.classList.toggle('is-zoomed-out', shouldApplyLod);
-  }
-}
-
-function toggleLodMode() {
-  isLodModeEnabled = !isLodModeEnabled;
-  try {
-    localStorage.setItem('rc_lod_mode', isLodModeEnabled ? 'true' : 'false');
-  } catch (err) {
-    console.warn('Could not persist rc_lod_mode:', err);
-  }
-  updateLodUIState();
-  if (typeof showToast === 'function') {
-    showToast(isLodModeEnabled ? '⚡ LOD Mode ON: Active when zoomed out (< 58%)' : '📋 LOD Mode OFF: Full detailed content always visible', 'info');
-  }
-}
-
-window.toggleLodMode = toggleLodMode;
-window.updateLodUIState = updateLodUIState;
-
-if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateLodUIState);
-  } else {
-    updateLodUIState();
-  }
-}
-
+// Clean Unified Hardware-Accelerated Canvas Transform
 let lastAppliedScale = null;
 function updateCanvasTransform() {
   if (!canvasStage) {
     canvasStage = document.getElementById('canvas-stage');
   }
+  if (!canvasStage) return;
+
   const tx = Math.round(transform.x);
   const ty = Math.round(transform.y);
   canvasStage.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${transform.scale})`;
 
   if (lastAppliedScale !== transform.scale) {
     lastAppliedScale = transform.scale;
-    // When LOD switch is ON: apply LOD only at high-level zoom (< 0.58)
-    // When LOD switch is OFF: NEVER apply LOD (always false)
-    const shouldApplyLod = isLodModeEnabled && (transform.scale < 0.58) && !maxZoomedBlockId;
-    canvasStage.classList.toggle('is-zoomed-out', shouldApplyLod);
-    canvasStage.classList.toggle('is-scale-zoomed-out', transform.scale < 0.65);
-
-    const btnScale = Math.min(Math.max(1 / transform.scale, 1.0), 2.4);
-    canvasStage.style.setProperty('--btn-scale', btnScale.toFixed(3));
-
-    const touchBtnScale = transform.scale < 1.0 ? Math.min(1.4, 1 / Math.sqrt(transform.scale)).toFixed(2) : '1.0';
-    canvasStage.style.setProperty('--touch-btn-scale', touchBtnScale);
-
     const resetBtn = document.getElementById('btn-zoom-reset');
     if (resetBtn) resetBtn.innerText = `${Math.round(transform.scale * 100)}%`;
   }
 }
+
+function updateLodUIState() {}
+function toggleLodMode() {}
+window.toggleLodMode = toggleLodMode;
+window.updateLodUIState = updateLodUIState;
 
 function setupToolbarEvents() {
   if (variationSelect) {
@@ -460,17 +403,7 @@ function setupToolbarEvents() {
   const btnFit = document.getElementById('btn-fit-schematic');
   if (btnFit) btnFit.onclick = () => fitWholeSchematic();
 
-  const btnToggleLod = document.getElementById('btn-toggle-lod');
-  if (btnToggleLod) {
-    btnToggleLod.onclick = (e) => {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      toggleLodMode();
-    };
-  }
-  updateLodUIState();
+
 
   // Save (Ctrl+S) Button
   const btnSaveProject = document.getElementById('btn-save-project');
@@ -637,7 +570,6 @@ function renderApp() {
     setTimeout(() => renderConnectors(), 50);
   }
   updateStats();
-  updateLodUIState();
 }
 
 function renderVariationSelect() {
@@ -839,77 +771,7 @@ function updateDynamicBandDimensions() {
   }
 }
 
-function estimateDialogueCardHeight(dialogue) {
-  if (!dialogue) return 260;
-  const lines = Array.isArray(dialogue.lines) ? dialogue.lines : [];
-  const validLinks = (dialogue.links || []).filter(l => l && l.targetEventId);
-  let h = 60; // header bar with trigger controls & comment badge
-  if (validLinks.length > 1) {
-    h += (validLinks.length - 1) * 32; // extra link pills
-  }
-  h += 48; // delay strip & condition text
-  lines.forEach(l => {
-    const textLen = (l.text || '').length;
-    const textLines = Math.max(1, Math.ceil(textLen / 42));
-    const textHeight = textLines * 18 + 14;
-    h += 34 + textHeight + 8; // speaker banner + speech text + margins
-  });
-  h += 56; // footer "+ Add Line" button and theme dropdown
-  return Math.max(220, Math.round(h));
-}
 
-function estimateEventCardHeight(node) {
-  if (!node) return 780;
-  const acts = Array.isArray(node.actions) ? node.actions : [];
-  const hasInaction = Boolean(node.hasInactionThreat && node.inactionThreat);
-  let h = 68; // header bar with codename & comment
-  const descLen = (node.eventDescription || '').length;
-  const descLines = Math.max(1, Math.ceil(descLen / 80));
-  h += Math.max(42, descLines * 18 + 14); // description row
-  h += 36; // table header
-  h += 110; // choice description row
-  h += 42; // action button text row
-  h += 110; // requirements row
-  h += 36; // timer row
-  h += 120; // result outcome row
-  h += 46; // rewards row
-  h += 52; // action resolution row
-  if (hasInaction) h += 30;
-  return Math.max(720, Math.round(h));
-}
-
-function measureAndLockCardHeights() {
-  if (!nodesLayer) return;
-  const isZoomedOut = canvasStage && canvasStage.classList.contains('is-zoomed-out');
-  const cards = Array.from(nodesLayer.children);
-
-  if (!isZoomedOut) {
-    // Only update and lock exact heights when viewed in full detail mode (prevents flicker at low zoom)
-    cards.forEach(el => {
-      const h = el.offsetHeight;
-      if (h > 40) {
-        el.style.setProperty('--card-exact-height', `${h}px`);
-      }
-    });
-  } else {
-    // When zoomed out, ensure any card missing --card-exact-height gets its calculated content height
-    cards.forEach(el => {
-      const existing = el.style.getPropertyValue('--card-exact-height');
-      if (!existing) {
-        const id = el.id ? el.id.replace('node-', '').replace('dialogue-', '') : '';
-        const diagObj = (appData.dialogues || []).find(d => d.id === id);
-        if (diagObj) {
-          el.style.setProperty('--card-exact-height', `${estimateDialogueCardHeight(diagObj)}px`);
-        } else {
-          const nodeObj = (appData.nodes || []).find(n => n.id === id);
-          el.style.setProperty('--card-exact-height', `${estimateEventCardHeight(nodeObj)}px`);
-        }
-      }
-    });
-  }
-
-  updateDynamicBandDimensions();
-}
 
 // Render All Nodes on Stage (Unified Event Block Layout for Critical, Generic & Deck Pools)
 function renderNodes() {
@@ -962,7 +824,7 @@ function renderNodes() {
     nodesLayer.appendChild(diagEl);
   });
 
-  measureAndLockCardHeights();
+  updateDynamicBandDimensions();
   makeNodesDraggable();
   if (window.lucide) lucide.createIcons();
 }
@@ -987,7 +849,6 @@ function createEventNodeDOM(node) {
   wrapper.style.left = `${node.position.x}px`;
   wrapper.style.top = `${node.position.y}px`;
 
-  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
   const limits = getSymbolLimits();
 
   let actionHeadersHTML = '';
@@ -1370,32 +1231,9 @@ function createEventNodeDOM(node) {
     ? `<span class="font-bold text-xs" title="Inherited from Variation (${escapeHtml(node.name)})">${escapeHtml(node.name)}</span>`
     : `<span class="font-bold text-xs editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'name')">${escapeHtml(node.name)}</span>`;
 
-  const lodActionItemsHTML = actionCols.map((act, idx) => {
-    const suffix = escapeHtml(act.codeSuffix || String.fromCharCode(65 + idx));
-    const label = escapeHtml(act.shortDescription || 'Choice');
-    return `<div class="lod-action-col"><span class="lod-action-pill">${suffix}: ${label}</span></div>`;
-  }).join('') + (hasInaction ? `<div class="lod-action-col lod-action-inaction"><span class="lod-action-pill">⚠️ ${escapeHtml((node.inactionThreat && node.inactionThreat.shortDescription) || 'Timeout')}</span></div>` : '');
-
-  const optionsBadgeHTML = hasInaction
-    ? `<span class="lod-options-badge" title="${actionCols.length} Choices + 1 Inaction Timeout">${actionCols.length}+1</span>`
-    : `<span class="lod-options-badge" title="${actionCols.length} Choices">${actionCols.length}</span>`;
-
-  const lodSummaryText = escapeHtml((introText || descText || node.spawnConditions || '').slice(0, 160));
-  const varLabel = `V${currentVar.number}`;
-  const lodPoolToggleHTML = isPoolEvent ? `
-    <button type="button" class="lod-pool-toggle-btn ${isDimmed ? 'is-off' : 'is-on'}"
-            onclick="event.stopPropagation(); window.togglePoolNodeVariationState('${node.id}', event)"
-            onmousedown="event.stopPropagation()"
-            title="Click to toggle: ${isDimmed ? `DISABLED in ${varLabel}` : `ACTIVE in ${varLabel}`}">
-      ${isDimmed ? `✕ OFF (${varLabel})` : `✔ ON (${varLabel})`}
-    </button>
-  ` : '';
-
-  const lodOverviewHTML = `<div class="lod-overview-card ${isDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${node.id}', false)" title="Double-click or press 🔍+ to zoom in and edit"><div class="lod-overview-header"><div class="inbound-event-port cursor-pointer mr-1" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event"><div class="inbound-port-dot"></div></div><span class="lod-codename">${escapeHtml(node.codename)}</span><span class="lod-title">${escapeHtml(node.name)}</span><span class="lod-type-badge">${node.type === 'Deck' ? 'DECK' : 'WORLD'}</span>${lodPoolToggleHTML}</div><div class="lod-overview-body"><div class="lod-overview-desc">${lodSummaryText}</div></div><div class="lod-overview-actions"><div class="lod-action-label-col"><span>OPTIONS</span>${optionsBadgeHTML}</div>${lodActionItemsHTML}</div></div>`;
-
   const poolSwitchBarHTML = isPoolEvent ? getPoolSwitchBarHTML(node, isDimmed, currentVar) : '';
 
-  wrapper.innerHTML = `${zoomControlsHTML}${lodOverviewHTML}<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
+  wrapper.innerHTML = `<div class="event-card-inner">${poolSwitchBarHTML}<div class="event-card-body ${isDimmed ? 'is-pool-dimmed' : ''}">
         <!-- Event Block Header with Inbound Attachment Port and Pre-Event Trigger Port -->
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
@@ -1697,10 +1535,6 @@ function createDeckNodeDOM(node) {
   wrapper.id = `node-${node.id}`;
   wrapper.className = 'absolute deck-event-card cursor-move';
   wrapper.style.left = `${node.position.x}px`;
-  wrapper.style.top = `${node.position.y}px`;
-
-  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
-
   let choicesHTML = (node.actions || []).map((act, idx) => {
     let reqPills = (act.requirements || []).map(r => {
       const iconMarkup = r.iconImg ? `<img src="${r.iconImg}" class="w-5 h-5 object-contain inline-block">` : `${r.icon || '📦'} `;
@@ -1721,7 +1555,7 @@ function createDeckNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `${zoomControlsHTML}
+  wrapper.innerHTML = `
     <div class="flex justify-between items-start mb-3">
       <div class="inbound-event-port cursor-pointer mr-2 mt-1" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="space-y-2">
@@ -1766,8 +1600,6 @@ function createGenericNodeDOM(node) {
   wrapper.style.left = `${node.position.x}px`;
   wrapper.style.top = `${node.position.y}px`;
 
-  const zoomControlsHTML = getFloatingZoomButtonsHTML(node.id, false);
-
   let choicesHTML = (node.actions || []).map((act, idx) => {
     let reqPills = (act.requirements || []).map(r => {
       const iconMarkup = r.iconImg ? `<img src="${r.iconImg}" class="w-6 h-6 object-contain inline-block">` : `${r.icon || '📦'} `;
@@ -1782,7 +1614,7 @@ function createGenericNodeDOM(node) {
     `;
   }).join('');
 
-  wrapper.innerHTML = `${zoomControlsHTML}
+  wrapper.innerHTML = `
     <div class="flex justify-between items-center mb-3">
       <div class="inbound-event-port cursor-pointer mr-2" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="generic-banner flex-1">${node.codename}</div>
@@ -1923,9 +1755,7 @@ function createDialogueNodeDOM(dialogue) {
 
   const isTargetDimmed = !isDetached && validLinks.every(item => isPoolNodeDimmed(item.node.id, activeVariationId));
   const theme = dialogue.colorScheme || 'purple';
-  const estimatedDiagHeight = estimateDialogueCardHeight(dialogue);
   wrapper.className = `absolute dialogue-card dialogue-theme-${theme} cursor-move ${isDetached ? 'is-detached' : ''} ${isActionOption ? 'is-action-option' : ''} ${isTargetDimmed ? 'is-pool-dimmed' : ''}`;
-  wrapper.style.setProperty('--card-exact-height', `${estimatedDiagHeight}px`);
 
   let linesHTML = dialogue.lines.map((l, lIdx) => {
     const matchedChar = allChars.find(c => c.id === l.speakerId || c.name === l.speakerName);
@@ -2050,32 +1880,7 @@ function createDialogueNodeDOM(dialogue) {
        </div>`
     : '';
 
-  const zoomControlsHTML = getFloatingZoomButtonsHTML(dialogue.id, true);
-  const uniqueSpeakers = Array.from(new Set((dialogue.lines || []).map(l => l.speakerName || l.speakerId || 'Speaker'))).join(', ');
-  const delayBadgeHTML = (dialogue.delayHours && Number(dialogue.delayHours) > 0)
-    ? `<span class="lod-options-badge bg-purple-300 text-purple-950 font-mono text-[11px] px-1.5 py-0.5">⏱ +${dialogue.delayHours}h</span>`
-    : '';
-
-  const linesListPreview = (dialogue.lines || []).map((l, lIdx) => {
-    const sName = escapeHtml(l.speakerName || l.speakerId || `Speaker ${lIdx + 1}`);
-    const snippet = escapeHtml((l.text || '').slice(0, 100));
-    return `<div class="lod-dialogue-line-preview text-xs text-gray-800 py-1 border-b border-gray-200/60 last:border-0 flex items-start gap-1.5"><span class="font-bold text-gray-950 shrink-0 truncate max-w-[130px]">${sName}:</span><span class="truncate flex-1">${snippet}</span></div>`;
-  }).join('');
-
-  const lodDiagOverviewHTML = `
-    <div class="lod-overview-card lod-dialogue-overview ${isTargetDimmed ? 'is-pool-dimmed' : ''}" ondblclick="event.stopPropagation(); zoomInToBlock('${dialogue.id}', true)" title="Double-click or press 🔍+ to zoom in and edit">
-      <div class="lod-overview-header">
-        <span class="lod-codename">💬 ${targetNode ? escapeHtml(targetNode.codename) : 'DIALOGUE'}</span>
-        <span class="lod-title">${escapeHtml(uniqueSpeakers || 'Dialogue')} (${(dialogue.lines || []).length})</span>
-        ${delayBadgeHTML}
-      </div>
-      <div class="lod-overview-body flex-col items-stretch p-3 overflow-y-auto">
-        <div class="lod-overview-desc mb-2 text-xs italic text-gray-600">${escapeHtml(dialogue.triggerCondition || (isDetached ? 'Detached Conversation' : 'Spawn Condition'))}</div>
-        <div class="lod-dialogue-lines-container flex flex-col gap-1 w-full">${linesListPreview}</div>
-      </div>
-    </div>`;
-
-  wrapper.innerHTML = `${zoomControlsHTML}${lodDiagOverviewHTML}<div class="dialogue-card-inner">
+  wrapper.innerHTML = `<div class="dialogue-card-inner">
       <div class="dialogue-header pb-1.5">
         <div class="flex justify-between items-center gap-2 mb-1.5 flex-nowrap">
           <div class="flex items-center gap-1.5 cursor-grab flex-1 min-w-0" title="Drag dialogue block anywhere">
@@ -3179,61 +2984,13 @@ window.linkOrEditChoice = linkOrEditChoice;
 window.linkOrEditInaction = linkOrEditInaction;
 window.navigateToLinkedEvent = navigateToLinkedEvent;
 
-// Block-Specific Floating Zoom-In & Zoom-Out Engine
+// Block-Specific Floating Zoom-In & Zoom-Out Engine (Obsolete - removed for clean rendering)
 function getFloatingZoomButtonsHTML(blockId, isDialogue = false) {
-  const currentScale = transform.scale;
-  const isThisBlockAtMax = (maxZoomedBlockId === blockId && currentScale >= (maxZoomScale * 0.95));
-  const isAtMin = (currentScale <= (minOverviewScale * 1.05));
-
-  const zoomInDisplay = isThisBlockAtMax ? 'none' : 'flex';
-  const zoomOutDisplay = isAtMin ? 'none' : 'flex';
-
-  return `
-    <button type="button" class="block-floating-btn block-zoom-in-btn" 
-            onclick="event.stopPropagation(); zoomInToBlock('${blockId}', ${isDialogue ? 'true' : 'false'});" 
-            onmousedown="event.stopPropagation();"
-            title="Zoom in to block" aria-label="Zoom in to block"
-            style="display: ${zoomInDisplay};">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="7"></circle>
-        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
-        <line x1="11" y1="8" x2="11" y2="14"></line>
-        <line x1="8" y1="11" x2="14" y2="11"></line>
-      </svg>
-    </button>
-    <button type="button" class="block-floating-btn block-zoom-out-btn" 
-            onclick="event.stopPropagation(); zoomOutToWholeScheme();" 
-            onmousedown="event.stopPropagation();"
-            title="Show the entire scheme" aria-label="Show the entire scheme"
-            style="display: ${zoomOutDisplay};">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-      </svg>
-    </button>
-  `;
+  return '';
 }
 
 function updateBlockZoomButtons() {
-  const currentScale = transform.scale;
-  const isAtMin = (currentScale <= (minOverviewScale * 1.05));
-
-  const cards = document.querySelectorAll('.event-card, .dialogue-card, .deck-event-card, .generic-event-card');
-  cards.forEach(card => {
-    const isEvent = card.classList.contains('event-card') || card.classList.contains('deck-event-card') || card.classList.contains('generic-event-card');
-    const blockId = card.id.replace(isEvent ? 'node-' : 'dialogue-', '');
-    const isThisBlockAtMax = (maxZoomedBlockId === blockId && currentScale >= (maxZoomScale * 0.95));
-    card.classList.toggle('is-max-zoomed', isThisBlockAtMax);
-
-    const zoomInBtn = card.querySelector('.block-zoom-in-btn');
-    if (zoomInBtn) {
-      zoomInBtn.style.display = isThisBlockAtMax ? 'none' : 'flex';
-    }
-
-    const zoomOutBtn = card.querySelector('.block-zoom-out-btn');
-    if (zoomOutBtn) {
-      zoomOutBtn.style.display = isAtMin ? 'none' : 'flex';
-    }
-  });
+  // Obsolete: floating block zoom buttons removed for clean, stable canvas rendering
 }
 
 function zoomInToBlock(blockId, isDialogue) {
@@ -3433,8 +3190,7 @@ function makeNodesDraggable() {
         if (e.target.closest('.connector-port') ||
             e.target.closest('.dialogue-trigger-port') ||
             e.target.closest('.linked-event-jump-btn') ||
-            e.target.closest('.btn-zoom-corner') ||
-            e.target.closest('.block-floating-btn')) {
+            e.target.closest('.btn-zoom-corner')) {
           return;
         }
       } else {
@@ -3537,7 +3293,7 @@ function rerenderNode(nodeId) {
   }
   const newEl = createEventNodeDOM(node);
   existingEl.replaceWith(newEl);
-  measureAndLockCardHeights();
+  updateDynamicBandDimensions();
   makeNodesDraggable();
   setupPortDragEvents();
   renderConnectors();
@@ -3558,7 +3314,7 @@ function rerenderDialogue(dialogueId) {
   }
   const newEl = createDialogueNodeDOM(diag);
   existingEl.replaceWith(newEl);
-  measureAndLockCardHeights();
+  updateDynamicBandDimensions();
   makeNodesDraggable();
   setupPortDragEvents();
   renderConnectors();

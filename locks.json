@@ -4,9 +4,42 @@
     "boardName": "Key Events (Timeline 1 • The Moment After the End)",
     "userEmail": "dpoludonnyi@n-ix.com",
     "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-14T23:15:19.426370",
-    "lastHeartbeat": "2026-10-14T23:15:19.426370",
-    "expiresAt": "2026-10-14T23:18:19.426370",
+    "lockedAt": "2026-10-15T10:54:57.063723",
+    "lastHeartbeat": "2026-10-15T10:58:07.495469",
+    "expiresAt": "2026-10-15T11:01:07.495469",
+    "ttlSeconds": 180,
+    "remainingSeconds": 180
+  },
+  "GenericPool": {
+    "boardId": "GenericPool",
+    "boardName": "Generic Event Pool",
+    "userEmail": "dpoludonnyi@n-ix.com",
+    "userName": "Daniel Poludyonny",
+    "lockedAt": "2026-10-15T10:57:21.723084",
+    "lastHeartbeat": "2026-10-15T10:58:04.431660",
+    "expiresAt": "2026-10-15T11:01:04.431660",
+    "ttlSeconds": 180,
+    "remainingSeconds": 180
+  },
+  "DeckPool": {
+    "boardId": "DeckPool",
+    "boardName": "Deck Event Pool",
+    "userEmail": "dpoludonnyi@n-ix.com",
+    "userName": "Daniel Poludyonny",
+    "lockedAt": "2026-10-15T10:58:05.955414",
+    "lastHeartbeat": "2026-10-15T10:58:05.955414",
+    "expiresAt": "2026-10-15T11:01:05.955414",
+    "ttlSeconds": 180,
+    "remainingSeconds": 180
+  },
+  "KeyChain:timeline_1:var_v2": {
+    "boardId": "KeyChain:timeline_1:var_v2",
+    "boardName": "Key Events (Timeline 1 • Once More Into The Frey)",
+    "userEmail": "dpoludonnyi@n-ix.com",
+    "userName": "Daniel Poludyonny",
+    "lockedAt": "2026-10-15T10:58:08.573868",
+    "lastHeartbeat": "2026-10-15T10:58:08.573868",
+    "expiresAt": "2026-10-15T11:01:08.573868",
     "ttlSeconds": 180,
     "remainingSeconds": 180
   }
