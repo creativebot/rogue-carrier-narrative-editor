@@ -267,7 +267,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 3,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -277,8 +277,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 306,
-        "y": 2391
+        "x": 110,
+        "y": 2349
       },
       "actions": [
         {
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T16:15:23.124372"
+  "_lastModified": "2026-10-15T16:15:23.544326"
 }
