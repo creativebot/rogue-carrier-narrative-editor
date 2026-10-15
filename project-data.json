@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T14:06:18.200000",
+  "_lastModified": "2026-10-15T14:06:21.126692",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -13,6 +13,12 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Parallel Branch",
+      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "variations": [
@@ -85,6 +91,76 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Parallel Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Parallel Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Parallel Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Parallel Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Parallel Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Parallel Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Parallel Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Parallel Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Parallel Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Parallel Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Parallel Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Parallel Branch"
     }
   ],
   "characters": [
