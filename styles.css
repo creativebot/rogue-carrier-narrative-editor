@@ -2171,7 +2171,6 @@ body.is-port-dragging .inbound-event-port {
 .deck-event-card,
 .generic-event-card {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  contain: layout paint;
 }
 
 .event-card-inner,
