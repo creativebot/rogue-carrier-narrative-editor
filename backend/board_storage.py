@@ -172,7 +172,7 @@ def load_board_slice(board_id):
         "_lastModified": datetime.now().isoformat()
     }
 
-def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, variations=None, stage_layout_version=None):
+def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, variations=None, stage_layout_version=None, save_name=None):
     """
     Atomically saves a single board to boards/<sanitized_board_id>.json,
     creates a per-board version snapshot in saves/boards/<board_id>/,
@@ -231,10 +231,11 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
     save_filename = f"{save_id}.json"
     save_filepath = os.path.join(b_saves_dir, save_filename)
 
+    displayName = (save_name.strip() if save_name and str(save_name).strip() else f"Board Save ({time_str})")
     save_item = {
         "id": save_id,
         "boardId": board_id,
-        "name": f"Board Save ({time_str})",
+        "name": displayName,
         "filename": save_filename,
         "timestamp": now_iso,
         "displayTime": now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -328,3 +329,135 @@ def restore_board_save(board_id, save_id, author_name):
     result["nodes"] = nodes
     result["dialogues"] = dialogues
     return result
+
+def list_all_boards_summary():
+    """
+    Returns a unified summary of all existing boards in the project:
+    Timeline Key/Secret boards, GenericPool, DeckPool.
+    """
+    meta = load_shared_meta()
+    timelines = meta.get("timelines", [])
+    variations = meta.get("variations", [])
+    boards = []
+
+    # 1. Timeline Variations (KeyChain & SecretChain)
+    for tl in sorted(timelines, key=lambda t: int(t.get('number') or 1)):
+        tl_id = tl.get("id")
+        tl_num = tl.get("number", 1)
+        tl_name = tl.get("name", f"Timeline {tl_num}")
+        tl_vars = [v for v in variations if v.get("timelineId") == tl_id]
+        if not tl_vars:
+            tl_vars = [{"id": "var_v1", "number": 1, "name": "Main Flow", "timelineId": tl_id}]
+
+        for var in sorted(tl_vars, key=lambda v: int(v.get('number') or 1)):
+            var_id = var.get("id")
+            var_num = var.get("number", 1)
+            var_name = var.get("name", f"Variation {var_num}")
+
+            # KeyChain board
+            kc_id = f"KeyChain:{tl_id}:{var_id}"
+            kc_slice = load_board_slice(kc_id)
+            boards.append({
+                "id": kc_id,
+                "name": f"T{tl_num} V{var_num}: {tl_name} — Key Events",
+                "shortName": f"T{tl_num}-V{var_num} Key Events",
+                "category": "KeyChain",
+                "timelineId": tl_id,
+                "timelineNumber": tl_num,
+                "timelineName": tl_name,
+                "variationId": var_id,
+                "variationNumber": var_num,
+                "variationName": var_name,
+                "nodeCount": len(kc_slice.get("nodes", [])),
+                "dialogueCount": len(kc_slice.get("dialogues", [])),
+                "lastModified": kc_slice.get("_lastModified", "")
+            })
+
+            # SecretChain board
+            sc_id = f"SecretChain:{tl_id}:{var_id}"
+            sc_slice = load_board_slice(sc_id)
+            boards.append({
+                "id": sc_id,
+                "name": f"T{tl_num} V{var_num}: {tl_name} — Secret Events",
+                "shortName": f"T{tl_num}-V{var_num} Secret Events",
+                "category": "SecretChain",
+                "timelineId": tl_id,
+                "timelineNumber": tl_num,
+                "timelineName": tl_name,
+                "variationId": var_id,
+                "variationNumber": var_num,
+                "variationName": var_name,
+                "nodeCount": len(sc_slice.get("nodes", [])),
+                "dialogueCount": len(sc_slice.get("dialogues", [])),
+                "lastModified": sc_slice.get("_lastModified", "")
+            })
+
+    # 2. Standalone Pools
+    gen_slice = load_board_slice("GenericPool")
+    boards.append({
+        "id": "GenericPool",
+        "name": "Generic Pool (World Events)",
+        "shortName": "Generic Pool",
+        "category": "GenericPool",
+        "timelineId": None,
+        "timelineNumber": None,
+        "timelineName": None,
+        "variationId": None,
+        "variationNumber": None,
+        "variationName": None,
+        "nodeCount": len(gen_slice.get("nodes", [])),
+        "dialogueCount": len(gen_slice.get("dialogues", [])),
+        "lastModified": gen_slice.get("_lastModified", "")
+    })
+
+    deck_slice = load_board_slice("DeckPool")
+    boards.append({
+        "id": "DeckPool",
+        "name": "Deck Pool (Carrier Events)",
+        "shortName": "Deck Pool",
+        "category": "DeckPool",
+        "timelineId": None,
+        "timelineNumber": None,
+        "timelineName": None,
+        "variationId": None,
+        "variationNumber": None,
+        "variationName": None,
+        "nodeCount": len(deck_slice.get("nodes", [])),
+        "dialogueCount": len(deck_slice.get("dialogues", [])),
+        "lastModified": deck_slice.get("_lastModified", "")
+    })
+
+    return boards
+
+def import_board_payload(board_id, nodes, dialogues, author_name, import_note=None):
+    """
+    Imports nodes and dialogues directly into board_id.
+    Automatically creates a safety backup snapshot of the existing board state first.
+    """
+    existing_slice = load_board_slice(board_id)
+    if existing_slice.get("status") == "success" and (existing_slice.get("nodes") or existing_slice.get("dialogues")):
+        now = datetime.now()
+        b_saves_dir = get_board_saves_dir(board_id)
+        backup_id = f"save_{now.strftime('%Y%m%d_%H%M%S')}_pre_import"
+        backup_item = {
+            "id": backup_id,
+            "boardId": board_id,
+            "name": f"Pre-Import Safety Snapshot ({now.strftime('%H:%M:%S')})",
+            "filename": f"{backup_id}.json",
+            "timestamp": now.isoformat(),
+            "displayTime": now.strftime("%Y-%m-%d %H:%M:%S"),
+            "author": author_name or "System",
+            "nodeCount": len(existing_slice.get("nodes", [])),
+            "dialogueCount": len(existing_slice.get("dialogues", [])),
+            "nodes": existing_slice.get("nodes", []),
+            "dialogues": existing_slice.get("dialogues", [])
+        }
+        try:
+            with open(os.path.join(b_saves_dir, f"{backup_id}.json"), 'w', encoding='utf-8') as f:
+                json.dump(backup_item, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"[BoardStorage] Pre-import snapshot warning: {e}")
+
+    note = import_note or f"Imported from JSON ({datetime.now().strftime('%H:%M:%S')})"
+    return save_board_slice(board_id, nodes, dialogues, author_name, save_name=note)
+

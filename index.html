@@ -906,7 +906,7 @@ And what about you? Disappointed, as well?"></textarea>
           <div class="flex bg-gray-900 rounded-lg p-0.5 border border-gray-800 text-xs font-semibold">
             <button id="tab-btn-board-saves" class="px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5" onclick="switchSaveManagerTab('board')">
               <i data-lucide="layout" class="w-3.5 h-3.5 text-cyan-300"></i>
-              <span id="save-manager-active-board-label">Current Board Saves</span>
+              <span id="save-manager-active-board-label">Board Saves & Loads</span>
             </button>
             <button id="tab-btn-saves" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('saves')">
               Project Versions
@@ -921,24 +921,77 @@ And what about you? Disappointed, as well?"></textarea>
         </button>
       </div>
 
-      <!-- TAB 0: Current Board Isolated Saves -->
-      <div id="save-manager-tab-board" class="p-6 overflow-y-auto space-y-5 text-xs">
-        <div class="bg-gray-950 p-4 border border-cyan-800/60 rounded-xl space-y-3">
+      <!-- TAB 0: Board Manager (Isolated Board Saves & Loads) -->
+      <div id="save-manager-tab-board" class="p-6 overflow-y-auto space-y-4 text-xs">
+        <!-- Board Selection & Metadata Header -->
+        <div class="bg-gray-950 p-4 border border-cyan-800/60 rounded-xl space-y-2.5">
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400">Isolated Board Partition</span>
-              <h4 class="text-sm sm:text-base font-bold text-white flex items-center gap-2 mt-0.5" id="save-manager-board-title-display">
-                <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
-                <span id="save-manager-board-name-text">Key Events</span>
-                <span id="save-manager-board-id-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700"></span>
-              </h4>
-              <p class="text-[11px] text-gray-400 mt-1">
-                Saves and restores only this board's events and dialogues. <strong>Other boards are completely untouched.</strong>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400">Board Partition</span>
+                <span id="save-manager-active-canvas-badge" class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active on Canvas
+                </span>
+                <span id="save-manager-board-lock-badge" class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gray-800 text-gray-300 border border-gray-700">
+                  🔓 Unlocked
+                </span>
+              </div>
+              <div class="mt-2 flex items-center gap-2">
+                <select id="save-manager-board-picker" onchange="onSaveManagerBoardSelected(this.value)" class="bg-gray-900 border border-cyan-600/60 text-cyan-200 text-xs font-bold rounded-lg px-3 py-1.5 focus:outline-none focus:border-cyan-400 flex-1 max-w-md">
+                  <!-- Populated dynamically with all boards -->
+                </select>
+                <button id="btn-save-manager-view-canvas" type="button" onclick="switchCanvasToSelectedBoard()" class="hidden px-2.5 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-cyan-300 border border-gray-700 text-xs font-semibold flex items-center gap-1 transition" title="View this board on canvas">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> View on Canvas
+                </button>
+              </div>
+              <p class="text-[11px] text-gray-400 mt-1.5">
+                Actions strictly affect <strong id="save-manager-board-name-text">Selected Board</strong>. <strong>All other boards remain 100% untouched.</strong>
               </p>
             </div>
-            <div class="flex items-center gap-2 shrink-0">
-              <button type="button" onclick="saveCurrentProject(true, 'Manual Save')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow active:scale-95 transition">
-                <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Board (Ctrl+S)
+          </div>
+        </div>
+
+        <!-- Board Operations Grid: Save vs Import -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <!-- Card A: Save Snapshot -->
+          <div class="bg-cyan-950/20 border border-cyan-800/40 p-3.5 rounded-xl space-y-2.5 flex flex-col justify-between">
+            <div>
+              <h5 class="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
+                <i data-lucide="save" class="w-3.5 h-3.5 text-cyan-400"></i> Save Snapshot of This Board
+              </h5>
+              <p class="text-[11px] text-gray-400 mt-1">
+                Creates a permanent point-in-time revision for this board on server disk.
+              </p>
+              <input type="text" id="input-board-save-note" placeholder="Revision note (e.g. 'Draft with branch K2B', 'Pre-rework')..."
+                     class="w-full mt-2 bg-gray-950 border border-gray-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500">
+            </div>
+            <div class="flex items-center gap-2 pt-1">
+              <button type="button" id="btn-save-selected-board" onclick="saveSelectedBoardSnapshot()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
+                <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> Save Snapshot
+              </button>
+              <button type="button" id="btn-export-selected-board" onclick="exportSelectedBoardJSON()" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 font-semibold px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition" title="Download standalone JSON file of this board">
+                <i data-lucide="download" class="w-3.5 h-3.5 text-amber-400"></i> Export .json
+              </button>
+            </div>
+          </div>
+
+          <!-- Card B: Load / Import from File -->
+          <div class="bg-purple-950/20 border border-purple-800/40 p-3.5 rounded-xl space-y-2.5 flex flex-col justify-between">
+            <div>
+              <h5 class="text-xs font-bold text-purple-300 flex items-center gap-1.5">
+                <i data-lucide="upload" class="w-3.5 h-3.5 text-purple-400"></i> Load / Import into This Board
+              </h5>
+              <p class="text-[11px] text-gray-400 mt-1">
+                Import an exported board JSON into this board slot. Automatically creates safety backup first.
+              </p>
+              <div class="mt-2 text-[10px] text-purple-300/80 bg-purple-950/40 p-2 rounded border border-purple-800/50">
+                🛡️ Non-destructive: Replaces only this board. Other timelines & pools stay intact.
+              </div>
+            </div>
+            <div class="flex items-center gap-2 pt-1">
+              <input type="file" id="file-input-board-import" accept=".json" class="hidden" onchange="handleImportBoardFile(event)">
+              <button type="button" id="btn-import-board-file" onclick="document.getElementById('file-input-board-import').click()" class="w-full bg-purple-700 hover:bg-purple-600 text-white font-bold px-3 py-1.5 rounded-lg flex items-center justify-center gap-1.5 shadow active:scale-95 transition">
+                <i data-lucide="file-up" class="w-3.5 h-3.5"></i> Import Board File (.json)
               </button>
             </div>
           </div>
@@ -948,11 +1001,11 @@ And what about you? Disappointed, as well?"></textarea>
         <div class="space-y-2">
           <div class="flex justify-between items-center">
             <h4 class="font-bold text-gray-200 text-sm flex items-center gap-2">
-              <i data-lucide="history" class="w-4 h-4 text-cyan-400"></i> Board Revision History
+              <i data-lucide="history" class="w-4 h-4 text-cyan-400"></i> Revision History
             </h4>
             <span class="text-[11px] text-gray-500" id="save-manager-board-save-count">Loading...</span>
           </div>
-          <div id="saved-board-versions-list" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+          <div id="saved-board-versions-list" class="space-y-2 max-h-[320px] overflow-y-auto pr-1">
             <!-- Rendered dynamically by renderBoardSavedVersionsList() -->
           </div>
         </div>

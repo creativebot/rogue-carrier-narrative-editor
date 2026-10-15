@@ -255,6 +255,37 @@ def override_board_lock(board_id, board_name, user):
         "message": f"Lock for {board_name or board_id} successfully overridden from {prev_owner}."
     }
 
+def check_board_lock_access(board_id, user):
+    """
+    Checks if `user` has write access to `board_id` considering active locks.
+    Returns (allowed: bool, reason: str, lock_info: dict).
+    - Admins always have access.
+    - If board has no lock or expired lock, allowed=True.
+    - If lock is held by this user, allowed=True.
+    - If lock is held by another user, allowed=False.
+    """
+    clean_expired_locks()
+    if not board_id:
+        return True, "No board specified", None
+    if is_admin_user(user):
+        return True, "Admin access granted", None
+
+    user_email = (user.get('email') or '').strip().lower() if user else ''
+    now = datetime.now()
+
+    with _LOCKS_MUTEX:
+        existing = ACTIVE_LOCKS.get(board_id)
+        if not existing:
+            return True, "Board is unlocked", None
+
+        exp = _parse_iso(existing.get('expiresAt'))
+        owner_email = (existing.get('userEmail') or '').strip().lower()
+        if exp > now and owner_email and owner_email != user_email:
+            rem = max(0, int((exp - now).total_seconds()))
+            return False, f"Board is locked by {existing.get('userName', 'another user')} ({rem}s remaining)", {**existing, "remainingSeconds": rem}
+
+        return True, "Lock held by current user or expired", existing
+
 # ----------------- Scoped Board Partitioned Storage -----------------
 
 def node_belongs_to_board(node, board_id):

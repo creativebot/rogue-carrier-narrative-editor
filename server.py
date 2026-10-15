@@ -74,6 +74,7 @@ from backend.locks import (
     is_admin_user,
     get_board_revisions,
     record_board_save,
+    check_board_lock_access,
 )
 from backend.board_storage import (
     save_board_slice,
@@ -82,6 +83,8 @@ from backend.board_storage import (
     restore_board_save,
     reassemble_full_project,
     save_shared_meta,
+    list_all_boards_summary,
+    import_board_payload,
 )
 class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -112,17 +115,6 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         return host in ('localhost', '127.0.0.1', '0.0.0.0', '::1') or client_ip in ('127.0.0.1', '::1')
 
     def get_auth_user(self):
-        # If running locally on user's PC, automatically grant full unrestricted Admin access without authorization
-        if self.is_local_request():
-            return {
-                "email": ADMIN_EMAIL,
-                "name": resolve_user_display_name(ADMIN_EMAIL, ""),
-                "role": "admin",
-                "status": "approved",
-                "isAdmin": True,
-                "canEdit": True
-            }
-
         auth_header = self.headers.get('Authorization', '')
         token = ""
         if auth_header.startswith('Bearer '):
@@ -139,6 +131,16 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         header_name = (self.headers.get('X-User-Name') or '').strip()
         if is_placeholder_name(header_name):
             header_name = ""
+
+        # Support JSON mock user in Bearer token (for testing/multi-user simulation)
+        if token and token.startswith('{') and token.endswith('}'):
+            try:
+                raw_u = json.loads(token)
+                if isinstance(raw_u, dict) and raw_u.get('email'):
+                    enrich_user_session(raw_u)
+                    return raw_u
+            except Exception:
+                pass
 
         if token and token in SESSIONS:
             sess = SESSIONS[token]
@@ -159,6 +161,29 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 save_sessions()
                 ensure_user_registered(verified)
                 return verified
+
+        # If explicit non-admin X-User-Email was provided
+        if header_email:
+            custom_user = {
+                "email": header_email,
+                "name": header_name or resolve_user_display_name(header_email, ""),
+                "role": "editor",
+                "status": "approved",
+                "canEdit": True
+            }
+            enrich_user_session(custom_user)
+            return custom_user
+
+        # If running locally on user's PC without specific auth header, grant default Admin access
+        if self.is_local_request():
+            return {
+                "email": ADMIN_EMAIL,
+                "name": resolve_user_display_name(ADMIN_EMAIL, ""),
+                "role": "admin",
+                "status": "approved",
+                "isAdmin": True,
+                "canEdit": True
+            }
 
         # Fallback: X-User-Email header from an already-signed-in @n-ix.com client after container restart
         if header_email and is_valid_nix_email(header_email):
@@ -212,6 +237,7 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 timelines = body.get('timelines')
                 variations = body.get('variations')
                 stage_layout_version = body.get('stageLayoutVersion')
+                save_name = body.get('name') or body.get('note')
                 user = self.get_auth_user()
                 if not user:
                     user = {
@@ -225,8 +251,18 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_json(403, {"status": "error", "message": "Sign-in and editor permissions required to save board."})
                     return
 
+                # Lock validation
+                allowed, reason, lock = check_board_lock_access(board_id, user)
+                if not allowed:
+                    self.send_json(423, {
+                        "status": "locked",
+                        "message": f"Cannot save board: {reason}",
+                        "lock": lock
+                    })
+                    return
+
                 author_name = user.get('name') or user.get('email') or 'Editor User'
-                result = save_board_slice(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version)
+                result = save_board_slice(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version, save_name=save_name)
                 self.send_json(200, result)
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
@@ -239,8 +275,69 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 board_id = body.get('boardId')
                 save_id = body.get('saveId')
                 user = self.get_auth_user()
+                if not user:
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": 'Editor User',
+                        "role": "editor",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+                if not user or user.get('status') != 'approved' or user.get('canEdit') is False or user.get('role') == 'viewer':
+                    self.send_json(403, {"status": "error", "message": "Sign-in and editor permissions required to restore board."})
+                    return
+
+                # Lock validation
+                allowed, reason, lock = check_board_lock_access(board_id, user)
+                if not allowed:
+                    self.send_json(423, {
+                        "status": "locked",
+                        "message": f"Cannot restore board: {reason}",
+                        "lock": lock
+                    })
+                    return
+
                 author_name = (user.get('name') or user.get('email')) if user else 'Editor User'
                 result = restore_board_save(board_id, save_id, author_name)
+                code = 200 if result.get('status') == 'success' else 400
+                self.send_json(code, result)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Import Single Board from File/Payload
+        elif self.path == '/api/import-board':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                nodes = body.get('nodes', [])
+                dialogues = body.get('dialogues', [])
+                note = body.get('note') or body.get('name')
+                user = self.get_auth_user()
+                if not user:
+                    user = {
+                        "email": ADMIN_EMAIL,
+                        "name": body.get('author') or 'Editor User',
+                        "role": "editor",
+                        "status": "approved",
+                        "canEdit": True
+                    }
+                if not user or user.get('status') != 'approved' or user.get('canEdit') is False or user.get('role') == 'viewer':
+                    self.send_json(403, {"status": "error", "message": "Sign-in and editor permissions required to import board."})
+                    return
+
+                # Lock validation
+                allowed, reason, lock = check_board_lock_access(board_id, user)
+                if not allowed:
+                    self.send_json(423, {
+                        "status": "locked",
+                        "message": f"Cannot import board: {reason}",
+                        "lock": lock
+                    })
+                    return
+
+                author_name = user.get('name') or user.get('email') or 'Editor User'
+                result = import_board_payload(board_id, nodes, dialogues, author_name, import_note=note)
                 code = 200 if result.get('status') == 'success' else 400
                 self.send_json(code, result)
             except Exception as e:
@@ -1286,6 +1383,33 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
         # 1b. Single Board Load (/api/board?id=...)
         elif path == '/api/board':
+            try:
+                query = urllib.parse.parse_qs(parsed.query)
+                board_id = query.get('id', [''])[0]
+                if not board_id:
+                    self.send_json(400, {"status": "error", "message": "Missing id parameter"})
+                    return
+                slice_data = load_board_slice(board_id)
+                self.send_json(200, slice_data)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # 1c. All Boards Metadata Index (/api/boards)
+        elif path == '/api/boards':
+            try:
+                boards_list = list_all_boards_summary()
+                active_locks = get_all_locks()
+                for b in boards_list:
+                    bid = b.get('id')
+                    b['lock'] = active_locks.get(bid)
+                self.send_json(200, {"status": "success", "boards": boards_list})
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # 1d. Single Board Export (/api/export-board?id=...)
+        elif path == '/api/export-board':
             try:
                 query = urllib.parse.parse_qs(parsed.query)
                 board_id = query.get('id', [''])[0]
