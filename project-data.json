@@ -1293,7 +1293,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
+        "x": 110,
         "y": 243
       },
       "actions": [
@@ -1308,7 +1308,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup"
+          "targetNodeId": "node_gen_followup",
+          "targetNodeIds": [
+            "node_gen_followup"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -1416,7 +1419,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
+        "x": 110,
         "y": 1193
       },
       "actions": [
@@ -1431,7 +1434,9 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1463,7 +1468,7 @@
         ]
       },
       "position": {
-        "x": 100,
+        "x": 110,
         "y": 220
       },
       "actions": [
@@ -4002,7 +4007,7 @@
     }
   ],
   "schemaVersion": 1,
-  "_lastModified": "2026-10-15T07:44:30.546247",
+  "_lastModified": "2026-10-15T07:44:30.543Z",
   "criteriaPool": [
     "Orange Box",
     "Nasobi TC Badge",
