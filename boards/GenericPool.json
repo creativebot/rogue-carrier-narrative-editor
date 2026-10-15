@@ -79,7 +79,9 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
+      "disabledVariationIds": [
+        "var_v1"
+      ],
       "title": "Ancient AI Core"
     },
     {
@@ -664,5 +666,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T12:51:30.871303"
+  "_lastModified": "2026-10-15T13:28:17.944251"
 }
