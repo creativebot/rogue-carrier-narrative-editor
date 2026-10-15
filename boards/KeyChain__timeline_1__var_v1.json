@@ -1814,8 +1814,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4879,
-        "y": 3013
+        "x": 4861,
+        "y": 3002
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T12:38:03.251052"
+  "_lastModified": "2026-10-15T12:38:09.888613"
 }
