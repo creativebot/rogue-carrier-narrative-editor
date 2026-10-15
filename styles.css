@@ -75,7 +75,6 @@ html, body {
   width: 0;
   height: 0;
   transform-origin: 0 0;
-  will-change: transform;
 }
 
 #svg-connectors {
@@ -100,12 +99,12 @@ html, body {
 .stage-band,
 .floor-band {
   position: absolute;
-  left: -8000px;
-  width: 20000px;
+  left: -600px;
+  width: 6500px;
   min-height: 1500px;
   border-top: 2px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 2px dashed rgba(234, 179, 8, 0.4);
-  background-color: rgba(255, 255, 255, 0.015);
+  background-color: transparent;
   pointer-events: none;
 }
 
@@ -2172,6 +2171,7 @@ body.is-port-dragging .inbound-event-port {
 .deck-event-card,
 .generic-event-card {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  contain: layout paint;
 }
 
 .event-card-inner,

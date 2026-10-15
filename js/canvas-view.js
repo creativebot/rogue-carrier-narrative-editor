@@ -604,25 +604,37 @@ function renderFloorBands() {
 
   if (activeCategoryFilter === 'KeyChain' || activeCategoryFilter === 'SecretChain') {
     const isSecret = activeCategoryFilter === 'SecretChain';
+
+    // Right-size stage bands to comfortably span active events without allocating 20,000px of GPU memory
+    let boardMaxX = 5200;
+    (appData.nodes || []).forEach(n => {
+      const x = (n.position && n.position.x) || 0;
+      if (x + 1200 > boardMaxX) boardMaxX = x + 1200;
+    });
+    const bandLeft = -600;
+    const bandWidth = Math.max(boardMaxX - bandLeft, 6500);
+
     FLOOR_Y.forEach((y, idx) => {
       const band = document.createElement('div');
       band.id = `stage-band-${idx}`;
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-8000px`;
-      band.style.width = `20000px`;
+      band.style.left = `${bandLeft}px`;
+      band.style.width = `${bandWidth}px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals across the stripe
-      const labelXPositions = [-6000, -3000, 40, 3000, 6000, 9000];
+      // Stage label badges placed at clean intervals across the scheme (main label at 40px)
+      const labelXPositions = [40, 1600, 3200, 4800];
       labelXPositions.forEach(lx => {
-        const label = document.createElement('div');
-        label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
-        label.style.top = `${y - 59}px`;
-        label.style.left = `${lx}px`;
-        label.innerText = isSecret ? `SECRET STAGE ${idx + 1}` : `STAGE ${idx + 1}`;
-        floorBandsLayer.appendChild(label);
+        if (lx > bandLeft && lx < (bandLeft + bandWidth - 300)) {
+          const label = document.createElement('div');
+          label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
+          label.style.top = `${y - 59}px`;
+          label.style.left = `${lx}px`;
+          label.innerText = isSecret ? `SECRET STAGE ${idx + 1}` : `STAGE ${idx + 1}`;
+          floorBandsLayer.appendChild(label);
+        }
       });
     });
   } else {
@@ -3226,6 +3238,8 @@ function autoArrangeTreeLayout() {
 function makeNodesDraggable() {
   const nodes = document.querySelectorAll('.event-card, .deck-event-card, .generic-event-card, .dialogue-card');
   nodes.forEach(el => {
+    if (el._isDraggableInitialized) return;
+    el._isDraggableInitialized = true;
     let isDraggingNode = false;
     let nodeStartPos = { x: 0, y: 0 };
     let mouseStartPos = { x: 0, y: 0 };

@@ -3,8 +3,9 @@
 // ============================================================================
 
 // Interactive Port Drag Engine (Action Ports & Purple Dialogue Ports on Events)
-// Interactive Port Drag Engine (Action Ports & Purple Dialogue Ports on Events)
 function setupPortDragEvents() {
+  if (window._portDragEventsInitialized) return;
+  window._portDragEventsInitialized = true;
   function startPortDrag(targetEl, clientX, clientY) {
     if (!targetEl) return false;
     const actionPort = targetEl.closest('.action-port');
