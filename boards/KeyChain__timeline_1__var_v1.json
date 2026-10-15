@@ -1137,8 +1137,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 465,
-        "y": 5179
+        "x": -953,
+        "y": 4850
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T12:33:08.428862"
+  "_lastModified": "2026-10-15T12:36:11.972246"
 }
