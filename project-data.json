@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T16:15:24.175226",
+  "_lastModified": "2026-10-15T16:15:24.650868",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -631,7 +631,7 @@
       "category": "GenericPool",
       "variationId": "var_v1",
       "floorIndex": 3,
-      "tier": 2,
+      "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
       "eventIntro": "A supply beacon has crashed. Something inside might still be useful.",
@@ -640,8 +640,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 457,
-        "y": 2727
+        "x": 110,
+        "y": 2662
       },
       "actions": [
         {
