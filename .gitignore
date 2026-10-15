@@ -19,3 +19,4 @@ do_push.py
 backups/
 github_token.txt
 .env
+scratch/

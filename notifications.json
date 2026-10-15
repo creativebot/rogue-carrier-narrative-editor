@@ -1,6 +1,34 @@
 {
   "notifications": [
     {
+      "id": "notif_1792008940378_0",
+      "recipientEmail": "dpoludonnyi@n-ix.com",
+      "senderName": "Tetiana Tretilova",
+      "senderEmail": "ttretilova@n-ix.com",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "commentText": "@dpoludonnyi ok. It would be nice to be able to comment on or flag parameters or text that might change during balancing.",
+      "commentId": "cmt_1792008940377",
+      "createdAt": "2026-10-14T20:15:40.377562Z",
+      "displayTime": "Oct 14, 20:15",
+      "read": true
+    },
+    {
+      "id": "notif_1792008559657_0",
+      "recipientEmail": "ttretilova@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "commentText": "@ttretilova no need to specify status effects as \"criteria\" at the moment. I will soon add the status effects with their icons.",
+      "commentId": "cmt_1792008559640",
+      "createdAt": "2026-10-14T20:09:19.655902Z",
+      "displayTime": "Oct 14, 20:09",
+      "read": true
+    },
+    {
       "id": "notif_1791878810054_0",
       "recipientEmail": "vkuznietsov@n-ix.com",
       "senderName": "Daniel Poludyonny",

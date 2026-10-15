@@ -913,11 +913,15 @@ And what about you? Disappointed, as well?"></textarea>
             <i data-lucide="folder-archive" class="w-5 h-5 text-cyan-400"></i> Project Saves & Backups
           </h3>
           <div class="flex bg-gray-900 rounded-lg p-0.5 border border-gray-800 text-xs font-semibold">
-            <button id="tab-btn-saves" class="px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition" onclick="switchSaveManagerTab('saves')">
-              Named Versions
+            <button id="tab-btn-board-saves" class="px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5" onclick="switchSaveManagerTab('board')">
+              <i data-lucide="layout" class="w-3.5 h-3.5 text-cyan-300"></i>
+              <span id="save-manager-active-board-label">Current Board Saves</span>
+            </button>
+            <button id="tab-btn-saves" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('saves')">
+              Project Versions
             </button>
             <button id="tab-btn-backups" class="px-3 py-1 rounded-md text-gray-400 hover:text-white transition" onclick="switchSaveManagerTab('backups')">
-              🛡️ Session Backups & Snapshots
+              🛡️ Session Snapshots
             </button>
           </div>
         </div>
@@ -926,8 +930,45 @@ And what about you? Disappointed, as well?"></textarea>
         </button>
       </div>
 
+      <!-- TAB 0: Current Board Isolated Saves -->
+      <div id="save-manager-tab-board" class="p-6 overflow-y-auto space-y-5 text-xs">
+        <div class="bg-gray-950 p-4 border border-cyan-800/60 rounded-xl space-y-3">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400">Isolated Board Partition</span>
+              <h4 class="text-sm sm:text-base font-bold text-white flex items-center gap-2 mt-0.5" id="save-manager-board-title-display">
+                <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
+                <span id="save-manager-board-name-text">Key Events</span>
+                <span id="save-manager-board-id-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700"></span>
+              </h4>
+              <p class="text-[11px] text-gray-400 mt-1">
+                Saves and restores only this board's events and dialogues. <strong>Other boards are completely untouched.</strong>
+              </p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="saveCurrentProject(true, 'Manual Save')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow active:scale-95 transition">
+                <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Board (Ctrl+S)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board Saves History List -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-gray-200 text-sm flex items-center gap-2">
+              <i data-lucide="history" class="w-4 h-4 text-cyan-400"></i> Board Revision History
+            </h4>
+            <span class="text-[11px] text-gray-500" id="save-manager-board-save-count">Loading...</span>
+          </div>
+          <div id="saved-board-versions-list" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Rendered dynamically by renderBoardSavedVersionsList() -->
+          </div>
+        </div>
+      </div>
+
       <!-- TAB 1: Named Saves -->
-      <div id="save-manager-tab-saves" class="p-6 overflow-y-auto space-y-5 text-xs">
+      <div id="save-manager-tab-saves" class="hidden p-6 overflow-y-auto space-y-5 text-xs">
         <!-- Section 1: Active File & Quick Controls -->
         <div class="bg-gray-950 p-4 border border-gray-800 rounded-xl space-y-3">
           <div class="flex justify-between items-center">

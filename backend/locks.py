@@ -324,68 +324,10 @@ def dialogue_belongs_to_board(diag, board_id, active_board_node_ids):
 def merge_and_save_board(board_id, board_nodes, board_dialogues, author_name, timelines=None, variations=None, stage_layout_version=None):
     """
     Atomically updates ONLY the nodes and dialogues belonging to `board_id`
-    in project-data.json, leaving all other boards completely untouched.
-    Also updates timelines and variations if provided.
+    using the partitioned board storage system, leaving all other boards completely untouched.
     """
-    project_path = os.path.join(DIRECTORY, 'project-data.json')
-    with open(project_path, 'r', encoding='utf-8') as f:
-        full_project = json.load(f)
-
-    existing_nodes = full_project.get("nodes", [])
-    existing_dialogues = full_project.get("dialogues", [])
-
-    # Keep all nodes that DO NOT belong to this board
-    preserved_nodes = [n for n in existing_nodes if not node_belongs_to_board(n, board_id)]
-    # Keep all dialogues that DO NOT belong to this board
-    existing_active_node_ids = set(n["id"] for n in existing_nodes if node_belongs_to_board(n, board_id))
-    preserved_dialogues = [d for d in existing_dialogues if not dialogue_belongs_to_board(d, board_id, existing_active_node_ids)]
-
-    # Combine preserved nodes from other boards + new board nodes
-    merged_nodes = preserved_nodes + (board_nodes or [])
-    merged_dialogues = preserved_dialogues + (board_dialogues or [])
-
-    full_project["nodes"] = merged_nodes
-    full_project["dialogues"] = merged_dialogues
-    if timelines is not None and isinstance(timelines, list):
-        full_project["timelines"] = timelines
-    if variations is not None and isinstance(variations, list):
-        full_project["variations"] = variations
-    if stage_layout_version is not None:
-        full_project["stageLayoutVersion"] = stage_layout_version
-    full_project["_lastModified"] = datetime.now().isoformat()
-    if full_project.get("projectInfo"):
-        full_project["projectInfo"]["author"] = author_name
-
-    # Atomic write to project-data.json
-    temp_path = project_path + ".tmp"
-    with open(temp_path, 'w', encoding='utf-8') as f:
-        json.dump(full_project, f, indent=2, ensure_ascii=False)
-    os.replace(temp_path, project_path)
-
-    # Unreal Export
-    try:
-        unreal_data = transform_to_unreal_schema(full_project)
-        save_unreal_artifacts(unreal_data)
-    except Exception as e:
-        print(f"[Save Board] Unreal export error: {e}")
-
-    # Snapshot & GitHub Sync
-    snap = create_backup_snapshot(f"Save Board ({board_id})", author_name, full_project)
-    threading.Thread(target=sync_project_data_to_github, args=(full_project, author_name), daemon=True).start()
-
-    rev = record_board_save(board_id, author_name)
-
-    return {
-        "status": "success",
-        "timestamp": datetime.now().strftime("%H:%M:%S"),
-        "boardId": board_id,
-        "revision": rev,
-        "totalNodeCount": len(merged_nodes),
-        "totalDialogueCount": len(merged_dialogues),
-        "boardNodeCount": len(board_nodes or []),
-        "boardDialogueCount": len(board_dialogues or []),
-        "snapshotId": snap["id"] if snap else None
-    }
+    from backend.board_storage import save_board_slice
+    return save_board_slice(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version)
 
 # Pre-load on startup
 load_locks()

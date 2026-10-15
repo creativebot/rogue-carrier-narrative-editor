@@ -710,29 +710,37 @@ async function updateUserStatus(email, status, role) {
    BACKUPS & SNAPSHOT MANAGEMENT
    ========================================================================== */
 function switchSaveManagerTab(tab) {
+  const tabBoard = document.getElementById('save-manager-tab-board');
   const tabSaves = document.getElementById('save-manager-tab-saves');
   const tabBackups = document.getElementById('save-manager-tab-backups');
+  const btnBoard = document.getElementById('tab-btn-board-saves');
   const btnSaves = document.getElementById('tab-btn-saves');
   const btnBackups = document.getElementById('tab-btn-backups');
 
-  if (tab === 'saves') {
-    if (tabSaves) tabSaves.classList.remove('hidden');
-    if (tabBackups) tabBackups.classList.add('hidden');
-    if (btnSaves) {
-      btnSaves.className = 'px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition';
+  if (tabBoard) tabBoard.classList.add('hidden');
+  if (tabSaves) tabSaves.classList.add('hidden');
+  if (tabBackups) tabBackups.classList.add('hidden');
+
+  const inactiveBtn = 'px-3 py-1 rounded-md text-gray-400 hover:text-white transition';
+  if (btnBoard) btnBoard.className = inactiveBtn;
+  if (btnSaves) btnSaves.className = inactiveBtn;
+  if (btnBackups) btnBackups.className = inactiveBtn;
+
+  if (tab === 'board') {
+    if (tabBoard) tabBoard.classList.remove('hidden');
+    if (btnBoard) btnBoard.className = 'px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
+    if (typeof renderBoardSavedVersionsList === 'function') {
+      renderBoardSavedVersionsList();
     }
-    if (btnBackups) {
-      btnBackups.className = 'px-3 py-1 rounded-md text-gray-400 hover:text-white transition';
+  } else if (tab === 'saves') {
+    if (tabSaves) tabSaves.classList.remove('hidden');
+    if (btnSaves) btnSaves.className = 'px-3 py-1 rounded-md bg-cyan-600 text-white shadow transition';
+    if (typeof renderSavedVersionsList === 'function') {
+      renderSavedVersionsList();
     }
   } else {
-    if (tabSaves) tabSaves.classList.add('hidden');
     if (tabBackups) tabBackups.classList.remove('hidden');
-    if (btnBackups) {
-      btnBackups.className = 'px-3 py-1 rounded-md bg-emerald-600 text-white shadow transition';
-    }
-    if (btnSaves) {
-      btnSaves.className = 'px-3 py-1 rounded-md text-gray-400 hover:text-white transition';
-    }
+    if (btnBackups) btnBackups.className = 'px-3 py-1 rounded-md bg-emerald-600 text-white shadow transition';
     loadBackupsList();
   }
 }

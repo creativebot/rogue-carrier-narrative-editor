@@ -1,0 +1,393 @@
+{
+  "version": "2.6.0",
+  "schemaVersion": 1,
+  "stageLayoutVersion": 2,
+  "_lastModified": "2026-10-15T09:52:04.490388",
+  "projectInfo": {
+    "name": "Rogue Carrier Scenario 1",
+    "author": "Volodymyr Kuznietsov"
+  },
+  "timelines": [
+    {
+      "id": "timeline_1",
+      "number": 1,
+      "name": "The Fate of Zephyrus",
+      "description": "Main reality hypercell timeline following the collapse of Zephyrus."
+    },
+    {
+      "id": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch",
+      "description": "New parallel timeline hypercell reality branch."
+    }
+  ],
+  "variations": [
+    {
+      "id": "var_v1",
+      "timelineId": "timeline_1",
+      "number": 1,
+      "name": "The Moment After the End",
+      "description": "First variation containing primary critical event chain."
+    },
+    {
+      "id": "var_v2",
+      "timelineId": "timeline_1",
+      "number": 2,
+      "name": "Once More Into The Frey",
+      "description": "Debris field gravitational anomalies."
+    },
+    {
+      "id": "var_v3",
+      "timelineId": "timeline_1",
+      "number": 3,
+      "name": "Too Many Variables",
+      "description": "Keeling ocean trawler exploration."
+    },
+    {
+      "id": "var_v4",
+      "timelineId": "timeline_1",
+      "number": 4,
+      "name": "Gain The Upper Hand",
+      "description": "Keeling island predator swarms."
+    },
+    {
+      "id": "var_v5",
+      "timelineId": "timeline_1",
+      "number": 5,
+      "name": "Hunted!",
+      "description": "Ebola strain contagion response."
+    },
+    {
+      "id": "var_v6",
+      "timelineId": "timeline_1",
+      "number": 6,
+      "name": "On A Cold Trail",
+      "description": "Disassembly of smoldering wreckage."
+    },
+    {
+      "id": "var_v7",
+      "timelineId": "timeline_1",
+      "number": 7,
+      "name": "Prism Glitch",
+      "description": "Time displacement hypercell anomaly."
+    },
+    {
+      "id": "var_v8",
+      "timelineId": "timeline_1",
+      "number": 8,
+      "name": "The Problem of Probability",
+      "description": "Sunken flight recorder retrieval."
+    },
+    {
+      "id": "var_v9",
+      "timelineId": "timeline_1",
+      "number": 9,
+      "name": "Facing Shadows",
+      "description": "Combat with leviathan predator."
+    },
+    {
+      "id": "var_v10",
+      "timelineId": "timeline_1",
+      "number": 10,
+      "name": "The Finite Infinity",
+      "description": "Final escape pod signals."
+    },
+    {
+      "id": "var_t2_v1",
+      "timelineId": "timeline_2",
+      "number": 1,
+      "name": "Timeline 2: Multiverse Branch - Variation 1",
+      "description": "Variation 1 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v2",
+      "timelineId": "timeline_2",
+      "number": 2,
+      "name": "Timeline 2: Multiverse Branch - Variation 2",
+      "description": "Variation 2 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v3",
+      "timelineId": "timeline_2",
+      "number": 3,
+      "name": "Timeline 2: Multiverse Branch - Variation 3",
+      "description": "Variation 3 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v4",
+      "timelineId": "timeline_2",
+      "number": 4,
+      "name": "Timeline 2: Multiverse Branch - Variation 4",
+      "description": "Variation 4 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v5",
+      "timelineId": "timeline_2",
+      "number": 5,
+      "name": "Timeline 2: Multiverse Branch - Variation 5",
+      "description": "Variation 5 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v6",
+      "timelineId": "timeline_2",
+      "number": 6,
+      "name": "Timeline 2: Multiverse Branch - Variation 6",
+      "description": "Variation 6 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v7",
+      "timelineId": "timeline_2",
+      "number": 7,
+      "name": "Timeline 2: Multiverse Branch - Variation 7",
+      "description": "Variation 7 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v8",
+      "timelineId": "timeline_2",
+      "number": 8,
+      "name": "Timeline 2: Multiverse Branch - Variation 8",
+      "description": "Variation 8 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v9",
+      "timelineId": "timeline_2",
+      "number": 9,
+      "name": "Timeline 2: Multiverse Branch - Variation 9",
+      "description": "Variation 9 for Timeline 2: Multiverse Branch"
+    },
+    {
+      "id": "var_t2_v10",
+      "timelineId": "timeline_2",
+      "number": 10,
+      "name": "Timeline 2: Multiverse Branch - Variation 10",
+      "description": "Variation 10 for Timeline 2: Multiverse Branch"
+    }
+  ],
+  "characters": [
+    {
+      "id": "voss",
+      "name": "Elias Voss",
+      "role": "Behemoth Captain",
+      "color": "#fef08a",
+      "textColor": "#713f12",
+      "icon": "👨‍✈️",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "mnemosyne",
+      "name": "Mnemosyne",
+      "role": "Ship AI System",
+      "color": "#e0e7ff",
+      "textColor": "#3730a3",
+      "icon": "🤖",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "khalil",
+      "name": "Khalil Arida",
+      "role": "Communication Officer",
+      "color": "#dcfce7",
+      "textColor": "#166534",
+      "icon": "📻",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "tuuli",
+      "name": "Tuuli Korpela",
+      "role": "Chief Engineer",
+      "color": "#ffedd5",
+      "textColor": "#9a3412",
+      "icon": "🔧",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "abbadie",
+      "name": "Mars Abbadie",
+      "role": "Head of R&D",
+      "color": "#f3e8ff",
+      "textColor": "#6b21a8",
+      "icon": "🔬",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "orest",
+      "name": "Orest Demchuck",
+      "role": "Scout Leader",
+      "color": "#fee2e2",
+      "textColor": "#991b1b",
+      "icon": "🎯",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    },
+    {
+      "id": "survivor",
+      "name": "Survivor",
+      "role": "Keeling Island Refugee",
+      "color": "#f3f4f6",
+      "textColor": "#1f2937",
+      "icon": "👤",
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
+      ]
+    }
+  ],
+  "criteriaPool": [
+    "Orange Box",
+    "Nasobi TC Badge",
+    "Inner Explosion",
+    "Station Intelligence",
+    "Refinery Intelligence",
+    "Jammer Found"
+  ]
+}

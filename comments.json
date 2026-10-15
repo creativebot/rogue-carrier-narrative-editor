@@ -39,6 +39,46 @@
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792008559640",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "@ttretilova no need to specify status effects as \"criteria\" at the moment. I will soon add the status effects with their icons.",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-14T20:09:19.655902Z",
+      "displayTime": "2026-10-14 20:09",
+      "mentions": [
+        "ttretilova@n-ix.com"
+      ]
+    },
+    {
+      "id": "cmt_1792008940377",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "@dpoludonnyi ok. It would be nice to be able to comment on or flag parameters or text that might change during balancing.",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-14T20:15:40.377562Z",
+      "displayTime": "2026-10-14 20:15",
+      "mentions": [
+        "dpoludonnyi@n-ix.com"
+      ]
+    },
+    {
+      "id": "cmt_1792012119865",
+      "targetId": "node_1791996044351",
+      "targetType": "event",
+      "targetTitle": "GEN-S1-E3 - Field Research",
+      "text": "OK will add",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-14T21:08:39.865197Z",
+      "displayTime": "2026-10-14 21:08",
+      "mentions": []
     }
   ],
   "deletedIds": [

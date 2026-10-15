@@ -937,6 +937,105 @@ function getAuthHeaders(includeJsonContentType = true) {
   return headers;
 }
 
+function nodeBelongsToBoardId(node, boardId) {
+  if (!node || !boardId) return false;
+  if (boardId === 'GenericPool') return (node.category || 'KeyChain') === 'GenericPool';
+  if (boardId === 'DeckPool') {
+    const cat = node.category || 'KeyChain';
+    const varId = node.variationId || '';
+    return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  }
+
+  const parts = boardId.includes(':') ? boardId.split(':') : boardId.split('__');
+  const expectedCat = parts[0] || 'KeyChain';
+  const expectedVar = parts[2] || '';
+
+  const cat = node.category || 'KeyChain';
+  const varId = node.variationId || '';
+
+  if (cat !== expectedCat) return false;
+  if (expectedVar && varId && varId !== expectedVar) return false;
+  return true;
+}
+
+function dialogueBelongsToBoardId(diag, boardId, activeNodeIds) {
+  if (!diag || !boardId) return false;
+  const links = Array.isArray(diag.links) ? diag.links : (diag.targetEventId ? [{ targetEventId: diag.targetEventId }] : []);
+  const linkedIds = links.map(l => l.targetEventId).filter(Boolean);
+  if (diag.targetEventId) linkedIds.push(diag.targetEventId);
+
+  if (linkedIds.length > 0 && activeNodeIds && activeNodeIds.size > 0) {
+    return linkedIds.some(eid => activeNodeIds.has(eid));
+  }
+
+  if (boardId === 'GenericPool') return (diag.category || 'KeyChain') === 'GenericPool';
+  if (boardId === 'DeckPool') {
+    const cat = diag.category || 'KeyChain';
+    const varId = diag.variationId || '';
+    return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  }
+
+  const parts = boardId.includes(':') ? boardId.split(':') : boardId.split('__');
+  const expectedCat = parts[0] || 'KeyChain';
+  const expectedVar = parts[2] || '';
+
+  const cat = diag.category || 'KeyChain';
+  const varId = diag.variationId || '';
+
+  if (cat !== expectedCat) return false;
+  if (expectedVar && varId && varId !== expectedVar) return false;
+  return true;
+}
+
+function getActiveBoardPartitionPayload() {
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  
+  const boardNodes = (appData.nodes || []).filter(n => nodeBelongsToBoardId(n, boardId));
+  const activeNodeIds = new Set(boardNodes.map(n => n.id));
+  const boardDialogues = (appData.dialogues || []).filter(d => dialogueBelongsToBoardId(d, boardId, activeNodeIds));
+
+  return {
+    boardId,
+    nodes: boardNodes,
+    dialogues: boardDialogues,
+    author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User',
+    timelines: appData.timelines,
+    variations: appData.variations,
+    stageLayoutVersion: appData.stageLayoutVersion || 2
+  };
+}
+
+// Syncs only the active board partition from the server into local memory
+async function syncBoardFromServer(boardId) {
+  if (!boardId) {
+    boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  }
+  try {
+    const res = await fetch(`/api/board?id=${encodeURIComponent(boardId)}`, {
+      headers: getAuthHeaders(false)
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    if (data.status !== 'success') return false;
+
+    const serverNodes = data.nodes || [];
+    const serverDialogues = data.dialogues || [];
+
+    // Replace active board's slice in appData
+    appData.nodes = (appData.nodes || []).filter(n => !nodeBelongsToBoardId(n, boardId)).concat(serverNodes);
+    const activeNodeIds = new Set(serverNodes.map(n => n.id));
+    appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoardId(d, boardId, activeNodeIds)).concat(serverDialogues);
+
+    normalizeAllProjectData();
+    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    updateStats();
+    return true;
+  } catch (e) {
+    console.warn('[SyncBoard] Network error syncing board:', e);
+    return false;
+  }
+}
+
 // Full manual or automated save triggered by Ctrl+S, Save button, or periodic timer
 async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   clearTimeout(autoSaveDiskTimer);
@@ -964,55 +1063,6 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   const managerSavedText = document.getElementById('save-manager-last-saved');
   if (managerSavedText) managerSavedText.innerText = `(Last saved: ${timeStr})`;
 
-function getActiveBoardPartitionPayload() {
-  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
-  
-  const boardNodes = (appData.nodes || []).filter(n => {
-    if (!n) return false;
-    const cat = n.category || 'KeyChain';
-    const varId = n.variationId || '';
-    if (boardId === 'GenericPool') return cat === 'GenericPool';
-    if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
-    const parts = boardId.split(':');
-    if (parts[0] === 'KeyChain') return cat === 'KeyChain' && (!parts[2] || varId === parts[2]);
-    if (parts[0] === 'SecretChain') return cat === 'SecretChain' && (!parts[2] || varId === parts[2]);
-    return false;
-  });
-
-  const activeNodeIds = new Set(boardNodes.map(n => n.id));
-
-  const boardDialogues = (appData.dialogues || []).filter(d => {
-    if (!d) return false;
-    const links = Array.isArray(d.links) ? d.links : (d.targetEventId ? [{ targetEventId: d.targetEventId }] : []);
-    const linkedNodeIds = links.map(l => l.targetEventId).filter(Boolean);
-    if (d.targetEventId) linkedNodeIds.push(d.targetEventId);
-
-    if (linkedNodeIds.length > 0) {
-      return linkedNodeIds.some(eid => activeNodeIds.has(eid));
-    }
-
-    const cat = d.category || 'KeyChain';
-    const varId = d.variationId || '';
-    if (boardId === 'GenericPool') return cat === 'GenericPool';
-    if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
-    const parts = boardId.split(':');
-    if (parts[0] === 'KeyChain' || parts[0] === 'SecretChain') {
-      return cat === parts[0] && (!parts[2] || varId === parts[2]);
-    }
-    return false;
-  });
-
-  return {
-    boardId,
-    nodes: boardNodes,
-    dialogues: boardDialogues,
-    author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User',
-    timelines: appData.timelines,
-    variations: appData.variations,
-    stageLayoutVersion: appData.stageLayoutVersion || 2
-  };
-}
-
   try {
     if (currentUser && currentUser.name && appData.projectInfo) {
       appData.projectInfo.author = currentUser.name;
@@ -1025,19 +1075,11 @@ function getActiveBoardPartitionPayload() {
       body: JSON.stringify(boardPayload)
     });
 
-    if (!res.ok && res.status !== 403) {
-      res = await fetch('/api/save', {
-        method: 'POST',
-        headers: getAuthHeaders(true),
-        body: JSON.stringify(appData)
-      });
-    }
-
     if (res.ok) {
       const resp = await res.json();
       if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || timeStr})`;
       if (isManual) {
-        showToast(`Saved ${boardPayload.boardId} to server & local copy (${resp.timestamp || timeStr})`, 'success');
+        showToast(`Saved ${boardPayload.boardId} (${resp.boardNodeCount ?? boardPayload.nodes.length} events) to server`, 'success');
       }
     } else {
       if (badgeText) badgeText.innerText = `Saved Locally (${timeStr})`;
@@ -1226,13 +1268,149 @@ async function fetchAllSavedVersions() {
   return combined;
 }
 
-function openSaveManagerModal(targetTab = 'saves') {
+function openSaveManagerModal(targetTab = 'board') {
   const managerSavedText = document.getElementById('save-manager-last-saved');
   if (managerSavedText) {
     managerSavedText.innerText = lastSavedTimestamp ? `(Last saved: ${lastSavedTimestamp})` : '(Auto-saved)';
   }
+
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  const boardName = (typeof getCurrentBoardDisplayName === 'function') ? getCurrentBoardDisplayName() : 'Active Board';
+  const boardNameEl = document.getElementById('save-manager-board-name-text');
+  const boardBadgeEl = document.getElementById('save-manager-board-id-badge');
+  const tabLabelEl = document.getElementById('save-manager-active-board-label');
+  if (boardNameEl) boardNameEl.innerText = boardName;
+  if (boardBadgeEl) boardBadgeEl.innerText = boardId;
+  if (tabLabelEl) tabLabelEl.innerText = `${boardName} Saves`;
+
   openModal('modal-save-manager');
-  switchSaveManagerTab(targetTab);
+  if (typeof switchSaveManagerTab === 'function') {
+    switchSaveManagerTab(targetTab);
+  }
+}
+
+async function renderBoardSavedVersionsList() {
+  const container = document.getElementById('saved-board-versions-list');
+  const countEl = document.getElementById('save-manager-board-save-count');
+  if (!container) return;
+
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  const boardName = (typeof getCurrentBoardDisplayName === 'function') ? getCurrentBoardDisplayName() : 'Active Board';
+
+  const boardNameEl = document.getElementById('save-manager-board-name-text');
+  const boardBadgeEl = document.getElementById('save-manager-board-id-badge');
+  const tabLabelEl = document.getElementById('save-manager-active-board-label');
+  if (boardNameEl) boardNameEl.innerText = boardName;
+  if (boardBadgeEl) boardBadgeEl.innerText = boardId;
+  if (tabLabelEl) tabLabelEl.innerText = `${boardName} Saves`;
+
+  container.innerHTML = '<div class="text-center py-6 text-gray-500 flex items-center justify-center gap-2"><i data-lucide="loader-2" class="w-4 h-4 animate-spin text-cyan-400"></i> Loading board saves...</div>';
+  if (window.lucide) lucide.createIcons();
+
+  try {
+    const res = await fetch(`/api/saves?boardId=${encodeURIComponent(boardId)}`, {
+      headers: getAuthHeaders(false)
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const saves = data.saves || [];
+
+    if (countEl) countEl.innerText = `${saves.length} save${saves.length === 1 ? '' : 's'}`;
+
+    if (saves.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-8 bg-gray-950/60 rounded-xl border border-dashed border-gray-800 text-gray-400">
+          <i data-lucide="layers" class="w-8 h-8 text-cyan-500/40 mx-auto mb-2"></i>
+          <p class="font-semibold text-gray-300">No isolated saves for this board yet</p>
+          <p class="text-[11px] text-gray-500 mt-1">Click <strong>Save Board (Ctrl+S)</strong> above to create a version snapshot.</p>
+        </div>
+      `;
+      if (window.lucide) lucide.createIcons();
+      return;
+    }
+
+    container.innerHTML = '';
+    saves.forEach((s) => {
+      const card = document.createElement('div');
+      card.className = 'bg-gray-900/80 hover:bg-gray-900 border border-gray-800 hover:border-cyan-700/60 rounded-xl p-3 flex items-center justify-between gap-3 transition shadow-sm';
+      card.innerHTML = `
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-white text-xs truncate">${s.name || 'Board Save'}</span>
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
+              ${s.boardId || boardId}
+            </span>
+            <span class="text-[10px] text-gray-400 bg-gray-800/80 px-1.5 py-0.5 rounded border border-gray-700">
+              ${s.author || 'User'}
+            </span>
+          </div>
+          <div class="flex items-center gap-3 text-[11px] text-gray-400 mt-1">
+            <span>🕒 ${s.displayTime || s.timestamp || 'Recent'}</span>
+            <span>•</span>
+            <span class="text-amber-400 font-semibold">${s.nodeCount || 0} Events</span>
+            <span>•</span>
+            <span class="text-purple-400 font-semibold">${s.dialogueCount || 0} Dialogues</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button class="btn-restore-board-ver bg-cyan-700 hover:bg-cyan-600 text-white font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 shadow active:scale-95 transition" title="Restore ONLY this board">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Restore Board
+          </button>
+        </div>
+      `;
+
+      card.querySelector('.btn-restore-board-ver').onclick = () => restoreBoardVersion(s.id, s.name);
+      container.appendChild(card);
+    });
+
+    if (window.lucide) lucide.createIcons();
+  } catch (err) {
+    container.innerHTML = `<div class="text-center py-6 text-red-400 text-xs">Failed to load board revisions: ${err.message}</div>`;
+  }
+}
+
+async function restoreBoardVersion(saveId, saveName = 'Board Save') {
+  const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+  const boardName = (typeof getCurrentBoardDisplayName === 'function') ? getCurrentBoardDisplayName() : 'Active Board';
+
+  const confirmed = confirm(
+    `Restore "${saveName}" for ${boardName}?\n\n` +
+    `• ONLY ${boardName} events and dialogues will be restored.\n` +
+    `• ALL other boards are 100% safe and untouched.\n\n` +
+    `Proceed?`
+  );
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch('/api/restore-board', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ boardId, saveId })
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      showToast(err.message || 'Failed to restore board save.', 'error');
+      return;
+    }
+    const data = await res.json();
+    const restoredNodes = data.nodes || [];
+    const restoredDialogues = data.dialogues || [];
+
+    // Replace active board's slice in appData
+    appData.nodes = (appData.nodes || []).filter(n => !nodeBelongsToBoardId(n, boardId)).concat(restoredNodes);
+    const restoredNodeIds = new Set(restoredNodes.map(n => n.id));
+    appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoardId(d, boardId, restoredNodeIds)).concat(restoredDialogues);
+
+    normalizeAllProjectData();
+    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    updateStats();
+    renderApp();
+    fitWholeSchematic();
+    closeModal('modal-save-manager');
+    showToast(`Restored ${boardName} (${restoredNodes.length} events). Other boards kept intact!`, 'success');
+  } catch (e) {
+    showToast(`Error restoring board: ${e.message}`, 'error');
+  }
 }
 
 async function renderSavedVersionsList() {
@@ -2480,5 +2658,12 @@ window.restoreCandidate = restoreCandidate;
 window.downloadCandidateJson = downloadCandidateJson;
 window.deleteLocalCandidate = deleteLocalCandidate;
 window.archiveLocalSnapshot = archiveLocalSnapshot;
+window.nodeBelongsToBoardId = nodeBelongsToBoardId;
+window.dialogueBelongsToBoardId = dialogueBelongsToBoardId;
+window.getActiveBoardPartitionPayload = getActiveBoardPartitionPayload;
+window.syncBoardFromServer = syncBoardFromServer;
+window.renderBoardSavedVersionsList = renderBoardSavedVersionsList;
+window.restoreBoardVersion = restoreBoardVersion;
+window.openSaveManagerModal = openSaveManagerModal;
 
 

@@ -166,6 +166,12 @@ def sync_project_data_to_github(app_data, author_name):
 def _sync_json_file_to_github(repo_filename, payload_obj, commit_message):
     _put_github_file(repo_filename, payload_obj, commit_message)
 
+def sync_board_to_github(board_id, board_payload, author_name="Editor"):
+    if not GITHUB_PAT or not board_payload:
+        return
+    sanitized = str(board_id).replace(':', '__').replace('/', '__').replace('\\', '__')
+    _sync_json_file_to_github(f"boards/{sanitized}.json", board_payload, f"Save board {board_id} by {author_name}")
+
 def sync_users_to_github(users_list=None):
     """
     Asynchronously syncs corporate @n-ix.com users in users.json to GitHub
@@ -223,7 +229,10 @@ def pull_latest_from_github_on_startup():
                     remote_nodes = len(remote_json.get('nodes', []))
                     remote_mod = remote_json.get('_lastModified', '')
                     should_take = False
-                    if remote_mod and best_mod:
+                    if remote_nodes < best_nodes:
+                        # Safety safeguard: Never overwrite local data with a remote that has fewer event nodes
+                        should_take = False
+                    elif remote_mod and best_mod:
                         should_take = (remote_mod > best_mod) or (remote_mod == best_mod and remote_nodes > best_nodes)
                     elif remote_mod and not best_mod:
                         should_take = True

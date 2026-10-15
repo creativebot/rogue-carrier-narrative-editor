@@ -1,5 +1,760 @@
 [
   {
+    "Name": "EVENT_node_deck_1",
+    "RowName": "EVENT_node_deck_1",
+    "EventID": "node_deck_1",
+    "EventTitle": "Hangar Deck Fire Drill",
+    "EventCategory": "DeckPool",
+    "EventType": "Carrier",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 100.0,
+      "Y": 220.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🛡️ Defense +1",
+          "🧠 Knowledge +150"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_defense",
+            "Name": "Defense",
+            "Amount": "+1",
+            "Category": "Specialization",
+            "Icon": "🛡️"
+          },
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+150",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791297604320",
+    "RowName": "EVENT_node_1791297604320",
+    "EventID": "node_1791297604320",
+    "EventTitle": "Derelict Beacon (Refurbished AI Core)",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 80.0,
+      "Y": 243.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_gen_followup",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_gen_followup",
+    "RowName": "EVENT_node_gen_followup",
+    "EventID": "node_gen_followup",
+    "EventTitle": "Ancient AI Core",
+    "EventCategory": "GenericPool",
+    "EventType": "Ship",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 80.0,
+      "Y": 1193.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +300",
+          "🔧 Engineering +1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+300",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_engineering",
+            "Name": "Engineering",
+            "Amount": "+1",
+            "Category": "Specialization",
+            "Icon": "🔧"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791996044351",
+    "RowName": "EVENT_node_1791996044351",
+    "EventID": "node_1791996044351",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 110.0,
+      "Y": 1752.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791996222092",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🔬 Science Spec +20-30",
+          "📦 Stem Tissue x20-30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "spec_science",
+            "Name": "Science Spec",
+            "Amount": "+20-30",
+            "Category": "Specialization",
+            "Icon": "🔬"
+          },
+          {
+            "ResourceID": "medres_03",
+            "Name": "Stem Tissue",
+            "Amount": "20-30",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791996623956",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_05",
+                "ItemName": "Composite Enzymes",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🔬 Science Spec +20-30",
+          "🔑 Resistance to diseases x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "spec_science",
+            "Name": "Science Spec",
+            "Amount": "+20-30",
+            "Category": "Specialization",
+            "Icon": "🔬"
+          },
+          {
+            "ResourceID": "criteria_resistance_to_diseases",
+            "Name": "Resistance to diseases",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791996954490",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_02",
+                "ItemName": "Biochem Compounds",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🔑 Temporal immunity x1",
+          "📦 Med Gel x5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_temporal_immunity",
+            "Name": "Temporal immunity",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          },
+          {
+            "ResourceID": "medres_01",
+            "Name": "Med Gel",
+            "Amount": "5",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792001314991",
+    "RowName": "EVENT_node_1792001314991",
+    "EventID": "node_1792001314991",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 110.0,
+      "Y": 2712.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792001422239",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_03",
+                "ItemName": "Chemical Fuel",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Modular Container x20-30",
+          "🔑 any number of items x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "questres_01",
+            "Name": "Modular Container",
+            "Amount": "20-30",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "criteria_any_number_of_items",
+            "Name": "any number of items",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792001576997",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "extractor_01",
+                "ItemName": "Basic Extractor",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Alloyed Metal x10",
+          "📦 Thermoplastic x10",
+          "📦 Metal Constructions x10",
+          "📦 Conductive Materials x10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "processing_02",
+            "Name": "Alloyed Metal",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "processing_03",
+            "Name": "Thermoplastic",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "processing_01",
+            "Name": "Metal Constructions",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "processing_04",
+            "Name": "Conductive Materials",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792001924527",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Electronic Components x1",
+          "📦 Microcontrollers x1",
+          "📦 Battery Block x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "electronics_05",
+            "Name": "Electronic Components",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "electronics_02",
+            "Name": "Microcontrollers",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "machinery_05",
+            "Name": "Battery Block",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792002182916",
+    "RowName": "EVENT_node_1792002182916",
+    "EventID": "node_1792002182916",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 4,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 110.0,
+      "Y": 3589.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792005168321",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792005183045",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_03",
+                "ItemName": "Chemical Fuel",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792005228466",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "processing_02",
+                "ItemName": "Alloyed Metal",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "processing_01",
+                "ItemName": "Metal Constructions",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "😊 Morale -1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "-1",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
     "Name": "EVENT_node_e0",
     "RowName": "EVENT_node_e0",
     "EventID": "node_e0",
@@ -198,7 +953,7 @@
     "Name": "EVENT_node_e1",
     "RowName": "EVENT_node_e1",
     "EventID": "node_e1",
-    "EventTitle": "Escape Pod Signal",
+    "EventTitle": "The Moment After the End",
     "EventCategory": "KeyChain",
     "EventType": "World",
     "PoolType": "Timeline",
@@ -213,7 +968,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": -73.0,
+      "X": -606.0,
       "Y": 1080.0
     },
     "Actions": [
@@ -357,7 +1112,7 @@
     "Name": "EVENT_node_e1b",
     "RowName": "EVENT_node_e1b",
     "EventID": "node_e1b",
-    "EventTitle": "Smoldering Crater",
+    "EventTitle": "The Moment After the End",
     "EventCategory": "KeyChain",
     "EventType": "World",
     "PoolType": "Timeline",
@@ -372,7 +1127,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 2055.0,
+      "X": 2664.0,
       "Y": 1080.0
     },
     "Actions": [
@@ -444,7 +1199,7 @@
           }
         ],
         "ConsequenceText": "",
-        "NextEventID": "node_e2b",
+        "NextEventID": "node_1791706248386",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -521,7 +1276,7 @@
           }
         ],
         "ConsequenceText": "",
-        "NextEventID": "",
+        "NextEventID": "node_1791705255524",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -533,7 +1288,7 @@
     "Name": "EVENT_node_e2a",
     "RowName": "EVENT_node_e2a",
     "EventID": "node_e2a",
-    "EventTitle": "Predator Ambush",
+    "EventTitle": "The Moment After the End",
     "EventCategory": "KeyChain",
     "EventType": "World",
     "PoolType": "Timeline",
@@ -548,7 +1303,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": -7.0,
+      "X": -1091.0,
       "Y": 2070.0
     },
     "Actions": [
@@ -558,117 +1313,78 @@
         "Tooltip": "",
         "Requirements": [
           {
-            "ClauseID": "c_e2a_1",
+            "ClauseID": "clause_1791673340691",
             "IsAlternativeGroup": false,
             "Alternatives": [
               {
-                "ItemID": "machinery_02",
-                "ItemName": "Portable Force Shield",
-                "Amount": 1,
+                "ItemID": "machinery_01",
+                "ItemName": "Propulsion Kit",
+                "Amount": 3,
                 "Category": "Item",
-                "Icon": "icons/T_ForceField.png"
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791673347965",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_03",
+                "ItemName": "Sensors Array",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
               }
             ]
           }
         ],
         "Rewards": [
-          "🧠 Knowledge +400"
+          "📦 Chromium x40",
+          "📦 Gold x15",
+          "📦 Lithium x20",
+          "📦 Titanium x40",
+          "🧠 Knowledge +200"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
+            "ResourceID": "res_06_Chrom",
+            "Name": "Chromium",
+            "Amount": "40",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_01_Gold",
+            "Name": "Gold",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_16_Lithium",
+            "Name": "Lithium",
+            "Amount": "20",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_08_Titan",
+            "Name": "Titanium",
+            "Amount": "40",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_knowledge",
             "Name": "Knowledge",
-            "Amount": "+400",
+            "Amount": "+200",
             "Category": "Stat",
             "Icon": "🧠"
           }
         ],
         "ConsequenceText": "",
         "NextEventID": "node_e3a",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_e2b",
-    "RowName": "EVENT_node_e2b",
-    "EventID": "node_e2b",
-    "EventTitle": "Lifeboat Reunion",
-    "EventCategory": "KeyChain",
-    "EventType": "World",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 2,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 1346.0,
-      "Y": 2070.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "c_e2b_1_1",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "questres_03",
-                "ItemName": "Tricorder",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "icons/T_Tricoder.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "c_e2b_1_2",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "medres_01",
-                "ItemName": "Med Kit",
-                "Amount": 2,
-                "Category": "Item",
-                "Icon": "icons/T_Med-Kit.png"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +150",
-          "💀 Entropy +10"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+150",
-            "Category": "Stat",
-            "Icon": "🧠"
-          },
-          {
-            "ResourceID": "res_entropy",
-            "Name": "Entropy",
-            "Amount": "+10",
-            "Category": "Stat",
-            "Icon": "💀"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "node_e3b",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -680,38 +1396,192 @@
         "Tooltip": "",
         "Requirements": [
           {
-            "ClauseID": "c_e2b_2_1",
+            "ClauseID": "clause_1791673357630",
             "IsAlternativeGroup": false,
             "Alternatives": [
               {
-                "ItemID": "questres_03",
-                "ItemName": "Tricorder",
-                "Amount": 1,
+                "ItemID": "consumer_02",
+                "ItemName": "Portable Force Shield",
+                "Amount": 5,
                 "Category": "Item",
-                "Icon": "icons/T_Tricoder.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "c_e2b_2_2",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "machinery_01",
-                "ItemName": "Worker Drone",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "icons/T_WorkerDrone.png"
+                "Icon": "📦"
               }
             ]
           }
         ],
         "Rewards": [
+          "📦 Prebiotic Matter x250-300",
+          "📦 Eldritium x10-15",
+          "📦 Gold x10-15",
+          "🧠 Knowledge +400"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_38_Prebiotic",
+            "Name": "Prebiotic Matter",
+            "Amount": "250-300",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "10-15",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_01_Gold",
+            "Name": "Gold",
+            "Amount": "10-15",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+400",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_e2b",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_e2b",
+    "RowName": "EVENT_node_e2b",
+    "EventID": "node_e2b",
+    "EventTitle": "The Moment After the End",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 111.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791704591715",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_02",
+                "ItemName": "Med Kit",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791704597486",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_operations",
+                "ItemName": "Operations Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "⚙️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "⚙️ Operations Spec +5",
+          "🧠 Knowledge +400"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "spec_operations",
+            "Name": "Operations Spec",
+            "Amount": "+5",
+            "Category": "Specialization",
+            "Icon": "⚙️"
+          },
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+400",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791704609876",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "extractor_02",
+                "ItemName": "D.A.R.T.",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791704618396",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_03",
+                "ItemName": "Comm-Link",
+                "Amount": 4,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "📦 Stem Tissue x8-16",
           "🧠 Knowledge +300"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
+            "ResourceID": "medres_03",
+            "Name": "Stem Tissue",
+            "Amount": "8-16",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_knowledge",
             "Name": "Knowledge",
             "Amount": "+300",
             "Category": "Stat",
@@ -719,7 +1589,7 @@
           }
         ],
         "ConsequenceText": "",
-        "NextEventID": "node_e3b",
+        "NextEventID": "",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -731,7 +1601,7 @@
     "Name": "EVENT_node_e3a",
     "RowName": "EVENT_node_e3a",
     "EventID": "node_e3a",
-    "EventTitle": "Submerged Orange Box",
+    "EventTitle": "The Moment After the End",
     "EventCategory": "KeyChain",
     "EventType": "World",
     "PoolType": "Timeline",
@@ -746,7 +1616,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 88.0,
+      "X": -2095.0,
       "Y": 3060.0
     },
     "Actions": [
@@ -756,37 +1626,130 @@
         "Tooltip": "",
         "Requirements": [
           {
-            "ClauseID": "c_e3a_1",
+            "ClauseID": "clause_1791704935868",
             "IsAlternativeGroup": false,
             "Alternatives": [
               {
-                "ItemID": "ammunition_03",
-                "ItemName": "Explosive Charges",
-                "Amount": 2,
+                "ItemID": "processing_05",
+                "ItemName": "Nano Parts",
+                "Amount": 3,
                 "Category": "Item",
-                "Icon": "icons/T_ExplosiveCharges.png"
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791704941985",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_01",
+                "ItemName": "Modular Container",
+                "Amount": 6,
+                "Category": "Item",
+                "Icon": "📦"
               }
             ]
           }
         ],
         "Rewards": [
-          "🧠 Knowledge +500",
-          "😊 Morale +15"
+          "📦 Comm-Link x4",
+          "📦 Stem Tissue x8-16",
+          "🧠 Knowledge +400"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+500",
-            "Category": "Stat",
-            "Icon": "🧠"
+            "ResourceID": "questres_03",
+            "Name": "Comm-Link",
+            "Amount": "4",
+            "Category": "Item",
+            "Icon": "📦"
           },
           {
-            "ResourceID": "res_morale",
-            "Name": "Morale",
-            "Amount": "+15",
+            "ResourceID": "medres_03",
+            "Name": "Stem Tissue",
+            "Amount": "8-16",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+400",
             "Category": "Stat",
-            "Icon": "😊"
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791704949464",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791704959408",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_04",
+                "ItemName": "Basic Scanner",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791704967548",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "extractor_02",
+                "ItemName": "D.A.R.T.",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "📦 Stem Tissue x8-16",
+          "🧠 Knowledge +300"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "medres_03",
+            "Name": "Stem Tissue",
+            "Amount": "8-16",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+300",
+            "Category": "Stat",
+            "Icon": "🧠"
           }
         ],
         "ConsequenceText": "",
@@ -799,17 +1762,17 @@
     ]
   },
   {
-    "Name": "EVENT_node_e3b",
-    "RowName": "EVENT_node_e3b",
-    "EventID": "node_e3b",
-    "EventTitle": "Bioweapon Resolution",
+    "Name": "EVENT_node_1791705255524",
+    "RowName": "EVENT_node_1791705255524",
+    "EventID": "node_1791705255524",
+    "EventTitle": "The Moment After the End",
     "EventCategory": "KeyChain",
     "EventType": "World",
     "PoolType": "Timeline",
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 3,
+    "FloorIndex": 2,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -817,79 +1780,8 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 1080.0,
-      "Y": 3060.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "c_e3b_1",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "medres_01",
-                "ItemName": "Med Kit",
-                "Amount": 5,
-                "Category": "Item",
-                "Icon": "icons/T_Med-Kit.png"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "👨‍🚀 Crew Count +3",
-          "🧠 Knowledge +600"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_crew_count",
-            "Name": "Crew Count",
-            "Amount": "+3",
-            "Category": "Specialization",
-            "Icon": "👨‍🚀"
-          },
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+600",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_1791297604320",
-    "RowName": "EVENT_node_1791297604320",
-    "EventID": "node_1791297604320",
-    "EventTitle": "Derelict Beacon (Refurbished AI Core)",
-    "EventCategory": "GenericPool",
-    "EventType": "World",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 0,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 80.0,
-      "Y": 243.0
+      "X": 5462.0,
+      "Y": 2070.0
     },
     "Actions": [
       {
@@ -910,7 +1802,1573 @@
           }
         ],
         "ConsequenceText": "",
-        "NextEventID": "node_gen_followup",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791706248386",
+    "RowName": "EVENT_node_1791706248386",
+    "EventID": "node_1791706248386",
+    "EventTitle": "The Moment After the End",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2541.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791717900687",
+    "RowName": "EVENT_node_1791717900687",
+    "EventID": "node_1791717900687",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1662.0,
+      "Y": 90.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791832697330",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_04",
+                "ItemName": "Nanomaterials",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791832785088",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_03",
+                "ItemName": "Thermoplastic",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +150"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+150",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791719220382",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791832831515",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesized_01",
+                "ItemName": "Biopolymer",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791832834521",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_05",
+                "ItemName": "Electronic Components",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791831814739",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791832837902",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesized_01",
+                "ItemName": "Biopolymer",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791832842006",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_05",
+                "ItemName": "Electronic Components",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791832846072",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_orange_box",
+                "ItemName": "Orange Box",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791904903648",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791719038295",
+    "RowName": "EVENT_node_1791719038295",
+    "EventID": "node_1791719038295",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": -1270.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791889437308",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791889455580",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +150",
+          "📦 Eldritium x4"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+150",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "4",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791889634537",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_04",
+                "ItemName": "Conductive Materials",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791889641065",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_03",
+                "ItemName": "Sensors Array",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Refinery Intelligence x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_refinery_intelligence",
+            "Name": "Refinery Intelligence",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791889479769",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_refinery_intelligence",
+                "ItemName": "Refinery Intelligence",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791889572558",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_02",
+                "ItemName": "Alloyed Metal",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791889601223",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_02",
+                "ItemName": "Microcontrollers",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791889615726",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +200",
+          "📦 Eldritium x8"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+200",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "8",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791719220382",
+    "RowName": "EVENT_node_1791719220382",
+    "EventID": "node_1791719220382",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": -2.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791835532804",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "stat_crew",
+                "ItemName": "Crew Members",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "👨‍🚀"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791835562393",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791835569419",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_05",
+                "ItemName": "Battery Block",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791835604673",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_04",
+                "ItemName": "Basic Scanner",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Station Intelligence x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_station_intelligence",
+            "Name": "Station Intelligence",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791835450686",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_station_intelligence",
+                "ItemName": "Station Intelligence",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791831463894",
+    "RowName": "EVENT_node_1791831463894",
+    "EventID": "node_1791831463894",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1165.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791835255921",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791835296355",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "scineceres_01",
+                "ItemName": "Multi-Tool",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "📦 Tungsten x20-30",
+          "📦 Lithium x20-30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_10_Tung",
+            "Name": "Tungsten",
+            "Amount": "20-30",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_16_Lithium",
+            "Name": "Lithium",
+            "Amount": "20-30",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791835265978",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791835322751",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791832874715",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791831814739",
+    "RowName": "EVENT_node_1791831814739",
+    "EventID": "node_1791831814739",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2234.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Inner Explosion x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_inner_explosion",
+            "Name": "Inner Explosion",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791905801725",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791834323979",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_orange_box",
+                "ItemName": "Orange Box",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Inner Explosion x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_inner_explosion",
+            "Name": "Inner Explosion",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791905801725",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791832874715",
+    "RowName": "EVENT_node_1791832874715",
+    "EventID": "node_1791832874715",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 54.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833234697",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791833262867",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_05",
+                "ItemName": "Battery Block",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833477818",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_03",
+                "ItemName": "Comm-Link",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791833485256",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_03",
+                "ItemName": "Tech Voxel",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833504172",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_01",
+                "ItemName": "AI Core",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791834582822",
+    "RowName": "EVENT_node_1791834582822",
+    "EventID": "node_1791834582822",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 3358.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791988044467",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Nasobi TC Badge x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_nasobi_tc_badge",
+            "Name": "Nasobi TC Badge",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791988044467",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791904903648",
+    "RowName": "EVENT_node_1791904903648",
+    "EventID": "node_1791904903648",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 4402.0,
+      "Y": 1080.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "📜 Blueprints +20-30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_blueprints",
+            "Name": "Blueprints",
+            "Amount": "+20-30",
+            "Category": "Stat",
+            "Icon": "📜"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791988044467",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "🔑 Jammer Found x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_jammer_found",
+            "Name": "Jammer Found",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791988044467",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791905801725",
+    "RowName": "EVENT_node_1791905801725",
+    "EventID": "node_1791905801725",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2952.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791988044467",
+    "RowName": "EVENT_node_1791988044467",
+    "EventID": "node_1791988044467",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 4074.0,
+      "Y": 2070.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791994454605",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_nasobi_tc_badge",
+                "ItemName": "Nasobi TC Badge",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791994472553",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_jammer_found",
+                "ItemName": "Jammer Found",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791921021620",
+    "RowName": "EVENT_node_1791921021620",
+    "EventID": "node_1791921021620",
+    "EventTitle": "Too Many Variables",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "timeline_1",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1534.0,
+      "Y": 90.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1791921021620",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1791921030715",
+    "RowName": "EVENT_node_1791921030715",
+    "EventID": "node_1791921030715",
+    "EventTitle": "Too Many Variables",
+    "EventCategory": "KeyChain",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "timeline_1",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1426.0,
+      "Y": 1540.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -1037,266 +3495,6 @@
             "Amount": "+20",
             "Category": "Stat",
             "Icon": "😊"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_gen_followup",
-    "RowName": "EVENT_node_gen_followup",
-    "EventID": "node_gen_followup",
-    "EventTitle": "Ancient AI Core",
-    "EventCategory": "GenericPool",
-    "EventType": "Ship",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 1,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 80.0,
-      "Y": 1193.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🧠 Knowledge +300",
-          "🔧 Engineering +1"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+300",
-            "Category": "Stat",
-            "Icon": "🧠"
-          },
-          {
-            "ResourceID": "res_engineering",
-            "Name": "Engineering",
-            "Amount": "+1",
-            "Category": "Specialization",
-            "Icon": "🔧"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_deck_1",
-    "RowName": "EVENT_node_deck_1",
-    "EventID": "node_deck_1",
-    "EventTitle": "Hangar Deck Fire Drill",
-    "EventCategory": "DeckPool",
-    "EventType": "Carrier",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 0,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 100.0,
-      "Y": 220.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🛡️ Defense +1",
-          "🧠 Knowledge +150"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_defense",
-            "Name": "Defense",
-            "Amount": "+1",
-            "Category": "Specialization",
-            "Icon": "🛡️"
-          },
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+150",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_1791469920243",
-    "RowName": "EVENT_node_1791469920243",
-    "EventID": "node_1791469920243",
-    "EventTitle": "New Event Block",
-    "EventCategory": "KeyChain",
-    "EventType": "World",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 1,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 3148.0,
-      "Y": 1080.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 1,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 2,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_1791471563090",
-    "RowName": "EVENT_node_1791471563090",
-    "EventID": "node_1791471563090",
-    "EventTitle": "New Event Block",
-    "EventCategory": "KeyChain",
-    "EventType": "World",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 0,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 3810.0,
-      "Y": 90.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
           }
         ],
         "ConsequenceText": "",

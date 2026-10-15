@@ -9,7 +9,26 @@
     "TextColor": "#713f12",
     "Icon": "👨‍✈️",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -22,7 +41,26 @@
     "TextColor": "#3730a3",
     "Icon": "🤖",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -35,7 +73,26 @@
     "TextColor": "#166534",
     "Icon": "📻",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -48,7 +105,26 @@
     "TextColor": "#9a3412",
     "Icon": "🔧",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -61,7 +137,26 @@
     "TextColor": "#6b21a8",
     "Icon": "🔬",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -74,7 +169,26 @@
     "TextColor": "#991b1b",
     "Icon": "🎯",
     "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   },
   {
@@ -87,33 +201,26 @@
     "TextColor": "#1f2937",
     "Icon": "👤",
     "VariationIDs": [
-      "var_v1"
-    ]
-  },
-  {
-    "Name": "CHAR_hinemosyne",
-    "RowName": "CHAR_hinemosyne",
-    "CharacterID": "hinemosyne",
-    "CharacterName": "",
-    "Role": "",
-    "Color": "#f3f4f6",
-    "TextColor": "#1f2937",
-    "Icon": "👤",
-    "VariationIDs": [
-      "var_v1"
-    ]
-  },
-  {
-    "Name": "CHAR_iseeitin_your_eyes",
-    "RowName": "CHAR_iseeitin_your_eyes",
-    "CharacterID": "iseeitin_your_eyes",
-    "CharacterName": "",
-    "Role": "",
-    "Color": "#f3f4f6",
-    "TextColor": "#1f2937",
-    "Icon": "👤",
-    "VariationIDs": [
-      "var_v1"
+      "var_v1",
+      "var_v2",
+      "var_v3",
+      "var_v4",
+      "var_v5",
+      "var_v6",
+      "var_v7",
+      "var_v8",
+      "var_v9",
+      "var_v10",
+      "var_t2_v1",
+      "var_t2_v2",
+      "var_t2_v3",
+      "var_t2_v4",
+      "var_t2_v5",
+      "var_t2_v6",
+      "var_t2_v7",
+      "var_t2_v8",
+      "var_t2_v9",
+      "var_t2_v10"
     ]
   }
 ]

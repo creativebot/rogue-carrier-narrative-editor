@@ -75,6 +75,14 @@ from backend.locks import (
     get_board_revisions,
     record_board_save,
 )
+from backend.board_storage import (
+    save_board_slice,
+    load_board_slice,
+    list_board_saves,
+    restore_board_save,
+    reassemble_full_project,
+    save_shared_meta,
+)
 class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
@@ -218,8 +226,23 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     return
 
                 author_name = user.get('name') or user.get('email') or 'Editor User'
-                result = merge_and_save_board(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version)
+                result = save_board_slice(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version)
                 self.send_json(200, result)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Restore Single Board from History
+        elif self.path == '/api/restore-board':
+            try:
+                body = self.read_json_body()
+                board_id = body.get('boardId')
+                save_id = body.get('saveId')
+                user = self.get_auth_user()
+                author_name = (user.get('name') or user.get('email')) if user else 'Editor User'
+                result = restore_board_save(board_id, save_id, author_name)
+                code = 200 if result.get('status') == 'success' else 400
+                self.send_json(code, result)
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
             return
@@ -312,14 +335,28 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
 
                 author_name = user.get('name') or user.get('email') or 'Editor User'
 
-                # Save main active project-data.json
-                project_path = os.path.join(DIRECTORY, 'project-data.json')
-                with open(project_path, 'w', encoding='utf-8') as f:
-                    json.dump(app_data, f, indent=2, ensure_ascii=False)
+                # If single board passed to /api/save, route safely to save_board_slice
+                if isinstance(app_data, dict) and app_data.get('boardId'):
+                    b_res = save_board_slice(
+                        app_data.get('boardId'),
+                        app_data.get('nodes', []),
+                        app_data.get('dialogues', []),
+                        author_name,
+                        timelines=app_data.get('timelines'),
+                        variations=app_data.get('variations'),
+                        stage_layout_version=app_data.get('stageLayoutVersion')
+                    )
+                    self.send_json(200, b_res)
+                    return
 
-                # Generate Unreal Engine 5 compatible DataTable JSONs
-                unreal_data = transform_to_unreal_schema(app_data)
-                save_unreal_artifacts(unreal_data)
+                # If full payload, update shared metadata & reassemble safely
+                if isinstance(app_data, dict):
+                    save_shared_meta(app_data, author_name)
+                reassemble_full_project()
+
+                project_path = os.path.join(DIRECTORY, 'project-data.json')
+                with open(project_path, 'r', encoding='utf-8') as f:
+                    app_data = json.load(f)
 
                 ev_count, diag_count = count_board_contents(app_data)
 
@@ -1178,10 +1215,30 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 self.send_json(404, {"status": "error", "message": "project-data.json not found"})
 
+        # 1b. Single Board Load (/api/board?id=...)
+        elif path == '/api/board':
+            try:
+                query = urllib.parse.parse_qs(parsed.query)
+                board_id = query.get('id', [''])[0]
+                if not board_id:
+                    self.send_json(400, {"status": "error", "message": "Missing id parameter"})
+                    return
+                slice_data = load_board_slice(board_id)
+                self.send_json(200, slice_data)
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
         # 2. Named Saves List
         elif path == '/api/saves':
             try:
                 query = urllib.parse.parse_qs(parsed.query)
+                board_id = query.get('boardId', [None])[0] or query.get('board_id', [None])[0]
+                if board_id:
+                    b_saves = list_board_saves(board_id)
+                    self.send_json(200, {"status": "success", "boardId": board_id, "saves": b_saves})
+                    return
+
                 category = query.get('category', ['KeyChain'])[0]
                 variation_id = query.get('variationId', ['var_v1'])[0]
                 saves = []

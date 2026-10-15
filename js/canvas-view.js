@@ -412,15 +412,23 @@ function setupToolbarEvents() {
         activeTimelineId = vObj.timelineId;
       }
       saveActiveWorkspacePosition();
-      renderApp();
-      if (typeof syncActiveBoardLock === 'function') {
-        syncActiveBoardLock();
-      }
-      if (currentAppViewMode !== 'mobile-stage') {
-        const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool';
-        if (!isPool) {
-          setTimeout(() => fitWholeSchematic(), 50);
+      const afterBoardUpdate = () => {
+        renderApp();
+        if (typeof syncActiveBoardLock === 'function') {
+          syncActiveBoardLock();
         }
+        if (currentAppViewMode !== 'mobile-stage') {
+          const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool';
+          if (!isPool) {
+            setTimeout(() => fitWholeSchematic(), 50);
+          }
+        }
+      };
+
+      if (typeof syncBoardFromServer === 'function') {
+        syncBoardFromServer().then(afterBoardUpdate);
+      } else {
+        afterBoardUpdate();
       }
     });
   }
@@ -595,9 +603,17 @@ function setCategoryFilter(filter) {
   activeCategoryFilter = filter;
   syncCategoryFilterButtonsUI(filter);
   saveActiveWorkspacePosition();
-  renderApp();
-  if (typeof syncActiveBoardLock === 'function') {
-    syncActiveBoardLock();
+  const afterCategoryUpdate = () => {
+    renderApp();
+    if (typeof syncActiveBoardLock === 'function') {
+      syncActiveBoardLock();
+    }
+  };
+
+  if (typeof syncBoardFromServer === 'function') {
+    syncBoardFromServer().then(afterCategoryUpdate);
+  } else {
+    afterCategoryUpdate();
   }
 }
 
