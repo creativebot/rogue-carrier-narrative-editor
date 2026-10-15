@@ -968,7 +968,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2541,
+        "x": 1964,
         "y": 3290
       },
       "actions": [
@@ -1966,8 +1966,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3649,
-        "y": 3388
+        "x": 3653,
+        "y": 3479
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T12:38:09.888613"
+  "_lastModified": "2026-10-15T12:38:24.231508"
 }
