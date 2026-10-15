@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T12:38:03.260400",
+  "_lastModified": "2026-10-15T12:38:09.903950",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -4205,8 +4205,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4879,
-        "y": 3013
+        "x": 4861,
+        "y": 3002
       },
       "variationId": "var_v1",
       "category": "KeyChain",
