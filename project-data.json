@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T14:52:39.797088",
+  "_lastModified": "2026-10-15T14:52:43.236275",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -4151,12 +4151,6 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "Thank you, M."
-        },
-        {
-          "id": "l_1792075959335",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
         },
         {
           "id": "l_imp_1791712222490_2",
