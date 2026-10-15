@@ -200,7 +200,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1270,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -417,7 +417,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -568,7 +568,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1165,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -695,7 +695,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2234,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -800,7 +800,7 @@
       "inactionThreat": null,
       "position": {
         "x": 54,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -935,7 +935,7 @@
       "inactionThreat": null,
       "position": {
         "x": 3358,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -1001,7 +1001,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4402,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -1074,7 +1074,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2952,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1127,7 +1127,7 @@
       "inactionThreat": null,
       "position": {
         "x": 4074,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1242,5 +1242,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T09:59:49.471132"
+  "_lastModified": "2026-10-15T12:33:35.035226"
 }
