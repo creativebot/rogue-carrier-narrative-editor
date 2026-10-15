@@ -1527,7 +1527,7 @@ function renderBoardLockBanner(mode) {
   banner.classList.add('flex');
 
   if (mode === 'owned') {
-    banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-[90] flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl border border-emerald-500/50 bg-emerald-950/95 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
+    banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl border border-emerald-500/50 bg-emerald-950/95 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
     iconEl.innerHTML = `<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>`;
     const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
     const remSec = (currentBoardLock?.remainingSeconds !== undefined) ? currentBoardLock.remainingSeconds : 180;
@@ -1541,7 +1541,7 @@ function renderBoardLockBanner(mode) {
       window.lucide.createIcons({ root: banner });
     }
   } else if (mode === 'locked') {
-    banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-[90] flex items-center gap-3 px-4 py-2 rounded-full shadow-2xl border border-rose-500/60 bg-rose-950/95 text-rose-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
+    banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-4 py-2 rounded-full shadow-2xl border border-rose-500/60 bg-rose-950/95 text-rose-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
     iconEl.innerHTML = `<i data-lucide="lock" class="w-4 h-4 text-rose-400 shrink-0"></i>`;
     const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
     const ownerName = currentBoardLock?.userName || 'another designer';

@@ -254,7 +254,7 @@
   </div>
 
   <!-- Board Reservation Lock Status Banner (Fixed Viewport Overlay) -->
-  <div id="board-lock-banner" class="fixed top-[60px] left-1/2 -translate-x-1/2 z-[90] hidden items-center gap-3 px-4 py-2 rounded-full shadow-2xl border border-emerald-500/50 bg-emerald-950/95 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300">
+  <div id="board-lock-banner" class="fixed top-[60px] left-1/2 -translate-x-1/2 z-30 hidden items-center gap-3 px-4 py-2 rounded-full shadow-2xl border border-emerald-500/50 bg-emerald-950/95 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300">
     <div id="board-lock-icon" class="flex items-center"></div>
     <div id="board-lock-message" class="tracking-wide"></div>
     <div id="board-lock-actions" class="flex items-center gap-2"></div>
@@ -337,110 +337,183 @@
   </div>
 
   <!-- MODAL: Visual Resource, Criteria & Stat Context Picker -->
-  <div id="modal-resource-picker" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
-    <div class="bg-gray-900 border border-amber-500/40 rounded-xl w-full max-w-3xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="bg-gray-950 px-6 py-3.5 border-b border-gray-800 flex justify-between items-center">
-        <h3 class="text-base font-bold text-amber-400 flex items-center gap-2">
-          <i data-lucide="package-search" class="w-5 h-5"></i> Select Criteria, Resource, Item, Building or Stat
-        </h3>
-        <button onclick="closeModal('modal-resource-picker')" class="text-gray-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
+  <!-- MODAL: Visual Resource, Criteria & Stat Context Picker (Redesigned Single-Scroll Layout) -->
+  <div id="modal-resource-picker" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-gray-900 border border-amber-500/50 rounded-2xl w-full max-w-5xl h-[90vh] max-h-[880px] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Top Fixed Header -->
+      <div class="bg-gray-950 px-4 sm:px-6 py-3 border-b border-gray-800 flex justify-between items-center gap-3 shrink-0">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="p-2 bg-amber-500/20 text-amber-400 rounded-xl shrink-0 shadow-inner">
+            <i data-lucide="package-search" class="w-5 h-5"></i>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-sm sm:text-base font-bold text-amber-300 truncate">
+              Select Requirement, Reward or Story Flag
+            </h3>
+            <p id="picker-target-hint" class="text-[11px] text-gray-400 truncate hidden sm:block">
+              Choose an item, building, currency, specialization, or custom story criteria.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <!-- Quantity / Range / Delta Input -->
+          <div class="flex items-center bg-gray-900 border border-amber-500/50 rounded-lg px-2.5 py-1 gap-2 shadow-inner">
+            <label for="picker-amount-input" class="text-[10px] sm:text-xs font-semibold text-gray-400 uppercase tracking-wider shrink-0">
+              Amount / Delta:
+            </label>
+            <input type="text" id="picker-amount-input" 
+                   class="w-24 sm:w-28 bg-gray-950 border border-amber-500/50 focus:border-amber-400 rounded px-2 py-0.5 text-xs text-amber-300 font-bold font-mono text-center focus:outline-none shadow-xs" 
+                   value="10" placeholder="10 or 20-30" title="Specify quantity, delta or range (e.g. 5, +100, -5, or 20-30)">
+          </div>
+
+          <button onclick="closeModal('modal-resource-picker')" class="text-gray-400 hover:text-white p-1.5 rounded-lg hover:bg-gray-800 transition" title="Close (Esc)">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
 
-      <div class="p-4 border-b border-gray-800 bg-gray-950 flex flex-col gap-3 overflow-y-auto max-h-[54vh]">
-        <!-- Story Criteria (Textual Variables / Story Flags) Section -->
-        <div class="bg-fuchsia-950/25 border border-fuchsia-700/50 rounded-xl p-3 space-y-2">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <!-- Top Fixed Filter & Search Navigation Bar -->
+      <div class="px-4 sm:px-6 py-2.5 bg-gray-950/95 border-b border-gray-800 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 shrink-0">
+        <!-- Search Input -->
+        <div class="relative flex-1 min-w-0">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
+          <input type="text" id="picker-search-input" 
+                 class="w-full bg-gray-900 border border-gray-700 focus:border-amber-500 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white focus:outline-none placeholder-gray-500 shadow-inner" 
+                 placeholder="Search criteria, buildings, items, tools, raw ores, currencies..."
+                 oninput="filterPickerResources(this.value)">
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 shrink-0" id="picker-category-tabs">
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('all', this)">
+            <span>🌟 All</span>
+          </button>
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-fuchsia-300 border border-gray-800 hover:border-fuchsia-500/50 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('criteria', this)">
+            <span>🔑 Criteria</span>
+          </button>
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-purple-300 border border-gray-800 hover:border-purple-500/50 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('stat', this)">
+            <span>🧠 Currencies</span>
+          </button>
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-cyan-300 border border-gray-800 hover:border-cyan-500/50 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('specialization', this)">
+            <span>👨‍🚀 Crew</span>
+          </button>
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-emerald-300 border border-gray-800 hover:border-emerald-500/50 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('item', this)">
+            <span>📦 Items &amp; Raw</span>
+          </button>
+          <button type="button" class="picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-amber-300 border border-gray-800 hover:border-amber-500/50 transition flex items-center gap-1 shrink-0" onclick="setPickerCategoryFilter('building', this)">
+            <span>🏛️ Buildings</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Single Unified Scrollable Body (NO DOUBLE SCROLLBARS) -->
+      <div id="picker-scroll-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-5">
+        
+        <!-- Story Criteria Section -->
+        <div id="section-picker-criteria" class="bg-gradient-to-br from-fuchsia-950/40 via-purple-950/20 to-gray-950 border border-fuchsia-700/50 rounded-xl p-3.5 space-y-2.5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
             <div>
-              <div class="text-[11px] font-bold text-fuchsia-300 uppercase tracking-wider flex items-center gap-1.5">
-                <span>🔑 Criteria (Textual Story Variables / Unlocked Flags)</span>
+              <div class="text-xs font-extrabold text-fuchsia-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🔑 Story Criteria (Textual Variables &amp; Flags)</span>
               </div>
-              <p class="text-[10px] text-gray-400 mt-0.5">Grant a textual criteria in an outcome reward (e.g. "Orange Box") and require it later to unlock choices in future events or variations.</p>
+              <p class="text-[11px] text-gray-400 mt-0.5">
+                Grant story criteria in outcomes or require them to unlock narrative choices.
+              </p>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
-              <input type="text" id="picker-criteria-input" class="w-44 bg-gray-900 border border-fuchsia-500/60 focus:border-fuchsia-400 rounded-lg px-2.5 py-1 text-xs text-white font-semibold focus:outline-none" placeholder="e.g. Orange Box" onkeydown="if(event.key==='Enter'){event.preventDefault(); createAndSelectCriteriaFromPicker();}">
-              <button type="button" onclick="createAndSelectCriteriaFromPicker()" class="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold px-3 py-1 rounded-lg text-xs shadow transition active:scale-95 whitespace-nowrap">
+              <input type="text" id="picker-criteria-input" 
+                     class="w-48 sm:w-60 bg-gray-950 border border-fuchsia-500/60 focus:border-fuchsia-400 rounded-lg px-2.5 py-1.5 text-xs text-white font-semibold focus:outline-none placeholder-gray-500 shadow-inner" 
+                     placeholder="e.g. Orange Box" 
+                     onkeydown="if(event.key==='Enter'){event.preventDefault(); createAndSelectCriteriaFromPicker();}">
+              <button type="button" onclick="createAndSelectCriteriaFromPicker()" 
+                      class="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold px-3 py-1.5 rounded-lg text-xs shadow transition active:scale-95 whitespace-nowrap">
                 + Add &amp; Select
               </button>
             </div>
           </div>
-          <div id="picker-criteria-list" class="flex flex-wrap items-center gap-1.5 pt-1">
-            <!-- Dynamically populated Criteria pills from Global Criteria Pool -->
+          <div id="picker-criteria-list" class="flex flex-wrap items-center gap-1.5 pt-1.5 border-t border-fuchsia-900/40">
+            <!-- Dynamically populated Criteria pills -->
           </div>
         </div>
 
-        <!-- Intangible Resources Quick Selector (Knowledge, Morale, Entropy, Crew, Health, Blueprints) -->
-        <div>
-          <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span>Intangible Resources &amp; Currencies (Click to apply with Amount)</span>
-            <div class="flex items-center gap-2">
-              <label class="text-gray-400 text-xs font-normal">Amount / Range / Delta:</label>
-              <input type="text" id="picker-amount-input" class="w-36 bg-gray-900 border border-amber-500/60 rounded px-2.5 py-1 text-xs text-amber-300 font-bold text-center" value="10" placeholder="e.g. 10 or 20-30">
-            </div>
+        <!-- Currencies & Intangibles Section -->
+        <div id="section-picker-currencies" class="space-y-2">
+          <div class="text-xs font-extrabold text-purple-300 uppercase tracking-wider flex items-center justify-between">
+            <span class="flex items-center gap-1.5">
+              <span>🧠 Intangible Currencies &amp; Stats</span>
+            </span>
+            <span class="text-[10px] font-mono text-gray-400 font-normal">Click to apply with Amount above</span>
           </div>
-          <div class="grid grid-cols-6 gap-2" id="picker-intangible-grid">
-            <button type="button" onclick="selectIntangibleStat('Knowledge', '🧠', '#a855f7')" class="bg-purple-950/60 border border-purple-700/60 hover:border-purple-400 p-2 rounded text-center transition">
-              <span class="text-lg block">🧠</span>
-              <span class="font-bold text-[11px] text-purple-200 block">Knowledge</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5" id="picker-intangible-grid">
+            <button type="button" onclick="selectIntangibleStat('Knowledge', '🧠', '#a855f7')" class="bg-purple-950/50 border border-purple-700/60 hover:border-purple-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-purple-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">🧠</span>
+              <span class="font-bold text-xs text-purple-200 block mt-1">Knowledge</span>
+              <span class="text-[10px] text-purple-400/80 font-mono block">Currency</span>
             </button>
-            <button type="button" onclick="selectIntangibleStat('Morale', '😊', '#22c55e')" class="bg-emerald-950/60 border border-emerald-700/60 hover:border-emerald-400 p-2 rounded text-center transition">
-              <span class="text-lg block">😊</span>
-              <span class="font-bold text-[11px] text-emerald-200 block">Morale</span>
+            <button type="button" onclick="selectIntangibleStat('Morale', '😊', '#22c55e')" class="bg-emerald-950/50 border border-emerald-700/60 hover:border-emerald-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-emerald-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">😊</span>
+              <span class="font-bold text-xs text-emerald-200 block mt-1">Morale</span>
+              <span class="text-[10px] text-emerald-400/80 font-mono block">Status</span>
             </button>
-            <button type="button" onclick="selectIntangibleStat('Entropy', '💀', '#ef4444')" class="bg-red-950/60 border border-red-700/60 hover:border-red-400 p-2 rounded text-center transition">
-              <span class="text-lg block">💀</span>
-              <span class="font-bold text-[11px] text-red-200 block">Entropy</span>
+            <button type="button" onclick="selectIntangibleStat('Entropy', '💀', '#ef4444')" class="bg-red-950/50 border border-red-700/60 hover:border-red-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-red-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">💀</span>
+              <span class="font-bold text-xs text-red-200 block mt-1">Entropy</span>
+              <span class="text-[10px] text-red-400/80 font-mono block">Threat / Chaos</span>
             </button>
-            <button type="button" onclick="selectIntangibleStat('Crew Health', '❤️', '#f43f5e')" class="bg-rose-950/60 border border-rose-700/60 hover:border-rose-400 p-2 rounded text-center transition">
-              <span class="text-lg block">❤️</span>
-              <span class="font-bold text-[11px] text-rose-200 block">Crew Health</span>
+            <button type="button" onclick="selectIntangibleStat('Crew Health', '❤️', '#f43f5e')" class="bg-rose-950/50 border border-rose-700/60 hover:border-rose-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-rose-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">❤️</span>
+              <span class="font-bold text-xs text-rose-200 block mt-1">Crew Health</span>
+              <span class="text-[10px] text-rose-400/80 font-mono block">Vital Stat</span>
             </button>
-            <button type="button" onclick="selectIntangibleStat('Crew Count', '👨‍🚀', '#3b82f6')" class="bg-blue-950/60 border border-blue-700/60 hover:border-blue-400 p-2 rounded text-center transition">
-              <span class="text-lg block">👨‍🚀</span>
-              <span class="font-bold text-[11px] text-blue-200 block">Crew Count</span>
+            <button type="button" onclick="selectIntangibleStat('Crew Count', '👨‍🚀', '#3b82f6')" class="bg-blue-950/50 border border-blue-700/60 hover:border-blue-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-blue-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">👨‍🚀</span>
+              <span class="font-bold text-xs text-blue-200 block mt-1">Crew Count</span>
+              <span class="text-[10px] text-blue-400/80 font-mono block">Personnel</span>
             </button>
-            <button type="button" onclick="selectIntangibleStat('Blueprints', '📜', '#eab308')" class="bg-amber-950/60 border border-amber-700/60 hover:border-amber-400 p-2 rounded text-center transition">
-              <span class="text-lg block">📜</span>
-              <span class="font-bold text-[11px] text-amber-200 block">Blueprints</span>
+            <button type="button" onclick="selectIntangibleStat('Blueprints', '📜', '#eab308')" class="bg-amber-950/50 border border-amber-700/60 hover:border-amber-400 p-2.5 sm:p-3 rounded-xl text-center transition hover:shadow-lg hover:shadow-amber-950/50 group active:scale-95">
+              <span class="text-2xl block group-hover:scale-110 transition">📜</span>
+              <span class="font-bold text-xs text-amber-200 block mt-1">Blueprints</span>
+              <span class="text-[10px] text-amber-400/80 font-mono block">Tech Unlock</span>
             </button>
           </div>
         </div>
 
-        <!-- Crew Specializations Selector (Science, Engineering, Operations, Defense) -->
-        <div class="border-t border-gray-800/80 pt-2.5">
-          <div class="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+        <!-- Crew Specializations Section -->
+        <div id="section-picker-specializations" class="space-y-2">
+          <div class="text-xs font-extrabold text-cyan-400 uppercase tracking-wider flex items-center justify-between">
             <span class="flex items-center gap-1.5">
               <i data-lucide="award" class="w-3.5 h-3.5 text-cyan-400"></i>
-              Crew Specializations (Required Crew or Specialization Reward)
+              <span>Crew Specializations</span>
             </span>
-            <span class="text-[10px] text-gray-500 font-normal">Apply using quantity / range above</span>
+            <span class="text-[10px] font-mono text-gray-400 font-normal">Click to apply with Amount above</span>
           </div>
-          <div class="grid grid-cols-4 gap-2" id="picker-specializations-grid">
-            <button type="button" onclick="selectCrewSpecialization('Science', '🔬', '#06b6d4')" class="bg-cyan-950/60 border border-cyan-700/60 hover:border-cyan-400 p-2 rounded-lg text-center transition flex items-center justify-center gap-2 group">
-              <span class="text-xl group-hover:scale-110 transition">🔬</span>
-              <div class="text-left">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="picker-specializations-grid">
+            <button type="button" onclick="selectCrewSpecialization('Science', '🔬', '#06b6d4')" class="bg-cyan-950/50 border border-cyan-700/60 hover:border-cyan-400 p-2.5 sm:p-3 rounded-xl text-left transition hover:shadow-lg hover:shadow-cyan-950/50 flex items-center gap-2.5 group active:scale-95">
+              <span class="text-2xl group-hover:scale-110 transition">🔬</span>
+              <div>
                 <span class="font-bold text-xs text-cyan-200 block">Science</span>
                 <span class="text-[10px] text-cyan-400/80 block font-mono">Specialization</span>
               </div>
             </button>
-            <button type="button" onclick="selectCrewSpecialization('Engineering', '🔧', '#f97316')" class="bg-orange-950/60 border border-orange-700/60 hover:border-orange-400 p-2 rounded-lg text-center transition flex items-center justify-center gap-2 group">
-              <span class="text-xl group-hover:scale-110 transition">🔧</span>
-              <div class="text-left">
+            <button type="button" onclick="selectCrewSpecialization('Engineering', '🔧', '#f97316')" class="bg-orange-950/50 border border-orange-700/60 hover:border-orange-400 p-2.5 sm:p-3 rounded-xl text-left transition hover:shadow-lg hover:shadow-orange-950/50 flex items-center gap-2.5 group active:scale-95">
+              <span class="text-2xl group-hover:scale-110 transition">🔧</span>
+              <div>
                 <span class="font-bold text-xs text-orange-200 block">Engineering</span>
                 <span class="text-[10px] text-orange-400/80 block font-mono">Specialization</span>
               </div>
             </button>
-            <button type="button" onclick="selectCrewSpecialization('Operations', '⚙️', '#10b981')" class="bg-emerald-950/60 border border-emerald-700/60 hover:border-emerald-400 p-2 rounded-lg text-center transition flex items-center justify-center gap-2 group">
-              <span class="text-xl group-hover:scale-110 transition">⚙️</span>
-              <div class="text-left">
+            <button type="button" onclick="selectCrewSpecialization('Operations', '⚙️', '#10b981')" class="bg-emerald-950/50 border border-emerald-700/60 hover:border-emerald-400 p-2.5 sm:p-3 rounded-xl text-left transition hover:shadow-lg hover:shadow-emerald-950/50 flex items-center gap-2.5 group active:scale-95">
+              <span class="text-2xl group-hover:scale-110 transition">⚙️</span>
+              <div>
                 <span class="font-bold text-xs text-emerald-200 block">Operations</span>
                 <span class="text-[10px] text-emerald-400/80 block font-mono">Specialization</span>
               </div>
             </button>
-            <button type="button" onclick="selectCrewSpecialization('Defense', '🛡️', '#ef4444')" class="bg-red-950/60 border border-red-700/60 hover:border-red-400 p-2 rounded-lg text-center transition flex items-center justify-center gap-2 group">
-              <span class="text-xl group-hover:scale-110 transition">🛡️</span>
-              <div class="text-left">
+            <button type="button" onclick="selectCrewSpecialization('Defense', '🛡️', '#ef4444')" class="bg-red-950/50 border border-red-700/60 hover:border-red-400 p-2.5 sm:p-3 rounded-xl text-left transition hover:shadow-lg hover:shadow-red-950/50 flex items-center gap-2.5 group active:scale-95">
+              <span class="text-2xl group-hover:scale-110 transition">🛡️</span>
+              <div>
                 <span class="font-bold text-xs text-red-200 block">Defense</span>
                 <span class="text-[10px] text-red-400/80 block font-mono">Specialization</span>
               </div>
@@ -448,43 +521,31 @@
           </div>
         </div>
 
-        <!-- Inventory Search Bar & Category Filter Tabs -->
-        <div class="space-y-2 pt-2 border-t border-gray-800">
-          <div class="relative">
-            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
-            <input type="text" id="picker-search-input" class="w-full bg-gray-900 border border-gray-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Search criteria, buildings, items, tools, components, resources...">
+        <!-- Dynamic Items, Buildings & Resources Grid -->
+        <div id="section-picker-grid" class="space-y-2">
+          <div id="picker-grid-header" class="text-xs font-extrabold text-gray-300 uppercase tracking-wider flex items-center justify-between border-b border-gray-800 pb-2">
+            <span id="picker-grid-title" class="flex items-center gap-1.5 text-amber-400">
+              <span>Catalog Resources &amp; Items</span>
+            </span>
+            <span id="picker-grid-count" class="text-[10px] font-mono text-gray-400 font-normal"></span>
           </div>
-          <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5" id="picker-category-tabs">
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 transition" onclick="setPickerCategoryFilter('all', this)">
-              All Resources
-            </button>
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-fuchsia-300 border border-gray-800 hover:border-fuchsia-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('criteria', this)">
-              🔑 Criteria
-            </button>
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-cyan-300 border border-gray-800 hover:border-cyan-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('specialization', this)">
-              👨‍🚀 Specializations (4)
-            </button>
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-amber-300 border border-gray-800 hover:border-amber-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('building', this)">
-              🏛️ Buildings (75)
-            </button>
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-cyan-300 border border-gray-800 hover:border-cyan-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('item', this)">
-              📦 Items &amp; Raw (80)
-            </button>
-            <button type="button" class="picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-purple-300 border border-gray-800 hover:border-purple-500/50 transition flex items-center gap-1" onclick="setPickerCategoryFilter('stat', this)">
-              🧠 Intangible Stats
-            </button>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 text-xs" id="picker-resource-grid">
+            <!-- Dynamically rendered resource cards -->
           </div>
         </div>
+
       </div>
 
-      <!-- Scrollable Resource Grid with Icons -->
-      <div class="p-4 sm:p-6 overflow-y-auto grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs flex-1" id="picker-resource-grid">
-        <!-- Dynamically rendered resource cards -->
+      <!-- Bottom Fixed Footer -->
+      <div class="bg-gray-950 px-5 py-2.5 border-t border-gray-800 flex justify-between items-center shrink-0">
+        <span class="text-[11px] text-gray-500 hidden sm:inline">
+          💡 Click any item, currency or criteria to apply it instantly with the amount above.
+        </span>
+        <button onclick="closeModal('modal-resource-picker')" class="px-4 py-1.5 rounded-lg text-xs font-bold text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 transition">
+          Cancel
+        </button>
       </div>
 
-      <div class="bg-gray-950 px-6 py-3 border-t border-gray-800 flex justify-end">
-        <button onclick="closeModal('modal-resource-picker')" class="px-4 py-1.5 rounded text-xs font-semibold text-gray-400 hover:bg-gray-800">Cancel</button>
-      </div>
     </div>
   </div>
 

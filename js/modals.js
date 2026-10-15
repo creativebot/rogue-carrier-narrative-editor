@@ -117,14 +117,46 @@ let activePickerCategory = 'all';
 
 function setPickerCategoryFilter(cat, btn) {
   activePickerCategory = cat;
-  document.querySelectorAll('.picker-cat-tab').forEach(b => {
-    b.className = 'picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1';
+  const tabs = document.querySelectorAll('.picker-cat-tab');
+  tabs.forEach(b => {
+    b.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1 shrink-0';
   });
   if (btn) {
-    btn.className = 'picker-cat-tab px-3 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1';
+    btn.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0';
+  } else {
+    const catMap = { all: 0, criteria: 1, stat: 2, specialization: 3, item: 4, building: 5 };
+    const tabIdx = catMap[cat];
+    if (tabIdx !== undefined && tabs[tabIdx]) {
+      tabs[tabIdx].className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0';
+    }
   }
+
+  // Update section visibility
+  const criteriaSec = document.getElementById('section-picker-criteria');
+  const currenciesSec = document.getElementById('section-picker-currencies');
+  const specsSec = document.getElementById('section-picker-specializations');
+  const gridSec = document.getElementById('section-picker-grid');
+  const gridTitle = document.getElementById('picker-grid-title');
+
+  if (criteriaSec) criteriaSec.style.display = (cat === 'all' || cat === 'criteria') ? 'block' : 'none';
+  if (currenciesSec) currenciesSec.style.display = (cat === 'all' || cat === 'stat') ? 'block' : 'none';
+  if (specsSec) specsSec.style.display = (cat === 'all' || cat === 'specialization') ? 'block' : 'none';
+  if (gridSec) gridSec.style.display = 'block';
+
+  if (gridTitle) {
+    if (cat === 'criteria') gridTitle.innerHTML = '<span>🔑 All Criteria Story Flags</span>';
+    else if (cat === 'stat') gridTitle.innerHTML = '<span>🧠 Intangible Stats &amp; Currencies</span>';
+    else if (cat === 'specialization') gridTitle.innerHTML = '<span>👨‍🚀 Crew Specializations</span>';
+    else if (cat === 'item') gridTitle.innerHTML = '<span>📦 Items, Tools &amp; Raw Materials</span>';
+    else if (cat === 'building') gridTitle.innerHTML = '<span>🏛️ Carrier Buildings &amp; Facilities</span>';
+    else gridTitle.innerHTML = '<span>Catalog Resources &amp; Items</span>';
+  }
+
   const input = document.getElementById('picker-search-input');
   filterPickerResources(input ? input.value : '');
+
+  const scrollBody = document.getElementById('picker-scroll-body');
+  if (scrollBody) scrollBody.scrollTop = 0;
 }
 
 function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = null) {
@@ -133,15 +165,18 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   const grid = document.getElementById('picker-resource-grid');
   if (!grid) return;
 
-  activePickerCategory = 'all';
-  const tabs = document.querySelectorAll('.picker-cat-tab');
-  tabs.forEach((b, idx) => {
-    if (idx === 0) {
-      b.className = 'picker-cat-tab px-3 py-1 rounded text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1';
+  const hintEl = document.getElementById('picker-target-hint');
+  if (hintEl) {
+    if (type === 'reward') {
+      hintEl.innerText = 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).';
+    } else if (type === 'inaction_penalty') {
+      hintEl.innerText = 'Configure inaction timeout penalty (negative delta, e.g. -10).';
+    } else if (type === 'requirement' || type === 'requirement_alternative' || type === 'requirement_edit') {
+      hintEl.innerText = 'Configure action choice requirement condition.';
     } else {
-      b.className = 'picker-cat-tab px-3 py-1 rounded text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1';
+      hintEl.innerText = 'Choose an item, building, currency, specialization, or story criteria.';
     }
-  });
+  }
 
   const input = document.getElementById('picker-search-input');
   if (input) input.value = '';
@@ -199,7 +234,7 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   }
 
   renderPickerCriteriaPool();
-  filterPickerResources('');
+  setPickerCategoryFilter('all');
   openModal('modal-resource-picker');
 }
 
@@ -334,9 +369,12 @@ function renderPickerResources(items) {
   if (!grid) return;
   grid.innerHTML = '';
 
+  const countEl = document.getElementById('picker-grid-count');
+  if (countEl) countEl.innerText = `(${items ? items.length : 0} items)`;
+
   if (!items || items.length === 0) {
     grid.innerHTML = `
-      <div class="col-span-4 py-12 text-center text-gray-400">
+      <div class="col-span-full py-12 text-center text-gray-400">
         <i data-lucide="package-search" class="w-8 h-8 mx-auto mb-2 text-gray-500 opacity-60"></i>
         <div class="font-bold text-sm text-gray-300">No resources found</div>
         <p class="text-xs text-gray-500 mt-1">Try clearing your search query or selecting a different category tab.</p>
@@ -351,21 +389,21 @@ function renderPickerResources(items) {
     const isBuilding = item.kind === 'building' || item.category === 'Building';
     const isCriteria = Boolean(item.isCriteria || item.category === 'Criteria');
     
-    card.className = `bg-gray-950 border ${isCriteria ? 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20' : (isBuilding ? 'border-amber-900/60 hover:border-amber-400 bg-amber-950/10' : 'border-gray-800 hover:border-cyan-400')} p-3 rounded-lg cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg group relative`;
+    card.className = `bg-gray-950/90 border ${isCriteria ? 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20' : (isBuilding ? 'border-amber-900/60 hover:border-amber-400 bg-amber-950/15' : 'border-gray-800 hover:border-cyan-400 hover:bg-slate-900/50')} p-2.5 rounded-xl cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg hover:scale-[1.03] active:scale-95 group relative select-none`;
     
     const iconMarkup = item.iconImg ? `
-      <div class="w-14 h-14 flex items-center justify-center mb-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-700/80 group-hover:border-amber-400 group-hover:scale-105 transition shadow-md">
-        <img src="${item.iconImg}" alt="${item.name}" class="w-12 h-12 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
-        <span style="display:none;" class="text-2xl">${item.icon || (isBuilding ? '🏛️' : '📦')}</span>
+      <div class="w-12 h-12 flex items-center justify-center mb-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-700/80 group-hover:border-amber-400 group-hover:scale-105 transition shadow-md">
+        <img src="${item.iconImg}" alt="${item.name}" class="w-10 h-10 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
+        <span style="display:none;" class="text-xl">${item.icon || (isBuilding ? '🏛️' : '📦')}</span>
       </div>` : `
-      <div class="w-14 h-14 flex items-center justify-center mb-1.5 ${isCriteria ? 'bg-fuchsia-950/70 border-fuchsia-700/80' : 'bg-slate-900/50 border-slate-800/80'} rounded-lg border">
-        <span class="text-2xl">${item.icon || (isCriteria ? '🔑' : (isBuilding ? '🏛️' : '📦'))}</span>
+      <div class="w-12 h-12 flex items-center justify-center mb-1.5 ${isCriteria ? 'bg-fuchsia-950/70 border-fuchsia-700/80' : 'bg-slate-900/50 border-slate-800/80'} rounded-lg border">
+        <span class="text-xl">${item.icon || (isCriteria ? '🔑' : (isBuilding ? '🏛️' : '📦'))}</span>
       </div>`;
     
     card.innerHTML = `
       ${iconMarkup}
       <div class="font-bold ${isCriteria ? 'text-fuchsia-200' : 'text-gray-200'} text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
-      <div class="text-[10px] ${isCriteria ? 'text-fuchsia-400' : 'text-gray-400'} uppercase font-mono mt-0.5">${item.category || (isBuilding ? 'Building' : 'Item')}${item.tier !== undefined ? ` • T${item.tier}` : ''}</div>
+      <div class="text-[9px] ${isCriteria ? 'text-fuchsia-400' : 'text-gray-400'} uppercase font-mono mt-0.5">${item.category || (isBuilding ? 'Building' : 'Item')}${item.tier !== undefined ? ` • T${item.tier}` : ''}</div>
     `;
 
     card.onclick = () => {
