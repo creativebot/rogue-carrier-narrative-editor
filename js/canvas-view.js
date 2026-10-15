@@ -610,15 +610,12 @@ function renderFloorBands() {
       band.className = `stage-band floor-band ${isSecret ? 'secret-stage-band' : ''}`;
       band.style.top = `${y - 45}px`;
       band.style.height = `${STAGE_BAND_HEIGHT}px`;
-      band.style.left = `-80000px`;
-      band.style.width = `160000px`;
+      band.style.left = `-8000px`;
+      band.style.width = `20000px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges starting from STAGE 1, placed at visible intervals across the infinite stripe
-      const labelXPositions = [];
-      for (let lx = -60000; lx <= 60000; lx += 3000) {
-        labelXPositions.push(lx + 40);
-      }
+      // Stage label badges starting from STAGE 1, placed at visible intervals across the stripe
+      const labelXPositions = [-6000, -3000, 40, 3000, 6000, 9000];
       labelXPositions.forEach(lx => {
         const label = document.createElement('div');
         label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
@@ -675,8 +672,8 @@ function renderFloorBands() {
       band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
       band.style.left = `${tierStarts[t]}px`;
       band.style.width = `${tierWidths[t]}px`;
-      band.style.top = `-20000px`;
-      band.style.height = `50000px`;
+      band.style.top = `-2000px`;
+      band.style.height = `10000px`;
       floorBandsLayer.appendChild(band);
 
       const header = document.createElement('div');

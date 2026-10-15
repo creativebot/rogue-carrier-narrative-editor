@@ -100,14 +100,13 @@ html, body {
 .stage-band,
 .floor-band {
   position: absolute;
-  left: -4000px;
-  width: 16000px;
-  min-height: 1500px;
+  left: -8000px;
+  width: 20000px;
+  min-height: 940px;
   border-top: 2px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 2px dashed rgba(234, 179, 8, 0.4);
   background-color: rgba(255, 255, 255, 0.015);
   pointer-events: none;
-  contain: layout paint;
 }
 
 .stage-label,
@@ -128,6 +127,13 @@ html, body {
   z-index: 25;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   pointer-events: auto;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 /* Editable Spot & Inline Form Elements (REQUIREMENT 6 FIX: Selectable & Editable Text) */
@@ -1274,7 +1280,6 @@ body.is-port-dragging .inbound-event-port {
   background: rgba(15, 23, 42, 0.4);
   pointer-events: none;
   border-radius: 0;
-  contain: layout paint;
 }
 
 .tier-column-band-deck {
@@ -2161,15 +2166,12 @@ body.is-port-dragging .inbound-event-port {
   top: 108px !important;
 }
 
-/* High-Performance Hardware-Accelerated Canvas Cards */
+/* High-Performance Natural Canvas Cards */
 .event-card,
 .dialogue-card,
 .deck-event-card,
 .generic-event-card {
-  contain: layout style;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .event-card-inner,
