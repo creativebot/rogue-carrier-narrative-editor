@@ -63,7 +63,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1426,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -86,5 +86,6 @@
     }
   ],
   "dialogues": [],
-  "_lastModified": "2026-10-15T09:52:04.490388"
+  "_lastModified": "2026-10-15T09:52:04.490388",
+  "stageLayoutVersion": 2
 }

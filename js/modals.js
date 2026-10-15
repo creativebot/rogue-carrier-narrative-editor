@@ -1327,8 +1327,14 @@ function moveVariationOrder(varId, direction) {
   showToast(`Moved "${targetVar.name}" to V${targetVar.number}`, "info");
 }
 
-function addNewTimeline() {
-  if (!requireAuthToEdit("create timelines")) return;
+async function addNewTimeline() {
+  const isAuth = (typeof isLocalEnvironment === 'function' && isLocalEnvironment()) ||
+                 (currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
+  if (!isAuth) {
+    showToast("🔒 Please sign in with an approved editor account to create timelines.", "warning");
+    if (typeof openAuthModal === 'function') openAuthModal();
+    return;
+  }
   const num = (appData.timelines || []).length + 1;
   const name = prompt("Enter New Timeline Name:", `Timeline ${num}: Multiverse Branch`);
   if (!name) return;
@@ -1361,6 +1367,15 @@ function addNewTimeline() {
   activeVariationId = newVariations[0].id;
 
   saveProjectToLocalStorage();
+  try {
+    await fetch('/api/save-timelines', {
+      method: 'POST',
+      headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ timelines: appData.timelines, variations: appData.variations })
+    });
+  } catch (e) {
+    console.warn("Could not sync new timeline to server:", e);
+  }
   renderTimelinesManager();
   renderApp();
   showToast(`Timeline ${num} created with 10 variations (V1 to V10)`, "success");
@@ -1377,7 +1392,13 @@ function selectVariationFromManager(varId) {
 }
 
 function addNewVariation(targetTimelineId) {
-  if (!requireAuthToEdit("create variations")) return;
+  const isAuth = (typeof isLocalEnvironment === 'function' && isLocalEnvironment()) ||
+                 (currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
+  if (!isAuth) {
+    showToast("🔒 Please sign in with an approved editor account to create variations.", "warning");
+    if (typeof openAuthModal === 'function') openAuthModal();
+    return;
+  }
   const tlId = targetTimelineId || activeTimelineId;
   const tl = (appData.timelines || []).find(t => t.id === tlId);
   const existingInTl = (appData.variations || []).filter(v => v.timelineId === tlId);
@@ -1399,13 +1420,24 @@ function addNewVariation(targetTimelineId) {
   activeTimelineId = tlId;
   activeVariationId = newVar.id;
   saveProjectToLocalStorage();
+  fetch('/api/save-timelines', {
+    method: 'POST',
+    headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ timelines: appData.timelines, variations: appData.variations })
+  }).catch(e => console.warn("Could not sync new variation:", e));
   renderTimelinesManager();
   renderApp();
   showToast(`Added V${nextNum} to ${tlName}`, "success");
 }
 
 function deleteVariation(varId) {
-  if (!requireAuthToEdit("delete variations")) return;
+  const isAuth = (typeof isLocalEnvironment === 'function' && isLocalEnvironment()) ||
+                 (currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
+  if (!isAuth) {
+    showToast("🔒 Please sign in with an approved editor account to delete variations.", "warning");
+    if (typeof openAuthModal === 'function') openAuthModal();
+    return;
+  }
   const targetVar = (appData.variations || []).find(v => v.id === varId);
   if (!targetVar) return;
 
@@ -1502,17 +1534,25 @@ function deleteVariation(varId) {
   }
 
   saveProjectToLocalStorage();
-  if (typeof syncProjectToDiskServer === 'function') {
-    syncProjectToDiskServer();
-  }
+  fetch('/api/save-timelines', {
+    method: 'POST',
+    headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ timelines: appData.timelines, variations: appData.variations })
+  }).catch(e => console.warn("Could not sync variation deletion:", e));
   renderTimelinesManager();
   renderApp();
   showToast(`Deleted Variation "${targetVar.name}"`, "info");
 }
 window.deleteVariation = deleteVariation;
 
-function deleteTimeline(tlId) {
-  if (!requireAuthToEdit("delete timelines")) return;
+async function deleteTimeline(tlId) {
+  const isAuth = (typeof isLocalEnvironment === 'function' && isLocalEnvironment()) ||
+                 (currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
+  if (!isAuth) {
+    showToast("🔒 Please sign in with an approved editor account to delete timelines.", "warning");
+    if (typeof openAuthModal === 'function') openAuthModal();
+    return;
+  }
   const timelines = appData.timelines || [];
   const targetTl = timelines.find(t => t.id === tlId);
   if (!targetTl) return;
@@ -1546,7 +1586,7 @@ function deleteTimeline(tlId) {
 
   pushUndoState();
 
-  // Remove timeline and its variations
+  // Remove timeline and its variations in local memory
   appData.timelines = (appData.timelines || []).filter(t => t.id !== tlId);
   appData.variations = (appData.variations || []).filter(v => v.timelineId !== tlId);
 
@@ -1613,16 +1653,25 @@ function deleteTimeline(tlId) {
   }
 
   saveProjectToLocalStorage();
-  if (typeof syncProjectToDiskServer === 'function') {
-    syncProjectToDiskServer();
-  }
+
+  // Call dedicated /api/delete-timeline server endpoint to atomically delete on server disk & GitHub
   try {
-    fetch('/api/save', {
+    const res = await fetch('/api/delete-timeline', {
       method: 'POST',
       headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
-      body: JSON.stringify(appData)
-    }).catch(e => console.warn('Sync /api/save timeline deletion:', e));
-  } catch (e) {}
+      body: JSON.stringify({ timelineId: tlId })
+    });
+    if (res.ok) {
+      const resp = await res.json();
+      if (resp.remainingTimelines) appData.timelines = resp.remainingTimelines;
+      if (resp.remainingVariations) appData.variations = resp.remainingVariations;
+    } else {
+      console.warn("Server /api/delete-timeline error:", res.status);
+    }
+  } catch (err) {
+    console.warn("Network error deleting timeline on server:", err);
+  }
+
   renderTimelinesManager();
   renderApp();
   showToast(`Deleted Timeline "${targetTl.name}" and its ${tlVars.length} variations`, "info");

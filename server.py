@@ -247,6 +247,75 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_json(500, {"status": "error", "message": str(e)})
             return
 
+        # Dedicated Timeline Deletion Endpoint (Guarantees persistence across server & disk)
+        elif self.path == '/api/delete-timeline':
+            try:
+                body = self.read_json_body()
+                tl_id = body.get('timelineId')
+                if not tl_id:
+                    self.send_json(400, {"status": "error", "message": "Missing timelineId parameter"})
+                    return
+                user = self.get_auth_user()
+                author_name = (user.get('name') or user.get('email')) if user else 'Editor User'
+
+                meta = load_shared_meta()
+                timelines = [t for t in meta.get('timelines', []) if t.get('id') != tl_id]
+                for idx, t in enumerate(sorted(timelines, key=lambda x: int(x.get('number') or 1))):
+                    t['number'] = idx + 1
+                variations = [v for v in meta.get('variations', []) if v.get('timelineId') != tl_id]
+                meta['timelines'] = timelines
+                meta['variations'] = variations
+                save_shared_meta(meta, author_name)
+
+                # Delete any board files associated with this deleted timeline
+                if os.path.exists(BOARDS_DIR):
+                    for fn in os.listdir(BOARDS_DIR):
+                        if tl_id in fn and fn.endswith('.json'):
+                            try: os.remove(os.path.join(BOARDS_DIR, fn))
+                            except Exception: pass
+
+                saves_boards_dir = os.path.join('saves', 'boards')
+                if os.path.exists(saves_boards_dir):
+                    for dn in os.listdir(saves_boards_dir):
+                        if tl_id in dn:
+                            try: shutil.rmtree(os.path.join(saves_boards_dir, dn), ignore_errors=True)
+                            except Exception: pass
+
+                full_project = reassemble_full_project()
+                threading.Thread(target=sync_project_data_to_github, args=(full_project, author_name), daemon=True).start()
+
+                self.send_json(200, {
+                    "status": "success",
+                    "deletedTimelineId": tl_id,
+                    "remainingTimelines": timelines,
+                    "remainingVariations": variations
+                })
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Dedicated Timeline Metadata Save Endpoint
+        elif self.path == '/api/save-timelines':
+            try:
+                body = self.read_json_body()
+                timelines = body.get('timelines')
+                variations = body.get('variations')
+                user = self.get_auth_user()
+                author_name = (user.get('name') or user.get('email')) if user else 'Editor User'
+
+                meta_updates = {}
+                if timelines is not None: meta_updates['timelines'] = timelines
+                if variations is not None: meta_updates['variations'] = variations
+                save_shared_meta(meta_updates, author_name)
+
+                full_project = reassemble_full_project()
+                threading.Thread(target=sync_project_data_to_github, args=(full_project, author_name), daemon=True).start()
+
+                self.send_json(200, {"status": "success", "timelines": timelines, "variations": variations})
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
         # Board Lock: Acquire
         elif self.path == '/api/lock/acquire':
             try:

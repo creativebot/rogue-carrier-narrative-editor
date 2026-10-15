@@ -45,7 +45,7 @@ function switchAppViewMode(mode, silent = false) {
 // Virtual Desktop Slot Allocator for Events
 function allocateDesktopSlotForEvent(floorIndex, category) {
   const cat = category || activeCategoryFilter || 'KeyChain';
-  const targetY = (FLOOR_Y && FLOOR_Y[floorIndex] !== undefined) ? FLOOR_Y[floorIndex] : (90 + floorIndex * 990);
+  const targetY = (FLOOR_Y && FLOOR_Y[floorIndex] !== undefined) ? FLOOR_Y[floorIndex] : (90 + floorIndex * 1600);
   
   const nodesOnFloor = (appData.nodes || []).filter(n => (n.category || 'KeyChain') === cat && ((n.floorIndex || 0) === floorIndex || Math.abs((n.position ? n.position.y : 0) - targetY) < 300));
   

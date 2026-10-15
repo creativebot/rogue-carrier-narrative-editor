@@ -182,13 +182,20 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
     now_iso = now.isoformat()
     time_str = now.strftime("%H:%M:%S")
 
-    # Update shared meta if timelines/variations passed
-    if timelines is not None or variations is not None or stage_layout_version is not None:
-        meta_updates = {}
-        if timelines is not None: meta_updates["timelines"] = timelines
-        if variations is not None: meta_updates["variations"] = variations
-        if stage_layout_version is not None: meta_updates["stageLayoutVersion"] = stage_layout_version
-        save_shared_meta(meta_updates, author_name)
+    # Guard against saving boards for timelines that have been deleted
+    meta = load_shared_meta()
+    existing_tl_ids = {t.get('id') for t in meta.get('timelines', [])}
+    sanitized_id = sanitize_board_id(board_id)
+    for part in sanitized_id.split('__'):
+        if part.startswith('timeline_') and part not in existing_tl_ids:
+            return {
+                "status": "ignored",
+                "message": f"Timeline {part} is deleted. Board save ignored."
+            }
+
+    # Only update stage_layout_version if passed (timelines and variations are handled by dedicated endpoints)
+    if stage_layout_version is not None:
+        save_shared_meta({"stageLayoutVersion": stage_layout_version}, author_name)
 
     fp = get_board_file_path(board_id)
     board_payload = {

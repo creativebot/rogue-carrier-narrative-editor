@@ -182,7 +182,7 @@
       "inactionThreat": null,
       "position": {
         "x": -606,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -330,7 +330,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2664,
-        "y": 1080
+        "y": 1690
       },
       "actions": [
         {
@@ -466,7 +466,7 @@
       "inactionThreat": null,
       "position": {
         "x": -1091,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -625,7 +625,7 @@
       "inactionThreat": null,
       "position": {
         "x": 111,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -760,7 +760,7 @@
       "inactionThreat": null,
       "position": {
         "x": -2095,
-        "y": 3060
+        "y": 4890
       },
       "actions": [
         {
@@ -915,7 +915,7 @@
       "inactionThreat": null,
       "position": {
         "x": 5462,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -969,7 +969,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2541,
-        "y": 2070
+        "y": 3290
       },
       "actions": [
         {
@@ -1036,7 +1036,7 @@
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
         "x": 1283,
-        "y": 2616
+        "y": 4446
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1087,7 +1087,7 @@
       "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
       "position": {
         "x": 1296,
-        "y": 2123
+        "y": 3343
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1138,7 +1138,7 @@
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": 465,
-        "y": 3349
+        "y": 5179
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1175,7 +1175,7 @@
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
         "x": -2920,
-        "y": 3248
+        "y": 5078
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1447,7 +1447,7 @@
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
         "x": -1533,
-        "y": 1164
+        "y": 1774
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1480,7 +1480,7 @@
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
         "x": 629,
-        "y": 1432
+        "y": 2042
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1532,7 +1532,7 @@
       "triggerCondition": "Imported Dialogue Script",
       "position": {
         "x": -2113,
-        "y": 1988
+        "y": 3208
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1618,7 +1618,7 @@
       "triggerCondition": "During (T1-V1-K2A) Examine pod",
       "position": {
         "x": 635,
-        "y": 1055
+        "y": 1665
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1815,7 +1815,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 4879,
-        "y": 2403
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1891,7 +1891,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4148,
-        "y": 2240
+        "y": 2850
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1967,7 +1967,7 @@
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 3540,
-        "y": 2162
+        "y": 2772
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T11:34:42.758907"
+  "_lastModified": "2026-10-15T14:08:34.391434"
 }

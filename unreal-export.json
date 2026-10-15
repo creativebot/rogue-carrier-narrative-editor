@@ -1,14 +1,14 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-15T09:34:42.778509Z",
+    "ExportTime": "2026-10-15T12:08:34.417535Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel Poludyonny",
     "TotalEvents": 28,
     "TotalDialogues": 19,
-    "TotalTimelines": 2,
-    "TotalVariations": 20,
+    "TotalTimelines": 1,
+    "TotalVariations": 10,
     "TotalCharacters": 7
   },
   "Timelines": [
@@ -17,12 +17,6 @@
       "number": 1,
       "name": "The Fate of Zephyrus",
       "description": "Main reality hypercell timeline following the collapse of Zephyrus."
-    },
-    {
-      "id": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch",
-      "description": "New parallel timeline hypercell reality branch."
     }
   ],
   "Variations": [
@@ -95,76 +89,6 @@
       "number": 10,
       "name": "The Finite Infinity",
       "description": "Final escape pod signals."
-    },
-    {
-      "id": "var_t2_v1",
-      "timelineId": "timeline_2",
-      "number": 1,
-      "name": "Timeline 2: Multiverse Branch - Variation 1",
-      "description": "Variation 1 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v2",
-      "timelineId": "timeline_2",
-      "number": 2,
-      "name": "Timeline 2: Multiverse Branch - Variation 2",
-      "description": "Variation 2 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v3",
-      "timelineId": "timeline_2",
-      "number": 3,
-      "name": "Timeline 2: Multiverse Branch - Variation 3",
-      "description": "Variation 3 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v4",
-      "timelineId": "timeline_2",
-      "number": 4,
-      "name": "Timeline 2: Multiverse Branch - Variation 4",
-      "description": "Variation 4 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v5",
-      "timelineId": "timeline_2",
-      "number": 5,
-      "name": "Timeline 2: Multiverse Branch - Variation 5",
-      "description": "Variation 5 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v6",
-      "timelineId": "timeline_2",
-      "number": 6,
-      "name": "Timeline 2: Multiverse Branch - Variation 6",
-      "description": "Variation 6 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v7",
-      "timelineId": "timeline_2",
-      "number": 7,
-      "name": "Timeline 2: Multiverse Branch - Variation 7",
-      "description": "Variation 7 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v8",
-      "timelineId": "timeline_2",
-      "number": 8,
-      "name": "Timeline 2: Multiverse Branch - Variation 8",
-      "description": "Variation 8 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v9",
-      "timelineId": "timeline_2",
-      "number": 9,
-      "name": "Timeline 2: Multiverse Branch - Variation 9",
-      "description": "Variation 9 for Timeline 2: Multiverse Branch"
-    },
-    {
-      "id": "var_t2_v10",
-      "timelineId": "timeline_2",
-      "number": 10,
-      "name": "Timeline 2: Multiverse Branch - Variation 10",
-      "description": "Variation 10 for Timeline 2: Multiverse Branch"
     }
   ],
   "Characters": [
@@ -1583,7 +1507,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": -606.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -1742,7 +1666,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2664.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -1918,7 +1842,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": -1091.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -2088,7 +2012,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 111.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -2231,7 +2155,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": -2095.0,
-        "Y": 3060.0
+        "Y": 4890.0
       },
       "Actions": [
         {
@@ -2395,7 +2319,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 5462.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -2468,7 +2392,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2541.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -2708,7 +2632,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": -1270.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -2936,7 +2860,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": -2.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -3109,7 +3033,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1165.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -3252,7 +3176,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2234.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -3379,7 +3303,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 54.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -3544,7 +3468,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 3358.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -3625,7 +3549,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 4402.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -3714,7 +3638,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2952.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -3787,7 +3711,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 4074.0,
-        "Y": 2070.0
+        "Y": 3290.0
       },
       "Actions": [
         {
@@ -3961,7 +3885,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1426.0,
-        "Y": 1540.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -4083,7 +4007,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 450.0,
-        "Y": 1080.0
+        "Y": 1690.0
       },
       "Actions": [
         {
@@ -4198,7 +4122,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": 1283.0,
-        "Y": 2616.0
+        "Y": 4446.0
       },
       "Lines": [
         {
@@ -4255,7 +4179,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": 1296.0,
-        "Y": 2123.0
+        "Y": 3343.0
       },
       "Lines": [
         {
@@ -4312,7 +4236,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": 465.0,
-        "Y": 3349.0
+        "Y": 5179.0
       },
       "Lines": [
         {
@@ -4360,7 +4284,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": -2920.0,
-        "Y": 3248.0
+        "Y": 5078.0
       },
       "Lines": [
         {
@@ -4687,7 +4611,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": -1533.0,
-        "Y": 1164.0
+        "Y": 1774.0
       },
       "Lines": [
         {
@@ -4717,7 +4641,7 @@
       "ColorScheme": "purple",
       "EditorPosition": {
         "X": 629.0,
-        "Y": 1432.0
+        "Y": 2042.0
       },
       "Lines": [
         {
@@ -4774,7 +4698,7 @@
       "ColorScheme": "purple",
       "EditorPosition": {
         "X": -2113.0,
-        "Y": 1988.0
+        "Y": 3208.0
       },
       "Lines": [
         {
@@ -4894,7 +4818,7 @@
       "ColorScheme": "default",
       "EditorPosition": {
         "X": 635.0,
-        "Y": 1055.0
+        "Y": 1665.0
       },
       "Lines": [
         {
@@ -5128,7 +5052,7 @@
       "ColorScheme": "purple",
       "EditorPosition": {
         "X": 4879.0,
-        "Y": 2403.0
+        "Y": 3013.0
       },
       "Lines": [
         {
@@ -5221,7 +5145,7 @@
       "ColorScheme": "purple",
       "EditorPosition": {
         "X": 4148.0,
-        "Y": 2240.0
+        "Y": 2850.0
       },
       "Lines": [
         {
@@ -5314,7 +5238,7 @@
       "ColorScheme": "purple",
       "EditorPosition": {
         "X": 3540.0,
-        "Y": 2162.0
+        "Y": 2772.0
       },
       "Lines": [
         {
