@@ -79,6 +79,20 @@
       "createdAt": "2026-10-14T21:08:39.865197Z",
       "displayTime": "2026-10-14 21:08",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792076235161",
+      "targetId": "node_1791921021620",
+      "targetType": "event",
+      "targetTitle": "T1-V3-K1A - Too Many Variables",
+      "text": "@vkuznietsov test",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-15T14:57:15.161736Z",
+      "displayTime": "2026-10-15 14:57",
+      "mentions": [
+        "vkuznietsov@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
