@@ -207,10 +207,33 @@ async function loadResourceCatalog() {
 }
 
 
+function getDefaultTimelinesList() {
+  return [
+    { id: "timeline_1", number: 1, name: "The Fate of Zephyrus", description: "Main reality hypercell timeline following the collapse of Zephyrus." }
+  ];
+}
+
+function getDefaultVariationsList() {
+  return [
+    { id: "var_v1", timelineId: "timeline_1", number: 1, name: "The Moment After the End", description: "First variation containing primary critical event chain." },
+    { id: "var_v2", timelineId: "timeline_1", number: 2, name: "Once More Into The Frey", description: "Debris field gravitational anomalies." },
+    { id: "var_v3", timelineId: "timeline_1", number: 3, name: "Too Many Variables", description: "Keeling ocean trawler exploration." },
+    { id: "var_v4", timelineId: "timeline_1", number: 4, name: "Gain The Upper Hand", description: "Keeling island predator swarms." },
+    { id: "var_v5", timelineId: "timeline_1", number: 5, name: "Hunted!", description: "Ebola strain contagion response." },
+    { id: "var_v6", timelineId: "timeline_1", number: 6, name: "On A Cold Trail", description: "Disassembly of smoldering wreckage." },
+    { id: "var_v7", timelineId: "timeline_1", number: 7, name: "Prism Glitch", description: "Time displacement hypercell anomaly." },
+    { id: "var_v8", timelineId: "timeline_1", number: 8, name: "The Problem of Probability", description: "Sunken flight recorder retrieval." },
+    { id: "var_v9", timelineId: "timeline_1", number: 9, name: "Facing Shadows", description: "Combat with leviathan predator." },
+    { id: "var_v10", timelineId: "timeline_1", number: 10, name: "The Finite Infinity", description: "Final escape pod signals." }
+  ];
+}
+
 function resetToDefaultProjectData(skipBackup = false) {
   if (!skipBackup && appData && appData.nodes && appData.nodes.length > 0) {
     saveSafetyBackup("Before Reset to Default");
   }
+  appData.timelines = getDefaultTimelinesList();
+  appData.variations = getDefaultVariationsList();
   appData.characters = getDefaultCharactersList();
   appData.nodes = getDefaultNodesDataset();
   appData.dialogues = getDefaultDialoguesDataset();
@@ -692,4 +715,8 @@ function getDefaultDialoguesDataset() {
     }
   ];
 }
+
+window.getDefaultTimelinesList = getDefaultTimelinesList;
+window.getDefaultVariationsList = getDefaultVariationsList;
+window.resetToDefaultProjectData = resetToDefaultProjectData;
 

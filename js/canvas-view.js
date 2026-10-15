@@ -6,6 +6,11 @@
 // iPad Air & Tablet Touch Interaction: Pan vs Arrange Mode
 // ==========================================================================
 let isArrangeMode = false;
+let isSpacePressed = false;
+let rightClickStartPos = { x: 0, y: 0 };
+let rightClickDragged = false;
+let canvasDragMoved = false;
+let canvasDragStartPos = { x: 0, y: 0 };
 
 function setArrangeMode(active) {
   isArrangeMode = Boolean(active);
@@ -75,8 +80,24 @@ window.addEventListener('click', (e) => {
 function setupCanvasEvents() {
   if (!canvasContainer) return;
 
-  // Desktop Mouse Events
+  // Desktop Mouse Events - Universal Panning Engine
   canvasContainer.addEventListener('mousedown', (e) => {
+    // Middle-click (1) or Right-click (2) or Space+Left-click: ALWAYS initiate universal pan!
+    if (e.button === 1 || e.button === 2 || (e.button === 0 && isSpacePressed)) {
+      isDraggingCanvas = true;
+      canvasDragMoved = false;
+      canvasDragStartPos = { x: e.clientX, y: e.clientY };
+      dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
+      rightClickStartPos = { x: e.clientX, y: e.clientY };
+      rightClickDragged = false;
+      canvasContainer.style.cursor = 'grabbing';
+      e.preventDefault();
+      return;
+    }
+
+    // Only primary (left) button continues below
+    if (e.button !== 0) return;
+
     if (document.activeElement && typeof document.activeElement.blur === 'function' && !e.target.closest('input, textarea, select')) {
       document.activeElement.blur();
     }
@@ -86,22 +107,30 @@ function setupCanvasEvents() {
       if (e.target.closest('.connector-port, .dialogue-trigger-port, .btn-zoom-corner, .block-floating-btn, .connector-path-ortho, .connector-path-dialogue, .pool-event-switch-bar, .pool-switch-toggle-btn')) {
         return;
       }
-    } else if (
-      e.target.closest('.editable-spot') || 
-      e.target.closest('button') || 
-      e.target.closest('input') || 
-      e.target.closest('textarea') || 
-      e.target.closest('select') || 
-      e.target.closest('.connector-port') ||
-      e.target.closest('.dialogue-trigger-port') ||
-      e.target.closest('.req-pill') ||
-      e.target.closest('.pool-event-switch-bar') ||
-      e.target.closest('.pool-switch-toggle-btn')
-    ) {
-      return;
+    } else {
+      // Pan & Edit Mode: Do not pan if clicking inside an interactive button, active input, port, or pill
+      if (
+        e.target.closest('button') || 
+        e.target.closest('input') || 
+        e.target.closest('textarea') || 
+        e.target.closest('select') || 
+        e.target.closest('.connector-port') ||
+        e.target.closest('.dialogue-trigger-port') ||
+        e.target.closest('.req-pill') ||
+        e.target.closest('.pool-event-switch-bar') ||
+        e.target.closest('.pool-switch-toggle-btn') ||
+        e.target.closest('.btn-zoom-corner') ||
+        e.target.closest('.block-floating-btn') ||
+        e.target.closest('.linked-event-jump-btn')
+      ) {
+        return;
+      }
     }
 
+    // In Pan Mode, clicking anywhere on canvas background OR card body/fields starts panning!
     isDraggingCanvas = true;
+    canvasDragMoved = false;
+    canvasDragStartPos = { x: e.clientX, y: e.clientY };
     dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
     canvasContainer.style.cursor = 'grabbing';
   });
@@ -118,6 +147,12 @@ function setupCanvasEvents() {
 
   window.addEventListener('mousemove', (e) => {
     if (isDraggingCanvas) {
+      if (Math.hypot(e.clientX - canvasDragStartPos.x, e.clientY - canvasDragStartPos.y) > 4) {
+        canvasDragMoved = true;
+      }
+      if (Math.hypot(e.clientX - rightClickStartPos.x, e.clientY - rightClickStartPos.y) > 4) {
+        rightClickDragged = true;
+      }
       transform.x = e.clientX - dragStart.x;
       transform.y = e.clientY - dragStart.y;
       scheduleCanvasTransform();
@@ -127,12 +162,41 @@ function setupCanvasEvents() {
   window.addEventListener('mouseup', () => {
     if (isDraggingCanvas) {
       isDraggingCanvas = false;
-      canvasContainer.style.cursor = 'default';
+      canvasContainer.style.cursor = isSpacePressed ? 'grab' : 'default';
       if (panRafId) {
         cancelAnimationFrame(panRafId);
         panRafId = null;
       }
       updateCanvasTransform();
+      updateBlockZoomButtons();
+      setTimeout(() => {
+        canvasDragMoved = false;
+      }, 60);
+    }
+  });
+
+  window.addEventListener('contextmenu', (e) => {
+    if (rightClickDragged) {
+      e.preventDefault();
+      rightClickDragged = false;
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' && !e.target.closest('input, textarea, select')) {
+      isSpacePressed = true;
+      if (canvasContainer && !isDraggingCanvas) {
+        canvasContainer.style.cursor = 'grab';
+      }
+    }
+  });
+
+  window.addEventListener('keyup', (e) => {
+    if (e.code === 'Space') {
+      isSpacePressed = false;
+      if (canvasContainer && !isDraggingCanvas) {
+        canvasContainer.style.cursor = 'default';
+      }
     }
   });
 
@@ -590,6 +654,16 @@ function renderApp() {
 
 function renderVariationSelect() {
   if (!variationSelect) return;
+  if (!Array.isArray(appData.variations) || appData.variations.length === 0) {
+    if (typeof getDefaultVariationsList === 'function') {
+      appData.variations = getDefaultVariationsList();
+    }
+  }
+  if (!Array.isArray(appData.timelines) || appData.timelines.length === 0) {
+    if (typeof getDefaultTimelinesList === 'function') {
+      appData.timelines = getDefaultTimelinesList();
+    }
+  }
   variationSelect.innerHTML = '';
   const timelines = appData.timelines || [];
   const sortedVariations = [...(appData.variations || [])].sort((a, b) => {
@@ -600,6 +674,9 @@ function renderVariationSelect() {
     if (numTlA !== numTlB) return numTlA - numTlB;
     return Number(a.number || 0) - Number(b.number || 0);
   });
+  if (sortedVariations.length > 0 && (!activeVariationId || !sortedVariations.some(v => v.id === activeVariationId))) {
+    activeVariationId = sortedVariations[0].id;
+  }
   sortedVariations.forEach(v => {
     const t = timelines.find(tl => tl.id === v.timelineId) || { name: 'Timeline 1', number: 1 };
     const opt = document.createElement('option');
@@ -2374,10 +2451,114 @@ function disconnectDialogueLink(dialogueId) {
 }
 
 
+// -------------------------------------------------------------
+// Single Active Inline Editor Manager (Guarantees at most ONE active input,
+// restores text display cleanly without destroying surrounding DOM,
+// enables immediate clicking on "+ Add Req", "+ Choice", and cards)
+// -------------------------------------------------------------
+let currentActiveInlineEditor = null;
+
+function restoreInlineElementDisplay(element, type, nodeId, fieldPath, finalVal) {
+  if (!element) return;
+  const targetNode = (appData && Array.isArray(appData.nodes)) ? appData.nodes.find(n => n.id === nodeId) : null;
+  const limitKey = (type === 'node-text') ? getSymbolLimitKeyForFieldPath(fieldPath, targetNode) : null;
+  const limits = limitKey ? getSymbolLimits() : null;
+  const limitVal = (limits && limitKey) ? limits[limitKey] : null;
+
+  if (type === 'dialogue-text') {
+    element.textContent = finalVal || 'Dialogue text...';
+    return;
+  }
+
+  if (type === 'node-number') {
+    const num = parseInt(finalVal);
+    element.textContent = (!isNaN(num) && num > 0) ? `${num} hours` : '—';
+    return;
+  }
+
+  // node-text
+  let text = String(finalVal || '').trim();
+  if (!text) {
+    if (fieldPath === 'spawnConditions' || fieldPath === 'location') text = 'Click to set spawn conditions...';
+    else if (fieldPath === 'eventIntro') text = 'Initial event context...';
+    else if (fieldPath === 'eventDescription') text = 'Enter narrative body text...';
+    else if (fieldPath.endsWith('.resultDescription')) text = fieldPath.startsWith('inactionThreat') ? 'Catastrophic failure' : 'Action result description...';
+    else if (fieldPath.endsWith('.description')) text = fieldPath.startsWith('inactionThreat') ? 'Survivors perish.' : 'Describe action choice narrative...';
+    else if (fieldPath.endsWith('.shortDescription')) text = fieldPath.startsWith('inactionThreat') ? 'Timeout' : 'Choice';
+    else if (fieldPath === 'name') text = 'Event Title';
+    else text = 'Click to edit...';
+  }
+  element.textContent = text;
+
+  // Update limit badges and warning classes
+  if (limitVal) {
+    const len = String(finalVal || '').length;
+    const isOver = len > limitVal;
+    element.classList.toggle('is-over-limit', isOver);
+    const container = element.parentElement;
+    const badge = container ? container.querySelector('.symbol-count-badge') : null;
+    if (badge) {
+      badge.textContent = `${len}/${limitVal}`;
+      badge.classList.toggle('is-over-limit', isOver);
+    }
+  }
+
+  // If action shortDescription changed, update the action handle button text
+  if (fieldPath && fieldPath.includes('actions.') && fieldPath.endsWith('.shortDescription')) {
+    const parts = fieldPath.split('.');
+    const actIdx = parseInt(parts[1]);
+    const btnCell = document.getElementById(`action-btn-cell-${nodeId}-${actIdx}`);
+    if (btnCell) {
+      const handle = btnCell.querySelector('.action-handle');
+      if (handle && targetNode && targetNode.actions && targetNode.actions[actIdx]) {
+        const act = targetNode.actions[actIdx];
+        handle.textContent = `${act.codeSuffix || String.fromCharCode(65 + actIdx)}: ${act.shortDescription || 'Choice'}`;
+      }
+    }
+  }
+}
+
+function commitAndCloseActiveInlineEditor(cancel = false) {
+  if (!currentActiveInlineEditor) return;
+  const editor = currentActiveInlineEditor;
+  currentActiveInlineEditor = null; // Clear first to prevent re-entrancy
+
+  const { type, element, input, nodeId, fieldPath, originalVal } = editor;
+  const currentVal = input.value;
+  const hasChanged = !cancel && (currentVal !== originalVal);
+
+  if (hasChanged) {
+    pushUndoState();
+    if (type === 'node-text') {
+      updateNodeFieldByPath(nodeId, fieldPath, currentVal);
+    } else if (type === 'node-number') {
+      const num = parseInt(currentVal) || 0;
+      updateNodeFieldByPath(nodeId, fieldPath, num);
+    } else if (type === 'dialogue-text') {
+      const diag = (appData.dialogues || []).find(d => d.id === nodeId);
+      if (diag && diag.lines && diag.lines[fieldPath]) {
+        diag.lines[fieldPath].text = currentVal;
+      }
+    }
+    saveProjectToLocalStorage();
+  }
+
+  const finalVal = cancel ? originalVal : (type === 'node-number' ? (parseInt(currentVal) || 0) : currentVal);
+  restoreInlineElementDisplay(element, type, nodeId, fieldPath, finalVal);
+  updateStats();
+}
+
+
 // REQUIREMENT 2 FIX: Instant Working Inline Text Editing (Click or Double Click)
 function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
-  if (isArrangeMode) return;
+  if (isArrangeMode || canvasDragMoved) return;
   if (!requireAuthToEdit("edit dialogue lines")) return;
+
+  if (currentActiveInlineEditor) {
+    if (currentActiveInlineEditor.element === element) return;
+    commitAndCloseActiveInlineEditor(false);
+  }
+
   if (element.querySelector('textarea')) return;
   const currentText = element.innerText;
   const input = document.createElement('textarea');
@@ -2389,6 +2570,15 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
   input.focus();
   input.select();
 
+  currentActiveInlineEditor = {
+    type: 'dialogue-text',
+    element,
+    input,
+    nodeId: dialogueId,
+    fieldPath: lineIdx,
+    originalVal: currentText
+  };
+
   const stopProp = (e) => e.stopPropagation();
   input.addEventListener('mousedown', stopProp);
   input.addEventListener('click', stopProp);
@@ -2396,25 +2586,21 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
     e.stopPropagation();
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      input.blur();
+      commitAndCloseActiveInlineEditor(false);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      commitAndCloseActiveInlineEditor(true);
     }
   });
   input.addEventListener('keyup', stopProp);
 
-  let saved = false;
-  const saveLine = () => {
-    if (saved) return;
-    saved = true;
-    const diag = appData.dialogues.find(d => d.id === dialogueId);
-    if (diag && diag.lines[lineIdx] && diag.lines[lineIdx].text !== input.value) {
-      pushUndoState();
-      diag.lines[lineIdx].text = input.value;
-      saveProjectToLocalStorage();
-      renderApp();
-    }
+  input.onblur = () => {
+    setTimeout(() => {
+      if (currentActiveInlineEditor && currentActiveInlineEditor.input === input) {
+        commitAndCloseActiveInlineEditor(false);
+      }
+    }, 120);
   };
-
-  input.onblur = saveLine;
 }
 
 function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
@@ -2517,8 +2703,14 @@ function getRawModelValueByPath(nodeId, fieldPath) {
 }
 
 function makeInlineTextEditable(element, nodeId, fieldPath) {
-  if (isArrangeMode) return;
+  if (isArrangeMode || canvasDragMoved) return;
   if (!requireAuthToEdit("edit text content")) return;
+
+  if (currentActiveInlineEditor) {
+    if (currentActiveInlineEditor.element === element) return;
+    commitAndCloseActiveInlineEditor(false);
+  }
+
   if (element.querySelector('textarea')) return;
   const rawVal = getRawModelValueByPath(nodeId, fieldPath);
   const currentText = (rawVal !== null && rawVal !== undefined) ? rawVal : element.innerText;
@@ -2535,6 +2727,17 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
   const limitKey = getSymbolLimitKeyForFieldPath(fieldPath, targetNode);
   const limits = limitKey ? getSymbolLimits() : null;
   const limitVal = (limits && limitKey) ? limits[limitKey] : null;
+
+  currentActiveInlineEditor = {
+    type: 'node-text',
+    element,
+    input,
+    nodeId,
+    fieldPath,
+    originalVal: currentText,
+    limitKey,
+    limitVal
+  };
 
   const updateLiveBadge = (valStr) => {
     if (!limitVal) return;
@@ -2560,28 +2763,32 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
     e.stopPropagation();
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      input.blur();
+      commitAndCloseActiveInlineEditor(false);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      commitAndCloseActiveInlineEditor(true);
     }
   });
   input.addEventListener('keyup', stopProp);
 
-  let saved = false;
-  const saveInline = () => {
-    if (saved) return;
-    saved = true;
-    const newVal = input.value;
-    pushUndoState();
-    updateNodeFieldByPath(nodeId, fieldPath, newVal);
-    saveProjectToLocalStorage();
-    renderApp();
+  input.onblur = () => {
+    setTimeout(() => {
+      if (currentActiveInlineEditor && currentActiveInlineEditor.input === input) {
+        commitAndCloseActiveInlineEditor(false);
+      }
+    }, 120);
   };
-
-  input.onblur = saveInline;
 }
 
 function makeInlineNumberEditable(element, nodeId, fieldPath) {
-  if (isArrangeMode) return;
+  if (isArrangeMode || canvasDragMoved) return;
   if (!requireAuthToEdit("edit numerical values")) return;
+
+  if (currentActiveInlineEditor) {
+    if (currentActiveInlineEditor.element === element) return;
+    commitAndCloseActiveInlineEditor(false);
+  }
+
   if (element.querySelector('input')) return;
   const currentVal = parseInt(element.innerText) || 5;
   const input = document.createElement('input');
@@ -2593,6 +2800,15 @@ function makeInlineNumberEditable(element, nodeId, fieldPath) {
   input.focus();
   input.select();
 
+  currentActiveInlineEditor = {
+    type: 'node-number',
+    element,
+    input,
+    nodeId,
+    fieldPath,
+    originalVal: currentVal
+  };
+
   const stopProp = (e) => e.stopPropagation();
   input.addEventListener('mousedown', stopProp);
   input.addEventListener('click', stopProp);
@@ -2600,23 +2816,21 @@ function makeInlineNumberEditable(element, nodeId, fieldPath) {
     e.stopPropagation();
     if (e.key === 'Enter') {
       e.preventDefault();
-      input.blur();
+      commitAndCloseActiveInlineEditor(false);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      commitAndCloseActiveInlineEditor(true);
     }
   });
   input.addEventListener('keyup', stopProp);
 
-  let saved = false;
-  const saveInline = () => {
-    if (saved) return;
-    saved = true;
-    const newVal = parseInt(input.value) || 0;
-    pushUndoState();
-    updateNodeFieldByPath(nodeId, fieldPath, newVal);
-    saveProjectToLocalStorage();
-    renderApp();
+  input.onblur = () => {
+    setTimeout(() => {
+      if (currentActiveInlineEditor && currentActiveInlineEditor.input === input) {
+        commitAndCloseActiveInlineEditor(false);
+      }
+    }, 120);
   };
-
-  input.onblur = saveInline;
 }
 
 function getReactionTimerOptionsHTML(currentVal) {
@@ -2690,6 +2904,9 @@ function updateNodeReactionTimer(nodeId, val) {
 function makeInlineReactionTimerEditable(element, nodeId) {
   if (isArrangeMode) return;
   if (!requireAuthToEdit("edit reaction timer")) return;
+  if (currentActiveInlineEditor) {
+    commitAndCloseActiveInlineEditor(false);
+  }
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   const select = document.createElement('select');
@@ -3261,36 +3478,29 @@ function makeNodesDraggable() {
     let mouseStartPos = { x: 0, y: 0 };
 
     el.addEventListener('mousedown', (e) => {
+      // If right-click (2) or middle-click (1) or Space held down: yield to universal pan engine
+      if (e.button === 1 || e.button === 2 || isSpacePressed) {
+        return;
+      }
+
+      // If NOT in Arrange Mode (i.e. Pan & Edit Mode):
+      // Cards do NOT drag. Mouse events bubble to canvasContainer so dragging over cards pans the canvas!
+      if (!isArrangeMode) {
+        return;
+      }
+
+      // Exclusively in Arrange Mode (isArrangeMode === true):
       if (!canUserEdit()) {
         requireAuthToEdit("move blocks on the board");
         return;
       }
 
-      if (isArrangeMode) {
-        if (e.target.closest('.connector-port') ||
-            e.target.closest('.dialogue-trigger-port') ||
-            e.target.closest('.linked-event-jump-btn') ||
-            e.target.closest('.btn-zoom-corner') ||
-            e.target.closest('.block-floating-btn')) {
-          return;
-        }
-      } else {
-        // Pan & Edit Mode: Do not drag card if clicking inside an editable spot or button
-        if (e.target.closest('.editable-spot') || 
-            e.target.closest('button') || 
-            e.target.closest('.linked-event-jump-btn') ||
-            e.target.closest('.action-handle-group') ||
-            e.target.closest('input') || 
-            e.target.closest('textarea') || 
-            e.target.closest('select') || 
-            e.target.closest('.rx-timer-select') ||
-            e.target.closest('.inline-select') ||
-            e.target.closest('.connector-port') ||
-            e.target.closest('.dialogue-trigger-port') ||
-            e.target.closest('.pool-event-switch-bar') ||
-            e.target.closest('.req-pill')) {
-          return;
-        }
+      if (e.target.closest('.connector-port') ||
+          e.target.closest('.dialogue-trigger-port') ||
+          e.target.closest('.linked-event-jump-btn') ||
+          e.target.closest('.btn-zoom-corner') ||
+          e.target.closest('.block-floating-btn')) {
+        return;
       }
 
       if (document.activeElement && typeof document.activeElement.blur === 'function' && !e.target.closest('input, textarea, select')) {

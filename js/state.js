@@ -638,8 +638,25 @@ function normalizeAllProjectData() {
   if (!Array.isArray(appData.characters) || appData.characters.length === 0) {
     appData.characters = getDefaultCharactersList();
   }
-  if (!Array.isArray(appData.timelines)) appData.timelines = [];
-  if (!Array.isArray(appData.variations)) appData.variations = [];
+  if (!Array.isArray(appData.timelines) || appData.timelines.length === 0) {
+    appData.timelines = typeof getDefaultTimelinesList === 'function' ? getDefaultTimelinesList() : [
+      { id: "timeline_1", number: 1, name: "The Fate of Zephyrus", description: "Main reality hypercell timeline following the collapse of Zephyrus." }
+    ];
+  }
+  if (!Array.isArray(appData.variations) || appData.variations.length === 0) {
+    appData.variations = typeof getDefaultVariationsList === 'function' ? getDefaultVariationsList() : [
+      { id: "var_v1", timelineId: "timeline_1", number: 1, name: "The Moment After the End", description: "First variation containing primary critical event chain." },
+      { id: "var_v2", timelineId: "timeline_1", number: 2, name: "Once More Into The Frey", description: "Debris field gravitational anomalies." },
+      { id: "var_v3", timelineId: "timeline_1", number: 3, name: "Too Many Variables", description: "Keeling ocean trawler exploration." },
+      { id: "var_v4", timelineId: "timeline_1", number: 4, name: "Gain The Upper Hand", description: "Keeling island predator swarms." },
+      { id: "var_v5", timelineId: "timeline_1", number: 5, name: "Hunted!", description: "Ebola strain contagion response." },
+      { id: "var_v6", timelineId: "timeline_1", number: 6, name: "On A Cold Trail", description: "Disassembly of smoldering wreckage." },
+      { id: "var_v7", timelineId: "timeline_1", number: 7, name: "Prism Glitch", description: "Time displacement hypercell anomaly." },
+      { id: "var_v8", timelineId: "timeline_1", number: 8, name: "The Problem of Probability", description: "Sunken flight recorder retrieval." },
+      { id: "var_v9", timelineId: "timeline_1", number: 9, name: "Facing Shadows", description: "Combat with leviathan predator." },
+      { id: "var_v10", timelineId: "timeline_1", number: 10, name: "The Finite Infinity", description: "Final escape pod signals." }
+    ];
+  }
 
   // Ensure Timeline 1 (The Fate of Zephyrus) Variations 2-10 reflect official titles
   const t1CanonicalVarNames = {
@@ -2851,8 +2868,11 @@ function updateEventCodenameWithSwapping(nodeId, rawInput) {
 }
 
 function makeInlineCodenameEditable(element, nodeId) {
-  if (isArrangeMode) return;
+  if (isArrangeMode || (typeof canvasDragMoved !== 'undefined' && canvasDragMoved)) return;
   if (!requireAuthToEdit("edit event codename")) return;
+  if (typeof commitAndCloseActiveInlineEditor === 'function') {
+    commitAndCloseActiveInlineEditor(false);
+  }
   if (element.querySelector('input')) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
