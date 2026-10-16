@@ -1820,7 +1820,7 @@
       "variationId": "var_v1",
       "category": "KeyChain",
       "floorIndex": 1,
-      "colorScheme": "purple",
+      "colorScheme": "rose",
       "lines": [
         {
           "id": "l_imp_1791712868957_0",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:42:10.159818"
+  "_lastModified": "2026-10-16T20:42:28.151435"
 }
