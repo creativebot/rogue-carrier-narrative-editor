@@ -1112,7 +1112,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "orange"
     },
     {
       "id": "node_1791988044467",
@@ -1249,5 +1250,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:51:19.863371"
+  "_lastModified": "2026-10-16T20:51:21.714789"
 }
