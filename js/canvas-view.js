@@ -935,6 +935,10 @@ function renderNodes() {
 
 // Key Event Block DOM Creation (with Symbol Count Tracking, Criteria Flags & Multi-Target Links)
 function createEventNodeDOM(node) {
+  const isReadOnly = (typeof canUserEdit === 'function') 
+    ? !canUserEdit() 
+    : (typeof isCurrentBoardReadOnly === 'function' ? isCurrentBoardReadOnly() : Boolean(isCurrentBoardReadOnly));
+
   const hasInaction = Boolean(node.hasInactionThreat && node.inactionThreat);
   const actionCols = node.actions || [];
   const actionColsCount = Math.max(actionCols.length, 1);
@@ -964,7 +968,7 @@ function createEventNodeDOM(node) {
   let actionButtonsHTML = '';
 
   actionCols.forEach((act, idx) => {
-    const removeBtn = actionCols.length > 1 ? `
+    const removeBtn = (actionCols.length > 1 && !isReadOnly) ? `
       <button type="button" class="text-xs text-red-600 hover:text-red-800 font-bold ml-1 bg-red-100/80 px-1 rounded" 
               onclick="event.stopPropagation(); removeActionColumn('${node.id}', ${idx})" title="Remove Action Option">
         ×
@@ -1175,7 +1179,7 @@ function createEventNodeDOM(node) {
       </td>`;
   });
 
-  const addActionColHeader = actionCols.length < 4 ? `
+  const addActionColHeader = (actionCols.length < 4 && !isReadOnly) ? `
     <button type="button" class="action-opt-icon-btn add-action-btn" 
             onclick="event.stopPropagation(); addActionColumn('${node.id}')" 
             title="Add Action Option (up to 4)">
@@ -1185,7 +1189,7 @@ function createEventNodeDOM(node) {
       </svg>
     </button>` : '';
 
-  const addInactionBtn = !hasInaction ? `
+  const addInactionBtn = (!hasInaction && !isReadOnly) ? `
     <button type="button" class="action-opt-icon-btn add-inaction-btn" 
             onclick="event.stopPropagation(); addInactionThreat('${node.id}')" 
             title="Add Inaction Threat">
@@ -1222,10 +1226,12 @@ function createEventNodeDOM(node) {
       <th class="event-label-cell bg-red-100/90 text-red-950 border-red-300 font-bold" style="width: ${actionWidthPercent}%; padding: 4px 6px;">
         <div class="flex items-center justify-between px-1">
           <span class="truncate">⚠️ Inaction</span>
-          <button type="button" class="text-xs text-red-600 hover:text-red-800 font-bold ml-1 bg-red-200/80 hover:bg-red-300 px-1.5 py-0.5 rounded transition" 
-                  onclick="event.stopPropagation(); removeInactionThreat('${node.id}')" title="Remove Inaction Threat">
-            ×
-          </button>
+          ${!isReadOnly ? `
+            <button type="button" class="text-xs text-red-600 hover:text-red-800 font-bold ml-1 bg-red-200/80 hover:bg-red-300 px-1.5 py-0.5 rounded transition" 
+                    onclick="event.stopPropagation(); removeInactionThreat('${node.id}')" title="Remove Inaction Threat">
+              ×
+            </button>
+          ` : ''}
         </div>
       </th>`;
 
@@ -1354,8 +1360,9 @@ function createEventNodeDOM(node) {
           <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${node.id}', 'event')">
             💬 <span class="cmt-cnt-${node.id}">${getCommentCount(node.id)}</span>
           </button>
-          <select class="event-theme-select" 
+          <select class="event-theme-select ${isReadOnly ? 'opacity-70 cursor-not-allowed pointer-events-none' : ''}" 
                   title="Change Event Block Color Scheme"
+                  ${isReadOnly ? 'disabled' : ''}
                   onclick="event.stopPropagation();"
                   onmousedown="event.stopPropagation();"
                   onchange="updateNodeColorScheme('${node.id}', this.value)">
@@ -1369,10 +1376,12 @@ function createEventNodeDOM(node) {
             <option value="teal" ${theme === 'teal' ? 'selected' : ''}>🌊 Teal</option>
           </select>
 
-          <button type="button" class="card-btn card-btn-delete" 
-                  onclick="event.stopPropagation(); deleteEventNode('${node.id}')" title="Delete Event Block">
-            ✕ Delete
-          </button>
+          ${!isReadOnly ? `
+            <button type="button" class="card-btn card-btn-delete" 
+                    onclick="event.stopPropagation(); deleteEventNode('${node.id}')" title="Delete Event Block">
+              ✕ Delete
+            </button>
+          ` : ''}
         </div>
       </div>
 
@@ -1390,7 +1399,9 @@ function createEventNodeDOM(node) {
     <div class="event-meta-row px-3 py-1.5 flex items-start justify-between gap-3 text-xs">
       <div class="flex items-center gap-2 shrink-0 pt-0.5">
         <span class="font-bold text-[11px] uppercase tracking-wider theme-substrip-label">Type:</span>
-        <select class="inline-select bg-white border font-bold text-xs py-0.5 px-2 rounded" onchange="updateNodeField('${node.id}', 'type', this.value)">
+        <select class="inline-select bg-white border font-bold text-xs py-0.5 px-2 rounded ${isReadOnly ? 'opacity-70 cursor-not-allowed pointer-events-none' : ''}" 
+                ${isReadOnly ? 'disabled' : ''}
+                onchange="updateNodeField('${node.id}', 'type', this.value)">
           <option value="World" ${node.type === 'World' ? 'selected' : ''}>World Event</option>
           <option value="Deck" ${node.type === 'Deck' ? 'selected' : ''}>Deck Event</option>
         </select>
@@ -1408,8 +1419,9 @@ function createEventNodeDOM(node) {
 
       <div class="flex items-center gap-1.5 shrink-0 pt-0.5 whitespace-nowrap">
         <span class="font-bold text-[11px] uppercase tracking-wider theme-substrip-label">Reaction:</span>
-        <select class="rx-timer-select"
+        <select class="rx-timer-select ${isReadOnly ? 'opacity-70 cursor-not-allowed pointer-events-none' : ''}"
                 title="Reaction time limit (Infinite or hours)"
+                ${isReadOnly ? 'disabled' : ''}
                 onclick="event.stopPropagation();"
                 onmousedown="event.stopPropagation();"
                 onchange="updateNodeReactionTimer('${node.id}', this.value)">
@@ -1570,7 +1582,10 @@ function deleteDialogueNode(dialogueId, skipConfirm = false) {
 }
 
 function updateNodeColorScheme(nodeId, colorScheme) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change event color scheme")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change event color scheme")) {
+    renderApp();
+    return;
+  }
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   pushUndoState();
@@ -1581,7 +1596,10 @@ function updateNodeColorScheme(nodeId, colorScheme) {
 }
 
 function updateDialogueColorScheme(dialogueId, colorScheme) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue color scheme")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue color scheme")) {
+    renderApp();
+    return;
+  }
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
   pushUndoState();
@@ -1842,6 +1860,10 @@ function removeDialogueLinkAt(dialogueId, linkIdx) {
 
 // Dialogue Block DOM Creation (REQUIREMENT 4 FIX: Structured Time Delay & Trigger Badges + Multi-Link Support)
 function createDialogueNodeDOM(dialogue) {
+  const isReadOnly = (typeof canUserEdit === 'function') 
+    ? !canUserEdit() 
+    : (typeof isCurrentBoardReadOnly === 'function' ? isCurrentBoardReadOnly() : Boolean(isCurrentBoardReadOnly));
+
   const wrapper = document.createElement('div');
   wrapper.id = `dialogue-${dialogue.id}`;
   wrapper.className = 'absolute dialogue-card cursor-move';
@@ -1886,7 +1908,9 @@ function createDialogueNodeDOM(dialogue) {
         <div class="dialogue-speaker-banner flex items-center justify-between" style="background-color:${charMeta.color}; color:${charMeta.textColor}">
           <div class="flex items-center gap-1.5 flex-1 min-w-0">
             <span>${charMeta.icon}</span>
-            <select class="inline-select text-xs font-bold" onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
+            <select class="inline-select text-xs font-bold ${isReadOnly ? 'opacity-80 cursor-not-allowed pointer-events-none' : ''}" 
+                    ${isReadOnly ? 'disabled' : ''} 
+                    onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
               ${dropdownChars.map(c => {
                 const isSelected = (matchedChar && c.id === matchedChar.id) || c.id === l.speakerId;
                 const roleSuffix = c.role ? ` (${c.role})` : '';
@@ -1899,41 +1923,43 @@ function createDialogueNodeDOM(dialogue) {
           <div class="flex items-center gap-1 shrink-0 ml-1">
             <!-- Move Line Up -->
             <button type="button" 
-                    class="line-move-btn px-1.5 py-0.5 rounded text-[11px] font-bold hover:bg-black/15 transition ${isFirst ? 'opacity-25 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}" 
+                    class="line-move-btn px-1.5 py-0.5 rounded text-[11px] font-bold transition ${(isFirst || isReadOnly) ? 'opacity-25 cursor-not-allowed pointer-events-none' : 'hover:bg-black/15 hover:scale-110 active:scale-95'}" 
                     title="Move line up" 
-                    ${isFirst ? 'disabled' : ''} 
+                    ${(isFirst || isReadOnly) ? 'disabled' : ''} 
                     onclick="event.stopPropagation(); moveDialogueLine('${dialogue.id}', ${lIdx}, -1)">
               ▲
             </button>
 
             <!-- Move Line Down -->
             <button type="button" 
-                    class="line-move-btn px-1.5 py-0.5 rounded text-[11px] font-bold hover:bg-black/15 transition ${isLast ? 'opacity-25 cursor-not-allowed' : 'hover:scale-110 active:scale-95'}" 
+                    class="line-move-btn px-1.5 py-0.5 rounded text-[11px] font-bold transition ${(isLast || isReadOnly) ? 'opacity-25 cursor-not-allowed pointer-events-none' : 'hover:bg-black/15 hover:scale-110 active:scale-95'}" 
                     title="Move line down" 
-                    ${isLast ? 'disabled' : ''} 
+                    ${(isLast || isReadOnly) ? 'disabled' : ''} 
                     onclick="event.stopPropagation(); moveDialogueLine('${dialogue.id}', ${lIdx}, 1)">
               ▼
             </button>
 
             <!-- Add Line Below -->
             <button type="button" 
-                    class="line-add-btn text-[11px] bg-black/10 hover:bg-black/20 px-1.5 py-0.5 rounded font-bold transition hover:scale-105 active:scale-95" 
+                    class="line-add-btn text-[11px] px-1.5 py-0.5 rounded font-bold transition ${isReadOnly ? 'opacity-25 cursor-not-allowed pointer-events-none' : 'bg-black/10 hover:bg-black/20 hover:scale-105 active:scale-95'}" 
                     title="Insert new dialogue line under this line" 
+                    ${isReadOnly ? 'disabled' : ''}
                     onclick="event.stopPropagation(); insertDialogueLineBelow('${dialogue.id}', ${lIdx})">
               + Line
             </button>
 
             <!-- Delete Line -->
             <button type="button" 
-                    class="line-delete-btn text-xs text-red-600 hover:text-red-800 hover:bg-red-200/50 px-1 rounded font-bold transition ml-0.5" 
+                    class="line-delete-btn text-xs px-1 rounded font-bold transition ml-0.5 ${isReadOnly ? 'opacity-25 cursor-not-allowed pointer-events-none' : 'text-red-600 hover:text-red-800 hover:bg-red-200/50'}" 
                     title="Delete Line" 
+                    ${isReadOnly ? 'disabled' : ''} 
                     onclick="event.stopPropagation(); deleteDialogueLine('${dialogue.id}', ${lIdx})">
               ×
             </button>
           </div>
         </div>
 
-        <div class="dialogue-text editable-spot" onclick="event.stopPropagation(); makeInlineDialogueTextEditable(this, '${dialogue.id}', ${lIdx})">
+        <div class="dialogue-text ${isReadOnly ? 'cursor-default' : 'editable-spot'}" onclick="event.stopPropagation(); ${isReadOnly ? '' : `makeInlineDialogueTextEditable(this, '${dialogue.id}', ${lIdx})`}">
           ${l.text || 'Speech text...'}
         </div>
       </div>
@@ -1947,8 +1973,9 @@ function createDialogueNodeDOM(dialogue) {
     const lIsActionOpt = lObj.triggerTiming === 'action_option';
     return `
       <div class="flex items-center gap-1 min-w-0">
-        <select class="inline-select text-[10px] font-bold uppercase tracking-wider ${lIsActionOpt ? 'bg-indigo-100 text-indigo-950 border-indigo-400' : 'bg-purple-200 text-purple-950 border-purple-400'} border rounded px-1.5 py-0.5 max-w-[205px] truncate cursor-pointer shadow-xs shrink"
+        <select class="inline-select text-[10px] font-bold uppercase tracking-wider ${lIsActionOpt ? 'bg-indigo-100 text-indigo-950 border-indigo-400' : 'bg-purple-200 text-purple-950 border-purple-400'} border rounded px-1.5 py-0.5 max-w-[170px] truncate shadow-xs shrink ${isReadOnly ? 'opacity-75 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}"
                 title="Change dialogue trigger timing: Pre-Event, Route Suggestion, or Post-Action"
+                ${isReadOnly ? 'disabled' : ''}
                 onchange="updateDialogueTriggerTiming('${dialogue.id}', this.value, ${lIdx})">
           <option value="pre_event" ${lObj.triggerTiming === 'pre_event' ? 'selected' : ''}>⚡ Pre-Event (Before Window)</option>
           ${(lNode.actions || []).map((act, aIdx) => `
@@ -1973,7 +2000,7 @@ function createDialogueNodeDOM(dialogue) {
                 onclick="event.stopPropagation(); zoomInToBlock('${lNode.id}', false)">
           ${lNode.codename} ↗
         </button>
-        ${showRemoveBtn ? `
+        ${(showRemoveBtn && !isReadOnly) ? `
           <button type="button"
                   class="text-[11px] font-bold text-red-700 hover:text-red-900 bg-red-100 hover:bg-red-200 border border-red-300 rounded px-1.5 py-0.5 shrink-0 transition"
                   title="Disconnect this specific trigger link"
@@ -2012,16 +2039,18 @@ function createDialogueNodeDOM(dialogue) {
             <button type="button" class="comment-trigger-badge" title="Comments & Discussions" onclick="event.stopPropagation(); openCommentsDrawer('${dialogue.id}', 'dialogue')">
               💬 <span class="cmt-cnt-${dialogue.id}">${getCommentCount(dialogue.id)}</span>
             </button>
-            ${!isDetached ? `
+            ${(!isDetached && !isReadOnly) ? `
               <button type="button" class="card-btn card-btn-unlink" 
                       title="${validLinks.length > 1 ? 'Disconnect all linked triggers' : 'Disconnect from Event'}" onclick="event.stopPropagation(); disconnectDialogueLink('${dialogue.id}')">
                 ⊘ ${validLinks.length > 1 ? 'Unlink All' : 'Unlink'}
               </button>
             ` : ''}
-            <button type="button" class="card-btn card-btn-delete" 
-                    title="Delete Dialogue Block" onclick="event.stopPropagation(); deleteDialogueNode('${dialogue.id}')">
-              ✕ Delete
-            </button>
+            ${!isReadOnly ? `
+              <button type="button" class="card-btn card-btn-delete" 
+                      title="Delete Dialogue Block" onclick="event.stopPropagation(); deleteDialogueNode('${dialogue.id}')">
+                ✕ Delete
+              </button>
+            ` : ''}
           </div>
         </div>
         ${extraLinksHTML}
@@ -2030,16 +2059,17 @@ function createDialogueNodeDOM(dialogue) {
         <div class="dialogue-delay-strip flex items-center justify-between p-1.5 rounded-lg border text-xs">
           <div class="flex items-center gap-1.5">
             <span class="font-bold text-[11px]">⏱ Delay:</span>
-            <input type="number" class="inline-input w-16 font-bold text-center px-1.5 py-0.5 rounded" 
+            <input type="number" class="inline-input w-16 font-bold text-center px-1.5 py-0.5 rounded ${isReadOnly ? 'opacity-70 cursor-not-allowed bg-gray-100/90 text-gray-500 pointer-events-none' : ''}" 
                    value="${dialogue.delayHours !== undefined ? dialogue.delayHours : (dialogue.delayMinutes !== undefined ? (dialogue.delayMinutes >= 60 ? dialogue.delayMinutes/60 : dialogue.delayMinutes) : 0)}" 
                    min="0" step="0.5" 
+                   ${isReadOnly ? 'disabled readonly' : ''}
                    onchange="updateDialogueDelayHours('${dialogue.id}', this.value)">
             <span class="font-bold text-xs">hours</span>
           </div>
 
-          <div class="text-[10px] font-semibold italic truncate cursor-pointer hover:underline editable-spot flex-1 text-right ml-2" 
-               title="Click to edit trigger condition"
-               onclick="event.stopPropagation(); makeInlineDialogueConditionEditable(this, '${dialogue.id}', 0)">
+          <div class="text-[10px] font-semibold italic truncate ${isReadOnly ? 'cursor-default text-purple-900/70' : 'cursor-pointer hover:underline editable-spot'} flex-1 text-right ml-2" 
+               title="${isReadOnly ? 'Trigger condition' : 'Click to edit trigger condition'}"
+               onclick="event.stopPropagation(); ${isReadOnly ? '' : `makeInlineDialogueConditionEditable(this, '${dialogue.id}', 0)`}">
             ${dialogue.triggerCondition || (isDetached ? 'Detached Conversation' : 'Dialog spawn trigger')}
           </div>
         </div>
@@ -2049,15 +2079,17 @@ function createDialogueNodeDOM(dialogue) {
       </div>
       <div class="dialogue-footer relative p-2 border-t flex items-center justify-center">
         <button type="button" 
-                class="dialogue-add-btn text-xs font-bold border rounded-lg px-3.5 py-1.5 flex items-center gap-1.5 transition shadow-sm active:scale-95"
+                class="dialogue-add-btn text-xs font-bold border rounded-lg px-3.5 py-1.5 flex items-center gap-1.5 transition shadow-sm ${isReadOnly ? 'opacity-30 cursor-not-allowed pointer-events-none' : 'active:scale-95'}"
+                ${isReadOnly ? 'disabled' : ''}
                 onclick="event.stopPropagation(); addDialogueLineTurn('${dialogue.id}')" 
                 title="Add new dialogue line under existing lines">
           <span class="text-sm font-bold leading-none">+</span> <span>Add Line of Dialogue</span>
         </button>
 
         <div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center">
-          <select class="event-theme-select" 
+          <select class="event-theme-select ${isReadOnly ? 'opacity-70 cursor-not-allowed pointer-events-none' : ''}" 
                   title="Change Dialogue Block Color Scheme"
+                  ${isReadOnly ? 'disabled' : ''}
                   onclick="event.stopPropagation();"
                   onmousedown="event.stopPropagation();"
                   onchange="updateDialogueColorScheme('${dialogue.id}', this.value)">
@@ -2410,7 +2442,10 @@ function createStandaloneDialogue() {
 }
 
 function updateDialogueDelayHours(dialogueId, val) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue delay hours")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue delay hours")) {
+    renderApp();
+    return;
+  }
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
@@ -2421,7 +2456,10 @@ function updateDialogueDelayHours(dialogueId, val) {
 }
 
 function updateDialogueTriggerTiming(dialogueId, combinedVal, linkIdx = 0) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue trigger timing")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue trigger timing")) {
+    renderApp();
+    return;
+  }
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
@@ -2624,7 +2662,10 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
 
 function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
   if (isArrangeMode) return;
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue speaker")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue speaker")) {
+    renderApp();
+    return;
+  }
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag && diag.lines[lineIdx] && diag.lines[lineIdx].speakerId !== speakerId) {
     pushUndoState();
@@ -2890,7 +2931,10 @@ function getReactionTimerOptionsHTML(currentVal) {
 }
 
 function updateNodeReactionTimer(nodeId, val) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change reaction timer")) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change reaction timer")) {
+    renderApp();
+    return;
+  }
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
 
@@ -3034,7 +3078,10 @@ function updateNodeFieldByPath(nodeId, fieldPath, value) {
 }
 
 function updateNodeField(nodeId, field, value) {
-  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit(`change ${field}`)) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit(`change ${field}`)) {
+    renderApp();
+    return;
+  }
   const node = appData.nodes.find(n => n.id === nodeId);
   if (node) {
     node[field] = value;

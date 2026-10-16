@@ -872,7 +872,7 @@ html, body {
 
 /* Dialogue Block Styling - Rounded Edges & Sleek Shadows */
 .dialogue-card {
-  width: 490px;
+  width: 510px;
   background-color: var(--theme-card-bg, #ffffff);
   color: #111827;
   border: 2px solid var(--theme-card-border, #9333ea);
@@ -2181,16 +2181,35 @@ body.is-port-dragging .inbound-event-port {
 /* Read-Only / Spectator Mode Visual Styling */
 body.is-board-readonly .dialogue-add-btn,
 body.is-board-readonly .req-add-btn,
+body.is-board-readonly .reward-add-btn,
+body.is-board-readonly .penalty-add-btn,
 body.is-board-readonly .dialogue-trigger-port,
-body.is-board-readonly .action-port {
-  opacity: 0.55;
+body.is-board-readonly .action-port,
+body.is-board-readonly .line-move-btn,
+body.is-board-readonly .line-add-btn,
+body.is-board-readonly .line-delete-btn,
+body.is-board-readonly .card-btn-unlink,
+body.is-board-readonly .card-btn-delete {
+  opacity: 0.4;
   cursor: not-allowed !important;
+  pointer-events: none !important;
 }
 
 body.is-board-readonly .event-theme-select,
 body.is-board-readonly .rx-timer-select,
 body.is-board-readonly select.inline-select,
-body.is-board-readonly .dialogue-speaker-select {
-  cursor: not-allowed;
+body.is-board-readonly .dialogue-speaker-select,
+body.is-board-readonly .dialogue-delay-strip input,
+body.is-board-readonly .dialogue-row select {
+  cursor: not-allowed !important;
+  pointer-events: none !important;
   opacity: 0.75;
+}
+
+body.is-board-readonly .dialogue-card input[type="number"],
+body.is-board-readonly .dialogue-card input[type="text"],
+body.is-board-readonly .dialogue-card select {
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  user-select: none;
 }

@@ -618,6 +618,10 @@ function renderMobileStageView() {
 }
 
 function renderMobileDialogueCardHTML(dialogue, timingMode = 'pre_event', contextEventId = null, contextActionId = null) {
+  const isReadOnly = (typeof canUserEdit === 'function') 
+    ? !canUserEdit() 
+    : (typeof isCurrentBoardReadOnly === 'function' ? isCurrentBoardReadOnly() : Boolean(isCurrentBoardReadOnly));
+
   const isRoute = (timingMode === 'action_option' || timingMode === true);
   const isPostAction = (timingMode === 'post_action' || timingMode === 'post_event');
   const allChars = getGlobalCharactersPool();
@@ -634,7 +638,9 @@ function renderMobileDialogueCardHTML(dialogue, timingMode = 'pre_event', contex
         <div class="flex items-center justify-between text-[11px] gap-2">
           <div class="flex items-center gap-1.5 min-w-0 flex-1 px-1.5 py-0.5 rounded" style="background-color: ${charMeta.color || '#e5e7eb'}; color: ${charMeta.textColor || '#1f2937'}">
             <span>${charMeta.icon}</span>
-            <select class="inline-select text-[11px] font-bold bg-transparent border-none focus:outline-none flex-1 min-w-0" onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
+            <select class="inline-select text-[11px] font-bold bg-transparent border-none focus:outline-none flex-1 min-w-0 ${isReadOnly ? 'opacity-70 cursor-not-allowed pointer-events-none' : ''}" 
+                    ${isReadOnly ? 'disabled' : ''} 
+                    onchange="updateDialogueSpeaker('${dialogue.id}', ${lIdx}, this.value)">
               ${dropdownChars.map(c => {
                 const isSelected = (matchedChar && c.id === matchedChar.id) || c.id === l.speakerId;
                 const roleSuffix = c.role ? ` (${c.role})` : '';
@@ -643,9 +649,11 @@ function renderMobileDialogueCardHTML(dialogue, timingMode = 'pre_event', contex
               }).join('')}
             </select>
           </div>
-          <button type="button" onclick="removeMobileDialogueLine('${dialogue.id}', ${lIdx})" class="text-gray-500 hover:text-red-400 text-xs px-1">×</button>
+          ${!isReadOnly ? `
+            <button type="button" onclick="removeMobileDialogueLine('${dialogue.id}', ${lIdx})" class="text-gray-500 hover:text-red-400 text-xs px-1">×</button>
+          ` : ''}
         </div>
-        <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${dialogue.id}', 'lines.${lIdx}.text')">
+        <p class="text-xs text-gray-200 leading-relaxed ${isReadOnly ? 'cursor-default' : 'editable-spot'} whitespace-pre-line" onclick="event.stopPropagation(); ${isReadOnly ? '' : `makeInlineTextEditable(this, '${dialogue.id}', 'lines.${lIdx}.text')`}">
           ${l.text || 'Dialogue text...'}
         </p>
       </div>

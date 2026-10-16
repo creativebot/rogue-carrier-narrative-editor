@@ -1597,6 +1597,7 @@ function renderBoardLockBanner(mode) {
   }
 }
 
+let lastRenderedReadOnlyState = null;
 function updateEditControlsLockState() {
   const btnAddEvent = document.getElementById('btn-add-event');
   const btnAddDialogue = document.getElementById('btn-add-dialogue');
@@ -1638,6 +1639,13 @@ function updateEditControlsLockState() {
     if (btnHeaderAcquire) {
       btnHeaderAcquire.classList.add('hidden');
       btnHeaderAcquire.classList.remove('flex');
+    }
+  }
+
+  if (lastRenderedReadOnlyState !== isCurrentBoardReadOnly) {
+    lastRenderedReadOnlyState = isCurrentBoardReadOnly;
+    if (typeof renderApp === 'function') {
+      renderApp();
     }
   }
 }
