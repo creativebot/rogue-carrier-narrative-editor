@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T11:02:35.537356",
+  "_lastModified": "2026-10-16T11:03:14.252Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -106,17 +106,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -137,17 +127,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -168,17 +148,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -199,17 +169,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -230,17 +190,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -261,17 +211,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -292,17 +232,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     }
   ],
@@ -324,8 +254,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
+      "location": "Main Hangar Bay",
+      "spawnConditions": "Carrier underway",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
       "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
       "reactionTimerHours": "2",
@@ -3028,7 +2958,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3080,7 +3011,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3178,7 +3110,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
@@ -4476,5 +4409,25 @@
       "links": [],
       "floorIndex": 0
     }
-  ]
+  ],
+  "symbolLimits": {
+    "eventIntro": 465,
+    "eventDescription": 200,
+    "actionDescription": 240,
+    "actionDescription3Opt": 135,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 465,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 300,
+    "eventDescription": 120,
+    "actionDescription": 120,
+    "actionDescription3Opt": 80,
+    "actionButtonText": 8,
+    "eventOutcome": 530,
+    "inactionResult": 300,
+    "variationDescription": 80
+  }
 }
