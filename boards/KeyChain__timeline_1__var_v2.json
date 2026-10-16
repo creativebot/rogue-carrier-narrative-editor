@@ -984,7 +984,8 @@
           "targetNodeId": "node_1791988044467"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791904903648",
@@ -1246,5 +1247,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:51:11.627558"
+  "_lastModified": "2026-10-16T20:51:13.596606"
 }
