@@ -80,6 +80,7 @@ function pushUndoState() {
 }
 
 function performUndo() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("undo actions")) return;
   if (undoStack.length === 0) {
     showToast("Nothing to undo", "warning");
     return;
@@ -100,6 +101,7 @@ function performUndo() {
 }
 
 function performRedo() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("redo actions")) return;
   if (redoStack.length === 0) {
     showToast("Nothing to redo", "warning");
     return;

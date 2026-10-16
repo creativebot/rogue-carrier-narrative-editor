@@ -927,6 +927,13 @@ function saveProjectToLocalStorage() {
   localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
+  const isReadOnly = (typeof isCurrentBoardReadOnly === 'function') 
+    ? isCurrentBoardReadOnly() 
+    : (typeof isCurrentBoardReadOnly === 'boolean' ? isCurrentBoardReadOnly : false);
+  if (isReadOnly) {
+    return;
+  }
+
   if (typeof touchActiveBoardLock === 'function') {
     touchActiveBoardLock();
   }
@@ -1072,6 +1079,20 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
   clearTimeout(autoSaveDiskTimer);
   if (!appData || !Array.isArray(appData.nodes)) return;
 
+  const isReadOnly = (typeof isCurrentBoardReadOnly === 'function') 
+    ? isCurrentBoardReadOnly() 
+    : (typeof isCurrentBoardReadOnly === 'boolean' ? isCurrentBoardReadOnly : false);
+  if (isReadOnly) {
+    if (isManual) {
+      if (typeof requireAuthToEdit === 'function') {
+        requireAuthToEdit("save changes to this board");
+      } else {
+        showToast("🔒 Board is currently in Read-Only mode. Changes cannot be saved to server.", "warning");
+      }
+    }
+    return;
+  }
+
   const currentSig = computeBoardContentSignature(appData);
   const hasContentChanged = (currentSig !== lastSavedContentSignature);
   lastSavedContentSignature = currentSig;
@@ -1133,6 +1154,13 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
 }
 
 async function syncProjectToDiskServer() {
+  const isReadOnly = (typeof isCurrentBoardReadOnly === 'function') 
+    ? isCurrentBoardReadOnly() 
+    : (typeof isCurrentBoardReadOnly === 'boolean' ? isCurrentBoardReadOnly : false);
+  if (isReadOnly) {
+    console.warn("[Storage] Guarded: active board is read-only, suppressing auto-sync to server disk.");
+    return;
+  }
   const badgeText = document.getElementById('save-status-text');
   try {
     if (currentUser && currentUser.name && appData.projectInfo) {

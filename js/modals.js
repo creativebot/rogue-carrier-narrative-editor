@@ -275,6 +275,7 @@ function createAndSelectCriteriaFromPicker() {
 }
 
 function selectCriteriaFromPicker(criteriaName) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("select criteria")) return;
   const cleanName = String(criteriaName || '').trim();
   if (!cleanName) return;
 
@@ -348,6 +349,7 @@ function selectCriteriaFromPicker(criteriaName) {
 }
 
 function deleteCriteriaFromPool(criteriaName) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("delete criteria")) return;
   const cleanName = String(criteriaName || '').trim();
   if (!cleanName) return;
   if (Array.isArray(appData.criteriaPool)) {
@@ -457,6 +459,7 @@ function filterPickerResources(query) {
 
 // Select Crew Specialization (Science, Engineering, Operations, Defense)
 function selectCrewSpecialization(categoryName, icon, color) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("assign specialization")) return;
   const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType } = activePickerTarget;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
@@ -563,6 +566,7 @@ function selectCrewSpecialization(categoryName, icon, color) {
 
 // Select Intangible Stat with Specific Amount or Range & Support Inaction Penalties + Requirement Clauses
 function selectIntangibleStat(statName, icon, color) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("assign stat")) return;
   const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType } = activePickerTarget;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
@@ -643,6 +647,7 @@ function selectIntangibleStat(statName, icon, color) {
 }
 
 function selectResourceFromPicker(item) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("select resource item")) return;
   if (item.category === 'Specialization' || item.kind === 'specialization') {
     selectCrewSpecialization(item.name, item.icon || '👨‍🚀', item.color || '#3b82f6');
     return;
@@ -2307,6 +2312,7 @@ function updateImportPreviewLineText(idx, val) {
 
 // Commit Imported Dialogue to Canvas as Detached Dialogue
 function confirmImportToCanvas() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("import dialogue")) return;
   if (!parsedImportData || !parsedImportData.lines || parsedImportData.lines.length === 0) {
     showToast("No dialogue lines to import", "warning");
     return;
@@ -2372,6 +2378,7 @@ function confirmImportToCanvas() {
 }
 
 function openCreateEventModal() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("create event block")) return;
   pushUndoState();
   const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
 

@@ -312,6 +312,11 @@ function setupPortDragEvents() {
       }
     }
 
+    if (!canUserEdit()) {
+      portDragState.isDragging = false;
+      return;
+    }
+
     portDragState.isDragging = false;
     saveProjectToLocalStorage();
     renderApp();
@@ -357,6 +362,7 @@ function setupPortDragEvents() {
 }
 
 function disconnectActionTarget(nodeId, actionId, specificTargetNodeId = null) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("disconnect connector wire")) return;
   const sourceNode = (appData.nodes || []).find(n => n.id === nodeId);
   if (!sourceNode) return;
 

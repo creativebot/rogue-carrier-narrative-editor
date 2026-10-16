@@ -2177,3 +2177,20 @@ body.is-port-dragging .inbound-event-port {
 .dialogue-card-inner {
   display: block !important;
 }
+
+/* Read-Only / Spectator Mode Visual Styling */
+body.is-board-readonly .dialogue-add-btn,
+body.is-board-readonly .req-add-btn,
+body.is-board-readonly .dialogue-trigger-port,
+body.is-board-readonly .action-port {
+  opacity: 0.55;
+  cursor: not-allowed !important;
+}
+
+body.is-board-readonly .event-theme-select,
+body.is-board-readonly .rx-timer-select,
+body.is-board-readonly select.inline-select,
+body.is-board-readonly .dialogue-speaker-select {
+  cursor: not-allowed;
+  opacity: 0.75;
+}

@@ -132,6 +132,8 @@ async function initAuthSystem() {
 }
 
 let isCurrentBoardReadOnly = false;
+function getIsCurrentBoardReadOnly() { return isCurrentBoardReadOnly; }
+window.isCurrentBoardReadOnly = getIsCurrentBoardReadOnly;
 let currentBoardLock = null;
 let boardLockHeartbeatTimer = null;
 let boardLockCountdownTimer = null;
@@ -144,12 +146,18 @@ function canUserEdit() {
 
 function requireAuthToEdit(actionDesc = "edit this element") {
   if (isCurrentBoardReadOnly) {
-    const owner = currentBoardLock?.userName || 'another editor';
-    const expSec = currentBoardLock?.remainingSeconds || 0;
-    const min = Math.floor(expSec / 60);
-    const sec = expSec % 60;
-    const timeStr = expSec > 0 ? ` (lease expires in ${min}m ${sec}s)` : '';
-    showToast(`🔒 Read-Only: This board is currently locked by ${owner}${timeStr}.`, "warning");
+    const myEmail = (currentUser?.email || '').trim().toLowerCase();
+    const isLockedByOther = Boolean(currentBoardLock && currentBoardLock.userEmail && currentBoardLock.userEmail.toLowerCase() !== myEmail);
+    if (isLockedByOther) {
+      const owner = currentBoardLock?.userName || 'another editor';
+      const expSec = currentBoardLock?.remainingSeconds || 0;
+      const min = Math.floor(expSec / 60);
+      const sec = expSec % 60;
+      const timeStr = expSec > 0 ? ` (lease expires in ${min}m ${sec}s)` : '';
+      showToast(`🔒 Read-Only: This board is currently locked by ${owner}${timeStr}.`, "warning");
+    } else {
+      showToast(`🔒 Board is in Spectator mode. Click 'Acquire Lock to Edit' above to ${actionDesc}.`, "warning");
+    }
     return false;
   }
   if (isLocalEnvironment()) return true;
@@ -1536,14 +1544,19 @@ function renderBoardLockBanner(mode) {
 
   if (mode === 'owned') {
     banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl border border-emerald-500/50 bg-emerald-950/95 text-emerald-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
-    iconEl.innerHTML = `<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>`;
+    iconEl.innerHTML = `<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>`;
     const bName = currentBoardLock?.boardName || getCurrentBoardDisplayName();
     const remSec = (currentBoardLock?.remainingSeconds !== undefined) ? currentBoardLock.remainingSeconds : 180;
     msgEl.innerHTML = `<span>Editing <strong class="text-white">${bName}</strong> (Lock expires in <span id="lock-countdown-timer-owned" class="font-mono text-white font-bold">${formatLockRemaining(remSec)}</span>)</span>`;
     actionsEl.innerHTML = `
-      <button type="button" onclick="releaseActiveBoardLock()" class="text-emerald-400 hover:text-emerald-100 text-[11px] underline ml-2 transition cursor-pointer">
-        Release
-      </button>
+      <div class="flex items-center gap-2">
+        <button type="button" onclick="touchActiveBoardLock(true)" class="bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow transition cursor-pointer flex items-center gap-1" title="Extend lock lease by 3 minutes">
+          <i data-lucide="refresh-cw" class="w-3 h-3"></i> +3m Extend
+        </button>
+        <button type="button" onclick="releaseActiveBoardLock()" class="text-emerald-300 hover:text-white text-[11px] underline ml-1 transition cursor-pointer">
+          Release
+        </button>
+      </div>
     `;
     if (window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons({ root: banner });
@@ -1568,22 +1581,48 @@ function renderBoardLockBanner(mode) {
     if (window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons({ root: banner });
     }
+  } else if (mode === 'spectator') {
+    banner.className = 'fixed top-[60px] left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-4 py-1.5 rounded-full shadow-2xl border border-cyan-500/50 bg-slate-900/95 text-cyan-200 text-xs font-semibold pointer-events-auto transition-all duration-300';
+    iconEl.innerHTML = `<i data-lucide="eye" class="w-4 h-4 text-cyan-400 shrink-0"></i>`;
+    const bName = getCurrentBoardDisplayName();
+    msgEl.innerHTML = `<span>Viewing <strong class="text-white">${bName}</strong> • <strong class="text-cyan-300">Spectator Mode (Read-Only)</strong></span>`;
+    actionsEl.innerHTML = `
+      <button type="button" onclick="acquireActiveBoardLock()" class="bg-cyan-600 hover:bg-cyan-500 active:scale-95 text-white px-3 py-1 rounded-full text-xs font-bold shadow flex items-center gap-1.5 transition cursor-pointer">
+        <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Acquire Lock to Edit
+      </button>
+    `;
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons({ root: banner });
+    }
   }
 }
 
 function updateEditControlsLockState() {
   const btnAddEvent = document.getElementById('btn-add-event');
   const btnAddDialogue = document.getElementById('btn-add-dialogue');
+  const btnAutoArrange = document.getElementById('btn-auto-arrange');
+  const btnHeaderAcquire = document.getElementById('btn-header-acquire-lock');
+
   if (isCurrentBoardReadOnly) {
+    document.body.classList.add('is-board-readonly');
     if (btnAddEvent) {
       btnAddEvent.classList.add('opacity-40', 'cursor-not-allowed');
-      btnAddEvent.title = 'Board is locked in Read-Only mode by another editor';
+      btnAddEvent.title = 'Board is in Read-Only mode. Acquire edit lock to make changes.';
     }
     if (btnAddDialogue) {
       btnAddDialogue.classList.add('opacity-40', 'cursor-not-allowed');
-      btnAddDialogue.title = 'Board is locked in Read-Only mode by another editor';
+      btnAddDialogue.title = 'Board is in Read-Only mode. Acquire edit lock to make changes.';
+    }
+    if (btnAutoArrange) {
+      btnAutoArrange.classList.add('opacity-40', 'cursor-not-allowed');
+      btnAutoArrange.title = 'Board is in Read-Only mode. Acquire edit lock to arrange.';
+    }
+    if (btnHeaderAcquire) {
+      btnHeaderAcquire.classList.remove('hidden');
+      btnHeaderAcquire.classList.add('flex');
     }
   } else {
+    document.body.classList.remove('is-board-readonly');
     if (btnAddEvent) {
       btnAddEvent.classList.remove('opacity-40', 'cursor-not-allowed');
       btnAddEvent.title = 'Add new event block to canvas';
@@ -1591,6 +1630,14 @@ function updateEditControlsLockState() {
     if (btnAddDialogue) {
       btnAddDialogue.classList.remove('opacity-40', 'cursor-not-allowed');
       btnAddDialogue.title = 'Create a standalone dialogue card';
+    }
+    if (btnAutoArrange) {
+      btnAutoArrange.classList.remove('opacity-40', 'cursor-not-allowed');
+      btnAutoArrange.title = 'Auto arrange event blocks';
+    }
+    if (btnHeaderAcquire) {
+      btnHeaderAcquire.classList.add('hidden');
+      btnHeaderAcquire.classList.remove('flex');
     }
   }
 }
@@ -1622,17 +1669,25 @@ function startLockCountdown() {
         releaseActiveBoardLock(false);
       } else {
         // Spectator: lock expired on server!
-        syncActiveBoardLock();
+        currentBoardLock = null;
+        isCurrentBoardReadOnly = true;
+        renderBoardLockBanner('spectator');
+        updateEditControlsLockState();
+        showToast("Board lock was freed! You can now acquire the edit lock.", "info");
       }
     }
   }, 1000);
 }
 
-async function touchActiveBoardLock() {
+async function touchActiveBoardLock(force = false) {
   if (!currentBoardLock || isCurrentBoardReadOnly) return;
-  if (lockTouchDebounceTimer) return;
-  lockTouchDebounceTimer = setTimeout(async () => {
+  if (!force && lockTouchDebounceTimer) return;
+  if (lockTouchDebounceTimer) {
+    clearTimeout(lockTouchDebounceTimer);
     lockTouchDebounceTimer = null;
+  }
+
+  const doHeartbeat = async () => {
     if (!currentBoardLock || isCurrentBoardReadOnly) return;
     try {
       const boardId = getCurrentBoardIdentifier();
@@ -1649,11 +1704,66 @@ async function touchActiveBoardLock() {
         if (timerOwned) {
           timerOwned.innerText = formatLockRemaining(180);
         }
+        if (force) {
+          showToast("⏱️ Edit lock lease extended by 3 minutes.", "success");
+        }
       } else if (data.status === 'lost') {
         syncActiveBoardLock();
       }
     } catch (e) {}
-  }, 400);
+  };
+
+  if (force) {
+    await doHeartbeat();
+  } else {
+    lockTouchDebounceTimer = setTimeout(async () => {
+      lockTouchDebounceTimer = null;
+      await doHeartbeat();
+    }, 400);
+  }
+}
+
+async function acquireActiveBoardLock() {
+  const boardId = getCurrentBoardIdentifier();
+  const boardName = getCurrentBoardDisplayName();
+
+  if (boardLockCountdownTimer) {
+    clearInterval(boardLockCountdownTimer);
+    boardLockCountdownTimer = null;
+  }
+
+  try {
+    const res = await fetch('/api/lock/acquire', {
+      method: 'POST',
+      headers: getAuthHeaders(true),
+      body: JSON.stringify({ boardId, boardName })
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      currentBoardLock = data.lock;
+      currentBoardLock.remainingSeconds = (data.lock && data.lock.remainingSeconds) || 180;
+      isCurrentBoardReadOnly = false;
+      renderBoardLockBanner('owned');
+      startLockCountdown();
+      updateEditControlsLockState();
+      startCollabSyncPoll();
+      showToast(`🟢 Edit lock acquired for ${boardName}! You can now edit.`, 'success');
+    } else if (res.status === 423 || data.status === 'locked') {
+      currentBoardLock = data.lock;
+      isCurrentBoardReadOnly = true;
+      renderBoardLockBanner('locked');
+      startLockCountdown();
+      updateEditControlsLockState();
+      startCollabSyncPoll();
+      const owner = data.lock?.userName || 'another designer';
+      showToast(`🔒 Board is currently locked by ${owner}.`, 'warning');
+    } else {
+      showToast(data.message || "Could not acquire board lock.", "error");
+    }
+  } catch (err) {
+    showToast("Network error trying to acquire board lock: " + err.message, "error");
+  }
 }
 
 async function syncActiveBoardLock() {
@@ -1689,14 +1799,14 @@ async function syncActiveBoardLock() {
       updateEditControlsLockState();
       startCollabSyncPoll();
     } else {
-      isCurrentBoardReadOnly = false;
-      renderBoardLockBanner('hidden');
+      isCurrentBoardReadOnly = true;
+      renderBoardLockBanner('spectator');
       updateEditControlsLockState();
       startCollabSyncPoll();
     }
   } catch (err) {
-    isCurrentBoardReadOnly = false;
-    renderBoardLockBanner('hidden');
+    isCurrentBoardReadOnly = true;
+    renderBoardLockBanner('spectator');
     updateEditControlsLockState();
     startCollabSyncPoll();
   }
@@ -1724,7 +1834,11 @@ function startCollabSyncPoll() {
           }
         } else if (currentBoardLock) {
           // Lock was released or expired on server
-          syncActiveBoardLock();
+          currentBoardLock = null;
+          isCurrentBoardReadOnly = true;
+          renderBoardLockBanner('spectator');
+          updateEditControlsLockState();
+          showToast("Board lock was freed! You can now acquire the edit lock.", "info");
         }
       } else {
         // We hold the lock: verify we haven't been overridden by admin
@@ -1865,7 +1979,7 @@ async function releaseActiveBoardLock(notifyServer = true) {
   }
   currentBoardLock = null;
   isCurrentBoardReadOnly = true;
-  renderBoardLockBanner('hidden');
+  renderBoardLockBanner('spectator');
   updateEditControlsLockState();
   if (notifyServer) {
     showToast(`Released lock for ${getCurrentBoardDisplayName()}. Board in spectator mode.`, 'info');
@@ -1917,6 +2031,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 window.syncActiveBoardLock = syncActiveBoardLock;
+window.acquireActiveBoardLock = acquireActiveBoardLock;
 window.releaseActiveBoardLock = releaseActiveBoardLock;
 window.performAdminLockOverride = performAdminLockOverride;
 window.touchActiveBoardLock = touchActiveBoardLock;

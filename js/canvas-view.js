@@ -1506,6 +1506,7 @@ function createEventNodeDOM(node) {
 }
 
 function deleteEventNode(nodeId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("delete event block")) return;
   if (!confirm("Are you sure you want to delete this event block?")) return;
   pushUndoState();
 
@@ -1549,6 +1550,7 @@ function deleteEventNode(nodeId) {
 }
 
 function deleteDialogueNode(dialogueId, skipConfirm = false) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("delete dialogue block")) return;
   if (!skipConfirm && !confirm("Are you sure you want to delete this dialogue block?")) return;
   pushUndoState();
 
@@ -1568,6 +1570,7 @@ function deleteDialogueNode(dialogueId, skipConfirm = false) {
 }
 
 function updateNodeColorScheme(nodeId, colorScheme) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change event color scheme")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
   pushUndoState();
@@ -1578,6 +1581,7 @@ function updateNodeColorScheme(nodeId, colorScheme) {
 }
 
 function updateDialogueColorScheme(dialogueId, colorScheme) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue color scheme")) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
   pushUndoState();
@@ -1823,6 +1827,7 @@ function addDialogueLink(diag, targetEventId, triggerTiming, triggerActionId) {
 }
 
 function removeDialogueLinkAt(dialogueId, linkIdx) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("disconnect dialogue link")) return;
   const diag = (appData.dialogues || []).find(d => d.id === dialogueId);
   if (!diag) return;
   const links = getDialogueLinks(diag);
@@ -2074,6 +2079,8 @@ function createDialogueNodeDOM(dialogue) {
 }
 
 function makeInlineDialogueConditionEditable(element, dialogueId, linkIdx = 0) {
+  if (isArrangeMode || canvasDragMoved) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("edit dialogue condition")) return;
   if (element.querySelector('input')) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
@@ -2119,6 +2126,8 @@ function makeInlineDialogueConditionEditable(element, dialogueId, linkIdx = 0) {
 }
 
 function makeInlineDialogueTriggerBadgeEditable(badgeEl, dialogueId, linkIdx = 0) {
+  if (isArrangeMode || canvasDragMoved) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("edit dialogue trigger badge")) return;
   if (badgeEl.querySelector('input')) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
@@ -2200,6 +2209,7 @@ function formatDialogueTriggerCondition(timing, sourceNode, actionId) {
 let lastDialogueCreatedTime = 0;
 // Requirement 2: Create Connected Empty Dialogue from Event Block Purple Dot
 function createConnectedDialogueFromPort(nodeId, timing, actionId, customX, customY) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("create connected dialogue")) return;
   if (Date.now() - lastDialogueCreatedTime < 350) return;
   lastDialogueCreatedTime = Date.now();
   pushUndoState();
@@ -2368,6 +2378,7 @@ function findClosestEmptyCanvasPosition(width, height) {
 
 // Requirement 2: Create Standalone Unconnected Dialogue Card
 function createStandaloneDialogue() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("create standalone dialogue")) return;
   pushUndoState();
   const spawnPos = findClosestEmptyCanvasPosition(490, 240);
 
@@ -2399,6 +2410,7 @@ function createStandaloneDialogue() {
 }
 
 function updateDialogueDelayHours(dialogueId, val) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue delay hours")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
@@ -2409,6 +2421,7 @@ function updateDialogueDelayHours(dialogueId, val) {
 }
 
 function updateDialogueTriggerTiming(dialogueId, combinedVal, linkIdx = 0) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue trigger timing")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag) return;
@@ -2440,6 +2453,7 @@ function updateDialogueTriggerTiming(dialogueId, combinedVal, linkIdx = 0) {
 }
 
 function disconnectDialogueLink(dialogueId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("disconnect dialogue")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
@@ -2524,6 +2538,10 @@ function commitAndCloseActiveInlineEditor(cancel = false) {
   const editor = currentActiveInlineEditor;
   currentActiveInlineEditor = null; // Clear first to prevent re-entrancy
 
+  if (typeof canUserEdit === 'function' && !canUserEdit()) {
+    cancel = true;
+  }
+
   const { type, element, input, nodeId, fieldPath, originalVal } = editor;
   const currentVal = input.value;
   const hasChanged = !cancel && (currentVal !== originalVal);
@@ -2606,6 +2624,7 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
 
 function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("change dialogue speaker")) return;
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag && diag.lines[lineIdx] && diag.lines[lineIdx].speakerId !== speakerId) {
     pushUndoState();
@@ -2619,6 +2638,7 @@ function updateDialogueSpeaker(dialogueId, lineIdx, speakerId) {
 
 function deleteDialogueLine(dialogueId, lineIdx) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("delete dialogue line")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag && diag.lines) {
@@ -2630,6 +2650,7 @@ function deleteDialogueLine(dialogueId, lineIdx) {
 
 function moveDialogueLine(dialogueId, lineIdx, direction) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("reorder dialogue lines")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag || !diag.lines) return;
@@ -2646,6 +2667,7 @@ function moveDialogueLine(dialogueId, lineIdx, direction) {
 
 function insertDialogueLineBelow(dialogueId, lineIdx) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("insert dialogue line")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (!diag || !diag.lines) return;
@@ -2671,6 +2693,7 @@ function insertDialogueLineBelow(dialogueId, lineIdx) {
 
 function addDialogueLineTurn(dialogueId) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("add dialogue turn")) return;
   pushUndoState();
   const diag = appData.dialogues.find(d => d.id === dialogueId);
   if (diag) {
@@ -2992,6 +3015,7 @@ function finalizeNodeDrop(obj, el, nodeStartPos, preDragSnapshot) {
 }
 
 function updateNodeFieldByPath(nodeId, fieldPath, value) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("edit event property")) return;
   const node = (appData.nodes || []).find(n => n.id === nodeId) || (appData.dialogues || []).find(d => d.id === nodeId);
   if (!node) return;
 
@@ -3010,6 +3034,7 @@ function updateNodeFieldByPath(nodeId, fieldPath, value) {
 }
 
 function updateNodeField(nodeId, field, value) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit(`change ${field}`)) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (node) {
     node[field] = value;
@@ -3019,6 +3044,7 @@ function updateNodeField(nodeId, field, value) {
 }
 
 function spawnChildBranchNode(nodeId, actionId) {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("create branch event")) return;
   const sourceNode = (appData.nodes || []).find(n => n.id === nodeId);
   if (!sourceNode) return;
   const act = (sourceNode.actions || []).find(a => a.id === actionId);
@@ -3064,6 +3090,7 @@ function spawnChildBranchNode(nodeId, actionId) {
 
 function linkOrEditChoice(nodeId, actionId) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("link event choice")) return;
   const targetName = prompt("Enter Target Event Codename to add link (or leave empty to create a new connected branch event):");
   if (targetName === null) return;
 
@@ -3094,6 +3121,7 @@ function linkOrEditChoice(nodeId, actionId) {
 
 function linkOrEditInaction(nodeId) {
   if (isArrangeMode) return;
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("link inaction consequence")) return;
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node || !node.inactionThreat) return;
 
@@ -3442,6 +3470,7 @@ function fitWholeSchematic(keepZoomLock = false) {
 
 // Auto Arrange Tree Layout
 function autoArrangeTreeLayout() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("auto arrange blocks")) return;
   const floorNodes = {};
   appData.nodes.forEach(n => {
     const floor = n.floorIndex || 0;
