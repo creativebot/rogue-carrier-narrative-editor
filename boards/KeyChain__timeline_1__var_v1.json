@@ -681,10 +681,8 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": "node_e3a",
-          "targetNodeIds": [
-            "node_e3a"
-          ]
+          "targetNodeId": null,
+          "targetNodeIds": []
         },
         {
           "id": "act_e2b_2",
@@ -2061,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:40:45.653345"
+  "_lastModified": "2026-10-16T20:40:58.033047"
 }
