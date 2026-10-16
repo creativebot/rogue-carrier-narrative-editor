@@ -62,7 +62,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1629,
+        "x": 1426,
         "y": 1690
       },
       "actions": [
@@ -87,5 +87,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-15T16:15:08.454991"
+  "_lastModified": "2026-10-16T10:50:24.312799"
 }
