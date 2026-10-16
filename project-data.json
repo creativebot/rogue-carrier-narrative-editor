@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T22:09:03.242Z",
+  "_lastModified": "2026-10-17T01:37:15.960521",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -242,7 +242,10 @@
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found"
+    "Jammer Found",
+    "Resistance to diseases",
+    "Temporal immunity",
+    "any number of items"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -305,7 +308,24 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "status_1_food_savings",
+              "name": "Food Savings",
+              "amount": "1",
+              "iconImg": "icons/status_effects/Food Savings.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food charge lasts for 2 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember spends each food charge every 2 hours, while receiving effects of food every hour as usual."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2978,8 +2998,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3031,8 +3050,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3130,8 +3148,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
