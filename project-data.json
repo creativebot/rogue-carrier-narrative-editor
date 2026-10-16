@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T12:23:44.231402",
+  "_lastModified": "2026-10-16T12:25:32.340647",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -1003,7 +1003,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3376,
+        "x": 3566,
         "y": 90
       },
       "actions": [
