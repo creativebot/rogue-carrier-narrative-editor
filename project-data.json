@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T22:08:58.214Z",
+  "_lastModified": "2026-10-17T00:09:03.259371",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -245,7 +245,7 @@
     "Jammer Found"
   ],
   "symbolLimits": {
-    "eventIntro": 555,
+    "eventIntro": 475,
     "eventDescription": 475,
     "actionDescription": 120,
     "actionDescription3Opt": 200,
@@ -255,7 +255,7 @@
     "variationDescription": 280
   },
   "recommendedLimits": {
-    "eventIntro": 135,
+    "eventIntro": 120,
     "eventDescription": 180,
     "actionDescription": 40,
     "actionDescription3Opt": 60,
@@ -2978,8 +2978,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3031,8 +3030,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3130,8 +3128,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
