@@ -548,7 +548,8 @@
         }
       ],
       "title": "Once More Into The Frey",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791831463894",
@@ -1243,5 +1244,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:51:06.060184"
+  "_lastModified": "2026-10-16T20:51:07.621011"
 }
