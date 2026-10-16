@@ -638,7 +638,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 11,
       "tier": 1,
       "location": "",
       "spawnConditions": "",
@@ -649,7 +649,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 4456
+        "y": 8237
       },
       "actions": [
         {
@@ -716,5 +716,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T16:43:57.682024"
+  "_lastModified": "2026-10-16T16:47:29.399290"
 }
