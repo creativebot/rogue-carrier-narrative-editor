@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T13:18:53.835529",
+  "_lastModified": "2026-10-16T13:19:06.442317",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1019,7 +1019,7 @@
           "id": "c_1792156729313",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Burning pod",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
