@@ -656,7 +656,7 @@
           "id": "c_1792156729313",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Burning pod",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -702,5 +702,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-16T13:18:53.828600"
+  "_lastModified": "2026-10-16T13:19:06.435942"
 }
