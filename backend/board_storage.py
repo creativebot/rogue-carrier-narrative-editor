@@ -32,11 +32,38 @@ def get_board_saves_dir(board_id):
     os.makedirs(bdir, exist_ok=True)
     return bdir
 
+DEFAULT_SYMBOL_LIMITS = {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+}
+
+DEFAULT_RECOMMENDED_LIMITS = {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+}
+
 def load_shared_meta():
     if os.path.exists(SHARED_META_FILE):
         try:
             with open(SHARED_META_FILE, 'r', encoding='utf-8') as f:
-                return json.load(f)
+                data = json.load(f)
+                if not data.get("symbolLimits"):
+                    data["symbolLimits"] = DEFAULT_SYMBOL_LIMITS.copy()
+                if not data.get("recommendedLimits"):
+                    data["recommendedLimits"] = DEFAULT_RECOMMENDED_LIMITS.copy()
+                return data
         except Exception as e:
             print(f"[BoardStorage] Error reading {SHARED_META_FILE}: {e}")
     # Fallback to defaults or project-data.json
@@ -53,7 +80,9 @@ def load_shared_meta():
                     "timelines": pj.get("timelines", []),
                     "variations": pj.get("variations", []),
                     "characters": pj.get("characters", []),
-                    "criteriaPool": pj.get("criteriaPool", [])
+                    "criteriaPool": pj.get("criteriaPool", []),
+                    "symbolLimits": pj.get("symbolLimits") or DEFAULT_SYMBOL_LIMITS.copy(),
+                    "recommendedLimits": pj.get("recommendedLimits") or DEFAULT_RECOMMENDED_LIMITS.copy()
                 }
         except Exception:
             pass
@@ -66,13 +95,15 @@ def load_shared_meta():
         "timelines": [],
         "variations": [],
         "characters": [],
-        "criteriaPool": []
+        "criteriaPool": [],
+        "symbolLimits": DEFAULT_SYMBOL_LIMITS.copy(),
+        "recommendedLimits": DEFAULT_RECOMMENDED_LIMITS.copy()
     }
 
 def save_shared_meta(meta_dict, author_name=None):
     with _STORAGE_LOCK:
         current_meta = load_shared_meta()
-        for k in ("timelines", "variations", "characters", "criteriaPool", "stageLayoutVersion", "projectInfo"):
+        for k in ("timelines", "variations", "characters", "criteriaPool", "stageLayoutVersion", "projectInfo", "symbolLimits", "recommendedLimits"):
             if k in meta_dict and meta_dict[k] is not None:
                 current_meta[k] = meta_dict[k]
         current_meta["_lastModified"] = datetime.now().isoformat()
@@ -125,6 +156,8 @@ def reassemble_full_project():
             "variations": meta.get("variations", []),
             "characters": meta.get("characters", []),
             "criteriaPool": meta.get("criteriaPool", []),
+            "symbolLimits": meta.get("symbolLimits") or DEFAULT_SYMBOL_LIMITS.copy(),
+            "recommendedLimits": meta.get("recommendedLimits") or DEFAULT_RECOMMENDED_LIMITS.copy(),
             "nodes": all_nodes,
             "dialogues": all_dialogues
         }
@@ -172,7 +205,7 @@ def load_board_slice(board_id):
         "_lastModified": datetime.now().isoformat()
     }
 
-def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, variations=None, stage_layout_version=None, save_name=None):
+def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, variations=None, stage_layout_version=None, save_name=None, symbol_limits=None, recommended_limits=None, characters=None, criteria_pool=None):
     """
     Atomically saves a single board to boards/<sanitized_board_id>.json,
     creates a per-board version snapshot in saves/boards/<board_id>/,
@@ -193,9 +226,21 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
                 "message": f"Timeline {part} is deleted. Board save ignored."
             }
 
-    # Only update stage_layout_version if passed (timelines and variations are handled by dedicated endpoints)
+    # Update shared metadata if passed
+    meta_updates = {}
     if stage_layout_version is not None:
-        save_shared_meta({"stageLayoutVersion": stage_layout_version}, author_name)
+        meta_updates["stageLayoutVersion"] = stage_layout_version
+    if symbol_limits is not None and isinstance(symbol_limits, dict):
+        meta_updates["symbolLimits"] = symbol_limits
+    if recommended_limits is not None and isinstance(recommended_limits, dict):
+        meta_updates["recommendedLimits"] = recommended_limits
+    if characters is not None and isinstance(characters, list):
+        meta_updates["characters"] = characters
+    if criteria_pool is not None and isinstance(criteria_pool, list):
+        meta_updates["criteriaPool"] = criteria_pool
+    if meta_updates:
+        save_shared_meta(meta_updates, author_name)
+        meta = load_shared_meta()
 
     fp = get_board_file_path(board_id)
     board_payload = {
@@ -243,7 +288,9 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
         "nodeCount": len(nodes or []),
         "dialogueCount": len(dialogues or []),
         "nodes": nodes or [],
-        "dialogues": dialogues or []
+        "dialogues": dialogues or [],
+        "symbolLimits": meta.get("symbolLimits") or DEFAULT_SYMBOL_LIMITS.copy(),
+        "recommendedLimits": meta.get("recommendedLimits") or DEFAULT_RECOMMENDED_LIMITS.copy()
     }
 
     try:

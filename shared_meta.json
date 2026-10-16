@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T14:30:00.265160",
+  "_lastModified": "2026-10-17T00:09:03.248746",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -106,17 +106,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -137,17 +127,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -168,17 +148,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -199,17 +169,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -230,17 +190,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -261,17 +211,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -292,17 +232,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     }
   ],
@@ -313,5 +243,25 @@
     "Station Intelligence",
     "Refinery Intelligence",
     "Jammer Found"
-  ]
+  ],
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+  }
 }

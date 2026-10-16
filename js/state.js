@@ -1039,7 +1039,11 @@ function getActiveBoardPartitionPayload() {
     author: (currentUser && currentUser.name) || (appData.projectInfo && appData.projectInfo.author) || 'Editor User',
     timelines: appData.timelines,
     variations: appData.variations,
-    stageLayoutVersion: appData.stageLayoutVersion || 2
+    stageLayoutVersion: appData.stageLayoutVersion || 2,
+    symbolLimits: (appData && appData.symbolLimits) ? appData.symbolLimits : (typeof getSymbolLimits === 'function' ? getSymbolLimits() : undefined),
+    recommendedLimits: (appData && appData.recommendedLimits) ? appData.recommendedLimits : (typeof getRecommendedLimits === 'function' ? getRecommendedLimits() : undefined),
+    characters: appData.characters,
+    criteriaPool: appData.criteriaPool
   };
 }
 
@@ -2153,10 +2157,10 @@ function getRecommendedLimits() {
   const fromProject = (appData && appData.recommendedLimits && typeof appData.recommendedLimits === 'object')
     ? appData.recommendedLimits
     : ((appData && appData.symbolLimits && typeof appData.symbolLimits === 'object') ? appData.symbolLimits : {});
-  const merged = { ...DEFAULT_RECOMMENDED_LIMITS, ...savedLocal };
+  const merged = { ...DEFAULT_RECOMMENDED_LIMITS, ...savedLocal, ...fromProject };
   Object.keys(DEFAULT_RECOMMENDED_LIMITS).forEach(k => {
     const candidate = fromProject[k + '_rec'] !== undefined ? fromProject[k + '_rec'] : (fromProject[k] !== undefined && fromProject[k] < DEFAULT_SYMBOL_LIMITS[k] ? fromProject[k] : undefined);
-    const val = savedLocal[k] !== undefined ? savedLocal[k] : candidate;
+    const val = fromProject[k] !== undefined ? fromProject[k] : (candidate !== undefined ? candidate : savedLocal[k]);
     const n = parseInt(val, 10);
     merged[k] = (!isNaN(n) && n >= 0) ? n : DEFAULT_RECOMMENDED_LIMITS[k];
   });
@@ -2284,6 +2288,9 @@ function saveSymbolLimitsFromModal() {
   } catch (e) {}
 
   saveProjectToLocalStorage();
+  if (typeof saveCurrentProject === 'function') {
+    saveCurrentProject(true, 'Character Limits Saved');
+  }
   closeModal('modal-symbol-limits');
   const timelinesModal = document.getElementById('modal-timelines');
   if (timelinesModal && !timelinesModal.classList.contains('hidden')) {

@@ -238,6 +238,10 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 variations = body.get('variations')
                 stage_layout_version = body.get('stageLayoutVersion')
                 save_name = body.get('name') or body.get('note')
+                symbol_limits = body.get('symbolLimits')
+                recommended_limits = body.get('recommendedLimits')
+                characters = body.get('characters')
+                criteria_pool = body.get('criteriaPool')
                 user = self.get_auth_user()
                 if not user:
                     user = {
@@ -262,7 +266,20 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     return
 
                 author_name = user.get('name') or user.get('email') or 'Editor User'
-                result = save_board_slice(board_id, board_nodes, board_dialogues, author_name, timelines=timelines, variations=variations, stage_layout_version=stage_layout_version, save_name=save_name)
+                result = save_board_slice(
+                    board_id,
+                    board_nodes,
+                    board_dialogues,
+                    author_name,
+                    timelines=timelines,
+                    variations=variations,
+                    stage_layout_version=stage_layout_version,
+                    save_name=save_name,
+                    symbol_limits=symbol_limits,
+                    recommended_limits=recommended_limits,
+                    characters=characters,
+                    criteria_pool=criteria_pool
+                )
                 self.send_json(200, result)
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
@@ -510,7 +527,11 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                         author_name,
                         timelines=app_data.get('timelines'),
                         variations=app_data.get('variations'),
-                        stage_layout_version=app_data.get('stageLayoutVersion')
+                        stage_layout_version=app_data.get('stageLayoutVersion'),
+                        symbol_limits=app_data.get('symbolLimits'),
+                        recommended_limits=app_data.get('recommendedLimits'),
+                        characters=app_data.get('characters'),
+                        criteria_pool=app_data.get('criteriaPool')
                     )
                     self.send_json(200, b_res)
                     return
