@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T20:41:10.111Z",
+  "_lastModified": "2026-10-16T20:42:10.167034",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -106,7 +106,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -127,7 +137,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -148,7 +168,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -169,7 +199,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -190,7 +230,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -211,7 +261,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     },
     {
@@ -232,7 +292,17 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10"
+        "var_v10",
+        "var_t2_v1",
+        "var_t2_v2",
+        "var_t2_v3",
+        "var_t2_v4",
+        "var_t2_v5",
+        "var_t2_v6",
+        "var_t2_v7",
+        "var_t2_v8",
+        "var_t2_v9",
+        "var_t2_v10"
       ]
     }
   ],
@@ -245,182 +315,6 @@
     "Jammer Found"
   ],
   "nodes": [
-    {
-      "id": "node_1791921021620",
-      "codename": "T1-V3-K1A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1534,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1791921021620",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [
-            "node_1791921021620",
-            "node_1791921030715"
-          ],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "timelineId": "timeline_1"
-    },
-    {
-      "id": "node_1791921030715",
-      "codename": "T1-V3-K2A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 1,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1426,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "c_1791921030715",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "timelineId": "timeline_1"
-    },
-    {
-      "id": "node_sec_1",
-      "codename": "T1-V1-S1A",
-      "name": "Encrypted Black-Box Beacon",
-      "type": "World",
-      "category": "SecretChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "spawnConditions": "Decrypted Hypercell Signal",
-      "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
-      "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 450,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "act_sec_1_1",
-          "codeSuffix": "A",
-          "shortDescription": "Crack Encryption",
-          "description": "Override classified security cypher.",
-          "requirements": [],
-          "timerHours": 4,
-          "resultDescription": "Coordinates extracted to hidden vessel.",
-          "rewards": [
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
-        },
-        {
-          "id": "act_sec_1_2",
-          "codeSuffix": "B",
-          "shortDescription": "Triangulate Source",
-          "description": "Scan directional telemetry.",
-          "requirements": [],
-          "timerHours": 4,
-          "resultDescription": "Origin pinpointed at ocean ridge.",
-          "rewards": [
-            "😊 Morale +10"
-          ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Encrypted Black-Box Beacon"
-    },
-    {
-      "id": "node_sec_2",
-      "codename": "T1-V1-S2A",
-      "name": "The Ghost Skiff",
-      "type": "World",
-      "category": "SecretChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "Coordinates Decoded",
-      "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
-      "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 450,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_sec_2_1",
-          "codeSuffix": "A",
-          "shortDescription": "Retrieve Black Core",
-          "description": "Extract mission flight logs from terminal.",
-          "requirements": [],
-          "timerHours": 6,
-          "resultDescription": "Black Core retrieved! Conspiracy revealed.",
-          "rewards": [
-            "🧠 Knowledge +600",
-            "😊 Morale +20"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Ghost Skiff"
-    },
     {
       "id": "node_deck_1",
       "codename": "DECK-E1",
@@ -3345,6 +3239,174 @@
         }
       ],
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791921021620",
+      "codename": "T1-V3-K1A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1534,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791921021620",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [
+            "node_1791921021620",
+            "node_1791921030715"
+          ],
+          "targetNodeId": "node_1791921021620"
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    },
+    {
+      "id": "node_1791921030715",
+      "codename": "T1-V3-K2A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 1,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1426,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "c_1791921030715",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    },
+    {
+      "id": "node_sec_1",
+      "codename": "T1-V1-S1A",
+      "name": "Encrypted Black-Box Beacon",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "Decrypted Hypercell Signal",
+      "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
+      "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "act_sec_1_1",
+          "codeSuffix": "A",
+          "shortDescription": "Crack Encryption",
+          "description": "Override classified security cypher.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Coordinates extracted to hidden vessel.",
+          "rewards": [
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_sec_2"
+        },
+        {
+          "id": "act_sec_1_2",
+          "codeSuffix": "B",
+          "shortDescription": "Triangulate Source",
+          "description": "Scan directional telemetry.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Origin pinpointed at ocean ridge.",
+          "rewards": [
+            "😊 Morale +10"
+          ],
+          "targetNodeId": "node_sec_2"
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Encrypted Black-Box Beacon"
+    },
+    {
+      "id": "node_sec_2",
+      "codename": "T1-V1-S2A",
+      "name": "The Ghost Skiff",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Coordinates Decoded",
+      "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
+      "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_sec_2_1",
+          "codeSuffix": "A",
+          "shortDescription": "Retrieve Black Core",
+          "description": "Extract mission flight logs from terminal.",
+          "requirements": [],
+          "timerHours": 6,
+          "resultDescription": "Black Core retrieved! Conspiracy revealed.",
+          "rewards": [
+            "🧠 Knowledge +600",
+            "😊 Morale +20"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Ghost Skiff"
     }
   ],
   "dialogues": [
@@ -4474,25 +4536,5 @@
       "links": [],
       "floorIndex": 0
     }
-  ],
-  "symbolLimits": {
-    "eventIntro": 465,
-    "eventDescription": 200,
-    "actionDescription": 240,
-    "actionDescription3Opt": 135,
-    "actionButtonText": 24,
-    "eventOutcome": 925,
-    "inactionResult": 465,
-    "variationDescription": 280
-  },
-  "recommendedLimits": {
-    "eventIntro": 300,
-    "eventDescription": 120,
-    "actionDescription": 120,
-    "actionDescription3Opt": 120,
-    "actionButtonText": 8,
-    "eventOutcome": 530,
-    "inactionResult": 300,
-    "variationDescription": 80
-  }
+  ]
 }
