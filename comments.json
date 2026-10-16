@@ -93,6 +93,18 @@
       "mentions": [
         "vkuznietsov@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792153661694",
+      "targetId": "node_e0",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K1A - The Moment After the End",
+      "text": "Verifying comments work on locked board! (Volodymyr)",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-16T12:27:41.694994Z",
+      "displayTime": "2026-10-16 14:27",
+      "mentions": []
     }
   ],
   "deletedIds": [
