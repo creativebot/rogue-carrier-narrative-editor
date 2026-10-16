@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T12:04:48.722778",
+  "_lastModified": "2026-10-16T10:13:03.696Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -106,17 +106,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -137,17 +127,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -168,17 +148,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -199,17 +169,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -230,17 +190,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -261,17 +211,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     },
     {
@@ -292,17 +232,7 @@
         "var_v7",
         "var_v8",
         "var_v9",
-        "var_v10",
-        "var_t2_v1",
-        "var_t2_v2",
-        "var_t2_v3",
-        "var_t2_v4",
-        "var_t2_v5",
-        "var_t2_v6",
-        "var_t2_v7",
-        "var_t2_v8",
-        "var_t2_v9",
-        "var_t2_v10"
+        "var_v10"
       ]
     }
   ],
@@ -324,8 +254,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
+      "location": "Main Hangar Bay",
+      "spawnConditions": "Carrier underway",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
       "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
       "reactionTimerHours": "2",
@@ -1003,7 +933,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2996,
+        "x": 945,
         "y": 90
       },
       "actions": [
@@ -3028,7 +2958,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3080,7 +3011,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3178,7 +3110,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
@@ -3423,12 +3356,12 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1283,
-        "y": 4446
+        "x": 1299,
+        "y": 3859
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "lines": [
         {
           "id": "l8",
@@ -3525,8 +3458,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 465,
-        "y": 5179
+        "x": -741,
+        "y": 4894
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3740,8 +3673,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1870,
-        "y": 1038
+        "x": 1985,
+        "y": 1645
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4132,8 +4065,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1275,
-        "y": 1110
+        "x": 1356,
+        "y": 1643
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4202,12 +4135,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4879,
-        "y": 3013
+        "x": 4401,
+        "y": 1850
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "lines": [
         {
@@ -4278,8 +4211,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4148,
-        "y": 2850
+        "x": 4248,
+        "y": 3220
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4354,8 +4287,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3540,
-        "y": 2772
+        "x": 3588,
+        "y": 3209
       },
       "variationId": "var_v1",
       "category": "KeyChain",
