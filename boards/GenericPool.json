@@ -679,7 +679,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -714,6 +715,6 @@
       ]
     }
   ],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-16T13:19:56.806452"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-16T16:43:57.682024"
 }
