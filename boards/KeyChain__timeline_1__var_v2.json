@@ -1211,7 +1211,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "orange"
     }
   ],
   "dialogues": [
@@ -1248,5 +1249,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T20:51:17.069737"
+  "_lastModified": "2026-10-16T20:51:19.863371"
 }
