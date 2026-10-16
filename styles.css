@@ -2213,3 +2213,16 @@ body.is-board-readonly .dialogue-card select {
   pointer-events: none !important;
   user-select: none;
 }
+
+/* Comments Interaction on Read-Only / Spectator Boards */
+.comment-trigger-badge,
+body.is-board-readonly .comment-trigger-badge {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+}
+
+#drawer-comments,
+#drawer-comments * {
+  pointer-events: auto !important;
+}

@@ -144,6 +144,12 @@ function canUserEdit() {
   return Boolean(currentUser && currentUser.status === 'approved' && currentUser.canEdit !== false);
 }
 
+function hasAppAccess() {
+  if (isLocalEnvironment()) return true;
+  return Boolean(currentUser && currentUser.email && currentUser.status !== 'rejected');
+}
+window.hasAppAccess = hasAppAccess;
+
 function requireAuthToEdit(actionDesc = "edit this element") {
   if (isCurrentBoardReadOnly) {
     const myEmail = (currentUser?.email || '').trim().toLowerCase();
@@ -182,7 +188,7 @@ function updateAuthHeaderUI() {
   // Disable registration on public web page
   if (regTab) regTab.classList.add('hidden');
 
-  if (isLocalEnvironment() || canUserEdit()) {
+  if (hasAppAccess()) {
     if (authGate) authGate.classList.add('hidden');
     if (canvasContainer) canvasContainer.style.display = '';
     if (readonlyBanner) readonlyBanner.classList.add('hidden');
@@ -196,6 +202,9 @@ function updateAuthHeaderUI() {
       if (isLocalEnvironment() || (currentUser && currentUser.role === 'admin')) {
         badgeRole.innerText = isLocalEnvironment() ? 'Unlocked' : 'Admin';
         badgeRole.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40';
+      } else if (currentUser && currentUser.status === 'pending') {
+        badgeRole.innerText = 'Pending';
+        badgeRole.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40';
       } else {
         badgeRole.innerText = 'Editor';
         badgeRole.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/40';
