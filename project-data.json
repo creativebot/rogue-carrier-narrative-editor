@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T11:17:44.779549",
+  "_lastModified": "2026-10-16T11:17:45.252130",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -3385,7 +3385,7 @@
       "targetEventId": "node_e0",
       "triggerTiming": "action_option",
       "triggerActionId": "act_e0_1",
-      "delayHours": 0.5,
+      "delayHours": 0,
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
       "position": {
