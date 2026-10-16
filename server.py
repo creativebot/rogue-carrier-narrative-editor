@@ -1674,6 +1674,13 @@ def run():
     except Exception as e:
         print(f"[Startup] GitHub sync error: {e}", file=sys.stderr)
 
+    # Reassemble all boards (KeyChain, SecretChain, GenericPool, DeckPool) into composite project-data.json
+    try:
+        reassemble_full_project()
+        print("[Startup] Reassembled composite project-data.json from board partitions", flush=True)
+    except Exception as e:
+        print(f"[Startup] Board reassembly warning: {e}", file=sys.stderr)
+
     log_path = os.path.join(DIRECTORY, "server_debug.log")
     with open(log_path, "w", encoding="utf-8") as lf:
         lf.write(f"Server starting on port {PORT} at {datetime.now()}...\n")

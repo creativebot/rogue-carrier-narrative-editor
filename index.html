@@ -33,6 +33,17 @@
         </select>
       </div>
 
+      <!-- Quick Board / Pool Switcher -->
+      <div class="flex items-center bg-gray-950/80 px-1.5 sm:px-2 py-1 rounded-lg border border-gray-800 gap-1 sm:gap-1.5 shrink-0" id="header-board-switcher">
+        <label for="header-board-select" class="text-[11px] text-gray-400 font-semibold hidden md:inline shrink-0">Board:</label>
+        <select id="header-board-select" onchange="setCategoryFilter(this.value)" class="bg-gray-900 text-amber-300 text-xs font-semibold px-1.5 sm:px-2 py-0.5 rounded border border-gray-700 focus:outline-none focus:border-amber-500 cursor-pointer shadow-xs">
+          <option value="KeyChain">🔑 Key Events</option>
+          <option value="SecretChain">🛡️ Secret Events</option>
+          <option value="GenericPool">🌐 Generic Pool</option>
+          <option value="DeckPool">🧭 Deck Pool</option>
+        </select>
+      </div>
+
       <!-- Item Creation Buttons (Moved to Top Header Panel to free canvas space) -->
       <div class="hidden sm:flex items-center gap-1 shrink-0" id="header-creation-tools">
         <button id="btn-add-event" class="bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-bold px-2 py-1 rounded-lg flex items-center gap-1 shadow transition active:scale-95 shrink-0" title="Add new event block to canvas">

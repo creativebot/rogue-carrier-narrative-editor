@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-15T14:30:00.274660",
+  "_lastModified": "2026-10-16T12:25:32.340647",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -324,8 +324,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Main Hangar Bay",
-      "spawnConditions": "Carrier underway",
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
       "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
       "reactionTimerHours": "2",
@@ -341,7 +341,7 @@
         ]
       },
       "position": {
-        "x": 100,
+        "x": 110,
         "y": 220
       },
       "actions": [
@@ -1003,7 +1003,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 898,
+        "x": 3566,
         "y": 90
       },
       "actions": [

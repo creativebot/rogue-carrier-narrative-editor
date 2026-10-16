@@ -432,8 +432,29 @@ async function loadProjectData() {
   );
 
   if (localIsNewer) {
-    console.log("[Data Recovery] Local active cache is newer than server disk. Syncing local to server!");
-    appData = JSON.parse(JSON.stringify(bestLocal.data));
+    console.log("[Data Recovery] Local active cache has newer edits. Merging local active board with server boards!");
+    if (serverData && Array.isArray(serverData.nodes) && serverData.nodes.length > 0) {
+      // Retain local edits for the active board, while preserving all other boards from the server
+      const activeBoardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+      const localActiveNodes = (bestLocal.data.nodes || []).filter(n => nodeBelongsToBoardId(n, activeBoardId));
+      const serverOtherNodes = (serverData.nodes || []).filter(n => !nodeBelongsToBoardId(n, activeBoardId));
+
+      const seenIds = new Set(localActiveNodes.map(n => n.id));
+      serverOtherNodes.forEach(n => seenIds.add(n.id));
+      const remainingLocalNodes = (bestLocal.data.nodes || []).filter(n => !seenIds.has(n.id));
+
+      appData = {
+        ...serverData,
+        ...bestLocal.data,
+        nodes: [...localActiveNodes, ...serverOtherNodes, ...remainingLocalNodes],
+        dialogues: [
+          ...(bestLocal.data.dialogues || []),
+          ...(serverData.dialogues || []).filter(sd => !(bestLocal.data.dialogues || []).some(ld => ld.id === sd.id))
+        ]
+      };
+    } else {
+      appData = JSON.parse(JSON.stringify(bestLocal.data));
+    }
     loaded = true;
     normalizeAllProjectData();
     saveProjectToLocalStorage();
@@ -538,6 +559,11 @@ function syncCategoryFilterButtonsUI(filter) {
     btnDeck.className = filter === 'DeckPool'
       ? "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-emerald-400"
       : "px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 border border-emerald-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+
+  const headerSelect = document.getElementById('header-board-select');
+  if (headerSelect && headerSelect.value !== filter) {
+    headerSelect.value = filter;
   }
 }
 
@@ -944,7 +970,7 @@ function getAuthHeaders(includeJsonContentType = true) {
 
 function nodeBelongsToBoardId(node, boardId) {
   if (!node || !boardId) return false;
-  if (boardId === 'GenericPool') return (node.category || 'KeyChain') === 'GenericPool';
+  if (boardId === 'GenericPool') return (node.category === 'GenericPool' || node.category === 'generic' || node.pool === 'generic');
   if (boardId === 'DeckPool') {
     const cat = node.category || 'KeyChain';
     const varId = node.variationId || '';
@@ -973,7 +999,7 @@ function dialogueBelongsToBoardId(diag, boardId, activeNodeIds) {
     return linkedIds.some(eid => activeNodeIds.has(eid));
   }
 
-  if (boardId === 'GenericPool') return (diag.category || 'KeyChain') === 'GenericPool';
+  if (boardId === 'GenericPool') return (diag.category === 'GenericPool' || diag.category === 'generic' || diag.pool === 'generic');
   if (boardId === 'DeckPool') {
     const cat = diag.category || 'KeyChain';
     const varId = diag.variationId || '';
@@ -1722,7 +1748,7 @@ async function renderBoardSavedVersionsList() {
     container.innerHTML = '';
     saves.forEach((s) => {
       const card = document.createElement('div');
-      card.className = 'bg-gray-900/80 hover:bg-gray-900 border border-gray-800 hover:border-cyan-700/60 rounded-xl p-3 flex items-center justify-between gap-3 transition shadow-sm';
+      card.className = 'board-save-item bg-gray-900/80 hover:bg-gray-900 border border-gray-800 hover:border-cyan-700/60 rounded-xl p-3 flex items-center justify-between gap-3 transition shadow-sm';
       card.innerHTML = `
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2 flex-wrap">

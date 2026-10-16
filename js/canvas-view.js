@@ -108,12 +108,13 @@ function setupCanvasEvents() {
         return;
       }
     } else {
-      // Pan & Edit Mode: Do not pan if clicking inside an interactive button, active input, port, or pill
+      // Pan & Edit Mode: Do not pan if clicking inside an interactive button, active input, port, or editable text spot
       if (
         e.target.closest('button') || 
         e.target.closest('input') || 
         e.target.closest('textarea') || 
         e.target.closest('select') || 
+        e.target.closest('.editable-spot') ||
         e.target.closest('.connector-port') ||
         e.target.closest('.dialogue-trigger-port') ||
         e.target.closest('.req-pill') ||
@@ -127,7 +128,7 @@ function setupCanvasEvents() {
       }
     }
 
-    // In Pan Mode, clicking anywhere on canvas background OR card body/fields starts panning!
+    // Clicking on canvas background starts panning
     isDraggingCanvas = true;
     canvasDragMoved = false;
     canvasDragStartPos = { x: e.clientX, y: e.clientY };
@@ -3483,23 +3484,33 @@ function makeNodesDraggable() {
         return;
       }
 
-      // If NOT in Arrange Mode (i.e. Pan & Edit Mode):
-      // Cards do NOT drag. Mouse events bubble to canvasContainer so dragging over cards pans the canvas!
-      if (!isArrangeMode) {
-        return;
-      }
+      // Only primary left button initiates block movement
+      if (e.button !== 0) return;
 
-      // Exclusively in Arrange Mode (isArrangeMode === true):
       if (!canUserEdit()) {
         requireAuthToEdit("move blocks on the board");
         return;
       }
 
-      if (e.target.closest('.connector-port') ||
-          e.target.closest('.dialogue-trigger-port') ||
-          e.target.closest('.linked-event-jump-btn') ||
-          e.target.closest('.btn-zoom-corner') ||
-          e.target.closest('.block-floating-btn')) {
+      // Do not drag block if clicking inside editable text spots, inputs, buttons, ports, or interactive controls
+      if (
+        e.target.closest('.editable-spot') || 
+        e.target.closest('button') || 
+        e.target.closest('.linked-event-jump-btn') ||
+        e.target.closest('.action-handle-group') ||
+        e.target.closest('input') || 
+        e.target.closest('textarea') || 
+        e.target.closest('select') || 
+        e.target.closest('.rx-timer-select') ||
+        e.target.closest('.inline-select') ||
+        e.target.closest('.connector-port') ||
+        e.target.closest('.dialogue-trigger-port') ||
+        e.target.closest('.pool-event-switch-bar') ||
+        e.target.closest('.pool-switch-toggle-btn') ||
+        e.target.closest('.btn-zoom-corner') ||
+        e.target.closest('.block-floating-btn') ||
+        e.target.closest('.req-pill')
+      ) {
         return;
       }
 
