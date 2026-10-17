@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T22:42:44.560063",
+  "_lastModified": "2026-10-17T22:42:47.210796",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -289,7 +289,30 @@
         "shortDescription": "Failed Drill",
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_58_storm_stress",
+            "name": "Storm Stress",
+            "rawName": "Storm Stress",
+            "amount": "8",
+            "hasN": true,
+            "nValue": "8",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Storm Stress.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Crew-Specific Parameters",
+            "target": "crew",
+            "effect": "-8 to morale per hour (per storm category)",
+            "effectType": "Crew condition",
+            "posNeg": "negative",
+            "description": "",
+            "comments": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
