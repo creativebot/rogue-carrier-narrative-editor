@@ -22,13 +22,11 @@
         "shortDescription": "Failed Drill",
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
-        "y": 223
+        "y": 220
       },
       "actions": [
         {
@@ -39,27 +37,7 @@
           "requirements": [],
           "timerHours": 1,
           "resultDescription": "Hangar secured ahead of schedule.",
-          "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            {
-              "resourceId": "status_33_energy_leaks_iii",
-              "name": "Energy Leaks III",
-              "amount": "1",
-              "iconImg": "icons/status_effects/Energy Leaks III.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Energy",
-              "target": "building (consume energy)",
-              "effect": "energy consumption +100% for N hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "For duration of effect, the affected regular buildings cosume 100% more energy (rounded up) than their default value."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -70,5 +48,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T19:15:53.158963"
+  "_lastModified": "2026-10-17T22:42:38.702931"
 }
