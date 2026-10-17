@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T22:42:42.101685",
+  "_lastModified": "2026-10-17T22:42:44.560063",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -326,6 +326,28 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
+            },
+            {
+              "resourceId": "status_1_food_savings",
+              "name": "Food Savings",
+              "rawName": "Food Savings",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Food Savings.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food charge lasts for 2 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember spends each food charge every 2 hours, while receiving effects of food every hour as usual."
             }
           ],
           "targetNodeIds": [],
