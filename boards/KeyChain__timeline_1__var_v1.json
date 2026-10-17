@@ -1890,8 +1890,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4003,
-        "y": 3796
+        "x": 3969,
+        "y": 3986
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T19:03:41.318679"
+  "_lastModified": "2026-10-17T19:03:44.596365"
 }
