@@ -41,7 +41,24 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "status_33_energy_leaks_iii",
+              "name": "Energy Leaks III",
+              "amount": "1",
+              "iconImg": "icons/status_effects/Energy Leaks III.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Energy",
+              "target": "building (consume energy)",
+              "effect": "energy consumption +100% for N hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "For duration of effect, the affected regular buildings cosume 100% more energy (rounded up) than their default value."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -53,5 +70,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T19:14:53.143616"
+  "_lastModified": "2026-10-17T19:15:11.838622"
 }
