@@ -41,24 +41,7 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            {
-              "resourceId": "status_4_overeating",
-              "name": "Overeating",
-              "amount": "1",
-              "iconImg": "icons/status_effects/Overeating.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "crew use x2 portions of food per hour for N hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "The crewmembers spend two charges of food each hour, but receive bonus only for one of them. They will receive bonus if there is only one charge of food left (for example, for food with uneven amount of charges)"
-            }
+            "🧠 Knowledge +150"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -70,5 +53,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T19:02:30.344712"
+  "_lastModified": "2026-10-17T19:02:31.120960"
 }
