@@ -629,58 +629,6 @@
       "disabledVariationIds": [],
       "colorScheme": "rose",
       "pool": "generic"
-    },
-    {
-      "id": "node_1792156729313",
-      "codename": "GEN-S1-E6",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 6,
-      "tier": 1,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 4524
-      },
-      "actions": [
-        {
-          "id": "c_1792156729313",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Burning pod",
-          "requirements": [
-            {
-              "id": "clause_1792156743881",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "stat_knowledge",
-                  "name": "🧠 Knowledge",
-                  "amount": 1,
-                  "icon": "🧠"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -716,5 +664,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-16T16:47:58.216417"
+  "_lastModified": "2026-10-17T19:13:52.383486"
 }
