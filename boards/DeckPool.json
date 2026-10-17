@@ -75,6 +75,23 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
+            },
+            {
+              "resourceId": "status_58_storm_stress",
+              "name": "Storm Stress",
+              "amount": "1",
+              "iconImg": "icons/status_effects/Storm Stress.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Crew-Specific Parameters",
+              "target": "crew",
+              "effect": "-N to morale per hour (per storm category)",
+              "effectType": "Crew condition",
+              "posNeg": "negative",
+              "description": "",
+              "comments": ""
             }
           ],
           "targetNodeIds": [],
@@ -87,5 +104,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T18:59:52.395636"
+  "_lastModified": "2026-10-17T19:00:24.592215"
 }
