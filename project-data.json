@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T01:37:15.960521",
+  "_lastModified": "2026-10-17T18:57:59.942522",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -242,10 +242,7 @@
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found",
-    "Resistance to diseases",
-    "Temporal immunity",
-    "any number of items"
+    "Jammer Found"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -308,24 +305,7 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            {
-              "resourceId": "status_1_food_savings",
-              "name": "Food Savings",
-              "amount": "1",
-              "iconImg": "icons/status_effects/Food Savings.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "food charge lasts for 2 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember spends each food charge every 2 hours, while receiving effects of food every hour as usual."
-            }
+            "🧠 Knowledge +150"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -973,7 +953,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3566,
+        "x": 681,
         "y": 90
       },
       "actions": [
