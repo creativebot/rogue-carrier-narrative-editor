@@ -2458,9 +2458,11 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
     let target = '';
     let effect = '';
     let effectType = '';
-    let posNeg = 'positive';
+    let posNeg = isPenalty ? 'negative' : 'positive';
     let iconImg = '';
     let amount = '';
+    let hasN = false;
+    let species = '';
 
     if (typeof rw === 'object' && rw !== null) {
       name = rw.name || 'Status Effect';
@@ -2468,9 +2470,11 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
       target = rw.target || '';
       effect = rw.effect || '';
       effectType = rw.effectType || '';
-      posNeg = rw.posNeg || 'positive';
+      posNeg = rw.posNeg || (isPenalty ? 'negative' : 'positive');
       iconImg = rw.iconImg || '';
-      amount = rw.amount !== undefined ? String(rw.amount) : '';
+      amount = rw.amount !== undefined ? String(rw.amount) : (rw.nValue !== undefined ? String(rw.nValue) : '');
+      hasN = Boolean(rw.hasN || (rw.nValue !== undefined && rw.nValue !== '') || /(\bN\b|\{N\})/.test(effect));
+      species = rw.species || '';
     } else {
       name = String(rw).replace(/^✨\s*/, '').trim();
     }
@@ -2478,7 +2482,8 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
     const catalog = window.statusEffectsCatalog || [];
     const matched = catalog.find(se => 
       (rw && rw.resourceId && se.id === rw.resourceId) || 
-      (se.name && se.name.toLowerCase() === name.toLowerCase())
+      (se.name && se.name.toLowerCase() === name.toLowerCase()) ||
+      (rw && rw.rawName && se.name.toLowerCase() === rw.rawName.toLowerCase())
     );
     if (matched) {
       if (!iconImg) iconImg = matched.iconImg || '';
@@ -2486,13 +2491,13 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
       if (!target) target = matched.target || '';
       if (!effect) effect = matched.effect || '';
       if (!effectType) effectType = matched.effectType || '';
-      if (!posNeg) posNeg = matched.posNeg || 'positive';
+      if (!posNeg && !isPenalty) posNeg = matched.posNeg || 'positive';
+      if (!hasN && (matched.hasN || /(\bN\b|\{N\})/.test(matched.effect || '') || /(\bN\b|\{N\})/.test(matched.name || ''))) {
+        hasN = true;
+      }
     }
 
-    const isNeg = posNeg === 'negative';
-    const badgeClass = isNeg 
-      ? 'bg-rose-950/80 text-rose-300 border-rose-500/60' 
-      : 'bg-teal-950/80 text-teal-300 border-teal-500/60';
+    const isNeg = isPenalty || (posNeg === 'negative');
     const pillBorder = isNeg
       ? 'border-rose-500/80 bg-rose-950/30 hover:bg-rose-900/40 text-rose-200'
       : 'border-teal-500/80 bg-teal-950/30 hover:bg-teal-900/40 text-teal-200';
@@ -2514,10 +2519,19 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
 
     const iconMarkup = iconImg ? `
       <img src="${iconImg}" alt="${name}" class="w-4 h-4 object-contain inline-block shrink-0 mr-1 drop-shadow-xs" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
-      <span style="display:none;" class="mr-1 shrink-0 text-xs">✨</span>
-    ` : `<span class="mr-1 shrink-0 text-xs">✨</span>`;
+      <span style="display:none;" class="mr-1 shrink-0 text-xs">${isPenalty ? '⚡' : '✨'}</span>
+    ` : `<span class="mr-1 shrink-0 text-xs">${isPenalty ? '⚡' : '✨'}</span>`;
 
-    const seMetaJson = JSON.stringify({ name, category, target, effect, effectType, posNeg, iconImg }).replace(/"/g, '&quot;');
+    // Only show number where applicable (instead of buff/debuff)
+    let numberBadge = '';
+    if (hasN && amount && amount !== '') {
+      const numBadgeStyle = isNeg
+        ? 'bg-rose-950/90 text-rose-300 border-rose-500/60'
+        : 'bg-teal-950/90 text-teal-300 border-teal-500/60';
+      numberBadge = `<span class="text-[10px] font-mono font-extrabold px-1.5 py-0.2 rounded border ${numBadgeStyle}">${amount}</span>`;
+    }
+
+    const seMetaJson = JSON.stringify({ name, category, target, effect, effectType, posNeg: isNeg ? 'negative' : 'positive', iconImg, species, amount, hasN }).replace(/"/g, '&quot;');
 
     return `
       <span class="req-pill inline-flex items-center gap-1 cursor-pointer transition shadow-2xs ${pillBorder}"
@@ -2528,9 +2542,8 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
             onmousemove="if(window.updateStatusEffectFloatingTooltip) window.updateStatusEffectFloatingTooltip(event)"
             onmouseleave="if(window.hideStatusEffectFloatingTooltip) window.hideStatusEffectFloatingTooltip()">
         ${iconMarkup}
-        <span class="text-[9px] font-mono font-extrabold uppercase px-1 py-0.2 rounded border ${badgeClass}">${effectType || (isNeg ? 'Debuff' : 'Buff')}</span>
+        ${numberBadge}
         <span class="font-bold text-gray-100">${name}</span>
-        ${amount && amount !== '1' ? `<span class="font-mono text-cyan-200 bg-cyan-950/70 border border-cyan-500/50 px-1 py-0.2 rounded text-[10px] font-bold">${amount}</span>` : ''}
         <button type="button" class="req-remove-btn" title="Remove status effect"
                 onclick="event.stopPropagation(); event.preventDefault(); if(window.hideStatusEffectFloatingTooltip) window.hideStatusEffectFloatingTooltip(); ${removeFn}">×</button>
       </span>

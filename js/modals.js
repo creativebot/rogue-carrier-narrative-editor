@@ -124,16 +124,42 @@ function showStatusEffectFloatingTooltip(item, ev) {
     document.body.appendChild(tip);
   }
   
+  const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || item.species || 'Auri';
+  const curAmount = (document.getElementById('picker-amount-input') && document.getElementById('picker-amount-input').value.trim()) || item.nValue || item.amount || '4';
+
+  let displayName = item.name || '';
+  let displayEffect = item.effect || '';
+  let displayTarget = item.target || '';
+  let displayComments = item.comments || '';
+
+  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(displayName) || /\{SpeciesName\}|SpeciesName/i.test(displayEffect));
+  if (hasSpecies) {
+    displayName = displayName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+    displayEffect = displayEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+    if (displayTarget.toLowerCase().includes('species')) {
+      displayTarget = displayTarget.replace(/species/gi, curSpecies);
+    } else {
+      displayTarget = `${curSpecies} traders`;
+    }
+  }
+
+  const hasN = Boolean(item.hasN || /(\bN\b|\{N\})/.test(displayEffect) || /(\bN\b|\{N\})/.test(displayName));
+  if (hasN) {
+    displayName = displayName.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
+    displayEffect = displayEffect.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
+    displayComments = displayComments.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
+  }
+
   const isNeg = item.posNeg === 'negative';
   const badgeBorder = isNeg ? 'border-rose-500/50 bg-rose-950/80 text-rose-300' : 'border-teal-500/50 bg-teal-950/80 text-teal-300';
-  const iconImg = item.iconImg ? `<img src="${item.iconImg}" alt="${item.name}" class="w-8 h-8 object-contain shrink-0 drop-shadow">` : `<span class="text-2xl">${item.icon || '✨'}</span>`;
+  const iconImg = item.iconImg ? `<img src="${item.iconImg}" alt="${displayName}" class="w-8 h-8 object-contain shrink-0 drop-shadow">` : `<span class="text-2xl">${item.icon || '✨'}</span>`;
 
   tip.innerHTML = `
     <div class="flex items-start gap-2.5 pb-2 mb-2 border-b border-slate-800">
       ${iconImg}
       <div class="flex-1 min-w-0">
         <div class="font-extrabold text-sm text-white flex items-center justify-between gap-2">
-          <span class="truncate">${item.name}</span>
+          <span class="truncate">${displayName}</span>
           <span class="text-[9px] uppercase font-mono font-bold px-1.5 py-0.5 rounded ${badgeBorder}">${item.posNeg || 'Buff'}</span>
         </div>
         <div class="text-[10px] text-teal-400 font-mono mt-0.5 font-bold uppercase">${item.effectType || 'Buff/Debuff'}</div>
@@ -142,7 +168,7 @@ function showStatusEffectFloatingTooltip(item, ev) {
     <div class="space-y-1.5 text-xs">
       <div class="flex items-baseline gap-1.5">
         <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Name:</span>
-        <span class="text-gray-100 font-semibold">${item.name}</span>
+        <span class="text-gray-100 font-semibold">${displayName}</span>
       </div>
       <div class="flex items-baseline gap-1.5">
         <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Category:</span>
@@ -150,19 +176,19 @@ function showStatusEffectFloatingTooltip(item, ev) {
       </div>
       <div class="flex items-baseline gap-1.5">
         <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Target:</span>
-        <span class="text-purple-300 font-semibold">${item.target}</span>
+        <span class="text-purple-300 font-semibold">${displayTarget}</span>
       </div>
       <div class="flex items-baseline gap-1.5">
         <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Effect:</span>
-        <span class="text-cyan-300 font-bold">${item.effect}</span>
+        <span class="text-cyan-300 font-bold">${displayEffect}</span>
       </div>
       <div class="flex items-baseline gap-1.5">
         <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Effect Type:</span>
         <span class="text-emerald-300 font-semibold">${item.effectType}</span>
       </div>
-      ${item.comments ? `
+      ${displayComments ? `
         <div class="pt-1.5 mt-1 border-t border-slate-800 text-[11px] text-gray-400 italic leading-snug">
-          ${item.comments}
+          ${displayComments}
         </div>` : ''}
     </div>
   `;
@@ -257,7 +283,7 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
     (typeof getCurrentBoardIdentifier === 'function' && getCurrentBoardIdentifier() === 'DeckPool') ||
     activeCategoryFilter === 'DeckPool'
   );
-  const canPickStatusEffects = Boolean(type === 'reward' && isDeckEvent);
+  const canPickStatusEffects = Boolean((type === 'reward' || type === 'inaction_penalty') && isDeckEvent);
   activePickerTarget = { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType: 'single', canPickStatusEffects };
 
   const statusTab = document.getElementById('picker-tab-status-effects');
@@ -267,6 +293,20 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
     } else {
       statusTab.classList.add('hidden');
     }
+  }
+
+  const speciesWrapper = document.getElementById('picker-species-wrapper');
+  if (speciesWrapper) {
+    if (canPickStatusEffects) {
+      speciesWrapper.classList.remove('hidden');
+    } else {
+      speciesWrapper.classList.add('hidden');
+    }
+  }
+
+  const amountLabel = document.getElementById('picker-amount-label');
+  if (amountLabel) {
+    amountLabel.innerText = canPickStatusEffects ? 'Amount / N:' : 'Amount / Delta:';
   }
 
   const grid = document.getElementById('picker-resource-grid');
@@ -279,7 +319,9 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
         ? 'Configure deck event outcome reward (items, buildings, currencies, or deck status effects).' 
         : 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).';
     } else if (type === 'inaction_penalty') {
-      hintEl.innerText = 'Configure inaction timeout penalty (negative delta, e.g. -10).';
+      hintEl.innerText = canPickStatusEffects
+        ? 'Configure deck event inaction penalty (resources, stats, or deck status effects).'
+        : 'Configure inaction timeout penalty (negative delta, e.g. -10).';
     } else if (type === 'requirement' || type === 'requirement_alternative' || type === 'requirement_edit') {
       hintEl.innerText = 'Configure action choice requirement condition.';
     } else {
@@ -289,6 +331,11 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
 
   const input = document.getElementById('picker-search-input');
   if (input) input.value = '';
+
+  const speciesSelect = document.getElementById('picker-species-select');
+  if (speciesSelect) {
+    speciesSelect.value = 'Auri';
+  }
 
   const criteriaInput = document.getElementById('picker-criteria-input');
   if (criteriaInput) {
@@ -315,16 +362,37 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
       const existingRw = (act && act.rewards && itemIdx !== null) ? act.rewards[itemIdx] : null;
       if (existingRw) {
-        if (typeof existingRw === 'object' && existingRw.amount !== undefined) {
-          amountInput.value = existingRw.amount;
+        if (typeof existingRw === 'object') {
+          amountInput.value = (existingRw.amount !== undefined && existingRw.amount !== '') 
+            ? existingRw.amount 
+            : (existingRw.nValue || (canPickStatusEffects ? '4' : '20-30'));
+          if (speciesSelect && existingRw.species) {
+            speciesSelect.value = existingRw.species;
+          }
         } else if (typeof existingRw === 'string') {
           const match = existingRw.match(/(?:[xX]|[+\-])\s*([0-9]+(?:-[0-9]+)?)|([0-9]+-[0-9]+)/);
-          amountInput.value = match ? (match[1] || match[2]) : '20-30';
+          amountInput.value = match ? (match[1] || match[2]) : (canPickStatusEffects ? '4' : '20-30');
         } else {
-          amountInput.value = '20-30';
+          amountInput.value = canPickStatusEffects ? '4' : '20-30';
         }
       } else {
-        amountInput.value = '20-30';
+        amountInput.value = canPickStatusEffects ? '4' : '20-30';
+      }
+    } else if (type === 'inaction_penalty') {
+      const pen = (node && node.inactionThreat && node.inactionThreat.penalties && itemIdx !== null) ? node.inactionThreat.penalties[itemIdx] : null;
+      if (pen) {
+        if (typeof pen === 'object') {
+          amountInput.value = (pen.amount !== undefined && pen.amount !== '') 
+            ? pen.amount 
+            : (pen.nValue || (canPickStatusEffects ? '4' : '-10'));
+          if (speciesSelect && pen.species) {
+            speciesSelect.value = pen.species;
+          }
+        } else {
+          amountInput.value = String(pen);
+        }
+      } else {
+        amountInput.value = canPickStatusEffects ? '4' : '-10';
       }
     } else if (type === 'requirement_edit') {
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
@@ -491,12 +559,35 @@ function renderPickerResources(items) {
     return;
   }
 
+  const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || 'Auri';
+  const curAmount = (document.getElementById('picker-amount-input') && document.getElementById('picker-amount-input').value.trim()) || '4';
+
   items.forEach(item => {
     const card = document.createElement('div');
     const isBuilding = item.kind === 'building' || item.category === 'Building';
     const isCriteria = Boolean(item.isCriteria || item.category === 'Criteria');
     const isStatusEffect = Boolean(item.isStatusEffect || item.kind === 'status_effect');
     
+    let displayName = item.name;
+    let displayEffect = item.effect || '';
+    let displayTarget = item.target || '';
+    
+    if (isStatusEffect) {
+      if (item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(displayName) || /\{SpeciesName\}|SpeciesName/i.test(displayEffect)) {
+        displayName = displayName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+        displayEffect = displayEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+        if (displayTarget.toLowerCase().includes('species')) {
+          displayTarget = displayTarget.replace(/species/gi, curSpecies);
+        } else {
+          displayTarget = `${curSpecies} traders`;
+        }
+      }
+      if (item.hasN || /(\bN\b|\{N\})/.test(displayEffect) || /(\bN\b|\{N\})/.test(displayName)) {
+        displayName = displayName.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
+        displayEffect = displayEffect.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
+      }
+    }
+
     let borderHoverClass = 'border-gray-800 hover:border-cyan-400 hover:bg-slate-900/50';
     if (isCriteria) {
       borderHoverClass = 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20';
@@ -520,7 +611,7 @@ function renderPickerResources(items) {
 
     const iconMarkup = item.iconImg ? `
       <div class="w-12 h-12 flex items-center justify-center mb-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-700/80 group-hover:border-amber-400 group-hover:scale-105 transition shadow-md">
-        <img src="${item.iconImg}" alt="${item.name}" class="w-10 h-10 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
+        <img src="${item.iconImg}" alt="${displayName}" class="w-10 h-10 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
         <span style="display:none;" class="text-xl">${item.icon || (isStatusEffect ? '✨' : (isBuilding ? '🏛️' : '📦'))}</span>
       </div>` : `
       <div class="w-12 h-12 flex items-center justify-center mb-1.5 ${iconBoxClass} rounded-lg border">
@@ -544,15 +635,16 @@ function renderPickerResources(items) {
 
     card.innerHTML = `
       ${iconMarkup}
-      <div class="font-bold ${nameColorClass} text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
+      <div class="font-bold ${nameColorClass} text-xs truncate w-full group-hover:text-amber-300 transition" title="${displayName}">${displayName}</div>
       <div class="text-[9px] ${subColorClass} uppercase font-mono mt-0.5 truncate w-full">${subText}</div>
     `;
 
     if (isStatusEffect) {
-      card.title = `Name: ${item.name}\nCategory: ${item.category}\nTarget: ${item.target}\nEffect: ${item.effect}\nEffect Type: ${item.effectType}`;
+      card.title = `Name: ${displayName}\nCategory: ${item.category}\nTarget: ${displayTarget}\nEffect: ${displayEffect}\nEffect Type: ${item.effectType}`;
       card.setAttribute('data-status-effect-id', item.id);
-      card.setAttribute('data-status-effect-name', item.name);
-      card.onmouseenter = (ev) => showStatusEffectFloatingTooltip(item, ev);
+      card.setAttribute('data-status-effect-name', displayName);
+      const hoverItem = { ...item, name: displayName, effect: displayEffect, target: displayTarget, species: curSpecies, nValue: curAmount, amount: curAmount };
+      card.onmouseenter = (ev) => showStatusEffectFloatingTooltip(hoverItem, ev);
       card.onmousemove = (ev) => updateStatusEffectFloatingTooltip(ev);
       card.onmouseleave = () => hideStatusEffectFloatingTooltip();
     }
@@ -568,6 +660,12 @@ function renderPickerResources(items) {
     grid.appendChild(card);
   });
 }
+
+function onPickerSpeciesChange(species) {
+  const input = document.getElementById('picker-search-input');
+  filterPickerResources(input ? input.value : '');
+}
+window.onPickerSpeciesChange = onPickerSpeciesChange;
 
 function filterPickerResources(query) {
   let items = resourceCatalog.resources || [];
@@ -813,8 +911,8 @@ function selectResourceFromPicker(item) {
   const isStatusEffect = Boolean(item.isStatusEffect || item.kind === 'status_effect');
   const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType, canPickStatusEffects } = activePickerTarget || {};
   
-  if (isStatusEffect && (!canPickStatusEffects || type !== 'reward')) {
-    showToast("Status effects can only be assigned as rewards in deck events", "warning");
+  if (isStatusEffect && (!canPickStatusEffects || (type !== 'reward' && type !== 'inaction_penalty'))) {
+    showToast("Status effects can only be assigned as rewards or inaction penalties in deck events", "warning");
     return;
   }
 
@@ -823,12 +921,58 @@ function selectResourceFromPicker(item) {
 
   pushUndoState();
   const qtyInput = document.getElementById('picker-amount-input');
-  const amountStr = (qtyInput && qtyInput.value.trim()) ? qtyInput.value.trim() : '1';
+  const amountStr = (qtyInput && qtyInput.value.trim()) ? qtyInput.value.trim() : (isStatusEffect ? '4' : '1');
+
+  const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || 'Auri';
+  const hasN = Boolean(item.hasN || /(\bN\b|\{N\})/.test(item.name || '') || /(\bN\b|\{N\})/.test(item.effect || '') || /(\bN\b|\{N\})/.test(item.description || ''));
+  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(item.name || '') || /\{SpeciesName\}|SpeciesName/i.test(item.effect || ''));
+
+  let resolvedName = item.name;
+  let resolvedEffect = item.effect || '';
+  let resolvedDesc = item.description || '';
+  let resolvedTarget = item.target || 'crew';
+
+  if (hasSpecies) {
+    resolvedName = resolvedName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+    resolvedEffect = resolvedEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
+    if (resolvedTarget.toLowerCase().includes('species')) {
+      resolvedTarget = resolvedTarget.replace(/species/gi, curSpecies);
+    } else {
+      resolvedTarget = `${curSpecies} traders`;
+    }
+  }
+
+  if (hasN) {
+    resolvedName = resolvedName.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
+    resolvedEffect = resolvedEffect.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
+    resolvedDesc = resolvedDesc.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
+  }
 
   if (type === 'inaction_penalty') {
     if (!node.inactionThreat) node.inactionThreat = {};
     if (!node.inactionThreat.penalties) node.inactionThreat.penalties = [];
-    const penaltyObj = {
+    const penaltyObj = isStatusEffect ? {
+      resourceId: item.id,
+      name: resolvedName,
+      rawName: item.name,
+      amount: hasN ? amountStr : '',
+      hasN: hasN,
+      nValue: hasN ? amountStr : '',
+      hasSpecies: hasSpecies,
+      species: hasSpecies ? curSpecies : '',
+      iconImg: item.iconImg || '',
+      icon: item.icon || '⚡',
+      isStatusEffect: true,
+      kind: 'status_effect',
+      category: 'Status Effect',
+      effectCategory: item.category,
+      target: resolvedTarget,
+      effect: resolvedEffect,
+      effectType: item.effectType,
+      posNeg: item.posNeg || 'negative',
+      description: resolvedDesc,
+      comments: item.comments || ''
+    } : {
       resourceId: item.id,
       name: item.name,
       amount: amountStr,
@@ -869,24 +1013,33 @@ function selectResourceFromPicker(item) {
       }
     } else if (type === 'reward') {
       if (!act.rewards) act.rewards = [];
-      const rewardObj = {
+      const rewardObj = isStatusEffect ? {
+        resourceId: item.id,
+        name: resolvedName,
+        rawName: item.name,
+        amount: hasN ? amountStr : '',
+        hasN: hasN,
+        nValue: hasN ? amountStr : '',
+        hasSpecies: hasSpecies,
+        species: hasSpecies ? curSpecies : '',
+        iconImg: item.iconImg || '',
+        icon: item.icon || '✨',
+        isStatusEffect: true,
+        kind: 'status_effect',
+        category: 'Status Effect',
+        effectCategory: item.category,
+        target: resolvedTarget,
+        effect: resolvedEffect,
+        effectType: item.effectType,
+        posNeg: item.posNeg || 'positive',
+        description: resolvedDesc,
+        comments: item.comments || ''
+      } : {
         resourceId: item.id,
         name: item.name,
-        amount: isStatusEffect ? (amountStr && amountStr !== '20-30' ? amountStr : '1') : amountStr,
+        amount: amountStr, // supports range string e.g. "20-30" or "5"
         iconImg: item.iconImg || '',
-        icon: item.icon || (isStatusEffect ? '✨' : '📦'),
-        ...(isStatusEffect ? {
-          isStatusEffect: true,
-          kind: 'status_effect',
-          category: 'Status Effect',
-          effectCategory: item.category,
-          target: item.target,
-          effect: item.effect,
-          effectType: item.effectType,
-          posNeg: item.posNeg || 'positive',
-          description: item.description || '',
-          comments: item.comments || ''
-        } : {})
+        icon: item.icon || '📦'
       };
       if (itemIdx !== null && act.rewards[itemIdx] !== undefined) {
         act.rewards[itemIdx] = rewardObj;
@@ -899,7 +1052,12 @@ function selectResourceFromPicker(item) {
   saveProjectToLocalStorage();
   closeModal('modal-resource-picker');
   renderApp();
-  showToast(isStatusEffect ? `Added Deck Status Effect: "${item.name}"` : (type === 'reward' ? `Reward '${item.name} (${amountStr})' added` : "Resource added"), "success");
+  showToast(
+    isStatusEffect 
+      ? (type === 'inaction_penalty' ? `Added Inaction Penalty: "${resolvedName}"` : `Added Deck Status Effect: "${resolvedName}"`)
+      : (type === 'reward' ? `Reward '${item.name} (${amountStr})' added` : "Resource added"), 
+    "success"
+  );
 }
 
 function removeInactionPenalty(nodeId, penaltyIdx) {

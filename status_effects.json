@@ -13,7 +13,9 @@
     "iconImg": "icons/status_effects/Food Savings.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_2_fasting",
@@ -29,7 +31,9 @@
     "iconImg": "icons/status_effects/Fasting.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_3_better_taste",
@@ -45,7 +49,9 @@
     "iconImg": "icons/status_effects/Better Taste.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_4_overeating",
@@ -61,7 +67,9 @@
     "iconImg": "icons/status_effects/Overeating.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_5_weakened_morale_i",
@@ -77,7 +85,9 @@
     "iconImg": "icons/status_effects/Weakened Morale I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_6_weakened_morale_ii",
@@ -93,7 +103,9 @@
     "iconImg": "icons/status_effects/Weakened Morale II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_7_weakened_morale_iii",
@@ -109,7 +121,9 @@
     "iconImg": "icons/status_effects/Weakened Morale III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_8_morale_boost_i",
@@ -125,7 +139,9 @@
     "iconImg": "icons/status_effects/Morale Boost I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_9_morale_boost_ii",
@@ -141,7 +157,9 @@
     "iconImg": "icons/status_effects/Morale Boost II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_10_morale_boost_iii",
@@ -157,7 +175,9 @@
     "iconImg": "icons/status_effects/Morale Boost III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_11_morale_stasis",
@@ -173,7 +193,9 @@
     "iconImg": "icons/status_effects/Morale Stasis.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_12_weakened_immunity_i",
@@ -189,7 +211,9 @@
     "iconImg": "icons/status_effects/Weakened Immunity I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_13_weakened_immunity_ii",
@@ -205,7 +229,9 @@
     "iconImg": "icons/status_effects/Weakened Immunity II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_14_boosted_immunity_i",
@@ -221,7 +247,9 @@
     "iconImg": "icons/status_effects/Boosted Immunity I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_15_boosted_immunity_ii",
@@ -237,7 +265,9 @@
     "iconImg": "icons/status_effects/Boosted Immunity II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_16_absolute_immunity",
@@ -253,7 +283,9 @@
     "iconImg": "icons/status_effects/Absolute Immunity.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_17_weakened_health_i",
@@ -269,7 +301,9 @@
     "iconImg": "icons/status_effects/Weakened Health I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_18_weakened_health_ii",
@@ -285,7 +319,9 @@
     "iconImg": "icons/status_effects/Weakened Health II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_19_weakened_health_iii",
@@ -301,7 +337,9 @@
     "iconImg": "icons/status_effects/Weakened Health III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_20_boosted_health_i",
@@ -317,7 +355,9 @@
     "iconImg": "icons/status_effects/Boosted Health I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_21_boosted_health_ii",
@@ -333,7 +373,9 @@
     "iconImg": "icons/status_effects/Boosted Health II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_22_boosted_health_iii",
@@ -349,7 +391,9 @@
     "iconImg": "icons/status_effects/Boosted Health III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_23_health_recovery",
@@ -365,7 +409,9 @@
     "iconImg": "icons/status_effects/Health Recovery.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_24_boosted_productivity_i",
@@ -381,7 +427,9 @@
     "iconImg": "icons/status_effects/Boosted Productivity I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_25_boosted_productivity_ii",
@@ -397,7 +445,9 @@
     "iconImg": "icons/status_effects/Boosted Productivity II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_26_boosted_productivity_iii",
@@ -413,7 +463,9 @@
     "iconImg": "icons/status_effects/Boosted Productivity III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_27_productivity_slowdown_i",
@@ -429,7 +481,9 @@
     "iconImg": "icons/status_effects/Slowdown Productivity I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_28_productivity_slowdown_ii",
@@ -445,7 +499,9 @@
     "iconImg": "icons/status_effects/Slowdown Productivity II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_29_productivity_slowdown_iii",
@@ -461,7 +517,9 @@
     "iconImg": "icons/status_effects/Slowdown Productivity III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_30_corrosive_mold",
@@ -477,7 +535,9 @@
     "iconImg": "icons/status_effects/Corrosive Mold.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_31_energy_leaks_i",
@@ -493,7 +553,9 @@
     "iconImg": "icons/status_effects/Energy Leaks I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_32_energy_leaks_ii",
@@ -509,7 +571,9 @@
     "iconImg": "icons/status_effects/Energy Leaks II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_33_energy_leaks_iii",
@@ -525,7 +589,9 @@
     "iconImg": "icons/status_effects/Energy Leaks III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_34_energy_leaks_i",
@@ -541,7 +607,9 @@
     "iconImg": "icons/status_effects/Energy Leaks I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_35_energy_leaks_ii",
@@ -557,7 +625,9 @@
     "iconImg": "icons/status_effects/Energy Leaks II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_36_energy_leaks_iii",
@@ -573,7 +643,9 @@
     "iconImg": "icons/status_effects/Energy Leaks III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_37_concerned_speciesname_traders",
@@ -589,7 +661,9 @@
     "iconImg": "icons/status_effects/Concerned traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_38_disappointed_speciesname_traders",
@@ -605,7 +679,9 @@
     "iconImg": "icons/status_effects/Disappointed  traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_39_angry_speciesname_traders",
@@ -621,7 +697,9 @@
     "iconImg": "icons/status_effects/Angry traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_40_pleased_speciesname_traders",
@@ -637,7 +715,9 @@
     "iconImg": "icons/status_effects/Pleased traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_41_happy_speciesname_traders",
@@ -653,7 +733,9 @@
     "iconImg": "icons/status_effects/Happy traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_42_delighted_speciesname_traders",
@@ -669,7 +751,9 @@
     "iconImg": "icons/status_effects/Delighted traders.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": true
   },
   {
     "id": "status_43_waste_issues_i",
@@ -685,7 +769,9 @@
     "iconImg": "icons/status_effects/Waste Issues I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_44_waste_issues_ii",
@@ -701,7 +787,9 @@
     "iconImg": "icons/status_effects/Waste Issues II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_45_waste_issues_iii",
@@ -717,7 +805,9 @@
     "iconImg": "icons/status_effects/Waste Issues III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_46_sustainable_living_i",
@@ -733,7 +823,9 @@
     "iconImg": "icons/status_effects/Sustainable Living I.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_47_sustainable_living_ii",
@@ -749,7 +841,9 @@
     "iconImg": "icons/status_effects/Sustainable Living II.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_48_sustainable_living_iii",
@@ -765,7 +859,9 @@
     "iconImg": "icons/status_effects/Sustainable Living III.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_49_hunger",
@@ -781,7 +877,9 @@
     "iconImg": "icons/status_effects/Hunger.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_50_sick",
@@ -797,7 +895,9 @@
     "iconImg": "icons/status_effects/Sick.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_51_immune",
@@ -813,7 +913,9 @@
     "iconImg": "icons/status_effects/Immune.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": true,
+    "hasSpecies": false
   },
   {
     "id": "status_52_elated",
@@ -829,7 +931,9 @@
     "iconImg": "icons/status_effects/Elated.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_53_happy",
@@ -845,7 +949,9 @@
     "iconImg": "icons/status_effects/Happy.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_54_unhappy",
@@ -861,7 +967,9 @@
     "iconImg": "icons/status_effects/Unhappy.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_55_desperate",
@@ -877,7 +985,9 @@
     "iconImg": "icons/status_effects/Desperate.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_56_unhoused",
@@ -893,7 +1003,9 @@
     "iconImg": "icons/status_effects/Unhoused.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_57_housed",
@@ -909,7 +1021,9 @@
     "iconImg": "icons/status_effects/Housed.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "✨"
+    "icon": "✨",
+    "hasN": false,
+    "hasSpecies": false
   },
   {
     "id": "status_58_storm_stress",
@@ -925,6 +1039,8 @@
     "iconImg": "icons/status_effects/Storm Stress.png",
     "kind": "status_effect",
     "isStatusEffect": true,
-    "icon": "⚡"
+    "icon": "⚡",
+    "hasN": true,
+    "hasSpecies": false
   }
 ]
