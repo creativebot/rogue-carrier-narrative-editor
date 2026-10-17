@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T19:03:46.837647",
+  "_lastModified": "2026-10-17T19:03:48.872913",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -3478,8 +3478,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 465,
-        "y": 5179
+        "x": 387,
+        "y": 4473
       },
       "variationId": "var_v1",
       "category": "KeyChain",
