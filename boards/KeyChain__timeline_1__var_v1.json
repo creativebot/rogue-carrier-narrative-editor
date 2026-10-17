@@ -1035,12 +1035,12 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3B)",
       "position": {
-        "x": 1283,
-        "y": 4446
+        "x": 1734,
+        "y": 3956
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "lines": [
         {
           "id": "l8",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T19:03:44.596365"
+  "_lastModified": "2026-10-17T19:03:46.827572"
 }
