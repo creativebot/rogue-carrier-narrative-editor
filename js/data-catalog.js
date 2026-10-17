@@ -189,6 +189,9 @@ const CREW_SPECIALIZATIONS = [
   { id: "spec_defense", name: "Defense", category: "Specialization", kind: "specialization", icon: "🛡️", color: "#ef4444" }
 ];
 
+let statusEffectsCatalog = [];
+window.statusEffectsCatalog = statusEffectsCatalog;
+
 // Load Resources Catalog
 async function loadResourceCatalog() {
   try {
@@ -198,6 +201,16 @@ async function loadResourceCatalog() {
     }
   } catch (err) {
     console.warn('Using default catalog');
+  }
+
+  try {
+    const sRes = await fetch('status_effects.json');
+    if (sRes.ok) {
+      statusEffectsCatalog = await sRes.json();
+      window.statusEffectsCatalog = statusEffectsCatalog;
+    }
+  } catch (err) {
+    console.warn('Could not load status_effects.json', err);
   }
 
   if (!resourceCatalog.resources) resourceCatalog.resources = [];

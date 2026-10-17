@@ -2377,6 +2377,24 @@ function isCriteriaObject(item) {
   return false;
 }
 
+function isStatusEffectObject(item) {
+  if (!item) return false;
+  if (typeof item === 'object') {
+    return Boolean(
+      item.isStatusEffect || 
+      item.kind === 'status_effect' || 
+      item.category === 'Status Effect' || 
+      String(item.resourceId || '').startsWith('status_effect_') ||
+      (window.statusEffectsCatalog && window.statusEffectsCatalog.some(se => se.id === item.resourceId || (item.name && se.name.toLowerCase() === item.name.toLowerCase())))
+    );
+  }
+  if (typeof item === 'string') {
+    return item.trim().startsWith('✨') || (window.statusEffectsCatalog && window.statusEffectsCatalog.some(se => se.name.toLowerCase() === item.trim().toLowerCase()));
+  }
+  return false;
+}
+window.isStatusEffectObject = isStatusEffectObject;
+
 function getGlobalCriteriaPool() {
   if (!appData) return ['Orange Box'];
   if (!Array.isArray(appData.criteriaPool)) {
@@ -2411,7 +2429,7 @@ function getGlobalCriteriaPool() {
   return appData.criteriaPool;
 }
 
-// Format Reward & Penalty Pills with Resource Icons, Ranges & Criteria Flags
+// Format Reward & Penalty Pills with Resource Icons, Ranges, Criteria Flags & Deck Status Effects
 function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
   if (isCriteriaObject(rw)) {
     const rawName = typeof rw === 'object' ? (rw.name || 'Criteria') : String(rw).replace(/^🔑\s*/, '').replace(/^criteria:\s*/i, '').trim();
@@ -2430,6 +2448,91 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
         <span class="font-bold text-fuchsia-950">${rawName}</span>
         <button type="button" class="req-remove-btn" title="Remove criteria"
                 onclick="event.stopPropagation(); event.preventDefault(); ${removeFn}">×</button>
+      </span>
+    `;
+  }
+
+  if (isStatusEffectObject(rw)) {
+    let name = '';
+    let category = '';
+    let target = '';
+    let effect = '';
+    let effectType = '';
+    let posNeg = 'positive';
+    let iconImg = '';
+    let amount = '';
+
+    if (typeof rw === 'object' && rw !== null) {
+      name = rw.name || 'Status Effect';
+      category = rw.effectCategory || rw.category || '';
+      target = rw.target || '';
+      effect = rw.effect || '';
+      effectType = rw.effectType || '';
+      posNeg = rw.posNeg || 'positive';
+      iconImg = rw.iconImg || '';
+      amount = rw.amount !== undefined ? String(rw.amount) : '';
+    } else {
+      name = String(rw).replace(/^✨\s*/, '').trim();
+    }
+
+    const catalog = window.statusEffectsCatalog || [];
+    const matched = catalog.find(se => 
+      (rw && rw.resourceId && se.id === rw.resourceId) || 
+      (se.name && se.name.toLowerCase() === name.toLowerCase())
+    );
+    if (matched) {
+      if (!iconImg) iconImg = matched.iconImg || '';
+      if (!category || category === 'Status Effect') category = matched.category || '';
+      if (!target) target = matched.target || '';
+      if (!effect) effect = matched.effect || '';
+      if (!effectType) effectType = matched.effectType || '';
+      if (!posNeg) posNeg = matched.posNeg || 'positive';
+    }
+
+    const isNeg = posNeg === 'negative';
+    const badgeClass = isNeg 
+      ? 'bg-rose-950/80 text-rose-300 border-rose-500/60' 
+      : 'bg-teal-950/80 text-teal-300 border-teal-500/60';
+    const pillBorder = isNeg
+      ? 'border-rose-500/80 bg-rose-950/30 hover:bg-rose-900/40 text-rose-200'
+      : 'border-teal-500/80 bg-teal-950/30 hover:bg-teal-900/40 text-teal-200';
+
+    const removeFn = isPenalty
+      ? `removeInactionPenalty('${nodeId}', ${rwIdx})`
+      : `removeRewardItem('${nodeId}', ${actionIdx}, ${rwIdx})`;
+    const editFn = isPenalty
+      ? `openResourcePickerModal('${nodeId}', -1, 'inaction_penalty', ${rwIdx})`
+      : `openResourcePickerModal('${nodeId}', ${actionIdx}, 'reward', ${rwIdx})`;
+
+    const tooltipLines = [
+      `Name: ${name}`,
+      category ? `Category: ${category}` : '',
+      target ? `Target: ${target}` : '',
+      effect ? `Effect: ${effect}` : '',
+      effectType ? `Effect Type: ${effectType}` : ''
+    ].filter(Boolean).join('\n');
+
+    const iconMarkup = iconImg ? `
+      <img src="${iconImg}" alt="${name}" class="w-4 h-4 object-contain inline-block shrink-0 mr-1 drop-shadow-xs" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
+      <span style="display:none;" class="mr-1 shrink-0 text-xs">✨</span>
+    ` : `<span class="mr-1 shrink-0 text-xs">✨</span>`;
+
+    const seMetaJson = JSON.stringify({ name, category, target, effect, effectType, posNeg, iconImg }).replace(/"/g, '&quot;');
+
+    return `
+      <span class="req-pill inline-flex items-center gap-1 cursor-pointer transition shadow-2xs ${pillBorder}"
+            onclick="event.stopPropagation(); ${editFn}"
+            title="${tooltipLines.replace(/"/g, '&quot;')}"
+            data-status-effect-name="${name.replace(/"/g, '&quot;')}"
+            onmouseenter="if(window.showStatusEffectFloatingTooltip) window.showStatusEffectFloatingTooltip(JSON.parse('${seMetaJson.replace(/'/g, "\\'")}'), event)"
+            onmousemove="if(window.updateStatusEffectFloatingTooltip) window.updateStatusEffectFloatingTooltip(event)"
+            onmouseleave="if(window.hideStatusEffectFloatingTooltip) window.hideStatusEffectFloatingTooltip()">
+        ${iconMarkup}
+        <span class="text-[9px] font-mono font-extrabold uppercase px-1 py-0.2 rounded border ${badgeClass}">${effectType || (isNeg ? 'Debuff' : 'Buff')}</span>
+        <span class="font-bold text-gray-100">${name}</span>
+        ${amount && amount !== '1' ? `<span class="font-mono text-cyan-200 bg-cyan-950/70 border border-cyan-500/50 px-1 py-0.2 rounded text-[10px] font-bold">${amount}</span>` : ''}
+        <button type="button" class="req-remove-btn" title="Remove status effect"
+                onclick="event.stopPropagation(); event.preventDefault(); if(window.hideStatusEffectFloatingTooltip) window.hideStatusEffectFloatingTooltip(); ${removeFn}">×</button>
       </span>
     `;
   }

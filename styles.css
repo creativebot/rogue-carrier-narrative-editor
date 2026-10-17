@@ -2226,3 +2226,27 @@ body.is-board-readonly .comment-trigger-badge {
 #drawer-comments * {
   pointer-events: auto !important;
 }
+
+/* ==========================================================================
+   STATUS EFFECTS TOOLTIP & CARD STYLING (BUFFS, DEBUFFS & CREW CONDITIONS)
+   ========================================================================== */
+#status-effect-tooltip {
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  max-width: 380px;
+  min-width: 260px;
+  background: rgba(8, 12, 22, 0.96) !important;
+  border: 1px solid rgba(20, 184, 166, 0.6) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.85), 0 0 20px rgba(20, 184, 166, 0.25) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.status-effect-card {
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.status-effect-card:hover {
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.35) !important;
+}
+

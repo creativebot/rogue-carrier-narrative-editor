@@ -115,16 +115,105 @@ function removeInactionThreat(nodeId) {
 
 let activePickerCategory = 'all';
 
+function showStatusEffectFloatingTooltip(item, ev) {
+  let tip = document.getElementById('status-effect-tooltip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'status-effect-tooltip';
+    tip.className = 'fixed z-[9999] pointer-events-none bg-slate-950 border border-teal-500/80 shadow-2xl rounded-xl p-3.5 max-w-sm text-left transition-opacity duration-150 backdrop-blur-md';
+    document.body.appendChild(tip);
+  }
+  
+  const isNeg = item.posNeg === 'negative';
+  const badgeBorder = isNeg ? 'border-rose-500/50 bg-rose-950/80 text-rose-300' : 'border-teal-500/50 bg-teal-950/80 text-teal-300';
+  const iconImg = item.iconImg ? `<img src="${item.iconImg}" alt="${item.name}" class="w-8 h-8 object-contain shrink-0 drop-shadow">` : `<span class="text-2xl">${item.icon || '✨'}</span>`;
+
+  tip.innerHTML = `
+    <div class="flex items-start gap-2.5 pb-2 mb-2 border-b border-slate-800">
+      ${iconImg}
+      <div class="flex-1 min-w-0">
+        <div class="font-extrabold text-sm text-white flex items-center justify-between gap-2">
+          <span class="truncate">${item.name}</span>
+          <span class="text-[9px] uppercase font-mono font-bold px-1.5 py-0.5 rounded ${badgeBorder}">${item.posNeg || 'Buff'}</span>
+        </div>
+        <div class="text-[10px] text-teal-400 font-mono mt-0.5 font-bold uppercase">${item.effectType || 'Buff/Debuff'}</div>
+      </div>
+    </div>
+    <div class="space-y-1.5 text-xs">
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Name:</span>
+        <span class="text-gray-100 font-semibold">${item.name}</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Category:</span>
+        <span class="text-amber-300 font-semibold">${item.category}</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Target:</span>
+        <span class="text-purple-300 font-semibold">${item.target}</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Effect:</span>
+        <span class="text-cyan-300 font-bold">${item.effect}</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider w-20 shrink-0">Effect Type:</span>
+        <span class="text-emerald-300 font-semibold">${item.effectType}</span>
+      </div>
+      ${item.comments ? `
+        <div class="pt-1.5 mt-1 border-t border-slate-800 text-[11px] text-gray-400 italic leading-snug">
+          ${item.comments}
+        </div>` : ''}
+    </div>
+  `;
+  
+  tip.style.display = 'block';
+  tip.style.opacity = '1';
+  updateStatusEffectFloatingTooltip(ev);
+}
+
+function updateStatusEffectFloatingTooltip(ev) {
+  const tip = document.getElementById('status-effect-tooltip');
+  if (!tip || tip.style.display === 'none') return;
+  const pad = 16;
+  let x = ev.clientX + pad;
+  let y = ev.clientY + pad;
+  const tipRect = tip.getBoundingClientRect();
+  if (x + tipRect.width > window.innerWidth - 10) {
+    x = ev.clientX - tipRect.width - pad;
+  }
+  if (y + tipRect.height > window.innerHeight - 10) {
+    y = ev.clientY - tipRect.height - pad;
+  }
+  tip.style.left = `${Math.max(10, x)}px`;
+  tip.style.top = `${Math.max(10, y)}px`;
+}
+
+function hideStatusEffectFloatingTooltip() {
+  const tip = document.getElementById('status-effect-tooltip');
+  if (tip) {
+    tip.style.display = 'none';
+    tip.style.opacity = '0';
+  }
+}
+
+window.showStatusEffectFloatingTooltip = showStatusEffectFloatingTooltip;
+window.updateStatusEffectFloatingTooltip = updateStatusEffectFloatingTooltip;
+window.hideStatusEffectFloatingTooltip = hideStatusEffectFloatingTooltip;
+
 function setPickerCategoryFilter(cat, btn) {
   activePickerCategory = cat;
+  const canPickStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickStatusEffects);
   const tabs = document.querySelectorAll('.picker-cat-tab');
   tabs.forEach(b => {
-    b.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1 shrink-0';
+    const isStatusTab = (b.id === 'picker-tab-status-effects');
+    const hiddenClass = (isStatusTab && !canPickStatusEffects) ? ' hidden' : '';
+    b.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1 shrink-0' + hiddenClass;
   });
   if (btn) {
     btn.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0';
   } else {
-    const catMap = { all: 0, criteria: 1, stat: 2, specialization: 3, item: 4, building: 5 };
+    const catMap = { all: 0, criteria: 1, stat: 2, specialization: 3, item: 4, building: 5, status_effect: 6 };
     const tabIdx = catMap[cat];
     if (tabIdx !== undefined && tabs[tabIdx]) {
       tabs[tabIdx].className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0';
@@ -144,7 +233,8 @@ function setPickerCategoryFilter(cat, btn) {
   if (gridSec) gridSec.style.display = 'block';
 
   if (gridTitle) {
-    if (cat === 'criteria') gridTitle.innerHTML = '<span>🔑 All Criteria Story Flags</span>';
+    if (cat === 'status_effect') gridTitle.innerHTML = '<span>✨ Deck Event Status Effects (Buffs, Debuffs &amp; Crew Conditions)</span>';
+    else if (cat === 'criteria') gridTitle.innerHTML = '<span>🔑 All Criteria Story Flags</span>';
     else if (cat === 'stat') gridTitle.innerHTML = '<span>🧠 Intangible Stats &amp; Currencies</span>';
     else if (cat === 'specialization') gridTitle.innerHTML = '<span>👨‍🚀 Crew Specializations</span>';
     else if (cat === 'item') gridTitle.innerHTML = '<span>📦 Items, Tools &amp; Raw Materials</span>';
@@ -161,14 +251,33 @@ function setPickerCategoryFilter(cat, btn) {
 
 function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = null) {
   if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("modify requirements or rewards")) return;
-  activePickerTarget = { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType: 'single' };
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  const isDeckEvent = Boolean(
+    (node && (node.category === 'DeckPool' || node.category === 'deck' || node.variationId === 'deck_events')) ||
+    (typeof getCurrentBoardIdentifier === 'function' && getCurrentBoardIdentifier() === 'DeckPool') ||
+    activeCategoryFilter === 'DeckPool'
+  );
+  const canPickStatusEffects = Boolean(type === 'reward' && isDeckEvent);
+  activePickerTarget = { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType: 'single', canPickStatusEffects };
+
+  const statusTab = document.getElementById('picker-tab-status-effects');
+  if (statusTab) {
+    if (canPickStatusEffects) {
+      statusTab.classList.remove('hidden');
+    } else {
+      statusTab.classList.add('hidden');
+    }
+  }
+
   const grid = document.getElementById('picker-resource-grid');
   if (!grid) return;
 
   const hintEl = document.getElementById('picker-target-hint');
   if (hintEl) {
     if (type === 'reward') {
-      hintEl.innerText = 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).';
+      hintEl.innerText = canPickStatusEffects 
+        ? 'Configure deck event outcome reward (items, buildings, currencies, or deck status effects).' 
+        : 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).';
     } else if (type === 'inaction_penalty') {
       hintEl.innerText = 'Configure inaction timeout penalty (negative delta, e.g. -10).';
     } else if (type === 'requirement' || type === 'requirement_alternative' || type === 'requirement_edit') {
@@ -185,14 +294,12 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   if (criteriaInput) {
     criteriaInput.value = '';
     if (type === 'reward') {
-      const node = appData.nodes.find(n => n.id === nodeId);
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
       const existingRw = (act && act.rewards && itemIdx !== null) ? act.rewards[itemIdx] : null;
       if (existingRw && isCriteriaObject(existingRw)) {
         criteriaInput.value = existingRw.name || '';
       }
     } else if (type === 'requirement_edit') {
-      const node = appData.nodes.find(n => n.id === nodeId);
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
       const clause = (act && act.requirements && clauseIdx !== null) ? act.requirements[clauseIdx] : null;
       const existingReq = (clause && clause.items && itemIdx !== null) ? clause.items[itemIdx] : null;
@@ -205,7 +312,6 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   const amountInput = document.getElementById('picker-amount-input');
   if (amountInput) {
     if (type === 'reward') {
-      const node = appData.nodes.find(n => n.id === nodeId);
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
       const existingRw = (act && act.rewards && itemIdx !== null) ? act.rewards[itemIdx] : null;
       if (existingRw) {
@@ -221,7 +327,6 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
         amountInput.value = '20-30';
       }
     } else if (type === 'requirement_edit') {
-      const node = appData.nodes.find(n => n.id === nodeId);
       const act = (node && node.actions) ? node.actions[actionIdx] : null;
       const clause = (act && act.requirements && clauseIdx !== null) ? act.requirements[clauseIdx] : null;
       const existingReq = (clause && clause.items && itemIdx !== null) ? clause.items[itemIdx] : null;
@@ -390,25 +495,70 @@ function renderPickerResources(items) {
     const card = document.createElement('div');
     const isBuilding = item.kind === 'building' || item.category === 'Building';
     const isCriteria = Boolean(item.isCriteria || item.category === 'Criteria');
+    const isStatusEffect = Boolean(item.isStatusEffect || item.kind === 'status_effect');
     
-    card.className = `bg-gray-950/90 border ${isCriteria ? 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20' : (isBuilding ? 'border-amber-900/60 hover:border-amber-400 bg-amber-950/15' : 'border-gray-800 hover:border-cyan-400 hover:bg-slate-900/50')} p-2.5 rounded-xl cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg hover:scale-[1.03] active:scale-95 group relative select-none`;
+    let borderHoverClass = 'border-gray-800 hover:border-cyan-400 hover:bg-slate-900/50';
+    if (isCriteria) {
+      borderHoverClass = 'border-fuchsia-600/80 hover:border-fuchsia-400 bg-fuchsia-950/20';
+    } else if (isStatusEffect) {
+      const isNeg = item.posNeg === 'negative';
+      borderHoverClass = isNeg 
+        ? 'border-rose-700/80 hover:border-rose-400 bg-rose-950/25 status-effect-card' 
+        : 'border-teal-700/80 hover:border-teal-400 bg-teal-950/25 status-effect-card';
+    } else if (isBuilding) {
+      borderHoverClass = 'border-amber-900/60 hover:border-amber-400 bg-amber-950/15';
+    }
+
+    card.className = `bg-gray-950/90 border ${borderHoverClass} p-2.5 rounded-xl cursor-pointer flex flex-col items-center text-center transition shadow-sm hover:shadow-lg hover:scale-[1.03] active:scale-95 group relative select-none`;
     
+    let iconBoxClass = 'bg-slate-900/50 border-slate-800/80';
+    if (isCriteria) {
+      iconBoxClass = 'bg-fuchsia-950/70 border-fuchsia-700/80';
+    } else if (isStatusEffect) {
+      iconBoxClass = item.posNeg === 'negative' ? 'bg-rose-950/70 border-rose-700/80' : 'bg-teal-950/70 border-teal-700/80';
+    }
+
     const iconMarkup = item.iconImg ? `
       <div class="w-12 h-12 flex items-center justify-center mb-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-700/80 group-hover:border-amber-400 group-hover:scale-105 transition shadow-md">
         <img src="${item.iconImg}" alt="${item.name}" class="w-10 h-10 object-contain drop-shadow" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';">
-        <span style="display:none;" class="text-xl">${item.icon || (isBuilding ? '🏛️' : '📦')}</span>
+        <span style="display:none;" class="text-xl">${item.icon || (isStatusEffect ? '✨' : (isBuilding ? '🏛️' : '📦'))}</span>
       </div>` : `
-      <div class="w-12 h-12 flex items-center justify-center mb-1.5 ${isCriteria ? 'bg-fuchsia-950/70 border-fuchsia-700/80' : 'bg-slate-900/50 border-slate-800/80'} rounded-lg border">
-        <span class="text-xl">${item.icon || (isCriteria ? '🔑' : (isBuilding ? '🏛️' : '📦'))}</span>
+      <div class="w-12 h-12 flex items-center justify-center mb-1.5 ${iconBoxClass} rounded-lg border">
+        <span class="text-xl">${item.icon || (isCriteria ? '🔑' : (isStatusEffect ? '✨' : (isBuilding ? '🏛️' : '📦')))}</span>
       </div>`;
     
+    let subText = item.category || (isBuilding ? 'Building' : 'Item');
+    if (isStatusEffect) {
+      subText = `${item.category} • ${item.effectType || (item.posNeg === 'negative' ? 'Debuff' : 'Buff')}`;
+    } else if (item.tier !== undefined) {
+      subText += ` • T${item.tier}`;
+    }
+
+    let nameColorClass = 'text-gray-200';
+    if (isCriteria) nameColorClass = 'text-fuchsia-200';
+    else if (isStatusEffect) nameColorClass = item.posNeg === 'negative' ? 'text-rose-200' : 'text-teal-200';
+
+    let subColorClass = 'text-gray-400';
+    if (isCriteria) subColorClass = 'text-fuchsia-400';
+    else if (isStatusEffect) subColorClass = item.posNeg === 'negative' ? 'text-rose-400' : 'text-teal-400';
+
     card.innerHTML = `
       ${iconMarkup}
-      <div class="font-bold ${isCriteria ? 'text-fuchsia-200' : 'text-gray-200'} text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
-      <div class="text-[9px] ${isCriteria ? 'text-fuchsia-400' : 'text-gray-400'} uppercase font-mono mt-0.5">${item.category || (isBuilding ? 'Building' : 'Item')}${item.tier !== undefined ? ` • T${item.tier}` : ''}</div>
+      <div class="font-bold ${nameColorClass} text-xs truncate w-full group-hover:text-amber-300 transition" title="${item.name}">${item.name}</div>
+      <div class="text-[9px] ${subColorClass} uppercase font-mono mt-0.5 truncate w-full">${subText}</div>
     `;
 
+    if (isStatusEffect) {
+      card.title = `Name: ${item.name}\nCategory: ${item.category}\nTarget: ${item.target}\nEffect: ${item.effect}\nEffect Type: ${item.effectType}`;
+      card.setAttribute('data-status-effect-id', item.id);
+      card.setAttribute('data-status-effect-name', item.name);
+      card.onmouseenter = (ev) => showStatusEffectFloatingTooltip(item, ev);
+      card.onmousemove = (ev) => updateStatusEffectFloatingTooltip(ev);
+      card.onmouseleave = () => hideStatusEffectFloatingTooltip();
+    }
+
     card.onclick = () => {
+      hideStatusEffectFloatingTooltip();
       if (isCriteria) {
         selectCriteriaFromPicker(item.name);
       } else {
@@ -431,7 +581,12 @@ function filterPickerResources(query) {
     isCriteria: true
   }));
 
-  if (activePickerCategory === 'criteria') {
+  const canPickStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickStatusEffects);
+  const statusEffects = canPickStatusEffects ? (window.statusEffectsCatalog || []) : [];
+
+  if (activePickerCategory === 'status_effect') {
+    items = statusEffects;
+  } else if (activePickerCategory === 'criteria') {
     items = criteriaItems;
   } else if (activePickerCategory === 'specialization') {
     items = items.filter(i => i.category === 'Specialization' || i.kind === 'specialization');
@@ -442,7 +597,7 @@ function filterPickerResources(query) {
   } else if (activePickerCategory === 'stat') {
     items = items.filter(i => i.category === 'Stat' || i.category === 'People' || i.category === 'Tech' || i.category === 'Key Item');
   } else {
-    items = [...criteriaItems, ...items];
+    items = [...criteriaItems, ...items, ...statusEffects];
   }
 
   const q = (query || '').toLowerCase().trim();
@@ -450,7 +605,10 @@ function filterPickerResources(query) {
     items = items.filter(i => 
       (i.name && i.name.toLowerCase().includes(q)) || 
       (i.category && i.category.toLowerCase().includes(q)) ||
-      (i.id && i.id.toLowerCase().includes(q))
+      (i.id && i.id.toLowerCase().includes(q)) ||
+      (i.target && i.target.toLowerCase().includes(q)) ||
+      (i.effect && i.effect.toLowerCase().includes(q)) ||
+      (i.effectType && i.effectType.toLowerCase().includes(q))
     );
   }
 
@@ -652,7 +810,14 @@ function selectResourceFromPicker(item) {
     selectCrewSpecialization(item.name, item.icon || '👨‍🚀', item.color || '#3b82f6');
     return;
   }
-  const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType } = activePickerTarget;
+  const isStatusEffect = Boolean(item.isStatusEffect || item.kind === 'status_effect');
+  const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType, canPickStatusEffects } = activePickerTarget || {};
+  
+  if (isStatusEffect && (!canPickStatusEffects || type !== 'reward')) {
+    showToast("Status effects can only be assigned as rewards in deck events", "warning");
+    return;
+  }
+
   const node = appData.nodes.find(n => n.id === nodeId);
   if (!node) return;
 
@@ -707,9 +872,21 @@ function selectResourceFromPicker(item) {
       const rewardObj = {
         resourceId: item.id,
         name: item.name,
-        amount: amountStr, // supports range string e.g. "20-30" or "5"
+        amount: isStatusEffect ? (amountStr && amountStr !== '20-30' ? amountStr : '1') : amountStr,
         iconImg: item.iconImg || '',
-        icon: item.icon || '📦'
+        icon: item.icon || (isStatusEffect ? '✨' : '📦'),
+        ...(isStatusEffect ? {
+          isStatusEffect: true,
+          kind: 'status_effect',
+          category: 'Status Effect',
+          effectCategory: item.category,
+          target: item.target,
+          effect: item.effect,
+          effectType: item.effectType,
+          posNeg: item.posNeg || 'positive',
+          description: item.description || '',
+          comments: item.comments || ''
+        } : {})
       };
       if (itemIdx !== null && act.rewards[itemIdx] !== undefined) {
         act.rewards[itemIdx] = rewardObj;
@@ -722,7 +899,7 @@ function selectResourceFromPicker(item) {
   saveProjectToLocalStorage();
   closeModal('modal-resource-picker');
   renderApp();
-  showToast(type === 'reward' ? `Reward '${item.name} (${amountStr})' added` : "Resource added", "success");
+  showToast(isStatusEffect ? `Added Deck Status Effect: "${item.name}"` : (type === 'reward' ? `Reward '${item.name} (${amountStr})' added` : "Resource added"), "success");
 }
 
 function removeInactionPenalty(nodeId, penaltyIdx) {
@@ -1876,6 +2053,11 @@ function openModal(id) {
 }
 
 function closeModal(id) {
+  if (id === 'modal-resource-picker' || !id) {
+    if (typeof hideStatusEffectFloatingTooltip === 'function') {
+      hideStatusEffectFloatingTooltip();
+    }
+  }
   const el = document.getElementById(id);
   if (el) el.classList.add('hidden');
 }
