@@ -41,24 +41,7 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            {
-              "resourceId": "status_1_food_savings",
-              "name": "Food Savings",
-              "amount": "1",
-              "iconImg": "icons/status_effects/Food Savings.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "food charge lasts for 2 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember spends each food charge every 2 hours, while receiving effects of food every hour as usual."
-            }
+            "🧠 Knowledge +150"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -70,5 +53,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T01:37:15.948521"
+  "_lastModified": "2026-10-17T18:58:52.419542"
 }
