@@ -22,7 +22,30 @@
         "shortDescription": "Failed Drill",
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_58_storm_stress",
+            "name": "Storm Stress",
+            "rawName": "Storm Stress",
+            "amount": "8",
+            "hasN": true,
+            "nValue": "8",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Storm Stress.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Crew-Specific Parameters",
+            "target": "crew",
+            "effect": "-8 to morale per hour (per storm category)",
+            "effectType": "Crew condition",
+            "posNeg": "negative",
+            "description": "",
+            "comments": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -93,5 +116,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-17T22:42:44.540757"
+  "_lastModified": "2026-10-17T22:42:47.195295"
 }
