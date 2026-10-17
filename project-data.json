@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T19:02:52.357Z",
+  "_lastModified": "2026-10-17T19:03:41.345208",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -268,6 +268,55 @@
     "variationDescription": 80
   },
   "nodes": [
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 220
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
+    },
     {
       "id": "node_1791297604320",
       "codename": "GEN-E1",
@@ -2932,8 +2981,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -2985,8 +3033,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3084,8 +3131,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -3124,7 +3170,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
@@ -3254,55 +3300,6 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
-    },
-    {
-      "id": "node_deck_1",
-      "codename": "DECK-E1",
-      "name": "Hangar Deck Fire Drill",
-      "type": "Carrier",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
-      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
-      "reactionTimerHours": "2",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "consequenceText": "Drill failure creates crew demoralization.",
-        "timerHours": 2,
-        "shortDescription": "Failed Drill",
-        "description": "No team responded in time.",
-        "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 220
-      },
-      "actions": [
-        {
-          "id": "act_deck_1",
-          "codeSuffix": "A",
-          "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
-          "requirements": [],
-          "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
-          "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Hangar Deck Fire Drill"
     }
   ],
   "dialogues": [
@@ -4310,8 +4307,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3316,
-        "y": 3678
+        "x": 3322,
+        "y": 3810
       },
       "variationId": "var_v1",
       "category": "KeyChain",
