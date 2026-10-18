@@ -41,7 +41,14 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "ammunition_01",
+              "name": "Standard Ammunition Pack",
+              "amount": "10",
+              "iconImg": "icons/T_StandardAmmunitionPack.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -53,5 +60,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-18T13:49:15.600461"
+  "_lastModified": "2026-10-18T13:49:37.619859"
 }
