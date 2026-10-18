@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T13:54:33.748477",
+  "_lastModified": "2026-10-18T13:54:56.199202",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -308,7 +308,29 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "status_41_happy_speciesname_traders",
+              "name": "Happy Crabari Traders",
+              "rawName": "Happy {SpeciesName} Traders",
+              "amount": "10",
+              "hasN": true,
+              "nValue": "10",
+              "hasSpecies": true,
+              "species": "Crabari",
+              "iconImg": "icons/status_effects/Happy traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "{Crabari} Traders",
+              "effect": "prices -20% for species for 10 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
