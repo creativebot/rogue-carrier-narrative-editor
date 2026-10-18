@@ -83,7 +83,29 @@
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
             "🧠 Knowledge +300",
-            "📜 Blueprints +1"
+            "📜 Blueprints +1",
+            {
+              "resourceId": "status_41_happy_speciesname_traders",
+              "name": "Happy Crabari Traders",
+              "rawName": "Happy {SpeciesName} Traders",
+              "amount": "5",
+              "hasN": true,
+              "nValue": "5",
+              "hasSpecies": true,
+              "species": "Crabari",
+              "iconImg": "icons/status_effects/Happy traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "Crabari Traders",
+              "effect": "prices -20% for Crabari for 5 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
+            }
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
@@ -2058,6 +2080,6 @@
       ]
     }
   ],
-  "author": "Roman Matviiuk",
-  "_lastModified": "2026-10-18T10:01:11.855812"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-18T17:54:50.581189"
 }
