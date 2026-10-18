@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T13:51:06.280Z",
+  "_lastModified": "2026-10-18T13:54:33.093100",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -330,28 +330,6 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buying prices are reduced by 10% (rounded up) for the trader of that species."
-            },
-            {
-              "resourceId": "status_22_boosted_health_iii",
-              "name": "Boosted Health III",
-              "rawName": "Boosted Health III",
-              "amount": "10",
-              "hasN": true,
-              "nValue": "10",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Health III.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "HP",
-              "target": "crew",
-              "effect": "crew HP +100% for 10 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
             }
           ],
           "targetNodeIds": [],
@@ -3025,8 +3003,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3078,8 +3055,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3177,8 +3153,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -3217,7 +3192,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
