@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T13:55:06.279Z",
+  "_lastModified": "2026-10-18T13:55:16.100466",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -290,7 +290,29 @@
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
         "penalties": [
-          "💀 Entropy +5"
+          "💀 Entropy +5",
+          {
+            "resourceId": "status_35_energy_leaks_ii",
+            "name": "Energy Leaks II",
+            "rawName": "Energy Leaks II",
+            "amount": "5",
+            "hasN": true,
+            "nValue": "5",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Energy Leaks II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Energy",
+            "target": "building (produce energy)",
+            "effect": "energy production -30% for 5 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected energy buildigns produce 30% less energy instead."
+          }
         ]
       },
       "position": {
@@ -3025,8 +3047,7 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791905801725",
@@ -3078,8 +3099,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791988044467",
@@ -3177,8 +3197,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791921021620",
@@ -3217,7 +3236,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
