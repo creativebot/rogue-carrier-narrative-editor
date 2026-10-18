@@ -192,6 +192,25 @@ const CREW_SPECIALIZATIONS = [
 let statusEffectsCatalog = [];
 window.statusEffectsCatalog = statusEffectsCatalog;
 
+function isTraderStatusEffect(item) {
+  if (!item) return false;
+  if (typeof item === 'object') {
+    return Boolean(
+      item.hasSpecies || 
+      item.category === 'Trade' || 
+      item.effectCategory === 'Trade' || 
+      /trader/i.test(item.name || '') || 
+      /trader/i.test(item.rawName || '') || 
+      /\{SpeciesName\}/i.test(item.name || '')
+    );
+  }
+  if (typeof item === 'string') {
+    return /trader/i.test(item);
+  }
+  return false;
+}
+window.isTraderStatusEffect = isTraderStatusEffect;
+
 // Load Resources Catalog
 async function loadResourceCatalog() {
   try {

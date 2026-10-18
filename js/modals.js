@@ -132,15 +132,12 @@ function showStatusEffectFloatingTooltip(item, ev) {
   let displayTarget = item.target || '';
   let displayComments = item.comments || '';
 
-  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(displayName) || /\{SpeciesName\}|SpeciesName/i.test(displayEffect));
+  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayName) || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayEffect) || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayTarget));
   if (hasSpecies) {
-    displayName = displayName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-    displayEffect = displayEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-    if (displayTarget.toLowerCase().includes('species')) {
-      displayTarget = displayTarget.replace(/species/gi, curSpecies);
-    } else {
-      displayTarget = `${curSpecies} traders`;
-    }
+    displayName = displayName.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    displayEffect = displayEffect.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    displayTarget = displayTarget.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    displayComments = displayComments.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
   }
 
   const hasN = Boolean(item.hasN || /(\bN\b|\{N\})/.test(displayEffect) || /(\bN\b|\{N\})/.test(displayName));
@@ -149,6 +146,12 @@ function showStatusEffectFloatingTooltip(item, ev) {
     displayEffect = displayEffect.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
     displayComments = displayComments.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
   }
+
+  // Strip all leftover { } brackets anywhere in strings
+  displayName = displayName.replace(/[{}]/g, '').trim();
+  displayEffect = displayEffect.replace(/[{}]/g, '').trim();
+  displayTarget = displayTarget.replace(/[{}]/g, '').trim();
+  displayComments = displayComments.replace(/[{}]/g, '').trim();
 
   const isNeg = item.posNeg === 'negative';
   const badgeBorder = isNeg ? 'border-rose-500/50 bg-rose-950/80 text-rose-300' : 'border-teal-500/50 bg-teal-950/80 text-teal-300';
@@ -230,11 +233,15 @@ window.hideStatusEffectFloatingTooltip = hideStatusEffectFloatingTooltip;
 function setPickerCategoryFilter(cat, btn) {
   activePickerCategory = cat;
   const canPickStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickStatusEffects);
+  const canPickAllStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickAllStatusEffects);
   const tabs = document.querySelectorAll('.picker-cat-tab');
   tabs.forEach(b => {
     const isStatusTab = (b.id === 'picker-tab-status-effects');
     const hiddenClass = (isStatusTab && !canPickStatusEffects) ? ' hidden' : '';
     b.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 hover:border-gray-700 transition flex items-center gap-1 shrink-0' + hiddenClass;
+    if (isStatusTab) {
+      b.innerHTML = canPickAllStatusEffects ? '<span>✨ Status Effects</span>' : '<span>🤝 Trader Effects</span>';
+    }
   });
   if (btn) {
     btn.className = 'picker-cat-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-gray-950 transition flex items-center gap-1 shrink-0';
@@ -259,7 +266,11 @@ function setPickerCategoryFilter(cat, btn) {
   if (gridSec) gridSec.style.display = 'block';
 
   if (gridTitle) {
-    if (cat === 'status_effect') gridTitle.innerHTML = '<span>✨ Deck Event Status Effects (Buffs, Debuffs &amp; Crew Conditions)</span>';
+    if (cat === 'status_effect') {
+      gridTitle.innerHTML = canPickAllStatusEffects 
+        ? '<span>✨ Deck Event Status Effects (Buffs, Debuffs &amp; Crew Conditions)</span>'
+        : '<span>🤝 Trader Status Effects</span>';
+    }
     else if (cat === 'criteria') gridTitle.innerHTML = '<span>🔑 All Criteria Story Flags</span>';
     else if (cat === 'stat') gridTitle.innerHTML = '<span>🧠 Intangible Stats &amp; Currencies</span>';
     else if (cat === 'specialization') gridTitle.innerHTML = '<span>👨‍🚀 Crew Specializations</span>';
@@ -283,13 +294,28 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
     (typeof getCurrentBoardIdentifier === 'function' && getCurrentBoardIdentifier() === 'DeckPool') ||
     activeCategoryFilter === 'DeckPool'
   );
-  const canPickStatusEffects = Boolean((type === 'reward' || type === 'inaction_penalty') && isDeckEvent);
-  activePickerTarget = { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType: 'single', canPickStatusEffects };
+  const isRewardOrPenalty = (type === 'reward' || type === 'inaction_penalty');
+  const canPickAllStatusEffects = Boolean(isRewardOrPenalty && isDeckEvent);
+  const canPickTraderStatusEffects = Boolean(isRewardOrPenalty);
+  const canPickStatusEffects = Boolean(canPickAllStatusEffects || canPickTraderStatusEffects);
+
+  activePickerTarget = { 
+    nodeId, 
+    actionIdx, 
+    type, 
+    itemIdx, 
+    clauseIdx, 
+    clauseType: 'single', 
+    canPickStatusEffects,
+    canPickAllStatusEffects,
+    canPickTraderStatusEffects
+  };
 
   const statusTab = document.getElementById('picker-tab-status-effects');
   if (statusTab) {
     if (canPickStatusEffects) {
       statusTab.classList.remove('hidden');
+      statusTab.innerHTML = canPickAllStatusEffects ? '<span>✨ Status Effects</span>' : '<span>🤝 Trader Effects</span>';
     } else {
       statusTab.classList.add('hidden');
     }
@@ -315,13 +341,17 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   const hintEl = document.getElementById('picker-target-hint');
   if (hintEl) {
     if (type === 'reward') {
-      hintEl.innerText = canPickStatusEffects 
+      hintEl.innerText = canPickAllStatusEffects 
         ? 'Configure deck event outcome reward (items, buildings, currencies, or deck status effects).' 
-        : 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).';
+        : (canPickTraderStatusEffects
+            ? 'Configure outcome reward (items, buildings, currencies, or trader status effects).'
+            : 'Configure outcome reward (supports quantities or ranges, e.g. 20-30).');
     } else if (type === 'inaction_penalty') {
-      hintEl.innerText = canPickStatusEffects
+      hintEl.innerText = canPickAllStatusEffects
         ? 'Configure deck event inaction penalty (resources, stats, or deck status effects).'
-        : 'Configure inaction timeout penalty (negative delta, e.g. -10).';
+        : (canPickTraderStatusEffects
+            ? 'Configure inaction timeout penalty (resources, stats, or trader status effects).'
+            : 'Configure inaction timeout penalty (negative delta, e.g. -10).');
     } else if (type === 'requirement' || type === 'requirement_alternative' || type === 'requirement_edit') {
       hintEl.innerText = 'Configure action choice requirement condition.';
     } else {
@@ -573,19 +603,18 @@ function renderPickerResources(items) {
     let displayTarget = item.target || '';
     
     if (isStatusEffect) {
-      if (item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(displayName) || /\{SpeciesName\}|SpeciesName/i.test(displayEffect)) {
-        displayName = displayName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-        displayEffect = displayEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-        if (displayTarget.toLowerCase().includes('species')) {
-          displayTarget = displayTarget.replace(/species/gi, curSpecies);
-        } else {
-          displayTarget = `${curSpecies} traders`;
-        }
+      if (item.hasSpecies || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayName) || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayEffect) || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(displayTarget)) {
+        displayName = displayName.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+        displayEffect = displayEffect.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+        displayTarget = displayTarget.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
       }
       if (item.hasN || /(\bN\b|\{N\})/.test(displayEffect) || /(\bN\b|\{N\})/.test(displayName)) {
         displayName = displayName.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
         displayEffect = displayEffect.replace(/\{N\}/g, curAmount).replace(/\bN\b/g, curAmount);
       }
+      displayName = displayName.replace(/[{}]/g, '').trim();
+      displayEffect = displayEffect.replace(/[{}]/g, '').trim();
+      displayTarget = displayTarget.replace(/[{}]/g, '').trim();
     }
 
     let borderHoverClass = 'border-gray-800 hover:border-cyan-400 hover:bg-slate-900/50';
@@ -679,8 +708,15 @@ function filterPickerResources(query) {
     isCriteria: true
   }));
 
-  const canPickStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickStatusEffects);
-  const statusEffects = canPickStatusEffects ? (window.statusEffectsCatalog || []) : [];
+  const canPickAllStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickAllStatusEffects);
+  const canPickTraderStatusEffects = Boolean(activePickerTarget && activePickerTarget.canPickTraderStatusEffects);
+
+  let statusEffects = [];
+  if (canPickAllStatusEffects) {
+    statusEffects = window.statusEffectsCatalog || [];
+  } else if (canPickTraderStatusEffects) {
+    statusEffects = (window.statusEffectsCatalog || []).filter(se => (typeof isTraderStatusEffect === 'function' && isTraderStatusEffect(se)));
+  }
 
   if (activePickerCategory === 'status_effect') {
     items = statusEffects;
@@ -909,11 +945,17 @@ function selectResourceFromPicker(item) {
     return;
   }
   const isStatusEffect = Boolean(item.isStatusEffect || item.kind === 'status_effect');
-  const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType, canPickStatusEffects } = activePickerTarget || {};
+  const { nodeId, actionIdx, type, itemIdx, clauseIdx, clauseType, canPickAllStatusEffects, canPickTraderStatusEffects, canPickStatusEffects } = activePickerTarget || {};
   
-  if (isStatusEffect && (!canPickStatusEffects || (type !== 'reward' && type !== 'inaction_penalty'))) {
-    showToast("Status effects can only be assigned as rewards or inaction penalties in deck events", "warning");
-    return;
+  if (isStatusEffect) {
+    const isTrader = (typeof isTraderStatusEffect === 'function') && isTraderStatusEffect(item);
+    const allowed = (type === 'reward' || type === 'inaction_penalty') && (canPickAllStatusEffects || (canPickTraderStatusEffects && isTrader));
+    if (!allowed) {
+      showToast(isTrader 
+        ? "Trader status effects can only be assigned as rewards or penalties" 
+        : "Non-trader status effects can only be assigned in deck events", "warning");
+      return;
+    }
   }
 
   const node = appData.nodes.find(n => n.id === nodeId);
@@ -925,28 +967,34 @@ function selectResourceFromPicker(item) {
 
   const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || 'Auri';
   const hasN = Boolean(item.hasN || /(\bN\b|\{N\})/.test(item.name || '') || /(\bN\b|\{N\})/.test(item.effect || '') || /(\bN\b|\{N\})/.test(item.description || ''));
-  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|SpeciesName/i.test(item.name || '') || /\{SpeciesName\}|SpeciesName/i.test(item.effect || ''));
+  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.name || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.effect || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.target || ''));
 
   let resolvedName = item.name;
   let resolvedEffect = item.effect || '';
   let resolvedDesc = item.description || '';
   let resolvedTarget = item.target || 'crew';
+  let resolvedComments = item.comments || '';
 
   if (hasSpecies) {
-    resolvedName = resolvedName.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-    resolvedEffect = resolvedEffect.replace(/\{SpeciesName\}|SpeciesName/gi, curSpecies);
-    if (resolvedTarget.toLowerCase().includes('species')) {
-      resolvedTarget = resolvedTarget.replace(/species/gi, curSpecies);
-    } else {
-      resolvedTarget = `${curSpecies} traders`;
-    }
+    resolvedName = resolvedName.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    resolvedEffect = resolvedEffect.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    resolvedTarget = resolvedTarget.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
+    resolvedComments = resolvedComments.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
   }
 
   if (hasN) {
     resolvedName = resolvedName.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
     resolvedEffect = resolvedEffect.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
     resolvedDesc = resolvedDesc.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
+    resolvedComments = resolvedComments.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
   }
+
+  // Strip all leftover { } brackets anywhere in strings
+  resolvedName = resolvedName.replace(/[{}]/g, '').trim();
+  resolvedEffect = resolvedEffect.replace(/[{}]/g, '').trim();
+  resolvedTarget = resolvedTarget.replace(/[{}]/g, '').trim();
+  resolvedDesc = resolvedDesc.replace(/[{}]/g, '').trim();
+  resolvedComments = resolvedComments.replace(/[{}]/g, '').trim();
 
   if (type === 'inaction_penalty') {
     if (!node.inactionThreat) node.inactionThreat = {};
@@ -1054,7 +1102,7 @@ function selectResourceFromPicker(item) {
   renderApp();
   showToast(
     isStatusEffect 
-      ? (type === 'inaction_penalty' ? `Added Inaction Penalty: "${resolvedName}"` : `Added Deck Status Effect: "${resolvedName}"`)
+      ? (type === 'inaction_penalty' ? `Added Inaction Penalty: "${resolvedName}"` : `Added Status Effect: "${resolvedName}"`)
       : (type === 'reward' ? `Reward '${item.name} (${amountStr})' added` : "Resource added"), 
     "success"
   );

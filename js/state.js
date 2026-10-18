@@ -2497,6 +2497,23 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
       }
     }
 
+    if (species) {
+      name = name.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, species);
+      target = target.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, species);
+      effect = effect.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, species);
+    }
+    if (hasN && amount) {
+      name = name.replace(/\{N\}/g, amount).replace(/\bN\b/g, amount);
+      effect = effect.replace(/\{N\}/g, amount).replace(/\bN\b/g, amount);
+    }
+
+    // Strip all leftover { } brackets completely
+    name = (name || '').replace(/[{}]/g, '').trim();
+    target = (target || '').replace(/[{}]/g, '').trim();
+    effect = (effect || '').replace(/[{}]/g, '').trim();
+    category = (category || '').replace(/[{}]/g, '').trim();
+    effectType = (effectType || '').replace(/[{}]/g, '').trim();
+
     const isNeg = isPenalty || (posNeg === 'negative');
     const pillBorder = isNeg
       ? 'border-rose-500/80 bg-rose-950/30 hover:bg-rose-900/40 text-rose-200'
