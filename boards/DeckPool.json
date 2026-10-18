@@ -63,6 +63,28 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buying prices are reduced by 10% (rounded up) for the trader of that species."
+            },
+            {
+              "resourceId": "status_22_boosted_health_iii",
+              "name": "Boosted Health III",
+              "rawName": "Boosted Health III",
+              "amount": "10",
+              "hasN": true,
+              "nValue": "10",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +100% for 10 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
             }
           ],
           "targetNodeIds": [],
@@ -75,5 +97,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-18T13:50:11.077291"
+  "_lastModified": "2026-10-18T13:50:28.874227"
 }
