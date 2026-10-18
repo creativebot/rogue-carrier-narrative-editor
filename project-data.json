@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T17:54:54.743172",
+  "_lastModified": "2026-10-18T18:33:37.528117",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -290,28 +290,7 @@
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
         "penalties": [
-          {
-            "resourceId": "status_58_storm_stress",
-            "name": "Storm Stress",
-            "rawName": "Storm Stress",
-            "amount": "8",
-            "hasN": true,
-            "nValue": "8",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Storm Stress.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Crew-Specific Parameters",
-            "target": "crew",
-            "effect": "-8 to morale per hour (per storm category)",
-            "effectType": "Crew condition",
-            "posNeg": "negative",
-            "description": "",
-            "comments": ""
-          }
+          "💀 Entropy +5"
         ]
       },
       "position": {
@@ -328,50 +307,8 @@
           "timerHours": 1,
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
-            {
-              "resourceId": "status_41_happy_speciesname_traders",
-              "name": "Happy Auri Traders",
-              "rawName": "Happy {SpeciesName} Traders",
-              "amount": "6",
-              "hasN": true,
-              "nValue": "6",
-              "hasSpecies": true,
-              "species": "Auri",
-              "iconImg": "icons/status_effects/Happy traders.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Trade",
-              "target": "{Auri} Traders",
-              "effect": "prices -20% for species for 6 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
-            },
-            {
-              "resourceId": "status_1_food_savings",
-              "name": "Food Savings",
-              "rawName": "Food Savings",
-              "amount": "",
-              "hasN": false,
-              "nValue": "",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Food Savings.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "food charge lasts for 2 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember spends each food charge every 2 hours, while receiving effects of food every hour as usual."
-            }
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1086,29 +1023,7 @@
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
             "🧠 Knowledge +300",
-            "📜 Blueprints +1",
-            {
-              "resourceId": "status_41_happy_speciesname_traders",
-              "name": "Happy Crabari Traders",
-              "rawName": "Happy {SpeciesName} Traders",
-              "amount": "5",
-              "hasN": true,
-              "nValue": "5",
-              "hasSpecies": true,
-              "species": "Crabari",
-              "iconImg": "icons/status_effects/Happy traders.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Trade",
-              "target": "Crabari Traders",
-              "effect": "prices -20% for Crabari for 5 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
-            }
+            "📜 Blueprints +1"
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
