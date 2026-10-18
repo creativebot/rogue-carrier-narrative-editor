@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T18:33:37.528117",
+  "_lastModified": "2026-10-18T18:33:37.247Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -290,7 +290,29 @@
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
         "penalties": [
-          "💀 Entropy +5"
+          "💀 Entropy +5",
+          {
+            "resourceId": "status_35_energy_leaks_ii",
+            "name": "Energy Leaks II",
+            "rawName": "Energy Leaks II",
+            "amount": "5",
+            "hasN": true,
+            "nValue": "5",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Energy Leaks II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Energy",
+            "target": "building (produce energy)",
+            "effect": "energy production -30% for 5 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected energy buildigns produce 30% less energy instead."
+          }
         ]
       },
       "position": {
@@ -308,7 +330,51 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "status_41_happy_speciesname_traders",
+              "name": "Happy Crabari Traders",
+              "rawName": "Happy {SpeciesName} Traders",
+              "amount": "10",
+              "hasN": true,
+              "nValue": "10",
+              "hasSpecies": true,
+              "species": "Crabari",
+              "iconImg": "icons/status_effects/Happy traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "{Crabari} Traders",
+              "effect": "prices -20% for species for 10 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 20% (rounded up) for the trader of that species."
+            },
+            {
+              "resourceId": "status_22_boosted_health_iii",
+              "name": "Boosted Health III",
+              "rawName": "Boosted Health III",
+              "amount": "20",
+              "hasN": true,
+              "nValue": "20",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +100% for 20 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2981,7 +3047,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3033,7 +3100,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3131,7 +3199,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
