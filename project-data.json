@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T13:49:15.606013",
+  "_lastModified": "2026-10-18T13:49:37.623327",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -308,7 +308,14 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "ammunition_01",
+              "name": "Standard Ammunition Pack",
+              "amount": "10",
+              "iconImg": "icons/T_StandardAmmunitionPack.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
