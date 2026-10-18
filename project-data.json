@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-18T13:55:16.100466",
+  "_lastModified": "2026-10-18T13:56:06.280Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -3047,7 +3047,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3099,7 +3100,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3197,7 +3199,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
@@ -3236,7 +3239,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": "node_1791921021620"
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
