@@ -58,6 +58,16 @@
       "authProvider": "google",
       "createdAt": "2026-10-12T06:40:57.152532Z",
       "lastLogin": "2026-10-12T06:40:57.152532Z"
+    },
+    {
+      "email": "rmatviiuk@n-ix.com",
+      "name": "Roman Matviiuk",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-18T09:59:08.954508Z",
+      "lastLogin": "2026-10-18T09:59:08.954508Z"
     }
   ]
 }
