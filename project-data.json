@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:15:58.340811",
+  "_lastModified": "2026-10-19T12:16:04.974979",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1646,7 +1646,7 @@
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
