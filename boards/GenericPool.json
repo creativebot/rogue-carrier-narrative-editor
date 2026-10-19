@@ -335,7 +335,7 @@
           "id": "act_1792001373747",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Scrap the beacon",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001576997",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:10.440857"
+  "_lastModified": "2026-10-19T07:01:14.197527"
 }
