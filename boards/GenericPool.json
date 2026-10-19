@@ -1402,8 +1402,8 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
-      "tier": 2,
+      "floorIndex": 5,
+      "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
@@ -1412,8 +1412,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 1460,
-        "y": 4367
+        "x": 2810,
+        "y": 4003
       },
       "actions": [
         {
@@ -1654,5 +1654,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T14:35:07.455071"
+  "_lastModified": "2026-10-19T14:35:10.725882"
 }
