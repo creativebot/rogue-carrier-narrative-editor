@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:28:41.669817",
+  "_lastModified": "2026-10-19T12:28:50.233389",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1876,6 +1876,13 @@
               "amount": "4",
               "iconImg": "icons/T_Surveying_Probe.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
