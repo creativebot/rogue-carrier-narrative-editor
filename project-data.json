@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:26:05.146269",
+  "_lastModified": "2026-10-19T12:26:24.427652",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1746,7 +1746,7 @@
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Once above the island, the scouts fly their recon craft into the most dangerous airspace they have ever flown through. The sky appears to be littered with balls of lightning, unseen until you fly too close to them.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
