@@ -1524,7 +1524,7 @@
         {
           "id": "act_1792412757296",
           "codeSuffix": "C",
-          "shortDescription": "Fire Ammunition pack",
+          "shortDescription": "Use rockets",
           "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
           "requirements": [
             {
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:05:58.198823"
+  "_lastModified": "2026-10-19T13:06:21.495656"
 }
