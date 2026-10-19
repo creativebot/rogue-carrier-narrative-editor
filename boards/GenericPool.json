@@ -1248,6 +1248,13 @@
               "amount": "5",
               "iconImg": "icons/T_Med-Kit.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "ammunition_01",
+              "name": "Standard Ammunition Pack",
+              "amount": "10",
+              "iconImg": "icons/T_StandardAmmunitionPack.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1419,5 +1426,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:22:48.939093"
+  "_lastModified": "2026-10-19T12:23:02.166275"
 }
