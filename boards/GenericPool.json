@@ -1439,7 +1439,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The scouts activate the Basic Extractor, hoping to absorb enough electrical energy to disperse the nearby lightning balls. As the device begins drawing in the discharges, the glowing spheres flicker and gradually dissipate. However, the extractor struggles to handle the enormous amount of energy, forcing the crew to proceed cautiously. After several tense minutes, they manage to clear a narrow passage through the storm. The recon craft escapes the dangerous airspace and safely returns to the ship.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:03:51.193670"
+  "_lastModified": "2026-10-19T13:03:56.391828"
 }
