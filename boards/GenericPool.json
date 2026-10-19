@@ -302,7 +302,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies and modular containers have been added to your stockpile.",
+          "resultDescription": "",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:20:28.002169"
+  "_lastModified": "2026-10-19T07:20:41.555075"
 }
