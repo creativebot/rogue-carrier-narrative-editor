@@ -657,7 +657,21 @@
           "codeSuffix": "A",
           "shortDescription": "Conduct a quick survey",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792396330087",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -730,5 +744,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:51:35.596779"
+  "_lastModified": "2026-10-19T07:52:11.029447"
 }
