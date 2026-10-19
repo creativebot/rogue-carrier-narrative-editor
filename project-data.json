@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T09:57:49.305744",
+  "_lastModified": "2026-10-19T09:58:07.732222",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1149,7 +1149,7 @@
         {
           "id": "c_1792402154534",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Deliver PFSs",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
