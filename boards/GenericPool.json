@@ -1511,6 +1511,13 @@
               "icon": "🛡️",
               "iconImg": "",
               "category": "Specialization"
+            },
+            {
+              "resourceId": "machinery_03",
+              "name": "Tech Voxel",
+              "amount": "4",
+              "iconImg": "icons/T_Tech-Voxel.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1573,5 +1580,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:27:53.878886"
+  "_lastModified": "2026-10-19T12:28:09.276322"
 }
