@@ -685,7 +685,21 @@
           "codeSuffix": "B",
           "shortDescription": "Conduct a thorough survey",
           "description": "Description for action choice B...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792396350167",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 10,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -744,5 +758,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:52:27.974691"
+  "_lastModified": "2026-10-19T07:52:31.113042"
 }
