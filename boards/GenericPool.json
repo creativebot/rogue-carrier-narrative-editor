@@ -1497,7 +1497,15 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+4",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1559,5 +1567,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:27:30.363589"
+  "_lastModified": "2026-10-19T12:27:36.990791"
 }
