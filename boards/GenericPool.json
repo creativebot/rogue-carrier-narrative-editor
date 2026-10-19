@@ -1574,11 +1574,11 @@
               "icon": "📦"
             },
             {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "4",
-              "iconImg": "",
-              "icon": "📜"
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "1",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
             },
             {
               "resourceId": "cn_41",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:31:43.728649"
+  "_lastModified": "2026-10-19T12:31:51.223973"
 }
