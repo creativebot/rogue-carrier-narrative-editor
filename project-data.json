@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:04:49.597458",
+  "_lastModified": "2026-10-19T12:05:05.951905",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1401,7 +1401,21 @@
           "codeSuffix": "C",
           "shortDescription": "Use bait",
           "description": "Description for action choice C...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792411505089",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_10",
+                  "name": "Krill Preserves",
+                  "amount": 10,
+                  "iconImg": "icons/T_KnidariaMeal.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
