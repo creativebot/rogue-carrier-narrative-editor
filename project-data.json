@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:57:33.070681",
+  "_lastModified": "2026-10-19T08:07:30.637178",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -242,7 +242,19 @@
       "color": "#f3f4f6",
       "textColor": "#1f2937",
       "icon": "👤",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "variationIds": [
+        "var_v1",
+        "var_v2",
+        "var_v3",
+        "var_v4",
+        "var_v5",
+        "var_v6",
+        "var_v7",
+        "var_v8",
+        "var_v9",
+        "var_v10"
+      ]
     }
   ],
   "criteriaPool": [
@@ -4255,8 +4267,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1275,
-        "y": 1110
+        "x": 1259,
+        "y": 1522
       },
       "variationId": "var_v1",
       "category": "KeyChain",
