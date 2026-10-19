@@ -414,7 +414,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering electronic components, conductive materials, microcontrollers, and a battery block.",
+          "resultDescription": "reusa",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:21:12.193704"
+  "_lastModified": "2026-10-19T07:21:27.149977"
 }
