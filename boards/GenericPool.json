@@ -1463,7 +1463,7 @@
           "id": "act_1792412756940",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Use professional equipment to perform deep scanning of the .",
           "requirements": [
             {
               "id": "clause_1792412811071",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:59:22.841459"
+  "_lastModified": "2026-10-19T12:59:47.030165"
 }
