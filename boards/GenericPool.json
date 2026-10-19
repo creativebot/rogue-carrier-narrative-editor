@@ -1032,6 +1032,14 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+4",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
             }
           ],
           "targetNodeIds": [],
@@ -1175,5 +1183,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:07:37.736531"
+  "_lastModified": "2026-10-19T12:07:49.218761"
 }
