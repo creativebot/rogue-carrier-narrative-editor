@@ -1036,7 +1036,21 @@
           "codeSuffix": "B",
           "shortDescription": "Scare the monster",
           "description": "Description for action choice B...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792411488744",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 8,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1110,5 +1124,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:04:33.334577"
+  "_lastModified": "2026-10-19T12:04:49.591911"
 }
