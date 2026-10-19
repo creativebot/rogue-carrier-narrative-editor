@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T11:34:51.144885",
+  "_lastModified": "2026-10-19T11:35:06.565744",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1231,6 +1231,13 @@
               "name": "Aluminum",
               "amount": "30",
               "iconImg": "icons/T_Metals_Al.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_03_Copper",
+              "name": "Copper",
+              "amount": "20",
+              "iconImg": "icons/T_Copper.png",
               "icon": "📦"
             }
           ],
