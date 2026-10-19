@@ -1463,7 +1463,7 @@
           "id": "act_1792412756940",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Use professional equipment to perform deep scanning of the .",
+          "description": "Use specialized equipment to investigate the source of the lightning.",
           "requirements": [
             {
               "id": "clause_1792412811071",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:59:51.175100"
+  "_lastModified": "2026-10-19T13:00:42.788726"
 }
