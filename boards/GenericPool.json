@@ -1112,7 +1112,7 @@
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
@@ -1162,5 +1162,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:06:47.163039"
+  "_lastModified": "2026-10-19T12:06:57.031208"
 }
