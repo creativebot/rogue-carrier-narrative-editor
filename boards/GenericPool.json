@@ -1040,6 +1040,13 @@
               "icon": "🛡️",
               "iconImg": "",
               "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -1183,5 +1190,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:07:49.218761"
+  "_lastModified": "2026-10-19T12:07:56.575650"
 }
