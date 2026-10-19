@@ -1223,7 +1223,7 @@
         {
           "id": "act_1792411939271",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Use artillery",
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
@@ -1298,5 +1298,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:14:17.561242"
+  "_lastModified": "2026-10-19T12:14:23.840393"
 }
