@@ -812,7 +812,7 @@
         {
           "id": "c_1792402154534",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Deliver PFSs",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -888,5 +888,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T09:57:49.298782"
+  "_lastModified": "2026-10-19T09:58:07.726906"
 }
