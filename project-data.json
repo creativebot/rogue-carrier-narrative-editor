@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:23:33.314274",
+  "_lastModified": "2026-10-19T12:23:36.946925",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1515,8 +1515,8 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
-      "tier": 1,
+      "floorIndex": 5,
+      "tier": 2,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
@@ -1525,8 +1525,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 4448
+        "x": 1460,
+        "y": 3808
       },
       "actions": [
         {
