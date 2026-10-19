@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:03:38.955589",
+  "_lastModified": "2026-10-19T12:03:39.910479",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1359,6 +1359,20 @@
           "codeSuffix": "B",
           "shortDescription": "Choice B",
           "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411419024",
+          "codeSuffix": "C",
+          "shortDescription": "Choice C",
+          "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
