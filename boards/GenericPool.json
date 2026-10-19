@@ -1497,7 +1497,13 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "spec_defense",
               "name": "Defense Spec",
@@ -1567,5 +1573,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:27:51.209107"
+  "_lastModified": "2026-10-19T12:27:53.878886"
 }
