@@ -1315,6 +1315,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "2",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1384,5 +1391,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:20:48.241155"
+  "_lastModified": "2026-10-19T12:21:08.889943"
 }
