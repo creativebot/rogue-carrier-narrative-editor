@@ -1399,7 +1399,7 @@
     {
       "id": "node_1792412708667",
       "codename": "GEN-S1-E10",
-      "name": "New Event Block",
+      "name": "Anomaly",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
@@ -1468,5 +1468,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:25:51.208954"
+  "_lastModified": "2026-10-19T12:25:52.422481"
 }
