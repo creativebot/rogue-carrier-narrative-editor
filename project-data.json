@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T13:05:13.960806",
+  "_lastModified": "2026-10-19T13:05:22.320384",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1799,7 +1799,7 @@
         {
           "id": "act_1792412756940",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Use Tricoder",
           "description": "Use specialized equipment to investigate the source of the lightning.",
           "requirements": [
             {
