@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:32:43.659989",
+  "_lastModified": "2026-10-19T07:33:06.880986",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -968,7 +968,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "During a scouting expedition along the shore, a crew member hears a strange metallic sound amid the waves. Following it, the scouts discover a cave entrance exposed by low tide. Waves rock pieces of metal debris in the shallows, making them clang together. Inside, passages lead to a larger cave network. With the tide rising, the crew debates whether exploring further is worth the time and risk.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
