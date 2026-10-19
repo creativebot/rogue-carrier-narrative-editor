@@ -1583,7 +1583,7 @@
             {
               "resourceId": "cn_41",
               "name": "Surveying Probe",
-              "amount": "4",
+              "amount": "1",
               "iconImg": "icons/T_Surveying_Probe.png",
               "icon": "📦"
             },
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:31:51.223973"
+  "_lastModified": "2026-10-19T12:31:58.435604"
 }
