@@ -1209,7 +1209,7 @@
         {
           "id": "act_1792411938804",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Retreat",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -1298,5 +1298,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:14:08.252792"
+  "_lastModified": "2026-10-19T12:14:17.561242"
 }
