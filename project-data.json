@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:03:42.559882",
+  "_lastModified": "2026-10-19T12:03:55.137019",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1343,7 +1343,7 @@
         {
           "id": "c_1792411390857",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Attack the monster",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
