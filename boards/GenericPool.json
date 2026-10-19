@@ -285,7 +285,7 @@
           "id": "c_1792001314991",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Extract Contents",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001422239",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T06:59:28.711940"
+  "_lastModified": "2026-10-19T07:01:07.660571"
 }
