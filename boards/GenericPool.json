@@ -39,9 +39,7 @@
           ]
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "title": "Derelict Beacon (Refurbished AI Core)"
     },
     {
@@ -81,9 +79,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "title": "Ancient AI Core"
     },
     {
@@ -668,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:28:19.135894"
+  "_lastModified": "2026-10-19T07:28:19.776890"
 }
