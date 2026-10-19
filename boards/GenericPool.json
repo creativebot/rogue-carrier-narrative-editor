@@ -1034,7 +1034,7 @@
         {
           "id": "act_1792411419024",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Use bait",
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
@@ -1096,5 +1096,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:04:02.288643"
+  "_lastModified": "2026-10-19T12:04:10.104206"
 }
