@@ -826,7 +826,7 @@
         {
           "id": "act_1792403138599",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Scare predators",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -888,5 +888,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T09:58:07.726906"
+  "_lastModified": "2026-10-19T09:58:15.336070"
 }
