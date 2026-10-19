@@ -1422,7 +1422,7 @@
           "id": "c_1792412708667",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Use the Basic Extractor to absorb the electrical energy and clear a path through the storm.",
           "requirements": [
             {
               "id": "clause_1792412796327",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:02:51.173472"
+  "_lastModified": "2026-10-19T13:03:06.975592"
 }
