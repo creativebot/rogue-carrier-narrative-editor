@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:01:18.925351",
+  "_lastModified": "2026-10-19T07:01:21.663548",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -721,7 +721,7 @@
         {
           "id": "act_1792001374593",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Extract Hull's Electronics",
           "description": "",
           "requirements": [
             {
