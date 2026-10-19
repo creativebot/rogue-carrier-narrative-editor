@@ -1246,7 +1246,7 @@
             {
               "resourceId": "stat_crew count",
               "name": "Crew Count",
-              "amount": "+4",
+              "amount": "-1",
               "icon": "👨‍🚀",
               "iconImg": ""
             }
@@ -1291,5 +1291,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:12:49.423395"
+  "_lastModified": "2026-10-19T12:12:57.184608"
 }
