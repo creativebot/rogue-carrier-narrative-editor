@@ -1234,6 +1234,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "questres_03",
+              "name": "Comm-Link",
+              "amount": "10",
+              "iconImg": "icons/T_Comm_Link.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1405,5 +1412,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:21:31.359003"
+  "_lastModified": "2026-10-19T12:22:18.496728"
 }
