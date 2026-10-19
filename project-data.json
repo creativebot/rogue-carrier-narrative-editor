@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:28:25.607770",
+  "_lastModified": "2026-10-19T12:28:32.850364",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1862,6 +1862,13 @@
               "amount": "4",
               "iconImg": "icons/T_Assembly_Matrix.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "📜"
             }
           ],
           "targetNodeIds": [],
