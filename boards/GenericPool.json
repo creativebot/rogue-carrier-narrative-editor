@@ -1241,6 +1241,13 @@
               "amount": "10",
               "iconImg": "icons/T_Comm_Link.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "medres_02",
+              "name": "Med Kit",
+              "amount": "5",
+              "iconImg": "icons/T_Med-Kit.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1412,5 +1419,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:22:31.378653"
+  "_lastModified": "2026-10-19T12:22:48.939093"
 }
