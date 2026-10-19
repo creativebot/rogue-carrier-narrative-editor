@@ -1210,6 +1210,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792412097206",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -1312,5 +1325,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:14:40.405719"
+  "_lastModified": "2026-10-19T12:14:58.065689"
 }
