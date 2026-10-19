@@ -1088,6 +1088,13 @@
               "amount": "15",
               "iconImg": "icons/T_Eldritium.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_14_Sulfur",
+              "name": "Sulfur",
+              "amount": "4",
+              "iconImg": "icons/T_Sulfur.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1197,5 +1204,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:08:31.374975"
+  "_lastModified": "2026-10-19T12:09:29.064738"
 }
