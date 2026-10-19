@@ -1395,6 +1395,44 @@
       "disabledVariationIds": [
         "var_v1"
       ]
+    },
+    {
+      "id": "node_1792412708667",
+      "codename": "GEN-S1-E10",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 4432
+      },
+      "actions": [
+        {
+          "id": "c_1792412708667",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -1430,5 +1468,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:24:51.626087"
+  "_lastModified": "2026-10-19T12:25:09.514248"
 }
