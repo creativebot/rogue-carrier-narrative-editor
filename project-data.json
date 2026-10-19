@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T13:01:24.331350",
+  "_lastModified": "2026-10-19T13:01:50.241460",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1862,7 +1862,7 @@
           "id": "act_1792412757296",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Use ammunition to disperse the lightning balls.",
+          "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
           "requirements": [
             {
               "id": "clause_1792412834792",
