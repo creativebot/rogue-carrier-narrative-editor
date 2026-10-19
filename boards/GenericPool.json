@@ -1525,7 +1525,7 @@
           "id": "act_1792412757296",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792412834792",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:39:51.577117"
+  "_lastModified": "2026-10-19T12:59:22.841459"
 }
