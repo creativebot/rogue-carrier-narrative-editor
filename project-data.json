@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:26:24.427652",
+  "_lastModified": "2026-10-19T12:26:37.182628",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1760,7 +1760,21 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792412796327",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_01",
+                  "name": "Basic Extractor",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExtractorBasic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
