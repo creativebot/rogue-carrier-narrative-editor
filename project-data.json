@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T13:05:22.320384",
+  "_lastModified": "2026-10-19T13:05:48.230898",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1861,7 +1861,7 @@
         {
           "id": "act_1792412757296",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Fire Smart Ammuition pack",
           "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
           "requirements": [
             {
