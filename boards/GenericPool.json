@@ -1237,7 +1237,7 @@
         {
           "id": "act_1792411945714",
           "codeSuffix": "D",
-          "shortDescription": "Choice D",
+          "shortDescription": "Do nothing",
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
@@ -1283,5 +1283,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:12:35.234352"
+  "_lastModified": "2026-10-19T12:12:44.363664"
 }
