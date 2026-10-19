@@ -994,7 +994,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1054,5 +1054,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:03:31.405447"
+  "_lastModified": "2026-10-19T12:03:37.689901"
 }
