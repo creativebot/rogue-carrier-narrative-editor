@@ -1542,7 +1542,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The plan works: electrical discharges strike the projectiles, briefly clearing a path through the storm. Taking advantage of the opening, the crew maneuvers through the remaining lightning balls and safely returns to the ship.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:01:51.189770"
+  "_lastModified": "2026-10-19T13:02:12.537165"
 }
