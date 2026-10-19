@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:06:47.171896",
+  "_lastModified": "2026-10-19T12:06:57.039218",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1449,7 +1449,7 @@
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
