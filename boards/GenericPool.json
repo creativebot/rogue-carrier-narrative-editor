@@ -1058,7 +1058,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "A blast sends the beast fleeing behind the rocks and exposes mineral deposits beneath the shattered surface. The crew collects samples before making a hasty retreat. Everyone agrees the samples are not worth risking their lives for.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -1162,5 +1162,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:06:31.387119"
+  "_lastModified": "2026-10-19T12:06:32.881805"
 }
