@@ -1744,8 +1744,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1275,
-        "y": 1110
+        "x": 1259,
+        "y": 1522
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2058,6 +2058,6 @@
       ]
     }
   ],
-  "author": "Roman Matviiuk",
-  "_lastModified": "2026-10-19T05:47:39.671051"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-19T08:07:30.628249"
 }
