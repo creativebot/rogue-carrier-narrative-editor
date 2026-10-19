@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T06:59:28.722266",
+  "_lastModified": "2026-10-19T07:01:07.666496",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -234,6 +234,15 @@
         "var_v9",
         "var_v10"
       ]
+    },
+    {
+      "id": "p_2",
+      "name": "P 2",
+      "role": "Cast Member",
+      "color": "#f3f4f6",
+      "textColor": "#1f2937",
+      "icon": "👤",
+      "disabledVariationIds": []
     }
   ],
   "criteriaPool": [
@@ -601,7 +610,7 @@
           "id": "c_1792001314991",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Extract Contents",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001422239",
