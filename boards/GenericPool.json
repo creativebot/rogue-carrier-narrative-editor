@@ -888,6 +888,13 @@
               "amount": "40",
               "iconImg": "icons/T_Metals_Fe.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_07_Alum",
+              "name": "Aluminum",
+              "amount": "30",
+              "iconImg": "icons/T_Metals_Al.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -985,5 +992,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:34:31.383084"
+  "_lastModified": "2026-10-19T11:34:51.139099"
 }
