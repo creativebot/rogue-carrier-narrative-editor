@@ -1279,7 +1279,21 @@
           "codeSuffix": "C",
           "shortDescription": "Use artillery",
           "description": "Description for action choice C...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792412129995",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 2,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1352,5 +1366,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:15:19.038016"
+  "_lastModified": "2026-10-19T12:15:30.866448"
 }
