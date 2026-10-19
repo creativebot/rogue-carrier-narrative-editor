@@ -1562,7 +1562,7 @@
             {
               "resourceId": "machinery_03",
               "name": "Tech Voxel",
-              "amount": "4",
+              "amount": "1",
               "iconImg": "icons/T_Tech-Voxel.png",
               "icon": "📦"
             },
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:31:24.292373"
+  "_lastModified": "2026-10-19T12:31:35.318450"
 }
