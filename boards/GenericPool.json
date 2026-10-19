@@ -902,6 +902,13 @@
               "amount": "20",
               "iconImg": "icons/T_Copper.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_10_Tung",
+              "name": "Tungsten",
+              "amount": "10",
+              "iconImg": "icons/T_Metals_W.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -999,5 +1006,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:35:06.559124"
+  "_lastModified": "2026-10-19T11:35:23.187962"
 }
