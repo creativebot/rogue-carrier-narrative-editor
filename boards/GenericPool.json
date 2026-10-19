@@ -1064,7 +1064,21 @@
           "codeSuffix": "C",
           "shortDescription": "Use bait",
           "description": "Description for action choice C...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792411505089",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_10",
+                  "name": "Krill Preserves",
+                  "amount": 10,
+                  "iconImg": "icons/T_KnidariaMeal.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1124,5 +1138,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:04:49.591911"
+  "_lastModified": "2026-10-19T12:05:05.945856"
 }
