@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:06:57.039218",
+  "_lastModified": "2026-10-19T12:07:19.094655",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1423,6 +1423,19 @@
                   "name": "Krill Preserves",
                   "amount": 10,
                   "iconImg": "icons/T_KnidariaMeal.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792411638233",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_08",
+                  "name": "Algae Preserves",
+                  "amount": 1,
+                  "iconImg": "icons/T_Algae-Preserves.png",
                   "icon": "📦"
                 }
               ]
