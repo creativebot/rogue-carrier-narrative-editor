@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:01:39.713209",
+  "_lastModified": "2026-10-19T07:01:41.358384",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -885,7 +885,7 @@
         {
           "id": "act_1792004880168",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Pry the door open",
           "description": "",
           "requirements": [
             {
