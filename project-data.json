@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:01:32.679020",
+  "_lastModified": "2026-10-19T07:01:35.078014",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -845,7 +845,7 @@
           "id": "act_1792004879350",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Melt the lock",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005183045",
