@@ -633,7 +633,7 @@
     {
       "id": "node_1792394773186",
       "codename": "GEN-S1-E6",
-      "name": "New Event Block",
+      "name": "Cave system",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
@@ -702,5 +702,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:26:39.146367"
+  "_lastModified": "2026-10-19T07:27:21.219534"
 }
