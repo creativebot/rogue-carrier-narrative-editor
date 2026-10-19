@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:53:33.333893",
+  "_lastModified": "2026-10-19T07:53:41.934895",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1034,7 +1034,13 @@
           "timerHours": 5,
           "resultDescription": "A thorough inspection reveals a rich metal ore vein extending into a deeper cave network. With the tide rising, the crew chooses to extract what ore they can rather than explore further.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
