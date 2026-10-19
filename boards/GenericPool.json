@@ -920,7 +920,13 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "+2",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -963,5 +969,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T10:00:00.275200"
+  "_lastModified": "2026-10-19T10:00:17.416294"
 }
