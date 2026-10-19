@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:13:38.618139",
+  "_lastModified": "2026-10-19T12:13:48.755980",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1517,8 +1517,8 @@
       "variationId": "var_v1",
       "floorIndex": 6,
       "tier": 1,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Any island",
+      "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
       "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
       "reactionTimerHours": "Infinite",
