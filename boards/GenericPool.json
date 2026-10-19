@@ -1309,7 +1309,7 @@
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
@@ -1366,5 +1366,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:15:58.334472"
+  "_lastModified": "2026-10-19T12:16:04.965682"
 }
