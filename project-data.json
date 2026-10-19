@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:29:53.833636",
+  "_lastModified": "2026-10-19T12:30:06.135150",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1779,13 +1779,6 @@
           "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100",
-            {
-              "resourceId": "machinery_03",
-              "name": "Tech Voxel",
-              "amount": "4",
-              "iconImg": "icons/T_Tech-Voxel.png",
-              "icon": "📦"
-            },
             {
               "resourceId": "machinery_02",
               "name": "Tech Assembly Matrix",
