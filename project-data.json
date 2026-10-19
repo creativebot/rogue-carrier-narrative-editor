@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:10:24.252350",
+  "_lastModified": "2026-10-19T12:10:25.810939",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1326,7 +1326,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "tier": 2,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
@@ -1337,7 +1337,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 2043
+        "y": 1166
       },
       "actions": [
         {
