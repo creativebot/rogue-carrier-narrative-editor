@@ -1441,7 +1441,13 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
             {
               "resourceId": "machinery_02",
               "name": "Tech Assembly Matrix",
@@ -1642,5 +1648,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:30:06.127272"
+  "_lastModified": "2026-10-19T12:30:29.165511"
 }
