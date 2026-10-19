@@ -1441,7 +1441,14 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "machinery_03",
+              "name": "Tech Voxel",
+              "amount": "4",
+              "iconImg": "icons/T_Tech-Voxel.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1621,5 +1628,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:29:18.842950"
+  "_lastModified": "2026-10-19T12:29:24.915193"
 }
