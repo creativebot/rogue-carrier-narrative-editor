@@ -1044,6 +1044,20 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
+        },
+        {
+          "id": "act_1792411421698",
+          "codeSuffix": "D",
+          "shortDescription": "Choice D",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "colorScheme": "rose"
@@ -1082,5 +1096,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:03:39.902521"
+  "_lastModified": "2026-10-19T12:03:42.552119"
 }
