@@ -1539,6 +1539,13 @@
               "amount": "4",
               "iconImg": "icons/T_Surveying_Probe.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -1601,5 +1608,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:28:41.661860"
+  "_lastModified": "2026-10-19T12:28:50.156933"
 }
