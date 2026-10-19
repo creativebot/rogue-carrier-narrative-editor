@@ -1618,9 +1618,7 @@
         }
       ],
       "colorScheme": "rose",
-      "disabledVariationIds": [
-        "var_v1"
-      ]
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
@@ -1656,5 +1654,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T14:35:03.283687"
+  "_lastModified": "2026-10-19T14:35:05.171666"
 }
