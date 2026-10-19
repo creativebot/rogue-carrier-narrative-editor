@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:14:40.412910",
+  "_lastModified": "2026-10-19T12:14:58.072094",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1544,6 +1544,19 @@
                   "name": "Portable Force Shield",
                   "amount": 5,
                   "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792412097206",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png",
                   "icon": "📦"
                 }
               ]
