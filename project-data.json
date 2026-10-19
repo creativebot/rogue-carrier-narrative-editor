@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:15:19.046275",
+  "_lastModified": "2026-10-19T12:15:30.882947",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1616,7 +1616,21 @@
           "codeSuffix": "C",
           "shortDescription": "Use artillery",
           "description": "Description for action choice C...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792412129995",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 2,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
