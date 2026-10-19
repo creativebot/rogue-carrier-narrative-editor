@@ -479,7 +479,7 @@
           "id": "c_1792002182916",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Pick the lock",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005168321",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:27.996913"
+  "_lastModified": "2026-10-19T07:01:30.904044"
 }
