@@ -1020,7 +1020,7 @@
         {
           "id": "act_1792411418096",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Scare the monster",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -1096,5 +1096,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:03:55.130110"
+  "_lastModified": "2026-10-19T12:04:02.288643"
 }
