@@ -840,7 +840,7 @@
         {
           "id": "act_1792403139123",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Attack predators",
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
@@ -888,5 +888,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T09:58:15.336070"
+  "_lastModified": "2026-10-19T09:58:20.793341"
 }
