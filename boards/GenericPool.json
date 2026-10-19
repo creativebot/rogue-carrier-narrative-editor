@@ -800,7 +800,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -888,5 +888,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T09:46:31.435023"
+  "_lastModified": "2026-10-19T09:57:11.389095"
 }
