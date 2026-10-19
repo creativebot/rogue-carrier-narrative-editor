@@ -918,7 +918,7 @@
           "description": "Description for action choice D...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
@@ -969,5 +969,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:18:31.400724"
+  "_lastModified": "2026-10-19T11:18:36.852640"
 }
