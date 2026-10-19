@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T09:58:07.732222",
+  "_lastModified": "2026-10-19T09:58:15.344187",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1163,7 +1163,7 @@
         {
           "id": "act_1792403138599",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Scare predators",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
