@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T13:04:52.823309",
+  "_lastModified": "2026-10-19T13:05:13.960806",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1758,7 +1758,7 @@
         {
           "id": "c_1792412708667",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Use Basic extractor",
           "description": "Use the Basic Extractor to absorb the electrical energy and clear a path through the storm.",
           "requirements": [
             {
