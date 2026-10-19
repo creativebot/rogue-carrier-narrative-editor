@@ -984,7 +984,7 @@
     {
       "id": "node_1792411390857",
       "codename": "GEN-S1-E8",
-      "name": "New Event Block",
+      "name": "Field Research",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
@@ -1053,5 +1053,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:03:11.701044"
+  "_lastModified": "2026-10-19T12:03:22.213221"
 }
