@@ -1251,6 +1251,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792412118175",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -1339,5 +1352,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:15:11.669778"
+  "_lastModified": "2026-10-19T12:15:19.038016"
 }
