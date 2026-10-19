@@ -1423,7 +1423,21 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792412796327",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_01",
+                  "name": "Basic Extractor",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExtractorBasic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1511,5 +1525,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:26:24.420298"
+  "_lastModified": "2026-10-19T12:26:37.167787"
 }
