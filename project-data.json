@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:06:32.890987",
+  "_lastModified": "2026-10-19T12:06:47.171896",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1429,7 +1429,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
