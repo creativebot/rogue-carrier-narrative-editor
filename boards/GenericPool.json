@@ -352,7 +352,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering usable metals, structural parts, thermoplastic, and conductive materials.",
+          "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering reusable  materials.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:02:28.704725"
+  "_lastModified": "2026-10-19T07:20:12.297886"
 }
