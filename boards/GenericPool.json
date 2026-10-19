@@ -414,7 +414,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "reusa",
+          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering useful components.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:21:28.008539"
+  "_lastModified": "2026-10-19T07:21:52.864064"
 }
