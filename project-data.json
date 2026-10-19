@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:12:06.670486",
+  "_lastModified": "2026-10-19T12:12:12.271932",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1510,7 +1510,7 @@
     {
       "id": "node_1792411923642",
       "codename": "GEN-S1-E9",
-      "name": "New Event Block",
+      "name": "The Feral",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
