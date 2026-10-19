@@ -1183,7 +1183,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1298,5 +1298,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:13:10.900670"
+  "_lastModified": "2026-10-19T12:13:27.183125"
 }
