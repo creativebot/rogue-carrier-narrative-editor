@@ -715,6 +715,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -792,5 +799,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:55:27.982824"
+  "_lastModified": "2026-10-19T07:55:31.969849"
 }
