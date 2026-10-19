@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:26:39.150839",
+  "_lastModified": "2026-10-19T07:27:21.228518",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -958,7 +958,7 @@
     {
       "id": "node_1792394773186",
       "codename": "GEN-S1-E6",
-      "name": "New Event Block",
+      "name": "Cave system",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
