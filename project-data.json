@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:21:25.627112",
+  "_lastModified": "2026-10-19T12:21:30.922Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1123,590 +1123,6 @@
       ],
       "colorScheme": "rose",
       "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792402154534",
-      "codename": "GEN-S1-E7",
-      "name": "Field Research 2",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": 2,
-      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1460,
-        "y": 2060
-      },
-      "actions": [
-        {
-          "id": "c_1792402154534",
-          "codeSuffix": "A",
-          "shortDescription": "Deliver PFSs",
-          "description": "Action description...",
-          "requirements": [
-            {
-              "id": "clause_1792403940415",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 3,
-                  "iconImg": "icons/T_DefensiveGear.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_resistance_to_diseases",
-              "name": "Resistance to diseases",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403138599",
-          "codeSuffix": "B",
-          "shortDescription": "Scare predators",
-          "description": "Description for action choice B...",
-          "requirements": [
-            {
-              "id": "clause_1792403959214",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "ammunition_02",
-                  "name": "Explosive Charges",
-                  "amount": 10,
-                  "iconImg": "icons/T_ExplosiveCharges.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "res_04_Iron",
-              "name": "Iron",
-              "amount": "40",
-              "iconImg": "icons/T_Metals_Fe.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_07_Alum",
-              "name": "Aluminum",
-              "amount": "30",
-              "iconImg": "icons/T_Metals_Al.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_03_Copper",
-              "name": "Copper",
-              "amount": "20",
-              "iconImg": "icons/T_Copper.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_10_Tung",
-              "name": "Tungsten",
-              "amount": "10",
-              "iconImg": "icons/T_Metals_W.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403139123",
-          "codeSuffix": "C",
-          "shortDescription": "Attack predators",
-          "description": "Description for action choice C...",
-          "requirements": [
-            {
-              "id": "clause_1792403971518",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "ammunition_03",
-                  "name": "Smart Ammunition Pack",
-                  "amount": 10,
-                  "iconImg": "icons/T_SmartAmmunitionPack.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_temporal_immunity",
-              "name": "Temporal immunity",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403901862",
-          "codeSuffix": "D",
-          "shortDescription": "DO NOTHING",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-2",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "colorScheme": "rose"
-    },
-    {
-      "id": "node_1792411390857",
-      "codename": "GEN-S1-E8",
-      "name": "Field Research",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "tier": 2,
-      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1460,
-        "y": 1166
-      },
-      "actions": [
-        {
-          "id": "c_1792411390857",
-          "codeSuffix": "A",
-          "shortDescription": "Attack the monster",
-          "description": "Action description...",
-          "requirements": [
-            {
-              "id": "clause_1792411472492",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 3,
-                  "iconImg": "icons/T_DefensiveGear.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+4",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+4",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411418096",
-          "codeSuffix": "B",
-          "shortDescription": "Scare the monster",
-          "description": "Description for action choice B...",
-          "requirements": [
-            {
-              "id": "clause_1792411488744",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "ammunition_02",
-                  "name": "Explosive Charges",
-                  "amount": 8,
-                  "iconImg": "icons/T_ExplosiveCharges.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "A blast sends the beast fleeing behind the rocks and exposes mineral deposits beneath the shattered surface. The crew collects samples before making a hasty retreat. Everyone agrees the samples are not worth risking their lives for.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "res_19_Eldrit",
-              "name": "Eldritium",
-              "amount": "15",
-              "iconImg": "icons/T_Eldritium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_14_Sulfur",
-              "name": "Sulfur",
-              "amount": "4",
-              "iconImg": "icons/T_Sulfur.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411419024",
-          "codeSuffix": "C",
-          "shortDescription": "Use bait",
-          "description": "Description for action choice C...",
-          "requirements": [
-            {
-              "id": "clause_1792411505089",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "food_10",
-                  "name": "Krill Preserves",
-                  "amount": 10,
-                  "iconImg": "icons/T_KnidariaMeal.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792411638233",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "food_08",
-                  "name": "Algae Preserves",
-                  "amount": 1,
-                  "iconImg": "icons/T_Algae-Preserves.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411421698",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "colorScheme": "rose"
-    },
-    {
-      "id": "node_1792411923642",
-      "codename": "GEN-S1-E9",
-      "name": "The Ferals",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 6,
-      "tier": 1,
-      "location": "Any island",
-      "spawnConditions": "Any island",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": 4448
-      },
-      "actions": [
-        {
-          "id": "c_1792411923642",
-          "codeSuffix": "A",
-          "shortDescription": "Attack",
-          "description": "Action description...",
-          "requirements": [
-            {
-              "id": "clause_1792412079558",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "consumer_02",
-                  "name": "Portable Force Shield",
-                  "amount": 5,
-                  "iconImg": "icons/T_ForceField.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792412097206",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_DefensiveGear.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The crew fights back, killing some of the attackers and forcing the rest to fall back temporarily. Still outnumbered, the scouts use the opening to retreat. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411938804",
-          "codeSuffix": "B",
-          "shortDescription": "Retreat",
-          "description": "Description for action choice B...",
-          "requirements": [
-            {
-              "id": "clause_1792412110829",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "consumer_02",
-                  "name": "Portable Force Shield",
-                  "amount": 5,
-                  "iconImg": "icons/T_ForceField.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792412118175",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_02",
-                  "name": "Med Kit",
-                  "amount": 1,
-                  "iconImg": "icons/T_Med-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "There are too many attackers, and the crew is reluctant to hurt fellow humans. They decide to retreat quickly. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+30",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411939271",
-          "codeSuffix": "C",
-          "shortDescription": "Use artillery",
-          "description": "Description for action choice C...",
-          "requirements": [
-            {
-              "id": "clause_1792412129995",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "ammunition_03",
-                  "name": "Smart Ammunition Pack",
-                  "amount": 2,
-                  "iconImg": "icons/T_SmartAmmunitionPack.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Outnumbered, the crew avoids close combat and calls in artillery fire to drive the attackers back. As they flee, they abandon several useful items, which the scouts collect as spoils. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+30",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "machinery_02",
-              "name": "Tech Assembly Matrix",
-              "amount": "2",
-              "iconImg": "icons/T_Assembly_Matrix.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "electronics_01",
-              "name": "AI Core",
-              "amount": "2",
-              "iconImg": "icons/T_Ai-Core.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792411945714",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_crew health",
-              "name": "Crew Health",
-              "amount": "-50",
-              "icon": "❤️",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "colorScheme": "rose"
     },
     {
       "id": "node_e0",
@@ -3748,7 +3164,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3800,7 +3217,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3898,7 +3316,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
@@ -4013,7 +3432,10 @@
           "rewards": [
             "🧠 Knowledge +300"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         },
         {
           "id": "act_sec_1_2",
@@ -4026,7 +3448,10 @@
           "rewards": [
             "😊 Morale +10"
           ],
-          "targetNodeId": "node_sec_2"
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -4062,11 +3487,597 @@
           "rewards": [
             "🧠 Knowledge +600",
             "😊 Morale +20"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_1792402154534",
+      "codename": "GEN-S1-E7",
+      "name": "Field Research 2",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": 2,
+      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 2060
+      },
+      "actions": [
+        {
+          "id": "c_1792402154534",
+          "codeSuffix": "A",
+          "shortDescription": "Deliver PFSs",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792403940415",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_resistance_to_diseases",
+              "name": "Resistance to diseases",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403138599",
+          "codeSuffix": "B",
+          "shortDescription": "Scare predators",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792403959214",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "res_04_Iron",
+              "name": "Iron",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Fe.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_07_Alum",
+              "name": "Aluminum",
+              "amount": "30",
+              "iconImg": "icons/T_Metals_Al.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_03_Copper",
+              "name": "Copper",
+              "amount": "20",
+              "iconImg": "icons/T_Copper.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_10_Tung",
+              "name": "Tungsten",
+              "amount": "10",
+              "iconImg": "icons/T_Metals_W.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403139123",
+          "codeSuffix": "C",
+          "shortDescription": "Attack predators",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792403971518",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 10,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_temporal_immunity",
+              "name": "Temporal immunity",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403901862",
+          "codeSuffix": "D",
+          "shortDescription": "DO NOTHING",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-2",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "colorScheme": "rose"
+    },
+    {
+      "id": "node_1792411390857",
+      "codename": "GEN-S1-E8",
+      "name": "Field Research",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 2,
+      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 1166
+      },
+      "actions": [
+        {
+          "id": "c_1792411390857",
+          "codeSuffix": "A",
+          "shortDescription": "Attack the monster",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792411472492",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+4",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411418096",
+          "codeSuffix": "B",
+          "shortDescription": "Scare the monster",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792411488744",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 8,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "A blast sends the beast fleeing behind the rocks and exposes mineral deposits beneath the shattered surface. The crew collects samples before making a hasty retreat. Everyone agrees the samples are not worth risking their lives for.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_14_Sulfur",
+              "name": "Sulfur",
+              "amount": "4",
+              "iconImg": "icons/T_Sulfur.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411419024",
+          "codeSuffix": "C",
+          "shortDescription": "Use bait",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792411505089",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_10",
+                  "name": "Krill Preserves",
+                  "amount": 10,
+                  "iconImg": "icons/T_KnidariaMeal.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792411638233",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_08",
+                  "name": "Algae Preserves",
+                  "amount": 1,
+                  "iconImg": "icons/T_Algae-Preserves.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411421698",
+          "codeSuffix": "D",
+          "shortDescription": "Do nothing",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-1",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose"
+    },
+    {
+      "id": "node_1792411923642",
+      "codename": "GEN-S1-E9",
+      "name": "The Ferals",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 6,
+      "tier": 1,
+      "location": "Any island",
+      "spawnConditions": "Any island",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 4448
+      },
+      "actions": [
+        {
+          "id": "c_1792411923642",
+          "codeSuffix": "A",
+          "shortDescription": "Attack",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792412079558",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792412097206",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew fights back, killing some of the attackers and forcing the rest to fall back temporarily. Still outnumbered, the scouts use the opening to retreat. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411938804",
+          "codeSuffix": "B",
+          "shortDescription": "Retreat",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792412110829",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792412118175",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "There are too many attackers, and the crew is reluctant to hurt fellow humans. They decide to retreat quickly. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+30",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411939271",
+          "codeSuffix": "C",
+          "shortDescription": "Use artillery",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792412129995",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 2,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Outnumbered, the crew avoids close combat and calls in artillery fire to drive the attackers back. As they flee, they abandon several useful items, which the scouts collect as spoils. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "2",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "2",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411945714",
+          "codeSuffix": "D",
+          "shortDescription": "Do nothing",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-1",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
+              "amount": "-50",
+              "icon": "❤️",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose"
     }
   ],
   "dialogues": [
