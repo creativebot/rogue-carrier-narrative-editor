@@ -1525,7 +1525,7 @@
           "id": "act_1792412757296",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "",
+          "description": "Use ammunition to disperse the lightning balls.",
           "requirements": [
             {
               "id": "clause_1792412834792",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:00:51.180690"
+  "_lastModified": "2026-10-19T13:01:24.321658"
 }
