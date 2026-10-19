@@ -1113,7 +1113,15 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-1",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -1154,5 +1162,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:05:44.808871"
+  "_lastModified": "2026-10-19T12:05:57.240863"
 }
