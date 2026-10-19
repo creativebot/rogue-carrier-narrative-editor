@@ -396,7 +396,7 @@
         {
           "id": "act_1792001374593",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Extract Hull's Electronics",
           "description": "",
           "requirements": [
             {
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:18.919470"
+  "_lastModified": "2026-10-19T07:01:21.653631"
 }
