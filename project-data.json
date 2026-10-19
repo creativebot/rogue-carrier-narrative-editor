@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T09:58:22.770790",
+  "_lastModified": "2026-10-19T09:58:30.926Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1122,87 +1122,6 @@
         }
       ],
       "colorScheme": "rose",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792402154534",
-      "codename": "GEN-S1-E7",
-      "name": "Field Research 2",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "tier": 2,
-      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1460,
-        "y": 1224
-      },
-      "actions": [
-        {
-          "id": "c_1792402154534",
-          "codeSuffix": "A",
-          "shortDescription": "Deliver PFSs",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403138599",
-          "codeSuffix": "B",
-          "shortDescription": "Scare predators",
-          "description": "Description for action choice B...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403139123",
-          "codeSuffix": "C",
-          "shortDescription": "Attack predators",
-          "description": "Description for action choice C...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403901862",
-          "codeSuffix": "D",
-          "shortDescription": "Choice D",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
       "disabledVariationIds": []
     },
     {
@@ -3245,7 +3164,8 @@
           ],
           "targetNodeId": "node_1791988044467"
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791905801725",
@@ -3297,7 +3217,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791988044467",
@@ -3395,7 +3316,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791921021620",
@@ -3434,7 +3356,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": "node_1791921021620"
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -3564,6 +3486,87 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_1792402154534",
+      "codename": "GEN-S1-E7",
+      "name": "Field Research 2",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 2,
+      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 1224
+      },
+      "actions": [
+        {
+          "id": "c_1792402154534",
+          "codeSuffix": "A",
+          "shortDescription": "Deliver PFSs",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403138599",
+          "codeSuffix": "B",
+          "shortDescription": "Scare predators",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403139123",
+          "codeSuffix": "C",
+          "shortDescription": "Attack predators",
+          "description": "Description for action choice C...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403901862",
+          "codeSuffix": "D",
+          "shortDescription": "Choice D",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [
