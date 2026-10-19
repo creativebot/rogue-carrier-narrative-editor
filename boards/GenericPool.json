@@ -1008,7 +1008,21 @@
           "codeSuffix": "A",
           "shortDescription": "Attack the monster",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792411472492",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1096,5 +1110,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:04:31.372590"
+  "_lastModified": "2026-10-19T12:04:33.334577"
 }
