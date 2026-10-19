@@ -1173,7 +1173,7 @@
     {
       "id": "node_1792411923642",
       "codename": "GEN-S1-E9",
-      "name": "New Event Block",
+      "name": "The Feral",
       "title": "New Event Block",
       "type": "World",
       "category": "GenericPool",
@@ -1242,5 +1242,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:12:06.662902"
+  "_lastModified": "2026-10-19T12:12:12.259661"
 }
