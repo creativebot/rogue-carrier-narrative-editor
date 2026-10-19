@@ -1092,7 +1092,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -1162,5 +1162,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:06:32.881805"
+  "_lastModified": "2026-10-19T12:06:47.163039"
 }
