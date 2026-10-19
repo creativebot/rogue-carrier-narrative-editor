@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T11:33:38.406440",
+  "_lastModified": "2026-10-19T11:34:31.388285",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1218,6 +1218,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "res_04_Iron",
+              "name": "Iron",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Fe.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
