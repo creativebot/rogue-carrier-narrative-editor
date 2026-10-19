@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:30:31.100212",
+  "_lastModified": "2026-10-19T12:30:43.383633",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1838,6 +1838,13 @@
               "name": "Eldritium",
               "amount": "4",
               "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "1",
+              "iconImg": "icons/T_Assembly_Matrix.png",
               "icon": "📦"
             }
           ],
