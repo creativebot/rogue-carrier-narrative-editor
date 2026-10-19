@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:14:58.072094",
+  "_lastModified": "2026-10-19T12:15:11.684430",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1575,7 +1575,21 @@
           "codeSuffix": "B",
           "shortDescription": "Retreat",
           "description": "Description for action choice B...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792412110829",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
