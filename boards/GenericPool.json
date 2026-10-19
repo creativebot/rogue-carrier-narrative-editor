@@ -1409,7 +1409,7 @@
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Once above the island, the scouts fly their recon craft into the most dangerous airspace they have ever flown through. The sky appears to be littered with balls of lightning, unseen until you fly too close to them.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1511,5 +1511,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:26:05.138903"
+  "_lastModified": "2026-10-19T12:26:24.420298"
 }
