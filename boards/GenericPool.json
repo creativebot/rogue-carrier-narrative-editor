@@ -1462,7 +1462,7 @@
         {
           "id": "act_1792412756940",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Use Tricoder",
           "description": "Use specialized equipment to investigate the source of the lightning.",
           "requirements": [
             {
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:05:13.930087"
+  "_lastModified": "2026-10-19T13:05:22.309768"
 }
