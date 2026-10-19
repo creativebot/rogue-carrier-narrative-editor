@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:29:31.826920",
+  "_lastModified": "2026-10-19T12:29:42.897097",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1833,6 +1833,13 @@
               "amount": "4",
               "iconImg": "",
               "icon": "📜"
+            },
+            {
+              "resourceId": "cn_41",
+              "name": "Surveying Probe",
+              "amount": "4",
+              "iconImg": "icons/T_Surveying_Probe.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
