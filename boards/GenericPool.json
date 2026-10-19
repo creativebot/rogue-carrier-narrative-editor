@@ -669,7 +669,7 @@
         {
           "id": "act_1792395154009",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Conduct a thorough survey",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -730,5 +730,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:51:19.512982"
+  "_lastModified": "2026-10-19T07:51:26.935377"
 }
