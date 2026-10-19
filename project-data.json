@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:06:12.150693",
+  "_lastModified": "2026-10-19T12:06:20.751512",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1361,7 +1361,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "e crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
+          "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
