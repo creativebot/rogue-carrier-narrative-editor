@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T13:05:58.206664",
+  "_lastModified": "2026-10-19T13:06:21.504826",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1861,7 +1861,7 @@
         {
           "id": "act_1792412757296",
           "codeSuffix": "C",
-          "shortDescription": "Fire Ammunition pack",
+          "shortDescription": "Use rockets",
           "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
           "requirements": [
             {
