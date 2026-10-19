@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:31:16.878278",
+  "_lastModified": "2026-10-19T12:31:24.300676",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1843,7 +1843,7 @@
             {
               "resourceId": "res_19_Eldrit",
               "name": "Eldritium",
-              "amount": "4",
+              "amount": "1",
               "iconImg": "icons/T_Eldritium.png",
               "icon": "📦"
             },
