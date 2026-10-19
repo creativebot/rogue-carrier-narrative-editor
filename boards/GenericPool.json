@@ -1600,7 +1600,7 @@
           "id": "act_1792412757674",
           "codeSuffix": "D",
           "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
+          "description": "",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "The scouts decide to land and wait out the storm. Ten minutes later, an enormous lightning bolt strikes the island, cutting off all communication with the team. Even after the storm subsides, contact cannot be restored. A rescue team is dispatched to investigate, but finds nothing at the landing site except a pool of molten metal where the recon craft once stood.",
@@ -1654,5 +1654,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T14:47:58.438006"
+  "_lastModified": "2026-10-19T14:48:24.956238"
 }
