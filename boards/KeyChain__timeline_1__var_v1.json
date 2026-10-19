@@ -1352,8 +1352,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1870,
-        "y": 1038
+        "x": 1866,
+        "y": 1554
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-19T08:07:30.628249"
+  "_lastModified": "2026-10-19T08:07:32.418830"
 }
