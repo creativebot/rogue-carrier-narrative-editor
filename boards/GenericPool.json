@@ -561,7 +561,7 @@
           "id": "act_1792004880168",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Pry the door open",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005228466",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:37.202318"
+  "_lastModified": "2026-10-19T07:01:39.703238"
 }
