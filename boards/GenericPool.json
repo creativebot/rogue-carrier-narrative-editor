@@ -771,6 +771,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "processing_01",
+              "name": "Metal Constructions",
+              "amount": "15",
+              "iconImg": "icons/T_Metal_Frames.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -813,5 +820,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:55:58.086137"
+  "_lastModified": "2026-10-19T07:56:16.596041"
 }
