@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:52:31.136551",
+  "_lastModified": "2026-10-19T07:52:42.769144",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1038,7 +1038,22 @@
           "codeSuffix": "C",
           "shortDescription": "Conduct an extensive survey",
           "description": "Description for action choice C...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792396361814",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 1,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
