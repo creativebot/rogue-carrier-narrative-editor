@@ -1017,6 +1017,9 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
+      ],
+      "disabledVariationIds": [
+        "var_v1"
       ]
     }
   ],
@@ -1053,5 +1056,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:02:37.491126"
+  "_lastModified": "2026-10-19T12:02:41.254338"
 }
