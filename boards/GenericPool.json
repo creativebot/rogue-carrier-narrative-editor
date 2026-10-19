@@ -609,7 +609,7 @@
           "id": "act_1792004981483",
           "codeSuffix": "D",
           "shortDescription": "Choice D",
-          "description": "Do nothing",
+          "description": "",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:41.346742"
+  "_lastModified": "2026-10-19T07:01:43.426101"
 }
