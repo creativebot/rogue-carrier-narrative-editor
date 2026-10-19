@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:21:12.200063",
+  "_lastModified": "2026-10-19T07:21:27.156798",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -739,7 +739,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering electronic components, conductive materials, microcontrollers, and a battery block.",
+          "resultDescription": "reusa",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
