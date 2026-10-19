@@ -1524,7 +1524,7 @@
         {
           "id": "act_1792412757296",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Fire Smart Ammuition pack",
           "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
           "requirements": [
             {
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T13:05:22.309768"
+  "_lastModified": "2026-10-19T13:05:48.221621"
 }
