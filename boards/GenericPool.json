@@ -1006,7 +1006,7 @@
         {
           "id": "c_1792411390857",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Attack the monster",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -1096,5 +1096,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:03:42.552119"
+  "_lastModified": "2026-10-19T12:03:55.130110"
 }
