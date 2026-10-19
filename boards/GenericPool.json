@@ -989,8 +989,8 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
+      "floorIndex": 6,
+      "tier": 2,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
       "eventIntro": "Initial event context...",
@@ -999,8 +999,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 4438
+        "x": 1460,
+        "y": 4328
       },
       "actions": [
         {
@@ -1204,5 +1204,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:09:31.390543"
+  "_lastModified": "2026-10-19T12:10:16.853032"
 }
