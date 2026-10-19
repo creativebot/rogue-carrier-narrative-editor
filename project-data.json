@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:04:33.339970",
+  "_lastModified": "2026-10-19T12:04:49.597458",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1373,7 +1373,21 @@
           "codeSuffix": "B",
           "shortDescription": "Scare the monster",
           "description": "Description for action choice B...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792411488744",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 8,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
