@@ -830,7 +830,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The scouts use the Defensive Kit to shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -978,5 +978,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:19:31.418535"
+  "_lastModified": "2026-10-19T11:33:16.373388"
 }
