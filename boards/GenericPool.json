@@ -898,7 +898,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -969,5 +969,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:18:16.830004"
+  "_lastModified": "2026-10-19T11:18:30.202987"
 }
