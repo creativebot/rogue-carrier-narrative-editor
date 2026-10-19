@@ -1480,7 +1480,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Using the Tricorder, the scouts attempt to locate the center of the storm and fly as far away from it as possible, carefully maneuvering between the lightning balls. After several tense minutes, the lightning becomes less frequent, and the recon craft eventually escapes the storm and returns safely to the ship.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -1655,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:35:51.563842"
+  "_lastModified": "2026-10-19T12:39:16.816357"
 }
