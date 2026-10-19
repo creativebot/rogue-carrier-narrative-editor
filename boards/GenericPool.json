@@ -764,6 +764,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -806,5 +813,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:55:46.198156"
+  "_lastModified": "2026-10-19T07:55:58.086137"
 }
