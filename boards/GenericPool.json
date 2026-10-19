@@ -701,7 +701,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "A thorough inspection reveals a rich metal ore vein extending into a deeper cave network. With the tide rising, the crew chooses to extract what ore they can rather than explore further.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -773,5 +773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:53:06.715055"
+  "_lastModified": "2026-10-19T07:53:14.162341"
 }
