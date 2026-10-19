@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:31:10.925772",
+  "_lastModified": "2026-10-19T07:31:22.241206",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -954,44 +954,6 @@
       "disabledVariationIds": [],
       "colorScheme": "rose",
       "pool": "generic"
-    },
-    {
-      "id": "node_1792395069939",
-      "codename": "GEN-S1-E6",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "World",
-      "category": "GenericPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 110,
-        "y": -48
-      },
-      "actions": [
-        {
-          "id": "c_1792395069939",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ]
     },
     {
       "id": "node_e0",
