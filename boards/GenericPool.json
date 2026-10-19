@@ -1443,13 +1443,6 @@
           "rewards": [
             "🧠 Knowledge +100",
             {
-              "resourceId": "machinery_03",
-              "name": "Tech Voxel",
-              "amount": "4",
-              "iconImg": "icons/T_Tech-Voxel.png",
-              "icon": "📦"
-            },
-            {
               "resourceId": "machinery_02",
               "name": "Tech Assembly Matrix",
               "amount": "4",
@@ -1649,5 +1642,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:29:53.825357"
+  "_lastModified": "2026-10-19T12:30:06.127272"
 }
