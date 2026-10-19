@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T12:22:48.946792",
+  "_lastModified": "2026-10-19T12:23:02.192427",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1584,6 +1584,13 @@
               "name": "Med Kit",
               "amount": "5",
               "iconImg": "icons/T_Med-Kit.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "ammunition_01",
+              "name": "Standard Ammunition Pack",
+              "amount": "10",
+              "iconImg": "icons/T_StandardAmmunitionPack.png",
               "icon": "📦"
             }
           ],
