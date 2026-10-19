@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-19T07:27:55.567285",
+  "_lastModified": "2026-10-19T07:28:16.592807",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -364,7 +364,9 @@
           ]
         }
       ],
-      "disabledVariationIds": [],
+      "disabledVariationIds": [
+        "var_v1"
+      ],
       "title": "Derelict Beacon (Refurbished AI Core)"
     },
     {
@@ -404,7 +406,9 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
+      "disabledVariationIds": [
+        "var_v1"
+      ],
       "title": "Ancient AI Core"
     },
     {
