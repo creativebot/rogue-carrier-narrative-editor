@@ -1195,7 +1195,7 @@
         {
           "id": "c_1792411923642",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Attack",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -1298,5 +1298,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:13:48.748836"
+  "_lastModified": "2026-10-19T12:14:08.252792"
 }
