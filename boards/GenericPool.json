@@ -1447,6 +1447,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "consumer_02",
+              "name": "Portable Force Shield",
+              "amount": "20",
+              "iconImg": "icons/T_ForceField.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1648,5 +1655,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:30:51.228274"
+  "_lastModified": "2026-10-19T12:31:01.821804"
 }
