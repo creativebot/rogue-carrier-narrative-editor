@@ -520,7 +520,7 @@
           "id": "act_1792004879350",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Melt the lock",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005183045",
@@ -664,5 +664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:01:32.674813"
+  "_lastModified": "2026-10-19T07:01:35.070199"
 }
