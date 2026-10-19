@@ -881,6 +881,13 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "res_04_Iron",
+              "name": "Iron",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Fe.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -978,5 +985,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T11:33:38.401217"
+  "_lastModified": "2026-10-19T11:34:31.383084"
 }
