@@ -655,7 +655,7 @@
         {
           "id": "c_1792395143791",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Conduct a quick survey",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -730,5 +730,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T07:33:27.986019"
+  "_lastModified": "2026-10-19T07:51:19.512982"
 }
