@@ -1168,7 +1168,8 @@
           "targetNodeId": null
         }
       ],
-      "colorScheme": "rose"
+      "colorScheme": "rose",
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792411923642",
@@ -1429,5 +1430,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T12:24:37.127805"
+  "_lastModified": "2026-10-19T12:24:45.730818"
 }
