@@ -334,7 +334,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2664,
+        "x": 2660,
         "y": 1690
       },
       "actions": [
@@ -2034,5 +2034,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:39:01.129641"
+  "_lastModified": "2026-10-20T14:39:26.082895"
 }
