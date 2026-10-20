@@ -934,7 +934,15 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "criteria_orange_box",
+              "name": "Orange Box",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2012,5 +2020,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:51:59.621439"
+  "_lastModified": "2026-10-20T14:52:05.209864"
 }
