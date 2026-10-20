@@ -30,36 +30,6 @@
     ]
   },
   {
-    "Name": "DIALOGUE_diag_orest",
-    "RowName": "DIALOGUE_diag_orest",
-    "DialogueID": "diag_orest",
-    "TargetEventID": "node_e0",
-    "TriggerTiming": "action_option",
-    "TriggerActionID": "act_e0_1",
-    "TriggerCondition": "During (T1-V1-K2A) Build a transmitter",
-    "DelayHours": 0.0,
-    "DelayUnit": "hours",
-    "VariationID": "var_v1",
-    "Category": "KeyChain",
-    "FloorIndex": 0,
-    "ColorScheme": "purple",
-    "EditorPosition": {
-      "X": -23.0,
-      "Y": 151.0
-    },
-    "Lines": [
-      {
-        "LineIndex": 0,
-        "Speaker": "",
-        "SpeakerRole": "",
-        "Text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have.",
-        "Portrait": "",
-        "AudioVoiceover": "",
-        "CustomData": {}
-      }
-    ]
-  },
-  {
     "Name": "DIALOGUE_diag_2b",
     "RowName": "DIALOGUE_diag_2b",
     "DialogueID": "diag_2b",
@@ -188,8 +158,8 @@
     "FloorIndex": 3,
     "ColorScheme": "default",
     "EditorPosition": {
-      "X": 465.0,
-      "Y": 5179.0
+      "X": -839.0,
+      "Y": 4767.0
     },
     "Lines": [
       {
@@ -270,36 +240,6 @@
     ]
   },
   {
-    "Name": "DIALOGUE_diag_1791303674022",
-    "RowName": "DIALOGUE_diag_1791303674022",
-    "DialogueID": "diag_1791303674022",
-    "TargetEventID": "node_e0",
-    "TriggerTiming": "action_option",
-    "TriggerActionID": "act_e0_2",
-    "TriggerCondition": "During (T1-V1-K2A) Process the data",
-    "DelayHours": 0.0,
-    "DelayUnit": "hours",
-    "VariationID": "var_v1",
-    "Category": "KeyChain",
-    "FloorIndex": 0,
-    "ColorScheme": "purple",
-    "EditorPosition": {
-      "X": 2243.0,
-      "Y": 138.0
-    },
-    "Lines": [
-      {
-        "LineIndex": 0,
-        "Speaker": "",
-        "SpeakerRole": "",
-        "Text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act.",
-        "Portrait": "",
-        "AudioVoiceover": "",
-        "CustomData": {}
-      }
-    ]
-  },
-  {
     "Name": "DIALOGUE_diag_1791326756359",
     "RowName": "DIALOGUE_diag_1791326756359",
     "DialogueID": "diag_1791326756359",
@@ -307,15 +247,15 @@
     "TriggerTiming": "post_action",
     "TriggerActionID": "act_e0_1",
     "TriggerCondition": "After (T1-V1-K1A) Build a transmitter",
-    "DelayHours": 3.0,
+    "DelayHours": 2.0,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
     "Category": "KeyChain",
     "FloorIndex": 0,
     "ColorScheme": "default",
     "EditorPosition": {
-      "X": -691.0,
-      "Y": -62.0
+      "X": -80.0,
+      "Y": 126.0
     },
     "Lines": [
       {
@@ -443,8 +383,8 @@
     "FloorIndex": 1,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 1870.0,
-      "Y": 1038.0
+      "X": 1866.0,
+      "Y": 1554.0
     },
     "Lines": [
       {
@@ -487,7 +427,7 @@
         "LineIndex": 4,
         "Speaker": "",
         "SpeakerRole": "",
-        "Text": "Mis right. We must know what happened to Zephyrus.",
+        "Text": "We must know what happened to Zephyrus. If we want to survive.",
         "Portrait": "",
         "AudioVoiceover": "",
         "CustomData": {}
@@ -541,7 +481,7 @@
         "LineIndex": 10,
         "Speaker": "",
         "SpeakerRole": "",
-        "Text": "No point in chasing ghosts. No, I want to know what happened, and if there is someone — keyword, someone responsible for this.",
+        "Text": "No point in chasing ghosts. No, I want to know what happened and if there is someone — keyword, someone — responsible for this.",
         "Portrait": "",
         "AudioVoiceover": "",
         "CustomData": {}
@@ -920,8 +860,8 @@
     "FloorIndex": 1,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 1275.0,
-      "Y": 1110.0
+      "X": 1259.0,
+      "Y": 1522.0
     },
     "Lines": [
       {
@@ -1337,6 +1277,66 @@
         "Speaker": "",
         "SpeakerRole": "",
         "Text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. ",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_orest",
+    "RowName": "DIALOGUE_diag_orest",
+    "DialogueID": "diag_orest",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e0_1",
+    "TriggerCondition": "During (T1-V1-K2A) Build a transmitter",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": -23.0,
+      "Y": 151.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791303674022",
+    "RowName": "DIALOGUE_diag_1791303674022",
+    "DialogueID": "diag_1791303674022",
+    "TargetEventID": "node_e0",
+    "TriggerTiming": "action_option",
+    "TriggerActionID": "act_e0_2",
+    "TriggerCondition": "During (T1-V1-K2A) Process the data",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v1",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "purple",
+    "EditorPosition": {
+      "X": 2243.0,
+      "Y": 138.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act.",
         "Portrait": "",
         "AudioVoiceover": "",
         "CustomData": {}

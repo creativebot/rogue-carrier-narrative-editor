@@ -18,7 +18,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 100.0,
+      "X": 110.0,
       "Y": 220.0
     },
     "Actions": [
@@ -75,7 +75,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 80.0,
+      "X": 110.0,
       "Y": 243.0
     },
     "Actions": [
@@ -124,8 +124,8 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 80.0,
-      "Y": 1193.0
+      "X": 110.0,
+      "Y": 1216.0
     },
     "Actions": [
       {
@@ -755,6 +755,1092 @@
     ]
   },
   {
+    "Name": "EVENT_node_1792395143791",
+    "RowName": "EVENT_node_1792395143791",
+    "EventID": "node_1792395143791",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 228.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792396330087",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_04",
+                "ItemName": "Basic Scanner",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792396350167",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "food_05",
+                "ItemName": "Energy Bar",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Eldritium x15",
+          "📦 Alloyed Metal x15"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "processing_02",
+            "Name": "Alloyed Metal",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792396361814",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🧠 Knowledge +30",
+          "📦 Metal Constructions x15"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "processing_01",
+            "Name": "Metal Constructions",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792402154534",
+    "RowName": "EVENT_node_1792402154534",
+    "EventID": "node_1792402154534",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 2060.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792403940415",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🔑 Resistance to diseases x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_resistance_to_diseases",
+            "Name": "Resistance to diseases",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792403959214",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_02",
+                "ItemName": "Explosive Charges",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Iron x40",
+          "📦 Aluminum x30",
+          "📦 Copper x20",
+          "📦 Tungsten x10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_04_Iron",
+            "Name": "Iron",
+            "Amount": "40",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_07_Alum",
+            "Name": "Aluminum",
+            "Amount": "30",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_03_Copper",
+            "Name": "Copper",
+            "Amount": "20",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_10_Tung",
+            "Name": "Tungsten",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792403971518",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_03",
+                "ItemName": "Smart Ammunition Pack",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🔑 Temporal immunity x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_temporal_immunity",
+            "Name": "Temporal immunity",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "👨‍🚀 Crew Count -2"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_crew count",
+            "Name": "Crew Count",
+            "Amount": "-2",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792411390857",
+    "RowName": "EVENT_node_1792411390857",
+    "EventID": "node_1792411390857",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 1159.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792411472492",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🛡️ Defense Spec +4",
+          "😊 Morale +4"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "spec_defense",
+            "Name": "Defense Spec",
+            "Amount": "+4",
+            "Category": "Specialization",
+            "Icon": "🛡️"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+4",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792411488744",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_02",
+                "ItemName": "Explosive Charges",
+                "Amount": 8,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Eldritium x15",
+          "📦 Sulfur x4"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_14_Sulfur",
+            "Name": "Sulfur",
+            "Amount": "4",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792411505089",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "food_10",
+                "ItemName": "Krill Preserves",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792411638233",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "food_08",
+                "ItemName": "Algae Preserves",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "👨‍🚀 Crew Count -1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_crew count",
+            "Name": "Crew Count",
+            "Amount": "-1",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792411923642",
+    "RowName": "EVENT_node_1792411923642",
+    "EventID": "node_1792411923642",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 213.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412079558",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "consumer_02",
+                "ItemName": "Portable Force Shield",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792412097206",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Comm-Link x10",
+          "📦 Med Kit x5",
+          "📦 Standard Ammunition Pack x10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "questres_03",
+            "Name": "Comm-Link",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "medres_02",
+            "Name": "Med Kit",
+            "Amount": "5",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "ammunition_01",
+            "Name": "Standard Ammunition Pack",
+            "Amount": "10",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412110829",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "consumer_02",
+                "ItemName": "Portable Force Shield",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792412118175",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_02",
+                "ItemName": "Med Kit",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412129995",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_03",
+                "ItemName": "Smart Ammunition Pack",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Tech Assembly Matrix x2",
+          "📦 AI Core x2"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "machinery_02",
+            "Name": "Tech Assembly Matrix",
+            "Amount": "2",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "electronics_01",
+            "Name": "AI Core",
+            "Amount": "2",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "👨‍🚀 Crew Count -1",
+          "❤️ Crew Health -50"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_crew count",
+            "Name": "Crew Count",
+            "Amount": "-1",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          },
+          {
+            "ResourceID": "stat_crew health",
+            "Name": "Crew Health",
+            "Amount": "-50",
+            "Category": "Specialization",
+            "Icon": "❤️"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792412708667",
+    "RowName": "EVENT_node_1792412708667",
+    "EventID": "node_1792412708667",
+    "EventTitle": "New Event Block",
+    "EventCategory": "GenericPool",
+    "EventType": "World",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 1308.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412796327",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "extractor_01",
+                "ItemName": "Basic Extractor",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📦 Portable Force Shield x20"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "consumer_02",
+            "Name": "Portable Force Shield",
+            "Amount": "20",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412811071",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "📜 Blueprints x1",
+          "📦 Surveying Probe x1",
+          "📦 Eldritium x1",
+          "📦 Tech Assembly Matrix x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_blueprints",
+            "Name": "Blueprints",
+            "Amount": "1",
+            "Category": "Stat",
+            "Icon": "📜"
+          },
+          {
+            "ResourceID": "cn_41",
+            "Name": "Surveying Probe",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_19_Eldrit",
+            "Name": "Eldritium",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "machinery_02",
+            "Name": "Tech Assembly Matrix",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792412834792",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_03",
+                "ItemName": "Smart Ammunition Pack",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🛡️ Defense Spec +4",
+          "📦 Tech Voxel x1",
+          "📦 Tech Assembly Matrix x1",
+          "📦 Tech Assembly Matrix x1",
+          "📦 Surveying Probe x1",
+          "😊 Morale +4"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "spec_defense",
+            "Name": "Defense Spec",
+            "Amount": "+4",
+            "Category": "Specialization",
+            "Icon": "🛡️"
+          },
+          {
+            "ResourceID": "machinery_03",
+            "Name": "Tech Voxel",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "machinery_02",
+            "Name": "Tech Assembly Matrix",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "machinery_02",
+            "Name": "Tech Assembly Matrix",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "cn_41",
+            "Name": "Surveying Probe",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+4",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "👨‍🚀 Crew Count -3"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_crew count",
+            "Name": "Crew Count",
+            "Amount": "-3",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
     "Name": "EVENT_node_e0",
     "RowName": "EVENT_node_e0",
     "EventID": "node_e0",
@@ -773,7 +1859,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 898.0,
+      "X": 934.0,
       "Y": 90.0
     },
     "Actions": [
@@ -837,7 +1923,7 @@
         ],
         "Rewards": [
           "🧠 Knowledge +300",
-          "📜 Blueprints +1"
+          "📜 Blueprints x1"
         ],
         "StructuredRewards": [
           {
@@ -848,9 +1934,9 @@
             "Icon": "🧠"
           },
           {
-            "ResourceID": "res_blueprints",
+            "ResourceID": "stat_blueprints",
             "Name": "Blueprints",
-            "Amount": "+1",
+            "Amount": "1",
             "Category": "Stat",
             "Icon": "📜"
           }
@@ -921,17 +2007,9 @@
           }
         ],
         "Rewards": [
-          "😊 Morale -1",
           "🧠 Knowledge +300"
         ],
         "StructuredRewards": [
-          {
-            "ResourceID": "res_morale",
-            "Name": "Morale",
-            "Amount": "-1",
-            "Category": "Stat",
-            "Icon": "😊"
-          },
           {
             "ResourceID": "res_knowledge",
             "Name": "Knowledge",
@@ -1158,7 +2236,7 @@
                 "ItemName": "Basic Scanner",
                 "Amount": 5,
                 "Category": "Item",
-                "Icon": "icons/T_Basic-Scaner.png"
+                "Icon": "📦"
               },
               {
                 "ItemID": "processing_06",
@@ -1212,7 +2290,7 @@
         "Requirements": [
           {
             "ClauseID": "clause_1791378603692",
-            "IsAlternativeGroup": true,
+            "IsAlternativeGroup": false,
             "Alternatives": [
               {
                 "ItemID": "ammunition_02",
@@ -1220,13 +2298,6 @@
                 "Amount": 3,
                 "Category": "Item",
                 "Icon": "icons/T_ExplosiveCharges.png"
-              },
-              {
-                "ItemID": "synthesis_03",
-                "ItemName": "Chemical Fuel",
-                "Amount": 20,
-                "Category": "Item",
-                "Icon": "icons/T_Chemical-Fuel.png"
               }
             ]
           }
@@ -3099,7 +4170,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 2952.0,
+      "X": 2845.0,
       "Y": 3290.0
     },
     "Actions": [

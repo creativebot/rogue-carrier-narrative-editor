@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-17T00:09:03.248746",
+  "_lastModified": "2026-10-18T17:54:54.722142",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -242,7 +242,10 @@
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found"
+    "Jammer Found",
+    "Resistance to diseases",
+    "Temporal immunity",
+    "any number of items"
   ],
   "symbolLimits": {
     "eventIntro": 475,

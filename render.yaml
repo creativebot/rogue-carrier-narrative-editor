@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: rogue-carrier-narrative-editor
+    name: rcne
     runtime: python
     buildCommand: "echo 'Dependencies ready'"
     startCommand: "python server.py"

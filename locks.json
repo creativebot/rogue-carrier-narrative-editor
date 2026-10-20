@@ -4,64 +4,9 @@
     "boardName": "Key Events (Timeline 1 • The Moment After the End)",
     "userEmail": "dpoludonnyi@n-ix.com",
     "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:29:58.253112",
-    "lastHeartbeat": "2026-10-20T16:33:52.157050",
-    "expiresAt": "2026-10-20T16:36:52.157050",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "KeyChain:timeline_1:var_v2": {
-    "boardId": "KeyChain:timeline_1:var_v2",
-    "boardName": "Key Events (Timeline 1 • Once More Into The Frey)",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:32:09.263264",
-    "lastHeartbeat": "2026-10-20T16:33:46.372967",
-    "expiresAt": "2026-10-20T16:36:46.372967",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "GenericPool": {
-    "boardId": "GenericPool",
-    "boardName": "Generic Event Pool",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:33:47.357264",
-    "lastHeartbeat": "2026-10-20T16:33:47.357264",
-    "expiresAt": "2026-10-20T16:36:47.357264",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "DeckPool": {
-    "boardId": "DeckPool",
-    "boardName": "Deck Event Pool",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:33:48.855651",
-    "lastHeartbeat": "2026-10-20T16:33:48.855651",
-    "expiresAt": "2026-10-20T16:36:48.855651",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "SecretChain:timeline_1:var_v2": {
-    "boardId": "SecretChain:timeline_1:var_v2",
-    "boardName": "Secret Events (Timeline 1 • Once More Into The Frey)",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:33:50.354460",
-    "lastHeartbeat": "2026-10-20T16:33:50.354460",
-    "expiresAt": "2026-10-20T16:36:50.354460",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "SecretChain:timeline_1:var_v1": {
-    "boardId": "SecretChain:timeline_1:var_v1",
-    "boardName": "Secret Events (Timeline 1 • The Moment After the End)",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-20T16:33:50.383001",
-    "lastHeartbeat": "2026-10-20T16:33:50.405073",
-    "expiresAt": "2026-10-20T16:36:50.405073",
+    "lockedAt": "2026-10-20T17:15:54.171732",
+    "lastHeartbeat": "2026-10-20T17:15:54.171732",
+    "expiresAt": "2026-10-20T17:18:54.171732",
     "ttlSeconds": 180,
     "remainingSeconds": 180
   }

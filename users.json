@@ -6,7 +6,7 @@
       "role": "admin",
       "status": "approved",
       "createdAt": "2026-10-08T10:38:44.834639Z",
-      "lastLogin": "2026-10-13T15:35:10.493954Z",
+      "lastLogin": "2026-10-15T14:56:53.039886Z",
       "picture": null
     },
     {
@@ -57,7 +57,7 @@
       "status": "approved",
       "authProvider": "google",
       "createdAt": "2026-10-12T06:36:26.668210Z",
-      "lastLogin": "2026-10-15T06:44:28.271425Z"
+      "lastLogin": "2026-10-20T08:04:34.003711Z"
     },
     {
       "email": "volodymyrkuznietsov@n-ix.com",
@@ -68,6 +68,16 @@
       "authProvider": "google",
       "createdAt": "2026-10-12T06:40:57.152532Z",
       "lastLogin": "2026-10-12T06:40:57.152532Z"
+    },
+    {
+      "email": "rmatviiuk@n-ix.com",
+      "name": "Roman Matviiuk",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-18T09:59:08.954508Z",
+      "lastLogin": "2026-10-18T09:59:08.954508Z"
     }
   ]
 }
