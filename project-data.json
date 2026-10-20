@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T10:28:26.482096",
+  "_lastModified": "2026-10-20T10:28:43.415121",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -4184,7 +4184,7 @@
             {
               "resourceId": "stat_crew health",
               "name": "Crew Health",
-              "amount": "+4",
+              "amount": "-25",
               "icon": "❤️",
               "iconImg": ""
             }
