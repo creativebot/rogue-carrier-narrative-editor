@@ -3,7 +3,7 @@
   "filename": "snap_20261020_163339_Automated_Save_Snapshot.json",
   "reason": "Automated Save Snapshot",
   "author": "Tetiana Tretilova",
-  "timestamp": "2026-10-20T16:33:39.310167",
+  "timestamp": "2026-10-20T16:33:39.802505",
   "displayTime": "2026-10-20 16:33:39",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -11,7 +11,7 @@
     "version": "2.6.0",
     "schemaVersion": 1,
     "stageLayoutVersion": 2,
-    "_lastModified": "2026-10-20T16:33:39.083662",
+    "_lastModified": "2026-10-20T16:33:39.602681",
     "projectInfo": {
       "name": "Rogue Carrier Scenario 1",
       "author": "Tetiana Tretilova"
