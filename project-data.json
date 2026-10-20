@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T14:52:05.245735",
+  "_lastModified": "2026-10-20T14:52:14.381716",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2891,13 +2891,11 @@
           "resultDescription": "",
           "rewards": [
             {
-              "resourceId": "criteria_orange_box",
-              "name": "Orange Box",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
