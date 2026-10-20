@@ -1182,40 +1182,6 @@
       ]
     },
     {
-      "id": "diag_1791303674022",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Process the data",
-      "position": {
-        "x": 2177,
-        "y": 269
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791303674022",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
-        }
-      ],
-      "floorIndex": 0,
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": "During (T1-V1-K2A) Process the data"
-        }
-      ]
-    },
-    {
       "id": "diag_1791326756359",
       "targetEventId": "node_e0",
       "triggerTiming": "post_action",
@@ -2030,5 +1996,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:42:34.028075"
+  "_lastModified": "2026-10-20T13:49:32.943267"
 }
