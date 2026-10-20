@@ -1753,8 +1753,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4879,
-        "y": 3013
+        "x": 3491,
+        "y": 2996
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1998,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:36:34.008033"
+  "_lastModified": "2026-10-20T14:36:57.750572"
 }
