@@ -403,12 +403,6 @@
                   "name": "Explosive Charges",
                   "amount": 3,
                   "iconImg": "icons/T_ExplosiveCharges.png"
-                },
-                {
-                  "resourceId": "synthesis_03",
-                  "name": "Chemical Fuel",
-                  "amount": 20,
-                  "iconImg": "icons/T_Chemical-Fuel.png"
                 }
               ]
             }
@@ -1997,5 +1991,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:08:34.024880"
+  "_lastModified": "2026-10-20T14:09:40.410233"
 }
