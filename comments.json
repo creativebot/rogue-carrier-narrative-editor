@@ -105,6 +105,18 @@
       "createdAt": "2026-10-16T12:27:41.694994Z",
       "displayTime": "2026-10-16 14:27",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792508378545",
+      "targetId": "node_1791705255524",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K3C - The Moment After the End",
+      "text": "Lack of \"Unknown requirement\"",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-20T14:59:38.557036Z",
+      "displayTime": "2026-10-20 14:59",
+      "mentions": []
     }
   ],
   "deletedIds": [
