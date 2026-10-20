@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T14:13:30.604Z",
+  "_lastModified": "2026-10-20T14:14:30.668Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3719,7 +3719,13 @@
           "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
           "rewards": [
             "📜 Blueprints +3",
-            "Nano Parts x15",
+            {
+              "resourceId": "processing_05",
+              "name": "Nano Parts",
+              "amount": "8",
+              "iconImg": "icons/T_Fuel_Rod.png",
+              "icon": "📦"
+            },
             "🧠 Knowledge +350"
           ],
           "targetNodeId": "node_1791706248386",
