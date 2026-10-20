@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T14:39:39.741194",
+  "_lastModified": "2026-10-20T14:40:00.011720",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2862,7 +2862,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3F",
+      "codename": "T1-V1-K3E",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2916,12 +2916,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K4B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2931,8 +2931,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2541,
-        "y": 3290
+        "x": 2604,
+        "y": 4890
       },
       "actions": [
         {
@@ -2955,7 +2955,7 @@
     },
     {
       "id": "node_1792507137321",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2990,7 +2990,7 @@
     },
     {
       "id": "node_1792507169221",
-      "codename": "T1-V1-K3E",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
