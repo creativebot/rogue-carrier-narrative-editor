@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T15:57:41.663Z",
+  "_lastModified": "2026-10-20T15:58:30.126015",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -2838,7 +2838,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2853,7 +2853,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4218,
+        "x": 5944,
         "y": 3290
       },
       "actions": [
@@ -2965,12 +2965,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K4B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2980,8 +2980,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2604,
-        "y": 4890
+        "x": 2207,
+        "y": 3290
       },
       "actions": [
         {
@@ -4534,7 +4534,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
@@ -5179,8 +5179,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 2668,
-        "y": 3049
+        "x": 3504,
+        "y": 3622
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5255,8 +5255,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3698,
-        "y": 3013
+        "x": 4918,
+        "y": 3003
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5331,8 +5331,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 2148,
-        "y": 3285
+        "x": 4309,
+        "y": 3601
       },
       "variationId": "var_v1",
       "category": "KeyChain",
