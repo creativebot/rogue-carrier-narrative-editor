@@ -946,7 +946,7 @@
             }
           ],
           "timerHours": 3,
-          "resultDescription": "",
+          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -2044,5 +2044,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:54:34.007378"
+  "_lastModified": "2026-10-20T14:55:14.343591"
 }
