@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T14:55:30.599Z",
+  "_lastModified": "2026-10-20T14:56:30.604Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4324,7 +4324,7 @@
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Maddened by the ceaseless melody in their heads, equipped with tools that kept malfunctioning, the scouts have had quite a hard time extracting the target. And when they finally get their hands on the voice recorder, it appears damaged, too.\n\nNot as badly as the previous recorder, though. Some of its data might be saved.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
