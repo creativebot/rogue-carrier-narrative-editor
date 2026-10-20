@@ -999,7 +999,7 @@
     },
     {
       "id": "node_1792507137321",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -1034,7 +1034,7 @@
     },
     {
       "id": "node_1792507169221",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -1046,7 +1046,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4668,
+        "x": 4218,
         "y": 3290
       },
       "actions": [
@@ -2068,5 +2068,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:42:34.015054"
+  "_lastModified": "2026-10-20T14:43:07.541862"
 }
