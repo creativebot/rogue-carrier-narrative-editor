@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T16:36:45.055221",
+  "_lastModified": "2026-10-20T16:36:41.662Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -265,55 +265,6 @@
     "variationDescription": 80
   },
   "nodes": [
-    {
-      "id": "node_deck_1",
-      "codename": "DECK-E1",
-      "name": "Hangar Deck Fire Drill",
-      "type": "Carrier",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
-      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
-      "reactionTimerHours": "2",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "consequenceText": "Drill failure creates crew demoralization.",
-        "timerHours": 2,
-        "shortDescription": "Failed Drill",
-        "description": "No team responded in time.",
-        "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 220
-      },
-      "actions": [
-        {
-          "id": "act_deck_1",
-          "codeSuffix": "A",
-          "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
-          "requirements": [],
-          "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
-          "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Hangar Deck Fire Drill"
-    },
     {
       "id": "node_1791297604320",
       "codename": "GEN-E1",
@@ -2838,7 +2789,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2853,7 +2804,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5944,
+        "x": 4218,
         "y": 3290
       },
       "actions": [
@@ -2965,12 +2916,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K4B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2980,8 +2931,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2207,
-        "y": 3290
+        "x": 2604,
+        "y": 4890
       },
       "actions": [
         {
@@ -4254,7 +4205,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": "node_1791921021620"
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -4392,6 +4343,55 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 220
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
     }
   ],
   "dialogues": [
@@ -4534,7 +4534,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
@@ -5179,8 +5179,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3504,
-        "y": 3622
+        "x": 2668,
+        "y": 3049
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5255,8 +5255,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4918,
-        "y": 3003
+        "x": 3698,
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5331,8 +5331,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4309,
-        "y": 3601
+        "x": 2148,
+        "y": 3285
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5419,74 +5419,6 @@
           "triggerTiming": "post_action",
           "triggerActionId": "act_e1b_1",
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
-        }
-      ]
-    },
-    {
-      "id": "diag_orest",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_1",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
-      "position": {
-        "x": -23,
-        "y": 151
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "floorIndex": 0,
-      "lines": [
-        {
-          "id": "l5",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
-        }
-      ],
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_1",
-          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
-        }
-      ]
-    },
-    {
-      "id": "diag_1791303674022",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Process the data",
-      "position": {
-        "x": 2243,
-        "y": 138
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791303674022",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
-        }
-      ],
-      "floorIndex": 0,
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": "During (T1-V1-K2A) Process the data"
         }
       ]
     },
