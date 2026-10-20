@@ -1444,9 +1444,9 @@
     },
     {
       "id": "diag_1791393196279",
-      "targetEventId": "node_e1",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e1_1",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Comb island",
@@ -1465,15 +1465,7 @@
         }
       ],
       "floorIndex": 1,
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e1",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e1_1",
-          "triggerCondition": "During (T1-V1-K2A) Comb island"
-        }
-      ]
+      "links": []
     },
     {
       "id": "diag_imp_1791393401628",
@@ -2064,5 +2056,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:37:34.027145"
+  "_lastModified": "2026-10-20T13:40:23.548151"
 }
