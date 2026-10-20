@@ -32,14 +32,7 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "stat_crew health",
-              "name": "Crew Health",
-              "amount": "+4",
-              "icon": "❤️",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [
             "node_1791921021620",
@@ -94,5 +87,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-20T10:28:26.478730"
+  "_lastModified": "2026-10-20T10:28:29.387417"
 }
