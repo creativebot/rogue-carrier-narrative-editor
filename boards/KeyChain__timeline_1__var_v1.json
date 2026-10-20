@@ -915,7 +915,7 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Another mangled piece of Zephyrus has found its way down into the waters of Keeling.",
+      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
       "eventDescription": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water.  For now, it stays on the surface, but eventually its weight will drive it down to the bottom, making the retrieval of the orange box much more complicated.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -1998,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:49:34.039093"
+  "_lastModified": "2026-10-20T14:50:32.048627"
 }
