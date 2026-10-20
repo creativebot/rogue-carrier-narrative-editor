@@ -1899,8 +1899,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4148,
-        "y": 2850
+        "x": 3829,
+        "y": 3008
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2068,5 +2068,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:40:34.017123"
+  "_lastModified": "2026-10-20T14:41:02.733938"
 }
