@@ -363,8 +363,9 @@
                 {
                   "resourceId": "machinery_04",
                   "name": "Basic Scanner",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png"
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
                 },
                 {
                   "resourceId": "processing_06",
@@ -1996,5 +1997,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:53:34.019794"
+  "_lastModified": "2026-10-20T14:07:15.171960"
 }
