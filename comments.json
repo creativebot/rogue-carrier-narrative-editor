@@ -117,6 +117,20 @@
       "createdAt": "2026-10-20T14:59:38.557036Z",
       "displayTime": "2026-10-20 14:59",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792514182755",
+      "targetId": "node_1791705255524",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K3D - The Moment After the End",
+      "text": "@ttretilova what is this in the first action description?",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-20T16:36:22.767633Z",
+      "displayTime": "2026-10-20 16:36",
+      "mentions": [
+        "ttretilova@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
