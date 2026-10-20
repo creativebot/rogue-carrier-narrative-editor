@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-16T22:09:03.242Z",
+  "_lastModified": "2026-10-20T16:29:30.309521",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -242,7 +242,10 @@
     "Inner Explosion",
     "Station Intelligence",
     "Refinery Intelligence",
-    "Jammer Found"
+    "Jammer Found",
+    "Resistance to diseases",
+    "Temporal immunity",
+    "any number of items"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -331,7 +334,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
+        "x": 110,
         "y": 243
       },
       "actions": [
@@ -346,7 +349,10 @@
           "rewards": [
             "🧠 Knowledge +100"
           ],
-          "targetNodeId": "node_gen_followup"
+          "targetNodeId": "node_gen_followup",
+          "targetNodeIds": [
+            "node_gen_followup"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -369,8 +375,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 80,
-        "y": 1193
+        "x": 110,
+        "y": 1216
       },
       "actions": [
         {
@@ -384,7 +390,9 @@
           "rewards": [
             "🧠 Knowledge +300",
             "🔧 Engineering +1"
-          ]
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -592,8 +600,8 @@
         {
           "id": "c_1792001314991",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Extract Contents",
+          "shortDescription": "Extract Contents",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001422239",
@@ -610,7 +618,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies and modular containers have been added to your stockpile.",
+          "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies  have been added to your stockpile.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -642,8 +650,8 @@
         {
           "id": "act_1792001373747",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Scrap the beacon",
+          "shortDescription": "Scrap the beacon",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001576997",
@@ -660,7 +668,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering usable metals, structural parts, thermoplastic, and conductive materials.",
+          "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering reusable  materials.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -704,8 +712,8 @@
         {
           "id": "act_1792001374593",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Extract Hull's Electronics",
+          "shortDescription": "Extract Hull's Electronics",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792001924527",
@@ -722,7 +730,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering electronic components, conductive materials, microcontrollers, and a battery block.",
+          "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering useful components.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -786,8 +794,8 @@
         {
           "id": "c_1792002182916",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Pick the lock",
+          "shortDescription": "Pick the lock",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005168321",
@@ -827,8 +835,8 @@
         {
           "id": "act_1792004879350",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Melt the lock",
+          "shortDescription": "Melt the lock",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005183045",
@@ -868,8 +876,8 @@
         {
           "id": "act_1792004880168",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Pry the door open",
+          "shortDescription": "Pry the door open",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792005228466",
@@ -893,7 +901,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Your specialists forced the pod open with a lever crafted from debris. The  pressure difference between a hatch and the outside  caused explosive decompression. All three survivors were injured  as well as one of your crew. But all survivors were rescued and joined your crew, boosting morale.  ",
+          "resultDescription": "Your specialists forced the pod open with a crafted lever. The  pressure difference between a hatch and the outside  caused explosive decompression. All three survivors were injured  as well as one of your crew. But all survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -916,8 +924,8 @@
         {
           "id": "act_1792004981483",
           "codeSuffix": "D",
-          "shortDescription": "Choice D",
-          "description": "Do nothing",
+          "shortDescription": "Do nothing",
+          "description": "",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
@@ -939,6 +947,996 @@
       "pool": "generic"
     },
     {
+      "id": "node_1792395143791",
+      "codename": "GEN-S1-E6",
+      "name": "Cave system",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 2,
+      "location": "any island",
+      "spawnConditions": "any island",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "During a scouting expedition along the shore, a crew member hears a strange metallic sound amid the waves. Following it, the scouts discover a cave entrance exposed by low tide. Waves rock pieces of metal debris in the shallows, making them clang together. Inside, passages lead to a larger cave network. With the tide rising, the crew debates whether exploring further is worth the time and risk.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 228
+      },
+      "actions": [
+        {
+          "id": "c_1792395143791",
+          "codeSuffix": "A",
+          "shortDescription": "Conduct a quick survey",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792396330087",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Using scanners, the scouts trace the anomalies to an artifact inside the first chamber. The rising tide leaves little time to retrieve it. While retrieving the artifact, the crew discovers a passage to a deeper cave network. But time spent debating and scanning allows the rising tide to cut off access, preventing further exploration.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792395154009",
+          "codeSuffix": "B",
+          "shortDescription": "Conduct a thorough survey",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792396350167",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 10,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "A thorough inspection reveals a rich metal ore vein extending into a deeper cave network. With the tide rising, the crew chooses to extract what ore they can rather than explore further.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "processing_02",
+              "name": "Alloyed Metal",
+              "amount": "15",
+              "iconImg": "icons/T_Alloy_Steel.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792395154573",
+          "codeSuffix": "C",
+          "shortDescription": "Conduct an extensive survey",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792396361814",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 1,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Deeper in the caves, the scouts find a row of doors on the wall, each smaller than the last. None leads anywhere, painted. An air analyzer detects traces of incense used by Nasobi. Some crew members see an impressive artistic statement of one of Nasobies' artists; others see a waste of time. They debate modern art on the way back, but crew morale remains unchanged.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "processing_01",
+              "name": "Metal Constructions",
+              "amount": "15",
+              "iconImg": "icons/T_Metal_Frames.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose",
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792402154534",
+      "codename": "GEN-S1-E7",
+      "name": "Field Research 2",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": 2,
+      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts discover strange plants growing in neat rows across a patch of warm ground. They collect promising samples, but when one scout pulls at a root, the entire patch rises beneath their feet. Their garden is growing on the back of a huge beasts, luying in a pack and it is now awake.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 2060
+      },
+      "actions": [
+        {
+          "id": "c_1792402154534",
+          "codeSuffix": "A",
+          "shortDescription": "Deliver PFSs",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792403940415",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_resistance_to_diseases",
+              "name": "Resistance to diseases",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403138599",
+          "codeSuffix": "B",
+          "shortDescription": "Scare predators",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792403959214",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "res_04_Iron",
+              "name": "Iron",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Fe.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_07_Alum",
+              "name": "Aluminum",
+              "amount": "30",
+              "iconImg": "icons/T_Metals_Al.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_03_Copper",
+              "name": "Copper",
+              "amount": "20",
+              "iconImg": "icons/T_Copper.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_10_Tung",
+              "name": "Tungsten",
+              "amount": "10",
+              "iconImg": "icons/T_Metals_W.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403139123",
+          "codeSuffix": "C",
+          "shortDescription": "Attack predators",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792403971518",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 10,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_temporal_immunity",
+              "name": "Temporal immunity",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403901862",
+          "codeSuffix": "D",
+          "shortDescription": "DO NOTHING",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-2",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "colorScheme": "rose"
+    },
+    {
+      "id": "node_1792411390857",
+      "codename": "GEN-S1-E8",
+      "name": "Field Research",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 2,
+      "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1460,
+        "y": 1159
+      },
+      "actions": [
+        {
+          "id": "c_1792411390857",
+          "codeSuffix": "A",
+          "shortDescription": "Attack the monster",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792411472492",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+4",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411418096",
+          "codeSuffix": "B",
+          "shortDescription": "Scare the monster",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792411488744",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 8,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "A blast sends the beast fleeing behind the rocks and exposes mineral deposits beneath the shattered surface. The crew collects samples before making a hasty retreat. Everyone agrees the samples are not worth risking their lives for.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_14_Sulfur",
+              "name": "Sulfur",
+              "amount": "4",
+              "iconImg": "icons/T_Sulfur.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411419024",
+          "codeSuffix": "C",
+          "shortDescription": "Use bait",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792411505089",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_10",
+                  "name": "Krill Preserves",
+                  "amount": 10,
+                  "iconImg": "icons/T_KnidariaMeal.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792411638233",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_08",
+                  "name": "Algae Preserves",
+                  "amount": 1,
+                  "iconImg": "icons/T_Algae-Preserves.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411421698",
+          "codeSuffix": "D",
+          "shortDescription": "Do nothing",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-1",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose",
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792411923642",
+      "codename": "GEN-S1-E9",
+      "name": "The Ferals",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 3,
+      "location": "Any island",
+      "spawnConditions": "Any island",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2810,
+        "y": 213
+      },
+      "actions": [
+        {
+          "id": "c_1792411923642",
+          "codeSuffix": "A",
+          "shortDescription": "Attack",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792412079558",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792412097206",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew fights back, killing some of the attackers and forcing the rest to fall back temporarily. Still outnumbered, the scouts use the opening to retreat. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "questres_03",
+              "name": "Comm-Link",
+              "amount": "10",
+              "iconImg": "icons/T_Comm_Link.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "medres_02",
+              "name": "Med Kit",
+              "amount": "5",
+              "iconImg": "icons/T_Med-Kit.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "ammunition_01",
+              "name": "Standard Ammunition Pack",
+              "amount": "10",
+              "iconImg": "icons/T_StandardAmmunitionPack.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411938804",
+          "codeSuffix": "B",
+          "shortDescription": "Retreat",
+          "description": "Description for action choice B...",
+          "requirements": [
+            {
+              "id": "clause_1792412110829",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792412118175",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "There are too many attackers, and the crew is reluctant to hurt fellow humans. They decide to retreat quickly. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+30",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411939271",
+          "codeSuffix": "C",
+          "shortDescription": "Use artillery",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792412129995",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 2,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Outnumbered, the crew avoids close combat and calls in artillery fire to drive the attackers back. As they flee, they abandon several useful items, which the scouts collect as spoils. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "2",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "2",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792411945714",
+          "codeSuffix": "D",
+          "shortDescription": "Do nothing",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-1",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
+              "amount": "-50",
+              "icon": "❤️",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose",
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792412708667",
+      "codename": "GEN-S1-E10",
+      "name": "Anomaly",
+      "title": "New Event Block",
+      "type": "World",
+      "category": "GenericPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 3,
+      "location": "Any island",
+      "spawnConditions": "Any island",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Once above the island, the scouts fly their recon craft into the most dangerous airspace they have ever flown through. The sky appears to be littered with balls of lightning, unseen until you fly too close to them.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2810,
+        "y": 1308
+      },
+      "actions": [
+        {
+          "id": "c_1792412708667",
+          "codeSuffix": "A",
+          "shortDescription": "Use Basic extractor",
+          "description": "Use the Basic Extractor to absorb the electrical energy and clear a path through the storm.",
+          "requirements": [
+            {
+              "id": "clause_1792412796327",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_01",
+                  "name": "Basic Extractor",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExtractorBasic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "As the device begins drawing in the discharges, the glowing spheres flicker and gradually dissipate. After several tense minutes, they manage to clear a narrow passage through the storm. The recon craft escapes the dangerous airspace and safely returns to the ship.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "consumer_02",
+              "name": "Portable Force Shield",
+              "amount": "20",
+              "iconImg": "icons/T_ForceField.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792412756940",
+          "codeSuffix": "B",
+          "shortDescription": "Use Tricoder",
+          "description": "Use specialized equipment to investigate the source of the lightning.",
+          "requirements": [
+            {
+              "id": "clause_1792412811071",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_05",
+                  "name": "Tricoder",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tricoder.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts attempt to locate the center of the storm and fly as far away from it as possible, carefully maneuvering between the lightning balls. After several tense minutes, the lightning becomes less frequent, and the recon craft eventually escapes the storm and returns safely to the ship.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "📜"
+            },
+            {
+              "resourceId": "cn_41",
+              "name": "Surveying Probe",
+              "amount": "1",
+              "iconImg": "icons/T_Surveying_Probe.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "1",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "1",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792412757296",
+          "codeSuffix": "C",
+          "shortDescription": "Use rockets",
+          "description": "Fire metal projectiles to divert the lightning away from the recon craft.",
+          "requirements": [
+            {
+              "id": "clause_1792412834792",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_03",
+                  "name": "Smart Ammunition Pack",
+                  "amount": 2,
+                  "iconImg": "icons/T_SmartAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The plan works: electrical discharges strike the projectiles, briefly clearing a path through the storm. Taking advantage of the opening, the crew maneuvers through the remaining lightning balls and safely returns to the ship.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+4",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "machinery_03",
+              "name": "Tech Voxel",
+              "amount": "1",
+              "iconImg": "icons/T_Tech-Voxel.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "1",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "machinery_02",
+              "name": "Tech Assembly Matrix",
+              "amount": "1",
+              "iconImg": "icons/T_Assembly_Matrix.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "cn_41",
+              "name": "Surveying Probe",
+              "amount": "1",
+              "iconImg": "icons/T_Surveying_Probe.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792412757674",
+          "codeSuffix": "D",
+          "shortDescription": "Do nothing",
+          "description": "",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The scouts decide to land and wait out the storm. Ten minutes later, an enormous lightning bolt strikes the island, cutting off all communication with the team. Even after the storm subsides, contact cannot be restored. A rescue team is dispatched to investigate, but finds nothing at the landing site except a pool of molten metal where the recon craft once stood.",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-3",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "rose",
+      "disabledVariationIds": []
+    },
+    {
       "id": "node_e0",
       "codename": "T1-V1-K1A",
       "name": "The Moment After the End",
@@ -953,7 +1951,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 3566,
+        "x": 934,
         "y": 90
       },
       "actions": [
@@ -1016,11 +2014,17 @@
               ]
             }
           ],
-          "timerHours": 4,
+          "timerHours": 5,
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
             "🧠 Knowledge +300",
-            "📜 Blueprints +1"
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "📜"
+            }
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
@@ -1031,7 +2035,7 @@
           "id": "act_e0_2",
           "codeSuffix": "B",
           "shortDescription": "Process the data",
-          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the orange box (flight recorder) should be contained.",
+          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
           "requirements": [
             {
               "id": "clause_1791299451478",
@@ -1089,7 +2093,6 @@
           "timerHours": 5,
           "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
           "rewards": [
-            "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
           "targetNodeId": "node_e1b",
@@ -1296,7 +2299,8 @@
                   "resourceId": "machinery_04",
                   "name": "Basic Scanner",
                   "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png"
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
                 },
                 {
                   "resourceId": "processing_06",
@@ -1334,12 +2338,6 @@
                   "name": "Explosive Charges",
                   "amount": 3,
                   "iconImg": "icons/T_ExplosiveCharges.png"
-                },
-                {
-                  "resourceId": "synthesis_03",
-                  "name": "Chemical Fuel",
-                  "amount": 20,
-                  "iconImg": "icons/T_Chemical-Fuel.png"
                 }
               ]
             }
@@ -2323,7 +3321,8 @@
         }
       ],
       "title": "Once More Into The Frey",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791719220382",
@@ -2473,7 +3472,8 @@
         }
       ],
       "title": "Once More Into The Frey",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791831463894",
@@ -2600,7 +3600,8 @@
           "targetNodeId": "node_1791832874715"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791831814739",
@@ -2705,7 +3706,8 @@
           "targetNodeId": "node_1791905801725"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791832874715",
@@ -2840,7 +3842,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "orange"
     },
     {
       "id": "node_1791834582822",
@@ -2906,7 +3909,8 @@
           "targetNodeId": "node_1791988044467"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791904903648",
@@ -2979,7 +3983,8 @@
           "targetNodeId": "node_1791988044467"
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "blue"
     },
     {
       "id": "node_1791905801725",
@@ -2999,7 +4004,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2952,
+        "x": 2845,
         "y": 3290
       },
       "actions": [
@@ -3032,7 +4037,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "orange"
     },
     {
       "id": "node_1791988044467",
@@ -3131,7 +4137,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "orange"
     },
     {
       "id": "node_1791921021620",
@@ -3334,40 +4341,6 @@
       ]
     },
     {
-      "id": "diag_orest",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_1",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
-      "position": {
-        "x": -23,
-        "y": 151
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "floorIndex": 0,
-      "lines": [
-        {
-          "id": "l5",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
-        }
-      ],
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_1",
-          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
-        }
-      ]
-    },
-    {
       "id": "diag_2b",
       "targetEventId": "node_e2b",
       "triggerTiming": "pre_event",
@@ -3478,8 +4451,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": 465,
-        "y": 5179
+        "x": -839,
+        "y": 4767
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3552,50 +4525,16 @@
       ]
     },
     {
-      "id": "diag_1791303674022",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Process the data",
-      "position": {
-        "x": 2243,
-        "y": 138
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791303674022",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
-        }
-      ],
-      "floorIndex": 0,
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": "During (T1-V1-K2A) Process the data"
-        }
-      ]
-    },
-    {
       "id": "diag_1791326756359",
       "targetEventId": "node_e0",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e0_1",
-      "delayHours": 3,
+      "delayHours": 2,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
-        "x": -691,
-        "y": -62
+        "x": -80,
+        "y": 126
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3693,8 +4632,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1870,
-        "y": 1038
+        "x": 1866,
+        "y": 1554
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3729,7 +4668,7 @@
           "id": "l_imp_1791378854328_4",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "Mis right. We must know what happened to Zephyrus."
+          "text": "We must know what happened to Zephyrus. If we want to survive."
         },
         {
           "id": "l_imp_1791378854328_5",
@@ -3765,7 +4704,7 @@
           "id": "l_imp_1791378854328_10",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "No point in chasing ghosts. No, I want to know what happened, and if there is someone — keyword, someone responsible for this."
+          "text": "No point in chasing ghosts. No, I want to know what happened and if there is someone — keyword, someone — responsible for this."
         }
       ],
       "links": [
@@ -4085,8 +5024,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1275,
-        "y": 1110
+        "x": 1259,
+        "y": 1522
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -4428,6 +5367,74 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_orest",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_1",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
+      "position": {
+        "x": -23,
+        "y": 151
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "floorIndex": 0,
+      "lines": [
+        {
+          "id": "l5",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
+        }
+      ],
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_1",
+          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
+        }
+      ]
+    },
+    {
+      "id": "diag_1791303674022",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_2",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Process the data",
+      "position": {
+        "x": 2243,
+        "y": 138
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791303674022",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
+        }
+      ],
+      "floorIndex": 0,
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_2",
+          "triggerCondition": "During (T1-V1-K2A) Process the data"
+        }
+      ]
     }
   ]
 }

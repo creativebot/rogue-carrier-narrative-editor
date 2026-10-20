@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupToolbarEvents();
   setupAuthAndCollaborationEvents();
 
-  if (isLocalEnvironment() || canUserEdit()) {
+  if (isLocalEnvironment() || hasAppAccess()) {
     await loadProjectData();
     if (typeof syncActiveBoardLock === 'function') {
       syncActiveBoardLock();

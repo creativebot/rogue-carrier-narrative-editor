@@ -79,12 +79,39 @@
       "createdAt": "2026-10-14T21:08:39.865197Z",
       "displayTime": "2026-10-14 21:08",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792076235161",
+      "targetId": "node_1791921021620",
+      "targetType": "event",
+      "targetTitle": "T1-V3-K1A - Too Many Variables",
+      "text": "@vkuznietsov test",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-15T14:57:15.161736Z",
+      "displayTime": "2026-10-15 14:57",
+      "mentions": [
+        "vkuznietsov@n-ix.com"
+      ]
+    },
+    {
+      "id": "cmt_1792153661694",
+      "targetId": "node_e0",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K1A - The Moment After the End",
+      "text": "Verifying comments work on locked board! (Volodymyr)",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-16T12:27:41.694994Z",
+      "displayTime": "2026-10-16 14:27",
+      "mentions": []
     }
   ],
   "deletedIds": [
     "cmt_1791467850374",
     "cmt_1791569583368",
     "cmt_1791569647034",
-    "cmt_1791723288305"
+    "cmt_1791723288305",
+    "cmt_1792495013747"
   ]
 }
