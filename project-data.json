@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T16:33:39.602681",
+  "_lastModified": "2026-10-20T16:35:46.908067",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -2838,7 +2838,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2853,7 +2853,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4218,
+        "x": 5944,
         "y": 3290
       },
       "actions": [
@@ -2965,12 +2965,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K4B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2980,8 +2980,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2604,
-        "y": 4890
+        "x": 2207,
+        "y": 3290
       },
       "actions": [
         {
@@ -4534,7 +4534,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
@@ -5179,8 +5179,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 2668,
-        "y": 3049
+        "x": 3504,
+        "y": 3622
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5255,8 +5255,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3698,
-        "y": 3013
+        "x": 4918,
+        "y": 3003
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5331,8 +5331,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 2148,
-        "y": 3285
+        "x": 4309,
+        "y": 3601
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -5423,37 +5423,6 @@
       ]
     },
     {
-      "id": "diag_1791832094238",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
-      "position": {
-        "x": 1800,
-        "y": -414
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791832094238",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
-        },
-        {
-          "id": "l_1791832119337",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
-        }
-      ],
-      "links": [],
-      "floorIndex": 0
-    },
-    {
       "id": "diag_orest",
       "targetEventId": "node_e0",
       "triggerTiming": "action_option",
@@ -5520,6 +5489,37 @@
           "triggerCondition": "During (T1-V1-K2A) Process the data"
         }
       ]
+    },
+    {
+      "id": "diag_1791832094238",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 1800,
+        "y": -414
+      },
+      "variationId": "var_v2",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791832094238",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
+        },
+        {
+          "id": "l_1791832119337",
+          "speakerId": "khalil",
+          "speakerName": "Khalil Arida",
+          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
+        }
+      ],
+      "links": [],
+      "floorIndex": 0
     }
   ]
 }
