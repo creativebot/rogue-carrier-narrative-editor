@@ -34,12 +34,11 @@
           "rewards": [
             "🧠 Knowledge +100",
             {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
               "amount": "+4",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
+              "icon": "❤️",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [
@@ -95,5 +94,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-20T10:25:17.133609"
+  "_lastModified": "2026-10-20T10:26:33.077875"
 }
