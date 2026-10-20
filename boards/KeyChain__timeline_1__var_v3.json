@@ -32,15 +32,7 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+3",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [
             "node_1791921021620",
@@ -95,5 +87,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-20T10:27:45.751768"
+  "_lastModified": "2026-10-20T10:27:53.071954"
 }
