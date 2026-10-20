@@ -450,8 +450,7 @@
           "targetNodeId": "node_1791705255524",
           "targetNodeIds": [
             "node_1791705255524",
-            "node_1792507137321",
-            "node_1792507169221"
+            "node_1792507137321"
           ]
         }
       ],
@@ -2070,5 +2069,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:39:34.024809"
+  "_lastModified": "2026-10-20T14:39:36.714991"
 }
