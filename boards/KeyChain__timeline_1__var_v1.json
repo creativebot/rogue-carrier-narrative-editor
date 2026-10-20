@@ -906,7 +906,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -921,7 +921,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5944,
+        "x": 4218,
         "y": 3290
       },
       "actions": [
@@ -1033,12 +1033,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K4B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -1048,8 +1048,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2207,
-        "y": 3290
+        "x": 2604,
+        "y": 4890
       },
       "actions": [
         {
@@ -1181,7 +1181,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
@@ -1826,8 +1826,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3504,
-        "y": 3622
+        "x": 2668,
+        "y": 3049
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1902,8 +1902,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4918,
-        "y": 3003
+        "x": 3698,
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1978,8 +1978,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4309,
-        "y": 3601
+        "x": 2148,
+        "y": 3285
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2070,6 +2070,6 @@
       ]
     }
   ],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-20T15:58:30.116197"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-20T15:58:45.088106"
 }
