@@ -1901,7 +1901,7 @@
       "targetEventId": "node_e1b",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e1b_1",
-      "delayHours": 2,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
@@ -1998,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:35:34.019638"
+  "_lastModified": "2026-10-20T14:36:34.008033"
 }
