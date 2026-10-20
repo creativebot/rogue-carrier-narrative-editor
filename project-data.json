@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T13:40:50.492693",
+  "_lastModified": "2026-10-20T13:40:53.098291",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4801,9 +4801,9 @@
     },
     {
       "id": "diag_1791393196279",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_e1",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e1_1",
       "delayHours": 0,
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Comb island",
@@ -4822,7 +4822,15 @@
         }
       ],
       "floorIndex": 1,
-      "links": []
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e1",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e1_1",
+          "triggerCondition": "During (T1-V1-K2A) Comb island"
+        }
+      ]
     },
     {
       "id": "diag_imp_1791393401628",
