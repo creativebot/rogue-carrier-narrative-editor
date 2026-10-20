@@ -916,7 +916,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
-      "eventDescription": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water.  For now, it stays on the surface, but eventually its weight will drive it down to the bottom, making the retrieval of the orange box much more complicated.",
+      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1998,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:50:34.018929"
+  "_lastModified": "2026-10-20T14:50:55.048849"
 }
