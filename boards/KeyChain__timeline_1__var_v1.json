@@ -1830,7 +1830,7 @@
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 3698,
-        "y": 3008
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1998,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:49:19.460781"
+  "_lastModified": "2026-10-20T14:49:25.579434"
 }
