@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T13:40:23.558820",
+  "_lastModified": "2026-10-20T13:40:34.528988",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4798,31 +4798,6 @@
           "triggerCondition": "After (T1-V1-K1A) Process the data"
         }
       ]
-    },
-    {
-      "id": "diag_1791393196279",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Comb island",
-      "position": {
-        "x": -1533,
-        "y": 1774
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791393196279",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
-        }
-      ],
-      "floorIndex": 1,
-      "links": []
     },
     {
       "id": "diag_imp_1791393401628",
