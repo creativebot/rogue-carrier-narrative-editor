@@ -158,7 +158,6 @@
           "timerHours": 5,
           "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
           "rewards": [
-            "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
           "targetNodeId": "node_e1b",
@@ -2065,5 +2064,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:36:09.195115"
+  "_lastModified": "2026-10-20T13:36:13.101649"
 }
