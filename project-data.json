@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T14:49:07.037163",
+  "_lastModified": "2026-10-20T14:49:08.841461",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2862,7 +2862,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2952,41 +2952,6 @@
       ],
       "title": "The Moment After the End",
       "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792507169221",
-      "codename": "T1-V1-K3C",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "spawnConditions": "Triggered by T1-V1-K2B",
-      "eventDescription": "Enter new outcome narrative body text...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 4218,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1792507169221",
-          "codeSuffix": "A",
-          "shortDescription": "Continue",
-          "description": "Next step narrative",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "title": "The Moment After the End"
     },
     {
       "id": "node_1791717900687",
@@ -4370,6 +4335,41 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_1792507169221",
+      "codename": "T1-V1-K3C",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Triggered by T1-V1-K2B",
+      "eventDescription": "Enter new outcome narrative body text...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 4218,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1792507169221",
+          "codeSuffix": "A",
+          "shortDescription": "Continue",
+          "description": "Next step narrative",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "The Moment After the End"
     },
     {
       "id": "node_1792507137321",
