@@ -105,24 +105,13 @@
       "createdAt": "2026-10-16T12:27:41.694994Z",
       "displayTime": "2026-10-16 14:27",
       "mentions": []
-    },
-    {
-      "id": "cmt_1792495013747",
-      "targetId": "diag_imp_1791712222490",
-      "targetType": "dialogue",
-      "targetTitle": "After (T1-V1-K1A) Process the data",
-      "text": "Comment 1",
-      "author": "Tetiana Tretilova",
-      "authorEmail": "ttretilova@n-ix.com",
-      "createdAt": "2026-10-20T11:16:53.747755Z",
-      "displayTime": "2026-10-20 11:16",
-      "mentions": []
     }
   ],
   "deletedIds": [
     "cmt_1791467850374",
     "cmt_1791569583368",
     "cmt_1791569647034",
-    "cmt_1791723288305"
+    "cmt_1791723288305",
+    "cmt_1792495013747"
   ]
 }
