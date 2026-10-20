@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T10:27:45.762118",
+  "_lastModified": "2026-10-20T10:27:53.076259",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -4180,15 +4180,7 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+3",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [
             "node_1791921021620",
