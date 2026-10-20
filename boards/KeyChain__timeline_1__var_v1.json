@@ -370,17 +370,24 @@
                 {
                   "resourceId": "processing_06",
                   "name": "Basic Toolkit",
-                  "amount": 15,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png"
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
                 }
               ]
             }
           ],
           "timerHours": 6,
-          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from exploding, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. They manage to extract many components and useful implements, but not the one you hoped to find.  The orange box is not here, and it never has been. A different fragment must have carried it down here. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
+          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
           "rewards": [
             "📜 Blueprints +3",
-            "Nano Parts x15",
+            {
+              "resourceId": "processing_05",
+              "name": "Nano Parts",
+              "amount": "8",
+              "iconImg": "icons/T_Fuel_Rod.png",
+              "icon": "📦"
+            },
             "🧠 Knowledge +350"
           ],
           "targetNodeId": "node_1791706248386",
@@ -408,7 +415,7 @@
             }
           ],
           "timerHours": 3,
-          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive materials as well as their placement to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n      Luckily, the orange box isn't there. It never has been. A different fragment must have carried it down. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
+          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
           "rewards": [
             {
               "resourceId": "processing_02",
@@ -1898,8 +1905,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3540,
-        "y": 2772
+        "x": 1991,
+        "y": 2815
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1991,5 +1998,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:10:34.035012"
+  "_lastModified": "2026-10-20T14:34:29.309519"
 }
