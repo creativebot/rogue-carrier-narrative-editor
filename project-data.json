@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T13:40:53.098291",
+  "_lastModified": "2026-10-20T13:41:00.763157",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4351,40 +4351,6 @@
           "triggerTiming": "post_action",
           "triggerActionId": "c_1791297604320",
           "triggerCondition": "After (GEN-E1) Board Vessel"
-        }
-      ]
-    },
-    {
-      "id": "diag_orest",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_1",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
-      "position": {
-        "x": -23,
-        "y": 151
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "floorIndex": 0,
-      "lines": [
-        {
-          "id": "l5",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
-        }
-      ],
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_1",
-          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
         }
       ]
     },
