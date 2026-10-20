@@ -930,7 +930,21 @@
           "codeSuffix": "A",
           "shortDescription": "Use Tricorder",
           "description": "The extraction team requests a Tricoder. It is a highly versatile scanning device that can detect, analyze, and predict a wide array of information. It should be indispensable for navigating a compromised structure.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792507962988",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 4,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2030,5 +2044,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:52:34.020250"
+  "_lastModified": "2026-10-20T14:52:46.805700"
 }
