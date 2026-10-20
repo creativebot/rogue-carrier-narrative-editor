@@ -26,11 +26,26 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupAuthAndCollaborationEvents();
 
   if (isLocalEnvironment() || hasAppAccess()) {
-    await loadProjectData();
-    if (typeof syncActiveBoardLock === 'function') {
-      syncActiveBoardLock();
+    try {
+      await loadProjectData();
+    } catch (err) {
+      console.error("[Startup] Error loading project data (continuing initialization):", err);
     }
-    await loadAllCommentCounts();
+
+    if (typeof syncActiveBoardLock === 'function') {
+      try {
+        syncActiveBoardLock();
+      } catch (e) {
+        console.warn("[Startup] syncActiveBoardLock error:", e);
+      }
+    }
+
+    try {
+      await loadAllCommentCounts();
+    } catch (e) {
+      console.warn("[Startup] loadAllCommentCounts error:", e);
+    }
+
     setupCanvasEvents();
     setupPdfImportEvents();
     setupPickerEvents();

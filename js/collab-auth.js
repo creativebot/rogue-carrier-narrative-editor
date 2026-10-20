@@ -1964,7 +1964,7 @@ async function refreshActiveBoardFromServer() {
     appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoard(d, boardId, localExistingNodeIds)).concat(serverDialogues);
 
     normalizeAllProjectData();
-    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    if (typeof safeLocalStorageSet === 'function') safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData)); else try { localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData)); } catch(e){}
 
     lastLoadedBoardRevisions[boardId] = {
       boardId,

@@ -3,6 +3,53 @@
 // ============================================================================
 
 /* ==========================================================================
+   SAFE LOCALSTORAGE WRAPPER WITH AUTOMATIC QUOTA PRUNING
+   ========================================================================== */
+
+function safeLocalStorageSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch (err) {
+    console.warn(`[Storage] Quota exceeded while saving '${key}'. Pruning old snapshots to reclaim space...`, err);
+    try {
+      // 1. Trim rolling local saved versions to 2 items
+      const rawVersions = localStorage.getItem('rc_local_saved_versions');
+      if (rawVersions) {
+        try {
+          const list = JSON.parse(rawVersions);
+          if (Array.isArray(list) && list.length > 2) {
+            localStorage.setItem('rc_local_saved_versions', JSON.stringify(list.slice(-2)));
+          } else {
+            localStorage.removeItem('rc_local_saved_versions');
+          }
+        } catch (e) {
+          localStorage.removeItem('rc_local_saved_versions');
+        }
+      }
+      // 2. Remove safety backup if needed
+      localStorage.removeItem('rc_safety_backup_v26');
+
+      // Try saving again
+      localStorage.setItem(key, value);
+      return true;
+    } catch (retryErr) {
+      // If still exceeding quota, prune everything non-essential
+      try {
+        localStorage.removeItem('rc_local_saved_versions');
+        localStorage.removeItem('rc_safety_backup_v26');
+        localStorage.setItem(key, value);
+        return true;
+      } catch (finalErr) {
+        console.warn(`[Storage] LocalStorage is full and could not store '${key}' even after pruning. Continuing in memory without throwing.`, finalErr);
+        return false;
+      }
+    }
+  }
+}
+window.safeLocalStorageSet = safeLocalStorageSet;
+
+/* ==========================================================================
    DATA RECOVERY, PERSISTENCE & SAFEGUARD ARCHITECTURE
    ========================================================================== */
 
@@ -279,7 +326,7 @@ function archiveLocalSnapshot(reason, dataToArchive) {
     });
 
     if (list.length > 60) list = list.slice(0, 60);
-    localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+    safeLocalStorageSet('rc_local_saved_versions', JSON.stringify(list));
   } catch (e) {
     console.warn("archiveLocalSnapshot quota or parse error", e);
   }
@@ -378,7 +425,7 @@ function deleteLocalCandidate(candidateId) {
     if (raw) {
       let list = JSON.parse(raw);
       list = list.filter(s => s.id !== candidateId);
-      localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+      safeLocalStorageSet('rc_local_saved_versions', JSON.stringify(list));
     }
   } catch (e) {}
   loadBackupsList();
@@ -468,7 +515,7 @@ async function loadProjectData() {
     appData = serverData;
     loaded = true;
     normalizeAllProjectData();
-    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
   } else if (bestLocal) {
     // Offline or server not available, load best local
     appData = JSON.parse(JSON.stringify(bestLocal.data));
@@ -722,7 +769,7 @@ function normalizeAllProjectData() {
   });
   if (migratedLegacyVarNames) {
     try {
-      localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+      safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
       if (typeof syncProjectToDiskServer === 'function') {
         setTimeout(() => syncProjectToDiskServer(), 200);
       }
@@ -924,7 +971,7 @@ function updateAutoSaveInterval(val) {
 
 function saveProjectToLocalStorage() {
   appData._lastModified = new Date().toISOString();
-  localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+  safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
   const isReadOnly = (typeof isCurrentBoardReadOnly === 'function') 
@@ -1069,7 +1116,7 @@ async function syncBoardFromServer(boardId) {
     appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoardId(d, boardId, activeNodeIds)).concat(serverDialogues);
 
     normalizeAllProjectData();
-    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
     updateStats();
     return true;
   } catch (e) {
@@ -1103,7 +1150,7 @@ async function saveCurrentProject(isManual = false, triggerLabel = 'Save') {
 
   appData._lastModified = new Date().toISOString();
   // Always keep a local copy in browser storage as well
-  localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+  safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
   updateStats();
 
   const timeStr = new Date().toLocaleTimeString();
@@ -1249,7 +1296,7 @@ async function recordVersionSnapshot(name, author = 'Wild Fields', notify = fals
       data: versionMeta.data
     });
     if (list.length > 60) list = list.slice(0, 60);
-    localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+    safeLocalStorageSet('rc_local_saved_versions', JSON.stringify(list));
   } catch (e) {
     console.warn("localStorage version store quota reached", e);
   }
@@ -1261,7 +1308,7 @@ async function recordVersionSnapshot(name, author = 'Wild Fields', notify = fals
 
 async function saveSafetyBackup(reason) {
   try {
-    localStorage.setItem('rc_safety_backup_v26', JSON.stringify({
+    safeLocalStorageSet('rc_safety_backup_v26', JSON.stringify({
       reason,
       timestamp: new Date().toISOString(),
       data: appData
@@ -1713,7 +1760,7 @@ async function handleImportBoardFile(e) {
       appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoardId(d, selectedSaveManagerBoardId, importedNodeIds)).concat(dialogues);
 
       normalizeAllProjectData();
-      localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+      safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
       updateStats();
 
       const activeBoardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
@@ -1863,7 +1910,7 @@ async function restoreBoardVersion(saveId, saveName = 'Board Save', overrideBoar
     appData.dialogues = (appData.dialogues || []).filter(d => !dialogueBelongsToBoardId(d, boardId, restoredNodeIds)).concat(restoredDialogues);
 
     normalizeAllProjectData();
-    localStorage.setItem('rc_narrative_project_v26', JSON.stringify(appData));
+    safeLocalStorageSet('rc_narrative_project_v26', JSON.stringify(appData));
     updateStats();
 
     const activeBoardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
@@ -2046,7 +2093,7 @@ async function deleteSpecificVersion(saveId, saveName, filename) {
     if (raw) {
       let list = JSON.parse(raw);
       list = list.filter(s => s.id !== saveId);
-      localStorage.setItem('rc_local_saved_versions', JSON.stringify(list));
+      safeLocalStorageSet('rc_local_saved_versions', JSON.stringify(list));
     }
   } catch (e) {}
 
