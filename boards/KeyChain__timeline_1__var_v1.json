@@ -82,8 +82,7 @@
           "timerHours": 5,
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
-            "🧠 Knowledge +300",
-            "📜 Blueprints +1"
+            "🧠 Knowledge +300"
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
@@ -2059,5 +2058,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:35:34.043371"
+  "_lastModified": "2026-10-20T13:35:38.258074"
 }
