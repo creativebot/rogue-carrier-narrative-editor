@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T13:36:09.230796",
+  "_lastModified": "2026-10-20T13:36:13.110983",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2114,7 +2114,6 @@
           "timerHours": 5,
           "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
           "rewards": [
-            "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
           "targetNodeId": "node_e1b",
