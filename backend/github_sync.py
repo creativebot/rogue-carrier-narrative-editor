@@ -343,7 +343,69 @@ def pull_latest_from_github_on_startup():
             }, f, indent=2, ensure_ascii=False)
         print(f"[Startup] Synced {len(final_items)} {key_name} from GitHub {fname} ({len(deleted_ids)} tombstoned)")
 
-    # 4. Restore recent backup snapshots (backups/) and saves (saves/) from cloud-state
+    # 4. Restore boards from cloud-state and main to ensure all partitioned boards are up-to-date
+    boards_dir = os.path.join(DIRECTORY, 'boards')
+    os.makedirs(boards_dir, exist_ok=True)
+    for br in branches_to_check:
+        try:
+            burl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/boards?ref={br}"
+            breq = urllib.request.Request(burl, headers=headers)
+            with urllib.request.urlopen(breq, timeout=10) as bresp:
+                bitems = json.loads(bresp.read().decode('utf-8'))
+                if isinstance(bitems, list):
+                    for bit in bitems:
+                        bname = bit.get('name')
+                        if not bname or not bname.endswith('.json'):
+                            continue
+                        target_fp = os.path.join(boards_dir, bname)
+                        dl_url = bit.get('download_url') or bit.get('url')
+                        if dl_url:
+                            try:
+                                dreq = urllib.request.Request(dl_url, headers=headers)
+                                with urllib.request.urlopen(dreq, timeout=10) as dresp:
+                                    r_data = dresp.read()
+                                    try:
+                                        parsed_resp = json.loads(r_data.decode('utf-8'))
+                                        if isinstance(parsed_resp, dict) and 'content' in parsed_resp:
+                                            r_bytes = base64.b64decode(parsed_resp['content'])
+                                        else:
+                                            r_bytes = r_data
+                                    except Exception:
+                                        r_bytes = r_data
+                                    
+                                    remote_obj = json.loads(r_bytes.decode('utf-8'))
+                                    remote_mod = remote_obj.get('_lastModified', '')
+                                    remote_nodes = len(remote_obj.get('nodes', []))
+                                    
+                                    local_mod = ''
+                                    local_nodes = 0
+                                    if os.path.exists(target_fp):
+                                        try:
+                                            with open(target_fp, 'r', encoding='utf-8') as lf:
+                                                local_obj = json.load(lf)
+                                                local_mod = local_obj.get('_lastModified', '')
+                                                local_nodes = len(local_obj.get('nodes', []))
+                                        except Exception:
+                                            pass
+                                    
+                                    should_take = False
+                                    if not os.path.exists(target_fp):
+                                        should_take = True
+                                    elif remote_nodes > local_nodes:
+                                        should_take = True
+                                    elif remote_mod and local_mod and remote_mod > local_mod:
+                                        should_take = True
+                                    
+                                    if should_take:
+                                        with open(target_fp, 'wb') as wf:
+                                            wf.write(r_bytes)
+                                        print(f"[Startup] Updated board {bname} from GitHub {br} ({remote_nodes} nodes, mod: {remote_mod})")
+                            except Exception as be:
+                                print(f"[Startup] Error syncing board {bname}: {be}")
+        except Exception as e:
+            pass
+
+    # 5. Restore recent backup snapshots (backups/) and saves (saves/) from cloud-state
     for remote_dir, local_dir in (("backups", BACKUPS_DIR), ("saves", SAVES_DIR)):
         try:
             durl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{remote_dir}?ref={GITHUB_DATA_BRANCH}"

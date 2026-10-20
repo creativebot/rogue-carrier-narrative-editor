@@ -146,6 +146,61 @@ def reassemble_full_project():
                     except Exception as e:
                         print(f"[BoardStorage] Error reading board file {fn}: {e}")
 
+        # Safety safeguard: if project-data.json already exists and has valid nodes not in seen_node_ids, preserve them
+        if os.path.exists(PROJECT_FILE):
+            try:
+                with open(PROJECT_FILE, 'r', encoding='utf-8') as pf:
+                    existing_proj = json.load(pf)
+                    missing_nodes = []
+                    for n in existing_proj.get('nodes', []):
+                        if n and n.get('id') and n['id'] not in seen_node_ids:
+                            all_nodes.append(n)
+                            seen_node_ids.add(n['id'])
+                            missing_nodes.append(n)
+                    for d in existing_proj.get('dialogues', []):
+                        if d and d.get('id') and d['id'] not in seen_diag_ids:
+                            all_dialogues.append(d)
+                            seen_diag_ids.add(d['id'])
+
+                    # If any missing nodes were found, partition them into their board files
+                    if missing_nodes:
+                        for mn in missing_nodes:
+                            cat = mn.get('category') or 'KeyChain'
+                            var_id = mn.get('variationId') or 'var_v1'
+                            tl_id = mn.get('timelineId') or 'timeline_1'
+                            if cat == 'GenericPool':
+                                b_fn = 'GenericPool.json'
+                            elif cat == 'DeckPool':
+                                b_fn = 'DeckPool.json'
+                            elif cat == 'SecretChain':
+                                b_fn = f"SecretChain__{tl_id}__{var_id}.json"
+                            else:
+                                b_fn = f"KeyChain__{tl_id}__{var_id}.json"
+                            
+                            b_fp = os.path.join(BOARDS_DIR, b_fn)
+                            b_nodes = []
+                            b_diags = []
+                            if os.path.exists(b_fp):
+                                try:
+                                    with open(b_fp, 'r', encoding='utf-8') as bf:
+                                        b_json = json.load(bf)
+                                        b_nodes = b_json.get('nodes', [])
+                                        b_diags = b_json.get('dialogues', [])
+                                except Exception:
+                                    pass
+                            if not any(bn.get('id') == mn['id'] for bn in b_nodes):
+                                b_nodes.append(mn)
+                                with open(b_fp, 'w', encoding='utf-8') as bf:
+                                    json.dump({
+                                        "status": "success",
+                                        "boardId": b_fn.replace('.json', '').replace('__', ':'),
+                                        "nodes": b_nodes,
+                                        "dialogues": b_diags,
+                                        "_lastModified": datetime.now().isoformat()
+                                    }, bf, indent=2, ensure_ascii=False)
+            except Exception as e:
+                print(f"[BoardStorage] Error checking existing project file: {e}")
+
         full_project = {
             "version": meta.get("version", "2.9.2"),
             "schemaVersion": meta.get("schemaVersion", 2),
