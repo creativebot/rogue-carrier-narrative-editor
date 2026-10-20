@@ -1443,6 +1443,31 @@
       ]
     },
     {
+      "id": "diag_1791393196279",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Comb island",
+      "position": {
+        "x": -1533,
+        "y": 1774
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791393196279",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
+        }
+      ],
+      "floorIndex": 1,
+      "links": []
+    },
+    {
       "id": "diag_imp_1791393401628",
       "targetEventId": "node_e1",
       "triggerTiming": "post_action",
@@ -2031,5 +2056,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:40:34.423366"
+  "_lastModified": "2026-10-20T13:40:50.476627"
 }
