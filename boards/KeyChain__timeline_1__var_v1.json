@@ -79,17 +79,11 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 4,
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
             "🧠 Knowledge +300",
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "1",
-              "iconImg": "",
-              "icon": "📜"
-            }
+            "📜 Blueprints +1"
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
@@ -100,7 +94,7 @@
           "id": "act_e0_2",
           "codeSuffix": "B",
           "shortDescription": "Process the data",
-          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
+          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the orange box (flight recorder) should be contained.",
           "requirements": [
             {
               "id": "clause_1791299451478",
@@ -158,6 +152,7 @@
           "timerHours": 5,
           "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
           "rewards": [
+            "😊 Morale -1",
             "🧠 Knowledge +300"
           ],
           "targetNodeId": "node_e1b",
@@ -334,7 +329,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2660,
+        "x": 2664,
         "y": 1690
       },
       "actions": [
@@ -364,30 +359,22 @@
                   "resourceId": "machinery_04",
                   "name": "Basic Scanner",
                   "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
+                  "iconImg": "icons/T_Basic-Scaner.png"
                 },
                 {
                   "resourceId": "processing_06",
                   "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
+                  "amount": 15,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png"
                 }
               ]
             }
           ],
           "timerHours": 6,
-          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
+          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from exploding, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. They manage to extract many components and useful implements, but not the one you hoped to find.  The orange box is not here, and it never has been. A different fragment must have carried it down here. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
           "rewards": [
             "📜 Blueprints +3",
-            {
-              "resourceId": "processing_05",
-              "name": "Nano Parts",
-              "amount": "8",
-              "iconImg": "icons/T_Fuel_Rod.png",
-              "icon": "📦"
-            },
+            "Nano Parts x15",
             "🧠 Knowledge +350"
           ],
           "targetNodeId": "node_1791706248386",
@@ -410,12 +397,18 @@
                   "name": "Explosive Charges",
                   "amount": 3,
                   "iconImg": "icons/T_ExplosiveCharges.png"
+                },
+                {
+                  "resourceId": "synthesis_03",
+                  "name": "Chemical Fuel",
+                  "amount": 20,
+                  "iconImg": "icons/T_Chemical-Fuel.png"
                 }
               ]
             }
           ],
           "timerHours": 3,
-          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
+          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive materials as well as their placement to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n      Luckily, the orange box isn't there. It never has been. A different fragment must have carried it down. Mnemosyne will have to do the math all over again, update her calculations, and give you a new (and this time correct and final) location of the orange box.",
           "rewards": [
             {
               "resourceId": "processing_02",
@@ -906,7 +899,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -915,13 +908,13 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
-      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
+      "eventIntro": "Another mangled piece of Zephyrus has found its way down into the waters of Keeling.",
+      "eventDescription": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water.  For now, it stays on the surface, but eventually its weight will drive it down to the bottom, making the retrieval of the orange box much more complicated.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4218,
+        "x": 5462,
         "y": 3290
       },
       "actions": [
@@ -930,31 +923,11 @@
           "codeSuffix": "A",
           "shortDescription": "Use Tricorder",
           "description": "The extraction team requests a Tricoder. It is a highly versatile scanning device that can detect, analyze, and predict a wide array of information. It should be indispensable for navigating a compromised structure.",
-          "requirements": [
-            {
-              "id": "clause_1792507962988",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 3,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 3,
-          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -968,33 +941,7 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792507915803",
-          "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1006,12 +953,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K4B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -1021,8 +968,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2604,
-        "y": 4890
+        "x": 2541,
+        "y": 3290
       },
       "actions": [
         {
@@ -1045,6 +992,40 @@
     }
   ],
   "dialogues": [
+    {
+      "id": "diag_orest",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_1",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
+      "position": {
+        "x": -23,
+        "y": 151
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "floorIndex": 0,
+      "lines": [
+        {
+          "id": "l5",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
+        }
+      ],
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_1",
+          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
+        }
+      ]
+    },
     {
       "id": "diag_2b",
       "targetEventId": "node_e2b",
@@ -1230,16 +1211,50 @@
       ]
     },
     {
+      "id": "diag_1791303674022",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_2",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Process the data",
+      "position": {
+        "x": 2675,
+        "y": 278
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791303674022",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
+        }
+      ],
+      "floorIndex": 0,
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_2",
+          "triggerCondition": "During (T1-V1-K2A) Process the data"
+        }
+      ]
+    },
+    {
       "id": "diag_1791326756359",
       "targetEventId": "node_e0",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e0_1",
-      "delayHours": 2,
+      "delayHours": 3,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
-        "x": -80,
-        "y": 126
+        "x": -691,
+        "y": -62
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1373,7 +1388,7 @@
           "id": "l_imp_1791378854328_4",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "We must know what happened to Zephyrus. If we want to survive."
+          "text": "Mis right. We must know what happened to Zephyrus."
         },
         {
           "id": "l_imp_1791378854328_5",
@@ -1409,7 +1424,7 @@
           "id": "l_imp_1791378854328_10",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "No point in chasing ghosts. No, I want to know what happened and if there is someone — keyword, someone — responsible for this."
+          "text": "No point in chasing ghosts. No, I want to know what happened, and if there is someone — keyword, someone responsible for this."
         }
       ],
       "links": [
@@ -1799,8 +1814,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 3115,
-        "y": 3517
+        "x": 4879,
+        "y": 3013
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1875,8 +1890,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3698,
-        "y": 3013
+        "x": 4148,
+        "y": 2850
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -1893,7 +1908,7 @@
           "id": "l_1791713164629",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "Oh, I can... just not about the last hours of Zephyrus. That information is gone for good."
+          "text": "Oh, I can... ...just not about the last hours of Zephyrus. That information is gone for good."
         },
         {
           "id": "l_imp_1791713147554_1",
@@ -1947,12 +1962,12 @@
       "targetEventId": "node_e1b",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e1b_1",
-      "delayHours": 0.5,
+      "delayHours": 2,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 2020,
-        "y": 2809
+        "x": 3540,
+        "y": 2772
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2043,6 +2058,6 @@
       ]
     }
   ],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:55:14.343591"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-20T15:19:25.682892"
 }
