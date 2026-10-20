@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T15:56:56.637846",
+  "_lastModified": "2026-10-20T15:56:58.392300",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -2838,7 +2838,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -2965,12 +2965,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K4B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -2980,8 +2980,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2360,
-        "y": 4890
+        "x": 2668,
+        "y": 3290
       },
       "actions": [
         {
@@ -4534,7 +4534,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
