@@ -1899,7 +1899,7 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3829,
+        "x": 3698,
         "y": 3008
       },
       "variationId": "var_v1",
@@ -2068,5 +2068,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T14:41:04.941141"
+  "_lastModified": "2026-10-20T14:41:07.332252"
 }
