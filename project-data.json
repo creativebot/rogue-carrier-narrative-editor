@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T13:35:38.266349",
+  "_lastModified": "2026-10-20T13:36:09.230796",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2038,7 +2038,14 @@
           "timerHours": 5,
           "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
           "rewards": [
-            "🧠 Knowledge +300"
+            "🧠 Knowledge +300",
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "📜"
+            }
           ],
           "targetNodeId": "node_e1",
           "targetNodeIds": [
