@@ -1254,7 +1254,7 @@
       "targetEventId": "node_e0",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e0_1",
-      "delayHours": 3,
+      "delayHours": 2,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
@@ -2064,5 +2064,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-20T13:36:34.034138"
+  "_lastModified": "2026-10-20T13:36:55.134081"
 }
