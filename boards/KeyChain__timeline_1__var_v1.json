@@ -1814,12 +1814,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
-        "x": 4879,
-        "y": 3013
+        "x": 4463,
+        "y": 2043
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "lines": [
         {
@@ -2059,5 +2059,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-20T15:19:39.865016"
+  "_lastModified": "2026-10-20T15:19:42.248849"
 }
