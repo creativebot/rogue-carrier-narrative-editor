@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-20T15:58:41.676Z",
+  "_lastModified": "2026-10-20T16:33:39.083662",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5452,6 +5452,74 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_orest",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_1",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
+      "position": {
+        "x": -23,
+        "y": 151
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "floorIndex": 0,
+      "lines": [
+        {
+          "id": "l5",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "Captain, with all due respect, looking for survivors should be our highest priority. This is the only humane option we have."
+        }
+      ],
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_1",
+          "triggerCondition": "During (T1-V1-K2A) Build a transmitter"
+        }
+      ]
+    },
+    {
+      "id": "diag_1791303674022",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_2",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Process the data",
+      "position": {
+        "x": 2243,
+        "y": 138
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791303674022",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
+        }
+      ],
+      "floorIndex": 0,
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_2",
+          "triggerCondition": "During (T1-V1-K2A) Process the data"
+        }
+      ]
     }
   ]
 }
