@@ -1571,7 +1571,7 @@
     },
     {
       "id": "node_1792582814090",
-      "codename": "DECK-S1-E9",
+      "codename": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -1610,5 +1610,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:41:03.432745"
+  "_lastModified": "2026-10-21T12:14:11.608800"
 }
