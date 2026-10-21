@@ -4,9 +4,9 @@
       "daniel.poludyonny@gmail.com": {
         "name": "Daniel Poludyonny",
         "email": "daniel.poludyonny@gmail.com",
-        "seconds": 30,
+        "seconds": 60,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 30
+          "KeyChain:timeline_1:var_v1": 60
         },
         "hourly": [
           0,
@@ -19,7 +19,7 @@
           0,
           0,
           0,
-          30,
+          60,
           0,
           0,
           0,
