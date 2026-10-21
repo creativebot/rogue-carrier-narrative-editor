@@ -47,7 +47,9 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
+      "disabledVariationIds": [
+        "var_v2"
+      ],
       "title": "Hangar Deck Fire Drill"
     },
     {
@@ -668,7 +670,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792576020887",
@@ -812,10 +815,11 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:56:38.741165"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-21T10:10:09.967652"
 }
