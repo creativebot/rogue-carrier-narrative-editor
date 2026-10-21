@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:37:44.600235",
+  "_lastModified": "2026-10-21T10:37:49.285611",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1548,7 +1548,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Short goals with visible progress bars go live. Crews chase targets and celebrate quick wins.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
