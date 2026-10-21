@@ -1628,7 +1628,7 @@
         {
           "id": "act_1792584909553",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Navigation",
           "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
           "requirements": [],
           "timerHours": 5,
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:16:07.604240"
+  "_lastModified": "2026-10-21T12:16:16.752088"
 }
