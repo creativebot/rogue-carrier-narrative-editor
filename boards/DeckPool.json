@@ -731,7 +731,7 @@
         {
           "id": "act_1792576401792",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Investigate",
           "description": "Study the unexpected stowaways and learn more about the local fauna.",
           "requirements": [],
           "timerHours": 5,
@@ -747,5 +747,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:54:20.379887"
+  "_lastModified": "2026-10-21T09:54:29.473275"
 }
