@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:05:16.828095",
+  "_lastModified": "2026-10-21T09:05:27.280110",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -362,19 +362,6 @@
                   "name": "Basic Scanner",
                   "amount": 5,
                   "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792573496191",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 10,
-                  "iconImg": "icons/T_K-IV_Krill.png",
                   "icon": "📦"
                 }
               ]
