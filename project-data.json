@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:15:34.913773",
+  "_lastModified": "2026-10-21T12:15:44.321164",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1882,7 +1882,7 @@
           "id": "act_1792584908911",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Every crew member must know how to provide first aid.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
