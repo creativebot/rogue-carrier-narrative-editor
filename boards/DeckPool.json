@@ -523,7 +523,30 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -546,5 +569,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:42:50.071813"
+  "_lastModified": "2026-10-21T09:43:09.822431"
 }
