@@ -1443,6 +1443,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792580777381",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 10,
+                  "iconImg": "icons/T_Conductive-Materials.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 1,
@@ -1472,5 +1485,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:06:13.057196"
+  "_lastModified": "2026-10-21T11:06:23.755037"
 }
