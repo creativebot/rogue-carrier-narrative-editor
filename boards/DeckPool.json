@@ -749,13 +749,20 @@
           "requirements": [
             {
               "id": "clause_1792576518614",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "synthesis_03",
                   "name": "Chemical Fuel",
                   "amount": 10,
                   "iconImg": "icons/T_Chemical-Fuel.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_01",
+                  "name": "Standard Ammunition Pack",
+                  "amount": 5,
+                  "iconImg": "icons/T_StandardAmmunitionPack.png",
                   "icon": "📦"
                 }
               ]
@@ -788,5 +795,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:55:25.004056"
+  "_lastModified": "2026-10-21T09:55:36.950288"
 }
