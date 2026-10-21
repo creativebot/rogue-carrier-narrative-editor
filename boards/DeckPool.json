@@ -1746,6 +1746,14 @@
               "amount": "+5",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "spec_operations",
+              "name": "Operations Spec",
+              "amount": "+1-5",
+              "icon": "⚙️",
+              "iconImg": "",
+              "category": "Specialization"
             }
           ],
           "targetNodeIds": [],
@@ -1790,5 +1798,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:20:24.384032"
+  "_lastModified": "2026-10-21T12:20:40.272368"
 }
