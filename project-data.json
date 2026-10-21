@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:31:19.690096",
+  "_lastModified": "2026-10-21T10:31:35.226942",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1311,6 +1311,13 @@
               "posNeg": "negative",
               "description": "",
               "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+            },
+            {
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
+              "amount": "+50",
+              "icon": "❤️",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
