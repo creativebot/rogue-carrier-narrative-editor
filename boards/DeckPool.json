@@ -1620,7 +1620,13 @@
           "timerHours": 5,
           "resultDescription": "The crew undergoes a series of vigorous exercises: close combat, accuracy shooting, obstacle course traversal, and many others. The muscles throb and ache, making the next day of work a more tiring experience, but the skills learned and the knowledge gained are invaluable.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+5",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1714,5 +1720,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:18:03.013345"
+  "_lastModified": "2026-10-21T12:18:05.342377"
 }
