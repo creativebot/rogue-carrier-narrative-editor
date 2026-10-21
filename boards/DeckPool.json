@@ -146,6 +146,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792574263327",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_31_k_Algae",
+                  "name": "K-IV Algae",
+                  "amount": 10,
+                  "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -161,5 +174,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:17:38.743514"
+  "_lastModified": "2026-10-21T09:17:49.716078"
 }
