@@ -1641,6 +1641,28 @@
               "icon": "🛡️",
               "iconImg": "",
               "category": "Specialization"
+            },
+            {
+              "resourceId": "status_20_boosted_health_i",
+              "name": "Boosted Health I",
+              "rawName": "Boosted Health I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +20% for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
             }
           ],
           "targetNodeIds": [],
@@ -1760,5 +1782,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:19:07.813144"
+  "_lastModified": "2026-10-21T12:19:47.827308"
 }
