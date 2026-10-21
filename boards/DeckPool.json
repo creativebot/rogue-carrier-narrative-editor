@@ -2210,7 +2210,7 @@
     {
       "id": "node_1792586289797",
       "codename": "DECK-S1-E12 BPQ_DeckQuest_Ghost",
-      "name": "New Event Block",
+      "name": "Ghost",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -2248,5 +2248,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:39:02.964660"
+  "_lastModified": "2026-10-21T12:39:05.554496"
 }
