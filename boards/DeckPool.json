@@ -1697,6 +1697,14 @@
               "amount": "+10",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "spec_science",
+              "name": "Science Spec",
+              "amount": "+1-5",
+              "icon": "🔬",
+              "iconImg": "",
+              "category": "Specialization"
             }
           ],
           "targetNodeIds": [],
@@ -1782,5 +1790,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:20:02.971048"
+  "_lastModified": "2026-10-21T12:20:24.384032"
 }
