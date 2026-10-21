@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:26:12.589316",
+  "_lastModified": "2026-10-21T10:26:36.293512",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1243,7 +1243,21 @@
           "codeSuffix": "A",
           "shortDescription": "Allow the tournament",
           "description": "Form a committee, publish brackets, and rotate duties so coverage stays intact.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792578389912",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 5,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
