@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:37:24.021920",
+  "_lastModified": "2026-10-21T12:37:35.615035",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2417,6 +2417,19 @@
                   "name": "K-IV Algae",
                   "amount": 100,
                   "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792586249217",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_01",
+                  "name": "Med Gel",
+                  "amount": 5,
+                  "iconImg": "icons/T_Med-Gel.png",
                   "icon": "📦"
                 }
               ]
