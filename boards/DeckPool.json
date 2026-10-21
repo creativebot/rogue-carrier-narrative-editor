@@ -255,6 +255,13 @@
               "amount": "+25",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "medres_01",
+              "name": "Med Gel",
+              "amount": "10",
+              "iconImg": "icons/T_Med-Gel.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -293,5 +300,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:24:43.426819"
+  "_lastModified": "2026-10-21T09:24:56.251790"
 }
