@@ -249,7 +249,13 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+25",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -287,5 +293,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:24:38.736005"
+  "_lastModified": "2026-10-21T09:24:43.426819"
 }
