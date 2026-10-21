@@ -17,7 +17,7 @@
       "status": "approved",
       "authProvider": "google",
       "createdAt": "2026-10-08T14:08:37.207970Z",
-      "lastLogin": "2026-10-21T11:08:04.542180Z"
+      "lastLogin": "2026-10-08T14:08:37.207970Z"
     },
     {
       "email": "mlysytska@n-ix.com",
@@ -68,6 +68,16 @@
       "authProvider": "google",
       "createdAt": "2026-10-18T09:59:08.954508Z",
       "lastLogin": "2026-10-18T09:59:08.954508Z"
+    },
+    {
+      "email": "pdushynskyi@n-ix.com",
+      "name": "Petro Dushynskyi",
+      "picture": "",
+      "role": "editor",
+      "status": "approved",
+      "authProvider": "google",
+      "createdAt": "2026-10-21T12:26:58.205866Z",
+      "lastLogin": "2026-10-21T12:26:58.205866Z"
     }
   ]
 }
