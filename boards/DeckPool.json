@@ -2099,6 +2099,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792586213935",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2163,5 +2176,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:36:47.702419"
+  "_lastModified": "2026-10-21T12:37:00.281411"
 }
