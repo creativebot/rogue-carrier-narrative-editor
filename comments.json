@@ -155,6 +155,18 @@
       "createdAt": "2026-10-21T10:16:13.391354Z",
       "displayTime": "2026-10-21 10:16",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792577798540",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 2: Building receives one-time damage; 50% of integrity",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:16:38.540615Z",
+      "displayTime": "2026-10-21 10:16",
+      "mentions": []
     }
   ],
   "deletedIds": [
