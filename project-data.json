@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:16:21.320863",
+  "_lastModified": "2026-10-21T12:16:31.042124",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1871,7 +1871,7 @@
           "description": "Allow Orest to organize a self-defense training course.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew undergoes a series of vigorous exercises: close combat, accuracy shooting, obstacle course traversal, and many others. The muscles throb and ache, making the next day of work a more tiring experience, but the skills learned and the knowledge gained are invaluable.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
