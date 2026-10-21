@@ -2280,7 +2280,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The support program proved to be efficient. With the help of deep meditation, psychological guidance, and cutting edge technology, people realized that ghosts only exist in the eye of an exhausted mind and let go of those irrational fears.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_10_morale_boost_iii",
+              "name": "Morale Boost III",
+              "rawName": "Morale Boost III",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +30 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 30 for that duration (can surpass 100)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2415,5 +2438,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:26:07.710467"
+  "_lastModified": "2026-10-21T13:26:22.298069"
 }
