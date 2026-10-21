@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:19:57.390231",
+  "_lastModified": "2026-10-21T10:20:19.519641",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -980,6 +980,28 @@
             "posNeg": "positive",
             "description": "",
             "comments": "Buildings' or crew's  productivity is increased by 100 for duration fo effect."
+          },
+          {
+            "resourceId": "status_30_corrosive_mold",
+            "name": "Corrosive Mold",
+            "rawName": "Corrosive Mold",
+            "amount": "-5",
+            "hasN": true,
+            "nValue": "-5",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Corrosive Mold.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Repair, hull and buildings HP",
+            "target": "building",
+            "effect": "integrity -5 per hour for -5 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each hour, affected building loses 5 points of Integrity."
           }
         ]
       },
