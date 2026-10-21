@@ -1371,33 +1371,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1792411945714",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_crew health",
-              "name": "Crew Health",
-              "amount": "-50",
-              "icon": "❤️",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ],
       "colorScheme": "rose",
@@ -1663,5 +1636,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T15:03:21.593070"
+  "_lastModified": "2026-10-21T15:03:25.689508"
 }
