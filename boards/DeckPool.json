@@ -2481,7 +2481,7 @@
         {
           "id": "act_1792589587868",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Infiltrate the group",
           "description": "Assign a quiet volunteer to attend as a newcomer and report practices, tone, and any risks.",
           "requirements": [],
           "timerHours": 5,
@@ -2497,5 +2497,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:33:47.645585"
+  "_lastModified": "2026-10-21T13:33:54.289477"
 }
