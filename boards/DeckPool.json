@@ -1425,7 +1425,7 @@
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
+          "resultDescription": "This solution is far from ideal — the catch is modest, and the nets have done some damage to the local ecosystem. Still, it's a success.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1451,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:01:56.467636"
+  "_lastModified": "2026-10-21T11:02:35.458138"
 }
