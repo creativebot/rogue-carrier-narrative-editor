@@ -475,7 +475,13 @@
           "timerHours": 5,
           "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+25",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -513,5 +519,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:40:53.084981"
+  "_lastModified": "2026-10-21T09:41:13.340193"
 }
