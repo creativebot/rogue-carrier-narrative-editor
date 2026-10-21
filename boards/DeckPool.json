@@ -53,7 +53,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2",
-      "name": "BPQ_DeckQuest_Fishing_Adventures",
+      "name": "",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -91,5 +91,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T08:58:22.437414"
+  "_lastModified": "2026-10-21T08:58:30.448199"
 }
