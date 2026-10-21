@@ -1036,7 +1036,22 @@
           "codeSuffix": "C",
           "shortDescription": "Allow with limitations",
           "description": "For now, all we can manage is small sports competitions in the off-hours. Assign supervisors to keep it from cutting into work time.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792578447386",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 2,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "This solution is better than nothing. The competitions are good for the crew's health, and they're grateful for the gesture.",
           "rewards": [],
@@ -1048,5 +1063,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:27:22.957238"
+  "_lastModified": "2026-10-21T10:27:33.764529"
 }
