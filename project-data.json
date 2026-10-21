@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:24:21.490766",
+  "_lastModified": "2026-10-21T09:24:28.300553",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -538,7 +538,7 @@
         {
           "id": "act_1792574597209",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Recycle the crops",
           "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
           "requirements": [],
           "timerHours": 5,
