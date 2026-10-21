@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:43:51.330247",
+  "_lastModified": "2026-10-21T09:44:23.769313",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -744,7 +744,21 @@
           "codeSuffix": "A",
           "shortDescription": "Experiment",
           "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792575857368",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_39_k_Krill",
+                  "name": "K-IV Krill",
+                  "amount": 25,
+                  "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
           "rewards": [
