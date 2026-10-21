@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:17:49.729271",
+  "_lastModified": "2026-10-21T09:18:03.710926",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -416,13 +416,20 @@
             },
             {
               "id": "clause_1792574263327",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_31_k_Algae",
                   "name": "K-IV Algae",
                   "amount": 10,
                   "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_24_k_Plankton",
+                  "name": "K-IV Plankton",
+                  "amount": 10,
+                  "iconImg": "icons/T_ET_Plankton.png",
                   "icon": "📦"
                 }
               ]
