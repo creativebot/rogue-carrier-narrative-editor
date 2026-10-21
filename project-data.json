@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:27:56.055255",
+  "_lastModified": "2026-10-21T09:28:02.648874",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -584,7 +584,7 @@
           "description": "The scientists are confident they can cure the affliction.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
