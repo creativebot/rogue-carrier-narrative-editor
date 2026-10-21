@@ -1884,13 +1884,20 @@
           "requirements": [
             {
               "id": "clause_1792585844810",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "food_01",
                   "name": "Nutrient Paste",
                   "amount": 5,
                   "iconImg": "icons/T_Nutrient-Paste.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 5,
+                  "iconImg": "icons/T_Energy-Bar.png",
                   "icon": "📦"
                 }
               ]
@@ -1944,5 +1951,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:30:51.164985"
+  "_lastModified": "2026-10-21T12:31:01.389538"
 }
