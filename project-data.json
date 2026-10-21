@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:16:42.913886",
+  "_lastModified": "2026-10-21T12:16:48.813266",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1913,7 +1913,7 @@
           "description": "If stranded on the island, people should know how to craft basics, how to use available tools, and how to fix broken equipment.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Orest invites Tuuli, the Chief Engineer, to give a masterclass on survival crafting. It starts with basics, such as making a lean-to and starting a fire, and then the training gets progressively more complicated as Tuuli forces crew members to disassemble various tools and gadgets to learn how to repair them.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
