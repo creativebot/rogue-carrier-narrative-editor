@@ -2241,7 +2241,7 @@
           "id": "c_1792586289797",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Provide an online program for monitoring emotional well-being and offering support to maintain the crew's morale.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2284,5 +2284,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:41:53.324591"
+  "_lastModified": "2026-10-21T12:41:55.871248"
 }
