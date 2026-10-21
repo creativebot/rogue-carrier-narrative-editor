@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:49:29.435756",
+  "_lastModified": "2026-10-21T10:49:33.238558",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -1652,8 +1652,8 @@
       "variationId": "var_v1",
       "floorIndex": 9,
       "tier": 1,
-      "location": "in the open seaб ",
-      "spawnConditions": "in the open seaб ",
+      "location": "in the open sea, ",
+      "spawnConditions": "in the open sea, ",
       "eventIntro": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
