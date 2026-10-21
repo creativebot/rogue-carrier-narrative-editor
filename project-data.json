@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:25:10.813758",
+  "_lastModified": "2026-10-21T13:25:38.144626",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2573,7 +2573,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The sedatives improve the overall situation, though not without several side effects (apathy, lack of energy, loss of appetite, and others) that unfortunately affect general productivity.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_11_morale_stasis",
+              "name": "Morale Stasis",
+              "rawName": "Morale Stasis",
+              "amount": "1",
+              "hasN": true,
+              "nValue": "1",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Stasis.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale not changes for 1 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Morale value is frozen at the level it was when status effect has started. This effect can be overridden by bonus and debuff to morale effects."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
