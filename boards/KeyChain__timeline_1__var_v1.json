@@ -2078,8 +2078,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Build a transmitter",
       "position": {
-        "x": -23,
-        "y": 151
+        "x": -67,
+        "y": -169
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:32:38.757563"
+  "_lastModified": "2026-10-21T09:32:57.713122"
 }
