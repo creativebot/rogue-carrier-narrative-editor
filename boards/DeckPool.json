@@ -788,7 +788,22 @@
           "codeSuffix": "C",
           "shortDescription": "Investigate",
           "description": "Study the unexpected stowaways and learn more about the local fauna.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792576556282",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -802,5 +817,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:55:49.684289"
+  "_lastModified": "2026-10-21T09:56:02.662174"
 }
