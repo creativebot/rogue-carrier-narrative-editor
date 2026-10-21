@@ -90,7 +90,7 @@
           "id": "act_1792573170041",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -119,5 +119,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T08:59:47.294201"
+  "_lastModified": "2026-10-21T08:59:54.477818"
 }
