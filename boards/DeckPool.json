@@ -1577,8 +1577,8 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
-      "tier": 3,
+      "floorIndex": 11,
+      "tier": 1,
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
@@ -1593,8 +1593,8 @@
         "penalties": []
       },
       "position": {
-        "x": 2810,
-        "y": 7083
+        "x": 110,
+        "y": 7908
       },
       "actions": [
         {
@@ -2501,5 +2501,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T15:07:01.116015"
+  "_lastModified": "2026-10-21T15:07:04.889038"
 }
