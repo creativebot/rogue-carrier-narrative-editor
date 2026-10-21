@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:34:04.117848",
+  "_lastModified": "2026-10-21T12:34:15.828804",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2284,7 +2284,7 @@
         {
           "id": "c_1792585931551",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Use Prebiotic Matter",
           "description": "The doctors need a lot of Prebiotic Matter to have enough pathogenic test subjects for their research on the vaccine.",
           "requirements": [],
           "timerHours": 5,
