@@ -945,8 +945,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Game stage 2 or more, ",
-      "spawnConditions": "Game stage 2 or more, ",
+      "location": "Game stage 2 or more, Morale less then 30",
+      "spawnConditions": "Game stage 2 or more, Morale less then 30",
       "eventIntro": "Initial event context...",
       "eventDescription": "The crew wants to organize a sports tournament between the technicians and the scientists. This will take several days and will impact productivity - everyone will be involved in one way or another.",
       "reactionTimerHours": "Infinite",
@@ -976,5 +976,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:24:08.122681"
+  "_lastModified": "2026-10-21T10:24:14.025184"
 }
