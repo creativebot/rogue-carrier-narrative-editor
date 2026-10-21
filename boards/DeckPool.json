@@ -1986,7 +1986,7 @@
     },
     {
       "id": "node_1792585931551",
-      "codename": "DECK-S1-E11",
+      "codename": "DECK-S1-E11 BPQ_DeckQuest_Vaccine",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -2026,5 +2026,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:33:02.961004"
+  "_lastModified": "2026-10-21T12:33:04.017159"
 }
