@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:34:45.711859",
+  "_lastModified": "2026-10-21T12:34:57.112946",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2271,7 +2271,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "You ignored requests from the team. The “Nocebo effect” caused by continuous stress among team members regarding potential alien sickness actually worsened their natural resistance.",
         "penalties": [
           "💀 Entropy +10"
         ]
