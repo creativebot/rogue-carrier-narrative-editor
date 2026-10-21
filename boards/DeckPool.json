@@ -1828,7 +1828,7 @@
     {
       "id": "node_1792585570927",
       "codename": "DECK-S1-E10 BPQ_DeckQuest_Superchef",
-      "name": "New Event Block",
+      "name": "Superchef",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -1866,5 +1866,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:27:14.710023"
+  "_lastModified": "2026-10-21T12:27:24.305073"
 }
