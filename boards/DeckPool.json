@@ -1658,7 +1658,21 @@
           "codeSuffix": "C",
           "shortDescription": "Navigation",
           "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585035655",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 2,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
           "rewards": [
@@ -1686,5 +1700,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:17:12.546340"
+  "_lastModified": "2026-10-21T12:17:22.001435"
 }
