@@ -167,6 +167,18 @@
       "createdAt": "2026-10-21T10:16:38.540615Z",
       "displayTime": "2026-10-21 10:16",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792577956899",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 3: long time, significantly more knowledge\nProductivity Slowdown I \nProductivity -20 (target building 48h)",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:19:16.899931Z",
+      "displayTime": "2026-10-21 10:19",
+      "mentions": []
     }
   ],
   "deletedIds": [
