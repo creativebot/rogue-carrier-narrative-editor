@@ -457,7 +457,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-20",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -588,5 +596,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:43:42.617825"
+  "_lastModified": "2026-10-21T09:43:51.321091"
 }
