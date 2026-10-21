@@ -934,9 +934,47 @@
           "targetNodeId": null
         }
       ]
+    },
+    {
+      "id": "node_1792578159292",
+      "codename": "DECK-S1-E6",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 5131
+      },
+      "actions": [
+        {
+          "id": "c_1792578159292",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:22:38.741139"
+  "_lastModified": "2026-10-21T10:22:45.669616"
 }
