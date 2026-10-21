@@ -243,7 +243,7 @@
         {
           "id": "c_1792574416692",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Reverse the sickness",
           "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
           "requirements": [],
           "timerHours": 5,
@@ -287,5 +287,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:24:05.088932"
+  "_lastModified": "2026-10-21T09:24:14.585451"
 }
