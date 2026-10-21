@@ -2021,7 +2021,7 @@
           "description": "The doctors need a lot of Prebiotic Matter to have enough pathogenic test subjects for their research on the vaccine.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2062,5 +2062,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:34:25.880723"
+  "_lastModified": "2026-10-21T12:34:33.744064"
 }
