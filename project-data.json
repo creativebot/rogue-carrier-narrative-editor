@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:23:49.499138",
+  "_lastModified": "2026-10-21T09:23:57.978651",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -525,7 +525,7 @@
           "id": "act_1792574596451",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "The scientists are confident they can cure the affliction.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
