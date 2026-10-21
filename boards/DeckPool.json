@@ -1579,8 +1579,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "in the open sea, Game stage 2 or more",
-      "spawnConditions": "in the open sea, Game stage 2 or more",
+      "location": "in the open sea, Game stage 2 or more, Behemoth",
+      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -1610,5 +1610,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:14:48.491232"
+  "_lastModified": "2026-10-21T12:14:56.164270"
 }
