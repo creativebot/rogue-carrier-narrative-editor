@@ -35,6 +35,76 @@
           0
         ],
         "lastActive": "2026-10-21T10:00:00Z"
+      },
+      "volodymyr.t@n-ix.com": {
+        "name": "Volodymyr T",
+        "email": "volodymyr.t@n-ix.com",
+        "seconds": 45,
+        "boards": {
+          "DeckPool": 45
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          45,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-21T10:05:00Z"
+      },
+      "dpoludonnyi@n-ix.com": {
+        "name": "Daniel Poludyonny",
+        "email": "dpoludonnyi@n-ix.com",
+        "seconds": 30,
+        "boards": {
+          "KeyChain:timeline_1:var_v1": 30
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          30,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-21T10:25:28.024000Z"
       }
     }
   }
