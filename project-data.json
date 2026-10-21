@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:08:16.431411",
+  "_lastModified": "2026-10-21T11:08:26.421029",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -1747,20 +1747,6 @@
               "name": "K-IV Algae",
               "amount": "0-60",
               "iconImg": "icons/T_ET_Squash.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_24_k_Plankton",
-              "name": "K-IV Plankton",
-              "amount": "0-60",
-              "iconImg": "icons/T_ET_Plankton.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_40_k_AminoAc",
-              "name": "K-IV Aminoacids",
-              "amount": "0-60",
-              "iconImg": "icons/T_Amino_Acid.png",
               "icon": "📦"
             }
           ],
@@ -5887,44 +5873,6 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
-    },
-    {
-      "id": "node_1792579852717",
-      "codename": "T1-V1-K1A",
-      "name": "The Moment After the End",
-      "title": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -3637,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1792579852717",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ]
     }
   ],
   "dialogues": [
