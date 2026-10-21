@@ -497,7 +497,7 @@
         {
           "id": "act_1792575543960",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Molecular gastronomy",
           "description": "Develop a new menu with original meals to pleasantly surprise your crew.",
           "requirements": [],
           "timerHours": 5,
@@ -513,5 +513,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:39:52.969010"
+  "_lastModified": "2026-10-21T09:39:59.743519"
 }
