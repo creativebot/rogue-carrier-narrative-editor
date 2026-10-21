@@ -2467,7 +2467,7 @@
         {
           "id": "c_1792589193352",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Raid the meeting place",
           "description": "Enter with security, seize materials for inspection, and conduct individual interviews with organizers.",
           "requirements": [],
           "timerHours": 5,
@@ -2497,5 +2497,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:33:33.555477"
+  "_lastModified": "2026-10-21T13:33:47.645585"
 }
