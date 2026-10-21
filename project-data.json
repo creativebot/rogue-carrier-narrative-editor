@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:28:05.117474",
+  "_lastModified": "2026-10-21T12:28:12.314172",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2139,7 +2139,7 @@
         {
           "id": "act_1792585650554",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Consult experts",
           "description": "Invite a group of specialists to discuss and improve meal plan.",
           "requirements": [],
           "timerHours": 5,
