@@ -69,7 +69,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 0,
         "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
         "penalties": [
           {
@@ -213,5 +213,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:20:07.126515"
+  "_lastModified": "2026-10-21T09:20:09.961935"
 }
