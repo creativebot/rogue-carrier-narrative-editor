@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:06:56.619922",
+  "_lastModified": "2026-10-21T11:07:12.653615",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1727,7 +1727,15 @@
           ],
           "timerHours": 1,
           "resultDescription": "This solution is far from ideal — the catch is modest, and the nets have done some damage to the local ecosystem. Still, it's a success.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.1",
+              "iconImg": "",
+              "icon": "🌀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
