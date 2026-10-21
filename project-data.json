@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:39:01.098393",
+  "_lastModified": "2026-10-21T10:39:07.953132",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1510,28 +1510,6 @@
             "posNeg": "negative",
             "description": "",
             "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
-          },
-          {
-            "resourceId": "status_5_weakened_morale_i",
-            "name": "Weakened Morale I",
-            "rawName": "Weakened Morale I",
-            "amount": "",
-            "hasN": false,
-            "nValue": "",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Morale I.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Morale",
-            "target": "crew",
-            "effect": "Morale -2",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crewmember loses 2 morale per hour for certain time."
           }
         ]
       },
