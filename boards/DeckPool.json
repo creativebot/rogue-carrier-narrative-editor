@@ -863,7 +863,29 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "status_24_boosted_productivity_i",
+              "name": "Boosted Productivity I",
+              "rawName": "Boosted Productivity I",
+              "amount": "-20",
+              "hasN": true,
+              "nValue": "-20",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +25 for -20 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 25 for duration fo effect."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -873,5 +895,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:17:38.739005"
+  "_lastModified": "2026-10-21T10:18:14.918709"
 }
