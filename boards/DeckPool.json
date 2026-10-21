@@ -236,9 +236,9 @@
             "resourceId": "status_12_weakened_immunity_i",
             "name": "Weakened Immunity I",
             "rawName": "Weakened Immunity I",
-            "amount": "4",
+            "amount": "48",
             "hasN": true,
-            "nValue": "4",
+            "nValue": "48",
             "hasSpecies": false,
             "species": "",
             "iconImg": "icons/status_effects/Weakened Immunity I.png",
@@ -248,7 +248,7 @@
             "category": "Status Effect",
             "effectCategory": "Immunity",
             "target": "crew",
-            "effect": "Immunity -40% for 4 hours",
+            "effect": "Immunity -40% for 48 hours",
             "effectType": "Buff/Debuff",
             "posNeg": "negative",
             "description": "",
@@ -362,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:26:38.745668"
+  "_lastModified": "2026-10-21T09:27:09.643305"
 }
