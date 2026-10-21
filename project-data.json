@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:21:03.523598",
+  "_lastModified": "2026-10-21T11:25:54.120619",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1793,7 +1793,15 @@
           ],
           "timerHours": 1,
           "resultDescription": "This method has proven effective. The catch is substantial and it takes less time. The damage to the ecosystem remains, however, and cannot be ignored.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.2",
+              "iconImg": "",
+              "icon": "🌀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
