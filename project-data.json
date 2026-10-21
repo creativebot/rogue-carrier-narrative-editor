@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:16:31.042124",
+  "_lastModified": "2026-10-21T12:16:37.213513",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1885,7 +1885,7 @@
           "description": "Every crew member must know how to provide first aid.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew learns several applications of MedGel and the basics of first aid. How to stop bleeding, what to do when a heart stops, and even less extreme situations, like what to do when someone faints, are given much-needed time, so that the crew can be ready for any exigency.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
