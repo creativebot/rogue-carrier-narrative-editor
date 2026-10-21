@@ -1221,9 +1221,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "We keep the same loop and ask for patience. Engagement falls and supervisors spend time chasing basics.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
@@ -1293,5 +1291,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:37:55.227245"
+  "_lastModified": "2026-10-21T10:37:57.477354"
 }
