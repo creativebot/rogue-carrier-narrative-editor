@@ -468,8 +468,16 @@
       "eventIntro": "A wrecked escape pod is on fire. There may be survivors inside.",
       "eventDescription": "The escape pod must have crashed into the island with high enough speed, given its battered appearance. What is worse — it is now on fire. Your people start shouting to identify if there are survivors inside.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 110,
         "y": 3589
@@ -1653,6 +1661,6 @@
       ]
     }
   ],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T11:20:17.418897"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-21T15:01:01.573447"
 }
