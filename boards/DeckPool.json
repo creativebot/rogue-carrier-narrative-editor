@@ -225,8 +225,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 110,
         "y": 1827
@@ -293,5 +301,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:23:24.291477"
+  "_lastModified": "2026-10-21T09:23:26.173122"
 }
