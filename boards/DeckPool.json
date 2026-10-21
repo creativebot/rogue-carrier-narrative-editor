@@ -1305,7 +1305,7 @@
         {
           "id": "act_1792579011453",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Introduce mini-goals",
           "description": "Post visible micro-targets with end-of-shift checkoffs and small acknowledgments.",
           "requirements": [
             {
@@ -1336,5 +1336,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:39:52.899361"
+  "_lastModified": "2026-10-21T10:40:01.531887"
 }
