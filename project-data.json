@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T08:59:47.304516",
+  "_lastModified": "2026-10-21T08:59:54.487377",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -354,7 +354,7 @@
           "id": "act_1792573170041",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
