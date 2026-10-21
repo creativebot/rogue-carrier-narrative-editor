@@ -1124,6 +1124,28 @@
               "amount": "4",
               "iconImg": "",
               "icon": "📜"
+            },
+            {
+              "resourceId": "status_5_weakened_morale_i",
+              "name": "Weakened Morale I",
+              "rawName": "Weakened Morale I",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -2",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 2 morale per hour for certain time."
             }
           ],
           "targetNodeIds": [],
@@ -2479,5 +2501,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T15:52:49.917351"
+  "_lastModified": "2026-10-21T15:53:03.370555"
 }
