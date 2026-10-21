@@ -1423,7 +1423,21 @@
           "codeSuffix": "A",
           "shortDescription": "Build the Rig",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792580754661",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 10,
+                  "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 1,
           "resultDescription": "This solution is far from ideal — the catch is modest, and the nets have done some damage to the local ecosystem. Still, it's a success.",
           "rewards": [
@@ -1451,5 +1465,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:05:38.725978"
+  "_lastModified": "2026-10-21T11:06:01.033016"
 }
