@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:55:25.015165",
+  "_lastModified": "2026-10-21T09:55:36.962793",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1016,13 +1016,20 @@
           "requirements": [
             {
               "id": "clause_1792576518614",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "synthesis_03",
                   "name": "Chemical Fuel",
                   "amount": 10,
                   "iconImg": "icons/T_Chemical-Fuel.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_01",
+                  "name": "Standard Ammunition Pack",
+                  "amount": 5,
+                  "iconImg": "icons/T_StandardAmmunitionPack.png",
                   "icon": "📦"
                 }
               ]
