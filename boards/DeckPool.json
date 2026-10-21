@@ -107,7 +107,7 @@
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -119,5 +119,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:00:38.750079"
+  "_lastModified": "2026-10-21T09:00:48.019488"
 }
