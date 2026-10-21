@@ -1810,6 +1810,14 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buildings' or crew's productivity is increased by 25 for duration fo effect."
+            },
+            {
+              "resourceId": "spec_engineering",
+              "name": "Engineering Spec",
+              "amount": "+1-5",
+              "icon": "🔧",
+              "iconImg": "",
+              "category": "Specialization"
             }
           ],
           "targetNodeIds": [],
@@ -1820,5 +1828,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:22:18.287782"
+  "_lastModified": "2026-10-21T12:22:35.081696"
 }
