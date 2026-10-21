@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:24:05.104626",
+  "_lastModified": "2026-10-21T09:24:14.596539",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -510,7 +510,7 @@
         {
           "id": "c_1792574416692",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Reverse the sickness",
           "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
           "requirements": [],
           "timerHours": 5,
