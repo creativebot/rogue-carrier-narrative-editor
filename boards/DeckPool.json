@@ -718,7 +718,7 @@
           "id": "act_1792576400639",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Burn the nest, ignoring all the damage done to the building in the process.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -747,5 +747,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:53:38.744870"
+  "_lastModified": "2026-10-21T09:53:43.319026"
 }
