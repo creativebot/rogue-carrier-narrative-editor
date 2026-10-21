@@ -96,13 +96,6 @@
                   "amount": 5,
                   "iconImg": "icons/T_Basic-Scaner.png",
                   "icon": "📦"
-                },
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 10,
-                  "iconImg": "icons/T_K-IV_Krill.png",
-                  "icon": "📦"
                 }
               ]
             },
@@ -154,5 +147,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:04:25.105097"
+  "_lastModified": "2026-10-21T09:04:38.755551"
 }
