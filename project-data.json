@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:25:09.399181",
+  "_lastModified": "2026-10-21T10:25:13.995883",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1264,7 +1264,7 @@
           "id": "act_1792578290577",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "For now, all we can manage is small sports competitions in the off-hours. Assign supervisors to keep it from cutting into work time.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
