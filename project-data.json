@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T08:59:54.487377",
+  "_lastModified": "2026-10-21T09:00:10.415382",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -339,7 +339,7 @@
         {
           "id": "c_1792573049123",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Go after larger fish",
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [],
           "timerHours": 5,
