@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:39:12.139748",
+  "_lastModified": "2026-10-21T09:39:21.675706",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -737,7 +737,7 @@
           "id": "c_1792575255849",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
