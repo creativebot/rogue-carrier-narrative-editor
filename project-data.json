@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:54:58.526837",
+  "_lastModified": "2026-10-21T09:55:25.015165",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1013,7 +1013,21 @@
           "codeSuffix": "B",
           "shortDescription": "Call Hans",
           "description": "Burn the nest, ignoring all the damage done to the building in the process.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792576518614",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_03",
+                  "name": "Chemical Fuel",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chemical-Fuel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
