@@ -3,7 +3,7 @@
   "nodes": [
     {
       "id": "node_e0",
-      "codename": "T1-V1-K1B",
+      "codename": "T1-V1-K1A",
       "name": "The Moment After the End",
       "type": "Deck",
       "category": "KeyChain",
@@ -1069,44 +1069,6 @@
       ],
       "title": "The Moment After the End",
       "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792579852717",
-      "codename": "T1-V1-K1A",
-      "name": "The Moment After the End",
-      "title": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -3637,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1792579852717",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ]
     }
   ],
   "dialogues": [
@@ -1301,7 +1263,7 @@
       "triggerActionId": "act_e0_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Build a transmitter",
+      "triggerCondition": "After (T1-V1-K1A) Build a transmitter",
       "position": {
         "x": -80,
         "y": 126
@@ -1400,7 +1362,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1866,
         "y": 1554
@@ -1698,7 +1660,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K1B)",
+      "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
         "x": 1106,
         "y": -1043
@@ -1792,7 +1754,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1B) Process the data",
+      "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
         "x": 1259,
         "y": 1522
@@ -2177,5 +2139,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T10:50:55.655290"
+  "_lastModified": "2026-10-21T10:50:57.920465"
 }
