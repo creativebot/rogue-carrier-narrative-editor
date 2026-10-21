@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:26:04.210506",
+  "_lastModified": "2026-10-21T10:26:06.832751",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1223,9 +1223,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The idea stalls and becomes a running argument in breaks. Morale gains are lost and small conflicts flare up over nothing. We spend more effort cooling tempers than the event would have cost.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
