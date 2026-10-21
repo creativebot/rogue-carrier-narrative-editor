@@ -231,7 +231,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_12_weakened_immunity_i",
+            "name": "Weakened Immunity I",
+            "rawName": "Weakened Immunity I",
+            "amount": "4",
+            "hasN": true,
+            "nValue": "4",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Immunity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Immunity",
+            "target": "crew",
+            "effect": "Immunity -40% for 4 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected cremember's Immunity is reduced by 40% (rounded up)"
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -317,5 +340,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:25:38.739985"
+  "_lastModified": "2026-10-21T09:26:20.883357"
 }
