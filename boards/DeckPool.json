@@ -133,7 +133,21 @@
           "codeSuffix": "B",
           "shortDescription": "Go after small fish",
           "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792574251708",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 5,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
           "rewards": [
@@ -147,5 +161,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:15:38.749073"
+  "_lastModified": "2026-10-21T09:17:38.095505"
 }
