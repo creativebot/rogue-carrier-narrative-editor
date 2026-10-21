@@ -2468,7 +2468,7 @@
           "id": "c_1792589193352",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Enter with security, seize materials for inspection, and conduct individual interviews with organizers.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2497,5 +2497,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:33:15.169984"
+  "_lastModified": "2026-10-21T13:33:25.622638"
 }
