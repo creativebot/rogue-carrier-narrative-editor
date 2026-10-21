@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:32:26.111060",
+  "_lastModified": "2026-10-21T12:32:31.912677",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2259,8 +2259,8 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
+      "floorIndex": 1,
+      "tier": 2,
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
@@ -2269,8 +2269,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 110,
-        "y": 1008
+        "x": 1460,
+        "y": 1000
       },
       "actions": [
         {
