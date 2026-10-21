@@ -87,19 +87,6 @@
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [
             {
-              "id": "clause_1792573641961",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1792573653898",
               "isReplaceable": true,
               "items": [
@@ -153,5 +140,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:12:13.761113"
+  "_lastModified": "2026-10-21T09:12:38.515436"
 }
