@@ -1846,7 +1846,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_17_weakened_health_i",
+            "name": "Weakened Health I",
+            "rawName": "Weakened Health I",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -20% for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          }
+        ]
       },
       "position": {
         "x": 1460,
@@ -1886,5 +1909,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:28:38.900330"
+  "_lastModified": "2026-10-21T12:28:58.385287"
 }
