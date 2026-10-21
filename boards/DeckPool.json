@@ -2242,7 +2242,21 @@
           "codeSuffix": "A",
           "shortDescription": "Provide support",
           "description": "Provide an online program for monitoring emotional well-being and offering support to maintain the crew's morale.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792587122551",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 2,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2284,5 +2298,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:47:02.965274"
+  "_lastModified": "2026-10-21T12:52:08.896501"
 }
