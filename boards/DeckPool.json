@@ -777,7 +777,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "You send a group equipped with improvised spraying devices to disperse the chemical poison. It works like a charm, quickly killing the insects.\n After that, all that is left to be done is to remove the nest formation.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -938,5 +938,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:21:39.691887"
+  "_lastModified": "2026-10-21T10:21:54.662339"
 }
