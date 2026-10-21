@@ -177,7 +177,13 @@
           "timerHours": 5,
           "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+50",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -187,5 +193,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:18:38.736295"
+  "_lastModified": "2026-10-21T09:18:48.214548"
 }
