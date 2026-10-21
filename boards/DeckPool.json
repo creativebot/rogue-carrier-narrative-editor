@@ -515,6 +515,13 @@
                   "amount": 25,
                   "iconImg": "icons/T_OmniFruit.png",
                   "icon": "📦"
+                },
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 25,
+                  "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
                 }
               ]
             }
@@ -637,5 +644,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:45:15.525074"
+  "_lastModified": "2026-10-21T09:45:30.201709"
 }
