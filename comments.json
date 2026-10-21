@@ -143,6 +143,18 @@
       "createdAt": "2026-10-21T09:42:25.600316Z",
       "displayTime": "2026-10-21 09:42",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792577773391",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 1: Building is intact,  Biological samples (special relict)?",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:16:13.391354Z",
+      "displayTime": "2026-10-21 10:16",
+      "mentions": []
     }
   ],
   "deletedIds": [
