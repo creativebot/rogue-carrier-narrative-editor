@@ -2032,7 +2032,7 @@
           "id": "act_1792586005796",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "The researches want to study the Krill, believing them to be perfect carriers of pathogens.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2062,5 +2062,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:33:37.384157"
+  "_lastModified": "2026-10-21T12:33:45.372409"
 }
