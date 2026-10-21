@@ -1050,6 +1050,20 @@
                   "category": "Specialization"
                 }
               ]
+            },
+            {
+              "id": "clause_1792578456230",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 2,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -1063,5 +1077,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:27:38.734793"
+  "_lastModified": "2026-10-21T10:27:42.626702"
 }
