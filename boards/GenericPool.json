@@ -1180,7 +1180,7 @@
       "category": "GenericPool",
       "variationId": "var_v1",
       "floorIndex": 0,
-      "tier": 3,
+      "tier": 4,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
@@ -1189,8 +1189,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2810,
-        "y": 213
+        "x": 4160,
+        "y": 289
       },
       "actions": [
         {
@@ -1653,6 +1653,6 @@
       ]
     }
   ],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-19T14:48:58.425212"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-21T11:10:13.396206"
 }
