@@ -1686,7 +1686,21 @@
           "codeSuffix": "D",
           "shortDescription": "Craft",
           "description": "If stranded on the island, people should know how to craft basics, how to use available tools, and how to fix broken equipment.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585044545",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 2,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Orest invites Tuuli, the Chief Engineer, to give a masterclass on survival crafting. It starts with basics, such as making a lean-to and starting a fire, and then the training gets progressively more complicated as Tuuli forces crew members to disassemble various tools and gadgets to learn how to repair them.",
           "rewards": [
@@ -1700,5 +1714,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:17:22.001435"
+  "_lastModified": "2026-10-21T12:17:30.895609"
 }
