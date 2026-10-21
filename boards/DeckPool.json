@@ -272,7 +272,7 @@
           "id": "act_1792574597209",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -287,5 +287,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:23:57.969817"
+  "_lastModified": "2026-10-21T09:24:05.088932"
 }
