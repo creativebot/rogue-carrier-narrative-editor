@@ -281,25 +281,11 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1792574597907",
-          "codeSuffix": "D",
-          "shortDescription": "Choice D",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ]
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:23:26.173122"
+  "_lastModified": "2026-10-21T09:23:31.807375"
 }
