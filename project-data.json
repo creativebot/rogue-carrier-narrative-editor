@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:44:40.520876",
+  "_lastModified": "2026-10-21T09:45:00.948831",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -761,6 +761,19 @@
                   "name": "K-IV Aminoacids",
                   "amount": 25,
                   "iconImg": "icons/T_Amino_Acid.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792575894558",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_33",
+                  "name": "Protein Mass",
+                  "amount": 25,
+                  "iconImg": "icons/T_HPYeast.png",
                   "icon": "📦"
                 }
               ]
