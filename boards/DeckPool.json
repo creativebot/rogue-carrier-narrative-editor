@@ -2444,8 +2444,8 @@
       "variationId": "var_v1",
       "floorIndex": 4,
       "tier": 2,
-      "location": "Game stage 2 or more",
-      "spawnConditions": "Game stage 2 or more",
+      "location": "Game stage 2 or more, Housing",
+      "spawnConditions": "Game stage 2 or more, Housing",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -2475,5 +2475,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:33:02.952374"
+  "_lastModified": "2026-10-21T13:33:07.330079"
 }
