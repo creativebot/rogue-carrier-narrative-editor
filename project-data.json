@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:36:29.115629",
+  "_lastModified": "2026-10-21T12:36:39.918877",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2294,6 +2294,19 @@
                   "name": "Prebiotic Matter",
                   "amount": 100,
                   "iconImg": "icons/T_Prebiotic.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792586193474",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_03",
+                  "name": "Stem Tissue",
+                  "amount": 5,
+                  "iconImg": "icons/T_Stem-Tissue.png",
                   "icon": "📦"
                 }
               ]
