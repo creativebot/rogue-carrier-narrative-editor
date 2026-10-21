@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:34:57.112946",
+  "_lastModified": "2026-10-21T12:35:02.812850",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2272,9 +2272,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "You ignored requests from the team. The “Nocebo effect” caused by continuous stress among team members regarding potential alien sickness actually worsened their natural resistance.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
