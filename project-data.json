@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:04:47.640180",
+  "_lastModified": "2026-10-21T11:04:48.232467",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1705,7 +1705,7 @@
           "shortDescription": "Build the Advanced Rig",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 1,
           "resultDescription": "This method has proven effective. The catch is substantial and it takes less time. The damage to the ecosystem remains, however, and cannot be ignored.",
           "rewards": [
             "🧠 Knowledge +100"
