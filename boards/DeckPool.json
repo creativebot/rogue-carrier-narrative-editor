@@ -956,9 +956,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The idea stalls and becomes a running argument in breaks. Morale gains are lost and small conflicts flare up over nothing. We spend more effort cooling tempers than the event would have cost.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
@@ -1012,5 +1010,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:26:04.201733"
+  "_lastModified": "2026-10-21T10:26:06.822905"
 }
