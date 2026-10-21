@@ -469,7 +469,7 @@
         {
           "id": "c_1792575255849",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Experiment",
           "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
           "requirements": [],
           "timerHours": 5,
@@ -513,5 +513,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:39:38.738929"
+  "_lastModified": "2026-10-21T09:39:47.281020"
 }
