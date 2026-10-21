@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:14:14.256879",
+  "_lastModified": "2026-10-21T10:14:36.113445",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1009,6 +1009,28 @@
               "amount": "+25",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "50",
+              "hasN": true,
+              "nValue": "50",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 50 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
             }
           ],
           "targetNodeIds": [],
