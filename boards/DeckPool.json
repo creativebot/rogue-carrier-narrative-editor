@@ -1554,6 +1554,13 @@
               "amount": "60-120",
               "iconImg": "icons/T_K-IV_Krill.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_40_k_AminoAc",
+              "name": "K-IV Aminoacids",
+              "amount": "60-120",
+              "iconImg": "icons/T_Amino_Acid.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1565,5 +1572,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:39:22.706613"
+  "_lastModified": "2026-10-21T11:39:39.143702"
 }
