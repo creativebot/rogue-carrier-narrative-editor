@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:49:07.973935",
+  "_lastModified": "2026-10-21T10:49:13.737718",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1690,7 +1690,7 @@
           "id": "act_1792579735218",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
