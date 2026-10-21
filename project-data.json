@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:24:14.542735",
+  "_lastModified": "2026-10-21T13:24:19.416459",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2609,7 +2609,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "There is, indeed, a disembodied voice that haunts the halls of the ship. An unsanctioned AI Core was installed within the ship's systems and made invisible even to Mnemosyne. When it happened, or who is responsible for this crime, remains unanswered. But this AI agent is the one spreading disturbing ideas and sowing seeds of doubt in the minds of your crew.  The AI core is removed. And the mysterious ghost is no more.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
