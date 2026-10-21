@@ -2005,9 +2005,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "You ignored requests from the team. The “Nocebo effect” caused by continuous stress among team members regarding potential alien sickness actually worsened their natural resistance.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
@@ -2062,5 +2060,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:34:57.067891"
+  "_lastModified": "2026-10-21T12:35:02.743927"
 }
