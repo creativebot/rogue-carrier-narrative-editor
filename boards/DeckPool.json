@@ -1600,7 +1600,7 @@
         {
           "id": "c_1792582814090",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Combat",
           "description": "Allow Orest to organize a self-defense training course.",
           "requirements": [],
           "timerHours": 5,
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:15:54.283553"
+  "_lastModified": "2026-10-21T12:16:02.121879"
 }
