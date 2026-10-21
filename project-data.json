@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:09:47.574966",
+  "_lastModified": "2026-10-21T09:09:53.212668",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -362,13 +362,6 @@
                   "name": "Basic Scanner",
                   "amount": 5,
                   "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_40_k_AminoAc",
-                  "name": "K-IV Aminoacids",
-                  "amount": 10,
-                  "iconImg": "icons/T_Amino_Acid.png",
                   "icon": "📦"
                 }
               ]
