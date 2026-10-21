@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:28:02.648874",
+  "_lastModified": "2026-10-21T09:28:08.631440",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -611,7 +611,7 @@
           "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
           "rewards": [
             {
               "resourceId": "synthesis_03",
