@@ -1643,7 +1643,7 @@
           "id": "act_1792584910285",
           "codeSuffix": "D",
           "shortDescription": "Choice D",
-          "description": "Description for action choice D...",
+          "description": "If stranded on the island, people should know how to craft basics, how to use available tools, and how to fix broken equipment.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:15:49.904553"
+  "_lastModified": "2026-10-21T12:15:54.283553"
 }
