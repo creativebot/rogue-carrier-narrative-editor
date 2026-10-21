@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:41:49.725723",
+  "_lastModified": "2026-10-21T12:41:53.415236",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2489,8 +2489,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "A crew member tried to jump over the safety rail and disappear into the water. \n A severely depressed individual, who attempted a one-way dive into the water, has been admitted to the health center. At first, the man is taciturn when questioned about his well-being. Later, he expresses his unwillingness to continue with this 'farce.' \"It is all pointless,\" he says. \"He is right. The sooner it ends, the better.\" He does not explain who is right...\nThis man is not alone in his misery. Lately, the halls are full of dark, despondent whispers. And there seems to be someone responsible for the spread of this despair... You hear rumors of a ghost, of a lonely voice echoing in the halls.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 1934
