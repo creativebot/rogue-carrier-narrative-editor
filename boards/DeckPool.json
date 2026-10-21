@@ -558,7 +558,30 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_3_better_taste",
+              "name": "Better Taste",
+              "rawName": "Better Taste",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Better Taste.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food Morale bonuses x2 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each bous to morale received from food is doubled."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -567,5 +590,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:43:24.998745"
+  "_lastModified": "2026-10-21T09:43:38.240641"
 }
