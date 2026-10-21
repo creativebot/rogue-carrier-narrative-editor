@@ -1615,7 +1615,7 @@
           "id": "act_1792584908911",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Every crew member must know how to provide first aid.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:15:34.858106"
+  "_lastModified": "2026-10-21T12:15:44.309484"
 }
