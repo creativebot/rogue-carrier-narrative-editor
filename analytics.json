@@ -4,11 +4,11 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 252,
+        "seconds": 255,
         "boards": {
           "GenericPool": 158,
           "KeyChain:timeline_1:var_v1": 72,
-          "DeckPool": 22
+          "DeckPool": 25
         },
         "hourly": [
           0,
@@ -24,7 +24,7 @@
           91,
           161,
           0,
-          0,
+          3,
           0,
           0,
           0,
@@ -36,14 +36,14 @@
           0,
           0
         ],
-        "lastActive": "2026-10-21T11:20:46.510000Z"
+        "lastActive": "2026-10-21T13:18:56.236000Z"
       },
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 1933,
+        "seconds": 1934,
         "boards": {
-          "DeckPool": 1933
+          "DeckPool": 1934
         },
         "hourly": [
           0,
@@ -59,7 +59,7 @@
           0,
           139,
           1646,
-          148,
+          149,
           0,
           0,
           0,
@@ -71,7 +71,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-21T13:13:26.851000Z"
+        "lastActive": "2026-10-21T13:13:56.720000Z"
       },
       "pdushynskyi@n-ix.com": {
         "name": "Petro Dushynskyi",
