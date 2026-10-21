@@ -2284,7 +2284,21 @@
           "codeSuffix": "B",
           "shortDescription": "Sedate the crew",
           "description": "Distribute sedatives to the team to help them cope with irrational fears. This might have negative impact on their productivity.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792587141997",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 2,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2312,5 +2326,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:52:17.305702"
+  "_lastModified": "2026-10-21T12:52:28.337223"
 }
