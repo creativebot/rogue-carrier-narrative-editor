@@ -1632,7 +1632,7 @@
           "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:16:37.194626"
+  "_lastModified": "2026-10-21T12:16:42.900250"
 }
