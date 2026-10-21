@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:37:57.486722",
+  "_lastModified": "2026-10-21T10:38:20.416957",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1488,7 +1488,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "We keep the same loop and ask for patience. Engagement falls and supervisors spend time chasing basics.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_27_productivity_slowdown_i",
+            "name": "Productivity Slowdown I",
+            "rawName": "Productivity Slowdown I",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -20 for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 110,
