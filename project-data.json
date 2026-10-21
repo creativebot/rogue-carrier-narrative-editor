@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:49:03.136092",
+  "_lastModified": "2026-10-21T10:49:07.973935",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1676,7 +1676,7 @@
           "id": "c_1792579368503",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
