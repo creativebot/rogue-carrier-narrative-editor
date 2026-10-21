@@ -950,8 +950,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "The crew wants to organize a sports tournament between the technicians and the scientists. This will take several days and will impact productivity - everyone will be involved in one way or another.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 110,
         "y": 5131
@@ -1004,5 +1012,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:24:56.958324"
+  "_lastModified": "2026-10-21T10:24:58.257113"
 }
