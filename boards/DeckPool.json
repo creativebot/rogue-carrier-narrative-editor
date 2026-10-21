@@ -301,6 +301,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792574936978",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -376,5 +389,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:28:52.015424"
+  "_lastModified": "2026-10-21T09:29:03.390271"
 }
