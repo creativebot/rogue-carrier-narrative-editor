@@ -87,19 +87,6 @@
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [
             {
-              "id": "clause_1792573653898",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 10,
-                  "iconImg": "icons/T_K-IV_Krill.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1792573666866",
               "isReplaceable": true,
               "items": [
@@ -140,5 +127,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:12:38.749979"
+  "_lastModified": "2026-10-21T09:12:39.650983"
 }
