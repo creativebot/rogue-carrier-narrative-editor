@@ -63,7 +63,7 @@
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "A few crewmembers come up to you with an unusual request. Passionate intergalactic fishermen, who have fished on every fish-inhabiting planet, want to borrow a freighter craft for their favorite activity.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -113,5 +113,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:01:38.746800"
+  "_lastModified": "2026-10-21T09:01:51.217315"
 }
