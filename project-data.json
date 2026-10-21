@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:35:12.850591",
+  "_lastModified": "2026-10-21T12:35:17.106571",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2302,7 +2302,13 @@
           "timerHours": 5,
           "resultDescription": "The doctors do not manage to develop vaccine, however, the knowledge they gathered through research can be valuable in deepening comprehension of Keeling-IV ecosystems.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+75",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
