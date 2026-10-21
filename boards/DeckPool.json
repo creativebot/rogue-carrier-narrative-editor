@@ -1378,7 +1378,7 @@
     {
       "id": "node_1792579368503",
       "codename": "DECK-S1-E8 BPQ_DeckQuest_Fishing_Rig",
-      "name": "New Event Block",
+      "name": "Trawl Rig",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -1416,5 +1416,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:47:54.693930"
+  "_lastModified": "2026-10-21T10:48:11.841081"
 }
