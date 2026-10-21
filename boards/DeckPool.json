@@ -65,8 +65,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 110,
         "y": 821
@@ -119,5 +127,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:00:48.019488"
+  "_lastModified": "2026-10-21T09:01:00.858955"
 }
