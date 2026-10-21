@@ -2021,7 +2021,13 @@
           "timerHours": 5,
           "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2072,5 +2078,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:35:17.092602"
+  "_lastModified": "2026-10-21T12:35:24.069338"
 }
