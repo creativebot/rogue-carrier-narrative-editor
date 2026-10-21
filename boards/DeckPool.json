@@ -2049,7 +2049,7 @@
           "description": "The pathogens can be found in the Algae. The doctors need plenty of test subjects for their work on the vaccine.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2062,5 +2062,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:34:39.235552"
+  "_lastModified": "2026-10-21T12:34:45.663501"
 }
