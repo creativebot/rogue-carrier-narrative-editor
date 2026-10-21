@@ -1187,6 +1187,13 @@
             "amount": "-1",
             "icon": "👨‍🚀",
             "iconImg": ""
+          },
+          {
+            "resourceId": "stat_crew health",
+            "name": "Crew Health",
+            "amount": "-50",
+            "icon": "❤️",
+            "iconImg": ""
           }
         ]
       },
@@ -1656,5 +1663,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T15:03:13.018961"
+  "_lastModified": "2026-10-21T15:03:21.593070"
 }
