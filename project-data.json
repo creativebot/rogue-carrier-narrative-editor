@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:25:33.096713",
+  "_lastModified": "2026-10-21T09:26:20.894259",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -498,7 +498,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_12_weakened_immunity_i",
+            "name": "Weakened Immunity I",
+            "rawName": "Weakened Immunity I",
+            "amount": "4",
+            "hasN": true,
+            "nValue": "4",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Immunity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Immunity",
+            "target": "crew",
+            "effect": "Immunity -40% for 4 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected cremember's Immunity is reduced by 40% (rounded up)"
+          }
+        ]
       },
       "position": {
         "x": 110,
