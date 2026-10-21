@@ -690,7 +690,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The insects manage to find their way out of the locked-down building and attack the crew. Luckily, their stings cannot penetrate the safety suits and present no threat. A small number of wasps that have escaped are soon found and killed.\n It is not so easy to do with those in the nest inside the facility. As a result, the future shifts working there should spend some of their time fighting off the annoying insects.",
         "penalties": [
           {
             "resourceId": "status_29_productivity_slowdown_iii",
@@ -938,5 +938,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:22:09.422641"
+  "_lastModified": "2026-10-21T10:22:15.861825"
 }
