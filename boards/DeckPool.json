@@ -317,7 +317,7 @@
           "description": "The scientists are confident they can cure the affliction.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -362,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:27:56.043487"
+  "_lastModified": "2026-10-21T09:28:02.628553"
 }
