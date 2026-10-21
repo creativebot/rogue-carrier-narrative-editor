@@ -1230,7 +1230,7 @@
         {
           "id": "l19",
           "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
+          "speakerName": "Tuuli Kantola",
           "text": "Captain, we got the orange box! But... it doesn't have anything about the last ten minutes."
         },
         {
@@ -1242,7 +1242,7 @@
         {
           "id": "l21",
           "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
+          "speakerName": "Tuuli Kantola",
           "text": "I can't see how an outside force could have paralyzed Zephyrus's entire nervous system."
         }
       ],
@@ -1638,7 +1638,7 @@
         {
           "id": "l_1791402455441",
           "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
+          "speakerName": "Tuuli Kantola",
           "text": "Let's stay focused on the pod. The Reckon Craft cargo space is limited and we will need all the gear we can get."
         }
       ],
@@ -1919,7 +1919,7 @@
         {
           "id": "l_1791713164629",
           "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
+          "speakerName": "Tuuli Kantola",
           "text": "Oh, I can... just not about the last hours of Zephyrus. That information is gone for good."
         },
         {
@@ -1931,7 +1931,7 @@
         {
           "id": "l_1791713183341",
           "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
+          "speakerName": "Tuuli Kantola",
           "text": "I can't tell. The casing was ruptured. The contents damaged. Could've happened at various points of its fall."
         },
         {
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T15:09:26.689869"
+  "_lastModified": "2026-10-21T15:29:04.891759"
 }
