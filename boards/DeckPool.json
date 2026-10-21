@@ -230,7 +230,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "It appears that some of the infected crops have wound up in the kitchen. Stomach aches, fever, and diarrhea are now the common afflictions among the crew.",
         "penalties": [
           {
             "resourceId": "status_12_weakened_immunity_i",
@@ -362,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:28:08.618066"
+  "_lastModified": "2026-10-21T09:28:15.238504"
 }
