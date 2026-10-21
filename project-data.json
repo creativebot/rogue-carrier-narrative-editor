@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:16:37.213513",
+  "_lastModified": "2026-10-21T12:16:42.913886",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1899,7 +1899,7 @@
           "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
