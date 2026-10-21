@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:17:30.913064",
+  "_lastModified": "2026-10-21T12:17:48.902449",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1856,7 +1856,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The training course remains a missed opportunity.",
         "penalties": []
       },
       "position": {
