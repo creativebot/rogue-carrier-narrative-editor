@@ -53,7 +53,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "",
+      "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -208,7 +208,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792574416692",
@@ -432,10 +433,49 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792575255849",
+      "codename": "DECK-S1-E4",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 2816
+      },
+      "actions": [
+        {
+          "id": "c_1792575255849",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
       ]
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:30:38.736170"
+  "_lastModified": "2026-10-21T09:34:22.235156"
 }
