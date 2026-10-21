@@ -501,7 +501,7 @@
           "description": "Develop a new menu with original meals to pleasantly surprise your crew.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -513,5 +513,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:40:40.087670"
+  "_lastModified": "2026-10-21T09:40:45.617176"
 }
