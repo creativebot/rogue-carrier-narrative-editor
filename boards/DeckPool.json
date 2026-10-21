@@ -1858,7 +1858,7 @@
         {
           "id": "c_1792585570927",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Host cooking contest",
           "description": "Organize competition between crewmembers, use winning recipe.",
           "requirements": [],
           "timerHours": 5,
@@ -1888,5 +1888,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:28:02.963025"
+  "_lastModified": "2026-10-21T12:28:05.038960"
 }
