@@ -1044,6 +1044,13 @@
               "posNeg": "negative",
               "description": "",
               "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+            },
+            {
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
+              "amount": "+50",
+              "icon": "❤️",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -1136,5 +1143,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:31:19.628725"
+  "_lastModified": "2026-10-21T10:31:35.213858"
 }
