@@ -220,8 +220,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Specific building, ",
+      "spawnConditions": "Specific building, ",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -251,5 +251,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:22:38.743557"
+  "_lastModified": "2026-10-21T09:22:46.545391"
 }
