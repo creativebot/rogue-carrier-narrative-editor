@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:02:43.723284",
+  "_lastModified": "2026-10-21T11:02:50.123515",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1669,7 +1669,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The proposal stalls without a decision. Arguments flare, and the whole thing settles into another background grievance.",
         "penalties": [
           {
             "resourceId": "stat_morale",
