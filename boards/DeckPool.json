@@ -2311,9 +2311,9 @@
               "resourceId": "status_11_morale_stasis",
               "name": "Morale Stasis",
               "rawName": "Morale Stasis",
-              "amount": "1",
+              "amount": "24",
               "hasN": true,
-              "nValue": "1",
+              "nValue": "24",
               "hasSpecies": false,
               "species": "",
               "iconImg": "icons/status_effects/Morale Stasis.png",
@@ -2323,7 +2323,7 @@
               "category": "Status Effect",
               "effectCategory": "Morale",
               "target": "crew",
-              "effect": "Morale not changes for 1 hours",
+              "effect": "Morale not changes for 24 hours",
               "effectType": "Buff/Debuff",
               "posNeg": "positive",
               "description": "",
@@ -2393,5 +2393,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:25:38.130986"
+  "_lastModified": "2026-10-21T13:25:49.803149"
 }
