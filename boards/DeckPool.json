@@ -1137,6 +1137,13 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "📜"
             }
           ],
           "targetNodeIds": [],
@@ -1438,5 +1445,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:50:38.741505"
+  "_lastModified": "2026-10-21T10:57:03.242544"
 }
