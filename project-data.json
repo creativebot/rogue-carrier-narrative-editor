@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:37:00.474084",
+  "_lastModified": "2026-10-21T10:37:05.394491",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1501,7 +1501,7 @@
           "id": "c_1792578968136",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Swap task blocks between teams to break routine while keeping coverage intact.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
