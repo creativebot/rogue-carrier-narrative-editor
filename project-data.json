@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:15:54.311549",
+  "_lastModified": "2026-10-21T12:16:02.216916",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1867,7 +1867,7 @@
         {
           "id": "c_1792582814090",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Combat",
           "description": "Allow Orest to organize a self-defense training course.",
           "requirements": [],
           "timerHours": 5,
