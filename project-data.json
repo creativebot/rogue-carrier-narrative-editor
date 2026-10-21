@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:34:15.828804",
+  "_lastModified": "2026-10-21T12:34:20.816193",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2298,7 +2298,7 @@
         {
           "id": "act_1792586005796",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Study Krill",
           "description": "The researches want to study the Krill, believing them to be perfect carriers of pathogens.",
           "requirements": [],
           "timerHours": 5,
