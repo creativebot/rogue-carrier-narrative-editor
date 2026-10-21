@@ -1838,7 +1838,7 @@
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "A group of crew members is interested in improving the taste of their usual chow. The texture and flavor of their issued meals feel off, and they ask to improve the recipe.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1866,5 +1866,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:27:24.305073"
+  "_lastModified": "2026-10-21T12:27:34.791945"
 }
