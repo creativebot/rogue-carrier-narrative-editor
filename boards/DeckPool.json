@@ -982,7 +982,7 @@
         {
           "id": "act_1792578289767",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Deny the tournament",
           "description": "Cancel the event with a clear memo, and assemble a team of qualified specialists for a one-day lab challenge instead.",
           "requirements": [],
           "timerHours": 5,
@@ -1012,5 +1012,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:25:21.713810"
+  "_lastModified": "2026-10-21T10:25:28.009280"
 }
