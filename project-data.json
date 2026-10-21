@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:37:55.236954",
+  "_lastModified": "2026-10-21T10:37:57.486722",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1488,9 +1488,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "We keep the same loop and ask for patience. Engagement falls and supervisors spend time chasing basics.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
