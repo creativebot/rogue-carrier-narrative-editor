@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:54:08.451520",
+  "_lastModified": "2026-10-21T09:54:20.389891",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -984,7 +984,7 @@
         {
           "id": "act_1792576400639",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Call Hans",
           "description": "Burn the nest, ignoring all the damage done to the building in the process.",
           "requirements": [],
           "timerHours": 5,
