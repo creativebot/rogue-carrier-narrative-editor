@@ -1582,7 +1582,7 @@
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Orest Demchuck, Security Force Commanding Officer, wants to lead a special training course on survival for the crew.\nYour head of scouts is adamant about the necessity of such training. \"Do I really need to explain the benefits of survival skills? We are on an alien planet with a thousand elaborate ways to kill us. How to defend oneself, how to patch up your wounded crew member, how to make fire out of mud and sticks, how to navigate by stars, how to… I mean, the list can go on. All these how-tos can tip the scales between life and death in the former's favor. And give us another day to make something out of the situation we are in.\"",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -1610,5 +1610,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:15:02.971588"
+  "_lastModified": "2026-10-21T12:15:05.109233"
 }
