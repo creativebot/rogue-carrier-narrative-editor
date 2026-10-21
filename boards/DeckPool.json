@@ -1248,7 +1248,7 @@
           "id": "act_1792579011453",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Post visible micro-targets with end-of-shift checkoffs and small acknowledgments.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1263,5 +1263,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:37:05.378339"
+  "_lastModified": "2026-10-21T10:37:10.545217"
 }
