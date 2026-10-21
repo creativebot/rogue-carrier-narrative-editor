@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:54:44.318141",
+  "_lastModified": "2026-10-21T09:54:58.526837",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -982,6 +982,19 @@
                   "name": "Composite Enzymes",
                   "amount": 10,
                   "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792576492141",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
                   "icon": "📦"
                 }
               ]
