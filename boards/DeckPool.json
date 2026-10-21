@@ -682,7 +682,7 @@
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -711,5 +711,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:52:42.116249"
+  "_lastModified": "2026-10-21T09:53:16.299127"
 }
