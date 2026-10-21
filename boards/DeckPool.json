@@ -717,7 +717,7 @@
         {
           "id": "act_1792576400639",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Call Hans",
           "description": "Burn the nest, ignoring all the damage done to the building in the process.",
           "requirements": [],
           "timerHours": 5,
@@ -747,5 +747,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:54:08.438887"
+  "_lastModified": "2026-10-21T09:54:20.379887"
 }
