@@ -2312,7 +2312,21 @@
           "codeSuffix": "C",
           "shortDescription": "Find the ghost",
           "description": "Use trained personnel and professional equipment to perform deep scanning of the hallways and interior infrastructure.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792587150761",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_05",
+                  "name": "Tricoder",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tricoder.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2326,5 +2340,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:52:28.337223"
+  "_lastModified": "2026-10-21T12:52:37.106343"
 }
