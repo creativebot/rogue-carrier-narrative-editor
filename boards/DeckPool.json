@@ -2299,9 +2299,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The sedatives improve the overall situation, though not without several side effects (apathy, lack of energy, loss of appetite, and others) that unfortunately affect general productivity.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2352,5 +2350,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:24:35.774022"
+  "_lastModified": "2026-10-21T13:24:38.705617"
 }
