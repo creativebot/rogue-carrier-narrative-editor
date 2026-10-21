@@ -149,13 +149,20 @@
             },
             {
               "id": "clause_1792574263327",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_31_k_Algae",
                   "name": "K-IV Algae",
                   "amount": 10,
                   "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_24_k_Plankton",
+                  "name": "K-IV Plankton",
+                  "amount": 10,
+                  "iconImg": "icons/T_ET_Plankton.png",
                   "icon": "📦"
                 }
               ]
@@ -174,5 +181,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:17:49.716078"
+  "_lastModified": "2026-10-21T09:18:03.700966"
 }
