@@ -523,9 +523,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -548,5 +546,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:42:38.742891"
+  "_lastModified": "2026-10-21T09:42:50.071813"
 }
