@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:32:57.724250",
+  "_lastModified": "2026-10-21T09:33:34.795781",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3248,7 +3248,7 @@
           "id": "c_1791705255524",
           "codeSuffix": "A",
           "shortDescription": "Investigate the Anomaly",
-          "description": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.\n\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1792507962988",
