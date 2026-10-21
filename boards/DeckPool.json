@@ -1433,7 +1433,7 @@
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1445,5 +1445,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:57:28.075403"
+  "_lastModified": "2026-10-21T10:57:34.988492"
 }
