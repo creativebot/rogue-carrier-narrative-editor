@@ -1654,7 +1654,13 @@
           "timerHours": 5,
           "resultDescription": "The crew learns several applications of MedGel and the basics of first aid. How to stop bleeding, what to do when a heart stops, and even less extreme situations, like what to do when someone faints, are given much-needed time, so that the crew can be ready for any exigency.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1720,5 +1726,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:18:05.342377"
+  "_lastModified": "2026-10-21T12:18:09.360677"
 }
