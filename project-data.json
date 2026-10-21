@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:28:29.010310",
+  "_lastModified": "2026-10-21T12:28:35.276194",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2112,7 +2112,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
         "penalties": [
           "💀 Entropy +10"
         ]
