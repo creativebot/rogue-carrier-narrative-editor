@@ -131,6 +131,18 @@
       "mentions": [
         "ttretilova@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792575745587",
+      "targetId": "node_1792575255849",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E4 BPQ_DeckQuest_NewMenu - New Menu",
+      "text": "Weakened health - hidden result",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T09:42:25.600316Z",
+      "displayTime": "2026-10-21 09:42",
+      "mentions": []
     }
   ],
   "deletedIds": [
