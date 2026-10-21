@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:43:09.834217",
+  "_lastModified": "2026-10-21T09:43:25.008457",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -825,9 +825,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
