@@ -1845,7 +1845,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
         "penalties": [
           "💀 Entropy +10"
         ]
@@ -1876,7 +1876,7 @@
           "description": "Invite a group of specialists to discuss and improve meal plan.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1888,5 +1888,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:28:23.831487"
+  "_lastModified": "2026-10-21T12:28:35.263992"
 }
