@@ -1547,6 +1547,13 @@
               "amount": "60-120",
               "iconImg": "icons/T_ET_Plankton.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_39_k_Krill",
+              "name": "K-IV Krill",
+              "amount": "60-120",
+              "iconImg": "icons/T_K-IV_Krill.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1558,5 +1565,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:39:11.719104"
+  "_lastModified": "2026-10-21T11:39:22.706613"
 }
