@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T15:03:06.213519",
+  "_lastModified": "2026-10-21T15:03:13.031176",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3940,7 +3940,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_crew count",
+            "name": "Crew Count",
+            "amount": "-1",
+            "icon": "👨‍🚀",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 2810,
