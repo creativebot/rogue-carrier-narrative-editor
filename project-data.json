@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:46:33.263647",
+  "_lastModified": "2026-10-21T12:46:43.021367",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2521,7 +2521,7 @@
         {
           "id": "act_1792586502580",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Sedate the crew",
           "description": "Distribute sedatives to the team to help them cope with irrational fears. This might have negative impact on their productivity.",
           "requirements": [],
           "timerHours": 5,
