@@ -2273,9 +2273,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The support program proved to be efficient. With the help of deep meditation, psychological guidance, and cutting edge technology, people realized that ghosts only exist in the eye of an exhausted mind and let go of those irrational fears.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2354,5 +2352,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:24:19.326156"
+  "_lastModified": "2026-10-21T13:24:35.774022"
 }
