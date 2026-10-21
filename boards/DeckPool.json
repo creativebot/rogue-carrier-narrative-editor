@@ -500,13 +500,20 @@
             },
             {
               "id": "clause_1792575894558",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_33",
                   "name": "Protein Mass",
                   "amount": 25,
                   "iconImg": "icons/T_HPYeast.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_30",
+                  "name": "Omni Fruit",
+                  "amount": 25,
+                  "iconImg": "icons/T_OmniFruit.png",
                   "icon": "📦"
                 }
               ]
@@ -630,5 +637,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:45:00.940767"
+  "_lastModified": "2026-10-21T09:45:15.525074"
 }
