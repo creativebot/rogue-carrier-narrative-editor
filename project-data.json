@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:06:01.121407",
+  "_lastModified": "2026-10-21T11:06:13.120944",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1693,13 +1693,20 @@
           "requirements": [
             {
               "id": "clause_1792580754661",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "processing_03",
                   "name": "Thermoplastic",
                   "amount": 10,
                   "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesized_01",
+                  "name": "Biopolymer",
+                  "amount": 10,
+                  "iconImg": "icons/T_Biopolymer.png",
                   "icon": "📦"
                 }
               ]
