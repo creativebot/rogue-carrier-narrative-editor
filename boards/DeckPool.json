@@ -342,7 +342,21 @@
           "codeSuffix": "B",
           "shortDescription": "Cure the sickness",
           "description": "The scientists are confident they can cure the affliction.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792574946942",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
           "rewards": [
@@ -389,5 +403,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:29:03.390271"
+  "_lastModified": "2026-10-21T09:29:13.330116"
 }
