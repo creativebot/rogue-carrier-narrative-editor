@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:29:13.339872",
+  "_lastModified": "2026-10-21T09:29:30.932783",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -650,7 +650,21 @@
           "codeSuffix": "C",
           "shortDescription": "Recycle the crops",
           "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792574964513",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
           "rewards": [
