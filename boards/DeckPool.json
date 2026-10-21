@@ -1346,9 +1346,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Short goals with visible progress bars go live. Crews chase targets and celebrate quick wins.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -1357,5 +1355,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:41:43.399146"
+  "_lastModified": "2026-10-21T10:41:50.710185"
 }
