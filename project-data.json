@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:14:11.623651",
+  "_lastModified": "2026-10-21T12:14:25.028301",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1839,7 +1839,7 @@
     {
       "id": "node_1792582814090",
       "codename": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining",
-      "name": "New Event Block",
+      "name": "Special Training",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
