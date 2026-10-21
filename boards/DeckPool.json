@@ -2346,6 +2346,13 @@
               "amount": "+10",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "1",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -2356,5 +2363,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:24:44.361031"
+  "_lastModified": "2026-10-21T13:24:58.212169"
 }
