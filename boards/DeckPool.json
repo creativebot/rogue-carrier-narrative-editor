@@ -1023,6 +1023,20 @@
                   "category": "Specialization"
                 }
               ]
+            },
+            {
+              "id": "clause_1792578462732",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -1077,5 +1091,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:27:42.626702"
+  "_lastModified": "2026-10-21T10:27:49.127011"
 }
