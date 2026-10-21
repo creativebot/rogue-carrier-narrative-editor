@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:24:19.416459",
+  "_lastModified": "2026-10-21T13:24:35.785422",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2540,9 +2540,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The support program proved to be efficient. With the help of deep meditation, psychological guidance, and cutting edge technology, people realized that ghosts only exist in the eye of an exhausted mind and let go of those irrational fears.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
