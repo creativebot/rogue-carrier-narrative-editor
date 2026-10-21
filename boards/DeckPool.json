@@ -483,7 +483,7 @@
         {
           "id": "act_1792575543394",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Comfort food",
           "description": "Energy bars are nothing new, but they are always popular. The crew will love having them added to their daily portions.",
           "requirements": [],
           "timerHours": 5,
@@ -513,5 +513,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:39:47.281020"
+  "_lastModified": "2026-10-21T09:39:52.969010"
 }
