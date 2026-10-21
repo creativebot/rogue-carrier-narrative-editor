@@ -114,13 +114,20 @@
             },
             {
               "id": "clause_1792573666866",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_40_k_AminoAc",
                   "name": "K-IV Aminoacids",
                   "amount": 10,
                   "iconImg": "icons/T_Amino_Acid.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
                   "icon": "📦"
                 }
               ]
@@ -153,5 +160,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:07:53.257252"
+  "_lastModified": "2026-10-21T09:08:11.285858"
 }
