@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:25:20.113683",
+  "_lastModified": "2026-10-21T09:25:29.563988",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -569,7 +569,15 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "synthesis_03",
+              "name": "Chemical Fuel",
+              "amount": "50",
+              "iconImg": "icons/T_Chemical-Fuel.png",
+              "icon": "📦"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
