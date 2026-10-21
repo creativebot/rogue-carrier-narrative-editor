@@ -1642,7 +1642,7 @@
         {
           "id": "act_1792584910285",
           "codeSuffix": "D",
-          "shortDescription": "Choice D",
+          "shortDescription": "Craft",
           "description": "If stranded on the island, people should know how to craft basics, how to use available tools, and how to fix broken equipment.",
           "requirements": [],
           "timerHours": 5,
@@ -1658,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:16:16.752088"
+  "_lastModified": "2026-10-21T12:16:21.300731"
 }
