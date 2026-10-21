@@ -1471,7 +1471,22 @@
           "codeSuffix": "B",
           "shortDescription": "Build the Advanced Rig",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792580784086",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 1,
           "resultDescription": "This method has proven effective. The catch is substantial and it takes less time. The damage to the ecosystem remains, however, and cannot be ignored.",
           "rewards": [
@@ -1485,5 +1500,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:06:23.755037"
+  "_lastModified": "2026-10-21T11:06:30.461109"
 }
