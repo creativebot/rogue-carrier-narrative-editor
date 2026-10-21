@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:54:20.389891",
+  "_lastModified": "2026-10-21T09:54:29.483238",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -998,7 +998,7 @@
         {
           "id": "act_1792576401792",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Investigate",
           "description": "Study the unexpected stowaways and learn more about the local fauna.",
           "requirements": [],
           "timerHours": 5,
