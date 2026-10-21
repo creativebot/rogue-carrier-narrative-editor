@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:52:28.419989",
+  "_lastModified": "2026-10-21T12:52:37.129439",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2579,7 +2579,21 @@
           "codeSuffix": "C",
           "shortDescription": "Find the ghost",
           "description": "Use trained personnel and professional equipment to perform deep scanning of the hallways and interior infrastructure.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792587150761",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_05",
+                  "name": "Tricoder",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tricoder.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
