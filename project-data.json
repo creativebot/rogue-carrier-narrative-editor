@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:34:33.816265",
+  "_lastModified": "2026-10-21T12:34:39.315761",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2302,7 +2302,7 @@
           "description": "The researches want to study the Krill, believing them to be perfect carriers of pathogens.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The doctors do not manage to develop vaccine, however, the knowledge they gathered through research can be valuable in deepening comprehension of Keeling-IV ecosystems.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
