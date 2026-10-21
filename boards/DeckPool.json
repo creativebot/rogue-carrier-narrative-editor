@@ -1526,7 +1526,15 @@
           ],
           "timerHours": 1,
           "resultDescription": "This method has proven effective. The catch is substantial and it takes less time. The damage to the ecosystem remains, however, and cannot be ignored.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.2",
+              "iconImg": "",
+              "icon": "🌀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -1536,5 +1544,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:21:03.423327"
+  "_lastModified": "2026-10-21T11:25:54.110488"
 }
