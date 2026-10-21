@@ -1630,7 +1630,21 @@
           "codeSuffix": "B",
           "shortDescription": "First Aid",
           "description": "Every crew member must know how to provide first aid.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585026199",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_01",
+                  "name": "Med Gel",
+                  "amount": 2,
+                  "iconImg": "icons/T_Med-Gel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew learns several applications of MedGel and the basics of first aid. How to stop bleeding, what to do when a heart stops, and even less extreme situations, like what to do when someone faints, are given much-needed time, so that the crew can be ready for any exigency.",
           "rewards": [
@@ -1672,5 +1686,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:17:04.014240"
+  "_lastModified": "2026-10-21T12:17:12.546340"
 }
