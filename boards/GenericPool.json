@@ -1180,7 +1180,7 @@
       "category": "GenericPool",
       "variationId": "var_v1",
       "floorIndex": 0,
-      "tier": 5,
+      "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
@@ -1189,8 +1189,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5230,
-        "y": 360
+        "x": 2810,
+        "y": 222
       },
       "actions": [
         {
@@ -1654,5 +1654,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T11:10:15.367239"
+  "_lastModified": "2026-10-21T11:10:17.666964"
 }
