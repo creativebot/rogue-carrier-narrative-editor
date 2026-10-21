@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:41:53.415236",
+  "_lastModified": "2026-10-21T12:41:55.912634",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2508,7 +2508,7 @@
           "id": "c_1792586289797",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Provide an online program for monitoring emotional well-being and offering support to maintain the crew's morale.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
