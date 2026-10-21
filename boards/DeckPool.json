@@ -212,7 +212,7 @@
     },
     {
       "id": "node_1792574416692",
-      "codename": "DECK-S1-E3",
+      "codename": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -251,5 +251,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:20:38.754697"
+  "_lastModified": "2026-10-21T09:21:47.916340"
 }
