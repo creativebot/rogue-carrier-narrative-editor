@@ -2454,7 +2454,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "lead to the additional event",
         "penalties": [
           "💀 Entropy +10"
         ]
@@ -2497,5 +2497,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:34:02.951469"
+  "_lastModified": "2026-10-21T13:34:15.217459"
 }
