@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:01:00.875778",
+  "_lastModified": "2026-10-21T09:01:07.012161",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -379,7 +379,7 @@
           "description": "Description for action choice C...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
+          "resultDescription": "",
           "rewards": [
             "🧠 Knowledge +100"
           ],
