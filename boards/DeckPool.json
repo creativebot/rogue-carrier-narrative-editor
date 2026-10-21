@@ -2046,7 +2046,7 @@
           "id": "act_1792586006659",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "The pathogens can be found in the Algae. The doctors need plenty of test subjects for their work on the vaccine.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2062,5 +2062,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:34:02.978263"
+  "_lastModified": "2026-10-21T12:34:04.068181"
 }
