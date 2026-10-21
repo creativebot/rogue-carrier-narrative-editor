@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:22:01.428631",
+  "_lastModified": "2026-10-21T10:22:09.434719",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1171,7 +1171,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Scientists take this as an opportunity to learn more about the local fauna. Their first discovery is that their stings present no threat to the crew wearing safety suits.  The work at the facility is soon renewed. However, the productivity is far from the best, as the shifts have to fight off the annoying wasps while working, all while being documented by their colleagues.",
           "rewards": [
             "🧠 Knowledge +100",
             {
