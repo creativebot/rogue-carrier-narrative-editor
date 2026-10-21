@@ -1590,9 +1590,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
@@ -1660,5 +1658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:15:30.328649"
+  "_lastModified": "2026-10-21T12:15:34.858106"
 }
