@@ -812,6 +812,28 @@
               "amount": "+10",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "25",
+              "hasN": true,
+              "nValue": "25",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 25 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
             }
           ],
           "targetNodeIds": [],
@@ -851,5 +873,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:16:51.641533"
+  "_lastModified": "2026-10-21T10:17:06.892258"
 }
