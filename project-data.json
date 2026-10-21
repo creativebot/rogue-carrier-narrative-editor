@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:24:19.104762",
+  "_lastModified": "2026-10-21T10:24:26.776215",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1212,8 +1212,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Game stage 2 or more, Morale less then 30, ",
-      "spawnConditions": "Game stage 2 or more, Morale less then 30, ",
+      "location": "Game stage 2 or more, Morale less then 30, Behemoth",
+      "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
       "eventIntro": "Initial event context...",
       "eventDescription": "The crew wants to organize a sports tournament between the technicians and the scientists. This will take several days and will impact productivity - everyone will be involved in one way or another.",
       "reactionTimerHours": "Infinite",
