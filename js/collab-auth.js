@@ -210,12 +210,21 @@ function updateAuthHeaderUI() {
         badgeRole.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/40';
       }
     }
+    const btnAnalytics = document.getElementById('btn-admin-analytics');
+    const userEmail = (currentUser?.email || '').toLowerCase().trim();
+    const isDanielAdmin = isLocalEnvironment() || userEmail === 'dpoludonnyi@n-ix.com' || userEmail === 'daniel.poludyonny@gmail.com';
+    if (btnAnalytics) {
+      if (isDanielAdmin) btnAnalytics.classList.remove('hidden');
+      else btnAnalytics.classList.add('hidden');
+    }
     if (btnTeam) {
       if (isLocalEnvironment() || (currentUser && currentUser.role === 'admin')) btnTeam.classList.remove('hidden');
       else btnTeam.classList.add('hidden');
     }
   } else {
     // Unauthenticated public URI access: completely hide board, show lock gate
+    const btnAnalytics = document.getElementById('btn-admin-analytics');
+    if (btnAnalytics) btnAnalytics.classList.add('hidden');
     if (authGate) {
       authGate.classList.remove('hidden');
       setupGoogleSignIn();
@@ -2060,4 +2069,5 @@ window.getCurrentBoardIdentifier = getCurrentBoardIdentifier;
 window.getCurrentBoardDisplayName = getCurrentBoardDisplayName;
 window.isCurrentBoardReadOnly = () => isCurrentBoardReadOnly;
 window.getCurrentBoardLock = () => currentBoardLock;
+window.getCurrentUser = () => currentUser;
 window.lastLoadedBoardRevisions = lastLoadedBoardRevisions;

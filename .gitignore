@@ -9,6 +9,7 @@ run_tunnel.py
 dl_cloudflared.py
 make_qr.py
 check_pixel_look.py
+check_render.py
 debug_delete.py
 run_test.py
 tunnel_url.txt
@@ -17,6 +18,7 @@ push_update.py
 push_now.py
 do_push.py
 backups/
+saves/
 github_token.txt
 .env
 scratch/

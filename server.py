@@ -49,7 +49,13 @@ from backend.github_sync import (
     sync_project_data_to_github,
     _sync_json_file_to_github,
     sync_users_to_github,
+    sync_analytics_to_github,
     pull_latest_from_github_on_startup,
+)
+from backend.analytics import (
+    record_active_editing_time,
+    get_analytics_summary,
+    export_analytics_csv,
 )
 from backend.storage import (
     create_backup_snapshot,
@@ -1362,6 +1368,29 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_json(200, {"status": "success"})
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
+
+        # Analytics Telemetry Ingestion
+        elif self.path == '/api/analytics/track':
+            try:
+                user = self.get_auth_user()
+                if not user or not user.get('email'):
+                    self.send_json(401, {"status": "error", "message": "Authentication required to record editing activity."})
+                    return
+                body = self.read_json_body() or {}
+                user_email = user.get('email')
+                user_name = user.get('name') or ''
+                seconds = int(body.get('seconds', 0))
+                board_id = body.get('boardId') or 'General'
+                timestamp_iso = body.get('timestamp')
+                
+                success = record_active_editing_time(user_email, user_name, board_id, seconds, timestamp_iso)
+                if success:
+                    sync_analytics_to_github()
+                    self.send_json(200, {"status": "ok", "recorded": seconds})
+                else:
+                    self.send_json(400, {"status": "error", "message": "Invalid tracking data"})
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
         else:
             self.send_json(404, {"status": "error", "message": "Not Found"})
 
@@ -1623,10 +1652,47 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
 
+        # 9b. Analytics Report
+        elif path == '/api/analytics/report':
+            user = self.get_auth_user()
+            user_email = (user.get('email') or '').strip().lower() if user else ''
+            is_admin = (user_email in ANALYTICS_ADMIN_EMAILS) or (self.is_local_request() and not user_email)
+            if not is_admin:
+                self.send_json(403, {"status": "error", "message": "Access restricted to narrative administrator."})
+                return
+            query = urllib.parse.parse_qs(parsed.query)
+            timeframe = query.get('timeframe', ['daily'])[0]
+            target_date = query.get('date', [None])[0]
+            summary = get_analytics_summary(timeframe, target_date)
+            self.send_json(200, summary)
+            return
+
+        # 9c. Analytics CSV Export
+        elif path == '/api/analytics/export':
+            user = self.get_auth_user()
+            user_email = (user.get('email') or '').strip().lower() if user else ''
+            is_admin = (user_email in ANALYTICS_ADMIN_EMAILS) or (self.is_local_request() and not user_email)
+            if not is_admin:
+                self.send_json(403, {"status": "error", "message": "Access restricted to narrative administrator."})
+                return
+            query = urllib.parse.parse_qs(parsed.query)
+            timeframe = query.get('timeframe', ['daily'])[0]
+            target_date = query.get('date', [None])[0]
+            csv_data = export_analytics_csv(timeframe, target_date)
+            dt_label = target_date or datetime.utcnow().strftime('%Y-%m-%d')
+            filename = f"rcne-analytics-{timeframe}-{dt_label}.csv"
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/csv; charset=utf-8')
+            self.send_header('Content-Disposition', f'attachment; filename="{filename}"')
+            self.send_cors_headers()
+            self.end_headers()
+            self.wfile.write(csv_data.encode('utf-8'))
+            return
+
         # 10. Static Files Fallback
         else:
             # Block direct downloading of narrative project data files without authentication
-            if path in ('/project-data.json', '/unreal-export.json', '/unreal-dialogues.json', '/unreal-events.json', '/sample-project.json', '/comments.json', '/notifications.json'):
+            if path in ('/project-data.json', '/unreal-export.json', '/unreal-dialogues.json', '/unreal-events.json', '/sample-project.json', '/comments.json', '/notifications.json', '/analytics.json'):
                 if not self.is_local_request() and not self.get_auth_user():
                     self.send_json(401, {"status": "error", "message": "Authentication required to access narrative project"})
                     return

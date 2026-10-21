@@ -150,7 +150,7 @@
     "TargetEventID": null,
     "TriggerTiming": null,
     "TriggerActionID": "",
-    "TriggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+    "TriggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
     "DelayHours": 0.5,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
@@ -944,8 +944,8 @@
     "FloorIndex": 2,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 4879.0,
-      "Y": 3013.0
+      "X": 3504.0,
+      "Y": 3622.0
     },
     "Lines": [
       {
@@ -1037,8 +1037,8 @@
     "FloorIndex": 2,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 4148.0,
-      "Y": 2850.0
+      "X": 4918.0,
+      "Y": 3003.0
     },
     "Lines": [
       {
@@ -1054,7 +1054,7 @@
         "LineIndex": 1,
         "Speaker": "",
         "SpeakerRole": "",
-        "Text": "Oh, I can... ...just not about the last hours of Zephyrus. That information is gone for good.",
+        "Text": "Oh, I can... just not about the last hours of Zephyrus. That information is gone for good.",
         "Portrait": "",
         "AudioVoiceover": "",
         "CustomData": {}
@@ -1123,15 +1123,15 @@
     "TriggerTiming": "post_action",
     "TriggerActionID": "act_e1b_1",
     "TriggerCondition": "After (T1-V1-K2B) Disassemble",
-    "DelayHours": 2.0,
+    "DelayHours": 0.5,
     "DelayUnit": "hours",
     "VariationID": "var_v1",
     "Category": "KeyChain",
     "FloorIndex": 2,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 3540.0,
-      "Y": 2772.0
+      "X": 4309.0,
+      "Y": 3601.0
     },
     "Lines": [
       {
@@ -1245,45 +1245,6 @@
     ]
   },
   {
-    "Name": "DIALOGUE_diag_1791832094238",
-    "RowName": "DIALOGUE_diag_1791832094238",
-    "DialogueID": "diag_1791832094238",
-    "TargetEventID": null,
-    "TriggerTiming": null,
-    "TriggerActionID": "",
-    "TriggerCondition": "Standalone Conversation",
-    "DelayHours": 0.0,
-    "DelayUnit": "hours",
-    "VariationID": "var_v2",
-    "Category": "KeyChain",
-    "FloorIndex": 0,
-    "ColorScheme": "default",
-    "EditorPosition": {
-      "X": 1800.0,
-      "Y": -414.0
-    },
-    "Lines": [
-      {
-        "LineIndex": 0,
-        "Speaker": "",
-        "SpeakerRole": "",
-        "Text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise",
-        "Portrait": "",
-        "AudioVoiceover": "",
-        "CustomData": {}
-      },
-      {
-        "LineIndex": 1,
-        "Speaker": "",
-        "SpeakerRole": "",
-        "Text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. ",
-        "Portrait": "",
-        "AudioVoiceover": "",
-        "CustomData": {}
-      }
-    ]
-  },
-  {
     "Name": "DIALOGUE_diag_orest",
     "RowName": "DIALOGUE_diag_orest",
     "DialogueID": "diag_orest",
@@ -1298,8 +1259,8 @@
     "FloorIndex": 0,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": -23.0,
-      "Y": 151.0
+      "X": -67.0,
+      "Y": -169.0
     },
     "Lines": [
       {
@@ -1337,6 +1298,45 @@
         "Speaker": "",
         "SpeakerRole": "",
         "Text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act.",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "DIALOGUE_diag_1791832094238",
+    "RowName": "DIALOGUE_diag_1791832094238",
+    "DialogueID": "diag_1791832094238",
+    "TargetEventID": null,
+    "TriggerTiming": null,
+    "TriggerActionID": "",
+    "TriggerCondition": "Standalone Conversation",
+    "DelayHours": 0.0,
+    "DelayUnit": "hours",
+    "VariationID": "var_v2",
+    "Category": "KeyChain",
+    "FloorIndex": 0,
+    "ColorScheme": "default",
+    "EditorPosition": {
+      "X": 1800.0,
+      "Y": -414.0
+    },
+    "Lines": [
+      {
+        "LineIndex": 0,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise",
+        "Portrait": "",
+        "AudioVoiceover": "",
+        "CustomData": {}
+      },
+      {
+        "LineIndex": 1,
+        "Speaker": "",
+        "SpeakerRole": "",
+        "Text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. ",
         "Portrait": "",
         "AudioVoiceover": "",
         "CustomData": {}

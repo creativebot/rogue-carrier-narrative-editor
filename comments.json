@@ -105,6 +105,80 @@
       "createdAt": "2026-10-16T12:27:41.694994Z",
       "displayTime": "2026-10-16 14:27",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792508378545",
+      "targetId": "node_1791705255524",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K3C - The Moment After the End",
+      "text": "Lack of \"Unknown requirement\"",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-20T14:59:38.557036Z",
+      "displayTime": "2026-10-20 14:59",
+      "mentions": []
+    },
+    {
+      "id": "cmt_1792514182755",
+      "targetId": "node_1791705255524",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K3D - The Moment After the End",
+      "text": "@ttretilova what is this in the first action description?",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-20T16:36:22.767633Z",
+      "displayTime": "2026-10-20 16:36",
+      "mentions": [
+        "ttretilova@n-ix.com"
+      ]
+    },
+    {
+      "id": "cmt_1792575745587",
+      "targetId": "node_1792575255849",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E4 BPQ_DeckQuest_NewMenu - New Menu",
+      "text": "Weakened health - hidden result",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T09:42:25.600316Z",
+      "displayTime": "2026-10-21 09:42",
+      "mentions": []
+    },
+    {
+      "id": "cmt_1792577773391",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 1: Building is intact,  Biological samples (special relict)?",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:16:13.391354Z",
+      "displayTime": "2026-10-21 10:16",
+      "mentions": []
+    },
+    {
+      "id": "cmt_1792577798540",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 2: Building receives one-time damage; 50% of integrity",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:16:38.540615Z",
+      "displayTime": "2026-10-21 10:16",
+      "mentions": []
+    },
+    {
+      "id": "cmt_1792577956899",
+      "targetId": "node_1792576020887",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E5 BPQ_DeckQuest_Infestation - Infestation",
+      "text": "Event outcome 3: long time, significantly more knowledge\nProductivity Slowdown I \nProductivity -20 (target building 48h)",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T10:19:16.899931Z",
+      "displayTime": "2026-10-21 10:19",
+      "mentions": []
     }
   ],
   "deletedIds": [

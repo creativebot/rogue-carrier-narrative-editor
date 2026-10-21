@@ -187,6 +187,32 @@ def sync_users_to_github(users_list=None):
     ]
     _sync_json_file_to_github("users.json", {"users": public_users}, f"Sync team users ({len(public_users)} members)")
 
+_last_analytics_github_sync = 0.0
+
+def sync_analytics_to_github(force=False):
+    """
+    Syncs analytics.json to cloud-state branch with a 60-second debounce.
+    """
+    global _last_analytics_github_sync
+    import time
+    if not GITHUB_PAT:
+        return
+    now = time.time()
+    if not force and (now - _last_analytics_github_sync) < 60:
+        return
+    _last_analytics_github_sync = now
+    
+    def _do_sync():
+        if os.path.exists(ANALYTICS_FILE):
+            try:
+                with open(ANALYTICS_FILE, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                _sync_json_file_to_github("analytics.json", data, "Sync writers active editing analytics")
+            except Exception as e:
+                print(f"[Analytics] GitHub sync error: {e}")
+                
+    threading.Thread(target=_do_sync, daemon=True).start()
+
 def pull_latest_from_github_on_startup():
     """
     On server boot, checks GitHub (both `cloud-state` and `main`) for newer project-data.json
@@ -342,6 +368,40 @@ def pull_latest_from_github_on_startup():
                 "deletedIds": sorted(list(deleted_ids))
             }, f, indent=2, ensure_ascii=False)
         print(f"[Startup] Synced {len(final_items)} {key_name} from GitHub {fname} ({len(deleted_ids)} tombstoned)")
+
+    # 3b. Sync analytics.json from cloud-state
+    try:
+        furl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/analytics.json?ref={GITHUB_DATA_BRANCH}"
+        freq = urllib.request.Request(furl, headers=headers)
+        with urllib.request.urlopen(freq, timeout=10) as fresp:
+            fdata = json.loads(fresp.read().decode('utf-8'))
+            if 'content' in fdata:
+                remote_obj = json.loads(base64.b64decode(fdata['content']).decode('utf-8'))
+                local_obj = {}
+                if os.path.exists(ANALYTICS_FILE):
+                    try:
+                        with open(ANALYTICS_FILE, 'r', encoding='utf-8') as f:
+                            local_obj = json.load(f)
+                    except Exception:
+                        local_obj = {}
+                merged = dict(local_obj)
+                merged_daily = merged.setdefault("dailyTotals", {})
+                for d_key, users_map in remote_obj.get("dailyTotals", {}).items():
+                    if d_key not in merged_daily:
+                        merged_daily[d_key] = users_map
+                    else:
+                        for u_email, u_stats in users_map.items():
+                            if u_email not in merged_daily[d_key]:
+                                merged_daily[d_key][u_email] = u_stats
+                            else:
+                                curr = merged_daily[d_key][u_email]
+                                if u_stats.get("seconds", 0) > curr.get("seconds", 0):
+                                    merged_daily[d_key][u_email] = u_stats
+                with open(ANALYTICS_FILE, 'w', encoding='utf-8') as f:
+                    json.dump(merged, f, indent=2, ensure_ascii=False)
+                print(f"[Startup] Synced analytics.json from GitHub {GITHUB_DATA_BRANCH}")
+    except Exception:
+        pass
 
     # 4. Restore boards from cloud-state and main to ensure all partitioned boards are up-to-date
     boards_dir = os.path.join(DIRECTORY, 'boards')

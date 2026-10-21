@@ -6,7 +6,7 @@
       "role": "admin",
       "status": "approved",
       "createdAt": "2026-10-08T10:38:44.834639Z",
-      "lastLogin": "2026-10-15T14:56:53.039886Z",
+      "lastLogin": "2026-10-20T15:55:29.176878Z",
       "picture": null
     },
     {
@@ -57,7 +57,7 @@
       "status": "approved",
       "authProvider": "google",
       "createdAt": "2026-10-12T06:36:26.668210Z",
-      "lastLogin": "2026-10-20T08:04:34.003711Z"
+      "lastLogin": "2026-10-20T15:56:43.990974Z"
     },
     {
       "email": "volodymyrkuznietsov@n-ix.com",

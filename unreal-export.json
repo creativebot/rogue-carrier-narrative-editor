@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-20T14:29:30.316021Z",
+    "ExportTime": "2026-10-21T10:36:46.814621Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel Poludyonny",
-    "TotalEvents": 33,
+    "TotalEvents": 39,
     "TotalDialogues": 19,
     "TotalTimelines": 1,
     "TotalVariations": 10,
@@ -441,6 +441,983 @@
               "ResourceID": "res_knowledge",
               "Name": "Knowledge",
               "Amount": "+150",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792573049123",
+      "RowName": "EVENT_node_1792573049123",
+      "EventID": "node_1792573049123",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 1,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 805.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792573962294",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "machinery_04",
+                  "ItemName": "Basic Scanner",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792574106848",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "res_39_k_Krill",
+                  "ItemName": "K-IV Krill",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_40_k_AminoAc",
+                  "ItemName": "K-IV Aminoacids",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +50",
+            "😊 Morale +10"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+50",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "stat_morale",
+              "Name": "Morale",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "😊"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792574251708",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "electronics_03",
+                  "ItemName": "Sensors Array",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792574263327",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "res_31_k_Algae",
+                  "ItemName": "K-IV Algae",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_24_k_Plankton",
+                  "ItemName": "K-IV Plankton",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +50",
+            "😊 Morale +10"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+50",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "stat_morale",
+              "Name": "Morale",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "😊"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792574416692",
+      "RowName": "EVENT_node_1792574416692",
+      "EventID": "node_1792574416692",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 1827.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792574925624",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_05",
+                  "ItemName": "Composite Enzymes",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792574936978",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_02",
+                  "ItemName": "Biochem Compounds",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +25",
+            "📦 Med Gel x10"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+25",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "medres_01",
+              "Name": "Med Gel",
+              "Amount": "10",
+              "Category": "Item",
+              "Icon": "📦"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792574946942",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_02",
+                  "ItemName": "Biochem Compounds",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +10",
+            "😊 Morale +10"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "stat_morale",
+              "Name": "Morale",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "😊"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 2,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792574964513",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_05",
+                  "ItemName": "Composite Enzymes",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792574976539",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "res_29",
+                  "ItemName": "Grain",
+                  "Amount": 50,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_30",
+                  "ItemName": "Omni Fruit",
+                  "Amount": 50,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "📦 Chemical Fuel x50"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "synthesis_03",
+              "Name": "Chemical Fuel",
+              "Amount": "50",
+              "Category": "Item",
+              "Icon": "📦"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792575255849",
+      "RowName": "EVENT_node_1792575255849",
+      "EventID": "node_1792575255849",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 2816.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792575857368",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "res_39_k_Krill",
+                  "ItemName": "K-IV Krill",
+                  "Amount": 25,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_40_k_AminoAc",
+                  "ItemName": "K-IV Aminoacids",
+                  "Amount": 25,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792575894558",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "res_33",
+                  "ItemName": "Protein Mass",
+                  "Amount": 25,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_30",
+                  "ItemName": "Omni Fruit",
+                  "Amount": 25,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "res_29",
+                  "ItemName": "Grain",
+                  "Amount": 25,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +25",
+            "😊 Morale +10",
+            "⚡ Weakened Health I x24"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+25",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "stat_morale",
+              "Name": "Morale",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "😊"
+            },
+            {
+              "ResourceID": "status_17_weakened_health_i",
+              "Name": "Weakened Health I",
+              "Amount": "24",
+              "Category": "Item",
+              "Icon": "⚡"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792575990788",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "food_05",
+                  "ItemName": "Energy Bar",
+                  "Amount": 20,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "✨ Morale Boost II x24"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_9_morale_boost_ii",
+              "Name": "Morale Boost II",
+              "Amount": "24",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 2,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792576003941",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_science",
+                  "ItemName": "Science Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "🔬"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "✨ Better Taste x48"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_3_better_taste",
+              "Name": "Better Taste",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792576020887",
+      "RowName": "EVENT_node_1792576020887",
+      "EventID": "node_1792576020887",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 5,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 4014.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792576477921",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_05",
+                  "ItemName": "Composite Enzymes",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792576492141",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_02",
+                  "ItemName": "Biochem Compounds",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +25",
+            "✨ Boosted Productivity II x50"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+25",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "status_25_boosted_productivity_ii",
+              "Name": "Boosted Productivity II",
+              "Amount": "50",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792576518614",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "synthesis_03",
+                  "ItemName": "Chemical Fuel",
+                  "Amount": 10,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "ammunition_01",
+                  "ItemName": "Standard Ammunition Pack",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "ammunition_02",
+                  "ItemName": "Explosive Charges",
+                  "Amount": 2,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +10",
+            "✨ Boosted Productivity II x25"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+10",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "status_25_boosted_productivity_ii",
+              "Name": "Boosted Productivity II",
+              "Amount": "25",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 2,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792576556282",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_science",
+                  "ItemName": "Science Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "🔬"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +100",
+            "✨ Boosted Productivity I -20"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            },
+            {
+              "ResourceID": "status_24_boosted_productivity_i",
+              "Name": "Boosted Productivity I",
+              "Amount": "-20",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792578159292",
+      "RowName": "EVENT_node_1792578159292",
+      "EventID": "node_1792578159292",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 5131.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792578389912",
+              "IsAlternativeGroup": true,
+              "Alternatives": [
+                {
+                  "ItemID": "food_05",
+                  "ItemName": "Energy Bar",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                },
+                {
+                  "ItemID": "food_01",
+                  "ItemName": "Nutrient Paste",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "✨ Morale Boost II x48",
+            "⚡ Productivity Slowdown I x48",
+            "❤️ Crew Health +50"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_9_morale_boost_ii",
+              "Name": "Morale Boost II",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "✨"
+            },
+            {
+              "ResourceID": "status_27_productivity_slowdown_i",
+              "Name": "Productivity Slowdown I",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "⚡"
+            },
+            {
+              "ResourceID": "stat_crew health",
+              "Name": "Crew Health",
+              "Amount": "+50",
+              "Category": "Specialization",
+              "Icon": "❤️"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792578436571",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_engineering",
+                  "ItemName": "Engineering Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "🔧"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792578462732",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_science",
+                  "ItemName": "Science Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "🔬"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "⚡ Weakened Morale II",
+            "✨ Boosted Productivity II x48"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_6_weakened_morale_ii",
+              "Name": "Weakened Morale II",
+              "Amount": "",
+              "Category": "Item",
+              "Icon": "⚡"
+            },
+            {
+              "ResourceID": "status_25_boosted_productivity_ii",
+              "Name": "Boosted Productivity II",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 2,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792578447386",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_defense",
+                  "ItemName": "Defense Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "🛡️"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792578456230",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_operations",
+                  "ItemName": "Operations Crew",
+                  "Amount": 2,
+                  "Category": "Specialization",
+                  "Icon": "⚙️"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "😊 Morale +5",
+            "❤️ Crew Health +25"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_morale",
+              "Name": "Morale",
+              "Amount": "+5",
+              "Category": "Stat",
+              "Icon": "😊"
+            },
+            {
+              "ResourceID": "stat_crew health",
+              "Name": "Crew Health",
+              "Amount": "+25",
+              "Category": "Specialization",
+              "Icon": "❤️"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792578968136",
+      "RowName": "EVENT_node_1792578968136",
+      "EventID": "node_1792578968136",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 6114.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
               "Category": "Stat",
               "Icon": "🧠"
             }
@@ -2603,7 +3580,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 2664.0,
+        "X": 2660.0,
         "Y": 1690.0
       },
       "Actions": [
@@ -2639,16 +3616,16 @@
                 {
                   "ItemID": "processing_06",
                   "ItemName": "Basic Toolkit",
-                  "Amount": 15,
+                  "Amount": 5,
                   "Category": "Item",
-                  "Icon": "icons/T_Basic-Tool-Kit.png"
+                  "Icon": "📦"
                 }
               ]
             }
           ],
           "Rewards": [
             "📜 Blueprints +3",
-            "Nano Parts x15",
+            "📦 Nano Parts x8",
             "🧠 Knowledge +350"
           ],
           "StructuredRewards": [
@@ -2660,11 +3637,11 @@
               "Icon": "📜"
             },
             {
-              "ResourceID": "res_nano_parts",
+              "ResourceID": "processing_05",
               "Name": "Nano Parts",
-              "Amount": "15",
+              "Amount": "8",
               "Category": "Item",
-              "Icon": ""
+              "Icon": "📦"
             },
             {
               "ResourceID": "res_knowledge",
@@ -3249,7 +4226,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 5462.0,
+        "X": 5944.0,
         "Y": 3290.0
       },
       "Actions": [
@@ -3257,15 +4234,29 @@
           "ActionIndex": 0,
           "ActionText": "",
           "Tooltip": "",
-          "Requirements": [],
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792507962988",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "questres_03",
+                  "ItemName": "Comm-Link",
+                  "Amount": 3,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
           "Rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +400"
           ],
           "StructuredRewards": [
             {
-              "ResourceID": "res_knowledge",
+              "ResourceID": "stat_knowledge",
               "Name": "Knowledge",
-              "Amount": "+100",
+              "Amount": "+400",
               "Category": "Stat",
               "Icon": "🧠"
             }
@@ -3283,13 +4274,64 @@
           "Tooltip": "",
           "Requirements": [],
           "Rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +400"
           ],
           "StructuredRewards": [
             {
-              "ResourceID": "res_knowledge",
+              "ResourceID": "stat_knowledge",
               "Name": "Knowledge",
-              "Amount": "+100",
+              "Amount": "+400",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 2,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792508262936",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "machinery_04",
+                  "ItemName": "Basic Scanner",
+                  "Amount": 1,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            },
+            {
+              "ClauseID": "clause_1792508280371",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "questres_01",
+                  "ItemName": "Modular Container",
+                  "Amount": 5,
+                  "Category": "Item",
+                  "Icon": "📦"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "🧠 Knowledge +400"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "stat_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+400",
               "Category": "Stat",
               "Icon": "🧠"
             }
@@ -3322,7 +4364,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 2541.0,
+        "X": 2207.0,
         "Y": 3290.0
       },
       "Actions": [
@@ -5128,7 +6170,7 @@
       "TargetEventID": null,
       "TriggerTiming": null,
       "TriggerActionID": "",
-      "TriggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+      "TriggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
       "DelayHours": 0.5,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
@@ -5922,8 +6964,8 @@
       "FloorIndex": 2,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 4879.0,
-        "Y": 3013.0
+        "X": 3504.0,
+        "Y": 3622.0
       },
       "Lines": [
         {
@@ -6015,8 +7057,8 @@
       "FloorIndex": 2,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 4148.0,
-        "Y": 2850.0
+        "X": 4918.0,
+        "Y": 3003.0
       },
       "Lines": [
         {
@@ -6032,7 +7074,7 @@
           "LineIndex": 1,
           "Speaker": "",
           "SpeakerRole": "",
-          "Text": "Oh, I can... ...just not about the last hours of Zephyrus. That information is gone for good.",
+          "Text": "Oh, I can... just not about the last hours of Zephyrus. That information is gone for good.",
           "Portrait": "",
           "AudioVoiceover": "",
           "CustomData": {}
@@ -6101,15 +7143,15 @@
       "TriggerTiming": "post_action",
       "TriggerActionID": "act_e1b_1",
       "TriggerCondition": "After (T1-V1-K2B) Disassemble",
-      "DelayHours": 2.0,
+      "DelayHours": 0.5,
       "DelayUnit": "hours",
       "VariationID": "var_v1",
       "Category": "KeyChain",
       "FloorIndex": 2,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 3540.0,
-        "Y": 2772.0
+        "X": 4309.0,
+        "Y": 3601.0
       },
       "Lines": [
         {
@@ -6223,45 +7265,6 @@
       ]
     },
     {
-      "Name": "DIALOGUE_diag_1791832094238",
-      "RowName": "DIALOGUE_diag_1791832094238",
-      "DialogueID": "diag_1791832094238",
-      "TargetEventID": null,
-      "TriggerTiming": null,
-      "TriggerActionID": "",
-      "TriggerCondition": "Standalone Conversation",
-      "DelayHours": 0.0,
-      "DelayUnit": "hours",
-      "VariationID": "var_v2",
-      "Category": "KeyChain",
-      "FloorIndex": 0,
-      "ColorScheme": "default",
-      "EditorPosition": {
-        "X": 1800.0,
-        "Y": -414.0
-      },
-      "Lines": [
-        {
-          "LineIndex": 0,
-          "Speaker": "",
-          "SpeakerRole": "",
-          "Text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise",
-          "Portrait": "",
-          "AudioVoiceover": "",
-          "CustomData": {}
-        },
-        {
-          "LineIndex": 1,
-          "Speaker": "",
-          "SpeakerRole": "",
-          "Text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. ",
-          "Portrait": "",
-          "AudioVoiceover": "",
-          "CustomData": {}
-        }
-      ]
-    },
-    {
       "Name": "DIALOGUE_diag_orest",
       "RowName": "DIALOGUE_diag_orest",
       "DialogueID": "diag_orest",
@@ -6276,8 +7279,8 @@
       "FloorIndex": 0,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": -23.0,
-        "Y": 151.0
+        "X": -67.0,
+        "Y": -169.0
       },
       "Lines": [
         {
@@ -6315,6 +7318,45 @@
           "Speaker": "",
           "SpeakerRole": "",
           "Text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act.",
+          "Portrait": "",
+          "AudioVoiceover": "",
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "DIALOGUE_diag_1791832094238",
+      "RowName": "DIALOGUE_diag_1791832094238",
+      "DialogueID": "diag_1791832094238",
+      "TargetEventID": null,
+      "TriggerTiming": null,
+      "TriggerActionID": "",
+      "TriggerCondition": "Standalone Conversation",
+      "DelayHours": 0.0,
+      "DelayUnit": "hours",
+      "VariationID": "var_v2",
+      "Category": "KeyChain",
+      "FloorIndex": 0,
+      "ColorScheme": "default",
+      "EditorPosition": {
+        "X": 1800.0,
+        "Y": -414.0
+      },
+      "Lines": [
+        {
+          "LineIndex": 0,
+          "Speaker": "",
+          "SpeakerRole": "",
+          "Text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise",
+          "Portrait": "",
+          "AudioVoiceover": "",
+          "CustomData": {}
+        },
+        {
+          "LineIndex": 1,
+          "Speaker": "",
+          "SpeakerRole": "",
+          "Text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. ",
           "Portrait": "",
           "AudioVoiceover": "",
           "CustomData": {}
