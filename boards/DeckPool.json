@@ -290,7 +290,7 @@
           "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Your scientists work hard to turn the whole crisis upside down: from poison to cure. Eventually, they bring the good news: they have managed to extract the parasitic fluid from the plants and use it to create a batch of custom MedGel.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -362,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:27:38.755585"
+  "_lastModified": "2026-10-21T09:27:56.043487"
 }
