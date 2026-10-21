@@ -746,7 +746,21 @@
           "codeSuffix": "B",
           "shortDescription": "Call Hans",
           "description": "Burn the nest, ignoring all the damage done to the building in the process.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792576518614",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_03",
+                  "name": "Chemical Fuel",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chemical-Fuel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -774,5 +788,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:54:58.515622"
+  "_lastModified": "2026-10-21T09:55:25.004056"
 }
