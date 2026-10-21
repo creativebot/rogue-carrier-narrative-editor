@@ -1424,7 +1424,7 @@
           "shortDescription": "Choice A",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 2,
           "resultDescription": "This solution is far from ideal — the catch is modest, and the nets have done some damage to the local ecosystem. Still, it's a success.",
           "rewards": [
             "🧠 Knowledge +100"
@@ -1451,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:02:50.114077"
+  "_lastModified": "2026-10-21T11:03:26.516598"
 }
