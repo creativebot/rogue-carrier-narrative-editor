@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:27:38.912095",
+  "_lastModified": "2026-10-21T12:27:53.114766",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2126,7 +2126,7 @@
           "id": "c_1792585570927",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Organize competition between crewmembers, use winning recipe.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
