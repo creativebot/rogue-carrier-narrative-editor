@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-21T10:36:46.814621Z",
+    "ExportTime": "2026-10-21T10:47:48.593084Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel Poludyonny",
-    "TotalEvents": 39,
+    "TotalEvents": 40,
     "TotalDialogues": 19,
     "TotalTimelines": 1,
     "TotalVariations": 10,
@@ -1403,6 +1403,107 @@
       "EditorPosition": {
         "X": 110.0,
         "Y": 6114.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792579036632",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_science",
+                  "ItemName": "Science Crew",
+                  "Amount": 3,
+                  "Category": "Specialization",
+                  "Icon": "🔬"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "✨ Morale Boost II x48"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_9_morale_boost_ii",
+              "Name": "Morale Boost II",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [
+            {
+              "ClauseID": "clause_1792579042730",
+              "IsAlternativeGroup": false,
+              "Alternatives": [
+                {
+                  "ItemID": "spec_operations",
+                  "ItemName": "Operations Crew",
+                  "Amount": 3,
+                  "Category": "Specialization",
+                  "Icon": "⚙️"
+                }
+              ]
+            }
+          ],
+          "Rewards": [
+            "✨ Boosted Productivity II x48"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "status_25_boosted_productivity_ii",
+              "Name": "Boosted Productivity II",
+              "Amount": "48",
+              "Category": "Item",
+              "Icon": "✨"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792579368503",
+      "RowName": "EVENT_node_1792579368503",
+      "EventID": "node_1792579368503",
+      "EventTitle": "New Event Block",
+      "EventCategory": "DeckPool",
+      "EventType": "Deck",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 9,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 6784.0
       },
       "Actions": [
         {

@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:36:46.806621",
+  "_lastModified": "2026-10-21T12:47:48.584084",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -1469,21 +1469,72 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E7",
-      "name": "New Event Block",
+      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
+      "name": "Repetition Overload",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 1,
-      "location": "Game stage 2 or more",
-      "spawnConditions": "Game stage 2 or more",
+      "location": "Game stage 2 or more, Behemoth",
+      "spawnConditions": "Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Repetitive tasks reduce engagement and initiative. Supervisors request task shuffling or short-term goals. No change maintains stability but risks further disengagement.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "We keep the same loop and ask for patience. Engagement falls and supervisors spend time chasing basics.",
+        "penalties": [
+          {
+            "resourceId": "status_27_productivity_slowdown_i",
+            "name": "Productivity Slowdown I",
+            "rawName": "Productivity Slowdown I",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -20 for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+          },
+          {
+            "resourceId": "status_5_weakened_morale_i",
+            "name": "Weakened Morale I",
+            "rawName": "Weakened Morale I",
+            "amount": "",
+            "hasN": false,
+            "nValue": "",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Morale I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Morale",
+            "target": "crew",
+            "effect": "Morale -2",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crewmember loses 2 morale per hour for certain time."
+          }
+        ]
+      },
       "position": {
         "x": 110,
         "y": 6114
@@ -1491,6 +1542,130 @@
       "actions": [
         {
           "id": "c_1792578968136",
+          "codeSuffix": "A",
+          "shortDescription": "Shuffle task assignments",
+          "description": "Swap task blocks between teams to break routine while keeping coverage intact.",
+          "requirements": [
+            {
+              "id": "clause_1792579036632",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Tasks are reshuffled across teams. The change breaks boredom, and initiative returns.",
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792579011453",
+          "codeSuffix": "B",
+          "shortDescription": "Introduce mini-goals",
+          "description": "Post visible micro-targets with end-of-shift checkoffs and small acknowledgments.",
+          "requirements": [
+            {
+              "id": "clause_1792579042730",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 3,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Short goals with visible progress bars go live. Crews chase targets and celebrate quick wins.",
+          "rewards": [
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    },
+    {
+      "id": "node_1792579368503",
+      "codename": "DECK-S1-E8",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 9,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 6784
+      },
+      "actions": [
+        {
+          "id": "c_1792579368503",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
