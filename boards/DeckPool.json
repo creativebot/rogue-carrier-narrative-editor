@@ -271,7 +271,7 @@
         {
           "id": "act_1792574597209",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Recycle the crops",
           "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
           "requirements": [],
           "timerHours": 5,
@@ -287,5 +287,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:24:21.483654"
+  "_lastModified": "2026-10-21T09:24:28.291769"
 }
