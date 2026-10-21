@@ -1403,7 +1403,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -1443,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:59:53.419169"
+  "_lastModified": "2026-10-21T11:00:01.731726"
 }
