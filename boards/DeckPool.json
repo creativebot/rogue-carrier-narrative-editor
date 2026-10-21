@@ -302,7 +302,15 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "synthesis_03",
+              "name": "Chemical Fuel",
+              "amount": "50",
+              "iconImg": "icons/T_Chemical-Fuel.png",
+              "icon": "📦"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -311,5 +319,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:25:20.103573"
+  "_lastModified": "2026-10-21T09:25:29.547979"
 }
