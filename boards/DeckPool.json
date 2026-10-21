@@ -1243,28 +1243,6 @@
             "posNeg": "negative",
             "description": "",
             "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
-          },
-          {
-            "resourceId": "status_5_weakened_morale_i",
-            "name": "Weakened Morale I",
-            "rawName": "Weakened Morale I",
-            "amount": "",
-            "hasN": false,
-            "nValue": "",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Morale I.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Morale",
-            "target": "crew",
-            "effect": "Morale -2",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crewmember loses 2 morale per hour for certain time."
           }
         ]
       },
@@ -1336,5 +1314,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:38:46.925094"
+  "_lastModified": "2026-10-21T10:38:50.687144"
 }
