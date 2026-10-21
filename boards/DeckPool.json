@@ -718,9 +718,9 @@
             "resourceId": "status_30_corrosive_mold",
             "name": "Corrosive Mold",
             "rawName": "Corrosive Mold",
-            "amount": "4",
+            "amount": "1",
             "hasN": true,
-            "nValue": "4",
+            "nValue": "1",
             "hasSpecies": false,
             "species": "",
             "iconImg": "icons/status_effects/Corrosive Mold.png",
@@ -730,7 +730,7 @@
             "category": "Status Effect",
             "effectCategory": "Repair, hull and buildings HP",
             "target": "building",
-            "effect": "integrity -5 per hour for 4 hours",
+            "effect": "integrity -5 per hour for 1 hours",
             "effectType": "Buff/Debuff",
             "posNeg": "negative",
             "description": "",
@@ -938,5 +938,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:20:43.270452"
+  "_lastModified": "2026-10-21T10:20:56.768419"
 }
