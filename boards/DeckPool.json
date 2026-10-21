@@ -105,6 +105,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792573560713",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -134,5 +147,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:05:41.401685"
+  "_lastModified": "2026-10-21T09:06:07.115359"
 }
