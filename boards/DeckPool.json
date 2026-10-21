@@ -1872,7 +1872,7 @@
         {
           "id": "act_1792585650554",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Consult experts",
           "description": "Invite a group of specialists to discuss and improve meal plan.",
           "requirements": [],
           "timerHours": 5,
@@ -1888,5 +1888,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:28:05.038960"
+  "_lastModified": "2026-10-21T12:28:12.253173"
 }
