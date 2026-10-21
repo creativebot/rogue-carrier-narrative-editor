@@ -1202,7 +1202,7 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E7",
+      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -1241,5 +1241,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:36:38.724504"
+  "_lastModified": "2026-10-21T10:36:42.008996"
 }
