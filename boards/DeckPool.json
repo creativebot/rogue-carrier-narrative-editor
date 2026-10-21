@@ -253,6 +253,28 @@
             "posNeg": "negative",
             "description": "",
             "comments": "Affected cremember's Immunity is reduced by 40% (rounded up)"
+          },
+          {
+            "resourceId": "status_13_weakened_immunity_ii",
+            "name": "Weakened Immunity II",
+            "rawName": "Weakened Immunity II",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Immunity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Immunity",
+            "target": "crew",
+            "effect": "Immunity -60% for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected cremember's Immunity is reduced by 60% (rounded up)"
           }
         ]
       },
@@ -340,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:26:20.883357"
+  "_lastModified": "2026-10-21T09:26:37.212544"
 }
