@@ -2229,7 +2229,14 @@
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
-          "💀 Entropy +10"
+          "💀 Entropy +10",
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          }
         ]
       },
       "position": {
@@ -2363,5 +2370,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:25:02.961096"
+  "_lastModified": "2026-10-21T13:25:10.762844"
 }
