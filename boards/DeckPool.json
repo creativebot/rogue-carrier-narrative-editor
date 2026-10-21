@@ -764,6 +764,13 @@
                   "amount": 5,
                   "iconImg": "icons/T_StandardAmmunitionPack.png",
                   "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 2,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
                 }
               ]
             }
@@ -795,5 +802,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:55:38.736872"
+  "_lastModified": "2026-10-21T09:55:49.684289"
 }
