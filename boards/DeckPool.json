@@ -1423,7 +1423,7 @@
           "id": "act_1792579735218",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1438,5 +1438,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:49:07.964093"
+  "_lastModified": "2026-10-21T10:49:13.688731"
 }
