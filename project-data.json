@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:38:51.911883",
+  "_lastModified": "2026-10-21T12:39:00.715358",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2476,7 +2476,7 @@
     },
     {
       "id": "node_1792586289797",
-      "codename": "DECK-S1-E12",
+      "codename": "DECK-S1-E12 BPQ_DeckQuest_Ghost",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
