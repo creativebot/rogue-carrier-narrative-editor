@@ -691,7 +691,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_26_boosted_productivity_iii",
+            "name": "Boosted Productivity III",
+            "rawName": "Boosted Productivity III",
+            "amount": "-80",
+            "hasN": true,
+            "nValue": "-80",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Boosted Productivity III.png",
+            "icon": "✨",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "productivity +100 for -80 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "positive",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is increased by 100 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -893,5 +916,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:19:39.959482"
+  "_lastModified": "2026-10-21T10:19:57.309876"
 }
