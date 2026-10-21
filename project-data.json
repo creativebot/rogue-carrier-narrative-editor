@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:28:23.919936",
+  "_lastModified": "2026-10-21T12:28:26.062113",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -2094,29 +2094,21 @@
     },
     {
       "id": "node_1792585570927",
-      "codename": "DECK-S1-E10 BPQ_DeckQuest_Superchef",
-      "name": "Superchef",
+      "codename": "DECK-S1-E10",
+      "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 2,
-      "location": "in the open sea, Game stage 2 or more, Behemoth",
-      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
+      "location": "",
+      "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "A group of crew members is interested in improving the taste of their usual chow. The texture and flavor of their issued meals feel off, and they ask to improve the recipe.",
+      "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
-      },
+      "hasInactionThreat": false,
+      "inactionThreat": null,
       "position": {
         "x": 1460,
         "y": 216
@@ -2125,22 +2117,8 @@
         {
           "id": "c_1792585570927",
           "codeSuffix": "A",
-          "shortDescription": "Host cooking contest",
-          "description": "Organize competition between crewmembers, use winning recipe.",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792585650554",
-          "codeSuffix": "B",
-          "shortDescription": "Consult experts",
-          "description": "Invite a group of specialists to discuss and improve meal plan.",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
