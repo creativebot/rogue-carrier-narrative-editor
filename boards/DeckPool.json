@@ -288,7 +288,21 @@
           "codeSuffix": "A",
           "shortDescription": "Reverse the sickness",
           "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792574925624",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Your scientists work hard to turn the whole crisis upside down: from poison to cure. Eventually, they bring the good news: they have managed to extract the parasitic fluid from the plants and use it to create a batch of custom MedGel.",
           "rewards": [
@@ -362,5 +376,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:28:38.738263"
+  "_lastModified": "2026-10-21T09:28:52.015424"
 }
