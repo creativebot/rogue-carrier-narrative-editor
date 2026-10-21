@@ -1435,7 +1435,7 @@
         {
           "id": "act_1792579735218",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Build the Advanced Rig",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
           "requirements": [],
           "timerHours": 5,
@@ -1451,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:04:07.679857"
+  "_lastModified": "2026-10-21T11:04:12.428950"
 }
