@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:16:07.613602",
+  "_lastModified": "2026-10-21T12:16:16.816546",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1895,7 +1895,7 @@
         {
           "id": "act_1792584909553",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Navigation",
           "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
           "requirements": [],
           "timerHours": 5,
