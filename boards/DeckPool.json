@@ -997,7 +997,7 @@
           "id": "act_1792578290577",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "For now, all we can manage is small sports competitions in the off-hours. Assign supervisors to keep it from cutting into work time.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1012,5 +1012,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:25:09.350970"
+  "_lastModified": "2026-10-21T10:25:13.900888"
 }
