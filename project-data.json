@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:00:28.966183",
+  "_lastModified": "2026-10-21T09:00:38.757307",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -357,7 +357,7 @@
           "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
