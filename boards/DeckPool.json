@@ -71,9 +71,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 110,
@@ -181,5 +179,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:18:03.700966"
+  "_lastModified": "2026-10-21T09:18:30.659650"
 }
