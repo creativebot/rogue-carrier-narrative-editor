@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:37:10.823605",
+  "_lastModified": "2026-10-21T12:37:24.021920",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2407,7 +2407,21 @@
           "codeSuffix": "C",
           "shortDescription": "Study Algae",
           "description": "The pathogens can be found in the Algae. The doctors need plenty of test subjects for their work on the vaccine.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792586237619",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_31_k_Algae",
+                  "name": "K-IV Algae",
+                  "amount": 100,
+                  "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
