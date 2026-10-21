@@ -4,10 +4,11 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 121,
+        "seconds": 646,
         "boards": {
-          "GenericPool": 27,
-          "KeyChain:timeline_1:var_v1": 94
+          "GenericPool": 158,
+          "KeyChain:timeline_1:var_v1": 258,
+          "DeckPool": 230
         },
         "hourly": [
           0,
@@ -21,11 +22,11 @@
           0,
           0,
           91,
+          161,
           0,
+          22,
           0,
-          0,
-          0,
-          30,
+          372,
           0,
           0,
           0,
@@ -35,7 +36,79 @@
           0,
           0
         ],
-        "lastActive": "2026-10-21T15:40:53.942000Z"
+        "lastActive": "2026-10-21T15:44:20.381000Z"
+      },
+      "ttretilova@n-ix.com": {
+        "name": "Tetiana Tretilova",
+        "email": "ttretilova@n-ix.com",
+        "seconds": 2803,
+        "boards": {
+          "DeckPool": 2628,
+          "GenericPool": 175
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          139,
+          1646,
+          666,
+          158,
+          194,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-21T15:04:06.826000Z"
+      },
+      "pdushynskyi@n-ix.com": {
+        "name": "Petro Dushynskyi",
+        "email": "pdushynskyi@n-ix.com",
+        "seconds": 19,
+        "boards": {
+          "KeyChain:timeline_1:var_v2": 16,
+          "DeckPool": 3
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          19,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-21T12:27:49.867000Z"
       }
     }
   }
