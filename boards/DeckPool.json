@@ -2021,12 +2021,10 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ]
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:32:20.501506"
+  "_lastModified": "2026-10-21T12:32:21.488177"
 }
