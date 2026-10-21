@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T11:15:02.617281",
+  "_lastModified": "2026-10-21T11:15:04.102180",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -3197,7 +3197,7 @@
       "category": "GenericPool",
       "variationId": "var_v1",
       "floorIndex": 1,
-      "tier": 4,
+      "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
@@ -3206,8 +3206,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4160,
-        "y": 1367
+        "x": 2810,
+        "y": 1325
       },
       "actions": [
         {
