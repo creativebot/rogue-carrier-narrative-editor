@@ -1881,7 +1881,21 @@
           "codeSuffix": "A",
           "shortDescription": "Host cooking contest",
           "description": "Organize competition between crewmembers, use winning recipe.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585844810",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_01",
+                  "name": "Nutrient Paste",
+                  "amount": 5,
+                  "iconImg": "icons/T_Nutrient-Paste.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
           "rewards": [
@@ -1930,5 +1944,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:30:03.435606"
+  "_lastModified": "2026-10-21T12:30:51.164985"
 }
