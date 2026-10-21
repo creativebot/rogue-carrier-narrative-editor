@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:40:01.546096",
+  "_lastModified": "2026-10-21T10:40:28.790696",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1480,7 +1480,7 @@
       "location": "Game stage 2 or more, Behemoth",
       "spawnConditions": "Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Repetitive tasks reduce engagement and initiative. Supervisors request task shuffling or short-term goals. No change maintains stability but risks further disengagement.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
