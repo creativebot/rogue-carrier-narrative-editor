@@ -1009,7 +1009,22 @@
           "codeSuffix": "B",
           "shortDescription": "Deny the tournament",
           "description": "Cancel the event with a clear memo, and assemble a team of qualified specialists for a one-day lab challenge instead.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792578436571",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 2,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [],
@@ -1033,5 +1048,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:26:54.074130"
+  "_lastModified": "2026-10-21T10:27:22.957238"
 }
