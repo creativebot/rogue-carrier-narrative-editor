@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:45:15.534103",
+  "_lastModified": "2026-10-21T09:45:30.210285",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -781,6 +781,13 @@
                   "name": "Omni Fruit",
                   "amount": 25,
                   "iconImg": "icons/T_OmniFruit.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 25,
+                  "iconImg": "icons/T_Grain.png",
                   "icon": "📦"
                 }
               ]
