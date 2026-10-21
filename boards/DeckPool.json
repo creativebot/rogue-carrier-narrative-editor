@@ -257,7 +257,7 @@
         {
           "id": "act_1792574596451",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Cure the sickness",
           "description": "The scientists are confident they can cure the affliction.",
           "requirements": [],
           "timerHours": 5,
@@ -287,5 +287,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:24:14.585451"
+  "_lastModified": "2026-10-21T09:24:21.483654"
 }
