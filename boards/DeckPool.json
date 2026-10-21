@@ -574,7 +574,21 @@
           "codeSuffix": "B",
           "shortDescription": "Comfort food",
           "description": "Energy bars are nothing new, but they are always popular. The crew will love having them added to their daily portions.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792575990788",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 20,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
           "rewards": [
@@ -644,5 +658,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:45:38.741865"
+  "_lastModified": "2026-10-21T09:46:37.167431"
 }
