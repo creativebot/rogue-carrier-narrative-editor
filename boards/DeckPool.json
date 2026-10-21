@@ -705,7 +705,21 @@
           "codeSuffix": "A",
           "shortDescription": "Exterminate with poison",
           "description": "Create a chemical poison and kill the uninvited guests.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792576477921",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -747,5 +761,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:54:38.728008"
+  "_lastModified": "2026-10-21T09:54:44.309677"
 }
