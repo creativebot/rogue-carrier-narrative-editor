@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T17:59:23.199419",
+  "_lastModified": "2026-10-21T19:47:56.492779",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Maiia Lysytska"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -153,7 +153,7 @@
     },
     {
       "id": "tuuli",
-      "name": "Tuuli Korpela",
+      "name": "Tuuli Kantola",
       "role": "Chief Engineer",
       "color": "#ffedd5",
       "textColor": "#9a3412",
