@@ -1823,7 +1823,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792585570927",
@@ -1982,7 +1983,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792585931551",
@@ -2432,7 +2434,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792589193352",
@@ -2492,10 +2495,11 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:35:02.957970"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-21T15:04:27.263291"
 }
