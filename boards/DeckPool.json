@@ -480,13 +480,20 @@
           "requirements": [
             {
               "id": "clause_1792575857368",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_39_k_Krill",
                   "name": "K-IV Krill",
                   "amount": 25,
                   "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_40_k_AminoAc",
+                  "name": "K-IV Aminoacids",
+                  "amount": 25,
+                  "iconImg": "icons/T_Amino_Acid.png",
                   "icon": "📦"
                 }
               ]
@@ -610,5 +617,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:44:38.739601"
+  "_lastModified": "2026-10-21T09:44:40.506117"
 }
