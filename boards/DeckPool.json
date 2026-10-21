@@ -488,6 +488,28 @@
               "amount": "+10",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_17_weakened_health_i",
+              "name": "Weakened Health I",
+              "rawName": "Weakened Health I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Health I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP -20% for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
             }
           ],
           "targetNodeIds": [],
@@ -526,5 +548,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:41:38.751810"
+  "_lastModified": "2026-10-21T09:42:00.487547"
 }
