@@ -79,7 +79,7 @@
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -119,5 +119,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:00:16.956854"
+  "_lastModified": "2026-10-21T09:00:28.958296"
 }
