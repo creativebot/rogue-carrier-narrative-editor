@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:53:32.093284",
+  "_lastModified": "2026-10-21T09:53:36.452989",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -971,7 +971,7 @@
           "id": "c_1792576020887",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Create a chemical poison and kill the uninvited guests.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
