@@ -98,19 +98,6 @@
                   "icon": "📦"
                 }
               ]
-            },
-            {
-              "id": "clause_1792573413848",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_40_k_AminoAc",
-                  "name": "K-IV Aminoacids",
-                  "amount": 10,
-                  "iconImg": "icons/T_Amino_Acid.png",
-                  "icon": "📦"
-                }
-              ]
             }
           ],
           "timerHours": 5,
@@ -140,5 +127,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:04:43.926583"
+  "_lastModified": "2026-10-21T09:04:48.909093"
 }
