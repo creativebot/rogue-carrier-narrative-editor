@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:39:59.752606",
+  "_lastModified": "2026-10-21T09:40:31.505110",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -740,7 +740,7 @@
           "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
