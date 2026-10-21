@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:43:42.625607",
+  "_lastModified": "2026-10-21T09:43:51.330247",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -724,7 +724,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-20",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
