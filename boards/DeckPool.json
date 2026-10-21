@@ -100,19 +100,6 @@
               ]
             },
             {
-              "id": "clause_1792573971749",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 10,
-                  "iconImg": "icons/T_K-IV_Krill.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1792574000063",
               "isReplaceable": false,
               "items": [
@@ -153,5 +140,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:13:38.748996"
+  "_lastModified": "2026-10-21T09:14:58.433122"
 }
