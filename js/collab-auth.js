@@ -87,8 +87,9 @@ async function initAuthSystem() {
       canEdit: true,
       isAdmin: true
     });
-    updateAuthHeaderUI();
-    preloadTeamUsers();
+    updateAuthHeaderUI();
+    preloadTeamUsers();
+    sendPresenceHeartbeat();
     return;
   }
 
@@ -129,6 +130,7 @@ async function initAuthSystem() {
   }
   updateAuthHeaderUI();
   preloadTeamUsers();
+  sendPresenceHeartbeat();
 }
 
 let isCurrentBoardReadOnly = false;
@@ -1838,6 +1840,157 @@ async function syncActiveBoardLock() {
   }
 }
 
+
+/* ==========================================================================
+   ONLINE WRITERS PRESENCE & BOARD QUICK JUMP SYSTEM
+   ========================================================================== */
+let lastRenderedPresenceHash = '';
+
+function jumpToNarrativeBoard(boardId) {
+  if (!boardId) return;
+  const currentId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : '';
+  if (currentId === boardId) {
+    if (typeof showToast === 'function') showToast("You are already on this board", "info");
+    return;
+  }
+
+  // 1. GenericPool
+  if (boardId === 'GenericPool') {
+    if (typeof setCategoryFilter === 'function') {
+      setCategoryFilter('GenericPool');
+      if (typeof showToast === 'function') showToast("Switched to Generic Pool", "success");
+      sendPresenceHeartbeat();
+    }
+    return;
+  }
+
+  // 2. DeckPool
+  if (boardId === 'DeckPool') {
+    if (typeof setCategoryFilter === 'function') {
+      setCategoryFilter('DeckPool');
+      if (typeof showToast === 'function') showToast("Switched to Deck Pool", "success");
+      sendPresenceHeartbeat();
+    }
+    return;
+  }
+
+  // 3. Partitioned timeline/variation board: Category:TimelineId:VariationId
+  const parts = boardId.split(':');
+  if (parts.length >= 3) {
+    activeCategoryFilter = parts[0];
+    activeTimelineId = parts[1];
+    activeVariationId = parts[2];
+
+    if (typeof syncCategoryFilterButtonsUI === 'function') {
+      syncCategoryFilterButtonsUI(activeCategoryFilter);
+    }
+    if (typeof saveActiveWorkspacePosition === 'function') {
+      saveActiveWorkspacePosition();
+    }
+
+    const afterUpdate = () => {
+      if (typeof renderApp === 'function') renderApp();
+      if (typeof syncActiveBoardLock === 'function') syncActiveBoardLock();
+      sendPresenceHeartbeat();
+      if (typeof showToast === 'function') {
+        const dName = (typeof getCurrentBoardDisplayName === 'function') ? getCurrentBoardDisplayName() : boardId;
+        showToast(`Switched to board: ${dName}`, "success");
+      }
+    };
+
+    if (typeof syncBoardFromServer === 'function') {
+      syncBoardFromServer().then(afterUpdate);
+    } else {
+      afterUpdate();
+    }
+    return;
+  }
+
+  if (typeof showToast === 'function') showToast(`Unknown board: ${boardId}`, "warning");
+}
+
+function renderActivePresenceDock(activeUsers) {
+  const container = document.getElementById('active-writers-avatars');
+  const dock = document.getElementById('active-writers-dock');
+  if (!container || !dock) return;
+
+  if (!Array.isArray(activeUsers) || activeUsers.length === 0) {
+    dock.classList.add('hidden');
+    dock.classList.remove('flex');
+    return;
+  }
+
+  const hash = JSON.stringify(activeUsers.map(u => [u.email, u.boardId, u.isEditing, u.initials]));
+  if (hash === lastRenderedPresenceHash && container.children.length === activeUsers.length) {
+    return; // Avoid unnecessary re-rendering
+  }
+  lastRenderedPresenceHash = hash;
+
+  dock.classList.remove('hidden');
+  dock.classList.add('flex');
+  container.innerHTML = '';
+
+  const myEmail = (currentUser?.email || '').trim().toLowerCase();
+
+  activeUsers.forEach(u => {
+    const isMe = Boolean(u.email && u.email.toLowerCase() === myEmail);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs shadow-md border-2 border-gray-900 cursor-pointer relative group transition-all duration-200 hover:scale-125 hover:z-20 hover:shadow-xl focus:outline-none';
+    btn.style.backgroundColor = u.color || '#f59e0b';
+    btn.style.color = '#ffffff';
+
+    const actionText = isMe ? '(You) • Click to stay here' : 'Click to jump to board ➔';
+    const statusText = u.isEditing ? '✏️ Actively Editing (Lock held)' : '👁️ Viewing Board';
+    btn.title = `${u.name} ${isMe ? '(You)' : ''}\n${statusText}\n📁 Board: ${u.boardName || u.boardId}\n${actionText}`;
+
+    const span = document.createElement('span');
+    span.className = 'font-mono select-none drop-shadow-sm text-[10px] sm:text-[11px] font-black tracking-tight pointer-events-none';
+    span.innerText = u.initials || '??';
+    btn.appendChild(span);
+
+    // Indicator badge
+    const badge = document.createElement('span');
+    if (u.isEditing) {
+      badge.className = 'absolute -top-1 -right-1 w-3 h-3 bg-amber-400 border border-gray-950 rounded-full flex items-center justify-center text-[7px] leading-none shadow-sm';
+      badge.innerText = '✏️';
+      btn.classList.add('ring-2', 'ring-amber-400/90', 'ring-offset-1', 'ring-offset-gray-950');
+    } else {
+      badge.className = 'absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border border-gray-950 rounded-full';
+    }
+    btn.appendChild(badge);
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      jumpToNarrativeBoard(u.boardId);
+    });
+
+    container.appendChild(btn);
+  });
+}
+
+async function sendPresenceHeartbeat() {
+  if (!hasAppAccess()) return;
+  try {
+    const boardId = (typeof getCurrentBoardIdentifier === 'function') ? getCurrentBoardIdentifier() : 'KeyChain:timeline_1:var_v1';
+    const boardName = (typeof getCurrentBoardDisplayName === 'function') ? getCurrentBoardDisplayName() : 'Key Events';
+    const isEditing = !isCurrentBoardReadOnly && Boolean(currentBoardLock);
+
+    const payload = { boardId, boardName, isEditing };
+    const res = await fetch('/api/presence/heartbeat', {
+      method: 'POST',
+      headers: (typeof getAuthHeaders === 'function') ? getAuthHeaders(true) : { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && Array.isArray(data.activeUsers)) {
+        renderActivePresenceDock(data.activeUsers);
+      }
+    }
+  } catch (e) {}
+}
+
 function startCollabSyncPoll() {
   if (collabSyncPollInterval) return;
   collabSyncPollInterval = setInterval(async () => {
@@ -1848,6 +2001,10 @@ function startCollabSyncPoll() {
       const boardId = getCurrentBoardIdentifier();
       const allLocks = data.locks || {};
       const revisions = data.boardRevisions || {};
+      if (data.activeUsers && Array.isArray(data.activeUsers)) {
+        renderActivePresenceDock(data.activeUsers);
+      }
+      sendPresenceHeartbeat();
 
       // 1. Sync lock status & countdown for active board
       if (isCurrentBoardReadOnly) {
@@ -2054,6 +2211,9 @@ window.addEventListener('beforeunload', () => {
     const boardId = getCurrentBoardIdentifier();
     navigator.sendBeacon('/api/lock/release', JSON.stringify({ boardId }));
   }
+  if (navigator.sendBeacon && currentUser && currentUser.email) {
+    navigator.sendBeacon('/api/presence/leave', new Blob([JSON.stringify({ email: currentUser.email })], { type: 'application/json' }));
+  }
 });
 
 window.syncActiveBoardLock = syncActiveBoardLock;
@@ -2071,3 +2231,6 @@ window.isCurrentBoardReadOnly = () => isCurrentBoardReadOnly;
 window.getCurrentBoardLock = () => currentBoardLock;
 window.getCurrentUser = () => currentUser;
 window.lastLoadedBoardRevisions = lastLoadedBoardRevisions;
+window.jumpToNarrativeBoard = jumpToNarrativeBoard;
+window.renderActivePresenceDock = renderActivePresenceDock;
+window.sendPresenceHeartbeat = sendPresenceHeartbeat;

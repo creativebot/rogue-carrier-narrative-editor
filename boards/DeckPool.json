@@ -1137,6 +1137,13 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "📜"
             }
           ],
           "targetNodeIds": [],
@@ -1377,21 +1384,35 @@
     },
     {
       "id": "node_1792579368503",
-      "codename": "DECK-S1-E8",
-      "name": "New Event Block",
+      "codename": "DECK-S1-E8 BPQ_DeckQuest_Fishing_Rig",
+      "name": "Trawl Rig",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
       "floorIndex": 9,
       "tier": 1,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "location": "in the open sea, Behemoth, ",
+      "spawnConditions": "in the open sea, Behemoth, ",
+      "eventIntro": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
+      },
       "position": {
         "x": 110,
         "y": 6784
@@ -1401,10 +1422,24 @@
           "id": "c_1792579368503",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792579735218",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1416,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:43:38.737378"
+  "_lastModified": "2026-10-21T11:00:39.449537"
 }

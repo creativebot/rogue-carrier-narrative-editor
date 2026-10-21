@@ -1,6 +1,6 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-21T10:47:48.593084Z",
+    "ExportTime": "2026-10-21T11:01:54.602178Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
@@ -1296,7 +1296,8 @@
           ],
           "Rewards": [
             "⚡ Weakened Morale II",
-            "✨ Boosted Productivity II x48"
+            "✨ Boosted Productivity II x48",
+            "📜 Blueprints x4"
           ],
           "StructuredRewards": [
             {
@@ -1312,6 +1313,13 @@
               "Amount": "48",
               "Category": "Item",
               "Icon": "✨"
+            },
+            {
+              "ResourceID": "stat_blueprints",
+              "Name": "Blueprints",
+              "Amount": "4",
+              "Category": "Stat",
+              "Icon": "📜"
             }
           ],
           "ConsequenceText": "",
@@ -1508,6 +1516,30 @@
       "Actions": [
         {
           "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        },
+        {
+          "ActionIndex": 1,
           "ActionText": "",
           "Tooltip": "",
           "Requirements": [],

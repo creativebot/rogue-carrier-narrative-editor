@@ -898,7 +898,8 @@
         ],
         "Rewards": [
           "⚡ Weakened Morale II",
-          "✨ Boosted Productivity II x48"
+          "✨ Boosted Productivity II x48",
+          "📜 Blueprints x4"
         ],
         "StructuredRewards": [
           {
@@ -914,6 +915,13 @@
             "Amount": "48",
             "Category": "Item",
             "Icon": "✨"
+          },
+          {
+            "ResourceID": "stat_blueprints",
+            "Name": "Blueprints",
+            "Amount": "4",
+            "Category": "Stat",
+            "Icon": "📜"
           }
         ],
         "ConsequenceText": "",
@@ -1110,6 +1118,30 @@
     "Actions": [
       {
         "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
         "ActionText": "",
         "Tooltip": "",
         "Requirements": [],

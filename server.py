@@ -57,6 +57,11 @@ from backend.analytics import (
     get_analytics_summary,
     export_analytics_csv,
 )
+from backend.presence import (
+    record_presence,
+    remove_presence,
+    get_active_presence,
+)
 from backend.storage import (
     create_backup_snapshot,
     list_backup_snapshots,
@@ -1391,6 +1396,46 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_json(400, {"status": "error", "message": "Invalid tracking data"})
             except Exception as e:
                 self.send_json(500, {"status": "error", "message": str(e)})
+
+        # Online Presence Heartbeat
+        elif self.path == '/api/presence/heartbeat':
+            try:
+                user = self.get_auth_user()
+                if not user and self.is_local_request():
+                    user = {"email": ADMIN_EMAIL, "name": "Daniel Poludyonny"}
+                if not user or not user.get('email'):
+                    self.send_json(401, {"status": "error", "message": "Authentication required."})
+                    return
+                body = self.read_json_body() or {}
+                user_email = user.get('email')
+                user_name = user.get('name') or ''
+                board_id = body.get('boardId') or 'KeyChain:timeline_1:var_v1'
+                board_name = body.get('boardName') or 'Key Events'
+                is_editing = bool(body.get('isEditing', False))
+
+                record_presence(user_email, user_name, board_id, board_name, is_editing)
+                self.send_json(200, {
+                    "status": "ok",
+                    "activeUsers": get_active_presence()
+                })
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
+
+        # Online Presence Leave (Unload)
+        elif self.path == '/api/presence/leave':
+            try:
+                user = self.get_auth_user()
+                if user and user.get('email'):
+                    remove_presence(user.get('email'))
+                else:
+                    body = self.read_json_body() or {}
+                    if body.get('email'):
+                        remove_presence(body.get('email'))
+                self.send_json(200, {"status": "ok"})
+            except Exception as e:
+                self.send_json(500, {"status": "error", "message": str(e)})
+            return
         else:
             self.send_json(404, {"status": "error", "message": "Not Found"})
 
@@ -1399,11 +1444,20 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
-        # 0. Active Board Locks List & Real-time Board Revisions
+        # 0. Active Board Locks List & Real-time Board Revisions & Presence
         if path == '/api/locks':
             self.send_json(200, {
                 "locks": get_all_locks(),
-                "boardRevisions": get_board_revisions()
+                "boardRevisions": get_board_revisions(),
+                "activeUsers": get_active_presence()
+            })
+            return
+
+        # 0b. Dedicated Presence Check
+        elif path == '/api/presence':
+            self.send_json(200, {
+                "status": "ok",
+                "activeUsers": get_active_presence()
             })
             return
 

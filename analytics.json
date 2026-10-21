@@ -1,3 +1,42 @@
 {
-  "dailyTotals": {}
+  "dailyTotals": {
+    "2026-10-21": {
+      "dpoludonnyi@n-ix.com": {
+        "name": "Daniel Poludyonny",
+        "email": "dpoludonnyi@n-ix.com",
+        "seconds": 91,
+        "boards": {
+          "GenericPool": 27,
+          "KeyChain:timeline_1:var_v1": 64
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          91,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-21T10:54:09.046000Z"
+      }
+    }
+  }
 }
