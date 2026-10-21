@@ -2035,7 +2035,13 @@
           "timerHours": 5,
           "resultDescription": "The doctors do not manage to develop vaccine, however, the knowledge they gathered through research can be valuable in deepening comprehension of Keeling-IV ecosystems.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+75",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2066,5 +2072,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:35:12.836138"
+  "_lastModified": "2026-10-21T12:35:17.092602"
 }
