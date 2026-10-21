@@ -138,9 +138,11 @@ html, body {
 /* Editable Spot & Inline Form Elements (REQUIREMENT 6 FIX: Selectable & Editable Text) */
 .editable-spot {
   cursor: text;
-  padding: 2px 4px;
+  padding: 3px 6px;
   border-radius: 4px;
   user-select: text;
+  width: 100%;
+  box-sizing: border-box;
   transition: background-color 0.15s ease, outline 0.15s ease;
 }
 

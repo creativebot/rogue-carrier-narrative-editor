@@ -1020,9 +1020,11 @@ function createEventNodeDOM(node) {
     const actDescOver = isFieldTextOverLimit(actDescText, actChoiceLimitKey);
     actionDescHTML += `
       <td class="event-value-cell">
-        <div class="flex items-start justify-between gap-1.5">
-          <div class="editable-spot flex-1 min-w-0 ${actDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.description')">${actDescText || 'Add description...'}</div>
-          ${getSymbolCounterBadgeHTML(actDescText, actChoiceLimitKey)}
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center justify-end w-full">
+            ${getSymbolCounterBadgeHTML(actDescText, actChoiceLimitKey)}
+          </div>
+          <div class="editable-spot w-full block min-w-0 ${actDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.description')">${actDescText || 'Add description...'}</div>
         </div>
       </td>`;
 
@@ -1030,9 +1032,11 @@ function createEventNodeDOM(node) {
     const actBtnOver = isFieldTextOverLimit(actBtnText, 'actionButtonText');
     actionShortDescHTML += `
       <td class="event-value-cell">
-        <div class="flex items-center justify-between gap-1.5">
-          <div class="font-bold text-center editable-spot flex-1 min-w-0 ${actBtnOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.shortDescription')">${actBtnText || 'Choice'}</div>
-          ${getSymbolCounterBadgeHTML(actBtnText, 'actionButtonText')}
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center justify-end w-full">
+            ${getSymbolCounterBadgeHTML(actBtnText, 'actionButtonText')}
+          </div>
+          <div class="font-bold text-center editable-spot w-full block min-w-0 ${actBtnOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.shortDescription')">${actBtnText || 'Choice'}</div>
         </div>
       </td>`;
     
@@ -1120,16 +1124,16 @@ function createEventNodeDOM(node) {
     const actResOver = isFieldTextOverLimit(actResText, 'eventOutcome');
     actionResultHTML += `
       <td class="event-value-cell">
-        <div class="flex items-start justify-between gap-1.5">
-          <div class="flex-1 min-w-0">
-            <div class="editable-spot ${actResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center justify-between w-full">
+            <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer ${hasPostDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
+            ${getSymbolCounterBadgeHTML(actResText, 'eventOutcome')}
+          </div>
+          <div class="w-full">
+            <div class="editable-spot w-full block ${actResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
               ${actResText || 'Action result description...'}
             </div>
             ${postDiagPills}
-          </div>
-          <div class="flex flex-col items-end gap-1 shrink-0">
-            ${getSymbolCounterBadgeHTML(actResText, 'eventOutcome')}
-            <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer ${hasPostDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" data-action-id="${act.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', '${act.id}')"></div>
           </div>
         </div>
       </td>`;
@@ -1257,13 +1261,13 @@ function createEventNodeDOM(node) {
 
     inactionResultCell = `
       <td class="event-value-cell bg-red-50/70">
-        <div class="flex items-start justify-between gap-1.5">
-          <div class="flex-1 editable-spot text-red-950 ${inactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
-            ${inactionResult || 'Catastrophic failure'}
-          </div>
-          <div class="flex flex-col items-end gap-1 shrink-0">
-            ${getSymbolCounterBadgeHTML(inactionResult, 'inactionResult')}
+        <div class="flex flex-col gap-1 w-full">
+          <div class="flex items-center justify-between w-full">
             <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer" data-node-id="${node.id}" data-action-id="inaction" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', 'inaction')"></div>
+            ${getSymbolCounterBadgeHTML(inactionResult, 'inactionResult')}
+          </div>
+          <div class="w-full editable-spot block text-red-950 ${inactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
+            ${inactionResult || 'Catastrophic failure'}
           </div>
         </div>
       </td>`;
@@ -1407,14 +1411,16 @@ function createEventNodeDOM(node) {
         </select>
       </div>
 
-      <div class="flex items-start gap-2 flex-1 min-w-0 mx-1">
-        <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 mt-0.5 theme-substrip-label">Intro:</span>
-        <div class="editable-spot text-xs italic leading-snug text-gray-800 flex-1 break-words ${introOver ? 'is-over-limit' : ''}" 
+      <div class="flex flex-col gap-0.5 flex-1 min-w-0 mx-1">
+        <div class="flex items-center justify-between w-full">
+          <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 theme-substrip-label">Intro:</span>
+          ${getSymbolCounterBadgeHTML(introText, 'eventIntro')}
+        </div>
+        <div class="editable-spot text-xs italic leading-snug text-gray-800 w-full block break-words ${introOver ? 'is-over-limit' : ''}" 
              title="Click to edit event intro text"
              onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
           ${introText || 'Distress signal coming from Keeling island...'}
         </div>
-        ${getSymbolCounterBadgeHTML(introText, 'eventIntro')}
       </div>
 
       <div class="flex items-center gap-1.5 shrink-0 pt-0.5 whitespace-nowrap">
@@ -1431,12 +1437,14 @@ function createEventNodeDOM(node) {
     </div>
 
     <div class="event-desc-row px-3 py-1.5 text-xs">
-      <div class="flex items-start gap-2">
-        <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 mt-0.5 theme-substrip-label">Description:</span>
-        <div class="editable-spot leading-snug text-gray-800 flex-1 ${descOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
+      <div class="flex flex-col gap-0.5 w-full">
+        <div class="flex items-center justify-between w-full">
+          <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 theme-substrip-label">Description:</span>
+          ${getSymbolCounterBadgeHTML(descText, 'eventDescription')}
+        </div>
+        <div class="editable-spot leading-snug text-gray-800 w-full block ${descOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
           ${descText || 'Event context description...'}
         </div>
-        ${getSymbolCounterBadgeHTML(descText, 'eventDescription')}
       </div>
     </div>
 
@@ -2548,11 +2556,15 @@ function restoreInlineElementDisplay(element, type, nodeId, fieldPath, finalVal)
     const len = String(finalVal || '').length;
     const isOver = len > limitVal;
     element.classList.toggle('is-over-limit', isOver);
-    const container = element.parentElement;
-    const badge = container ? container.querySelector('.symbol-count-badge') : null;
+    const badge = element.parentElement?.querySelector('.symbol-count-badge')
+      || element.closest('.event-value-cell, .event-desc-row, .theme-substrip, tr, div')?.querySelector('.symbol-count-badge');
     if (badge) {
-      badge.textContent = `${len}/${limitVal}`;
+      const recs = (typeof getRecommendedLimits === 'function') ? getRecommendedLimits() : {};
+      const rec = (limitKey && recs[limitKey]) ? recs[limitKey] : 0;
+      const isUnder = len > 0 && rec > 0 && len < rec;
+      badge.innerHTML = `${len}/${limitVal}<span class="symbol-rec-tag" title="Recommended minimum"> (rec: ${rec})</span>`;
       badge.classList.toggle('is-over-limit', isOver);
+      badge.classList.toggle('is-under-rec', isUnder);
     }
   }
 
