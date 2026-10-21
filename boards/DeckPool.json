@@ -87,19 +87,6 @@
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [
             {
-              "id": "clause_1792573510421",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_40_k_AminoAc",
-                  "name": "K-IV Aminoacids",
-                  "amount": 10,
-                  "iconImg": "icons/T_Amino_Acid.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1792573560713",
               "isReplaceable": false,
               "items": [
@@ -153,5 +140,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:06:46.741731"
+  "_lastModified": "2026-10-21T09:06:48.790679"
 }
