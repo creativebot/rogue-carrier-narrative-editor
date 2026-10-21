@@ -680,8 +680,8 @@
       "variationId": "var_v1",
       "floorIndex": 5,
       "tier": 1,
-      "location": "Distance from island less than 1",
-      "spawnConditions": "Distance from island less than 1",
+      "location": "Distance from island less than 1, any building",
+      "spawnConditions": "Distance from island less than 1, any building",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -711,5 +711,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:52:38.743765"
+  "_lastModified": "2026-10-21T09:52:42.116249"
 }
