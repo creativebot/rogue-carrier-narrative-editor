@@ -673,7 +673,7 @@
     {
       "id": "node_1792576020887",
       "codename": "DECK-S1-E5 BPQ_DeckQuest_Infestation",
-      "name": "New Event Block",
+      "name": "Infestation",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -711,5 +711,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:52:16.818968"
+  "_lastModified": "2026-10-21T09:52:24.033547"
 }
