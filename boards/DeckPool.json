@@ -1916,7 +1916,22 @@
           "codeSuffix": "B",
           "shortDescription": "Consult experts",
           "description": "Invite a group of specialists to discuss and improve meal plan.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585866577",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
           "rewards": [
@@ -1951,5 +1966,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:31:02.982603"
+  "_lastModified": "2026-10-21T12:31:12.919166"
 }
