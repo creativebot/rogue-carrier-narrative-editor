@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:03:40.251074",
+  "_lastModified": "2026-10-21T09:03:57.930816",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -368,13 +368,20 @@
             },
             {
               "id": "clause_1792573413848",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_39_k_Krill",
                   "name": "K-IV Krill",
                   "amount": 10,
                   "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_40_k_AminoAc",
+                  "name": "K-IV Aminoacids",
+                  "amount": 10,
+                  "iconImg": "icons/T_Amino_Acid.png",
                   "icon": "📦"
                 }
               ]
