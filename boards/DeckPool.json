@@ -2342,7 +2342,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "There is, indeed, a disembodied voice that haunts the halls of the ship. An unsanctioned AI Core was installed within the ship's systems and made invisible even to Mnemosyne. When it happened, or who is responsible for this crime, remains unanswered. But this AI agent is the one spreading disturbing ideas and sowing seeds of doubt in the minds of your crew.  The AI core is removed. And the mysterious ghost is no more.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2354,5 +2354,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T13:24:14.530412"
+  "_lastModified": "2026-10-21T13:24:19.326156"
 }
