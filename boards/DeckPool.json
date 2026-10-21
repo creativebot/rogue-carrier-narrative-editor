@@ -1012,9 +1012,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -1037,5 +1035,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:26:50.761273"
+  "_lastModified": "2026-10-21T10:26:52.350448"
 }
