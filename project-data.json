@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:20:56.779651",
+  "_lastModified": "2026-10-21T10:21:27.289783",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -960,26 +960,26 @@
         "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
-            "resourceId": "status_26_boosted_productivity_iii",
-            "name": "Boosted Productivity III",
-            "rawName": "Boosted Productivity III",
-            "amount": "-80",
+            "resourceId": "status_29_productivity_slowdown_iii",
+            "name": "Productivity Slowdown III",
+            "rawName": "Productivity Slowdown III",
+            "amount": "48",
             "hasN": true,
-            "nValue": "-80",
+            "nValue": "48",
             "hasSpecies": false,
             "species": "",
-            "iconImg": "icons/status_effects/Boosted Productivity III.png",
-            "icon": "✨",
+            "iconImg": "icons/status_effects/Slowdown Productivity III.png",
+            "icon": "⚡",
             "isStatusEffect": true,
             "kind": "status_effect",
             "category": "Status Effect",
             "effectCategory": "Production Bonuses",
             "target": "crew/building",
-            "effect": "productivity +100 for -80 hours",
+            "effect": "crew productivity -80 for 48 hours",
             "effectType": "Buff/Debuff",
-            "posNeg": "positive",
+            "posNeg": "negative",
             "description": "",
-            "comments": "Buildings' or crew's  productivity is increased by 100 for duration fo effect."
+            "comments": "Buildings' or crew's  productivity is reduced by 80 for duration fo effect."
           },
           {
             "resourceId": "status_30_corrosive_mold",
