@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:25:45.194667",
+  "_lastModified": "2026-10-21T10:25:53.418506",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1253,7 +1253,7 @@
           "description": "Cancel the event with a clear memo, and assemble a team of qualified specialists for a one-day lab challenge instead.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
