@@ -1276,7 +1276,7 @@
         {
           "id": "c_1792578968136",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Shuffle task assignments",
           "description": "Swap task blocks between teams to break routine while keeping coverage intact.",
           "requirements": [
             {
@@ -1336,5 +1336,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:39:38.740224"
+  "_lastModified": "2026-10-21T10:39:52.899361"
 }
