@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:01:07.012161",
+  "_lastModified": "2026-10-21T09:01:09.192319",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -334,7 +334,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
         "penalties": [
           "💀 Entropy +10"
         ]
