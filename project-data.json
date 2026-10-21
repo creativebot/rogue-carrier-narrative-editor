@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:33:33.613731",
+  "_lastModified": "2026-10-21T13:33:47.719942",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2734,7 +2734,7 @@
         {
           "id": "c_1792589193352",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Raid the meeting place",
           "description": "Enter with security, seize materials for inspection, and conduct individual interviews with organizers.",
           "requirements": [],
           "timerHours": 5,
