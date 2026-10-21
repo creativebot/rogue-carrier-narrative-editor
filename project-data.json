@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:40:45.628911",
+  "_lastModified": "2026-10-21T09:40:53.101439",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -723,7 +723,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           "💀 Entropy +10"
         ]
