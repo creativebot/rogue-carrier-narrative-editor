@@ -704,7 +704,7 @@
           "id": "c_1792576020887",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Create a chemical poison and kill the uninvited guests.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -747,5 +747,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:53:32.081184"
+  "_lastModified": "2026-10-21T09:53:36.440025"
 }
