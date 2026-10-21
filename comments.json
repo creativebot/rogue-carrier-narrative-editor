@@ -95,18 +95,6 @@
       ]
     },
     {
-      "id": "cmt_1792153661694",
-      "targetId": "node_e0",
-      "targetType": "event",
-      "targetTitle": "T1-V1-K1A - The Moment After the End",
-      "text": "Verifying comments work on locked board! (Volodymyr)",
-      "author": "Daniel Poludyonny",
-      "authorEmail": "dpoludonnyi@n-ix.com",
-      "createdAt": "2026-10-16T12:27:41.694994Z",
-      "displayTime": "2026-10-16 14:27",
-      "mentions": []
-    },
-    {
       "id": "cmt_1792508378545",
       "targetId": "node_1791705255524",
       "targetType": "event",
@@ -186,6 +174,7 @@
     "cmt_1791569583368",
     "cmt_1791569647034",
     "cmt_1791723288305",
+    "cmt_1792153661694",
     "cmt_1792495013747"
   ]
 }
