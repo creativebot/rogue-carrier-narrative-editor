@@ -399,13 +399,20 @@
             },
             {
               "id": "clause_1792574976539",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "res_29",
                   "name": "Grain",
                   "amount": 50,
                   "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_30",
+                  "name": "Omni Fruit",
+                  "amount": 50,
+                  "iconImg": "icons/T_OmniFruit.png",
                   "icon": "📦"
                 }
               ]
@@ -430,5 +437,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:29:42.926365"
+  "_lastModified": "2026-10-21T09:29:51.711141"
 }
