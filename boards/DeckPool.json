@@ -1252,7 +1252,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Tasks are reshuffled across teams. The change breaks boredom, and initiative returns.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -1293,5 +1293,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:37:38.735351"
+  "_lastModified": "2026-10-21T10:37:44.586503"
 }
