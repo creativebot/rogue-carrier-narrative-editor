@@ -2017,7 +2017,7 @@
         {
           "id": "c_1792585931551",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Use Prebiotic Matter",
           "description": "The doctors need a lot of Prebiotic Matter to have enough pathogenic test subjects for their research on the vaccine.",
           "requirements": [],
           "timerHours": 5,
@@ -2062,5 +2062,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:34:04.068181"
+  "_lastModified": "2026-10-21T12:34:15.814116"
 }
