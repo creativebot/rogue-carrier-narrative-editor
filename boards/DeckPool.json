@@ -1186,6 +1186,13 @@
               "amount": "+5",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "stat_crew health",
+              "name": "Crew Health",
+              "amount": "+25",
+              "icon": "❤️",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -1196,5 +1203,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:35:38.731680"
+  "_lastModified": "2026-10-21T10:35:44.817861"
 }
