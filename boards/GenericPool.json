@@ -474,7 +474,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-1",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 110,
@@ -1660,5 +1668,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T15:01:17.834461"
+  "_lastModified": "2026-10-21T15:01:27.443446"
 }
