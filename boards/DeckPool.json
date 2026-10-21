@@ -1097,6 +1097,28 @@
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             {
+              "resourceId": "status_6_weakened_morale_ii",
+              "name": "Weakened Morale II",
+              "rawName": "Weakened Morale II",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale II.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -4",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 4 morale per hour for certain time."
+            },
+            {
               "resourceId": "status_25_boosted_productivity_ii",
               "name": "Boosted Productivity II",
               "rawName": "Boosted Productivity II",
@@ -1124,28 +1146,6 @@
               "amount": "4",
               "iconImg": "",
               "icon": "📜"
-            },
-            {
-              "resourceId": "status_5_weakened_morale_i",
-              "name": "Weakened Morale I",
-              "rawName": "Weakened Morale I",
-              "amount": "",
-              "hasN": false,
-              "nValue": "",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Weakened Morale I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "Morale -2",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "The crewmember loses 2 morale per hour for certain time."
             }
           ],
           "targetNodeIds": [],
@@ -1577,7 +1577,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 11,
+      "floorIndex": 0,
       "tier": 1,
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
@@ -1594,7 +1594,7 @@
       },
       "position": {
         "x": 110,
-        "y": 7908
+        "y": 7827
       },
       "actions": [
         {
@@ -2500,6 +2500,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-21T15:55:08.888594"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-21T17:46:13.428520"
 }
