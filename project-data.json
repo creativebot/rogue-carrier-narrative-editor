@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:39:29.798929",
+  "_lastModified": "2026-10-21T09:39:36.297365",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -765,7 +765,7 @@
           "id": "act_1792575543960",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Develop a new menu with original meals to pleasantly surprise your crew.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
