@@ -1093,7 +1093,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_6_weakened_morale_ii",
+              "name": "Weakened Morale II",
+              "rawName": "Weakened Morale II",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale II.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -4",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 4 morale per hour for certain time."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -1143,5 +1166,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:31:38.742833"
+  "_lastModified": "2026-10-21T10:34:55.562228"
 }
