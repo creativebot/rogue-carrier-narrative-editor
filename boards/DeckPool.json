@@ -75,7 +75,7 @@
         {
           "id": "c_1792573049123",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Go after larger fish",
           "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [],
           "timerHours": 5,
@@ -119,5 +119,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T08:59:54.477818"
+  "_lastModified": "2026-10-21T09:00:10.407070"
 }
