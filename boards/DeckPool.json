@@ -1000,7 +1000,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -1091,5 +1114,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:28:39.456290"
+  "_lastModified": "2026-10-21T10:30:03.550086"
 }
