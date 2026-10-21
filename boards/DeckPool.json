@@ -396,6 +396,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792574976539",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 50,
+                  "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -417,5 +430,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:29:38.735164"
+  "_lastModified": "2026-10-21T09:29:42.926365"
 }
