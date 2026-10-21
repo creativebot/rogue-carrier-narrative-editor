@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T15:01:27.513391",
+  "_lastModified": "2026-10-21T15:01:32.178739",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3372,26 +3372,6 @@
               "resourceId": "stat_morale",
               "name": "Morale",
               "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792004981483",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
-          "rewards": [
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "-1",
               "icon": "😊",
               "iconImg": ""
             }
