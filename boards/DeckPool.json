@@ -129,6 +129,13 @@
                   "amount": 10,
                   "iconImg": "icons/T_Amino_Acid.png",
                   "icon": "📦"
+                },
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
                 }
               ]
             },
@@ -173,5 +180,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:09:53.206248"
+  "_lastModified": "2026-10-21T09:10:37.780383"
 }
