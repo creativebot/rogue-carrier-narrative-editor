@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:18:09.416082",
+  "_lastModified": "2026-10-21T12:18:16.073441",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1955,7 +1955,13 @@
           "timerHours": 5,
           "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
