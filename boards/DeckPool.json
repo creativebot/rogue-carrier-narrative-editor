@@ -1846,9 +1846,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
@@ -1888,5 +1886,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:28:35.263992"
+  "_lastModified": "2026-10-21T12:28:38.900330"
 }
