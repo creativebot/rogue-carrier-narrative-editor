@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:36:10.959186",
+  "_lastModified": "2026-10-21T12:36:29.115629",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2284,7 +2284,21 @@
           "codeSuffix": "A",
           "shortDescription": "Use Prebiotic Matter",
           "description": "The doctors need a lot of Prebiotic Matter to have enough pathogenic test subjects for their research on the vaccine.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792586182712",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_38_Prebiotic",
+                  "name": "Prebiotic Matter",
+                  "amount": 100,
+                  "iconImg": "icons/T_Prebiotic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
