@@ -1421,7 +1421,7 @@
         {
           "id": "c_1792579368503",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Build the Rig",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
           "requirements": [],
           "timerHours": 2,
@@ -1451,5 +1451,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:03:46.511494"
+  "_lastModified": "2026-10-21T11:04:07.679857"
 }
