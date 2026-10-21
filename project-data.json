@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:37:05.394491",
+  "_lastModified": "2026-10-21T10:37:10.555238",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1515,7 +1515,7 @@
           "id": "act_1792579011453",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Post visible micro-targets with end-of-shift checkoffs and small acknowledgments.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
