@@ -1460,7 +1460,15 @@
           ],
           "timerHours": 1,
           "resultDescription": "This solution is far from ideal — the catch is modest, and the nets have done some damage to the local ecosystem. Still, it's a success.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.1",
+              "iconImg": "",
+              "icon": "🌀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -1509,5 +1517,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:06:56.594697"
+  "_lastModified": "2026-10-21T11:07:12.641337"
 }
