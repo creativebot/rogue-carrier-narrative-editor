@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:31:24.612079",
+  "_lastModified": "2026-10-21T12:31:46.015239",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2172,7 +2172,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_3_better_taste",
+              "name": "Better Taste",
+              "rawName": "Better Taste",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Better Taste.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food Morale bonuses x2 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each bous to morale received from food is doubled."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
