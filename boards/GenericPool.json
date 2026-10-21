@@ -1154,26 +1154,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1792411421698",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ],
       "colorScheme": "rose",
@@ -1662,5 +1642,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T15:02:26.209041"
+  "_lastModified": "2026-10-21T15:02:35.240216"
 }
