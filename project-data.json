@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:24:43.437302",
+  "_lastModified": "2026-10-21T09:24:56.259344",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -522,6 +522,13 @@
               "amount": "+25",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "medres_01",
+              "name": "Med Gel",
+              "amount": "10",
+              "iconImg": "icons/T_Med-Gel.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
