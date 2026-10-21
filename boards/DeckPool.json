@@ -1481,6 +1481,13 @@
               "amount": "0-60",
               "iconImg": "icons/T_ET_Squash.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_24_k_Plankton",
+              "name": "K-IV Plankton",
+              "amount": "0-60",
+              "iconImg": "icons/T_ET_Plankton.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -1531,5 +1538,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:07:44.012236"
+  "_lastModified": "2026-10-21T11:07:57.112924"
 }
