@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:24:35.785422",
+  "_lastModified": "2026-10-21T13:24:38.721585",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2566,9 +2566,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The sedatives improve the overall situation, though not without several side effects (apathy, lack of energy, loss of appetite, and others) that unfortunately affect general productivity.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
