@@ -1235,7 +1235,22 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Swap task blocks between teams to break routine while keeping coverage intact.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792579036632",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -1263,5 +1278,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:37:10.545217"
+  "_lastModified": "2026-10-21T10:37:23.011816"
 }
