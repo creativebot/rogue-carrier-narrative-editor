@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T15:01:32.178739",
+  "_lastModified": "2026-10-21T15:02:10.214100",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3750,8 +3750,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 1159
