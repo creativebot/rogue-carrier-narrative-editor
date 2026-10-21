@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:26:50.770529",
+  "_lastModified": "2026-10-21T10:26:52.390057",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1279,9 +1279,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
