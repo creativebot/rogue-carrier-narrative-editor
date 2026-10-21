@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:39:21.675706",
+  "_lastModified": "2026-10-21T09:39:29.798929",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -751,7 +751,7 @@
           "id": "act_1792575543394",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Energy bars are nothing new, but they are always popular. The crew will love having them added to their daily portions.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
