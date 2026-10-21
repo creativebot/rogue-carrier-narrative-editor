@@ -1602,7 +1602,21 @@
           "codeSuffix": "A",
           "shortDescription": "Combat",
           "description": "Allow Orest to organize a self-defense training course.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792585017670",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 2,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew undergoes a series of vigorous exercises: close combat, accuracy shooting, obstacle course traversal, and many others. The muscles throb and ache, making the next day of work a more tiring experience, but the skills learned and the knowledge gained are invaluable.",
           "rewards": [
@@ -1658,5 +1672,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:17:02.972483"
+  "_lastModified": "2026-10-21T12:17:04.014240"
 }
