@@ -1296,7 +1296,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Tasks are reshuffled across teams. The change breaks boredom, and initiative returns.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -1334,5 +1357,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:41:38.737493"
+  "_lastModified": "2026-10-21T10:41:43.399146"
 }
