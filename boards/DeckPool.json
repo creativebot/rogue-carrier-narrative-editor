@@ -1502,9 +1502,7 @@
           ],
           "timerHours": 1,
           "resultDescription": "This method has proven effective. The catch is substantial and it takes less time. The damage to the ecosystem remains, however, and cannot be ignored.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -1513,5 +1511,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T11:06:38.713670"
+  "_lastModified": "2026-10-21T11:06:55.245384"
 }
