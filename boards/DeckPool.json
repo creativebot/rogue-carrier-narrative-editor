@@ -76,7 +76,7 @@
           "id": "c_1792573049123",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -119,5 +119,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T08:59:38.752755"
+  "_lastModified": "2026-10-21T08:59:47.294201"
 }
