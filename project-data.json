@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T15:03:25.700852",
+  "_lastModified": "2026-10-21T15:03:32.078837",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4151,8 +4151,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "Once above the island, the scouts fly their recon craft into the most dangerous airspace they have ever flown through. The sky appears to be littered with balls of lightning, unseen until you fly too close to them.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2810,
         "y": 1692
