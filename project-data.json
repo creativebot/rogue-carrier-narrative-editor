@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:10:18.190Z",
+  "_lastModified": "2026-10-21T10:11:18.489149",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -268,6 +268,823 @@
     "variationDescription": 80
   },
   "nodes": [
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 220
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [
+        "var_v2"
+      ],
+      "title": "Hangar Deck Fire Drill"
+    },
+    {
+      "id": "node_1792573049123",
+      "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 1,
+      "location": "in the open sea, Behemoth",
+      "spawnConditions": "in the open sea, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "A few crewmembers come up to you with an unusual request. Passionate intergalactic fishermen, who have fished on every fish-inhabiting planet, want to borrow a freighter craft for their favorite activity.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": 0,
+        "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "+10",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 805
+      },
+      "actions": [
+        {
+          "id": "c_1792573049123",
+          "codeSuffix": "A",
+          "shortDescription": "Go after larger fish",
+          "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
+          "requirements": [
+            {
+              "id": "clause_1792573962294",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792574106848",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "res_39_k_Krill",
+                  "name": "K-IV Krill",
+                  "amount": 10,
+                  "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_40_k_AminoAc",
+                  "name": "K-IV Aminoacids",
+                  "amount": 10,
+                  "iconImg": "icons/T_Amino_Acid.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 0,
+          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+50",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792573170041",
+          "codeSuffix": "B",
+          "shortDescription": "Go after small fish",
+          "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
+          "requirements": [
+            {
+              "id": "clause_1792574251708",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 5,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792574263327",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "res_31_k_Algae",
+                  "name": "K-IV Algae",
+                  "amount": 10,
+                  "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_24_k_Plankton",
+                  "name": "K-IV Plankton",
+                  "amount": 10,
+                  "iconImg": "icons/T_ET_Plankton.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 0,
+          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+50",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792574416692",
+      "codename": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness",
+      "name": "Plant Diseases",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Specific building, Universum, Plantation, Farm",
+      "spawnConditions": "Specific building, Universum, Plantation, Farm",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "It appears that some of the infected crops have wound up in the kitchen. Stomach aches, fever, and diarrhea are now the common afflictions among the crew.",
+        "penalties": [
+          {
+            "resourceId": "status_12_weakened_immunity_i",
+            "name": "Weakened Immunity I",
+            "rawName": "Weakened Immunity I",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Immunity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Immunity",
+            "target": "crew",
+            "effect": "Immunity -40% for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Affected cremember's Immunity is reduced by 40% (rounded up)"
+          },
+          {
+            "resourceId": "status_18_weakened_health_ii",
+            "name": "Weakened Health II",
+            "rawName": "Weakened Health II",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -40% for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          }
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 1827
+      },
+      "actions": [
+        {
+          "id": "c_1792574416692",
+          "codeSuffix": "A",
+          "shortDescription": "Reverse the sickness",
+          "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
+          "requirements": [
+            {
+              "id": "clause_1792574925624",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792574936978",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Your scientists work hard to turn the whole crisis upside down: from poison to cure. Eventually, they bring the good news: they have managed to extract the parasitic fluid from the plants and use it to create a batch of custom MedGel.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+25",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "medres_01",
+              "name": "Med Gel",
+              "amount": "10",
+              "iconImg": "icons/T_Med-Gel.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792574596451",
+          "codeSuffix": "B",
+          "shortDescription": "Cure the sickness",
+          "description": "The scientists are confident they can cure the affliction.",
+          "requirements": [
+            {
+              "id": "clause_1792574946942",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792574597209",
+          "codeSuffix": "C",
+          "shortDescription": "Recycle the crops",
+          "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
+          "requirements": [
+            {
+              "id": "clause_1792574964513",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792574976539",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 50,
+                  "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_30",
+                  "name": "Omni Fruit",
+                  "amount": 50,
+                  "iconImg": "icons/T_OmniFruit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
+          "rewards": [
+            {
+              "resourceId": "synthesis_03",
+              "name": "Chemical Fuel",
+              "amount": "50",
+              "iconImg": "icons/T_Chemical-Fuel.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792575255849",
+      "codename": "DECK-S1-E4 BPQ_DeckQuest_NewMenu",
+      "name": "New Menu",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "in the open sea, Game stage 2 or more, Behemoth",
+      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-20",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 2816
+      },
+      "actions": [
+        {
+          "id": "c_1792575255849",
+          "codeSuffix": "A",
+          "shortDescription": "Experiment",
+          "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
+          "requirements": [
+            {
+              "id": "clause_1792575857368",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "res_39_k_Krill",
+                  "name": "K-IV Krill",
+                  "amount": 25,
+                  "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_40_k_AminoAc",
+                  "name": "K-IV Aminoacids",
+                  "amount": 25,
+                  "iconImg": "icons/T_Amino_Acid.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792575894558",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "res_33",
+                  "name": "Protein Mass",
+                  "amount": 25,
+                  "iconImg": "icons/T_HPYeast.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_30",
+                  "name": "Omni Fruit",
+                  "amount": 25,
+                  "iconImg": "icons/T_OmniFruit.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 25,
+                  "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+25",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "status_17_weakened_health_i",
+              "name": "Weakened Health I",
+              "rawName": "Weakened Health I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Health I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP -20% for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792575543394",
+          "codeSuffix": "B",
+          "shortDescription": "Comfort food",
+          "description": "Energy bars are nothing new, but they are always popular. The crew will love having them added to their daily portions.",
+          "requirements": [
+            {
+              "id": "clause_1792575990788",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 20,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792575543960",
+          "codeSuffix": "C",
+          "shortDescription": "Molecular gastronomy",
+          "description": "Develop a new menu with original meals to pleasantly surprise your crew.",
+          "requirements": [
+            {
+              "id": "clause_1792576003941",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
+          "rewards": [
+            {
+              "resourceId": "status_3_better_taste",
+              "name": "Better Taste",
+              "rawName": "Better Taste",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Better Taste.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food Morale bonuses x2 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each bous to morale received from food is doubled."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792576020887",
+      "codename": "DECK-S1-E5 BPQ_DeckQuest_Infestation",
+      "name": "Infestation",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 5,
+      "tier": 1,
+      "location": "Distance from island less than 1, any building",
+      "spawnConditions": "Distance from island less than 1, any building",
+      "eventIntro": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 4014
+      },
+      "actions": [
+        {
+          "id": "c_1792576020887",
+          "codeSuffix": "A",
+          "shortDescription": "Exterminate with poison",
+          "description": "Create a chemical poison and kill the uninvited guests.",
+          "requirements": [
+            {
+              "id": "clause_1792576477921",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792576492141",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792576400639",
+          "codeSuffix": "B",
+          "shortDescription": "Call Hans",
+          "description": "Burn the nest, ignoring all the damage done to the building in the process.",
+          "requirements": [
+            {
+              "id": "clause_1792576518614",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "synthesis_03",
+                  "name": "Chemical Fuel",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chemical-Fuel.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_01",
+                  "name": "Standard Ammunition Pack",
+                  "amount": 5,
+                  "iconImg": "icons/T_StandardAmmunitionPack.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 2,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792576401792",
+          "codeSuffix": "C",
+          "shortDescription": "Investigate",
+          "description": "Study the unexpected stowaways and learn more about the local fauna.",
+          "requirements": [
+            {
+              "id": "clause_1792576556282",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
     {
       "id": "node_1791297604320",
       "codename": "GEN-E1",
@@ -1888,182 +2705,6 @@
       "disabledVariationIds": []
     },
     {
-      "id": "node_1791921021620",
-      "codename": "T1-V3-K1A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1534,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1791921021620",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [
-            "node_1791921021620",
-            "node_1791921030715"
-          ],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "timelineId": "timeline_1"
-    },
-    {
-      "id": "node_1791921030715",
-      "codename": "T1-V3-K2A",
-      "name": "Too Many Variables",
-      "title": "Too Many Variables",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v3",
-      "floorIndex": 1,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 1426,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "c_1791921030715",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "timelineId": "timeline_1"
-    },
-    {
-      "id": "node_sec_1",
-      "codename": "T1-V1-S1A",
-      "name": "Encrypted Black-Box Beacon",
-      "type": "World",
-      "category": "SecretChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "spawnConditions": "Decrypted Hypercell Signal",
-      "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
-      "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 450,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "act_sec_1_1",
-          "codeSuffix": "A",
-          "shortDescription": "Crack Encryption",
-          "description": "Override classified security cypher.",
-          "requirements": [],
-          "timerHours": 4,
-          "resultDescription": "Coordinates extracted to hidden vessel.",
-          "rewards": [
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
-        },
-        {
-          "id": "act_sec_1_2",
-          "codeSuffix": "B",
-          "shortDescription": "Triangulate Source",
-          "description": "Scan directional telemetry.",
-          "requirements": [],
-          "timerHours": 4,
-          "resultDescription": "Origin pinpointed at ocean ridge.",
-          "rewards": [
-            "😊 Morale +10"
-          ],
-          "targetNodeId": "node_sec_2",
-          "targetNodeIds": [
-            "node_sec_2"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Encrypted Black-Box Beacon"
-    },
-    {
-      "id": "node_sec_2",
-      "codename": "T1-V1-S2A",
-      "name": "The Ghost Skiff",
-      "type": "World",
-      "category": "SecretChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "Coordinates Decoded",
-      "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
-      "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 450,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_sec_2_1",
-          "codeSuffix": "A",
-          "shortDescription": "Retrieve Black Core",
-          "description": "Extract mission flight logs from terminal.",
-          "requirements": [],
-          "timerHours": 6,
-          "resultDescription": "Black Core retrieved! Conspiracy revealed.",
-          "rewards": [
-            "🧠 Knowledge +600",
-            "😊 Morale +20"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Ghost Skiff"
-    },
-    {
       "id": "node_e0",
       "codename": "T1-V1-K1A",
       "name": "The Moment After the End",
@@ -3130,823 +3771,6 @@
         }
       ],
       "title": "The Moment After the End",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_deck_1",
-      "codename": "DECK-E1",
-      "name": "Hangar Deck Fire Drill",
-      "type": "Carrier",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
-      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
-      "reactionTimerHours": "2",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "consequenceText": "Drill failure creates crew demoralization.",
-        "timerHours": 2,
-        "shortDescription": "Failed Drill",
-        "description": "No team responded in time.",
-        "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 220
-      },
-      "actions": [
-        {
-          "id": "act_deck_1",
-          "codeSuffix": "A",
-          "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
-          "requirements": [],
-          "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
-          "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [
-        "var_v2"
-      ],
-      "title": "Hangar Deck Fire Drill"
-    },
-    {
-      "id": "node_1792573049123",
-      "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "tier": 1,
-      "location": "in the open sea, Behemoth",
-      "spawnConditions": "in the open sea, Behemoth",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "A few crewmembers come up to you with an unusual request. Passionate intergalactic fishermen, who have fished on every fish-inhabiting planet, want to borrow a freighter craft for their favorite activity.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": 0,
-        "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
-        "penalties": [
-          {
-            "resourceId": "stat_morale",
-            "name": "Morale",
-            "amount": "+10",
-            "icon": "😊",
-            "iconImg": ""
-          }
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 805
-      },
-      "actions": [
-        {
-          "id": "c_1792573049123",
-          "codeSuffix": "A",
-          "shortDescription": "Go after larger fish",
-          "description": "Equip the fishermen to catch local predatory species. They'll need bait and scanners to locate and examine their catches.",
-          "requirements": [
-            {
-              "id": "clause_1792573962294",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792574106848",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 10,
-                  "iconImg": "icons/T_K-IV_Krill.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_40_k_AminoAc",
-                  "name": "K-IV Aminoacids",
-                  "amount": 10,
-                  "iconImg": "icons/T_Amino_Acid.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 0,
-          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+50",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792573170041",
-          "codeSuffix": "B",
-          "shortDescription": "Go after small fish",
-          "description": "Provide the fishermen with everything they need to catch various specimens from local shoals and schools.",
-          "requirements": [
-            {
-              "id": "clause_1792574251708",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_03",
-                  "name": "Sensors Array",
-                  "amount": 5,
-                  "iconImg": "icons/T_Sensors.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792574263327",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_31_k_Algae",
-                  "name": "K-IV Algae",
-                  "amount": 10,
-                  "iconImg": "icons/T_ET_Squash.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_24_k_Plankton",
-                  "name": "K-IV Plankton",
-                  "amount": 10,
-                  "iconImg": "icons/T_ET_Plankton.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 0,
-          "resultDescription": "The 'bane of all fish in the galaxy' were enjoying their leisure time when a gargantuan shadow passed beneath their air-filled boat. A true sea giant decided to respond in kind and attack the fishermen. Luckily, they managed to detect the attack in advance and escape the leviathan's hungry belly. Despite the scare, they do not seem to be discouraged from trying fishing in local waters again, already boasting of having caught quite a few impressive specimens.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+50",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792574416692",
-      "codename": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness",
-      "name": "Plant Diseases",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Specific building, Universum, Plantation, Farm",
-      "spawnConditions": "Specific building, Universum, Plantation, Farm",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": "Infinite",
-        "resultDescription": "It appears that some of the infected crops have wound up in the kitchen. Stomach aches, fever, and diarrhea are now the common afflictions among the crew.",
-        "penalties": [
-          {
-            "resourceId": "status_12_weakened_immunity_i",
-            "name": "Weakened Immunity I",
-            "rawName": "Weakened Immunity I",
-            "amount": "48",
-            "hasN": true,
-            "nValue": "48",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Immunity I.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Immunity",
-            "target": "crew",
-            "effect": "Immunity -40% for 48 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Affected cremember's Immunity is reduced by 40% (rounded up)"
-          },
-          {
-            "resourceId": "status_18_weakened_health_ii",
-            "name": "Weakened Health II",
-            "rawName": "Weakened Health II",
-            "amount": "48",
-            "hasN": true,
-            "nValue": "48",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Health II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "HP",
-            "target": "crew",
-            "effect": "crew HP -40% for 48 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
-          }
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 1827
-      },
-      "actions": [
-        {
-          "id": "c_1792574416692",
-          "codeSuffix": "A",
-          "shortDescription": "Reverse the sickness",
-          "description": "The parasite that afflicts our plants is highly toxic. However, it is possible to reverse its fatal effects and use it for medical purposes.",
-          "requirements": [
-            {
-              "id": "clause_1792574925624",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_05",
-                  "name": "Composite Enzymes",
-                  "amount": 10,
-                  "iconImg": "icons/T_Composite-Enzymes.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792574936978",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_02",
-                  "name": "Biochem Compounds",
-                  "amount": 10,
-                  "iconImg": "icons/T_Chem-Compound.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your scientists work hard to turn the whole crisis upside down: from poison to cure. Eventually, they bring the good news: they have managed to extract the parasitic fluid from the plants and use it to create a batch of custom MedGel.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+25",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "medres_01",
-              "name": "Med Gel",
-              "amount": "10",
-              "iconImg": "icons/T_Med-Gel.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792574596451",
-          "codeSuffix": "B",
-          "shortDescription": "Cure the sickness",
-          "description": "The scientists are confident they can cure the affliction.",
-          "requirements": [
-            {
-              "id": "clause_1792574946942",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_02",
-                  "name": "Biochem Compounds",
-                  "amount": 10,
-                  "iconImg": "icons/T_Chem-Compound.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+10",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792574597209",
-          "codeSuffix": "C",
-          "shortDescription": "Recycle the crops",
-          "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
-          "requirements": [
-            {
-              "id": "clause_1792574964513",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_05",
-                  "name": "Composite Enzymes",
-                  "amount": 10,
-                  "iconImg": "icons/T_Composite-Enzymes.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792574976539",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_29",
-                  "name": "Grain",
-                  "amount": 50,
-                  "iconImg": "icons/T_Grain.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_30",
-                  "name": "Omni Fruit",
-                  "amount": 50,
-                  "iconImg": "icons/T_OmniFruit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
-          "rewards": [
-            {
-              "resourceId": "synthesis_03",
-              "name": "Chemical Fuel",
-              "amount": "50",
-              "iconImg": "icons/T_Chemical-Fuel.png",
-              "icon": "📦"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792575255849",
-      "codename": "DECK-S1-E4 BPQ_DeckQuest_NewMenu",
-      "name": "New Menu",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "in the open sea, Game stage 2 or more, Behemoth",
-      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": "Infinite",
-        "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
-        "penalties": [
-          {
-            "resourceId": "stat_morale",
-            "name": "Morale",
-            "amount": "-20",
-            "icon": "😊",
-            "iconImg": ""
-          }
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 2816
-      },
-      "actions": [
-        {
-          "id": "c_1792575255849",
-          "codeSuffix": "A",
-          "shortDescription": "Experiment",
-          "description": "We could try something new with K-IV ingredients. Most of the local organisms run on very different biology, but a quick test turned up nothing toxic. It's not risk-free, but we can mix our own food with local stock without ultra-processing.",
-          "requirements": [
-            {
-              "id": "clause_1792575857368",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_39_k_Krill",
-                  "name": "K-IV Krill",
-                  "amount": 25,
-                  "iconImg": "icons/T_K-IV_Krill.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_40_k_AminoAc",
-                  "name": "K-IV Aminoacids",
-                  "amount": 25,
-                  "iconImg": "icons/T_Amino_Acid.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792575894558",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "res_33",
-                  "name": "Protein Mass",
-                  "amount": 25,
-                  "iconImg": "icons/T_HPYeast.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_30",
-                  "name": "Omni Fruit",
-                  "amount": 25,
-                  "iconImg": "icons/T_OmniFruit.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "res_29",
-                  "name": "Grain",
-                  "amount": 25,
-                  "iconImg": "icons/T_Grain.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+25",
-              "icon": "🧠",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "status_17_weakened_health_i",
-              "name": "Weakened Health I",
-              "rawName": "Weakened Health I",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Weakened Health I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "HP",
-              "target": "crew",
-              "effect": "crew HP -20% for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792575543394",
-          "codeSuffix": "B",
-          "shortDescription": "Comfort food",
-          "description": "Energy bars are nothing new, but they are always popular. The crew will love having them added to their daily portions.",
-          "requirements": [
-            {
-              "id": "clause_1792575990788",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "food_05",
-                  "name": "Energy Bar",
-                  "amount": 20,
-                  "iconImg": "icons/T_Energy-Bar.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
-          "rewards": [
-            {
-              "resourceId": "status_9_morale_boost_ii",
-              "name": "Morale Boost II",
-              "rawName": "Morale Boost II",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Boost II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "gain +20 morale for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792575543960",
-          "codeSuffix": "C",
-          "shortDescription": "Molecular gastronomy",
-          "description": "Develop a new menu with original meals to pleasantly surprise your crew.",
-          "requirements": [
-            {
-              "id": "clause_1792576003941",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
-          "rewards": [
-            {
-              "resourceId": "status_3_better_taste",
-              "name": "Better Taste",
-              "rawName": "Better Taste",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Better Taste.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "food Morale bonuses x2 for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Each bous to morale received from food is doubled."
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792576020887",
-      "codename": "DECK-S1-E5 BPQ_DeckQuest_Infestation",
-      "name": "Infestation",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 5,
-      "tier": 1,
-      "location": "Distance from island less than 1, any building",
-      "spawnConditions": "Distance from island less than 1, any building",
-      "eventIntro": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
-        "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 4014
-      },
-      "actions": [
-        {
-          "id": "c_1792576020887",
-          "codeSuffix": "A",
-          "shortDescription": "Exterminate with poison",
-          "description": "Create a chemical poison and kill the uninvited guests.",
-          "requirements": [
-            {
-              "id": "clause_1792576477921",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_05",
-                  "name": "Composite Enzymes",
-                  "amount": 10,
-                  "iconImg": "icons/T_Composite-Enzymes.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792576492141",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "synthesis_02",
-                  "name": "Biochem Compounds",
-                  "amount": 10,
-                  "iconImg": "icons/T_Chem-Compound.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792576400639",
-          "codeSuffix": "B",
-          "shortDescription": "Call Hans",
-          "description": "Burn the nest, ignoring all the damage done to the building in the process.",
-          "requirements": [
-            {
-              "id": "clause_1792576518614",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "synthesis_03",
-                  "name": "Chemical Fuel",
-                  "amount": 10,
-                  "iconImg": "icons/T_Chemical-Fuel.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "ammunition_01",
-                  "name": "Standard Ammunition Pack",
-                  "amount": 5,
-                  "iconImg": "icons/T_StandardAmmunitionPack.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "ammunition_02",
-                  "name": "Explosive Charges",
-                  "amount": 2,
-                  "iconImg": "icons/T_ExplosiveCharges.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792576401792",
-          "codeSuffix": "C",
-          "shortDescription": "Investigate",
-          "description": "Study the unexpected stowaways and learn more about the local fauna.",
-          "requirements": [
-            {
-              "id": "clause_1792576556282",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
       "disabledVariationIds": []
     },
     {
@@ -5163,6 +4987,182 @@
       ],
       "disabledVariationIds": [],
       "colorScheme": "orange"
+    },
+    {
+      "id": "node_1791921021620",
+      "codename": "T1-V3-K1A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1534,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791921021620",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [
+            "node_1791921021620",
+            "node_1791921030715"
+          ],
+          "targetNodeId": "node_1791921021620"
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    },
+    {
+      "id": "node_1791921030715",
+      "codename": "T1-V3-K2A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 1,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1426,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "c_1791921030715",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    },
+    {
+      "id": "node_sec_1",
+      "codename": "T1-V1-S1A",
+      "name": "Encrypted Black-Box Beacon",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "Decrypted Hypercell Signal",
+      "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
+      "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "act_sec_1_1",
+          "codeSuffix": "A",
+          "shortDescription": "Crack Encryption",
+          "description": "Override classified security cypher.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Coordinates extracted to hidden vessel.",
+          "rewards": [
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
+        },
+        {
+          "id": "act_sec_1_2",
+          "codeSuffix": "B",
+          "shortDescription": "Triangulate Source",
+          "description": "Scan directional telemetry.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Origin pinpointed at ocean ridge.",
+          "rewards": [
+            "😊 Morale +10"
+          ],
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Encrypted Black-Box Beacon"
+    },
+    {
+      "id": "node_sec_2",
+      "codename": "T1-V1-S2A",
+      "name": "The Ghost Skiff",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Coordinates Decoded",
+      "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
+      "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_sec_2_1",
+          "codeSuffix": "A",
+          "shortDescription": "Retrieve Black Core",
+          "description": "Extract mission flight logs from terminal.",
+          "requirements": [],
+          "timerHours": 6,
+          "resultDescription": "Black Core retrieved! Conspiracy revealed.",
+          "rewards": [
+            "🧠 Knowledge +600",
+            "😊 Morale +20"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Ghost Skiff"
     }
   ],
   "dialogues": [
