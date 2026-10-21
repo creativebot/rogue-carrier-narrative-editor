@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T10:21:54.671734",
+  "_lastModified": "2026-10-21T10:22:01.428631",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1114,7 +1114,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "You send a group equipped with improvised flamethrowers to shoot fire at the insects and their nest. As expected, these bugs are no more resistant to fire than their distant relatives back on Earth.  Unfortunately, during this mission, the building itself caught fire. And so, after the fight against insects was over, the fight against fire began.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
