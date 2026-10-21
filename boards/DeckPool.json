@@ -344,7 +344,7 @@
           "description": "The compromised plant life is not suitable for consumption, but it can be processed into Chemical Fuel.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
           "rewards": [
             {
               "resourceId": "synthesis_03",
@@ -362,5 +362,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T09:28:02.628553"
+  "_lastModified": "2026-10-21T09:28:08.618066"
 }
