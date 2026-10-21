@@ -39,9 +39,9 @@
       "volodymyr.t@n-ix.com": {
         "name": "Volodymyr T",
         "email": "volodymyr.t@n-ix.com",
-        "seconds": 45,
+        "seconds": 90,
         "boards": {
-          "DeckPool": 45
+          "DeckPool": 90
         },
         "hourly": [
           0,
@@ -54,7 +54,7 @@
           0,
           0,
           0,
-          45,
+          90,
           0,
           0,
           0,
@@ -74,9 +74,9 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 30,
+        "seconds": 60,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 30
+          "KeyChain:timeline_1:var_v1": 60
         },
         "hourly": [
           0,
@@ -89,7 +89,7 @@
           0,
           0,
           0,
-          30,
+          60,
           0,
           0,
           0,
@@ -104,7 +104,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-21T10:25:28.024000Z"
+        "lastActive": "2026-10-21T10:00:00Z"
       }
     }
   }
