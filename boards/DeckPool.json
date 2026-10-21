@@ -969,7 +969,7 @@
           "id": "c_1792578159292",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Form a committee, publish brackets, and rotate duties so coverage stays intact.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -1012,5 +1012,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T10:24:58.257113"
+  "_lastModified": "2026-10-21T10:25:02.854834"
 }
