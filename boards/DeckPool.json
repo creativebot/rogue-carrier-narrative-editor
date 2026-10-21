@@ -2030,6 +2030,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792586193474",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_03",
+                  "name": "Stem Tissue",
+                  "amount": 5,
+                  "iconImg": "icons/T_Stem-Tissue.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2136,5 +2149,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:36:29.066934"
+  "_lastModified": "2026-10-21T12:36:39.825412"
 }
