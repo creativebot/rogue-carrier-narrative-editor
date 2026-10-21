@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T12:28:26.389Z",
+  "_lastModified": "2026-10-21T12:28:29.010310",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -2090,26 +2090,33 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1792585570927",
-      "codename": "DECK-S1-E10",
-      "name": "New Event Block",
+      "codename": "DECK-S1-E10 BPQ_DeckQuest_Superchef",
+      "name": "Superchef",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 2,
-      "location": "",
-      "spawnConditions": "",
+      "location": "in the open sea, Game stage 2 or more, Behemoth",
+      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "A group of crew members is interested in improving the taste of their usual chow. The texture and flavor of their issued meals feel off, and they ask to improve the recipe.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 216
@@ -2118,19 +2125,32 @@
         {
           "id": "c_1792585570927",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
+          "shortDescription": "Host cooking contest",
+          "description": "Organize competition between crewmembers, use winning recipe.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792585650554",
+          "codeSuffix": "B",
+          "shortDescription": "Consult experts",
+          "description": "Invite a group of specialists to discuss and improve meal plan.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791297604320",
