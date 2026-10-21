@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T09:22:54.934717",
+  "_lastModified": "2026-10-21T09:23:06.629285",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -490,7 +490,7 @@
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
