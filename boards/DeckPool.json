@@ -1589,7 +1589,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The training course remains a missed opportunity.",
         "penalties": []
       },
       "position": {
@@ -1714,5 +1714,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-21T12:17:30.895609"
+  "_lastModified": "2026-10-21T12:17:48.888441"
 }
