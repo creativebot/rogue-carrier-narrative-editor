@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:37:59.689152",
+  "_lastModified": "2026-10-22T11:38:10.199124",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3766,7 +3766,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "This place seems perfect for releasing the Plumplins. Take a closer look at it first.",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Although our knowledge of these owl-like creatures is limited, observations suggest the island has everything they need. We can send a team ashore to find the right spot and help them settle in.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
