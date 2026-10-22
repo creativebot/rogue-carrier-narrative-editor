@@ -3690,7 +3690,7 @@
     {
       "id": "node_1792668543262",
       "codename": "DECK-S1-E30 BPQ_DeckQuest_Light_Backlog",
-      "name": "New Event Block",
+      "name": "Light Backlog",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -3903,5 +3903,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:20:19.675876"
+  "_lastModified": "2026-10-22T12:21:32.628713"
 }
