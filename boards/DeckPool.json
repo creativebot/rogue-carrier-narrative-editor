@@ -1212,7 +1212,7 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
+      "codename": "DECK-S1-E6 BPQ_DeckQuest_Repetition_Load",
       "name": "Repetition Overload",
       "title": "New Event Block",
       "type": "Deck",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:18:29.294585"
+  "_lastModified": "2026-10-22T21:18:40.989611"
 }
