@@ -2930,7 +2930,7 @@
           "id": "act_1792668642563",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "A xenofauna colony aboard is not something we can sign off on. Crate the animals carefully and keep them safe until we reach a suitable island.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3415,5 +3415,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:30:52.277119"
+  "_lastModified": "2026-10-22T11:30:58.961874"
 }
