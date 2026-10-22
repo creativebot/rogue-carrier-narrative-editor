@@ -4569,7 +4569,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_crew",
+              "name": "Crew Members",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "👨‍🚀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -4886,5 +4894,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:14:29.357593"
+  "_lastModified": "2026-10-22T22:15:32.483049"
 }
