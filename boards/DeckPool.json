@@ -3331,7 +3331,7 @@
         {
           "id": "act_1792669703067",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Repurpose the Competition",
           "description": "Introduce precision tools and encourage the crew to reinvent the contest, using their enthusiasm to cultivate new antibiotics instead of hazards.",
           "requirements": [],
           "timerHours": 5,
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:48:55.884852"
+  "_lastModified": "2026-10-22T11:49:03.478008"
 }
