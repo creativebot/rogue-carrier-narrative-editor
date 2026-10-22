@@ -2761,8 +2761,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "A scientist is using lab equipment to produce alcohol. They’ve decided to experiment with local flora, and the result is a potent hallucinogenic substance that’s visually indistinguishable from regular spirits. They’ve accidentally bottled and traded a large batch of the substance to one of the technicians and need help recovering it before someone gets hurt.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 8085
@@ -2816,5 +2824,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:24:11.813600"
+  "_lastModified": "2026-10-22T11:24:13.186350"
 }
