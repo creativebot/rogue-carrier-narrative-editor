@@ -4419,7 +4419,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The effects of the irritant intensified, and symptoms escalated into widespread malaise. The crew is left feeling unwell and uncomfortable, with persistent itching affecting everyone.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_18_weakened_health_ii",
+            "name": "Weakened Health II",
+            "rawName": "Weakened Health II",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -40% for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          }
+        ]
       },
       "position": {
         "x": 2810,
@@ -4863,5 +4886,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:13:58.484329"
+  "_lastModified": "2026-10-22T22:14:19.080101"
 }
