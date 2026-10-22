@@ -2574,8 +2574,8 @@
       "variationId": "var_v1",
       "floorIndex": 9,
       "tier": 2,
-      "location": "Game stage 3 or more",
-      "spawnConditions": "Game stage 3 or more",
+      "location": "Game stage 3 or more, Behemoth",
+      "spawnConditions": "Game stage 3 or more, Behemoth",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -2682,5 +2682,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:04:13.665625"
+  "_lastModified": "2026-10-22T10:04:21.999858"
 }
