@@ -3477,9 +3477,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4170,5 +4168,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:12:04.012941"
+  "_lastModified": "2026-10-22T13:12:05.593971"
 }
