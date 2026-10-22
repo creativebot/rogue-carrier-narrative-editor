@@ -2631,7 +2631,7 @@
           "id": "act_1792663471588",
           "codeSuffix": "B",
           "shortDescription": "Run a Seminar",
-          "description": "Description for action choice B...",
+          "description": "Train liaisons who coordinate handoffs, confirm readiness on the receiving side, and close the loop in the ticket.",
           "requirements": [
             {
               "id": "clause_1792665700154",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T15:18:47.606496"
+  "_lastModified": "2026-10-22T15:33:47.644025"
 }
