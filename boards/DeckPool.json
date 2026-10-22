@@ -2897,8 +2897,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "Several specimens of the local fauna hitched a ride on one of the cargo ships and weren't discovered until they had already established a small colony in the less-visited parts of the Behemoth. They appear harmless, they're cute, and the crew loves having them around — someone started calling them Plumplins, and the name stuck.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2810,
         "y": 233
@@ -2966,7 +2974,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 4204
       },
       "actions": [
@@ -3004,7 +3012,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 3551
       },
       "actions": [
@@ -3156,7 +3164,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 2764
       },
       "actions": [
@@ -3194,7 +3202,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 2024
       },
       "actions": [
@@ -3232,7 +3240,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 1091
       },
       "actions": [
@@ -3270,7 +3278,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 4000,
+        "x": 4160,
         "y": 244
       },
       "actions": [
@@ -3407,5 +3415,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:30:45.588981"
+  "_lastModified": "2026-10-22T11:30:47.302879"
 }
