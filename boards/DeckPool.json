@@ -3492,7 +3492,7 @@
         {
           "id": "c_1792668541984",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Lure out",
           "description": "To get rid of the creature, we need to be creative. If it feeds on energy, we'll build a lure and draw it back into the ocean. There's some risk involved, but we'll manage.",
           "requirements": [],
           "timerHours": 5,
@@ -4009,5 +4009,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:55:30.790473"
+  "_lastModified": "2026-10-22T12:55:49.282738"
 }
