@@ -3383,6 +3383,28 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_14_boosted_immunity_i",
+              "name": "Boosted Immunity I",
+              "rawName": "Boosted Immunity I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +50% for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
             }
           ],
           "targetNodeIds": [],
@@ -4620,5 +4642,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:04:29.384777"
+  "_lastModified": "2026-10-22T22:04:50.182707"
 }
