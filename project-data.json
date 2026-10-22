@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:25:02.545521",
+  "_lastModified": "2026-10-22T09:25:17.043672",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2621,7 +2621,22 @@
           "codeSuffix": "A",
           "shortDescription": "Raid the meeting place",
           "description": "Enter with security, seize materials for inspection, and conduct individual interviews with organizers.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792661114801",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 2,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [],
