@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:14:45.089237",
+  "_lastModified": "2026-10-22T09:14:46.655995",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -1212,7 +1212,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 5,
       "tier": 1,
       "location": "Game stage 2 or more, Morale less then 30, Behemoth",
       "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
@@ -1237,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5131
+        "y": 3784
       },
       "actions": [
         {
