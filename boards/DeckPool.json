@@ -3006,8 +3006,10 @@
               "iconImg": ""
             }
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1792668543463"
+          ],
+          "targetNodeId": "node_1792668543463"
         },
         {
           "id": "act_1792668643293",
@@ -3525,5 +3527,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:36:52.088456"
+  "_lastModified": "2026-10-22T11:37:19.190665"
 }
