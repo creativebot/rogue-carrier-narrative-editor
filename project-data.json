@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:18:49.285224",
+  "_lastModified": "2026-10-22T12:18:52.693593",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3974,7 +3974,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The lull passes without a plan. Although everything seems fine now, the first hour of the next surge is slowed by missing approvals, labels, and tool checks that could have been addressed earlier. The crew face the same friction as before, and the chance to build momentum is missed.",
         "penalties": [
           "💀 Entropy +10"
         ]
