@@ -3710,7 +3710,7 @@
           "description": "Provide proper containers so the crew can safely collect, inspect, and research the irritant to develop an effective solution.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3933,5 +3933,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:51:53.991596"
+  "_lastModified": "2026-10-22T12:51:55.420714"
 }
