@@ -679,7 +679,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 6,
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
@@ -741,7 +741,7 @@
       },
       "position": {
         "x": 110,
-        "y": 4267
+        "y": 4431
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:02:01.938135"
+  "_lastModified": "2026-10-22T21:02:05.480867"
 }
