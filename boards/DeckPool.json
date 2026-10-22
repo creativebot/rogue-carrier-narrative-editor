@@ -2398,7 +2398,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The undercover agent reports on the group’s benign activities. TTRPGs become a welcome stress relief for the crew as their awareness increases.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2409,5 +2409,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:30:14.996183"
+  "_lastModified": "2026-10-22T09:30:20.878066"
 }
