@@ -3515,7 +3515,7 @@
           "description": "Survey the island for the best spot, release the Plumplins there, and stay long enough to see how they settle.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The Plumplins took to the prepared nesting site at once and settled in, healthy and content. Over the following days they grew attached to the crew, and when it came time to part ways, they left something from the nest behind. The crew chose to read it as a thank-you.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3541,5 +3541,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:38:45.416608"
+  "_lastModified": "2026-10-22T11:39:01.413909"
 }
