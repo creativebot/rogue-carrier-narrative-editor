@@ -3318,7 +3318,7 @@
           "id": "c_1792668541024",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Provide specialized equipment to ensure each “race” is safely contained, along with education on disease prevention to minimize health risks.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:48:27.386784"
+  "_lastModified": "2026-10-22T11:48:36.210310"
 }
