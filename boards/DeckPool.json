@@ -2334,7 +2334,7 @@
       "location": "Game stage 2 or more, Housing",
       "spawnConditions": "Game stage 2 or more, Housing",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Deep in the bowels of the Behemoth, some crewmembers have started up secret meetings. They’ve begun wearing identifying badges and greeting each other with secret code phrases. The psychological well-being officer is worried that they’re forming a cult and requests an investigation.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -2409,5 +2409,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:29:34.271726"
+  "_lastModified": "2026-10-22T09:29:48.403355"
 }
