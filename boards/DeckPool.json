@@ -4576,6 +4576,13 @@
               "amount": "4",
               "iconImg": "",
               "icon": "👨‍🚀"
+            },
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "+4",
+              "icon": "👨‍🚀",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -4894,5 +4901,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:15:32.483049"
+  "_lastModified": "2026-10-22T22:15:37.685330"
 }
