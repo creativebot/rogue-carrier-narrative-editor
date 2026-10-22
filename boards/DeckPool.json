@@ -3990,7 +3990,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4973,5 +4973,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:21:41.284205"
+  "_lastModified": "2026-10-22T22:22:15.781227"
 }
