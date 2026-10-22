@@ -2676,7 +2676,7 @@
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Several crew members approach the command deck, requesting a small budget for off-duty activities. They believe this will help improve general well-being on Behemoth. ",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -2780,5 +2780,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:45:29.758424"
+  "_lastModified": "2026-10-22T10:45:41.044601"
 }
