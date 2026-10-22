@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:18:09.485076",
+  "_lastModified": "2026-10-22T21:18:41.294442",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1479,7 +1479,7 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
+      "codename": "DECK-S1-E6 BPQ_DeckQuest_Repetition_Load",
       "name": "Repetition Overload",
       "title": "New Event Block",
       "type": "Deck",
