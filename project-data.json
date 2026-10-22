@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:36:07.495934",
+  "_lastModified": "2026-10-22T11:36:15.888597",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3212,6 +3212,19 @@
                   "name": "👨‍🚀 Crew Count",
                   "amount": 5,
                   "icon": "👨‍🚀"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792668973567",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 1,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
                 }
               ]
             }
