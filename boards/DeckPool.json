@@ -3088,7 +3088,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "Without intervention, the legged shark continues to roam freely, creating ongoing disorder and causing mounting frustration among the crew tasked with food production. Morale takes a hit as the nuisance persists.",
         "penalties": [
           "💀 Entropy +10"
         ]
@@ -3642,5 +3642,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:43:19.664809"
+  "_lastModified": "2026-10-22T11:43:23.167746"
 }
