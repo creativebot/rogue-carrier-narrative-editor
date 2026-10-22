@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:17:28.187594",
+  "_lastModified": "2026-10-22T13:17:39.487384",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3652,7 +3652,7 @@
     },
     {
       "id": "node_1792668541416",
-      "codename": "DECK-S1-E22",
+      "codename": "DECK-S1-E22 BPQ_DeckQuest_BirthdayParty",
       "name": "Birthday Party",
       "title": "New Event Block",
       "type": "Deck",
