@@ -2597,7 +2597,7 @@
         {
           "id": "c_1792661778711",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
@@ -2705,5 +2705,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:04:48.151342"
+  "_lastModified": "2026-10-22T10:05:01.605321"
 }
