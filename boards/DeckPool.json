@@ -3597,7 +3597,7 @@
             {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
-              "amount": "+100",
+              "amount": "+50",
               "icon": "🧠",
               "iconImg": ""
             }
@@ -4125,5 +4125,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:58:19.649668"
+  "_lastModified": "2026-10-22T12:58:20.498286"
 }
