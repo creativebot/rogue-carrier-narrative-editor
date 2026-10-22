@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:13:39.598531",
+  "_lastModified": "2026-10-22T13:13:57.190424",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3772,13 +3772,20 @@
           "requirements": [
             {
               "id": "clause_1792674817155",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "ammunition_02",
                   "name": "Explosive Charges",
                   "amount": 10,
                   "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "machinery_01",
+                  "name": "Propulsion Kit",
+                  "amount": 10,
+                  "iconImg": "icons/T_Propulsion_Kit.png",
                   "icon": "📦"
                 }
               ]
