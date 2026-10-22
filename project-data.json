@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:00:44.094731",
+  "_lastModified": "2026-10-22T13:00:50.199841",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3691,7 +3691,7 @@
     {
       "id": "node_1792668541717",
       "codename": "DECK-S1-E23 BPQ_DeckQuest_Birds_and_Bees",
-      "name": "New Event Block",
+      "name": "Birds and Bees",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
