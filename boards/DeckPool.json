@@ -2981,6 +2981,13 @@
               "amount": "-20",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "🌀"
             }
           ],
           "targetNodeIds": [],
@@ -3447,5 +3454,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:33:19.711368"
+  "_lastModified": "2026-10-22T11:34:55.001582"
 }
