@@ -3498,7 +3498,7 @@
       "tier": 3,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "This place seems perfect for releasing the Plumplins. Take a closer look at it first.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -3527,5 +3527,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:37:49.062161"
+  "_lastModified": "2026-10-22T11:37:59.589708"
 }
