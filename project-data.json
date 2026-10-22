@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:38:27.286934",
+  "_lastModified": "2026-10-22T10:39:04.393440",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2866,7 +2866,7 @@
         {
           "id": "c_1792661778711",
           "codeSuffix": "A",
-          "shortDescription": "",
+          "shortDescription": "Sync and update SOPs",
           "description": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
           "requirements": [
             {
