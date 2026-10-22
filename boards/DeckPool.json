@@ -2450,7 +2450,7 @@
           "description": "Encorage",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Productivity problem but good morale bonus",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2476,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:32:10.603956"
+  "_lastModified": "2026-10-22T09:32:18.910175"
 }
