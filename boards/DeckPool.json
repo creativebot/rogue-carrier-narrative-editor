@@ -209,7 +209,9 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [
+        "var_v1"
+      ]
     },
     {
       "id": "node_1792574416692",
@@ -1456,5 +1458,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T09:14:28.447009"
+  "_lastModified": "2026-10-22T09:14:29.253079"
 }
