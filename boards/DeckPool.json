@@ -455,7 +455,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           {
@@ -970,7 +970,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5312
+        "y": 5324
       },
       "actions": [
         {
@@ -2426,7 +2426,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 3815
       },
       "actions": [
         {
@@ -2500,7 +2500,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4515
+        "y": 4457
       },
       "actions": [
         {
@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 5491
       },
       "actions": [
         {
@@ -3561,7 +3561,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 4512
       },
       "actions": [
         {
@@ -3694,7 +3694,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3743
+        "y": 3610
       },
       "actions": [
         {
@@ -3873,7 +3873,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -3890,7 +3890,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2927
+        "y": 2877
       },
       "actions": [
         {
@@ -4191,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T14:13:09.425626"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-22T14:21:05.277221"
 }
