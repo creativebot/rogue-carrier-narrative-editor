@@ -1157,9 +1157,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -1638,5 +1636,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:25:37.341473"
+  "_lastModified": "2026-10-22T13:25:54.214166"
 }
