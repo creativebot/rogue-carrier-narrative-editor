@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:50:35.197221",
+  "_lastModified": "2026-10-22T11:50:48.991009",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3622,6 +3622,13 @@
               "amount": "-5",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "15",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
