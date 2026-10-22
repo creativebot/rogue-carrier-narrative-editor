@@ -2725,7 +2725,7 @@
           "id": "act_1792665890271",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Authorize weapon-handling practice so crew can train at an improvised shooting range.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2780,5 +2780,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:45:05.192355"
+  "_lastModified": "2026-10-22T10:45:10.334975"
 }
