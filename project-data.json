@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:25:00.883263",
+  "_lastModified": "2026-10-22T21:25:09.283727",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1776,7 +1776,22 @@
           "codeSuffix": "B",
           "shortDescription": "Build the Advanced Rig",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792704304589",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
