@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T14:56:12.082924",
+  "_lastModified": "2026-10-22T14:59:05.501459",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -249,23 +249,23 @@
   ],
   "symbolLimits": {
     "eventIntro": 475,
-    "eventDescription": 475,
-    "actionDescription": 120,
+    "eventDescription": 465,
+    "actionDescription": 240,
     "actionDescription3Opt": 200,
     "actionButtonText": 24,
     "eventOutcome": 925,
-    "inactionResult": 475,
+    "inactionResult": 540,
     "variationDescription": 280
   },
   "recommendedLimits": {
     "eventIntro": 120,
     "eventDescription": 180,
-    "actionDescription": 40,
+    "actionDescription": 120,
     "actionDescription3Opt": 60,
-    "actionButtonText": 8,
-    "eventOutcome": 200,
-    "inactionResult": 120,
-    "variationDescription": 80
+    "actionButtonText": 6,
+    "eventOutcome": 530,
+    "inactionResult": 235,
+    "variationDescription": 140
   },
   "nodes": [
     {
@@ -302,7 +302,7 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.\n\nssss",
+          "description": "Direct crew to seal airlocks and foam containment.",
           "requirements": [],
           "timerHours": 1,
           "resultDescription": "Hangar secured ahead of schedule.",
@@ -722,7 +722,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           {
@@ -1237,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5312
+        "y": 5324
       },
       "actions": [
         {
@@ -2693,7 +2693,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 3815
       },
       "actions": [
         {
@@ -2767,7 +2767,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4515
+        "y": 4457
       },
       "actions": [
         {
@@ -3685,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 5491
       },
       "actions": [
         {
@@ -3828,7 +3828,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 4512
       },
       "actions": [
         {
@@ -3961,7 +3961,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3743
+        "y": 3610
       },
       "actions": [
         {
@@ -4140,7 +4140,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -4157,7 +4157,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2927
+        "y": 2877
       },
       "actions": [
         {
@@ -6965,7 +6965,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5176,
+        "x": 5944,
         "y": 3290
       },
       "actions": [
@@ -9367,12 +9367,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4286,
-        "y": 1907
+        "x": 4918,
+        "y": 3003
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "colorScheme": "purple",
       "lines": [
         {
