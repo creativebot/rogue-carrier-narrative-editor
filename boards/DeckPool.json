@@ -3210,9 +3210,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "A warning was issued about the potential effects, allowing crew members to make informed choices. While productivity may have taken a slight dip, overall morale and mental well-being noticeably improved as trust in crew leadership grew.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -4529,5 +4527,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:59:09.589011"
+  "_lastModified": "2026-10-22T21:59:18.688739"
 }
