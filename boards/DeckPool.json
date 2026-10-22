@@ -2749,7 +2749,7 @@
     {
       "id": "node_1792661788229",
       "codename": "DECK-S1-E18 BPQ_DeckQuest_Lab_Spirits",
-      "name": "New Event Block",
+      "name": "Lab Spirits",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -2788,5 +2788,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:23:53.412613"
+  "_lastModified": "2026-10-22T11:23:59.946654"
 }
