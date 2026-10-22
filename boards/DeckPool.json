@@ -2601,7 +2601,21 @@
           "codeSuffix": "A",
           "shortDescription": "",
           "description": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792665465406",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2708,5 +2722,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:05:20.285750"
+  "_lastModified": "2026-10-22T10:37:47.569047"
 }
