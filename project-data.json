@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:45:00.798323",
+  "_lastModified": "2026-10-22T10:45:05.286371",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2978,7 +2978,7 @@
           "id": "act_1792665889569",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Supply resources so crew can create art and sculptures from scrap materials.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
