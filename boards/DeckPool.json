@@ -3873,7 +3873,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 4,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -3890,7 +3890,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2877
+        "y": 2927
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T14:12:37.632882"
+  "_lastModified": "2026-10-22T14:12:39.394100"
 }
