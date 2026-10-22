@@ -2477,7 +2477,7 @@
     {
       "id": "node_1792661772455",
       "codename": "DECK-S1-E15",
-      "name": "New Event Block",
+      "name": "Blade Bot",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -2629,5 +2629,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:36:33.986351"
+  "_lastModified": "2026-10-22T09:54:28.267674"
 }
