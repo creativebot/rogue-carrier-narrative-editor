@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:08:07.591702",
+  "_lastModified": "2026-10-22T22:08:59.981296",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -246,7 +246,8 @@
     "Resistance to diseases",
     "Temporal immunity",
     "any number of items",
-    "Caged Plumplins_Quest item"
+    "Caged Plumplins_Quest item",
+    "Stamets Artifact _Immunity buff"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -3829,6 +3830,15 @@
               "amount": "1",
               "iconImg": "",
               "icon": "🌀"
+            },
+            {
+              "resourceId": "criteria_stamets_artifact_immunity_buff",
+              "name": "Stamets Artifact _Immunity buff",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
