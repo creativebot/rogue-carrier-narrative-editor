@@ -2672,7 +2672,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Safety Report: \"So, we let the bladed bot do its thing for a little too long. It eventually came way too close to stabbing one of our people—no fatalities, but it was a near miss. The panic spread fast, and the  film studio had to be shut down in record time. Lesson learned, I hope.\" From: Orest Demchuck.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 1460,
@@ -4384,5 +4392,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:51:58.789082"
+  "_lastModified": "2026-10-22T21:52:05.291247"
 }
