@@ -3405,7 +3405,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The supposed birthday passes with no celebration or gift. Later, word spreads that Khalil’s birthday was actually on another day. Some crew members feel a twinge of disappointment, wondering if their own special days might someday be forgotten as well, leaving the atmosphere a bit subdued.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T15:33:47.656760"
+  "_lastModified": "2026-10-22T15:34:52.200423"
 }
