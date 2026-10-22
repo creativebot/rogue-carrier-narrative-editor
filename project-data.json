@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:52:34.388093",
+  "_lastModified": "2026-10-22T12:52:49.997281",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4001,7 +4001,21 @@
           "codeSuffix": "C",
           "shortDescription": "Investigate the irritant",
           "description": "Provide proper containers so the crew can safely collect, inspect, and research the irritant to develop an effective solution.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792673567458",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 5,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
           "rewards": [],
