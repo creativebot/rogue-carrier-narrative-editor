@@ -2433,7 +2433,7 @@
           "id": "c_1792661442330",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Stop this",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2476,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:31:39.405311"
+  "_lastModified": "2026-10-22T09:31:52.077272"
 }
