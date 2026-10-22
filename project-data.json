@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:01:21.751801",
+  "_lastModified": "2026-10-22T09:14:28.459249",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -295,7 +295,7 @@
       },
       "position": {
         "x": 110,
-        "y": 220
+        "y": -1968
       },
       "actions": [
         {
@@ -2187,8 +2187,22 @@
       "eventIntro": "A wrecked escape pod is on fire. There may be survivors inside.",
       "eventDescription": "The escape pod must have crashed into the island with high enough speed, given its battered appearance. What is worse — it is now on fire. Your people start shouting to identify if there are survivors inside.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-1",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
+      },
       "position": {
         "x": 110,
         "y": 3589
@@ -2317,26 +2331,6 @@
               "resourceId": "stat_morale",
               "name": "Morale",
               "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792004981483",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
-          "rewards": [
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "-1",
               "icon": "😊",
               "iconImg": ""
             }
@@ -2715,8 +2709,22 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "The scouts collect tissue samples from huge mollusk-like creatures in the tidal pools—a promising source of protein. Nearby, they find piles of shattered shells. One scout blames the surf; another points out that every shell is broken on the same side. Something here has a bigger appetite. As the crew packs up, a large beast emerges from behind the rocks and growls. They have been sampling its food.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
+        "penalties": [
+          {
+            "resourceId": "stat_crew count",
+            "name": "Crew Count",
+            "amount": "-1",
+            "icon": "👨‍🚀",
+            "iconImg": ""
+          }
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 1159
@@ -2865,26 +2873,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1792411421698",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "The crew slowly backs away, hoping the beast will lose interest. Instead, it jumps and kills one crew member before the others can escape.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ],
       "colorScheme": "rose",
@@ -2905,11 +2893,32 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "The scouts see smoke in the distance, as if from a bonfire. They head toward that smoke when they are attacked by a group of men, humans. One of the scouts is grievously wounded. All attempts to reach out and communicate with the attackers are ignored. All they want is to spill the blood of your people; their hearts are full of murderous zeal.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Crew members challenged your decision, arguing that saving lives was a fundamental human duty. Your order not to intervene sparked prolonged debates in the crew quarters, lowering morale. ",
+        "penalties": [
+          {
+            "resourceId": "stat_crew count",
+            "name": "Crew Count",
+            "amount": "-1",
+            "icon": "👨‍🚀",
+            "iconImg": ""
+          },
+          {
+            "resourceId": "stat_crew health",
+            "name": "Crew Health",
+            "amount": "-50",
+            "icon": "❤️",
+            "iconImg": ""
+          }
+        ]
+      },
       "position": {
         "x": 2810,
-        "y": 213
+        "y": 222
       },
       "actions": [
         {
@@ -3081,33 +3090,6 @@
           ],
           "targetNodeIds": [],
           "targetNodeId": null
-        },
-        {
-          "id": "act_1792411945714",
-          "codeSuffix": "D",
-          "shortDescription": "Do nothing",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "Unprepared to face enraged humans and reluctant to fire on them, the crew freezes. In the confusion, the attackers kill one crew member and gravely wound another two.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-1",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_crew health",
-              "name": "Crew Health",
-              "amount": "-50",
-              "icon": "❤️",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
         }
       ],
       "colorScheme": "rose",
@@ -3121,18 +3103,26 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
       "eventIntro": "Initial event context...",
       "eventDescription": "Once above the island, the scouts fly their recon craft into the most dangerous airspace they have ever flown through. The sky appears to be littered with balls of lightning, unseen until you fly too close to them.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2810,
-        "y": 1308
+        "y": 1692
       },
       "actions": [
         {
