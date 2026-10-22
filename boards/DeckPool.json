@@ -2810,7 +2810,21 @@
           "codeSuffix": "B",
           "shortDescription": "Return Policy",
           "description": "Broadcast an amnesty notice ship-wide and set up a no-questions return desk at the nearest checkpoint.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792668319700",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "food_01",
+                  "name": "Nutrient Paste",
+                  "amount": 5,
+                  "iconImg": "icons/T_Nutrient-Paste.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2839,5 +2853,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:25:19.671070"
+  "_lastModified": "2026-10-22T11:25:21.857833"
 }
