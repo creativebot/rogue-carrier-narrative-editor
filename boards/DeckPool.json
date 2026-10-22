@@ -3594,7 +3594,13 @@
           "timerHours": 5,
           "resultDescription": "After the creature was attacked, it emitted a a powerful signal. It appears to have been a call for help, so be ready for a potential threat from the depths.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+100",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4119,5 +4125,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:58:04.785278"
+  "_lastModified": "2026-10-22T12:58:09.589968"
 }
