@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:13:06.485675",
+  "_lastModified": "2026-10-22T13:13:17.387503",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3746,6 +3746,13 @@
                   "name": "Cultured Meat",
                   "amount": 30,
                   "iconImg": "icons/T_Raw_Meat.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "res_30",
+                  "name": "Omni Fruit",
+                  "amount": 30,
+                  "iconImg": "icons/T_OmniFruit.png",
                   "icon": "📦"
                 }
               ]
