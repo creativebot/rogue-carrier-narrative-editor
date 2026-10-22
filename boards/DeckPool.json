@@ -679,7 +679,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 3,
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
@@ -741,7 +741,7 @@
       },
       "position": {
         "x": 110,
-        "y": 4014
+        "y": 2561
       },
       "actions": [
         {
@@ -1456,5 +1456,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T09:14:43.535857"
+  "_lastModified": "2026-10-22T09:14:45.051980"
 }
