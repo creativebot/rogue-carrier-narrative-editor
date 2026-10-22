@@ -2916,7 +2916,7 @@
           "id": "c_1792668534139",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Fence off a small habitat, run regular sanitation checks, and keep the colony under observation.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3415,5 +3415,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:30:47.302879"
+  "_lastModified": "2026-10-22T11:30:52.277119"
 }
