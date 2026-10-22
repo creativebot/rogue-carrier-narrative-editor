@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:42:54.385074",
+  "_lastModified": "2026-10-22T11:43:02.385259",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3372,7 +3372,7 @@
           "description": "Observe the locations where the creature appears most often and carefully prepare a humane trap to capture it without harm.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The \"pest\" turns out to be a secret pet belonging to one of the crew. After it was finally cornered, the ambush turned into something closer to a celebration: everyone took turns getting a look at it, the owner got their share of jokes, and then the creature was quietly released.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
