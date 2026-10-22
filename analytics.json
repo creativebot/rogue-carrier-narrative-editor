@@ -152,9 +152,9 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 289,
+        "seconds": 299,
         "boards": {
-          "DeckPool": 289
+          "DeckPool": 299
         },
         "hourly": [
           0,
@@ -171,7 +171,7 @@
           0,
           0,
           0,
-          259,
+          269,
           0,
           0,
           0,
@@ -182,7 +182,42 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T14:15:38.259000Z"
+        "lastActive": "2026-10-22T14:16:08.259000Z"
+      },
+      "pdushynskyi@n-ix.com": {
+        "name": "Petro Dushynskyi",
+        "email": "pdushynskyi@n-ix.com",
+        "seconds": 29,
+        "boards": {
+          "DeckPool": 29
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          29,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-22T14:18:19.659000Z"
       }
     }
   }
