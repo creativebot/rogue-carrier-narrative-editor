@@ -2808,7 +2808,7 @@
           "id": "act_1792668249579",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Distractions among staff affect productivity, but the substance has a positive effect on the crew's mental health.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2824,5 +2824,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:24:34.447732"
+  "_lastModified": "2026-10-22T11:24:41.948882"
 }
