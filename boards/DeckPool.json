@@ -2696,7 +2696,7 @@
         {
           "id": "c_1792661784289",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Organize a running group",
           "description": "Donate materials for crew to create makeshift running gear and start an athletics group.",
           "requirements": [],
           "timerHours": 5,
@@ -2780,5 +2780,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:45:10.334975"
+  "_lastModified": "2026-10-22T10:45:17.342884"
 }
