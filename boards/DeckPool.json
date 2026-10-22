@@ -13,7 +13,7 @@
       "location": "Test Spawn Conditions Text",
       "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "eventDescription": "Opening paragraph.\n\nSecond paragraph after an empty line.\n\nThird concluding line.",
       "reactionTimerHours": "2",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -53,7 +53,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "Fishing Adventures",
+      "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -224,7 +224,7 @@
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\nStrange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
+      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -455,7 +455,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": 15,
+        "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           {
@@ -2113,7 +2113,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "People felt they were left alone with their fears. It decreased their emotional well being further.",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -2631,7 +2631,7 @@
           "id": "act_1792663471588",
           "codeSuffix": "B",
           "shortDescription": "Run a Seminar",
-          "description": "Train liaisons who coordinate handoffs, confirm readiness on the receiving side, and close the loop in the ticket.",
+          "description": "Description for action choice B...",
           "requirements": [
             {
               "id": "clause_1792665700154",
@@ -3405,7 +3405,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "The supposed birthday passes with no celebration or gift. Later, word spreads that Khalil’s birthday was actually on another day. Some crew members feel a twinge of disappointment, wondering if their own special days might someday be forgotten as well, leaving the atmosphere a bit subdued.",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -3457,7 +3457,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
+          "resultDescription": "",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -3505,7 +3505,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
+          "resultDescription": "",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4191,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T15:35:47.563543"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-22T18:01:00.670856"
 }
