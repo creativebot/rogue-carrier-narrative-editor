@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:13:36.379839",
+  "_lastModified": "2026-10-22T22:13:58.787310",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4766,7 +4766,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_14_boosted_immunity_i",
+              "name": "Boosted Immunity I",
+              "rawName": "Boosted Immunity I",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +50% for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
