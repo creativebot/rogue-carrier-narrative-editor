@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:16:24.485289",
+  "_lastModified": "2026-10-22T13:16:35.093193",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3689,7 +3689,7 @@
         {
           "id": "c_1792668541416",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Throw a Surprise Party",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
