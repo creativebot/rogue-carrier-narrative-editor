@@ -3135,6 +3135,20 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792669588983",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3714,5 +3728,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:46:23.894452"
+  "_lastModified": "2026-10-22T11:46:31.298847"
 }
