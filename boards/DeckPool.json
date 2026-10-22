@@ -2710,7 +2710,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 10,
+      "floorIndex": 11,
       "tier": 2,
       "location": "",
       "spawnConditions": "",
@@ -2721,7 +2721,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 7624
+        "y": 7977
       },
       "actions": [
         {
@@ -2744,5 +2744,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:41:52.320269"
+  "_lastModified": "2026-10-22T10:42:01.395268"
 }
