@@ -3777,9 +3777,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Some crew members used this time to deepen their understanding of logistics, becoming more specialized in their roles and enabling smoother, more efficient task execution for everyone.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -3905,5 +3903,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:19:41.688064"
+  "_lastModified": "2026-10-22T12:19:43.793260"
 }
