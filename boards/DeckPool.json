@@ -2708,7 +2708,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety Report: \"We managed to intercept the \"blade bot\" in the corridor and disarm it on the spot—literally took the knives right off. The robot’s back to harmlessly bumping into walls, and the crew’s sense of safety has gone way up. One less horror story for now.\" From: Orest Demchuck.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4368,5 +4376,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:36:29.298681"
+  "_lastModified": "2026-10-22T21:51:52.082239"
 }
