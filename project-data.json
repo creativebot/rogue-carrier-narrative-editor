@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:01:41.184710",
+  "_lastModified": "2026-10-22T10:01:46.595520",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2824,7 +2824,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Safety report:\n\"Well, good news: the team managed to snag our knife-wielding cleaning robot with its batteries nearly drained! Sure, manual mopping isn’t anyone’s favorite pastime, but the chase gave everyone an unexpected show and actually boosted spirits. Crisis averted!\" From: Orest Demchuck.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
