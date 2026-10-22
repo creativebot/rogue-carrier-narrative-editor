@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T16:05:15.175Z",
+  "_lastModified": "2026-10-22T18:16:02.167555",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Oleksandr Seliutin"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -280,7 +280,7 @@
       "location": "Test Spawn Conditions Text",
       "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "eventDescription": "Opening paragraph.\n\nSecond paragraph after an empty line.\n\nThird concluding line.",
       "reactionTimerHours": "2",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -302,10 +302,10 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
+          "description": "Option Alpha.\n\nDetailed choice condition.",
           "requirements": [],
           "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
+          "resultDescription": "Mission Step A complete.\n\nNext phase initialized with zero losses.\n\nAll stations standing by.",
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
@@ -1237,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5312
+        "y": 5324
       },
       "actions": [
         {
@@ -2693,7 +2693,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 3815
       },
       "actions": [
         {
@@ -2767,7 +2767,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4515
+        "y": 4457
       },
       "actions": [
         {
@@ -3685,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 5491
       },
       "actions": [
         {
@@ -3828,7 +3828,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 4512
       },
       "actions": [
         {
@@ -3961,7 +3961,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3743
+        "y": 3610
       },
       "actions": [
         {
@@ -4140,7 +4140,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -4157,7 +4157,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2927
+        "y": 2877
       },
       "actions": [
         {
@@ -4545,7 +4545,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 0,
       "tier": 1,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
@@ -4556,7 +4556,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 1809
+        "y": 1752
       },
       "actions": [
         {
@@ -5258,13 +5258,7 @@
         "timerHours": "Infinite",
         "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
         "penalties": [
-          {
-            "resourceId": "stat_crew count",
-            "name": "Crew Count",
-            "amount": "-2",
-            "icon": "👨‍🚀",
-            "iconImg": ""
-          }
+          "💀 Entropy +10"
         ]
       },
       "position": {
@@ -5415,6 +5409,26 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792403901862",
+          "codeSuffix": "D",
+          "shortDescription": "DO NOTHING",
+          "description": "Description for action choice D...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "-2",
+              "icon": "👨‍🚀",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -5833,7 +5847,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
@@ -5858,7 +5872,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 1201
+        "y": 1692
       },
       "actions": [
         {
