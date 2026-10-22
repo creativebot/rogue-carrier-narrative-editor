@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:09:33.194246",
+  "_lastModified": "2026-10-22T13:09:39.397173",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3731,7 +3731,7 @@
           "description": "Create a festive atmosphere with makeshift fireworks, launching a salute to honor the union and bring a vibrant sense of celebration to the deck.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
