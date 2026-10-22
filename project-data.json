@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:24:29.091288",
+  "_lastModified": "2026-10-22T11:24:34.498268",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3061,7 +3061,7 @@
           "id": "act_1792668248948",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Broadcast an amnesty notice ship-wide and set up a no-questions return desk at the nearest checkpoint.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
