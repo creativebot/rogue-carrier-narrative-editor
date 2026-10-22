@@ -3502,7 +3502,21 @@
           "codeSuffix": "B",
           "shortDescription": "Host Celebratory Salute",
           "description": "Create a festive atmosphere with makeshift fireworks, launching a salute to honor the union and bring a vibrant sense of celebration to the deck.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792674817155",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 10,
+                  "iconImg": "icons/T_ExplosiveCharges.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
           "rewards": [],
@@ -4196,5 +4210,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:13:19.655580"
+  "_lastModified": "2026-10-22T13:13:39.299487"
 }
