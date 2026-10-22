@@ -2371,7 +2371,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2409,5 +2409,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:29:48.403355"
+  "_lastModified": "2026-10-22T09:30:14.996183"
 }
