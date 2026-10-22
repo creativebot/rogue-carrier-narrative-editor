@@ -3424,7 +3424,7 @@
     {
       "id": "node_1792668541717",
       "codename": "DECK-S1-E23 BPQ_DeckQuest_Birds_and_Bees",
-      "name": "New Event Block",
+      "name": "Birds and Bees",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -4160,5 +4160,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:00:43.691361"
+  "_lastModified": "2026-10-22T13:00:50.155140"
 }
