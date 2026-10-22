@@ -3449,7 +3449,7 @@
         {
           "id": "act_1792674923714",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Prepare Birthday gift",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -4134,5 +4134,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:16:34.930360"
+  "_lastModified": "2026-10-22T13:16:40.385606"
 }
