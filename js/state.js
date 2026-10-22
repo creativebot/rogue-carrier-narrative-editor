@@ -2588,11 +2588,17 @@ function formatRewardPillHTML(rw, nodeId, actionIdx, rwIdx, isPenalty = false) {
 
     // Only show number where applicable (instead of buff/debuff)
     let numberBadge = '';
-    if (hasN && amount && amount !== '') {
+    const badgeAmount = (amount && amount !== '') ? amount : (hasN ? (rw.nValue || (effect.match(/for\s+(\d+)\s+hours/i)?.[1]) || '24') : '');
+    if (badgeAmount) {
+      if (typeof rw === 'object' && rw !== null) {
+        if (!rw.amount) rw.amount = badgeAmount;
+        if (!rw.nValue) rw.nValue = badgeAmount;
+        rw.hasN = true;
+      }
       const numBadgeStyle = isNeg
         ? 'bg-rose-950/90 text-rose-300 border-rose-500/60'
         : 'bg-teal-950/90 text-teal-300 border-teal-500/60';
-      numberBadge = `<span class="text-[10px] font-mono font-extrabold px-1.5 py-0.2 rounded border ${numBadgeStyle}">${amount}</span>`;
+      numberBadge = `<span class="text-[10px] font-mono font-extrabold px-1.5 py-0.2 rounded border ${numBadgeStyle}">${badgeAmount}</span>`;
     }
 
     const seMetaJson = JSON.stringify({ name, category, target, effect, effectType, posNeg: isNeg ? 'negative' : 'positive', iconImg, species, amount, hasN }).replace(/"/g, '&quot;');

@@ -897,7 +897,7 @@
           }
         ],
         "Rewards": [
-          "⚡ Weakened Morale II",
+          "⚡ Weakened Morale II x24",
           "✨ Boosted Productivity II x48",
           "📜 Blueprints x4"
         ],
@@ -905,7 +905,7 @@
           {
             "ResourceID": "status_6_weakened_morale_ii",
             "Name": "Weakened Morale II",
-            "Amount": "",
+            "Amount": "24",
             "Category": "Item",
             "Icon": "⚡"
           },

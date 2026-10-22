@@ -223,7 +223,7 @@ async function loadResourceCatalog() {
   }
 
   try {
-    const sRes = await fetch('status_effects.json');
+    const sRes = await fetch('status_effects.json?v=' + Date.now());
     if (sRes.ok) {
       statusEffectsCatalog = await sRes.json();
       window.statusEffectsCatalog = statusEffectsCatalog;

@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-21T13:01:54.594178",
+  "_lastModified": "2026-10-22T11:01:21.751801",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -935,7 +935,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792576020887",
@@ -1200,7 +1201,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792578159292",
@@ -1365,9 +1367,9 @@
               "resourceId": "status_6_weakened_morale_ii",
               "name": "Weakened Morale II",
               "rawName": "Weakened Morale II",
-              "amount": "",
-              "hasN": false,
-              "nValue": "",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
               "hasSpecies": false,
               "species": "",
               "iconImg": "icons/status_effects/Weakened Morale II.png",
@@ -1472,7 +1474,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792578968136",
@@ -1522,9 +1525,9 @@
             "resourceId": "status_5_weakened_morale_i",
             "name": "Weakened Morale I",
             "rawName": "Weakened Morale I",
-            "amount": "",
-            "hasN": false,
-            "nValue": "",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
             "hasSpecies": false,
             "species": "",
             "iconImg": "icons/status_effects/Weakened Morale I.png",
@@ -1647,7 +1650,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792579368503",
@@ -1713,7 +1717,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1791297604320",

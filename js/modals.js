@@ -938,6 +938,63 @@ function selectIntangibleStat(statName, icon, color) {
   showToast(`Updated stat ${statName} (${formattedSign})`, "success");
 }
 
+
+function applyPickerAmountEdit() {
+  if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("modify amount")) return;
+  const { nodeId, actionIdx, type, itemIdx, clauseIdx } = activePickerTarget || {};
+  const qtyInput = document.getElementById('picker-amount-input');
+  const amountStr = qtyInput ? qtyInput.value.trim() : '';
+  if (!amountStr) {
+    showToast("Please enter an amount or N value", "warning");
+    return;
+  }
+  const node = (appData.nodes || []).find(n => n.id === nodeId);
+  if (!node) return;
+
+  if (itemIdx === null || itemIdx === undefined) {
+    showToast(`Amount set to "${amountStr}". Now click any card below to add it.`, "info");
+    return;
+  }
+
+  pushUndoState();
+
+  if (type === 'inaction_penalty') {
+    const pen = (node.inactionThreat && node.inactionThreat.penalties) ? node.inactionThreat.penalties[itemIdx] : null;
+    if (pen) {
+      pen.amount = amountStr;
+      pen.nValue = amountStr;
+      pen.hasN = true;
+      if (pen.effect) {
+        pen.effect = pen.effect.replace(/\{N\}/g, amountStr).replace(/for\s+\d+\s+hours/i, `for ${amountStr} hours`);
+      }
+    }
+  } else if (type === 'reward') {
+    const act = (node.actions || [])[actionIdx];
+    const rw = (act && act.rewards) ? act.rewards[itemIdx] : null;
+    if (rw) {
+      rw.amount = amountStr;
+      rw.nValue = amountStr;
+      rw.hasN = true;
+      if (rw.effect) {
+        rw.effect = rw.effect.replace(/\{N\}/g, amountStr).replace(/for\s+\d+\s+hours/i, `for ${amountStr} hours`);
+      }
+    }
+  } else if (type === 'requirement_edit' || type === 'requirement') {
+    const act = (node.actions || [])[actionIdx];
+    const clause = (act && act.requirements && clauseIdx !== null) ? act.requirements[clauseIdx] : null;
+    const req = (clause && clause.items) ? clause.items[itemIdx] : null;
+    if (req) {
+      req.amount = parseInt(amountStr) || amountStr;
+    }
+  }
+
+  saveProjectToLocalStorage();
+  closeModal('modal-resource-picker');
+  renderApp();
+  showToast(`Updated value to: ${amountStr}`, "success");
+}
+window.applyPickerAmountEdit = applyPickerAmountEdit;
+
 function selectResourceFromPicker(item) {
   if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("select resource item")) return;
   if (item.category === 'Specialization' || item.kind === 'specialization') {
@@ -966,7 +1023,20 @@ function selectResourceFromPicker(item) {
   const amountStr = (qtyInput && qtyInput.value.trim()) ? qtyInput.value.trim() : (isStatusEffect ? '4' : '1');
 
   const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || 'Auri';
-  const hasN = Boolean(item.hasN || /(\bN\b|\{N\})/.test(item.name || '') || /(\bN\b|\{N\})/.test(item.effect || '') || /(\bN\b|\{N\})/.test(item.description || ''));
+  const catalogMatch = (window.statusEffectsCatalog || []).find(se => (item && item.id && se.id === item.id) || (se.name && se.name.toLowerCase() === (item.name || '').toLowerCase()));
+  const hasN = Boolean(
+    item.hasN || 
+    (catalogMatch && catalogMatch.hasN) ||
+    /(\bN\b|\{N\})/.test(item.name || '') || 
+    /(\bN\b|\{N\})/.test(item.effect || '') || 
+    /(\bN\b|\{N\})/.test(item.description || '') ||
+    (catalogMatch && /(\bN\b|\{N\})/.test(catalogMatch.effect || '')) ||
+    /Weakened Morale|Food Savings|Fasting|Slowdown|Productivity|Traders/i.test(item.name || '')
+  );
+  if (catalogMatch && catalogMatch.effect && (!resolvedEffect || resolvedEffect === 'Morale -2' || resolvedEffect === 'Morale -4' || resolvedEffect === 'Morale -6')) {
+    resolvedEffect = catalogMatch.effect;
+  }
+  const finalAmount = amountStr || (hasN ? '4' : '');
   const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.name || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.effect || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.target || ''));
 
   let resolvedName = item.name;
@@ -1003,9 +1073,9 @@ function selectResourceFromPicker(item) {
       resourceId: item.id,
       name: resolvedName,
       rawName: item.name,
-      amount: hasN ? amountStr : '',
+      amount: finalAmount,
       hasN: hasN,
-      nValue: hasN ? amountStr : '',
+      nValue: finalAmount,
       hasSpecies: hasSpecies,
       species: hasSpecies ? curSpecies : '',
       iconImg: item.iconImg || '',
@@ -1065,9 +1135,9 @@ function selectResourceFromPicker(item) {
         resourceId: item.id,
         name: resolvedName,
         rawName: item.name,
-        amount: hasN ? amountStr : '',
+        amount: finalAmount,
         hasN: hasN,
-        nValue: hasN ? amountStr : '',
+        nValue: finalAmount,
         hasSpecies: hasSpecies,
         species: hasSpecies ? curSpecies : '',
         iconImg: item.iconImg || '',
