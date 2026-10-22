@@ -1523,6 +1523,19 @@
                   "category": "Specialization"
                 }
               ]
+            },
+            {
+              "id": "clause_1792704312993",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_01",
+                  "name": "Basic Extractor",
+                  "amount": 1,
+                  "iconImg": "icons/T_ExtractorBasic.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -4309,5 +4322,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:25:08.998519"
+  "_lastModified": "2026-10-22T21:25:17.386721"
 }
