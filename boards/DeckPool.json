@@ -2700,7 +2700,7 @@
           "description": "Donate materials for crew to create makeshift running gear and start an athletics group.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew’s regular exercise routine has noticeably increased their energy levels and improved overall health, creating a more vibrant and resilient community.",
           "rewards": [
             {
               "resourceId": "stat_morale",
@@ -2782,5 +2782,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:47:19.734370"
+  "_lastModified": "2026-10-22T10:47:21.118128"
 }
