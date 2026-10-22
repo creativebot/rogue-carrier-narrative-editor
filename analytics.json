@@ -187,9 +187,9 @@
       "pdushynskyi@n-ix.com": {
         "name": "Petro Dushynskyi",
         "email": "pdushynskyi@n-ix.com",
-        "seconds": 29,
+        "seconds": 89,
         "boards": {
-          "DeckPool": 29
+          "DeckPool": 89
         },
         "hourly": [
           0,
@@ -206,7 +206,7 @@
           0,
           0,
           0,
-          29,
+          89,
           0,
           0,
           0,
@@ -217,7 +217,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T14:18:19.659000Z"
+        "lastActive": "2026-10-22T14:19:19.655000Z"
       }
     }
   }
