@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:33:25.538Z",
+  "_lastModified": "2026-10-22T21:33:46.994192",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2280,7 +2280,7 @@
       "location": "More than 5 ill crew members, Behemoth",
       "spawnConditions": "More than 5 ill crew members, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The Medbay has been developing a special vaccine meant to boost the crew's immunity to the local pathogens.\n The crew of Behemoth is alien to this planet, and the risk of someone catching some indigenous virus or bacteria is always present. Surely, the crew follows a set of strict rules and precautions to reduce the chance of contracting a deadly strain, but it would be much better for the crew to have resistance to the unwanted gifts of this planet. To create a vaccine, the doctors need to study one of the following subjects extensively.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
