@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5491
+        "y": 5669
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T14:12:28.092634"
+  "_lastModified": "2026-10-22T14:12:34.530480"
 }
