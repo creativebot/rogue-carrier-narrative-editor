@@ -2508,7 +2508,7 @@
           "id": "c_1792661772455",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Track the unit via cleaning logs, box it in a quiet corridor, and power it down safely.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2651,5 +2651,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:54:58.708837"
+  "_lastModified": "2026-10-22T09:55:00.441095"
 }
