@@ -2599,7 +2599,7 @@
         {
           "id": "c_1792661778711",
           "codeSuffix": "A",
-          "shortDescription": "",
+          "shortDescription": "Sync and update SOPs",
           "description": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
           "requirements": [
             {
@@ -2727,5 +2727,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:38:27.229666"
+  "_lastModified": "2026-10-22T10:39:04.285033"
 }
