@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:51:00.395359",
+  "_lastModified": "2026-10-22T12:51:04.985208",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3963,7 +3963,7 @@
         {
           "id": "act_1792673419256",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Install Filters",
           "description": "Inspect and replace air filters in the affected factory area to reduce exposure to the irritant.",
           "requirements": [],
           "timerHours": 5,
