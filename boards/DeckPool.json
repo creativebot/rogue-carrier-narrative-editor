@@ -2579,8 +2579,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "Productivity Report:\n\"Captain, I have noticed a surge in handoff errors between departments—schedule overlaps, duplicated efforts, and general confusion are emerging in the crew’s logs. It appears someone inadvertently began following an outdated handoff protocol, leading to two conflicting sets of regulations circulating at once. Unless this is resolved, our coordination will continue to unravel and productivity will decline further. I recommend swiftly standardizing procedures and clarifying protocols to restore order.\nWith due respect, Mnemosyne.\"",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 1460,
         "y": 6418
@@ -2696,5 +2704,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:04:34.089452"
+  "_lastModified": "2026-10-22T10:04:36.508974"
 }
