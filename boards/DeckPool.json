@@ -2471,10 +2471,11 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "colorScheme": "rose"
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:32:33.982356"
+  "_lastModified": "2026-10-22T09:32:42.043659"
 }
