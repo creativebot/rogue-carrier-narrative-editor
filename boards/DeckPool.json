@@ -2666,7 +2666,7 @@
     {
       "id": "node_1792661784289",
       "codename": "DECK-S1-E17 BPQ_DeckQuest_Team_Activities",
-      "name": "New Event Block",
+      "name": "Team Activities",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -2744,5 +2744,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:43:03.184456"
+  "_lastModified": "2026-10-22T10:43:09.878437"
 }
