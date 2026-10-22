@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:32:01.348957",
+  "_lastModified": "2026-10-22T09:32:10.644393",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2703,7 +2703,7 @@
           "description": "Stop this",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Productivity bonus but  morale debuff",
           "rewards": [
             "🧠 Knowledge +100"
           ],
