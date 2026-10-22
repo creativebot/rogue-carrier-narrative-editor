@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:19:41.899313",
+  "_lastModified": "2026-10-22T12:19:44.202376",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4044,9 +4044,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Some crew members used this time to deepen their understanding of logistics, becoming more specialized in their roles and enabling smoother, more efficient task execution for everyone.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
