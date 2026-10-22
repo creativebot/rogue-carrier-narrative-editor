@@ -2507,7 +2507,7 @@
         {
           "id": "c_1792661772455",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Grant Orest's Request",
           "description": "Track the unit via cleaning logs, box it in a quiet corridor, and power it down safely.",
           "requirements": [],
           "timerHours": 5,
@@ -2651,5 +2651,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:55:06.646301"
+  "_lastModified": "2026-10-22T09:55:14.764402"
 }
