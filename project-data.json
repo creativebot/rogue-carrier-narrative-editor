@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:55:49.391088",
+  "_lastModified": "2026-10-22T12:55:55.194373",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3773,7 +3773,7 @@
         {
           "id": "act_1792673692510",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Eliminate",
           "description": "We cannot allow this creature to threaten the crew and cripple our power supply. Prepare the team to eliminate it.",
           "requirements": [],
           "timerHours": 5,
