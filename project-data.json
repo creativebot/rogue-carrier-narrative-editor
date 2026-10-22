@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:22:25.533Z",
+  "_lastModified": "2026-10-22T22:23:08.787956",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4126,7 +4126,30 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_16_absolute_immunity",
+              "name": "Absolute Immunity",
+              "rawName": "Absolute Immunity",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Absolute Immunity.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "gain no infections for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
