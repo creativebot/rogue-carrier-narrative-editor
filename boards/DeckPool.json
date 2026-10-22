@@ -3321,7 +3321,7 @@
           "description": "Provide specialized equipment to ensure each “race” is safely contained, along with education on disease prevention to minimize health risks.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:49:19.687134"
+  "_lastModified": "2026-10-22T11:49:27.720611"
 }
