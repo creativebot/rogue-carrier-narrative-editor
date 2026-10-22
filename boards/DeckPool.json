@@ -3652,7 +3652,7 @@
     {
       "id": "node_1792668543040",
       "codename": "DECK-S1-E29 BPQ_DeckQuest_AllergySeason",
-      "name": "New Event Block",
+      "name": "Allergy Season",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -3973,5 +3973,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:53:19.655690"
+  "_lastModified": "2026-10-22T12:53:24.479568"
 }
