@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:30:58.990291",
+  "_lastModified": "2026-10-22T11:31:07.388368",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3211,7 +3211,7 @@
           "id": "act_1792668643293",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Nothing from this planet has been cleared for life aboard, harmless or not. Euthanize the specimens under bio-protocol and forward samples to the lab.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
