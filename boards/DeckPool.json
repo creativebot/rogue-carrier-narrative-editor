@@ -4038,7 +4038,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4973,5 +4973,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:22:15.781227"
+  "_lastModified": "2026-10-22T22:22:21.142593"
 }
