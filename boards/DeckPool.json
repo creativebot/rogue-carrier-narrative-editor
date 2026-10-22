@@ -2766,7 +2766,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The unexpected onset of confusion startled the technicians, leading to a period of significant distress. Doubts about lab discipline have risen, and the incident has shaken confidence in the team's safety procedures.",
         "penalties": []
       },
       "position": {
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:27:19.678704"
+  "_lastModified": "2026-10-22T11:27:23.183117"
 }
