@@ -4448,7 +4448,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_23_health_recovery",
+              "name": "Health Recovery",
+              "rawName": "Health Recovery",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Health Recovery.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "gain 5 HP per hour for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected crewmembers regain missing HP at the rate of 5HP per hour."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4817,5 +4840,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:13:29.316684"
+  "_lastModified": "2026-10-22T22:13:36.183672"
 }
