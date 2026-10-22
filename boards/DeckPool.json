@@ -2895,7 +2895,7 @@
       "location": "",
       "spawnConditions": "",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Several specimens of the local fauna hitched a ride on one of the cargo ships and weren't discovered until they had already established a small colony in the less-visited parts of the Behemoth. They appear harmless, they're cute, and the crew loves having them around — someone started calling them Plumplins, and the name stuck.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3379,5 +3379,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:30:00.246801"
+  "_lastModified": "2026-10-22T11:30:17.512441"
 }
