@@ -3562,6 +3562,20 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792673843996",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 1,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -4064,5 +4078,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:57:22.200587"
+  "_lastModified": "2026-10-22T12:57:26.294523"
 }
