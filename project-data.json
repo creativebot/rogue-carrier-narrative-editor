@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:33:10.710676",
+  "_lastModified": "2026-10-22T13:33:13.991741",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3023,7 +3023,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 11,
+      "floorIndex": 9,
       "tier": 2,
       "location": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
       "spawnConditions": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
@@ -3040,7 +3040,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 7843
+        "y": 7063
       },
       "actions": [
         {
