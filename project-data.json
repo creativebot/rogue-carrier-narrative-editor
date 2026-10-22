@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:11:27.890656",
+  "_lastModified": "2026-10-22T13:12:04.403499",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3732,9 +3732,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
