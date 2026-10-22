@@ -3697,8 +3697,8 @@
       "variationId": "var_v1",
       "floorIndex": 2,
       "tier": 3,
-      "location": "R&D Lab, Behemoth",
-      "spawnConditions": "R&D Lab, Behemoth",
+      "location": "R&D Lab, Behemoth,At least one artifact researched",
+      "spawnConditions": "R&D Lab, Behemoth,At least one artifact researched",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -3845,5 +3845,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:17:21.209176"
+  "_lastModified": "2026-10-22T12:17:29.941046"
 }
