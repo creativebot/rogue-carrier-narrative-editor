@@ -1399,7 +1399,7 @@
       "location": "in the open sea, Behemoth, ",
       "spawnConditions": "in the open sea, Behemoth, ",
       "eventIntro": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:19:30.692161"
+  "_lastModified": "2026-10-22T21:19:55.949149"
 }
