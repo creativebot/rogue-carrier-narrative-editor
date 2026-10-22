@@ -2522,7 +2522,7 @@
           "id": "act_1792662894435",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Send the global stop code, lock charging bays, and post manual cleanup shifts.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2651,5 +2651,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:55:00.441095"
+  "_lastModified": "2026-10-22T09:55:06.646301"
 }
