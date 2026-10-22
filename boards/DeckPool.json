@@ -2845,7 +2845,22 @@
           "codeSuffix": "C",
           "shortDescription": "Continue research",
           "description": "Distractions among staff affect productivity, but the substance has a positive effect on the crew's mental health.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792668343487",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -2860,5 +2875,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:25:34.895078"
+  "_lastModified": "2026-10-22T11:25:45.691228"
 }
