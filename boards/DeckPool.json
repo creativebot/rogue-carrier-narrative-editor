@@ -3478,7 +3478,7 @@
           "description": "Bring together a few crew members for a thoughtful discussion with the couple — love is powerful, but it may be wise to consider if they’re moving too quickly.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The candid discussion led by crew experts went smoothly. Ruth and the crew member agreed they’d jumped in too quickly and decided to remain friends — for now. As they exited, an officer swears the crew member gave Ruth a sly wink, hinting that the story might not be over just yet.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -4160,5 +4160,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:09:39.308987"
+  "_lastModified": "2026-10-22T13:09:44.464372"
 }
