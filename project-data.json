@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:43:23.285011",
+  "_lastModified": "2026-10-22T11:43:26.487149",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3356,9 +3356,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Without intervention, the legged shark continues to roam freely, creating ongoing disorder and causing mounting frustration among the crew tasked with food production. Morale takes a hit as the nuisance persists.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 4160,
