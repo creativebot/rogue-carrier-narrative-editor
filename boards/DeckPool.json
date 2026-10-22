@@ -2840,7 +2840,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2879,5 +2887,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:26:43.986168"
+  "_lastModified": "2026-10-22T11:26:50.393167"
 }
