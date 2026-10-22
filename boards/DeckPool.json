@@ -438,7 +438,7 @@
     },
     {
       "id": "node_1792575255849",
-      "codename": "DECK-S1-E4 BPQ_DeckQuest_NewMenu",
+      "codename": "DECK-S1-E3 BPQ_DeckQuest_NewMenu",
       "name": "New Menu",
       "title": "New Event Block",
       "type": "Deck",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:15:42.744682"
+  "_lastModified": "2026-10-22T21:16:15.988117"
 }
