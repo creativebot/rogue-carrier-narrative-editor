@@ -2464,7 +2464,7 @@
           "description": "Ignore",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "slightly productivity decrease",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2476,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:32:18.910175"
+  "_lastModified": "2026-10-22T09:32:24.322571"
 }
