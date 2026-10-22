@@ -115,9 +115,9 @@
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 779,
+        "seconds": 839,
         "boards": {
-          "DeckPool": 779
+          "DeckPool": 839
         },
         "hourly": [
           0,
@@ -130,7 +130,7 @@
           0,
           99,
           650,
-          30,
+          90,
           0,
           0,
           0,
@@ -145,7 +145,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T10:01:31.901000Z"
+        "lastActive": "2026-10-22T10:02:31.903000Z"
       },
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
