@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:30:52.296110",
+  "_lastModified": "2026-10-22T11:30:58.990291",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3197,7 +3197,7 @@
           "id": "act_1792668642563",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "A xenofauna colony aboard is not something we can sign off on. Crate the animals carefully and keep them safe until we reach a suitable island.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
