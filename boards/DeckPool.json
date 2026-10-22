@@ -2338,7 +2338,7 @@
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
-        "description": "Дуфму еруь иу",
+        "description": "Leave them be",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "lead to the additional event",
@@ -2379,5 +2379,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:24:54.642653"
+  "_lastModified": "2026-10-22T09:25:02.530309"
 }
