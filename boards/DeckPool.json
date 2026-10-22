@@ -3642,7 +3642,14 @@
           "timerHours": 5,
           "resultDescription": "Studies of the creature have revealed extraordinary properties in its internal organs: they consume, store, and convert energy with remarkable efficiency. The research has since given rise to the idea of a new Energy Building.",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "+4",
+              "icon": "📜",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4125,5 +4132,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:58:20.498286"
+  "_lastModified": "2026-10-22T12:58:30.389481"
 }
