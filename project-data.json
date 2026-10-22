@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:21:41.784058",
+  "_lastModified": "2026-10-22T22:22:15.980825",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4259,7 +4259,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
