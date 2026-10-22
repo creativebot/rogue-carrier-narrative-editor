@@ -921,7 +921,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5944,
+        "x": 5176,
         "y": 3290
       },
       "actions": [
@@ -1902,12 +1902,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4918,
-        "y": 3003
+        "x": 4286,
+        "y": 1907
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "lines": [
         {
@@ -2138,6 +2138,6 @@
       ]
     }
   ],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:50:05.379964"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-22T14:24:08.992777"
 }
