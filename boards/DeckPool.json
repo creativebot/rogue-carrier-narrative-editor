@@ -1427,7 +1427,21 @@
           "codeSuffix": "A",
           "shortDescription": "Build the Rig",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792704272373",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 10,
+                  "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
@@ -4260,5 +4274,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:24:29.335678"
+  "_lastModified": "2026-10-22T21:24:36.782888"
 }
