@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:56:31.092645",
+  "_lastModified": "2026-10-22T12:56:46.294428",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3761,7 +3761,21 @@
           "codeSuffix": "A",
           "shortDescription": "Lure out",
           "description": "To get rid of the creature, we need to be creative. If it feeds on energy, we'll build a lure and draw it back into the ocean. There's some risk involved, but we'll manage.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792673803775",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_05",
+                  "name": "Battery Block",
+                  "amount": 5,
+                  "iconImg": "icons/T_Battery-Block.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The operation was largely a success. The creature pounced on the bait without hesitation. That said, a few crew members were injured while installing the lure and in the aftermath. Still, it was spectacular, so morale is up.",
           "rewards": [
