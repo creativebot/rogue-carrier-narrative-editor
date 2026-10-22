@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:05:25.537Z",
+  "_lastModified": "2026-10-22T21:09:27.186987",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3557,7 +3557,7 @@
     },
     {
       "id": "node_1792668541024",
-      "codename": "DECK-S1-E21 BPQ_DeckQuest_LetsGoGambling",
+      "codename": "DECK-S1-E29 BPQ_DeckQuest_LetsGoGambling",
       "name": "Lets Go Gambling",
       "title": "New Event Block",
       "type": "Deck",
@@ -8368,7 +8368,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
