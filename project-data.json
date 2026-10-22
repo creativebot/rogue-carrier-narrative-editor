@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:17:21.393548",
+  "_lastModified": "2026-10-22T12:17:29.990623",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3964,8 +3964,8 @@
       "variationId": "var_v1",
       "floorIndex": 2,
       "tier": 3,
-      "location": "R&D Lab, Behemoth",
-      "spawnConditions": "R&D Lab, Behemoth",
+      "location": "R&D Lab, Behemoth,At least one artifact researched",
+      "spawnConditions": "R&D Lab, Behemoth,At least one artifact researched",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
