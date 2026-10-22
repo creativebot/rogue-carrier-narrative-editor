@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:15:48.989157",
+  "_lastModified": "2026-10-22T13:16:02.497530",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3715,6 +3715,13 @@
               "amount": "+50",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "powercell_01",
+              "name": "Fuel Cell",
+              "amount": "1",
+              "iconImg": "icons/T_FuelCell.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
