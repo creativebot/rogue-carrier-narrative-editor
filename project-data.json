@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:01:37.192279",
+  "_lastModified": "2026-10-22T13:01:58.401426",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3714,7 +3714,7 @@
           "id": "c_1792668541717",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Organize a generous meal for the newlyweds and all interested crew, ensuring plenty of food to fuel the festivities and foster unity.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
