@@ -2902,7 +2902,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
         "penalties": []
       },
       "position": {
@@ -3413,5 +3413,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:31:38.909535"
+  "_lastModified": "2026-10-22T11:31:40.729840"
 }
