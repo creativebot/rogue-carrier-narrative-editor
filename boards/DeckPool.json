@@ -2754,7 +2754,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 11,
+      "floorIndex": 9,
       "tier": 2,
       "location": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
       "spawnConditions": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
@@ -2771,7 +2771,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 8085
+        "y": 7032
       },
       "actions": [
         {
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:28:40.306934"
+  "_lastModified": "2026-10-22T11:28:42.198383"
 }
