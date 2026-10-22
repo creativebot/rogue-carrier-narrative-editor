@@ -2793,7 +2793,7 @@
         {
           "id": "act_1792668248948",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Return Policy",
           "description": "Broadcast an amnesty notice ship-wide and set up a no-questions return desk at the nearest checkpoint.",
           "requirements": [],
           "timerHours": 5,
@@ -2824,5 +2824,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:24:48.583968"
+  "_lastModified": "2026-10-22T11:24:57.273282"
 }
