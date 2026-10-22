@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:24:54.657417",
+  "_lastModified": "2026-10-22T09:25:02.545521",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2605,7 +2605,7 @@
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
-        "description": "Дуфму еруь иу",
+        "description": "Leave them be",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "lead to the additional event",
