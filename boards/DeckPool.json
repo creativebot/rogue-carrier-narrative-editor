@@ -2732,7 +2732,7 @@
           "description": "Authorize weapon-handling practice so crew can train at an improvised shooting range.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2782,5 +2782,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:47:25.922221"
+  "_lastModified": "2026-10-22T10:47:31.045692"
 }
