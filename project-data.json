@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:44:32.203108",
+  "_lastModified": "2026-10-22T11:44:37.996086",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3380,7 +3380,13 @@
           "timerHours": 5,
           "resultDescription": "The \"pest\" turns out to be a secret pet belonging to one of the crew. After it was finally cornered, the ambush turned into something closer to a celebration: everyone took turns getting a look at it, the owner got their share of jokes, and then the creature was quietly released.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
