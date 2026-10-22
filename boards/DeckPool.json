@@ -2919,7 +2919,13 @@
           "timerHours": 5,
           "resultDescription": "The crew adopts the Plumplins as unofficial mascots. Spirits lift, and medbay reports a measurable boost to crew immunity. The only cost is a slight dip in productivity — people keep finding reasons to walk past the habitat.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3454,5 +3460,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:35:19.720716"
+  "_lastModified": "2026-10-22T11:35:50.485871"
 }
