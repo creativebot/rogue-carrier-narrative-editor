@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:47:31.093341",
+  "_lastModified": "2026-10-22T10:47:43.692237",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2950,7 +2950,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "Feeling that their needs were disregarded, the crew’s morale has declined, and a sense of frustration and disconnection has begun to take hold among the team.",
         "penalties": [
           "💀 Entropy +10"
         ]
