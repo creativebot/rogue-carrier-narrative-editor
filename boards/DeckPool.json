@@ -3738,9 +3738,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew have planned out the next hours and are now able to address upcoming situations more efficiently, resulting in a spike in overall productivity.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3907,5 +3905,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:19:38.586627"
+  "_lastModified": "2026-10-22T12:19:41.688064"
 }
