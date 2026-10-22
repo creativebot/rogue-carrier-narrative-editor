@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:31:07.388368",
+  "_lastModified": "2026-10-22T11:31:16.191915",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3182,7 +3182,7 @@
         {
           "id": "c_1792668534139",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Let them be",
           "description": "Fence off a small habitat, run regular sanitation checks, and keep the colony under observation.",
           "requirements": [],
           "timerHours": 5,
