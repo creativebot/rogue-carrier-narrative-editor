@@ -3677,7 +3677,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
@@ -3696,7 +3696,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3902
+        "y": 4330
       },
       "actions": [
         {
@@ -4194,5 +4194,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:05:03.018060"
+  "_lastModified": "2026-10-22T21:05:05.135008"
 }
