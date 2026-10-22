@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:00:34.044457",
+  "_lastModified": "2026-10-22T10:01:11.094408",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2774,7 +2774,28 @@
           "codeSuffix": "A",
           "shortDescription": "Grant Orest's Request",
           "description": "Track the unit via cleaning logs, box it in a quiet corridor, and power it down safely.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792663244019",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 2,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "ammunition_01",
+                  "name": "Standard Ammunition Pack",
+                  "amount": 3,
+                  "iconImg": "icons/T_StandardAmmunitionPack.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [],
@@ -2786,7 +2807,22 @@
           "codeSuffix": "B",
           "shortDescription": "Attempt Shutdown",
           "description": "Send the global stop code, lock charging bays, and post manual cleanup shifts.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792663268804",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 2,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [],
