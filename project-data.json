@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:18:24.397394",
+  "_lastModified": "2026-10-22T12:18:25.592549",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3969,8 +3969,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "For the first time in days the board is clean and pressure is low. Tools are staged, crews are on shift, and we have a short window to either pull work forward, invest in people, or clear the small blockers that usually slow the first hour of a surge.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2810,
         "y": 2075
