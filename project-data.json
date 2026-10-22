@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:17:56.684736",
+  "_lastModified": "2026-10-22T13:18:08.694966",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3747,7 +3747,21 @@
           "codeSuffix": "B",
           "shortDescription": "Prepare Birthday gift",
           "description": "Recruit personnel to craft a thoughtful and practical gift for Khalil — something he’d truly appreciate.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792675085985",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_04",
+                  "name": "Nanomaterials",
+                  "amount": 15,
+                  "iconImg": "icons/T_Graphene.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
