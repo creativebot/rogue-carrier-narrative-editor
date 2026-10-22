@@ -2884,7 +2884,7 @@
     },
     {
       "id": "node_1792668534139",
-      "codename": "DECK-S1-E19",
+      "codename": "DECK-S1-E19 BPQ_DeckQuest_Stowaway_Fauna",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -3379,5 +3379,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:29:30.805961"
+  "_lastModified": "2026-10-22T11:29:54.390280"
 }
