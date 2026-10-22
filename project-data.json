@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:18:27.895019",
+  "_lastModified": "2026-10-22T12:18:34.099463",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4002,7 +4002,7 @@
           "id": "act_1792671501734",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Use available time to run a group workshop focused on long-term crew preparedness.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
