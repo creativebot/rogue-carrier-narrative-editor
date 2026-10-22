@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:05:21.191693",
+  "_lastModified": "2026-10-22T10:37:47.584738",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2868,7 +2868,21 @@
           "codeSuffix": "A",
           "shortDescription": "",
           "description": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792665465406",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
