@@ -3102,7 +3102,7 @@
           "id": "c_1792668540158",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Observe the locations where the creature appears most often and carefully prepare a humane trap to capture it without harm.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3642,5 +3642,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:42:30.491762"
+  "_lastModified": "2026-10-22T11:42:40.483471"
 }
