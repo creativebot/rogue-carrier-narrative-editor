@@ -2586,7 +2586,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "Productivity report:\n\"Captain, no corrective action has been taken. The gaps in our procedures persist. Rather than cooperating, personnel now circumvent each other, bypassing the shared process entirely. Recovery will require considerable effort and time.\nWith due respect, Mnemosyne.\"",
         "penalties": [
           "💀 Entropy +10"
         ]
@@ -2727,5 +2727,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:38:19.789954"
+  "_lastModified": "2026-10-22T10:38:27.229666"
 }
