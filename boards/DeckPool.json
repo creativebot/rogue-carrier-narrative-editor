@@ -3286,7 +3286,7 @@
     },
     {
       "id": "node_1792668541024",
-      "codename": "DECK-S1-E21",
+      "codename": "DECK-S1-E21 BPQ_DeckQuest_LetsGoGambling",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -3784,5 +3784,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:48:02.322946"
+  "_lastModified": "2026-10-22T11:48:08.099866"
 }
