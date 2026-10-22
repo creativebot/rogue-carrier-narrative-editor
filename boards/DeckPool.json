@@ -2743,7 +2743,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety report:\n\"Well, good news: the team managed to snag our knife-wielding cleaning robot with its batteries nearly drained! Sure, manual mopping isn’t anyone’s favorite pastime, but the chase gave everyone an unexpected show and actually boosted spirits. Crisis averted!\" From: Orest Demchuck.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -4376,5 +4384,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:51:52.082239"
+  "_lastModified": "2026-10-22T21:51:58.789082"
 }
