@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:16:46.194916",
+  "_lastModified": "2026-10-22T13:16:51.096778",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3717,7 +3717,7 @@
           "id": "act_1792674923714",
           "codeSuffix": "B",
           "shortDescription": "Prepare Birthday gift",
-          "description": "Description for action choice B...",
+          "description": "Recruit personnel to craft a thoughtful and practical gift for Khalil — something he’d truly appreciate.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
