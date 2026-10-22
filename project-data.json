@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:31:45.394283",
+  "_lastModified": "2026-10-22T11:31:51.298136",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3212,7 +3212,7 @@
           "description": "Nothing from this planet has been cleared for life aboard, harmless or not. Euthanize the specimens under bio-protocol and forward samples to the lab.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew took it badly. Something settled over the ship afterwards that nobody puts into words. The researchers logged an anomalous organic artifact recovered from the nest, along with a strange connection to the Plumplins themselves.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
