@@ -1394,7 +1394,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
+      "floorIndex": 10,
       "tier": 1,
       "location": "in the open sea, Behemoth, ",
       "spawnConditions": "in the open sea, Behemoth, ",
@@ -1419,7 +1419,7 @@
       },
       "position": {
         "x": 110,
-        "y": 6784
+        "y": 7104
       },
       "actions": [
         {
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:27:43.579683"
+  "_lastModified": "2026-10-22T11:28:06.886285"
 }
