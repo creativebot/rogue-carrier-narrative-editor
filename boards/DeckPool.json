@@ -2483,7 +2483,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 6,
       "tier": 2,
       "location": "in the open sea, any building",
       "spawnConditions": "in the open sea, any building",
@@ -2500,7 +2500,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 5444
+        "y": 4457
       },
       "actions": [
         {
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:28:33.989269"
+  "_lastModified": "2026-10-22T11:28:35.864404"
 }
