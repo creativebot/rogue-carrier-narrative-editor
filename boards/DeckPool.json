@@ -3335,7 +3335,7 @@
           "description": "Introduce precision tools and encourage the crew to reinvent the contest, using their enthusiasm to cultivate new antibiotics instead of hazards.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "With upgraded tools and a new purpose, the crew channels their competitive energy into real research. Friendly rivalries now push them to discover promising antibiotic candidates, blending fun with meaningful contributions to shipwide health.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:49:27.720611"
+  "_lastModified": "2026-10-22T11:49:32.900737"
 }
