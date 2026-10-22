@@ -3294,8 +3294,8 @@
       "variationId": "var_v1",
       "floorIndex": 4,
       "tier": 4,
-      "location": "",
-      "spawnConditions": "",
+      "location": "Game stage 2 or later",
+      "spawnConditions": "Game stage 2 or later",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -3784,5 +3784,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:47:21.993324"
+  "_lastModified": "2026-10-22T11:48:02.322946"
 }
