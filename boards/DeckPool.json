@@ -3537,7 +3537,13 @@
           "timerHours": 5,
           "resultDescription": "With bittersweet emotions, the crew released the adorable creatures into the wild, confident that the island will provide them a new home. Though farewells were teary, the crew felt joy knowing the Plumplins were safe and free, ready to embrace their new life.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3547,5 +3553,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:39:19.691900"
+  "_lastModified": "2026-10-22T11:39:23.288851"
 }
