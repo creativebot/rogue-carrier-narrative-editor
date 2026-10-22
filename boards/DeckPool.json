@@ -3462,7 +3462,21 @@
           "codeSuffix": "A",
           "shortDescription": "Cater wedding",
           "description": "Organize a generous meal for the newlyweds and all interested crew, ensuring plenty of food to fuel the festivities and foster unity.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792674775122",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_29",
+                  "name": "Grain",
+                  "amount": 30,
+                  "iconImg": "icons/T_Grain.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
           "rewards": [],
@@ -4168,5 +4182,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:12:19.629873"
+  "_lastModified": "2026-10-22T13:12:57.294331"
 }
