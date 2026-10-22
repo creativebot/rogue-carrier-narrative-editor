@@ -3450,7 +3450,7 @@
           "id": "act_1792674923714",
           "codeSuffix": "B",
           "shortDescription": "Prepare Birthday gift",
-          "description": "Description for action choice B...",
+          "description": "Recruit personnel to craft a thoughtful and practical gift for Khalil — something he’d truly appreciate.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -4134,5 +4134,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:16:46.117373"
+  "_lastModified": "2026-10-22T13:16:51.019723"
 }
