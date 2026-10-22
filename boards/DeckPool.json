@@ -2476,7 +2476,7 @@
     },
     {
       "id": "node_1792661772455",
-      "codename": "DECK-S1-E15",
+      "codename": "DECK-S1-E15 BPQ_DeckQuest_Blade_Bot",
       "name": "Blade Bot",
       "title": "New Event Block",
       "type": "Deck",
@@ -2629,5 +2629,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:54:33.997060"
+  "_lastModified": "2026-10-22T09:54:35.682724"
 }
