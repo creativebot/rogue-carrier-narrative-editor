@@ -3130,7 +3130,7 @@
           "id": "act_1792669346880",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Review and strengthen the building’s security protocols, eliminating any loopholes that allowed the “shark” to gain access.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3642,5 +3642,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:42:45.603944"
+  "_lastModified": "2026-10-22T11:42:54.245429"
 }
