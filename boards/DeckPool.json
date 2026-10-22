@@ -3682,7 +3682,7 @@
         {
           "id": "c_1792668543040",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Make antihistamine",
           "description": "Prepare and distribute a suitable remedy to relieve crew members’ irritation symptoms.",
           "requirements": [],
           "timerHours": 5,
@@ -3939,5 +3939,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:50:47.980542"
+  "_lastModified": "2026-10-22T12:51:00.351252"
 }
