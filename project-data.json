@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:25:45.799743",
+  "_lastModified": "2026-10-22T11:26:04.097949",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3023,8 +3023,8 @@
       "variationId": "var_v1",
       "floorIndex": 11,
       "tier": 2,
-      "location": "in the open sea, in the building, ",
-      "spawnConditions": "in the open sea, in the building, ",
+      "location": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
+      "spawnConditions": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
       "eventIntro": "Initial event context...",
       "eventDescription": "A scientist is using lab equipment to produce alcohol. They’ve decided to experiment with local flora, and the result is a potent hallucinogenic substance that’s visually indistinguishable from regular spirits. They’ve accidentally bottled and traded a large batch of the substance to one of the technicians and need help recovering it before someone gets hurt.",
       "reactionTimerHours": "Infinite",
