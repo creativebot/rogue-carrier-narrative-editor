@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:02:25.571Z",
+  "_lastModified": "2026-10-22T21:03:12.091365",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -320,7 +320,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "New Event Block",
+      "name": "Fishing Adventures",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -8366,7 +8366,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
