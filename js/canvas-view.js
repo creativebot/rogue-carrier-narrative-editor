@@ -2629,13 +2629,32 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
   }
 
   if (element.querySelector('textarea')) return;
-  const currentText = element.innerText;
+  const diag = (appData.dialogues || []).find(d => d.id === dialogueId);
+  const currentText = (diag && diag.lines && diag.lines[lineIdx] && typeof diag.lines[lineIdx].text === 'string')
+    ? diag.lines[lineIdx].text
+    : element.innerText;
+
+  const targetMinHeight = 110;
   const input = document.createElement('textarea');
   input.className = 'inline-input font-normal text-xs';
   input.value = currentText;
-  input.rows = 3;
+  input.rows = 5;
+  input.style.minHeight = `${targetMinHeight}px`;
+  input.style.width = '100%';
+  input.style.boxSizing = 'border-box';
+  input.style.resize = 'vertical';
+  input.style.whiteSpace = 'pre-wrap';
+  input.style.lineHeight = '1.45';
+
   element.innerHTML = '';
   element.appendChild(input);
+
+  const autoGrow = () => {
+    input.style.height = 'auto';
+    input.style.height = `${Math.max(targetMinHeight, input.scrollHeight + 4)}px`;
+  };
+  autoGrow();
+
   input.focus();
   input.select();
 
@@ -2651,9 +2670,11 @@ function makeInlineDialogueTextEditable(element, dialogueId, lineIdx) {
   const stopProp = (e) => e.stopPropagation();
   input.addEventListener('mousedown', stopProp);
   input.addEventListener('click', stopProp);
+  input.addEventListener('input', autoGrow);
   input.addEventListener('keydown', (e) => {
     e.stopPropagation();
-    if (e.key === 'Enter' && !e.shiftKey) {
+    // Allow adding breaks with Enter in dialogue text
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       e.preventDefault();
       commitAndCloseActiveInlineEditor(false);
     } else if (e.key === 'Escape') {
@@ -2791,19 +2812,61 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
   if (element.querySelector('textarea')) return;
   const rawVal = getRawModelValueByPath(nodeId, fieldPath);
   const currentText = (rawVal !== null && rawVal !== undefined) ? rawVal : element.innerText;
-  const input = document.createElement('textarea');
-  input.className = 'inline-input';
-  input.value = currentText;
-  input.rows = 2;
-  element.innerHTML = '';
-  element.appendChild(input);
-  input.focus();
-  input.select();
 
   const targetNode = (appData && Array.isArray(appData.nodes)) ? appData.nodes.find(n => n.id === nodeId) : null;
   const limitKey = getSymbolLimitKeyForFieldPath(fieldPath, targetNode);
   const limits = limitKey ? getSymbolLimits() : null;
   const limitVal = (limits && limitKey) ? limits[limitKey] : null;
+
+  const isSingleLine = (fieldPath === 'name' || fieldPath.endsWith('.shortDescription') || (limitVal && limitVal <= 30));
+
+  // Enlarge the textual field to correspond to the maximum number of symbols specified for this field
+  let targetMinHeight = 85;
+  let targetRows = 4;
+  if (isSingleLine) {
+    targetRows = 1;
+    targetMinHeight = 28;
+  } else if (limitVal) {
+    if (limitVal >= 800) { // e.g. eventOutcome / Action Result (925 symbols)
+      targetRows = 12;
+      targetMinHeight = 240;
+    } else if (limitVal >= 400) { // e.g. eventDescription (475), eventIntro (475), inactionResult (475)
+      targetRows = 8;
+      targetMinHeight = 160;
+    } else if (limitVal >= 180) { // e.g. actionDescription3Opt (200), variationDescription (280)
+      targetRows = 6;
+      targetMinHeight = 120;
+    } else { // e.g. actionDescription (120)
+      targetRows = 5;
+      targetMinHeight = 95;
+    }
+  } else {
+    targetRows = 5;
+    targetMinHeight = 100;
+  }
+
+  const input = document.createElement('textarea');
+  input.className = 'inline-input';
+  input.value = currentText;
+  input.rows = targetRows;
+  input.style.minHeight = `${targetMinHeight}px`;
+  input.style.width = '100%';
+  input.style.boxSizing = 'border-box';
+  input.style.resize = isSingleLine ? 'none' : 'vertical';
+  input.style.whiteSpace = 'pre-wrap';
+  input.style.lineHeight = '1.45';
+
+  element.innerHTML = '';
+  element.appendChild(input);
+
+  const autoGrow = () => {
+    input.style.height = 'auto';
+    input.style.height = `${Math.max(targetMinHeight, input.scrollHeight + 4)}px`;
+  };
+  autoGrow();
+
+  input.focus();
+  input.select();
 
   currentActiveInlineEditor = {
     type: 'node-text',
@@ -2824,12 +2887,17 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
     const container = element.parentElement;
     const badge = container ? container.querySelector('.symbol-count-badge') : null;
     if (badge) {
-      badge.textContent = `${len}/${limitVal}`;
+      const recs = (typeof getRecommendedLimits === 'function') ? getRecommendedLimits() : {};
+      const rec = (limitKey && recs[limitKey]) ? recs[limitKey] : 0;
+      const isUnder = len > 0 && rec > 0 && len < rec;
+      badge.innerHTML = `${len}/${limitVal}<span class="symbol-rec-tag" title="Recommended minimum"> (rec: ${rec})</span>`;
       badge.classList.toggle('is-over-limit', isOver);
+      badge.classList.toggle('is-under-rec', isUnder);
     }
   };
 
   input.addEventListener('input', () => {
+    autoGrow();
     updateLiveBadge(input.value);
   });
 
@@ -2838,12 +2906,23 @@ function makeInlineTextEditable(element, nodeId, fieldPath) {
   input.addEventListener('click', stopProp);
   input.addEventListener('keydown', (e) => {
     e.stopPropagation();
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      commitAndCloseActiveInlineEditor(false);
-    } else if (e.key === 'Escape') {
-      e.preventDefault();
-      commitAndCloseActiveInlineEditor(true);
+    if (isSingleLine) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        commitAndCloseActiveInlineEditor(false);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        commitAndCloseActiveInlineEditor(true);
+      }
+    } else {
+      // Allow adding breaks (like empty line) with Enter in textual descriptions!
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        commitAndCloseActiveInlineEditor(false);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        commitAndCloseActiveInlineEditor(true);
+      }
     }
   });
   input.addEventListener('keyup', stopProp);

@@ -29,8 +29,7 @@
         "Requirements": [],
         "Rewards": [
           "🛡️ Defense +1",
-          "🧠 Knowledge +150",
-          "⚡ Weakened Morale I x72"
+          "🧠 Knowledge +150"
         ],
         "StructuredRewards": [
           {
@@ -46,13 +45,6 @@
             "Amount": "+150",
             "Category": "Stat",
             "Icon": "🧠"
-          },
-          {
-            "ResourceID": "status_5_weakened_morale_i",
-            "Name": "Weakened Morale I",
-            "Amount": "72",
-            "Category": "Item",
-            "Icon": "⚡"
           }
         ],
         "ConsequenceText": "",

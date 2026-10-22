@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T15:30:12.439219",
+  "_lastModified": "2026-10-22T18:16:02.167555",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -280,7 +280,7 @@
       "location": "Test Spawn Conditions Text",
       "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "eventDescription": "Opening paragraph.\n\nSecond paragraph after an empty line.\n\nThird concluding line.",
       "reactionTimerHours": "2",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -290,29 +290,7 @@
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
         "penalties": [
-          "💀 Entropy +5",
-          {
-            "resourceId": "status_6_weakened_morale_ii",
-            "name": "Weakened Morale II",
-            "rawName": "Weakened Morale II",
-            "amount": "36",
-            "hasN": true,
-            "nValue": "36",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Morale II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Morale",
-            "target": "crew",
-            "effect": "Morale -4 per hour for 36 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crewmember loses 4 morale per hour for certain time."
-          }
+          "💀 Entropy +5"
         ]
       },
       "position": {
@@ -324,35 +302,13 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
+          "description": "Option Alpha.\n\nDetailed choice condition.",
           "requirements": [],
           "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
+          "resultDescription": "Mission Step A complete.\n\nNext phase initialized with zero losses.\n\nAll stations standing by.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            {
-              "resourceId": "status_5_weakened_morale_i",
-              "name": "Weakened Morale I",
-              "rawName": "Weakened Morale I",
-              "amount": "72",
-              "hasN": true,
-              "nValue": "72",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Weakened Morale I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "Morale -2 per hour for 72 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "The crewmember loses 2 morale per hour for certain time."
-            }
+            "🧠 Knowledge +150"
           ],
           "targetNodeIds": [],
           "targetNodeId": null

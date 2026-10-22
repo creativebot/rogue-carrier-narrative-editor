@@ -1,6 +1,6 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-22T13:30:12.451719Z",
+    "ExportTime": "2026-10-22T16:16:02.180141Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
@@ -427,8 +427,7 @@
           "Requirements": [],
           "Rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150",
-            "⚡ Weakened Morale I x72"
+            "🧠 Knowledge +150"
           ],
           "StructuredRewards": [
             {
@@ -444,13 +443,6 @@
               "Amount": "+150",
               "Category": "Stat",
               "Icon": "🧠"
-            },
-            {
-              "ResourceID": "status_5_weakened_morale_i",
-              "Name": "Weakened Morale I",
-              "Amount": "72",
-              "Category": "Item",
-              "Icon": "⚡"
             }
           ],
           "ConsequenceText": "",
