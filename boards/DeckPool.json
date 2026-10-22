@@ -2720,7 +2720,7 @@
           "description": "Supply resources so crew can create art and sculptures from scrap materials.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2782,5 +2782,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:47:21.118128"
+  "_lastModified": "2026-10-22T10:47:25.922221"
 }
