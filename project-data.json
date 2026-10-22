@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:23:08.787956",
+  "_lastModified": "2026-10-22T22:23:25.481438",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4111,7 +4111,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "As anticipated, one of the extremophile bacteria escapes containment, rapidly corroding part of the ship’s structure. The incident serves as a costly reminder of the dangers unchecked fun can unleash.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_30_corrosive_mold",
+            "name": "Corrosive Mold",
+            "rawName": "Corrosive Mold",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Corrosive Mold.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Repair, hull and buildings HP",
+            "target": "building",
+            "effect": "integrity -5 per hour for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each hour, affected building loses 5 points of Integrity."
+          }
+        ]
       },
       "position": {
         "x": 4160,
