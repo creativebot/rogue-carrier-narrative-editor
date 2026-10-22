@@ -3350,6 +3350,28 @@
             "posNeg": "negative",
             "description": "",
             "comments": "Each affected building produces 50% more waste."
+          },
+          {
+            "resourceId": "status_45_waste_issues_iii",
+            "name": "Waste Issues III",
+            "rawName": "Waste Issues III",
+            "amount": "",
+            "hasN": false,
+            "nValue": "",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Waste Issues III.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Waste",
+            "target": "building",
+            "effect": "Waste accumulation +100%",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each affected building produces 100% more waste."
           }
         ]
       },
@@ -4770,5 +4792,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:09:43.182670"
+  "_lastModified": "2026-10-22T22:10:20.786530"
 }
