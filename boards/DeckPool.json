@@ -2338,7 +2338,7 @@
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
-        "description": "Event times out without choice made.",
+        "description": "Дуфму еруь иу",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "lead to the additional event",
@@ -2379,5 +2379,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:23:33.986140"
+  "_lastModified": "2026-10-22T09:24:54.642653"
 }
