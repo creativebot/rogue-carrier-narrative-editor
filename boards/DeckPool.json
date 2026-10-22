@@ -3349,7 +3349,7 @@
           "description": "Impose immediate restrictions and dismantle the competition to prevent any risk of an outbreak.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Though some crew members are disappointed, the swift action pays off — potential threats are neutralized before they can develop, safeguarding the entire vessel from a possible epidemic. Fortunately, a few of the cell cultures are salvaged safely and can be repurposed as basic medicine, providing a small but valuable benefit to the ship’s medical reserves.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:49:32.900737"
+  "_lastModified": "2026-10-22T11:49:39.218695"
 }
