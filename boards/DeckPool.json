@@ -3320,9 +3320,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3844,5 +3842,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:51:05.288202"
+  "_lastModified": "2026-10-22T11:51:17.091427"
 }
