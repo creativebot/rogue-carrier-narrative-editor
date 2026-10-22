@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T15:09:05.112566",
+  "_lastModified": "2026-10-22T15:08:44.279513",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -248,24 +248,24 @@
     "any number of items"
   ],
   "symbolLimits": {
-    "eventIntro": 200,
-    "eventDescription": 465,
-    "actionDescription": 240,
-    "actionDescription3Opt": 135,
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
     "actionButtonText": 24,
     "eventOutcome": 925,
-    "inactionResult": 540,
+    "inactionResult": 475,
     "variationDescription": 280
   },
   "recommendedLimits": {
     "eventIntro": 120,
-    "eventDescription": 300,
-    "actionDescription": 120,
-    "actionDescription3Opt": 80,
-    "actionButtonText": 6,
-    "eventOutcome": 530,
-    "inactionResult": 235,
-    "variationDescription": 140
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
   },
   "nodes": [
     {
@@ -320,7 +320,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "Fishing Adventures",
+      "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -722,7 +722,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": 15,
+        "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           {
@@ -1237,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5324
+        "y": 5312
       },
       "actions": [
         {
@@ -2693,7 +2693,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3815
+        "y": 3924
       },
       "actions": [
         {
@@ -2767,7 +2767,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4457
+        "y": 4515
       },
       "actions": [
         {
@@ -3685,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5491
+        "y": 5669
       },
       "actions": [
         {
@@ -3828,7 +3828,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4512
+        "y": 4648
       },
       "actions": [
         {
@@ -3961,7 +3961,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3610
+        "y": 3743
       },
       "actions": [
         {
@@ -4140,7 +4140,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 4,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -4157,7 +4157,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2877
+        "y": 2927
       },
       "actions": [
         {
@@ -6965,7 +6965,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 5944,
+        "x": 5176,
         "y": 3290
       },
       "actions": [
@@ -9367,12 +9367,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 4918,
-        "y": 3003
+        "x": 4286,
+        "y": 1907
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "lines": [
         {
