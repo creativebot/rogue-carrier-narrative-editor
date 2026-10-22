@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:05:25.534Z",
+  "_lastModified": "2026-10-22T22:05:56.789219",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -245,7 +245,8 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items"
+    "any number of items",
+    "Caged Plumplins_Quest item"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -3762,6 +3763,15 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_caged_plumplins_quest_item",
+              "name": "Caged Plumplins_Quest item",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [
