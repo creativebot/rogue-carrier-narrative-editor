@@ -2915,7 +2915,21 @@
           "codeSuffix": "A",
           "shortDescription": "Let them be",
           "description": "Fence off a small habitat, run regular sanitation checks, and keep the colony under observation.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792668992569",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_01",
+                  "name": "Metal Constructions",
+                  "amount": 10,
+                  "iconImg": "icons/T_Metal_Frames.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew adopts the Plumplins as unofficial mascots. Spirits lift, and medbay reports a measurable boost to crew immunity. The only cost is a slight dip in productivity — people keep finding reasons to walk past the habitat.",
           "rewards": [
@@ -3492,5 +3506,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:36:19.686475"
+  "_lastModified": "2026-10-22T11:36:34.896887"
 }
