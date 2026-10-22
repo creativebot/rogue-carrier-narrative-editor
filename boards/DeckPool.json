@@ -2632,7 +2632,21 @@
           "codeSuffix": "B",
           "shortDescription": "Run a Seminar",
           "description": "Description for action choice B...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792665700154",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 1,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Productivity Report:\n\"Captain, operations and logistics training has been successfully completed for designated personnel. While not all are stationed within the facility, their expertise is already enhancing coordination and significantly reducing the likelihood of future errors. This intervention is expected to provide lasting improvements to crew efficiency.\nWith due respect, Mnemosyne.\"",
           "rewards": [],
@@ -2723,5 +2737,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:41:23.765095"
+  "_lastModified": "2026-10-22T10:41:42.354075"
 }
