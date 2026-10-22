@@ -2426,7 +2426,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3946
+        "y": 3815
       },
       "actions": [
         {
@@ -2473,9 +2473,7 @@
         }
       ],
       "colorScheme": "rose",
-      "disabledVariationIds": [
-        "var_v1"
-      ]
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661772455",
@@ -2502,7 +2500,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4611
+        "y": 4457
       },
       "actions": [
         {
@@ -2593,7 +2591,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 5466
+        "y": 5325
       },
       "actions": [
         {
@@ -2698,7 +2696,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 6336
+        "y": 6277
       },
       "actions": [
         {
@@ -2773,7 +2771,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 7063
+        "y": 7032
       },
       "actions": [
         {
@@ -4193,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:34:03.324682"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-22T13:48:09.675023"
 }
