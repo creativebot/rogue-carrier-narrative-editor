@@ -2931,7 +2931,7 @@
           "description": "A xenofauna colony aboard is not something we can sign off on. Crate the animals carefully and keep them safe until we reach a suitable island.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Nobody wanted to be the one who hurt them. The nest came out in one piece — lined material, scraps, and all — and went straight into a crate padded for the trip. The Plumplins moved in after it without much fuss, and the crew spent the rest of the shift checking on them.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3411,5 +3411,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:31:51.210420"
+  "_lastModified": "2026-10-22T11:31:57.006054"
 }
