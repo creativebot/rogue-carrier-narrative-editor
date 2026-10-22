@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:55:26.250545",
+  "_lastModified": "2026-10-22T09:55:27.648796",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2762,9 +2762,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Catastrophic failure occurs due to delay.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
