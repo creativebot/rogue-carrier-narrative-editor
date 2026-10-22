@@ -90,7 +90,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 2,
       "tier": 1,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
@@ -101,7 +101,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 1752
+        "y": 1809
       },
       "actions": [
         {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:26:19.605273"
+  "_lastModified": "2026-10-22T13:26:34.214691"
 }
