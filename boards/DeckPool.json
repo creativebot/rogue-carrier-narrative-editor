@@ -4648,6 +4648,21 @@
                   "isCriteria": true
                 }
               ]
+            },
+            {
+              "id": "clause_1792706949555",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_stamets_artifact_immunity_buff",
+                  "name": "Stamets Artifact _Immunity buff",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -4732,5 +4747,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:08:59.587494"
+  "_lastModified": "2026-10-22T22:09:13.887329"
 }
