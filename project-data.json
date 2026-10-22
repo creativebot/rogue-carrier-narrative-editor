@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:43:11.304616",
+  "_lastModified": "2026-10-22T11:43:16.197436",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3400,7 +3400,7 @@
           "description": "Review and strengthen the building’s security protocols, eliminating any loopholes that allowed the “shark” to gain access.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Once new protocols are in place, the creature’s secret owner has no choice but to come forward and admit the truth. The pet is released safely into the wild. The tightened security standards prompt the crew to work diligently to adapt, boosting overall discipline and work ethic.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
