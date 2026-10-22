@@ -2935,6 +2935,18 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792669009894",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "stat_crew count",
+                  "name": "👨‍🚀 Crew Count",
+                  "amount": 1,
+                  "icon": "👨‍🚀"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3513,5 +3525,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:36:47.387679"
+  "_lastModified": "2026-10-22T11:36:52.088456"
 }
