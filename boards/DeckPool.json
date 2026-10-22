@@ -3708,9 +3708,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The lull passes without a plan. Although everything seems fine now, the first hour of the next surge is slowed by missing approvals, labels, and tool checks that could have been addressed earlier. The crew face the same friction as before, and the chance to build momentum is missed.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 2810,
@@ -3909,5 +3907,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:19:31.295805"
+  "_lastModified": "2026-10-22T12:19:38.586627"
 }
