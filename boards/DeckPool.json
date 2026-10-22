@@ -3525,6 +3525,19 @@
                   "icon": "👨‍🚀"
                 }
               ]
+            },
+            {
+              "id": "clause_1792669203222",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_06",
+                  "name": "Mycobrick",
+                  "amount": 10,
+                  "iconImg": "icons/T_Mycobrick.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3580,5 +3593,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:39:56.184545"
+  "_lastModified": "2026-10-22T11:40:05.395837"
 }
