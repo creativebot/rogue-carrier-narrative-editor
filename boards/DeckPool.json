@@ -3448,6 +3448,13 @@
               "amount": "+50",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "powercell_01",
+              "name": "Fuel Cell",
+              "amount": "1",
+              "iconImg": "icons/T_FuelCell.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -4114,5 +4121,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:15:48.585446"
+  "_lastModified": "2026-10-22T13:16:02.085221"
 }
