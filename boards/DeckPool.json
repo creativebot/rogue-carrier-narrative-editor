@@ -1202,6 +1202,28 @@
               "amount": "+25",
               "icon": "❤️",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_40_pleased_speciesname_traders",
+              "name": "Pleased Auri Traders",
+              "rawName": "Pleased {SpeciesName} Traders",
+              "amount": "4",
+              "hasN": true,
+              "nValue": "4",
+              "hasSpecies": true,
+              "species": "Auri",
+              "iconImg": "icons/status_effects/Pleased traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "Auri Traders",
+              "effect": "prices -10% for Auri for 4 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 10% (rounded up) for the trader of that Auri."
             }
           ],
           "targetNodeIds": [],
@@ -4192,5 +4214,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T13:48:15.066907"
+  "_lastModified": "2026-10-22T13:48:21.437067"
 }
