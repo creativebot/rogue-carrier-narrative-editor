@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:04:13.686378",
+  "_lastModified": "2026-10-22T10:04:22.097971",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2841,8 +2841,8 @@
       "variationId": "var_v1",
       "floorIndex": 9,
       "tier": 2,
-      "location": "Game stage 3 or more",
-      "spawnConditions": "Game stage 3 or more",
+      "location": "Game stage 3 or more, Behemoth",
+      "spawnConditions": "Game stage 3 or more, Behemoth",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
