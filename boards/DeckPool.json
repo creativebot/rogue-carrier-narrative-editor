@@ -2484,8 +2484,8 @@
       "variationId": "var_v1",
       "floorIndex": 7,
       "tier": 2,
-      "location": "",
-      "spawnConditions": "",
+      "location": "in the open sea",
+      "spawnConditions": "in the open sea",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -2629,5 +2629,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:54:35.682724"
+  "_lastModified": "2026-10-22T09:54:42.138130"
 }
