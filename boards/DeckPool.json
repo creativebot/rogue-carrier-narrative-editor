@@ -3386,7 +3386,7 @@
     {
       "id": "node_1792668541416",
       "codename": "DECK-S1-E22",
-      "name": "New Event Block",
+      "name": "Birthday Party",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -4134,5 +4134,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:17:19.624902"
+  "_lastModified": "2026-10-22T13:17:20.592390"
 }
