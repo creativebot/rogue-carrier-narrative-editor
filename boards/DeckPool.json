@@ -2750,7 +2750,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 2,
       "location": "Game stage 3 or more, Behemoth",
       "spawnConditions": "Game stage 3 or more, Behemoth",
@@ -2767,7 +2767,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 5325
+        "y": 5865
       },
       "actions": [
         {
@@ -4368,5 +4368,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:35:43.586925"
+  "_lastModified": "2026-10-22T21:35:48.186558"
 }
