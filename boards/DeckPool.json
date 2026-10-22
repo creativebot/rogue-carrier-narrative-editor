@@ -2381,7 +2381,22 @@
           "codeSuffix": "B",
           "shortDescription": "Infiltrate the group",
           "description": "Assign a quiet volunteer to attend as a newcomer and report practices, tone, and any risks.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792661126587",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 2,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [],
@@ -2394,5 +2409,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:25:16.996417"
+  "_lastModified": "2026-10-22T09:25:28.812968"
 }
