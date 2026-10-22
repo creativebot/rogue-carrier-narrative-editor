@@ -3566,7 +3566,20 @@
           "codeSuffix": "B",
           "shortDescription": "Prepare the location",
           "description": "Release the Plumplins on the island and leave them to it — the habitat looks safe, and they'll adapt.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792669223565",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "stat_crew count",
+                  "name": "👨‍🚀 Crew Count",
+                  "amount": 3,
+                  "icon": "👨‍🚀"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "With bittersweet emotions, the crew released the adorable creatures into the wild, confident that the island will provide them a new home. Though farewells were teary, the crew felt joy knowing the Plumplins were safe and free, ready to embrace their new life.",
           "rewards": [
@@ -3593,5 +3606,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:40:19.672176"
+  "_lastModified": "2026-10-22T11:40:25.793708"
 }
