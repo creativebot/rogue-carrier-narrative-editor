@@ -2556,7 +2556,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 4143
       },
       "actions": [
         {
@@ -4322,5 +4322,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:34:14.379744"
+  "_lastModified": "2026-10-22T21:34:26.485690"
 }
