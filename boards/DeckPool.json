@@ -3083,8 +3083,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "A unique pest problem has disrupted operations—if something resembling a shark with legs can be called a pest. The creature somehow squeezed into the food production buildings, leaving chaos and a mess in its wake. Now, it falls to the crew to devise a solution for handling this unusual intruder.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 4160,
         "y": 4204
@@ -3634,5 +3642,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:42:29.284126"
+  "_lastModified": "2026-10-22T11:42:30.491762"
 }
