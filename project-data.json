@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:54:44.597896",
+  "_lastModified": "2026-10-22T12:54:51.694069",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3739,7 +3739,7 @@
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
       "eventIntro": "",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "We detected odd voltage spikes on the power lines, and tracing them led us to an unexpected visitor. Some kind of creature has made itself at home in the power conduits. As far as we can tell, it's eating our electricity.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
