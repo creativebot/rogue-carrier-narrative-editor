@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:14:19.490977",
+  "_lastModified": "2026-10-22T22:15:32.894210",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4838,7 +4838,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_crew",
+              "name": "Crew Members",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "👨‍🚀"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
