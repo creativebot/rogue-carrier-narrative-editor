@@ -3345,7 +3345,7 @@
         {
           "id": "act_1792669703586",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Dismantle the Casino",
           "description": "Impose immediate restrictions and dismantle the competition to prevent any risk of an outbreak.",
           "requirements": [],
           "timerHours": 5,
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:49:03.478008"
+  "_lastModified": "2026-10-22T11:49:10.783876"
 }
