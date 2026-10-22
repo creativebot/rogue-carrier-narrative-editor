@@ -3474,7 +3474,7 @@
         {
           "id": "act_1792674021438",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Suggest to Reconsider",
           "description": "Bring together a few crew members for a thoughtful discussion with the couple — love is powerful, but it may be wise to consider if they’re moving too quickly.",
           "requirements": [],
           "timerHours": 5,
@@ -4160,5 +4160,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:09:07.346446"
+  "_lastModified": "2026-10-22T13:09:13.466055"
 }
