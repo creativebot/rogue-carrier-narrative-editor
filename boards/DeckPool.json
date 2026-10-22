@@ -3751,7 +3751,21 @@
           "codeSuffix": "B",
           "shortDescription": "Choice B",
           "description": "Use available time to run a group workshop focused on long-term crew preparedness.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792671559972",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "synthesis_06",
+                  "name": "Mycobrick",
+                  "amount": 5,
+                  "iconImg": "icons/T_Mycobrick.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Some crew members used this time to deepen their understanding of logistics, becoming more specialized in their roles and enabling smoother, more efficient task execution for everyone.",
           "rewards": [
@@ -3882,5 +3896,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:19:19.807377"
+  "_lastModified": "2026-10-22T12:19:22.193448"
 }
