@@ -3232,7 +3232,22 @@
           "codeSuffix": "C",
           "shortDescription": "Update security",
           "description": "Review and strengthen the building’s security protocols, eliminating any loopholes that allowed the “shark” to gain access.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792669625438",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Once new protocols are in place, the creature’s secret owner has no choice but to come forward and admit the truth. The pet is released safely into the wild. The tightened security standards prompt the crew to work diligently to adapt, boosting overall discipline and work ethic.",
           "rewards": [
@@ -3756,5 +3771,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:46:55.491652"
+  "_lastModified": "2026-10-22T11:47:07.792948"
 }
