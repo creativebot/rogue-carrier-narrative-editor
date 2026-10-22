@@ -4133,7 +4133,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_2_fasting",
+              "name": "Fasting",
+              "rawName": "Fasting",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Fasting.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "each food charge lasts 4 hours for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember spends each food charge every 4 hours, while receiving effects of food every hour as usual."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4903,5 +4926,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:18:29.317796"
+  "_lastModified": "2026-10-22T22:20:10.186522"
 }
