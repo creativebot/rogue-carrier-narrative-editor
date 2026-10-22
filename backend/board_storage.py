@@ -365,7 +365,19 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
     # 4. Reassemble composite project-data.json
     full_project = reassemble_full_project()
 
-    # 5. Async GitHub Sync
+    # 5. Automated Backup Snapshot & Cloud Sync
+    try:
+        create_backup_snapshot(f"Board Save ({board_id}): {displayName}", author_name, full_project)
+    except Exception as se:
+        print(f"[BoardStorage] Error creating backup snapshot: {se}")
+
+    try:
+        from backend.github_sync import _sync_json_file_to_github
+        threading.Thread(target=_sync_json_file_to_github, args=(f"saves/boards/{sanitized_id}/{save_filename}", save_item, f"Board save {save_id} by {author_name}"), daemon=True).start()
+    except Exception as ge:
+        pass
+
+    # 6. Async GitHub Sync
     threading.Thread(target=sync_project_data_to_github, args=(full_project, author_name), daemon=True).start()
     threading.Thread(target=sync_board_to_github, args=(board_id, board_payload, author_name), daemon=True).start()
 

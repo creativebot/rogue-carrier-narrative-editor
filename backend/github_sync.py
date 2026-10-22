@@ -465,32 +465,37 @@ def pull_latest_from_github_on_startup():
         except Exception as e:
             pass
 
-    # 5. Restore recent backup snapshots (backups/) and saves (saves/) from cloud-state
-    for remote_dir, local_dir in (("backups", BACKUPS_DIR), ("saves", SAVES_DIR)):
-        try:
-            durl = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{remote_dir}?ref={GITHUB_DATA_BRANCH}"
-            dreq = urllib.request.Request(durl, headers=headers)
-            with urllib.request.urlopen(dreq, timeout=10) as dresp:
-                items = json.loads(dresp.read().decode('utf-8'))
-                if isinstance(items, list):
-                    json_items = [it for it in items if isinstance(it, dict) and (it.get('name') or '').endswith('.json')]
-                    json_items.sort(key=lambda it: it.get('name') or '', reverse=True)
-                    restored_count = 0
-                    for it in json_items[:25]:
-                        fname = it.get('name')
-                        target_fp = os.path.join(local_dir, fname)
-                        if not os.path.exists(target_fp) or fname == 'latest_autosave.json':
-                            furl = it.get('url')
-                            if furl:
-                                freq = urllib.request.Request(furl, headers=headers)
-                                with urllib.request.urlopen(freq, timeout=10) as fresp:
-                                    fdata = json.loads(fresp.read().decode('utf-8'))
-                                    if 'content' in fdata:
-                                        with open(target_fp, 'wb') as wf:
-                                            wf.write(base64.b64decode(fdata['content']))
-                                        restored_count += 1
-                    if restored_count > 0:
-                        print(f"[Startup] Restored {restored_count} files into {remote_dir}/ from GitHub {GITHUB_DATA_BRANCH}")
-        except Exception:
-            pass
+    # 5. Restore recent backup snapshots (backups/) and saves (saves/) from cloud-state via Git Tree API
+    # (Avoids GitHub /contents 1000-file pagination cutoff which froze snapshots at October 14)
+    try:
+        tree_url = f"https://api.github.com/repos/{GITHUB_REPO}/git/trees/{GITHUB_DATA_BRANCH}?recursive=1"
+        tree_req = urllib.request.Request(tree_url, headers=headers)
+        with urllib.request.urlopen(tree_req, timeout=15) as t_resp:
+            tree_data = json.loads(t_resp.read().decode('utf-8'))
+            full_tree = tree_data.get('tree', [])
+
+        for remote_dir, local_dir in (("backups", BACKUPS_DIR), ("saves", SAVES_DIR)):
+            prefix = f"{remote_dir}/"
+            matching_files = [it for it in full_tree if it.get('path', '').startswith(prefix) and it.get('path', '').endswith('.json')]
+            matching_files.sort(key=lambda it: it.get('path', ''), reverse=True)
+            restored_count = 0
+            for it in matching_files[:40]:
+                fname = os.path.basename(it.get('path', ''))
+                target_fp = os.path.join(local_dir, fname)
+                blob_url = it.get('url')
+                if blob_url and (not os.path.exists(target_fp) or fname == 'latest_autosave.json'):
+                    try:
+                        freq = urllib.request.Request(blob_url, headers=headers)
+                        with urllib.request.urlopen(freq, timeout=10) as fresp:
+                            fdata = json.loads(fresp.read().decode('utf-8'))
+                            if 'content' in fdata:
+                                with open(target_fp, 'wb') as wf:
+                                    wf.write(base64.b64decode(fdata['content']))
+                                restored_count += 1
+                    except Exception as fe:
+                        pass
+            if restored_count > 0:
+                print(f"[Startup] Restored {restored_count} newest files into {remote_dir}/ from GitHub {GITHUB_DATA_BRANCH}")
+    except Exception as te:
+        print(f"[Startup] Tree API restore failed: {te}")
 
