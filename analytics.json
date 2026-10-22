@@ -115,9 +115,9 @@
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 6226,
+        "seconds": 6879,
         "boards": {
-          "DeckPool": 6000,
+          "DeckPool": 6653,
           "GenericPool": 196,
           "SecretChain:timeline_1:var_v1": 30
         },
@@ -135,8 +135,8 @@
           973,
           1865,
           1125,
-          1514,
-          0,
+          1578,
+          589,
           0,
           0,
           0,
@@ -147,16 +147,15 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T13:43:31.277000Z"
+        "lastActive": "2026-10-22T14:59:03.382000Z"
       },
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 497,
+        "seconds": 101,
         "boards": {
-          "DeckPool": 385,
-          "KeyChain:timeline_1:var_v1": 52,
-          "GenericPool": 60
+          "DeckPool": 30,
+          "KeyChain:timeline_1:var_v1": 71
         },
         "hourly": [
           0,
@@ -173,7 +172,7 @@
           0,
           0,
           0,
-          467,
+          71,
           0,
           0,
           0,
@@ -184,42 +183,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T14:59:03.972000Z"
-      },
-      "pdushynskyi@n-ix.com": {
-        "name": "Petro Dushynskyi",
-        "email": "pdushynskyi@n-ix.com",
-        "seconds": 181,
-        "boards": {
-          "DeckPool": 181
-        },
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          181,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "lastActive": "2026-10-22T14:21:19.658000Z"
+        "lastActive": "2026-10-22T14:33:37.550000Z"
       }
     }
   }
