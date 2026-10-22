@@ -939,7 +939,7 @@
     },
     {
       "id": "node_1792578159292",
-      "codename": "DECK-S1-E6 BPQ_DeckQuest_Tournament",
+      "codename": "DECK-S1-E5 BPQ_DeckQuest_Tournament",
       "name": "Tournament",
       "title": "New Event Block",
       "type": "Deck",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:17:39.785490"
+  "_lastModified": "2026-10-22T21:18:09.191650"
 }
