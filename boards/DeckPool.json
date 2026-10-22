@@ -3684,7 +3684,7 @@
           "description": "Prepare and distribute a suitable remedy to relieve crew members’ irritation symptoms.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3931,5 +3931,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:52:02.327383"
+  "_lastModified": "2026-10-22T12:52:08.048811"
 }
