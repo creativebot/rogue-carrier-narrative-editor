@@ -2494,7 +2494,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "Safety Report: \"So, we let the bladed bot do its thing for a little too long. It eventually came way too close to stabbing one of our people—no fatalities, but it was a near miss. The panic spread fast, and the  film studio had to be shut down in record time. Lesson learned, I hope.\" From: Orest Demchuck.",
         "penalties": []
       },
       "position": {
@@ -2681,5 +2681,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:01:46.489990"
+  "_lastModified": "2026-10-22T10:01:54.312047"
 }
