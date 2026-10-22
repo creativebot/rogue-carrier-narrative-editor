@@ -3471,7 +3471,7 @@
       "tier": 3,
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "We detected odd voltage spikes on the power lines, and tracing them led us to an unexpected visitor. Some kind of creature has made itself at home in the power conduits. As far as we can tell, it's eating our electricity.",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -3973,5 +3973,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:54:26.804605"
+  "_lastModified": "2026-10-22T12:54:37.633911"
 }
