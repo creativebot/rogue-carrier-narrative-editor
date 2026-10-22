@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:18:08.694966",
+  "_lastModified": "2026-10-22T13:18:18.896367",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3750,13 +3750,20 @@
           "requirements": [
             {
               "id": "clause_1792675085985",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "synthesis_04",
                   "name": "Nanomaterials",
                   "amount": 15,
                   "iconImg": "icons/T_Graphene.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesized_01",
+                  "name": "Biopolymer",
+                  "amount": 15,
+                  "iconImg": "icons/T_Biopolymer.png",
                   "icon": "📦"
                 }
               ]
