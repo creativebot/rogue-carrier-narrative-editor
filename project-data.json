@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:26:35.093233",
+  "_lastModified": "2026-10-22T11:26:41.686802",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3066,7 +3066,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "-10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
