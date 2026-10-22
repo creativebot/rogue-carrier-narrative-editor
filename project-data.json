@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:19:44.202376",
+  "_lastModified": "2026-10-22T12:19:59.609277",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3985,7 +3985,7 @@
         {
           "id": "c_1792668543262",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Plan next steps",
           "description": "Use spare time to plan for the next rush, ensuring maximum efficiency.",
           "requirements": [
             {
