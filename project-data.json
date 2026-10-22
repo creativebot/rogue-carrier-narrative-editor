@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:57:58.893586",
+  "_lastModified": "2026-10-22T21:58:16.785058",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3307,6 +3307,28 @@
               "posNeg": "positive",
               "description": "",
               "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            },
+            {
+              "resourceId": "status_48_sustainable_living_iii",
+              "name": "Sustainable Living III",
+              "rawName": "Sustainable Living III",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Sustainable Living III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Waste",
+              "target": "building",
+              "effect": "Waste accumulation -75%",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each affected building produces 100% less waste."
             }
           ],
           "targetNodeIds": [],
