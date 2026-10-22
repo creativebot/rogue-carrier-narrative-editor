@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:30:15.047050",
+  "_lastModified": "2026-10-22T09:30:20.949005",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2665,7 +2665,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The undercover agent reports on the group’s benign activities. TTRPGs become a welcome stress relief for the crew as their awareness increases.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
