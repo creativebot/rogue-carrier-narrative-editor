@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:42:05.297474",
+  "_lastModified": "2026-10-22T11:42:15.791157",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3345,8 +3345,8 @@
       "variationId": "var_v1",
       "floorIndex": 5,
       "tier": 4,
-      "location": "in the open sea, Specific building, ",
-      "spawnConditions": "in the open sea, Specific building, ",
+      "location": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
+      "spawnConditions": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
