@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:50:24.293763",
+  "_lastModified": "2026-10-22T12:50:31.702803",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3950,7 +3950,7 @@
           "id": "c_1792668543040",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Prepare and distribute a suitable remedy to relieve crew members’ irritation symptoms.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
