@@ -2410,7 +2410,7 @@
     {
       "id": "node_1792661442330",
       "codename": "DECK-S1-E14 BPQ_DeckQuest_Secret_Meetings_2",
-      "name": "New Event Block",
+      "name": "Secret Meetings",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -2476,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:31:33.976139"
+  "_lastModified": "2026-10-22T09:31:39.405311"
 }
