@@ -2113,7 +2113,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "People felt they were left alone with their fears. It decreased their emotional well being further.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T15:10:26.134288"
+  "_lastModified": "2026-10-22T15:18:43.752990"
 }
