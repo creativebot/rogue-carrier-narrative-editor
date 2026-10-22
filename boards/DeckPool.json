@@ -219,7 +219,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 2,
       "tier": 1,
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
@@ -281,7 +281,7 @@
       },
       "position": {
         "x": 110,
-        "y": 2054
+        "y": 2074
       },
       "actions": [
         {
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:28:19.689396"
+  "_lastModified": "2026-10-22T11:28:20.697872"
 }
