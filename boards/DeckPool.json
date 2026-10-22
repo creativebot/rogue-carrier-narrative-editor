@@ -3328,7 +3328,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_44_waste_issues_ii",
+            "name": "Waste Issues II",
+            "rawName": "Waste Issues II",
+            "amount": "",
+            "hasN": false,
+            "nValue": "",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Waste Issues II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Waste",
+            "target": "building",
+            "effect": "Waste accumulation +50%",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each affected building produces 50% more waste."
+          }
+        ]
       },
       "position": {
         "x": 2810,
@@ -4747,5 +4770,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:09:29.314846"
+  "_lastModified": "2026-10-22T22:09:43.182670"
 }
