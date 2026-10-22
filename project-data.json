@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:29:54.585904",
+  "_lastModified": "2026-10-22T11:30:00.290823",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3152,7 +3152,7 @@
     {
       "id": "node_1792668534139",
       "codename": "DECK-S1-E19 BPQ_DeckQuest_Stowaway_Fauna",
-      "name": "New Event Block",
+      "name": "Stowaway Fauna",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
