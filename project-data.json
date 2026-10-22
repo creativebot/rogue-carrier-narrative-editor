@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:30:26.590568",
+  "_lastModified": "2026-10-22T11:30:34.098373",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3159,8 +3159,8 @@
       "variationId": "var_v1",
       "floorIndex": 0,
       "tier": 3,
-      "location": "Distance from island less than 1, ",
-      "spawnConditions": "Distance from island less than 1, ",
+      "location": "Distance from island less than 1, Target: Behemoth",
+      "spawnConditions": "Distance from island less than 1, Target: Behemoth",
       "eventIntro": "Initial event context...",
       "eventDescription": "Several specimens of the local fauna hitched a ride on one of the cargo ships and weren't discovered until they had already established a small colony in the less-visited parts of the Behemoth. They appear harmless, they're cute, and the crew loves having them around — someone started calling them Plumplins, and the name stuck.",
       "reactionTimerHours": "Infinite",
