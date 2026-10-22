@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:04:48.205017",
+  "_lastModified": "2026-10-22T10:05:01.702981",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2864,7 +2864,7 @@
         {
           "id": "c_1792661778711",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Bring the crew for a brief meeting to agree on a single handoff checklist and a shared handoff time format.",
           "description": "Action description...",
           "requirements": [],
           "timerHours": 5,
