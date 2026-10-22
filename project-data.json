@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:34:25.539Z",
+  "_lastModified": "2026-10-22T21:35:13.987887",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2770,7 +2770,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_6_weakened_morale_ii",
+              "name": "Weakened Morale II",
+              "rawName": "Weakened Morale II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale II.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -4 per hour for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 4 morale per hour for certain time."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
