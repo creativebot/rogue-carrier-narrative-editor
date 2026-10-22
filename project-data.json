@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:37:47.584738",
+  "_lastModified": "2026-10-22T10:37:56.288633",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2871,13 +2871,20 @@
           "requirements": [
             {
               "id": "clause_1792665465406",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "machinery_04",
                   "name": "Basic Scanner",
                   "amount": 5,
                   "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 1,
+                  "iconImg": "icons/T_Sensors.png",
                   "icon": "📦"
                 }
               ]
