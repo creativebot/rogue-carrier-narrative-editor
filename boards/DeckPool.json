@@ -2445,7 +2445,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 5,
       "tier": 2,
       "location": "Game stage 2 or more, Housing",
       "spawnConditions": "Game stage 2 or more, Housing",
@@ -2464,7 +2464,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 3068
+        "y": 3698
       },
       "actions": [
         {
@@ -2501,5 +2501,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T08:02:41.344771"
+  "_lastModified": "2026-10-22T08:12:31.367894"
 }
