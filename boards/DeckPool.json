@@ -2636,7 +2636,7 @@
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Productivity Report:\n\"Captain, operations and logistics training has been successfully completed for designated personnel. While not all are stationed within the facility, their expertise is already enhancing coordination and significantly reducing the likelihood of future errors. This intervention is expected to provide lasting improvements to crew efficiency.\nWith due respect, Mnemosyne.\"",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2727,5 +2727,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:38:14.913001"
+  "_lastModified": "2026-10-22T10:38:19.367845"
 }
