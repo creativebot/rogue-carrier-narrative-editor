@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:24:57.296147",
+  "_lastModified": "2026-10-22T11:25:02.188047",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3074,7 +3074,7 @@
         {
           "id": "act_1792668249579",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Continue research",
           "description": "Distractions among staff affect productivity, but the substance has a positive effect on the crew's mental health.",
           "requirements": [],
           "timerHours": 5,
