@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:47:21.130863",
+  "_lastModified": "2026-10-22T10:47:25.999657",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2987,7 +2987,7 @@
           "description": "Supply resources so crew can create art and sculptures from scrap materials.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
