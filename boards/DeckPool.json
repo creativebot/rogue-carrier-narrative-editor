@@ -2946,13 +2946,20 @@
           "requirements": [
             {
               "id": "clause_1792668763453",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "medres_04",
                   "name": "Personal Defence Kit",
                   "amount": 1,
                   "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
                   "icon": "📦"
                 }
               ]
@@ -3425,5 +3432,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:32:45.691253"
+  "_lastModified": "2026-10-22T11:32:57.493237"
 }
