@@ -3355,6 +3355,13 @@
               "amount": "-5",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "15",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -3824,5 +3831,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:50:34.891037"
+  "_lastModified": "2026-10-22T11:50:48.597228"
 }
