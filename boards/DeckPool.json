@@ -2635,13 +2635,20 @@
           "requirements": [
             {
               "id": "clause_1792665700154",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "questres_03",
                   "name": "Comm-Link",
                   "amount": 1,
                   "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "scineceres_01",
+                  "name": "Multi-Tool",
+                  "amount": 1,
+                  "iconImg": "icons/T_Calibrator.png",
                   "icon": "📦"
                 }
               ]
@@ -2737,5 +2744,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:41:42.354075"
+  "_lastModified": "2026-10-22T10:41:52.320269"
 }
