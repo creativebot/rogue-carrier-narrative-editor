@@ -802,7 +802,15 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_crew count",
+            "name": "Crew Count",
+            "amount": "-2",
+            "icon": "👨‍🚀",
+            "iconImg": ""
+          }
+        ]
       },
       "position": {
         "x": 1460,
@@ -1636,5 +1644,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:25:21.548939"
+  "_lastModified": "2026-10-22T13:25:25.970285"
 }
