@@ -3529,7 +3529,7 @@
           "description": "Release the Plumplins on the island and leave them to it — the habitat looks safe, and they'll adapt.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "With bittersweet emotions, the crew released the adorable creatures into the wild, confident that the island will provide them a new home. Though farewells were teary, the crew felt joy knowing the Plumplins were safe and free, ready to embrace their new life.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3541,5 +3541,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:39:01.413909"
+  "_lastModified": "2026-10-22T11:39:06.848040"
 }
