@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:35:50.703925",
+  "_lastModified": "2026-10-22T11:35:55.991862",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3206,7 +3206,13 @@
           "timerHours": 5,
           "resultDescription": "Nobody wanted to be the one who hurt them. The nest came out in one piece — lined material, scraps, and all — and went straight into a crate padded for the trip. The Plumplins moved in after it without much fuss, and the crew spent the rest of the shift checking on them.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
