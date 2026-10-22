@@ -152,9 +152,9 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 31,
+        "seconds": 107,
         "boards": {
-          "DeckPool": 31
+          "DeckPool": 107
         },
         "hourly": [
           0,
@@ -171,7 +171,7 @@
           0,
           0,
           0,
-          1,
+          77,
           0,
           0,
           0,
@@ -182,7 +182,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T14:07:53.288000Z"
+        "lastActive": "2026-10-22T14:09:08.266000Z"
       }
     }
   }
