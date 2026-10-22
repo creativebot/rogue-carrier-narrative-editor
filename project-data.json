@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:25:21.989682",
+  "_lastModified": "2026-10-22T11:25:35.094388",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3080,13 +3080,20 @@
           "requirements": [
             {
               "id": "clause_1792668319700",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "food_01",
                   "name": "Nutrient Paste",
                   "amount": 5,
                   "iconImg": "icons/T_Nutrient-Paste.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 5,
+                  "iconImg": "icons/T_Energy-Bar.png",
                   "icon": "📦"
                 }
               ]
