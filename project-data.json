@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:29:48.447210",
+  "_lastModified": "2026-10-22T09:30:15.047050",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2638,7 +2638,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
