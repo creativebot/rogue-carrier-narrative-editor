@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:04:50.488550",
+  "_lastModified": "2026-10-22T22:05:04.891549",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3672,6 +3672,28 @@
               "posNeg": "positive",
               "description": "",
               "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
+            },
+            {
+              "resourceId": "status_8_morale_boost_i",
+              "name": "Morale Boost I",
+              "rawName": "Morale Boost I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +10 morale for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 10 for that duration (can surpass 100)"
             }
           ],
           "targetNodeIds": [],
