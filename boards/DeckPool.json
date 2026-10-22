@@ -2944,7 +2944,7 @@
           "id": "act_1792668643293",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Nothing from this planet has been cleared for life aboard, harmless or not. Euthanize the specimens under bio-protocol and forward samples to the lab.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3415,5 +3415,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:30:58.961874"
+  "_lastModified": "2026-10-22T11:31:07.254757"
 }
