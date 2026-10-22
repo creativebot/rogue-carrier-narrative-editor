@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:04:22.097971",
+  "_lastModified": "2026-10-22T10:04:30.686884",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2844,7 +2844,7 @@
       "location": "Game stage 3 or more, Behemoth",
       "spawnConditions": "Game stage 3 or more, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "Productivity Report:\n\"Captain, I have noticed a surge in handoff errors between departments—schedule overlaps, duplicated efforts, and general confusion are emerging in the crew’s logs. It appears someone inadvertently began following an outdated handoff protocol, leading to two conflicting sets of regulations circulating at once. Unless this is resolved, our coordination will continue to unravel and productivity will decline further. I recommend swiftly standardizing procedures and clarifying protocols to restore order.\nWith due respect, Mnemosyne.\"",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
