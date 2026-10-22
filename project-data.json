@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:48:26.896776",
+  "_lastModified": "2026-10-22T11:48:27.887854",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3566,8 +3566,16 @@
       "eventIntro": "Initial event context...",
       "eventDescription": "What started as a harmless way to kill time has spiraled into a full-blown craze aboard the ship. Crew members now collect bacteria-like cultures in petri dishes and place bets on which sample will flourish first - turning the pastime into a racing league. Although the activity seems innocent enough, concerns are growing that it could easily lead to a serious accident.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 4160,
         "y": 3551
