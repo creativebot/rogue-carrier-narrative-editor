@@ -3710,7 +3710,7 @@
         {
           "id": "act_1792673419716",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Provide proper containers so the crew can safely collect, inspect, and research the irritant to develop an effective solution.",
           "description": "Provide proper containers so the crew can safely collect, inspect, and research the irritant to develop an effective solution.",
           "requirements": [],
           "timerHours": 5,
@@ -3939,5 +3939,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:51:04.840788"
+  "_lastModified": "2026-10-22T12:51:09.104220"
 }
