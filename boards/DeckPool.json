@@ -1258,9 +1258,9 @@
             "resourceId": "status_5_weakened_morale_i",
             "name": "Weakened Morale I",
             "rawName": "Weakened Morale I",
-            "amount": "48",
+            "amount": "24",
             "hasN": true,
-            "nValue": "48",
+            "nValue": "24",
             "hasSpecies": false,
             "species": "",
             "iconImg": "icons/status_effects/Weakened Morale I.png",
@@ -1270,7 +1270,7 @@
             "category": "Status Effect",
             "effectCategory": "Morale",
             "target": "crew",
-            "effect": "Morale -2",
+            "effect": "Morale -2 per hour for 24 hours",
             "effectType": "Buff/Debuff",
             "posNeg": "negative",
             "description": "",
@@ -1455,6 +1455,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
+  "author": "Tetiana Tretilova",
   "_lastModified": "2026-10-22T11:01:21.722645"
 }
