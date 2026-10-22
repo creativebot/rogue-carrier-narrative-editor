@@ -52,7 +52,7 @@
     },
     {
       "id": "node_1792573049123",
-      "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
+      "codename": "DECK-S1-E1  BPQ_DeckQuest_Fishing_Adventures",
       "name": "Fishing Adventures",
       "title": "New Event Block",
       "type": "Deck",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:11:29.311442"
+  "_lastModified": "2026-10-22T21:15:31.186454"
 }
