@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:23:35.088526",
+  "_lastModified": "2026-10-22T11:23:45.086270",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3023,8 +3023,8 @@
       "variationId": "var_v1",
       "floorIndex": 11,
       "tier": 2,
-      "location": "in the open sea",
-      "spawnConditions": "in the open sea",
+      "location": "in the open sea, in the building, ",
+      "spawnConditions": "in the open sea, in the building, ",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
