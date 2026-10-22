@@ -3507,6 +3507,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792673814167",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_01",
+                  "name": "Propulsion Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Propulsion_Kit.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -4023,5 +4036,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:56:45.995601"
+  "_lastModified": "2026-10-22T12:56:56.387046"
 }
