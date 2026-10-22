@@ -3682,7 +3682,21 @@
           "codeSuffix": "A",
           "shortDescription": "Make antihistamine",
           "description": "Prepare and distribute a suitable remedy to relieve crew members’ irritation symptoms.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792673537148",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_01",
+                  "name": "Med Gel",
+                  "amount": 10,
+                  "iconImg": "icons/T_Med-Gel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
           "rewards": [],
@@ -3931,5 +3945,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:52:08.048811"
+  "_lastModified": "2026-10-22T12:52:19.395679"
 }
