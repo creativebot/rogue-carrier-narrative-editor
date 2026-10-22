@@ -3346,7 +3346,7 @@
           "id": "act_1792669703586",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Description for action choice C...",
+          "description": "Impose immediate restrictions and dismantle the competition to prevent any risk of an outbreak.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3820,5 +3820,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:48:43.616149"
+  "_lastModified": "2026-10-22T11:48:48.952428"
 }
