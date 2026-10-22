@@ -3081,7 +3081,7 @@
       "location": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
       "spawnConditions": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "A unique pest problem has disrupted operations—if something resembling a shark with legs can be called a pest. The creature somehow squeezed into the food production buildings, leaving chaos and a mess in its wake. Now, it falls to the crew to devise a solution for handling this unusual intruder.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3606,5 +3606,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:42:19.692711"
+  "_lastModified": "2026-10-22T11:42:25.298949"
 }
