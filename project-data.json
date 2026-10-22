@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:25:36.189265",
+  "_lastModified": "2026-10-22T22:26:38.396871",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3053,6 +3053,28 @@
               "amount": "+10",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_43_waste_issues_i",
+              "name": "Waste Issues I",
+              "rawName": "Waste Issues I",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Waste Issues I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Waste",
+              "target": "building",
+              "effect": "Waste accumulation +20%",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "Each affected building produces 20% more waste."
             }
           ],
           "targetNodeIds": [],
