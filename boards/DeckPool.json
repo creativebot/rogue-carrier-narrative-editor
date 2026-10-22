@@ -2837,7 +2837,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew willingly returned several bottles, and the hallucinogenic substance was discovered during a routine trade-in inspection. Thanks to their cooperation, the risky spirits were contained before causing any incidents.",
           "rewards": [
             {
               "resourceId": "stat_morale",
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:27:30.470763"
+  "_lastModified": "2026-10-22T11:27:36.850627"
 }
