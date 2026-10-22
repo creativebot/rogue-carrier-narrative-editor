@@ -1437,6 +1437,13 @@
               "amount": "0.1",
               "iconImg": "",
               "icon": "🌀"
+            },
+            {
+              "resourceId": "res_31_k_Algae",
+              "name": "K-IV Algae",
+              "amount": "0-60",
+              "iconImg": "icons/T_ET_Squash.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -4204,5 +4211,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T21:21:29.286597"
+  "_lastModified": "2026-10-22T21:21:43.389994"
 }
