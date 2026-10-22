@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:55:06.743491",
+  "_lastModified": "2026-10-22T09:55:14.858331",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2774,7 +2774,7 @@
         {
           "id": "c_1792661772455",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Grant Orest's Request",
           "description": "Track the unit via cleaning logs, box it in a quiet corridor, and power it down safely.",
           "requirements": [],
           "timerHours": 5,
