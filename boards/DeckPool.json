@@ -2436,7 +2436,7 @@
           "description": "Stop this",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Productivity bonus but  morale debuff",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -2476,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:32:01.266014"
+  "_lastModified": "2026-10-22T09:32:10.603956"
 }
