@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:17:50.593375",
+  "_lastModified": "2026-10-22T13:17:56.684736",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3701,6 +3701,20 @@
                   "name": "Engineering Crew",
                   "amount": 2,
                   "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792675073945",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 2,
+                  "icon": "⚙️",
                   "iconImg": "",
                   "category": "Specialization"
                 }
