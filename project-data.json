@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:17:21.096464",
+  "_lastModified": "2026-10-22T13:17:28.187594",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3660,8 +3660,8 @@
       "variationId": "var_v1",
       "floorIndex": 7,
       "tier": 3,
-      "location": "",
-      "spawnConditions": "",
+      "location": "In the open sea",
+      "spawnConditions": "In the open sea",
       "eventIntro": "Initial event context...",
       "eventDescription": "A rumor has started to circulate across the ship: Executive Officer Khalil Arida may be celebrating his birthday soon. Though he has always been guarded about such personal matters, some say the old man deserves a little festivity in his honor. Perhaps it’s time to show some appreciation — whether he admits to the occasion or not.",
       "reactionTimerHours": "Infinite",
