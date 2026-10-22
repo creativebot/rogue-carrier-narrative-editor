@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:41:42.396897",
+  "_lastModified": "2026-10-22T10:41:52.392647",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2902,13 +2902,20 @@
           "requirements": [
             {
               "id": "clause_1792665700154",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "questres_03",
                   "name": "Comm-Link",
                   "amount": 1,
                   "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "scineceres_01",
+                  "name": "Multi-Tool",
+                  "amount": 1,
+                  "iconImg": "icons/T_Calibrator.png",
                   "icon": "📦"
                 }
               ]
