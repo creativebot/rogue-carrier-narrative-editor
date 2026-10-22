@@ -38,7 +38,7 @@
           "description": "Direct crew to seal airlocks and foam containment.",
           "requirements": [],
           "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
+          "resultDescription": "Mission Step A complete.\n\nNext phase initialized with zero losses.\n\nAll stations standing by.",
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T18:01:00.670856"
+  "_lastModified": "2026-10-22T18:01:02.064626"
 }
