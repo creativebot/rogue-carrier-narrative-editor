@@ -943,7 +943,7 @@ function createEventNodeDOM(node) {
   const actionCols = node.actions || [];
   const actionColsCount = Math.max(actionCols.length, 1);
   const totalColumns = actionColsCount + (hasInaction ? 1 : 0);
-  const actionWidthPercent = Math.floor(100 / (totalColumns || 1));
+  const actionWidthPercent = (100 / (totalColumns || 1)).toFixed(2);
 
   const isPoolEvent = (node.category === 'GenericPool' || node.category === 'DeckPool' || activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
   const isDimmed = isPoolEvent && isPoolNodeDimmed(node.id, activeVariationId);
@@ -1227,7 +1227,7 @@ function createEventNodeDOM(node) {
     }).join(' ');
 
     inactionHeaderHTML = `
-      <th class="event-label-cell bg-red-100/90 text-red-950 border-red-300 font-bold" style="width: ${actionWidthPercent}%; padding: 4px 6px;">
+      <th class="action-column-head inaction-column-head bg-red-100/90 text-red-950 border-red-300 font-bold" style="width: ${actionWidthPercent}%; padding: 4px 6px;">
         <div class="flex items-center justify-between px-1">
           <span class="truncate">⚠️ Inaction</span>
           ${!isReadOnly ? `
@@ -1356,7 +1356,7 @@ function createEventNodeDOM(node) {
             ${node.codename}
           </span>
           ${titleSpanHTML}
-          <div class="dialogue-trigger-port pre-event-port cursor-pointer ${hasPreDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
+          <div class="dialogue-trigger-port pre-event-port shrink-0 cursor-pointer ${hasPreDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
           ${preDiagPills}
         </div>
 
@@ -1452,7 +1452,7 @@ function createEventNodeDOM(node) {
     <table class="event-table">
       <thead>
         <tr>
-          <th class="event-label-cell" style="padding: 4px 6px;">
+          <th class="event-label-cell" style="width: 180px; min-width: 180px; max-width: 180px; padding: 4px 6px;">
             <div class="flex items-center justify-between px-2 py-0.5 gap-1">
               <span class="font-bold text-[11px] uppercase tracking-wide truncate">Action Options</span>
               <div class="flex items-center gap-1 shrink-0">
