@@ -3246,6 +3246,19 @@
                   "category": "Specialization"
                 }
               ]
+            },
+            {
+              "id": "clause_1792669639744",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_05",
+                  "name": "Electronic Components",
+                  "amount": 20,
+                  "iconImg": "icons/T_Holo_Display.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3771,5 +3784,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:47:19.693363"
+  "_lastModified": "2026-10-22T11:47:21.993324"
 }
