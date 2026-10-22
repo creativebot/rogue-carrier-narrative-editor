@@ -3474,8 +3474,16 @@
       "eventIntro": "",
       "eventDescription": "We detected odd voltage spikes on the power lines, and tracing them led us to an unexpected visitor. Some kind of creature has made itself at home in the power conduits. As far as we can tell, it's eating our electricity.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2810,
         "y": 3610
@@ -4001,5 +4009,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:54:55.392845"
+  "_lastModified": "2026-10-22T12:54:56.391770"
 }
