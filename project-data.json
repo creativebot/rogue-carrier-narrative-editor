@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T15:34:52.302531",
+  "_lastModified": "2026-10-22T15:34:59.113724",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3772,7 +3772,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
