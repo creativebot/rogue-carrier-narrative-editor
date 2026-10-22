@@ -3113,7 +3113,13 @@
           "timerHours": 5,
           "resultDescription": "The \"pest\" turns out to be a secret pet belonging to one of the crew. After it was finally cornered, the ambush turned into something closer to a celebration: everyone took turns getting a look at it, the owner got their share of jokes, and then the creature was quietly released.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3667,5 +3673,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:44:31.798639"
+  "_lastModified": "2026-10-22T11:44:37.692109"
 }
