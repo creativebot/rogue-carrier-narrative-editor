@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:49:44.193292",
+  "_lastModified": "2026-10-22T11:49:49.291321",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3572,9 +3572,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "As anticipated, one of the extremophile bacteria escapes containment, rapidly corroding part of the ship’s structure. The incident serves as a costly reminder of the dangers unchecked fun can unleash.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 4160,
