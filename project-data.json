@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T12:52:01.700054",
+  "_lastModified": "2026-10-22T12:52:02.492272",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3963,7 +3963,7 @@
           "description": "Inspect and replace air filters in the affected factory area to reduce exposure to the irritant.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
