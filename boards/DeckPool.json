@@ -2632,7 +2632,7 @@
         {
           "id": "act_1792663471588",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Run a Seminar",
           "description": "Description for action choice B...",
           "requirements": [],
           "timerHours": 5,
@@ -2727,5 +2727,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:39:04.285033"
+  "_lastModified": "2026-10-22T10:39:10.481821"
 }
