@@ -3735,7 +3735,7 @@
           "id": "act_1792671501734",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Use available time to run a group workshop focused on long-term crew preparedness.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -3867,5 +3867,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:18:27.827631"
+  "_lastModified": "2026-10-22T12:18:33.998870"
 }
