@@ -3109,7 +3109,21 @@
           "codeSuffix": "A",
           "shortDescription": "Set a trap",
           "description": "Observe the locations where the creature appears most often and carefully prepare a humane trap to capture it without harm.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792669573168",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_01",
+                  "name": "Metal Constructions",
+                  "amount": 10,
+                  "iconImg": "icons/T_Metal_Frames.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The \"pest\" turns out to be a secret pet belonging to one of the crew. After it was finally cornered, the ambush turned into something closer to a celebration: everyone took turns getting a look at it, the owner got their share of jokes, and then the creature was quietly released.",
           "rewards": [
@@ -3687,5 +3701,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:46:03.302878"
+  "_lastModified": "2026-10-22T11:46:15.389424"
 }
