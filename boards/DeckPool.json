@@ -41,7 +41,29 @@
           "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
-            "🧠 Knowledge +150"
+            "🧠 Knowledge +150",
+            {
+              "resourceId": "status_5_weakened_morale_i",
+              "name": "Weakened Morale I",
+              "rawName": "Weakened Morale I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -2 per hour for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 2 morale per hour for certain time."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4191,6 +4213,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:28:19.640544"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-22T15:30:09.697763"
 }
