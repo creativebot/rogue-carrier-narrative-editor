@@ -1020,30 +1020,38 @@ function selectResourceFromPicker(item) {
 
   pushUndoState();
   const qtyInput = document.getElementById('picker-amount-input');
-  const amountStr = (qtyInput && qtyInput.value.trim()) ? qtyInput.value.trim() : (isStatusEffect ? '4' : '1');
+  const amountStr = (qtyInput && qtyInput.value.trim()) ? qtyInput.value.trim() : '';
 
   const curSpecies = (document.getElementById('picker-species-select') && document.getElementById('picker-species-select').value) || 'Auri';
-  const catalogMatch = (window.statusEffectsCatalog || []).find(se => (item && item.id && se.id === item.id) || (se.name && se.name.toLowerCase() === (item.name || '').toLowerCase()));
-  const hasN = Boolean(
-    item.hasN || 
-    (catalogMatch && catalogMatch.hasN) ||
-    /(\bN\b|\{N\})/.test(item.name || '') || 
-    /(\bN\b|\{N\})/.test(item.effect || '') || 
-    /(\bN\b|\{N\})/.test(item.description || '') ||
-    (catalogMatch && /(\bN\b|\{N\})/.test(catalogMatch.effect || '')) ||
-    /Weakened Morale|Food Savings|Fasting|Slowdown|Productivity|Traders/i.test(item.name || '')
-  );
-  if (catalogMatch && catalogMatch.effect && (!resolvedEffect || resolvedEffect === 'Morale -2' || resolvedEffect === 'Morale -4' || resolvedEffect === 'Morale -6')) {
-    resolvedEffect = catalogMatch.effect;
-  }
-  const finalAmount = amountStr || (hasN ? '4' : '');
-  const hasSpecies = Boolean(item.hasSpecies || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.name || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.effect || '') || /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(item.target || ''));
+  const catalogMatch = (window.statusEffectsCatalog || []).find(se => (item && item.id && se.id === item.id) || (se.name && se.name.toLowerCase() === ((item && item.name) || '').toLowerCase()));
 
-  let resolvedName = item.name;
-  let resolvedEffect = item.effect || '';
-  let resolvedDesc = item.description || '';
-  let resolvedTarget = item.target || 'crew';
-  let resolvedComments = item.comments || '';
+  let resolvedName = (item && item.name) || '';
+  let resolvedEffect = (catalogMatch && catalogMatch.effect) ? catalogMatch.effect : ((item && item.effect) || '');
+  let resolvedDesc = (catalogMatch && catalogMatch.description) ? catalogMatch.description : ((item && item.description) || '');
+  let resolvedTarget = (catalogMatch && catalogMatch.target) ? catalogMatch.target : ((item && item.target) || 'crew');
+  let resolvedComments = (catalogMatch && catalogMatch.comments) ? catalogMatch.comments : ((item && item.comments) || '');
+
+  const hasN = Boolean(
+    (item && item.hasN) || 
+    (catalogMatch && catalogMatch.hasN) ||
+    /(\bN\b|\{N\})/.test(resolvedDesc) || 
+    /(\bN\b|\{N\})/.test(resolvedEffect) || 
+    /(\bN\b|\{N\})/.test(resolvedName) ||
+    (item && item.description && /(\bN\b|\{N\})/.test(item.description)) ||
+    (item && item.effect && /(\bN\b|\{N\})/.test(item.effect)) ||
+    (catalogMatch && catalogMatch.description && /(\bN\b|\{N\})/.test(catalogMatch.description)) ||
+    (catalogMatch && catalogMatch.effect && /(\bN\b|\{N\})/.test(catalogMatch.effect)) ||
+    /Weakened Morale|Food Savings|Fasting|Slowdown|Productivity|Traders/i.test(resolvedName)
+  );
+
+  const finalAmount = amountStr || (hasN ? '4' : (isStatusEffect ? '' : '1'));
+  const hasSpecies = Boolean(
+    (item && item.hasSpecies) || 
+    (catalogMatch && catalogMatch.hasSpecies) ||
+    /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(resolvedName) || 
+    /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(resolvedEffect) || 
+    /\{SpeciesName\}|\{Species\}|SpeciesName|Species/i.test(resolvedTarget)
+  );
 
   if (hasSpecies) {
     resolvedName = resolvedName.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
@@ -1052,11 +1060,11 @@ function selectResourceFromPicker(item) {
     resolvedComments = resolvedComments.replace(/\{SpeciesName\}|\{Species\}|SpeciesName|Species/gi, curSpecies);
   }
 
-  if (hasN) {
-    resolvedName = resolvedName.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
-    resolvedEffect = resolvedEffect.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
-    resolvedDesc = resolvedDesc.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
-    resolvedComments = resolvedComments.replace(/\{N\}/g, amountStr).replace(/\bN\b/g, amountStr);
+  if (hasN && finalAmount) {
+    resolvedName = resolvedName.replace(/\{N\}/g, finalAmount).replace(/\bN\b/g, finalAmount);
+    resolvedEffect = resolvedEffect.replace(/\{N\}/g, finalAmount).replace(/\bN\b/g, finalAmount);
+    resolvedDesc = resolvedDesc.replace(/\{N\}/g, finalAmount).replace(/\bN\b/g, finalAmount);
+    resolvedComments = resolvedComments.replace(/\{N\}/g, finalAmount).replace(/\bN\b/g, finalAmount);
   }
 
   // Strip all leftover { } brackets anywhere in strings
@@ -1073,23 +1081,23 @@ function selectResourceFromPicker(item) {
       resourceId: item.id,
       name: resolvedName,
       rawName: item.name,
-      amount: finalAmount,
+      amount: hasN ? finalAmount : '',
       hasN: hasN,
-      nValue: finalAmount,
+      nValue: hasN ? finalAmount : '',
       hasSpecies: hasSpecies,
       species: hasSpecies ? curSpecies : '',
-      iconImg: item.iconImg || '',
-      icon: item.icon || '⚡',
+      iconImg: item.iconImg || (catalogMatch ? catalogMatch.iconImg : '') || '',
+      icon: item.icon || (catalogMatch ? catalogMatch.icon : '⚡') || '⚡',
       isStatusEffect: true,
       kind: 'status_effect',
       category: 'Status Effect',
-      effectCategory: item.category,
+      effectCategory: item.category || (catalogMatch ? catalogMatch.category : ''),
       target: resolvedTarget,
       effect: resolvedEffect,
-      effectType: item.effectType,
-      posNeg: item.posNeg || 'negative',
+      effectType: item.effectType || (catalogMatch ? catalogMatch.effectType : ''),
+      posNeg: item.posNeg || (catalogMatch ? catalogMatch.posNeg : 'negative'),
       description: resolvedDesc,
-      comments: item.comments || ''
+      comments: resolvedComments
     } : {
       resourceId: item.id,
       name: item.name,
@@ -1135,23 +1143,23 @@ function selectResourceFromPicker(item) {
         resourceId: item.id,
         name: resolvedName,
         rawName: item.name,
-        amount: finalAmount,
+        amount: hasN ? finalAmount : '',
         hasN: hasN,
-        nValue: finalAmount,
+        nValue: hasN ? finalAmount : '',
         hasSpecies: hasSpecies,
         species: hasSpecies ? curSpecies : '',
-        iconImg: item.iconImg || '',
-        icon: item.icon || '✨',
+        iconImg: item.iconImg || (catalogMatch ? catalogMatch.iconImg : '') || '',
+        icon: item.icon || (catalogMatch ? catalogMatch.icon : '✨') || '✨',
         isStatusEffect: true,
         kind: 'status_effect',
         category: 'Status Effect',
-        effectCategory: item.category,
+        effectCategory: item.category || (catalogMatch ? catalogMatch.category : ''),
         target: resolvedTarget,
         effect: resolvedEffect,
-        effectType: item.effectType,
-        posNeg: item.posNeg || 'positive',
+        effectType: item.effectType || (catalogMatch ? catalogMatch.effectType : ''),
+        posNeg: item.posNeg || (catalogMatch ? catalogMatch.posNeg : 'positive'),
         description: resolvedDesc,
-        comments: item.comments || ''
+        comments: resolvedComments
       } : {
         resourceId: item.id,
         name: item.name,

@@ -387,8 +387,8 @@
             <input type="text" id="picker-amount-input" 
                    class="w-20 sm:w-24 bg-gray-950 border border-amber-500/50 focus:border-amber-400 rounded px-2 py-0.5 text-xs text-amber-300 font-bold font-mono text-center focus:outline-none shadow-xs" 
                    value="10" placeholder="10 or 20-30" title="Specify quantity, delta or range (e.g. 5, +100, -5, or 20-30)"
+                   onfocus="this.select()"
                    onkeydown="if(event.key==='Enter'){event.preventDefault();if(typeof applyPickerAmountEdit==='function')applyPickerAmountEdit();}">
-            <button type="button" id="btn-picker-apply-amount" onclick="applyPickerAmountEdit()" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-2 py-0.5 rounded shadow transition active:scale-95 shrink-0" title="Apply Amount or N">Apply</button>
           </div>
 
           <!-- Species Selector for Status Effects (Traders) -->

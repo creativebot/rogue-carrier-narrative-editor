@@ -1034,11 +1034,11 @@
     "DelayUnit": "hours",
     "VariationID": "var_v1",
     "Category": "KeyChain",
-    "FloorIndex": 2,
+    "FloorIndex": 1,
     "ColorScheme": "purple",
     "EditorPosition": {
-      "X": 4918.0,
-      "Y": 3003.0
+      "X": 4286.0,
+      "Y": 1907.0
     },
     "Lines": [
       {

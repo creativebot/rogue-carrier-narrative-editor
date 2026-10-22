@@ -29,7 +29,8 @@
         "Requirements": [],
         "Rewards": [
           "🛡️ Defense +1",
-          "🧠 Knowledge +150"
+          "🧠 Knowledge +150",
+          "⚡ Weakened Morale I x72"
         ],
         "StructuredRewards": [
           {
@@ -45,6 +46,13 @@
             "Amount": "+150",
             "Category": "Stat",
             "Icon": "🧠"
+          },
+          {
+            "ResourceID": "status_5_weakened_morale_i",
+            "Name": "Weakened Morale I",
+            "Amount": "72",
+            "Category": "Item",
+            "Icon": "⚡"
           }
         ],
         "ConsequenceText": "",
@@ -76,7 +84,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 805.0
+      "Y": 918.0
     },
     "Actions": [
       {
@@ -224,7 +232,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 0,
+    "FloorIndex": 2,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -233,7 +241,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 1827.0
+      "Y": 2074.0
     },
     "Actions": [
       {
@@ -412,7 +420,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 0,
+    "FloorIndex": 4,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -421,7 +429,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 2816.0
+      "Y": 3123.0
     },
     "Actions": [
       {
@@ -610,7 +618,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 4014.0
+      "Y": 4267.0
     },
     "Actions": [
       {
@@ -791,7 +799,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 0,
+    "FloorIndex": 7,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -800,7 +808,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 5131.0
+      "Y": 5324.0
     },
     "Actions": [
       {
@@ -1003,7 +1011,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 0,
+    "FloorIndex": 8,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -1012,7 +1020,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 6114.0
+      "Y": 6301.0
     },
     "Actions": [
       {
@@ -1104,7 +1112,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 9,
+    "FloorIndex": 10,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -1113,7 +1121,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 6784.0
+      "Y": 7104.0
     },
     "Actions": [
       {
@@ -1155,6 +1163,2641 @@
             "Amount": "+100",
             "Category": "Stat",
             "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792582814090",
+    "RowName": "EVENT_node_1792582814090",
+    "EventID": "node_1792582814090",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 110.0,
+      "Y": 7827.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585017670",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +5",
+          "😊 Morale +10",
+          "🛡️ Defense Spec +1-5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+5",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          },
+          {
+            "ResourceID": "spec_defense",
+            "Name": "Defense Spec",
+            "Amount": "+1-5",
+            "Category": "Specialization",
+            "Icon": "🛡️"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585026199",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_01",
+                "ItemName": "Med Gel",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +10",
+          "🔬 Science Spec +1-5",
+          "✨ Boosted Health I x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "spec_science",
+            "Name": "Science Spec",
+            "Amount": "+1-5",
+            "Category": "Specialization",
+            "Icon": "🔬"
+          },
+          {
+            "ResourceID": "status_20_boosted_health_i",
+            "Name": "Boosted Health I",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585035655",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_03",
+                "ItemName": "Sensors Array",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +10",
+          "😊 Morale +5",
+          "⚙️ Operations Spec +1-5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+5",
+            "Category": "Stat",
+            "Icon": "😊"
+          },
+          {
+            "ResourceID": "spec_operations",
+            "Name": "Operations Spec",
+            "Amount": "+1-5",
+            "Category": "Specialization",
+            "Icon": "⚙️"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 3,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585044545",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_01",
+                "ItemName": "Modular Container",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +5",
+          "✨ Boosted Productivity I x48",
+          "🔧 Engineering Spec +1-5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+5",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "status_24_boosted_productivity_i",
+            "Name": "Boosted Productivity I",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "spec_engineering",
+            "Name": "Engineering Spec",
+            "Amount": "+1-5",
+            "Category": "Specialization",
+            "Icon": "🔧"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792585570927",
+    "RowName": "EVENT_node_1792585570927",
+    "EventID": "node_1792585570927",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 216.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585844810",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "food_01",
+                "ItemName": "Nutrient Paste",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "food_05",
+                "ItemName": "Energy Bar",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "✨ Better Taste x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_3_better_taste",
+            "Name": "Better Taste",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792585866577",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 3,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "✨ Boosted Health I x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_20_boosted_health_i",
+            "Name": "Boosted Health I",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792585931551",
+    "RowName": "EVENT_node_1792585931551",
+    "EventID": "node_1792585931551",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 992.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792586182712",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "res_38_Prebiotic",
+                "ItemName": "Prebiotic Matter",
+                "Amount": 100,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792586193474",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_03",
+                "ItemName": "Stem Tissue",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "✨ Boosted Immunity II x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "status_15_boosted_immunity_ii",
+            "Name": "Boosted Immunity II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792586201354",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "res_39_k_Krill",
+                "ItemName": "K-IV Krill",
+                "Amount": 100,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792586213935",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_05",
+                "ItemName": "Composite Enzymes",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "synthesis_02",
+                "ItemName": "Biochem Compounds",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +75"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+75",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792586237619",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "res_31_k_Algae",
+                "ItemName": "K-IV Algae",
+                "Amount": 100,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792586249217",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_01",
+                "ItemName": "Med Gel",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "✨ Boosted Immunity II x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "status_15_boosted_immunity_ii",
+            "Name": "Boosted Immunity II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792586289797",
+    "RowName": "EVENT_node_1792586289797",
+    "EventID": "node_1792586289797",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 2069.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792587122551",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_03",
+                "ItemName": "Comm-Link",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792587130965",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "✨ Morale Boost III x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_10_morale_boost_iii",
+            "Name": "Morale Boost III",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792587141997",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_02",
+                "ItemName": "Med Kit",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "✨ Morale Stasis x24",
+          "⚡ Productivity Slowdown I x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_11_morale_stasis",
+            "Name": "Morale Stasis",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "status_27_productivity_slowdown_i",
+            "Name": "Productivity Slowdown I",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "⚡"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792587150761",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792587159856",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_operations",
+                "ItemName": "Operations Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "⚙️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +10",
+          "📦 AI Core x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "electronics_01",
+            "Name": "AI Core",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792589193352",
+    "RowName": "EVENT_node_1792589193352",
+    "EventID": "node_1792589193352",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 4,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 3148.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792661114801",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792661126587",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792661442330",
+    "RowName": "EVENT_node_1792661442330",
+    "EventID": "node_1792661442330",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 5,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 3815.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792661772455",
+    "RowName": "EVENT_node_1792661772455",
+    "EventID": "node_1792661772455",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 6,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 4457.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792663244019",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 2,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "ammunition_01",
+                "ItemName": "Standard Ammunition Pack",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792663268804",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_operations",
+                "ItemName": "Operations Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "⚙️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792661778711",
+    "RowName": "EVENT_node_1792661778711",
+    "EventID": "node_1792661778711",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 7,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 5325.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792665465406",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_04",
+                "ItemName": "Basic Scanner",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "electronics_03",
+                "ItemName": "Sensors Array",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792665700154",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "questres_03",
+                "ItemName": "Comm-Link",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "scineceres_01",
+                "ItemName": "Multi-Tool",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792661784289",
+    "RowName": "EVENT_node_1792661784289",
+    "EventID": "node_1792661784289",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 8,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 6277.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792661788229",
+    "RowName": "EVENT_node_1792661788229",
+    "EventID": "node_1792661788229",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 9,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 1460.0,
+      "Y": 7032.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668307649",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 3,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "😊 Morale -10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "-10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668319700",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "food_01",
+                "ItemName": "Nutrient Paste",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "food_05",
+                "ItemName": "Energy Bar",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668343487",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 3,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668534139",
+    "RowName": "EVENT_node_1792668534139",
+    "EventID": "node_1792668534139",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 233.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668992569",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "processing_01",
+                "ItemName": "Metal Constructions",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "synthesis_06",
+                "ItemName": "Mycobrick",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669009894",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "stat_crew count",
+                "ItemName": "👨‍🚀 Crew Count",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "👨‍🚀"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668965113",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "stat_crew count",
+                "ItemName": "👨‍🚀 Crew Count",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "👨‍🚀"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792668973567",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_01",
+                "ItemName": "Modular Container",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_1792668543463",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792668763453",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "medres_04",
+                "ItemName": "Personal Defence Kit",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "synthesis_02",
+                "ItemName": "Biochem Compounds",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale -20",
+          "🌀 Entropy x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "-20",
+            "Category": "Stat",
+            "Icon": "😊"
+          },
+          {
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🌀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668540158",
+    "RowName": "EVENT_node_1792668540158",
+    "EventID": "node_1792668540158",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 4160.0,
+      "Y": 1177.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792669573168",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_01",
+                "ItemName": "Metal Constructions",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669581470",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_06",
+                "ItemName": "Basic Toolkit",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669588983",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "🌀 Entropy -0.5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "-0.5",
+            "Category": "Item",
+            "Icon": "🌀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792669602461",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_04",
+                "ItemName": "Basic Scanner",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669613221",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +50",
+          "🌀 Entropy -0.5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+50",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "-0.5",
+            "Category": "Item",
+            "Icon": "🌀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792669625438",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669639744",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_05",
+                "ItemName": "Electronic Components",
+                "Amount": 20,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +15",
+          "🌀 Entropy -0.5"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+15",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "-0.5",
+            "Category": "Item",
+            "Icon": "🌀"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668541024",
+    "RowName": "EVENT_node_1792668541024",
+    "EventID": "node_1792668541024",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 4160.0,
+      "Y": 254.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🧠 Knowledge +50",
+          "📦 Med Kit x2"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+50",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "medres_02",
+            "Name": "Med Kit",
+            "Amount": "2",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "😊 Morale -5",
+          "📦 Stem Tissue x15"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "-5",
+            "Category": "Stat",
+            "Icon": "😊"
+          },
+          {
+            "ResourceID": "medres_03",
+            "Name": "Stem Tissue",
+            "Amount": "15",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668541416",
+    "RowName": "EVENT_node_1792668541416",
+    "EventID": "node_1792668541416",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 7,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 5491.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792675068018",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792675073945",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_operations",
+                "ItemName": "Operations Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "⚙️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +25",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+25",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792675085985",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_04",
+                "ItemName": "Nanomaterials",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "synthesized_01",
+                "ItemName": "Biopolymer",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +50",
+          "📦 Fuel Cell x1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+50",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "powercell_01",
+            "Name": "Fuel Cell",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "📦"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668541717",
+    "RowName": "EVENT_node_1792668541717",
+    "EventID": "node_1792668541717",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 6,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 4512.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792674775122",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "res_29",
+                "ItemName": "Grain",
+                "Amount": 30,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "res_32",
+                "ItemName": "Cultured Meat",
+                "Amount": 30,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "res_30",
+                "ItemName": "Omni Fruit",
+                "Amount": 30,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792674817155",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "ammunition_02",
+                "ItemName": "Explosive Charges",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "machinery_01",
+                "ItemName": "Propulsion Kit",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792674871485",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_operations",
+                "ItemName": "Operations Crew",
+                "Amount": 3,
+                "Category": "Specialization",
+                "Icon": "⚙️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668541984",
+    "RowName": "EVENT_node_1792668541984",
+    "EventID": "node_1792668541984",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 5,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 3610.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673803775",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_05",
+                "ItemName": "Battery Block",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792673814167",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_01",
+                "ItemName": "Propulsion Kit",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792673822282",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673840012",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "consumer_02",
+                "ItemName": "Portable Force Shield",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792673843996",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_defense",
+                "ItemName": "Defense Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🛡️"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +50"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+50",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673852189",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792673857031",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100",
+          "📜 Blueprints +1"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_blueprints",
+            "Name": "Blueprints",
+            "Amount": "+1",
+            "Category": "Stat",
+            "Icon": "📜"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668543040",
+    "RowName": "EVENT_node_1792668543040",
+    "EventID": "node_1792668543040",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 3,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 2877.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673537148",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "medres_01",
+                "ItemName": "Med Gel",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673551592",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_04",
+                "ItemName": "Nanomaterials",
+                "Amount": 20,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792673567458",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_01",
+                "ItemName": "Modular Container",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668543262",
+    "RowName": "EVENT_node_1792668543262",
+    "EventID": "node_1792668543262",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 2075.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792671547984",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 3,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792671559972",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_06",
+                "ItemName": "Mycobrick",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792671569038",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_04",
+                "ItemName": "Conductive Materials",
+                "Amount": 5,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [],
+        "StructuredRewards": [],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_1792668543463",
+    "RowName": "EVENT_node_1792668543463",
+    "EventID": "node_1792668543463",
+    "EventTitle": "New Event Block",
+    "EventCategory": "DeckPool",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 1,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 2810.0,
+      "Y": 1273.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792669193919",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "stat_crew count",
+                "ItemName": "👨‍🚀 Crew Count",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "👨‍🚀"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792669203222",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "synthesis_06",
+                "ItemName": "Mycobrick",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +30",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+30",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792669223565",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "stat_crew count",
+                "ItemName": "👨‍🚀 Crew Count",
+                "Amount": 3,
+                "Category": "Item",
+                "Icon": "👨‍🚀"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +10",
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "🧠"
+          },
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
           }
         ],
         "ConsequenceText": "",
@@ -1837,30 +4480,6 @@
         "NextStageIndex": null,
         "NextFloorIndex": null,
         "CustomData": {}
-      },
-      {
-        "ActionIndex": 3,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "😊 Morale -1"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "stat_morale",
-            "Name": "Morale",
-            "Amount": "-1",
-            "Category": "Stat",
-            "Icon": "😊"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
       }
     ]
   },
@@ -2427,30 +5046,6 @@
         "NextStageIndex": null,
         "NextFloorIndex": null,
         "CustomData": {}
-      },
-      {
-        "ActionIndex": 3,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "👨‍🚀 Crew Count -1"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "stat_crew count",
-            "Name": "Crew Count",
-            "Amount": "-1",
-            "Category": "Specialization",
-            "Icon": "👨‍🚀"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
       }
     ]
   },
@@ -2474,7 +5069,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 213.0
+      "Y": 222.0
     },
     "Actions": [
       {
@@ -2664,38 +5259,6 @@
         "NextStageIndex": null,
         "NextFloorIndex": null,
         "CustomData": {}
-      },
-      {
-        "ActionIndex": 3,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "👨‍🚀 Crew Count -1",
-          "❤️ Crew Health -50"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "stat_crew count",
-            "Name": "Crew Count",
-            "Amount": "-1",
-            "Category": "Specialization",
-            "Icon": "👨‍🚀"
-          },
-          {
-            "ResourceID": "stat_crew health",
-            "Name": "Crew Health",
-            "Amount": "-50",
-            "Category": "Specialization",
-            "Icon": "❤️"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
       }
     ]
   },
@@ -2710,7 +5273,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 1,
+    "FloorIndex": 2,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -2719,7 +5282,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 1308.0
+      "Y": 1692.0
     },
     "Actions": [
       {
@@ -2915,30 +5478,6 @@
             "Amount": "+4",
             "Category": "Stat",
             "Icon": "😊"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 3,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [],
-        "Rewards": [
-          "👨‍🚀 Crew Count -3"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "stat_crew count",
-            "Name": "Crew Count",
-            "Amount": "-3",
-            "Category": "Specialization",
-            "Icon": "👨‍🚀"
           }
         ],
         "ConsequenceText": "",
@@ -3961,7 +6500,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 5944.0,
+      "X": 5176.0,
       "Y": 3290.0
     },
     "Actions": [

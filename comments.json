@@ -167,6 +167,18 @@
       "createdAt": "2026-10-21T10:19:16.899931Z",
       "displayTime": "2026-10-21 10:19",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792585433273",
+      "targetId": "node_1792582814090",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining - Special Training",
+      "text": "Outcome 1: Give specialization Defense to 1-5 crew members\nOutcome 2: Give specialization Science to 1-5 crew members\nOutcome 3: Give specialization Operations to 1-5 crew members without specialization\nOutcome 4: Give specialization Engineer to 1-5 crew members",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-21T12:23:53.287408Z",
+      "displayTime": "2026-10-21 12:23",
+      "mentions": []
     }
   ],
   "deletedIds": [
