@@ -2372,7 +2372,16 @@
           ],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "spec_engineering",
+              "name": "Engineering Spec",
+              "amount": "+24",
+              "icon": "🔧",
+              "iconImg": "",
+              "category": "Specialization"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2409,5 +2418,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:25:33.981869"
+  "_lastModified": "2026-10-22T09:28:42.723799"
 }
