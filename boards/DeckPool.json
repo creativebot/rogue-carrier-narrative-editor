@@ -2684,9 +2684,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Feeling that their needs were disregarded, the crew’s morale has declined, and a sense of frustration and disconnection has begun to take hold among the team.",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
@@ -2782,5 +2780,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:47:43.574316"
+  "_lastModified": "2026-10-22T10:47:45.804832"
 }
