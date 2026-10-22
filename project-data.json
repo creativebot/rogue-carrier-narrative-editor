@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:39:01.494334",
+  "_lastModified": "2026-10-22T11:39:06.886891",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3796,7 +3796,7 @@
           "description": "Release the Plumplins on the island and leave them to it — the habitat looks safe, and they'll adapt.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "With bittersweet emotions, the crew released the adorable creatures into the wild, confident that the island will provide them a new home. Though farewells were teary, the crew felt joy knowing the Plumplins were safe and free, ready to embrace their new life.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
