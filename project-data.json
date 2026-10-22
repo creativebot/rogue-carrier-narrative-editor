@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:01:58.401426",
+  "_lastModified": "2026-10-22T13:02:05.293283",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3728,7 +3728,7 @@
           "id": "act_1792674020642",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Create a festive atmosphere with makeshift fireworks, launching a salute to honor the union and bring a vibrant sense of celebration to the deck.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
