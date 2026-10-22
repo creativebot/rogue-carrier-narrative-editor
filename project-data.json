@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:18:41.294442",
+  "_lastModified": "2026-10-22T21:19:31.084873",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1655,7 +1655,7 @@
     },
     {
       "id": "node_1792579368503",
-      "codename": "DECK-S1-E8 BPQ_DeckQuest_Fishing_Rig",
+      "codename": "DECK-S1-E7 BPQ_DeckQuest_Fishing_Rig",
       "name": "Trawl Rig",
       "title": "New Event Block",
       "type": "Deck",
