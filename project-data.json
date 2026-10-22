@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:23:40.984374",
+  "_lastModified": "2026-10-22T21:23:53.385900",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1758,6 +1758,13 @@
               "name": "K-IV Krill",
               "amount": "60-120",
               "iconImg": "icons/T_K-IV_Krill.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_31_k_Algae",
+              "name": "K-IV Algae",
+              "amount": "60-120",
+              "iconImg": "icons/T_ET_Squash.png",
               "icon": "📦"
             }
           ],
