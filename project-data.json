@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:15:11.097534",
+  "_lastModified": "2026-10-22T13:15:20.594915",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4017,44 +4017,6 @@
               "icon": "📜",
               "iconImg": ""
             }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ]
-    },
-    {
-      "id": "node_1792668542626",
-      "codename": "DECK-S1-E27",
-      "name": "New Event Block",
-      "title": "New Event Block",
-      "type": "Deck",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 9,
-      "tier": 3,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2810,
-        "y": 6657
-      },
-      "actions": [
-        {
-          "id": "c_1792668542626",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -8450,6 +8412,44 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_1792668542626",
+      "codename": "DECK-S1-E27",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 9,
+      "tier": 3,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2810,
+        "y": 6657
+      },
+      "actions": [
+        {
+          "id": "c_1792668542626",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     },
     {
       "id": "node_1792668542206",
