@@ -13,7 +13,7 @@
       "location": "Test Spawn Conditions Text",
       "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Opening paragraph.\n\nSecond paragraph after an empty line.\n\nThird concluding line.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
       "reactionTimerHours": "2",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -35,10 +35,10 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Option Alpha.\n\nDetailed choice condition.",
+          "description": "Direct crew to seal airlocks and foam containment.\n\nііі",
           "requirements": [],
           "timerHours": 1,
-          "resultDescription": "Mission Step A complete.\n\nNext phase initialized with zero losses.\n\nAll stations standing by.",
+          "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
@@ -970,7 +970,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5324
+        "y": 5312
       },
       "actions": [
         {
@@ -2426,7 +2426,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3815
+        "y": 3924
       },
       "actions": [
         {
@@ -2500,7 +2500,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4457
+        "y": 4515
       },
       "actions": [
         {
@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5491
+        "y": 5669
       },
       "actions": [
         {
@@ -3561,7 +3561,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4512
+        "y": 4648
       },
       "actions": [
         {
@@ -3694,7 +3694,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3610
+        "y": 3743
       },
       "actions": [
         {
@@ -3873,7 +3873,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 4,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -3890,7 +3890,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2877
+        "y": 2927
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T18:16:02.137972"
+  "_lastModified": "2026-10-22T17:54:26.537220"
 }
