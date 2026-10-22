@@ -3520,7 +3520,7 @@
         {
           "id": "act_1792673693220",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Research",
           "description": "It is too risky to interact with the creature directly. Send researchers with the right gear to study it from a safe distance.",
           "requirements": [],
           "timerHours": 5,
@@ -4009,5 +4009,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:55:55.099577"
+  "_lastModified": "2026-10-22T12:56:00.273023"
 }
