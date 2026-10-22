@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:28:42.737371",
+  "_lastModified": "2026-10-22T09:28:45.759394",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2639,16 +2639,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "",
-          "rewards": [
-            {
-              "resourceId": "spec_engineering",
-              "name": "Engineering Spec",
-              "amount": "+24",
-              "icon": "🔧",
-              "iconImg": "",
-              "category": "Specialization"
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
