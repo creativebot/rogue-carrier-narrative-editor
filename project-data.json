@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:24:20.389973",
+  "_lastModified": "2026-10-22T21:24:36.988927",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1694,7 +1694,21 @@
           "codeSuffix": "A",
           "shortDescription": "Build the Rig",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792704272373",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 10,
+                  "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
