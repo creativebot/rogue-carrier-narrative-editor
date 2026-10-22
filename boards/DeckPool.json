@@ -3722,7 +3722,22 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Use spare time to plan for the next rush, ensuring maximum efficiency.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792671547984",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The crew have planned out the next hours and are now able to address upcoming situations more efficiently, resulting in a spike in overall productivity.",
           "rewards": [
@@ -3867,5 +3882,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:18:52.653775"
+  "_lastModified": "2026-10-22T12:19:10.188216"
 }
