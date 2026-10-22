@@ -3511,7 +3511,7 @@
         {
           "id": "c_1792668543463",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Prepare the location",
           "description": "Survey the island for the best spot, release the Plumplins there, and stay long enough to see how they settle.",
           "requirements": [],
           "timerHours": 5,
@@ -3541,5 +3541,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:38:30.140089"
+  "_lastModified": "2026-10-22T11:38:41.141167"
 }
