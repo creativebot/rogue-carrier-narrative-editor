@@ -28,7 +28,7 @@
       },
       "position": {
         "x": 110,
-        "y": -1968
+        "y": 220
       },
       "actions": [
         {
@@ -58,7 +58,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 1,
       "tier": 1,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -83,7 +83,7 @@
       },
       "position": {
         "x": 110,
-        "y": -1283
+        "y": 805
       },
       "actions": [
         {
@@ -281,7 +281,7 @@
       },
       "position": {
         "x": 110,
-        "y": 99
+        "y": 1827
       },
       "actions": [
         {
@@ -444,7 +444,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 1,
+      "floorIndex": 0,
       "tier": 1,
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
@@ -469,7 +469,7 @@
       },
       "position": {
         "x": 110,
-        "y": 1343
+        "y": 2816
       },
       "actions": [
         {
@@ -679,7 +679,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 5,
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
@@ -741,7 +741,7 @@
       },
       "position": {
         "x": 110,
-        "y": 2561
+        "y": 4014
       },
       "actions": [
         {
@@ -945,7 +945,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 0,
       "tier": 1,
       "location": "Game stage 2 or more, Morale less then 30, Behemoth",
       "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
@@ -970,7 +970,7 @@
       },
       "position": {
         "x": 110,
-        "y": 3784
+        "y": 5131
       },
       "actions": [
         {
@@ -1258,9 +1258,9 @@
             "resourceId": "status_5_weakened_morale_i",
             "name": "Weakened Morale I",
             "rawName": "Weakened Morale I",
-            "amount": "48",
+            "amount": "24",
             "hasN": true,
-            "nValue": "48",
+            "nValue": "24",
             "hasSpecies": false,
             "species": "",
             "iconImg": "icons/status_effects/Weakened Morale I.png",
@@ -1270,7 +1270,7 @@
             "category": "Status Effect",
             "effectCategory": "Morale",
             "target": "crew",
-            "effect": "Morale -2",
+            "effect": "Morale -2 per hour for 24 hours",
             "effectType": "Buff/Debuff",
             "posNeg": "negative",
             "description": "",
@@ -1452,9 +1452,938 @@
         }
       ],
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792582814090",
+      "codename": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining",
+      "name": "Special Training",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "in the open sea, Game stage 2 or more, Behemoth",
+      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Orest Demchuck, Security Force Commanding Officer, wants to lead a special training course on survival for the crew.\nYour head of scouts is adamant about the necessity of such training. \"Do I really need to explain the benefits of survival skills? We are on an alien planet with a thousand elaborate ways to kill us. How to defend oneself, how to patch up your wounded crew member, how to make fire out of mud and sticks, how to navigate by stars, how to… I mean, the list can go on. All these how-tos can tip the scales between life and death in the former's favor. And give us another day to make something out of the situation we are in.\"",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "The training course remains a missed opportunity.",
+        "penalties": []
+      },
+      "position": {
+        "x": 110,
+        "y": 7827
+      },
+      "actions": [
+        {
+          "id": "c_1792582814090",
+          "codeSuffix": "A",
+          "shortDescription": "Combat",
+          "description": "Allow Orest to organize a self-defense training course.",
+          "requirements": [
+            {
+              "id": "clause_1792585017670",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 2,
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew undergoes a series of vigorous exercises: close combat, accuracy shooting, obstacle course traversal, and many others. The muscles throb and ache, making the next day of work a more tiring experience, but the skills learned and the knowledge gained are invaluable.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+5",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+1-5",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792584908911",
+          "codeSuffix": "B",
+          "shortDescription": "First Aid",
+          "description": "Every crew member must know how to provide first aid.",
+          "requirements": [
+            {
+              "id": "clause_1792585026199",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_01",
+                  "name": "Med Gel",
+                  "amount": 2,
+                  "iconImg": "icons/T_Med-Gel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew learns several applications of MedGel and the basics of first aid. How to stop bleeding, what to do when a heart stops, and even less extreme situations, like what to do when someone faints, are given much-needed time, so that the crew can be ready for any exigency.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_science",
+              "name": "Science Spec",
+              "amount": "+1-5",
+              "icon": "🔬",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "status_20_boosted_health_i",
+              "name": "Boosted Health I",
+              "rawName": "Boosted Health I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +20% for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792584909553",
+          "codeSuffix": "C",
+          "shortDescription": "Navigation",
+          "description": "It is important to know how to navigate freighters, recon crafts, and the ship itself.",
+          "requirements": [
+            {
+              "id": "clause_1792585035655",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 2,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+5",
+              "icon": "😊",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "spec_operations",
+              "name": "Operations Spec",
+              "amount": "+1-5",
+              "icon": "⚙️",
+              "iconImg": "",
+              "category": "Specialization"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792584910285",
+          "codeSuffix": "D",
+          "shortDescription": "Craft",
+          "description": "If stranded on the island, people should know how to craft basics, how to use available tools, and how to fix broken equipment.",
+          "requirements": [
+            {
+              "id": "clause_1792585044545",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 2,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Orest invites Tuuli, the Chief Engineer, to give a masterclass on survival crafting. It starts with basics, such as making a lean-to and starting a fire, and then the training gets progressively more complicated as Tuuli forces crew members to disassemble various tools and gadgets to learn how to repair them.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+5",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "status_24_boosted_productivity_i",
+              "name": "Boosted Productivity I",
+              "rawName": "Boosted Productivity I",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +25 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 25 for duration fo effect."
+            },
+            {
+              "resourceId": "spec_engineering",
+              "name": "Engineering Spec",
+              "amount": "+1-5",
+              "icon": "🔧",
+              "iconImg": "",
+              "category": "Specialization"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792585570927",
+      "codename": "DECK-S1-E10 BPQ_DeckQuest_Superchef",
+      "name": "Superchef",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 2,
+      "location": "in the open sea, Game stage 2 or more, Behemoth",
+      "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "A group of crew members is interested in improving the taste of their usual chow. The texture and flavor of their issued meals feel off, and they ask to improve the recipe.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
+        "penalties": [
+          {
+            "resourceId": "status_17_weakened_health_i",
+            "name": "Weakened Health I",
+            "rawName": "Weakened Health I",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -20% for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          }
+        ]
+      },
+      "position": {
+        "x": 1460,
+        "y": 216
+      },
+      "actions": [
+        {
+          "id": "c_1792585570927",
+          "codeSuffix": "A",
+          "shortDescription": "Host cooking contest",
+          "description": "Organize competition between crewmembers, use winning recipe.",
+          "requirements": [
+            {
+              "id": "clause_1792585844810",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "food_01",
+                  "name": "Nutrient Paste",
+                  "amount": 5,
+                  "iconImg": "icons/T_Nutrient-Paste.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "food_05",
+                  "name": "Energy Bar",
+                  "amount": 5,
+                  "iconImg": "icons/T_Energy-Bar.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
+          "rewards": [
+            {
+              "resourceId": "status_3_better_taste",
+              "name": "Better Taste",
+              "rawName": "Better Taste",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Better Taste.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "food Morale bonuses x2 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each bous to morale received from food is doubled."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792585650554",
+          "codeSuffix": "B",
+          "shortDescription": "Consult experts",
+          "description": "Invite a group of specialists to discuss and improve meal plan.",
+          "requirements": [
+            {
+              "id": "clause_1792585866577",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 3,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
+          "rewards": [
+            {
+              "resourceId": "status_20_boosted_health_i",
+              "name": "Boosted Health I",
+              "rawName": "Boosted Health I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +20% for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792585931551",
+      "codename": "DECK-S1-E11 BPQ_DeckQuest_Vaccine",
+      "name": "Vaccine",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "tier": 2,
+      "location": "More than 5 ill crew members, Behemoth",
+      "spawnConditions": "More than 5 ill crew members, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "You ignored requests from the team. The “Nocebo effect” caused by continuous stress among team members regarding potential alien sickness actually worsened their natural resistance.",
+        "penalties": []
+      },
+      "position": {
+        "x": 1460,
+        "y": 1159
+      },
+      "actions": [
+        {
+          "id": "c_1792585931551",
+          "codeSuffix": "A",
+          "shortDescription": "Use Prebiotic Matter",
+          "description": "The doctors need a lot of Prebiotic Matter to have enough pathogenic test subjects for their research on the vaccine.",
+          "requirements": [
+            {
+              "id": "clause_1792586182712",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_38_Prebiotic",
+                  "name": "Prebiotic Matter",
+                  "amount": 100,
+                  "iconImg": "icons/T_Prebiotic.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792586193474",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_03",
+                  "name": "Stem Tissue",
+                  "amount": 5,
+                  "iconImg": "icons/T_Stem-Tissue.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "status_15_boosted_immunity_ii",
+              "name": "Boosted Immunity II",
+              "rawName": "Boosted Immunity II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +100 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 100% (rounded up)"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792586005796",
+          "codeSuffix": "B",
+          "shortDescription": "Study Krill",
+          "description": "The researches want to study the Krill, believing them to be perfect carriers of pathogens.",
+          "requirements": [
+            {
+              "id": "clause_1792586201354",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_39_k_Krill",
+                  "name": "K-IV Krill",
+                  "amount": 100,
+                  "iconImg": "icons/T_K-IV_Krill.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792586213935",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "synthesis_05",
+                  "name": "Composite Enzymes",
+                  "amount": 10,
+                  "iconImg": "icons/T_Composite-Enzymes.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The doctors do not manage to develop vaccine, however, the knowledge they gathered through research can be valuable in deepening comprehension of Keeling-IV ecosystems.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+75",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792586006659",
+          "codeSuffix": "C",
+          "shortDescription": "Study Algae",
+          "description": "The pathogens can be found in the Algae. The doctors need plenty of test subjects for their work on the vaccine.",
+          "requirements": [
+            {
+              "id": "clause_1792586237619",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_31_k_Algae",
+                  "name": "K-IV Algae",
+                  "amount": 100,
+                  "iconImg": "icons/T_ET_Squash.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792586249217",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_01",
+                  "name": "Med Gel",
+                  "amount": 5,
+                  "iconImg": "icons/T_Med-Gel.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "status_15_boosted_immunity_ii",
+              "name": "Boosted Immunity II",
+              "rawName": "Boosted Immunity II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +100 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 100% (rounded up)"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792586289797",
+      "codename": "DECK-S1-E12 BPQ_DeckQuest_Ghost",
+      "name": "Ghost",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 3,
+      "tier": 2,
+      "location": "Game stage 3 or more, morale less then 50, Behemoth",
+      "spawnConditions": "Game stage 3 or more, morale less then 50, Behemoth",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "A crew member tried to jump over the safety rail and disappear into the water. \n A severely depressed individual, who attempted a one-way dive into the water, has been admitted to the health center. At first, the man is taciturn when questioned about his well-being. Later, he expresses his unwillingness to continue with this 'farce.' \"It is all pointless,\" he says. \"He is right. The sooner it ends, the better.\" He does not explain who is right...\nThis man is not alone in his misery. Lately, the halls are full of dark, despondent whispers. And there seems to be someone responsible for the spread of this despair... You hear rumors of a ghost, of a lonely voice echoing in the halls.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          }
+        ]
+      },
+      "position": {
+        "x": 1460,
+        "y": 2309
+      },
+      "actions": [
+        {
+          "id": "c_1792586289797",
+          "codeSuffix": "A",
+          "shortDescription": "Provide support",
+          "description": "Provide an online program for monitoring emotional well-being and offering support to maintain the crew's morale.",
+          "requirements": [
+            {
+              "id": "clause_1792587122551",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 2,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792587130965",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The support program proved to be efficient. With the help of deep meditation, psychological guidance, and cutting edge technology, people realized that ghosts only exist in the eye of an exhausted mind and let go of those irrational fears.",
+          "rewards": [
+            {
+              "resourceId": "status_10_morale_boost_iii",
+              "name": "Morale Boost III",
+              "rawName": "Morale Boost III",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +30 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 30 for that duration (can surpass 100)"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792586502580",
+          "codeSuffix": "B",
+          "shortDescription": "Sedate the crew",
+          "description": "Distribute sedatives to the team to help them cope with irrational fears. This might have negative impact on their productivity.",
+          "requirements": [
+            {
+              "id": "clause_1792587141997",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 2,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The sedatives improve the overall situation, though not without several side effects (apathy, lack of energy, loss of appetite, and others) that unfortunately affect general productivity.",
+          "rewards": [
+            {
+              "resourceId": "status_11_morale_stasis",
+              "name": "Morale Stasis",
+              "rawName": "Morale Stasis",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Stasis.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale not changes for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Morale value is frozen at the level it was when status effect has started. This effect can be overridden by bonus and debuff to morale effects."
+            },
+            {
+              "resourceId": "status_27_productivity_slowdown_i",
+              "name": "Productivity Slowdown I",
+              "rawName": "Productivity Slowdown I",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "crew productivity -20 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792586503182",
+          "codeSuffix": "C",
+          "shortDescription": "Find the ghost",
+          "description": "Use trained personnel and professional equipment to perform deep scanning of the hallways and interior infrastructure.",
+          "requirements": [
+            {
+              "id": "clause_1792587150761",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_05",
+                  "name": "Tricoder",
+                  "amount": 1,
+                  "iconImg": "icons/T_Tricoder.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792587159856",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 1,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "There is, indeed, a disembodied voice that haunts the halls of the ship. An unsanctioned AI Core was installed within the ship's systems and made invisible even to Mnemosyne. When it happened, or who is responsible for this crime, remains unanswered. But this AI agent is the one spreading disturbing ideas and sowing seeds of doubt in the minds of your crew.  The AI core is removed. And the mysterious ghost is no more.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+10",
+              "icon": "🧠",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "1",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792589193352",
+      "codename": "DECK-S1-E13 BPQ_DeckQuest_Secret_Meetings",
+      "name": "Secret Meetings",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 5,
+      "tier": 2,
+      "location": "Game stage 2 or more, Housing",
+      "spawnConditions": "Game stage 2 or more, Housing",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "lead to the additional event",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
+      "position": {
+        "x": 1460,
+        "y": 3698
+      },
+      "actions": [
+        {
+          "id": "c_1792589193352",
+          "codeSuffix": "A",
+          "shortDescription": "Raid the meeting place",
+          "description": "Enter with security, seize materials for inspection, and conduct individual interviews with organizers.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792589587868",
+          "codeSuffix": "B",
+          "shortDescription": "Infiltrate the group",
+          "description": "Assign a quiet volunteer to attend as a newcomer and report practices, tone, and any risks.",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T09:16:21.568159"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-22T09:20:34.540179"
 }
