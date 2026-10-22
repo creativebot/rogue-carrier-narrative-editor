@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T10:03:49.714046",
+  "_lastModified": "2026-10-22T10:03:58.688933",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2834,7 +2834,7 @@
     {
       "id": "node_1792661778711",
       "codename": "DECK-S1-E16 BPQ_DeckQuest_Coordination_Gaps",
-      "name": "New Event Block",
+      "name": "Coordination Gaps",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
