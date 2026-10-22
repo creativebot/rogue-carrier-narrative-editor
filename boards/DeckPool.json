@@ -2918,13 +2918,20 @@
           "requirements": [
             {
               "id": "clause_1792668992569",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "processing_01",
                   "name": "Metal Constructions",
                   "amount": 10,
                   "iconImg": "icons/T_Metal_Frames.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesis_06",
+                  "name": "Mycobrick",
+                  "amount": 10,
+                  "iconImg": "icons/T_Mycobrick.png",
                   "icon": "📦"
                 }
               ]
@@ -3506,5 +3513,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:36:34.896887"
+  "_lastModified": "2026-10-22T11:36:47.387679"
 }
