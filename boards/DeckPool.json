@@ -3078,8 +3078,8 @@
       "variationId": "var_v1",
       "floorIndex": 5,
       "tier": 4,
-      "location": "in the open sea, Specific building, ",
-      "spawnConditions": "in the open sea, Specific building, ",
+      "location": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
+      "spawnConditions": "in the open sea, Specific building, Bioengineering\nWorkshop, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
       "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
@@ -3606,5 +3606,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:42:05.190859"
+  "_lastModified": "2026-10-22T11:42:15.695914"
 }
