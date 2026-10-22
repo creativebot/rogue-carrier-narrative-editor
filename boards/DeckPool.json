@@ -3495,6 +3495,15 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_caged_plumplins_quest_item",
+              "name": "Caged Plumplins_Quest item",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [
@@ -4684,5 +4693,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:05:29.291621"
+  "_lastModified": "2026-10-22T22:05:56.487442"
 }
