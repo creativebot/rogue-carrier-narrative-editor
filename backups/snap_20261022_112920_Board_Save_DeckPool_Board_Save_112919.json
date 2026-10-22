@@ -3,7 +3,7 @@
   "filename": "snap_20261022_112920_Board_Save_DeckPool_Board_Save_112919.json",
   "reason": "Board Save (DeckPool): Board Save (11:29:19)",
   "author": "Tetiana Tretilova",
-  "timestamp": "2026-10-22T11:29:20.390811",
+  "timestamp": "2026-10-22T11:29:20.994311",
   "displayTime": "2026-10-22 11:29:20",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -11,7 +11,7 @@
     "version": "2.6.0",
     "schemaVersion": 1,
     "stageLayoutVersion": 2,
-    "_lastModified": "2026-10-22T11:29:19.906186",
+    "_lastModified": "2026-10-22T11:29:20.786144",
     "projectInfo": {
       "name": "Rogue Carrier Scenario 1",
       "author": "Tetiana Tretilova"
