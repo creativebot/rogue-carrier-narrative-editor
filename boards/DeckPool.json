@@ -4239,7 +4239,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The candid discussion led by crew experts went smoothly. Ruth and the crew member agreed they’d jumped in too quickly and decided to remain friends — for now. As they exited, an officer swears the crew member gave Ruth a sly wink, hinting that the story might not be over just yet.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_11_morale_stasis",
+              "name": "Morale Stasis",
+              "rawName": "Morale Stasis",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Stasis.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale not changes for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Morale value is frozen at the level it was when status effect has started. This effect can be overridden by bonus and debuff to morale effects."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -4949,5 +4972,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:20:29.586070"
+  "_lastModified": "2026-10-22T22:20:50.631805"
 }
