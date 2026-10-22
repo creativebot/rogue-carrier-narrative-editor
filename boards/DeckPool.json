@@ -2521,7 +2521,7 @@
         {
           "id": "act_1792662894435",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Attempt Shutdown",
           "description": "Send the global stop code, lock charging bays, and post manual cleanup shifts.",
           "requirements": [],
           "timerHours": 5,
@@ -2651,5 +2651,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:55:14.764402"
+  "_lastModified": "2026-10-22T09:55:20.471420"
 }
