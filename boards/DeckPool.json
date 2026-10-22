@@ -3538,7 +3538,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "The operation was largely a success. The creature pounced on the bait without hesitation. That said, a few crew members were injured while installing the lure and in the aftermath. Still, it was spectacular, so morale is up.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4104,5 +4112,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:57:44.588794"
+  "_lastModified": "2026-10-22T12:57:50.794999"
 }
