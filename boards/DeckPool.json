@@ -2472,7 +2472,8 @@
           "targetNodeId": null
         }
       ],
-      "colorScheme": "rose"
+      "colorScheme": "rose",
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661772455",
@@ -2562,7 +2563,8 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661778711",
@@ -2700,10 +2702,11 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:05:13.292872"
+  "_lastModified": "2026-10-22T10:05:20.285750"
 }
