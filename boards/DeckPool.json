@@ -53,7 +53,7 @@
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "New Event Block",
+      "name": "Fishing Adventures",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -224,7 +224,7 @@
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
+      "eventDescription": "The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\nStrange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -455,7 +455,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
           {
@@ -970,7 +970,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5312
+        "y": 5324
       },
       "actions": [
         {
@@ -2426,7 +2426,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 3815
       },
       "actions": [
         {
@@ -2500,7 +2500,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4515
+        "y": 4457
       },
       "actions": [
         {
@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 5491
       },
       "actions": [
         {
@@ -3561,7 +3561,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 4512
       },
       "actions": [
         {
@@ -3694,7 +3694,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3743
+        "y": 3610
       },
       "actions": [
         {
@@ -3873,7 +3873,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -3890,7 +3890,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2927
+        "y": 2877
       },
       "actions": [
         {
@@ -4191,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T15:09:03.376391"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-22T15:10:23.100694"
 }
