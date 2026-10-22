@@ -2780,7 +2780,7 @@
           "id": "c_1792661788229",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Sweep with a small security detail, catalog what we find, and lock it in evidence storage with a quiet note to the team.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2824,5 +2824,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:24:19.687298"
+  "_lastModified": "2026-10-22T11:24:29.037445"
 }
