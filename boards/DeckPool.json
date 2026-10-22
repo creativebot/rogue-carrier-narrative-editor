@@ -3442,9 +3442,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Disheartened by the lack of response from the captain, Ruthless-Sky and the unnamed crew member decided to take matters into their own hands. Under the cover of night, the pair slipped away from the ship, climbing atop a mysterious marine creature that surfaced near the hull. By morning, both were gone without a trace.  Little is known of their whereabouts, yet hope remains among the crew that, wherever they are, the unlikely couple has found happiness together. ",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 2810,
@@ -4168,5 +4166,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:10:09.646080"
+  "_lastModified": "2026-10-22T13:10:13.684242"
 }
