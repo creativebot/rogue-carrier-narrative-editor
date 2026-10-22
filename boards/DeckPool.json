@@ -3122,6 +3122,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792669581470",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 10,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -3701,5 +3714,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:46:19.693937"
+  "_lastModified": "2026-10-22T11:46:23.894452"
 }
