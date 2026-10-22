@@ -3177,7 +3177,21 @@
           "codeSuffix": "B",
           "shortDescription": "Investigate",
           "description": "Closely monitor the creature’s movement patterns to determine how it enters the building and uncover its origins.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792669602461",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Tailing the creature reveals its true nature — a secret pet kept by one of the crew. The owner admits what he'd been doing, and after a short goodbye the creature goes back into the wild. The patrol turns out to be a welcome break for everyone involved: a bit of movement, a bit of fresh air, and the whole group comes back looser and more awake.",
           "rewards": [
@@ -3728,5 +3742,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:46:31.298847"
+  "_lastModified": "2026-10-22T11:46:44.787317"
 }
