@@ -3070,7 +3070,7 @@
     },
     {
       "id": "node_1792668540158",
-      "codename": "DECK-S1-E20",
+      "codename": "DECK-S1-E20 BPQ_DeckQuest_PestProblem",
       "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
@@ -3606,5 +3606,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:41:19.684999"
+  "_lastModified": "2026-10-22T11:41:38.889827"
 }
