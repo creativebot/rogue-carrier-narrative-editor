@@ -4528,7 +4528,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The lull passes without a plan. Although everything seems fine now, the first hour of the next surge is slowed by missing approvals, labels, and tool checks that could have been addressed earlier. The crew face the same friction as before, and the chance to build momentum is missed.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_27_productivity_slowdown_i",
+            "name": "Productivity Slowdown I",
+            "rawName": "Productivity Slowdown I",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -20 for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 2810,
@@ -4794,5 +4817,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:12:29.560739"
+  "_lastModified": "2026-10-22T22:12:43.483420"
 }
