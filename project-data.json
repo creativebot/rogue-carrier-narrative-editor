@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:50:29.792728",
+  "_lastModified": "2026-10-22T11:50:35.197221",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3615,7 +3615,15 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "Though some crew members are disappointed, the swift action pays off — potential threats are neutralized before they can develop, safeguarding the entire vessel from a possible epidemic. Fortunately, a few of the cell cultures are salvaged safely and can be repurposed as basic medicine, providing a small but valuable benefit to the ship’s medical reserves.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "-5",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
