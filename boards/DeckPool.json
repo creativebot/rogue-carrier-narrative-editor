@@ -3107,7 +3107,7 @@
         {
           "id": "c_1792668540158",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Set a trap",
           "description": "Observe the locations where the creature appears most often and carefully prepare a humane trap to capture it without harm.",
           "requirements": [],
           "timerHours": 5,
@@ -3687,5 +3687,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:45:19.681806"
+  "_lastModified": "2026-10-22T11:45:53.928041"
 }
