@@ -2759,7 +2759,7 @@
       "location": "in the open sea, in the building, ",
       "spawnConditions": "in the open sea, in the building, ",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "A scientist is using lab equipment to produce alcohol. They’ve decided to experiment with local flora, and the result is a potent hallucinogenic substance that’s visually indistinguishable from regular spirits. They’ve accidentally bottled and traded a large batch of the substance to one of the technicians and need help recovering it before someone gets hurt.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -2788,5 +2788,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:23:59.946654"
+  "_lastModified": "2026-10-22T11:24:09.497727"
 }
