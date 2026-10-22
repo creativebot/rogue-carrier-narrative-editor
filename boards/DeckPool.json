@@ -2917,7 +2917,7 @@
           "description": "Fence off a small habitat, run regular sanitation checks, and keep the colony under observation.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew adopts the Plumplins as unofficial mascots. Spirits lift, and medbay reports a measurable boost to crew immunity. The only cost is a slight dip in productivity — people keep finding reasons to walk past the habitat.",
           "rewards": [
             "🧠 Knowledge +100"
           ],
@@ -3411,5 +3411,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:31:57.006054"
+  "_lastModified": "2026-10-22T11:32:05.559106"
 }
