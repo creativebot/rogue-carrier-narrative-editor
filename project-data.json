@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T09:55:14.858331",
+  "_lastModified": "2026-10-22T09:55:20.547571",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2788,7 +2788,7 @@
         {
           "id": "act_1792662894435",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Attempt Shutdown",
           "description": "Send the global stop code, lock charging bays, and post manual cleanup shifts.",
           "requirements": [],
           "timerHours": 5,
