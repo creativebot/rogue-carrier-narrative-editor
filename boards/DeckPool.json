@@ -3282,6 +3282,9 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
+      ],
+      "disabledVariationIds": [
+        "var_v1"
       ]
     },
     {
@@ -3842,5 +3845,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:51:39.990126"
+  "_lastModified": "2026-10-22T11:51:44.298097"
 }
