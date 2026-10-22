@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:24:49.587089",
+  "_lastModified": "2026-10-22T21:25:00.883263",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1711,6 +1711,19 @@
                   "name": "Biopolymer",
                   "amount": 10,
                   "iconImg": "icons/T_Biopolymer.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792704296260",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 10,
+                  "iconImg": "icons/T_Conductive-Materials.png",
                   "icon": "📦"
                 }
               ]
