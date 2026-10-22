@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:27:36.983680",
+  "_lastModified": "2026-10-22T11:27:43.597394",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3063,7 +3063,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The group of volunteers confiscated the entire batch without sorting individual bottles. Though frustrating for some, this decisive action prevented a crisis and kept everyone safe.",
           "rewards": [
             {
               "resourceId": "stat_morale",
