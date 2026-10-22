@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:05:03.089082",
+  "_lastModified": "2026-10-22T21:05:05.190845",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3944,7 +3944,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
@@ -3963,7 +3963,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3902
+        "y": 4330
       },
       "actions": [
         {
