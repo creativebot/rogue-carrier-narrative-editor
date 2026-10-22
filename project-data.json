@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:32:57.691476",
+  "_lastModified": "2026-10-22T11:33:07.791680",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3234,7 +3234,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew took it badly. Something settled over the ship afterwards that nobody puts into words. The researchers logged an anomalous organic artifact recovered from the nest, along with a strange connection to the Plumplins themselves.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
