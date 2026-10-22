@@ -3718,7 +3718,7 @@
         {
           "id": "c_1792668543262",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Plan next steps",
           "description": "Use spare time to plan for the next rush, ensuring maximum efficiency.",
           "requirements": [
             {
@@ -3903,5 +3903,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:19:43.793260"
+  "_lastModified": "2026-10-22T12:19:59.515224"
 }
