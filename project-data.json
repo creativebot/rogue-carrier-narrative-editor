@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:32:45.885306",
+  "_lastModified": "2026-10-22T11:32:57.691476",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3213,13 +3213,20 @@
           "requirements": [
             {
               "id": "clause_1792668763453",
-              "isReplaceable": false,
+              "isReplaceable": true,
               "items": [
                 {
                   "resourceId": "medres_04",
                   "name": "Personal Defence Kit",
                   "amount": 1,
                   "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesis_02",
+                  "name": "Biochem Compounds",
+                  "amount": 10,
+                  "iconImg": "icons/T_Chem-Compound.png",
                   "icon": "📦"
                 }
               ]
