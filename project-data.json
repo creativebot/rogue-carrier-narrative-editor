@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:45:59.302421",
+  "_lastModified": "2026-10-22T11:46:03.399856",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3428,7 +3428,7 @@
         {
           "id": "act_1792669346880",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
+          "shortDescription": "Update security",
           "description": "Review and strengthen the building’s security protocols, eliminating any loopholes that allowed the “shark” to gain access.",
           "requirements": [],
           "timerHours": 5,
