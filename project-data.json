@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:28:06.993984",
+  "_lastModified": "2026-10-22T11:28:09.790371",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1485,7 +1485,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 8,
       "tier": 1,
       "location": "Game stage 2 or more, Behemoth",
       "spawnConditions": "Game stage 2 or more, Behemoth",
@@ -1547,7 +1547,7 @@
       },
       "position": {
         "x": 110,
-        "y": 6114
+        "y": 6301
       },
       "actions": [
         {
