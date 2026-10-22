@@ -2587,9 +2587,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Productivity report:\n\"Captain, no corrective action has been taken. The gaps in our procedures persist. Rather than cooperating, personnel now circumvent each other, bypassing the shared process entirely. Recovery will require considerable effort and time.\nWith due respect, Mnemosyne.\"",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
@@ -2727,5 +2725,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:40:19.713697"
+  "_lastModified": "2026-10-22T10:40:22.524608"
 }
