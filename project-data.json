@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:46:44.986455",
+  "_lastModified": "2026-10-22T11:46:55.786651",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3455,6 +3455,20 @@
                   "amount": 5,
                   "iconImg": "icons/T_Basic-Scaner.png",
                   "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792669613221",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_defense",
+                  "name": "Defense Crew",
+                  "amount": 2,
+                  "icon": "🛡️",
+                  "iconImg": "",
+                  "category": "Specialization"
                 }
               ]
             }
