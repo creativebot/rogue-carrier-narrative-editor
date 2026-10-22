@@ -2342,7 +2342,8 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Log the group as low-risk and schedule a discreet quarterly welfare check.",
-        "penalties": []
+        "penalties": [],
+        "targetNodeId": "node_1792661442330"
       },
       "position": {
         "x": 1460,
@@ -2475,5 +2476,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:31:11.282548"
+  "_lastModified": "2026-10-22T09:31:20.735086"
 }
