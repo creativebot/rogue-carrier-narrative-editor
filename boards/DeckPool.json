@@ -3297,7 +3297,7 @@
       "location": "Game stage 2 or later",
       "spawnConditions": "Game stage 2 or later",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "What started as a harmless way to kill time has spiraled into a full-blown craze aboard the ship. Crew members now collect bacteria-like cultures in petri dishes and place bets on which sample will flourish first - turning the pastime into a racing league. Although the activity seems innocent enough, concerns are growing that it could easily lead to a serious accident.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3784,5 +3784,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:48:19.699942"
+  "_lastModified": "2026-10-22T11:48:23.258500"
 }
