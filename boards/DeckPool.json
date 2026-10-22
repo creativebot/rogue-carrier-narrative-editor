@@ -3513,7 +3513,20 @@
           "codeSuffix": "A",
           "shortDescription": "Prepare the location",
           "description": "Survey the island for the best spot, release the Plumplins there, and stay long enough to see how they settle.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792669193919",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "stat_crew count",
+                  "name": "👨‍🚀 Crew Count",
+                  "amount": 10,
+                  "icon": "👨‍🚀"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "The Plumplins took to the prepared nesting site at once and settled in, healthy and content. Over the following days they grew attached to the crew, and when it came time to part ways, they left something from the nest behind. The crew chose to read it as a thank-you.",
           "rewards": [
@@ -3567,5 +3580,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:39:34.502882"
+  "_lastModified": "2026-10-22T11:39:56.184545"
 }
