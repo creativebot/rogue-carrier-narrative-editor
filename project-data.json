@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:02:24.094933",
+  "_lastModified": "2026-10-22T21:02:27.095148",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -486,7 +486,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": 1,
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
@@ -548,7 +548,7 @@
       },
       "position": {
         "x": 110,
-        "y": 2074
+        "y": 2465
       },
       "actions": [
         {
