@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:00:25.534Z",
+  "_lastModified": "2026-10-22T22:00:47.690599",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3393,6 +3393,28 @@
             "posNeg": "negative",
             "description": "",
             "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          },
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "1",
+            "hasN": true,
+            "nValue": "1",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 1 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
           }
         ]
       },
