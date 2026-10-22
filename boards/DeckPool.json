@@ -28,7 +28,7 @@
       },
       "position": {
         "x": 110,
-        "y": 220
+        "y": 136
       },
       "actions": [
         {
@@ -4191,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T17:55:04.174502"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-22T21:00:10.933646"
 }
