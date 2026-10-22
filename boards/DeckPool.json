@@ -3134,7 +3134,7 @@
         {
           "id": "act_1792669346026",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Investigate",
           "description": "Closely monitor the creature’s movement patterns to determine how it enters the building and uncover its origins.",
           "requirements": [],
           "timerHours": 5,
@@ -3687,5 +3687,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:45:53.928041"
+  "_lastModified": "2026-10-22T11:45:59.271782"
 }
