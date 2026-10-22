@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T21:24:06.093174",
+  "_lastModified": "2026-10-22T21:24:20.389973",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -1772,6 +1772,13 @@
               "name": "K-IV Aminoacids",
               "amount": "60-120",
               "iconImg": "icons/T_Amino_Acid.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_24_k_Plankton",
+              "name": "K-IV Plankton",
+              "amount": "60-120",
+              "iconImg": "icons/T_ET_Plankton.png",
               "icon": "📦"
             }
           ],
