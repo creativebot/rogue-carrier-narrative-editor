@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:17:39.487384",
+  "_lastModified": "2026-10-22T13:17:50.593375",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3691,7 +3691,22 @@
           "codeSuffix": "A",
           "shortDescription": "Throw a Surprise Party",
           "description": "Invite a few crew members to help plan and organize a surprise birthday celebration for Khalil.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792675068018",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 2,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
