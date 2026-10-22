@@ -1,8 +1,8 @@
 {
   "notifications": [
     {
-      "id": "notif_1792678573176_1",
-      "recipientEmail": "pdushynskyi@n-ix.com",
+      "id": "notif_1792678573176_0",
+      "recipientEmail": "ttretilova@n-ix.com",
       "senderName": "Daniel Poludyonny",
       "senderEmail": "dpoludonnyi@n-ix.com",
       "targetId": "node_deck_1",
@@ -12,11 +12,11 @@
       "commentId": "cmt_1792678573173",
       "createdAt": "2026-10-22T14:16:13.173429Z",
       "displayTime": "Oct 22, 14:16",
-      "read": false
+      "read": true
     },
     {
-      "id": "notif_1792678573176_0",
-      "recipientEmail": "ttretilova@n-ix.com",
+      "id": "notif_1792678573176_1",
+      "recipientEmail": "pdushynskyi@n-ix.com",
       "senderName": "Daniel Poludyonny",
       "senderEmail": "dpoludonnyi@n-ix.com",
       "targetId": "node_deck_1",
