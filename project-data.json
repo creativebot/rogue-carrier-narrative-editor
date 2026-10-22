@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:09:14.191682",
+  "_lastModified": "2026-10-22T22:09:43.495282",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3597,7 +3597,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_44_waste_issues_ii",
+            "name": "Waste Issues II",
+            "rawName": "Waste Issues II",
+            "amount": "",
+            "hasN": false,
+            "nValue": "",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Waste Issues II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Waste",
+            "target": "building",
+            "effect": "Waste accumulation +50%",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each affected building produces 50% more waste."
+          }
+        ]
       },
       "position": {
         "x": 2810,
