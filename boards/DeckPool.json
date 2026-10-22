@@ -2796,7 +2796,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The group of volunteers confiscated the entire batch without sorting individual bottles. Though frustrating for some, this decisive action prevented a crisis and kept everyone safe.",
           "rewards": [
             {
               "resourceId": "stat_morale",
@@ -2885,5 +2885,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:27:36.850627"
+  "_lastModified": "2026-10-22T11:27:43.579683"
 }
