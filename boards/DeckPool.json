@@ -3696,7 +3696,7 @@
           "description": "Inspect and replace air filters in the affected factory area to reduce exposure to the irritant.",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
           "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3931,5 +3931,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:52:01.286270"
+  "_lastModified": "2026-10-22T12:52:02.327383"
 }
