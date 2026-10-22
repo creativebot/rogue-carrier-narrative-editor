@@ -1593,7 +1593,7 @@
           "description": "",
           "requirements": [],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The scouts decide to land and wait out the storm. Ten minutes later, an enormous lightning bolt strikes the island, cutting off all communication with the team. Even after the storm subsides, contact cannot be restored. A rescue team is dispatched to investigate, but finds nothing at the landing site except a pool of molten metal where the recon craft once stood.",
           "rewards": [
             {
               "resourceId": "stat_crew count",
@@ -1644,5 +1644,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T13:24:27.596466"
+  "_lastModified": "2026-10-22T13:24:34.614238"
 }
