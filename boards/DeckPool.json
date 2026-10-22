@@ -2341,7 +2341,7 @@
         "description": "Leave them be",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "lead to the additional event",
+        "resultDescription": "Log the group as low-risk and schedule a discreet quarterly welfare check.",
         "penalties": []
       },
       "position": {
@@ -2409,5 +2409,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:30:20.878066"
+  "_lastModified": "2026-10-22T09:30:30.128688"
 }
