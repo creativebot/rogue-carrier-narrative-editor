@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:50:48.991009",
+  "_lastModified": "2026-10-22T11:50:57.689701",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3602,7 +3602,13 @@
           "timerHours": 5,
           "resultDescription": "With upgraded tools and a new purpose, the crew channels their competitive energy into real research. Friendly rivalries now push them to discover promising antibiotic candidates, blending fun with meaningful contributions to shipwide health.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+50",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
