@@ -2710,7 +2710,7 @@
         {
           "id": "act_1792665889569",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Organize art club",
           "description": "Supply resources so crew can create art and sculptures from scrap materials.",
           "requirements": [],
           "timerHours": 5,
@@ -2780,5 +2780,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T10:45:19.683399"
+  "_lastModified": "2026-10-22T10:45:24.730746"
 }
