@@ -2342,9 +2342,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "lead to the additional event",
-        "penalties": [
-          "💀 Entropy +10"
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
@@ -2381,5 +2379,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T09:23:19.389066"
+  "_lastModified": "2026-10-22T09:23:22.257408"
 }
