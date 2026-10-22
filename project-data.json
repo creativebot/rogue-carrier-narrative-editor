@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:29:01.087304",
+  "_lastModified": "2026-10-22T11:29:02.587929",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3173,6 +3173,44 @@
       "actions": [
         {
           "id": "c_1792668534139",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    },
+    {
+      "id": "node_1792668540158",
+      "codename": "DECK-S1-E20",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Deck",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 491
+      },
+      "actions": [
+        {
+          "id": "c_1792668540158",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
