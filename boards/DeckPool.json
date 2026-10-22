@@ -3517,7 +3517,13 @@
           "timerHours": 5,
           "resultDescription": "The Plumplins took to the prepared nesting site at once and settled in, healthy and content. Over the following days they grew attached to the crew, and when it came time to part ways, they left something from the nest behind. The crew chose to read it as a thank-you.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+30",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3541,5 +3547,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:39:06.848040"
+  "_lastModified": "2026-10-22T11:39:17.785629"
 }
