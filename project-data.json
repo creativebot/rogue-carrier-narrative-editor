@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:01:30.286013",
+  "_lastModified": "2026-10-22T13:01:37.192279",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3698,8 +3698,8 @@
       "variationId": "var_v1",
       "floorIndex": 6,
       "tier": 3,
-      "location": "Game stage 2 or later\nat least 1 crabari crew member, ",
-      "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, ",
+      "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
+      "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "eventIntro": "Initial event context...",
       "eventDescription": "A human crew member has been sharing some deep connection with Ruthless-Sky (short Ruth), a crabari hired on deck. The crewmember finds Ruth's powerful stature and kind eyes incredibly attractive, and Ruth sees crewmember's \"clan\" (the rest of vessel's crew) strong enough for him to be a feasible mate. Despite cultural differences between humans and crabari, they want to play wedding.",
       "reactionTimerHours": "Infinite",
