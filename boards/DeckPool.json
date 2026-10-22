@@ -4089,13 +4089,6 @@
             "amount": "-1",
             "icon": "👨‍🚀",
             "iconImg": ""
-          },
-          {
-            "resourceId": "stat_crew",
-            "name": "Crew Members",
-            "amount": "-1",
-            "iconImg": "",
-            "icon": "👨‍🚀"
           }
         ]
       },
@@ -4979,5 +4972,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:21:30.892558"
+  "_lastModified": "2026-10-22T22:21:33.785658"
 }
