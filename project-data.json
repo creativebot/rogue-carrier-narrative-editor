@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T11:43:32.684910",
+  "_lastModified": "2026-10-22T11:43:40.796637",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3408,7 +3408,13 @@
           "timerHours": 5,
           "resultDescription": "Once new protocols are in place, the creature’s secret owner has no choice but to come forward and admit the truth. The pet is released safely into the wild. The tightened security standards prompt the crew to work diligently to adapt, boosting overall discipline and work ethic.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+15",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
