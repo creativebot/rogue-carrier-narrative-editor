@@ -945,7 +945,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 5,
       "tier": 1,
       "location": "Game stage 2 or more, Morale less then 30, Behemoth",
       "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
@@ -970,7 +970,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5131
+        "y": 3784
       },
       "actions": [
         {
@@ -1456,5 +1456,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T09:14:45.051980"
+  "_lastModified": "2026-10-22T09:14:46.604074"
 }
