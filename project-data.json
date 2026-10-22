@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T13:25:25.987635",
+  "_lastModified": "2026-10-22T13:25:31.485911",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5407,26 +5407,6 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403901862",
-          "codeSuffix": "D",
-          "shortDescription": "DO NOTHING",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-2",
-              "icon": "👨‍🚀",
-              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
