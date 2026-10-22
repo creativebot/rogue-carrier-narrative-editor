@@ -4189,7 +4189,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_42_delighted_speciesname_traders",
+              "name": "Delighted Crabari Traders",
+              "rawName": "Delighted {SpeciesName} Traders",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": true,
+              "species": "Crabari",
+              "iconImg": "icons/status_effects/Delighted traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "Crabari Traders",
+              "effect": "prices -30% for Crabari for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 30% (rounded up) for the trader of that Crabari."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4926,5 +4949,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T22:20:10.186522"
+  "_lastModified": "2026-10-22T22:20:29.380749"
 }
