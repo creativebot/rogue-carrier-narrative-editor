@@ -115,9 +115,9 @@
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 839,
+        "seconds": 749,
         "boards": {
-          "DeckPool": 839
+          "DeckPool": 749
         },
         "hourly": [
           0,
@@ -130,7 +130,7 @@
           0,
           99,
           650,
-          90,
+          0,
           0,
           0,
           0,
@@ -145,14 +145,14 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T10:02:31.903000Z"
+        "lastActive": "2026-10-22T09:56:31.902000Z"
       },
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 30,
+        "seconds": 60,
         "boards": {
-          "DeckPool": 30
+          "DeckPool": 60
         },
         "hourly": [
           0,
@@ -164,6 +164,7 @@
           0,
           0,
           0,
+          30,
           30,
           0,
           0,
@@ -177,10 +178,9 @@
           0,
           0,
           0,
-          0,
           0
         ],
-        "lastActive": "2026-10-22T09:14:50.462000Z"
+        "lastActive": "2026-10-22T10:04:10.691000Z"
       }
     }
   }
