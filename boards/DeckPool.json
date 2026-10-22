@@ -3669,7 +3669,7 @@
         "description": "No solution, everyone sneezing",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The effects of the irritant intensified, and symptoms escalated into widespread malaise. The crew is left feeling unwell and uncomfortable, with persistent itching affecting everyone.",
         "penalties": []
       },
       "position": {
@@ -3935,5 +3935,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T12:51:44.084861"
+  "_lastModified": "2026-10-22T12:51:47.409860"
 }
