@@ -3127,7 +3127,14 @@
           "timerHours": 5,
           "resultDescription": "Tailing the creature reveals its true nature — a secret pet kept by one of the crew. The owner admits what he'd been doing, and after a short goodbye the creature goes back into the wild. The patrol turns out to be a welcome break for everyone involved: a bit of movement, a bit of fresh air, and the whole group comes back looser and more awake.",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "-0.5",
+              "iconImg": "",
+              "icon": "🌀"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3654,5 +3661,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-22T11:43:40.491733"
+  "_lastModified": "2026-10-22T11:44:03.396014"
 }
