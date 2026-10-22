@@ -23,7 +23,29 @@
         "description": "No team responded in time.",
         "resultDescription": "Penalty applied.",
         "penalties": [
-          "💀 Entropy +5"
+          "💀 Entropy +5",
+          {
+            "resourceId": "status_6_weakened_morale_ii",
+            "name": "Weakened Morale II",
+            "rawName": "Weakened Morale II",
+            "amount": "36",
+            "hasN": true,
+            "nValue": "36",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Morale II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Morale",
+            "target": "crew",
+            "effect": "Morale -4 per hour for 36 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crewmember loses 4 morale per hour for certain time."
+          }
         ]
       },
       "position": {
@@ -4214,5 +4236,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T15:30:09.697763"
+  "_lastModified": "2026-10-22T15:30:12.418218"
 }
