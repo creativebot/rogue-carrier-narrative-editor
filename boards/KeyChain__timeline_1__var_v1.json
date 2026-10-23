@@ -1077,7 +1077,7 @@
         {
           "id": "act_1792773156500",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Send Drones",
           "description": "Worker drones reinforced with force shields should manage to extract the BVR, no problem.",
           "requirements": [],
           "timerHours": 5,
@@ -2161,5 +2161,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:33:29.576650"
+  "_lastModified": "2026-10-23T16:33:38.990935"
 }
