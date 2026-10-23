@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T16:33:10.294146",
+  "_lastModified": "2026-10-23T16:33:29.597267",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7961,7 +7961,7 @@
         {
           "id": "c_1791706248386",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Send divers",
           "description": "Only anatomically-enhanced crew members can withstand the pressure and work under those conditions. ",
           "requirements": [],
           "timerHours": 5,
