@@ -1621,8 +1621,40 @@
           "triggerCondition": "After (GEN-E1) Board Vessel"
         }
       ]
+    },
+    {
+      "id": "diag_1792742502689",
+      "targetEventId": "node_1792411390857",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1792411418096",
+      "links": [
+        {
+          "id": "dlink_1792742502689",
+          "targetEventId": "node_1792411390857",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1792411418096",
+          "triggerCondition": "After (GEN-S1-E8) Scare the monster"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "After (GEN-S1-E8) Scare the monster",
+      "position": {
+        "x": 2380,
+        "y": 1459
+      },
+      "variationId": "var_v1",
+      "category": "GenericPool",
+      "lines": [
+        {
+          "id": "l_1792742502689",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:47.190102"
+  "_lastModified": "2026-10-23T08:01:48.181375"
 }
