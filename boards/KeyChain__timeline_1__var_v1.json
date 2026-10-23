@@ -2461,8 +2461,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Extract the BVR",
       "position": {
-        "x": 5795,
-        "y": 4582
+        "x": 5805,
+        "y": 4772
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2617,5 +2617,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:53:03.788293"
+  "_lastModified": "2026-10-23T19:53:05.787097"
 }
