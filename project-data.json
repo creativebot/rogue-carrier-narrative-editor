@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:54:41.388716",
+  "_lastModified": "2026-10-23T22:54:54.099957",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11601,7 +11601,7 @@
           "id": "l_1792795988883",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Then I'm glad it's one of the symptoms."
         },
         {
           "id": "l_1792796068549",
