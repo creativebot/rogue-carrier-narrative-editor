@@ -553,14 +553,14 @@
           "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
           "requirements": [
             {
-              "id": "clause_1791673357630",
+              "id": "clause_1792787319779",
               "isReplaceable": false,
               "items": [
                 {
-                  "resourceId": "consumer_02",
-                  "name": "Portable Force Shield",
-                  "amount": 5,
-                  "iconImg": "icons/T_ForceField.png",
+                  "resourceId": "machinery_01",
+                  "name": "Propulsion Kit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Propulsion_Kit.png",
                   "icon": "📦"
                 }
               ]
@@ -2653,5 +2653,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:24.966310"
+  "_lastModified": "2026-10-23T20:28:40.141515"
 }
