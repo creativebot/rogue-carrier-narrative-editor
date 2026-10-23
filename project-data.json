@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T22:26:54.982186",
+  "_lastModified": "2026-10-23T07:07:28.420588",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Tetiana Tretilova"
+    "author": "Oleksandr Seliutin"
   },
   "timelines": [
     {
@@ -245,9 +245,7 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items",
-    "Caged Plumplins_Quest item",
-    "Stamets Artifact _Immunity buff"
+    "any number of items"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -297,7 +295,7 @@
       },
       "position": {
         "x": 110,
-        "y": 136
+        "y": 220
       },
       "actions": [
         {
@@ -321,8 +319,8 @@
     },
     {
       "id": "node_1792573049123",
-      "codename": "DECK-S1-E1  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "Fishing Adventures",
+      "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
+      "name": "New Event Block",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -352,7 +350,7 @@
       },
       "position": {
         "x": 110,
-        "y": 1352
+        "y": 918
       },
       "actions": [
         {
@@ -478,23 +476,22 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792574416692",
-      "codename": "DECK-S1-E2   BPQ_DeckQuest_Plant_Sickness",
+      "codename": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness",
       "name": "Plant Diseases",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": 1,
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
+      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -551,7 +548,7 @@
       },
       "position": {
         "x": 110,
-        "y": 2465
+        "y": 2074
       },
       "actions": [
         {
@@ -708,7 +705,7 @@
     },
     {
       "id": "node_1792575255849",
-      "codename": "DECK-S1-E3 BPQ_DeckQuest_NewMenu",
+      "codename": "DECK-S1-E4 BPQ_DeckQuest_NewMenu",
       "name": "New Menu",
       "title": "New Event Block",
       "type": "Deck",
@@ -739,7 +736,7 @@
       },
       "position": {
         "x": 110,
-        "y": 3582
+        "y": 3123
       },
       "actions": [
         {
@@ -943,18 +940,18 @@
     },
     {
       "id": "node_1792576020887",
-      "codename": "DECK-S1-E4 BPQ_DeckQuest_Infestation",
+      "codename": "DECK-S1-E5 BPQ_DeckQuest_Infestation",
       "name": "Infestation",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
+      "floorIndex": 5,
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
-      "eventIntro": "",
-      "eventDescription": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
+      "eventIntro": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
+      "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -1011,7 +1008,7 @@
       },
       "position": {
         "x": 110,
-        "y": 4794
+        "y": 4267
       },
       "actions": [
         {
@@ -1205,18 +1202,17 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792578159292",
-      "codename": "DECK-S1-E5 BPQ_DeckQuest_Tournament",
+      "codename": "DECK-S1-E6 BPQ_DeckQuest_Tournament",
       "name": "Tournament",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 7,
       "tier": 1,
       "location": "Game stage 2 or more, Morale less then 30, Behemoth",
       "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
@@ -1241,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5935
+        "y": 5312
       },
       "actions": [
         {
@@ -1483,13 +1479,13 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E6 BPQ_DeckQuest_Repetition_Load",
+      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
       "name": "Repetition Overload",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
+      "floorIndex": 8,
       "tier": 1,
       "location": "Game stage 2 or more, Behemoth",
       "spawnConditions": "Game stage 2 or more, Behemoth",
@@ -1551,7 +1547,7 @@
       },
       "position": {
         "x": 110,
-        "y": 6989
+        "y": 6301
       },
       "actions": [
         {
@@ -1659,18 +1655,18 @@
     },
     {
       "id": "node_1792579368503",
-      "codename": "DECK-S1-E7 BPQ_DeckQuest_Fishing_Rig",
+      "codename": "DECK-S1-E8 BPQ_DeckQuest_Fishing_Rig",
       "name": "Trawl Rig",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 11,
+      "floorIndex": 10,
       "tier": 1,
       "location": "in the open sea, Behemoth, ",
       "spawnConditions": "in the open sea, Behemoth, ",
-      "eventIntro": "",
-      "eventDescription": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
+      "eventIntro": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
+      "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -1690,87 +1686,19 @@
       },
       "position": {
         "x": 110,
-        "y": 7886
+        "y": 7104
       },
       "actions": [
         {
           "id": "c_1792579368503",
           "codeSuffix": "A",
-          "shortDescription": "Build the Rig",
+          "shortDescription": "Choice A",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
-          "requirements": [
-            {
-              "id": "clause_1792704272373",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "processing_03",
-                  "name": "Thermoplastic",
-                  "amount": 10,
-                  "iconImg": "icons/T_Thermoplastic.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "synthesized_01",
-                  "name": "Biopolymer",
-                  "amount": 10,
-                  "iconImg": "icons/T_Biopolymer.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792704296260",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_04",
-                  "name": "Conductive Materials",
-                  "amount": 10,
-                  "iconImg": "icons/T_Conductive-Materials.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
+          "requirements": [],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
-            {
-              "resourceId": "stat_entropy",
-              "name": "Entropy",
-              "amount": "0.1",
-              "iconImg": "",
-              "icon": "🌀"
-            },
-            {
-              "resourceId": "res_31_k_Algae",
-              "name": "K-IV Algae",
-              "amount": "0-60",
-              "iconImg": "icons/T_ET_Squash.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_39_k_Krill",
-              "name": "K-IV Krill",
-              "amount": "0-60",
-              "iconImg": "icons/T_K-IV_Krill.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_24_k_Plankton",
-              "name": "K-IV Plankton",
-              "amount": "0-60",
-              "iconImg": "icons/T_ET_Plankton.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_40_k_AminoAc",
-              "name": "K-IV Aminoacids",
-              "amount": "0-60",
-              "iconImg": "icons/T_Amino_Acid.png",
-              "icon": "📦"
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -1778,92 +1706,29 @@
         {
           "id": "act_1792579735218",
           "codeSuffix": "B",
-          "shortDescription": "Build the Advanced Rig",
+          "shortDescription": "Choice B",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
-          "requirements": [
-            {
-              "id": "clause_1792704304589",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792704312993",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_01",
-                  "name": "Basic Extractor",
-                  "amount": 1,
-                  "iconImg": "icons/T_ExtractorBasic.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
+          "requirements": [],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
-            {
-              "resourceId": "stat_entropy",
-              "name": "Entropy",
-              "amount": "0.2",
-              "iconImg": "",
-              "icon": "🌀"
-            },
-            {
-              "resourceId": "res_39_k_Krill",
-              "name": "K-IV Krill",
-              "amount": "60-120",
-              "iconImg": "icons/T_K-IV_Krill.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_31_k_Algae",
-              "name": "K-IV Algae",
-              "amount": "60-120",
-              "iconImg": "icons/T_ET_Squash.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_40_k_AminoAc",
-              "name": "K-IV Aminoacids",
-              "amount": "60-120",
-              "iconImg": "icons/T_Amino_Acid.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_24_k_Plankton",
-              "name": "K-IV Plankton",
-              "amount": "60-120",
-              "iconImg": "icons/T_ET_Plankton.png",
-              "icon": "📦"
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792582814090",
-      "codename": "DECK-S1-E8 BPQ_DeckQuest_SpecialTraining",
+      "codename": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining",
       "name": "Special Training",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 12,
+      "floorIndex": 0,
       "tier": 1,
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
@@ -1880,7 +1745,7 @@
       },
       "position": {
         "x": 110,
-        "y": 9068
+        "y": 7827
       },
       "actions": [
         {
@@ -2110,8 +1975,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792585570927",
@@ -2161,7 +2025,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 132
+        "y": 216
       },
       "actions": [
         {
@@ -2286,7 +2150,7 @@
       "location": "More than 5 ill crew members, Behemoth",
       "spawnConditions": "More than 5 ill crew members, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "The Medbay has been developing a special vaccine meant to boost the crew's immunity to the local pathogens.\n The crew of Behemoth is alien to this planet, and the risk of someone catching some indigenous virus or bacteria is always present. Surely, the crew follows a set of strict rules and precautions to reduce the chance of contracting a deadly strain, but it would be much better for the crew to have resistance to the unwanted gifts of this planet. To create a vaccine, the doctors need to study one of the following subjects extensively.",
+      "eventDescription": "Enter narrative body context...",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -2298,7 +2162,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 1056
+        "y": 992
       },
       "actions": [
         {
@@ -2750,7 +2614,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 3210
+        "y": 3148
       },
       "actions": [
         {
@@ -2776,30 +2640,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
-          "rewards": [
-            {
-              "resourceId": "status_6_weakened_morale_ii",
-              "name": "Weakened Morale II",
-              "rawName": "Weakened Morale II",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Weakened Morale II.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "Morale -4 per hour for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "The crewmember loses 4 morale per hour for certain time."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2826,30 +2667,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The undercover agent reports on the group’s benign activities. TTRPGs become a welcome stress relief for the crew as their awareness increases.",
-          "rewards": [
-            {
-              "resourceId": "status_9_morale_boost_ii",
-              "name": "Morale Boost II",
-              "rawName": "Morale Boost II",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Boost II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "gain +20 morale for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -2875,7 +2693,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 4143
+        "y": 3924
       },
       "actions": [
         {
@@ -2945,41 +2763,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Safety Report: \"So, we let the bladed bot do its thing for a little too long. It eventually came way too close to stabbing one of our people—no fatalities, but it was a near miss. The panic spread fast, and the  film studio had to be shut down in record time. Lesson learned, I hope.\" From: Orest Demchuck.",
-        "penalties": [
-          {
-            "resourceId": "stat_morale",
-            "name": "Morale",
-            "amount": "-10",
-            "icon": "😊",
-            "iconImg": ""
-          },
-          {
-            "resourceId": "status_28_productivity_slowdown_ii",
-            "name": "Productivity Slowdown II",
-            "rawName": "Productivity Slowdown II",
-            "amount": "48",
-            "hasN": true,
-            "nValue": "48",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Production Bonuses",
-            "target": "crew/building",
-            "effect": "crew productivity -40 for 48 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
-        "y": 4870
+        "y": 4515
       },
       "actions": [
         {
@@ -3011,15 +2799,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety Report: \"We managed to intercept the \"blade bot\" in the corridor and disarm it on the spot—literally took the knives right off. The robot’s back to harmlessly bumping into walls, and the crew’s sense of safety has gone way up. One less horror story for now.\" From: Orest Demchuck.",
-          "rewards": [
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3046,43 +2826,12 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety report:\n\"Well, good news: the team managed to snag our knife-wielding cleaning robot with its batteries nearly drained! Sure, manual mopping isn’t anyone’s favorite pastime, but the chase gave everyone an unexpected show and actually boosted spirits. Crisis averted!\" From: Orest Demchuck.",
-          "rewards": [
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+10",
-              "icon": "😊",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "status_43_waste_issues_i",
-              "name": "Waste Issues I",
-              "rawName": "Waste Issues I",
-              "amount": "",
-              "hasN": false,
-              "nValue": "",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Waste Issues I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Waste",
-              "target": "building",
-              "effect": "Waste accumulation +20%",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "Each affected building produces 20% more waste."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661778711",
@@ -3092,7 +2841,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 7,
       "tier": 2,
       "location": "Game stage 3 or more, Behemoth",
       "spawnConditions": "Game stage 3 or more, Behemoth",
@@ -3105,34 +2854,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "Productivity report:\n\"Captain, no corrective action has been taken. The gaps in our procedures persist. Rather than cooperating, personnel now circumvent each other, bypassing the shared process entirely. Recovery will require considerable effort and time.\nWith due respect, Mnemosyne.\"",
-        "penalties": [
-          {
-            "resourceId": "status_28_productivity_slowdown_ii",
-            "name": "Productivity Slowdown II",
-            "rawName": "Productivity Slowdown II",
-            "amount": "24",
-            "hasN": true,
-            "nValue": "24",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Production Bonuses",
-            "target": "crew/building",
-            "effect": "crew productivity -40 for 24 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
-        "y": 5913
+        "y": 5325
       },
       "actions": [
         {
@@ -3164,30 +2890,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Productivity Report:\n\"Captain, a recent discussion revealed a critical flaw in the original protocol, as identified by an attentive crew member during the meeting. Following a thorough conversation with the team, we have implemented updates to all relevant procedures. This revision has resulted in an unexpected boost to overall productivity.\nWith due respect, Mnemosyne.\"",
-          "rewards": [
-            {
-              "resourceId": "status_25_boosted_productivity_ii",
-              "name": "Boosted Productivity II",
-              "rawName": "Boosted Productivity II",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Productivity II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Production Bonuses",
-              "target": "crew/building",
-              "effect": "productivity +50 for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3225,8 +2928,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661784289",
@@ -3236,7 +2938,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
+      "floorIndex": 8,
       "tier": 2,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -3261,7 +2963,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 7001
+        "y": 6277
       },
       "actions": [
         {
@@ -3279,28 +2981,6 @@
               "amount": "+10",
               "icon": "😊",
               "iconImg": ""
-            },
-            {
-              "resourceId": "status_21_boosted_health_ii",
-              "name": "Boosted Health II",
-              "rawName": "Boosted Health II",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Health II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "HP",
-              "target": "crew",
-              "effect": "crew HP +50% for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
             }
           ],
           "targetNodeIds": [],
@@ -3314,52 +2994,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
-          "rewards": [
-            {
-              "resourceId": "status_9_morale_boost_ii",
-              "name": "Morale Boost II",
-              "rawName": "Morale Boost II",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Boost II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "gain +20 morale for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
-            },
-            {
-              "resourceId": "status_48_sustainable_living_iii",
-              "name": "Sustainable Living III",
-              "rawName": "Sustainable Living III",
-              "amount": "",
-              "hasN": false,
-              "nValue": "",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Sustainable Living III.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Waste",
-              "target": "building",
-              "effect": "Waste accumulation -75%",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Each affected building produces 100% less waste."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3376,8 +3011,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792661788229",
@@ -3387,7 +3021,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 11,
+      "floorIndex": 9,
       "tier": 2,
       "location": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
       "spawnConditions": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
@@ -3400,56 +3034,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The unexpected onset of confusion startled the technicians, leading to a period of significant distress. Doubts about lab discipline have risen, and the incident has shaken confidence in the team's safety procedures.",
-        "penalties": [
-          {
-            "resourceId": "status_17_weakened_health_i",
-            "name": "Weakened Health I",
-            "rawName": "Weakened Health I",
-            "amount": "1",
-            "hasN": true,
-            "nValue": "1",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Health I.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "HP",
-            "target": "crew",
-            "effect": "crew HP -20% for 1 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
-          },
-          {
-            "resourceId": "status_28_productivity_slowdown_ii",
-            "name": "Productivity Slowdown II",
-            "rawName": "Productivity Slowdown II",
-            "amount": "1",
-            "hasN": true,
-            "nValue": "1",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Production Bonuses",
-            "target": "crew/building",
-            "effect": "crew productivity -40 for 1 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 1460,
-        "y": 7892
+        "y": 7032
       },
       "actions": [
         {
@@ -3479,7 +3068,7 @@
             {
               "resourceId": "stat_morale",
               "name": "Morale",
-              "amount": "-5",
+              "amount": "-10",
               "icon": "😊",
               "iconImg": ""
             }
@@ -3552,50 +3141,7 @@
           "timerHours": 5,
           "resultDescription": "A warning was issued about the potential effects, allowing crew members to make informed choices. While productivity may have taken a slight dip, overall morale and mental well-being noticeably improved as trust in crew leadership grew.",
           "rewards": [
-            {
-              "resourceId": "status_9_morale_boost_ii",
-              "name": "Morale Boost II",
-              "rawName": "Morale Boost II",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Boost II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "gain +20 morale for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
-            },
-            {
-              "resourceId": "status_27_productivity_slowdown_i",
-              "name": "Productivity Slowdown I",
-              "rawName": "Productivity Slowdown I",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Slowdown Productivity I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Production Bonuses",
-              "target": "crew/building",
-              "effect": "crew productivity -20 for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
-            }
+            "🧠 Knowledge +100"
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -3624,34 +3170,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
-        "penalties": [
-          {
-            "resourceId": "status_44_waste_issues_ii",
-            "name": "Waste Issues II",
-            "rawName": "Waste Issues II",
-            "amount": "",
-            "hasN": false,
-            "nValue": "",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Waste Issues II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Waste",
-            "target": "building",
-            "effect": "Waste accumulation +50%",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Each affected building produces 50% more waste."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 2810,
-        "y": 146
+        "y": 233
       },
       "actions": [
         {
@@ -3702,72 +3225,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "status_14_boosted_immunity_i",
-              "name": "Boosted Immunity I",
-              "rawName": "Boosted Immunity I",
-              "amount": "72",
-              "hasN": true,
-              "nValue": "72",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Immunity I.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Immunity",
-              "target": "crew",
-              "effect": "Immunity +50% for 72 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
-            },
-            {
-              "resourceId": "status_8_morale_boost_i",
-              "name": "Morale Boost I",
-              "rawName": "Morale Boost I",
-              "amount": "72",
-              "hasN": true,
-              "nValue": "72",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Boost I.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "gain +10 morale for 72 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember's morale is increased by 10 for that duration (can surpass 100)"
-            },
-            {
-              "resourceId": "status_27_productivity_slowdown_i",
-              "name": "Productivity Slowdown I",
-              "rawName": "Productivity Slowdown I",
-              "amount": "72",
-              "hasN": true,
-              "nValue": "72",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Slowdown Productivity I.png",
-              "icon": "⚡",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Production Bonuses",
-              "target": "crew/building",
-              "effect": "crew productivity -20 for 72 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "negative",
-              "description": "",
-              "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
             }
           ],
           "targetNodeIds": [],
@@ -3814,15 +3271,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_caged_plumplins_quest_item",
-              "name": "Caged Plumplins_Quest item",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [
@@ -3880,23 +3328,13 @@
               "amount": "1",
               "iconImg": "",
               "icon": "🌀"
-            },
-            {
-              "resourceId": "criteria_stamets_artifact_immunity_buff",
-              "name": "Stamets Artifact _Immunity buff",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792668540158",
@@ -3931,7 +3369,7 @@
       },
       "position": {
         "x": 4160,
-        "y": 1477
+        "y": 1177
       },
       "actions": [
         {
@@ -4119,7 +3557,7 @@
     },
     {
       "id": "node_1792668541024",
-      "codename": "DECK-S1-E29 BPQ_DeckQuest_LetsGoGambling",
+      "codename": "DECK-S1-E21 BPQ_DeckQuest_LetsGoGambling",
       "name": "Lets Go Gambling",
       "title": "New Event Block",
       "type": "Deck",
@@ -4138,30 +3576,7 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "As anticipated, one of the extremophile bacteria escapes containment, rapidly corroding part of the ship’s structure. The incident serves as a costly reminder of the dangers unchecked fun can unleash.",
-        "penalties": [
-          {
-            "resourceId": "status_30_corrosive_mold",
-            "name": "Corrosive Mold",
-            "rawName": "Corrosive Mold",
-            "amount": "24",
-            "hasN": true,
-            "nValue": "24",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Corrosive Mold.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Repair, hull and buildings HP",
-            "target": "building",
-            "effect": "integrity -5 per hour for 24 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Each hour, affected building loses 5 points of Integrity."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 4160,
@@ -4176,30 +3591,7 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
-          "rewards": [
-            {
-              "resourceId": "status_16_absolute_immunity",
-              "name": "Absolute Immunity",
-              "rawName": "Absolute Immunity",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Absolute Immunity.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Immunity",
-              "target": "crew",
-              "effect": "gain no infections for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": ""
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4268,7 +3660,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
+      "floorIndex": 7,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -4280,7 +3672,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "The supposed birthday passes with no celebration or gift. Later, word spreads that Khalil’s birthday was actually on another day. Some crew members feel a twinge of disappointment, wondering if their own special days might someday be forgotten as well, leaving the atmosphere a bit subdued.",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -4293,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 6497
+        "y": 5669
       },
       "actions": [
         {
@@ -4332,7 +3724,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
+          "resultDescription": "",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4380,7 +3772,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
+          "resultDescription": "",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4411,7 +3803,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -4436,7 +3828,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5375
+        "y": 4648
       },
       "actions": [
         {
@@ -4475,30 +3867,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
-          "rewards": [
-            {
-              "resourceId": "status_2_fasting",
-              "name": "Fasting",
-              "rawName": "Fasting",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Fasting.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Food",
-              "target": "crew",
-              "effect": "each food charge lasts 4 hours for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "The crewmember spends each food charge every 4 hours, while receiving effects of food every hour as usual."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4531,30 +3900,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
-          "rewards": [
-            {
-              "resourceId": "status_42_delighted_speciesname_traders",
-              "name": "Delighted Crabari Traders",
-              "rawName": "Delighted {SpeciesName} Traders",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": true,
-              "species": "Crabari",
-              "iconImg": "icons/status_effects/Delighted traders.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Trade",
-              "target": "Crabari Traders",
-              "effect": "prices -30% for Crabari for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Buying prices are reduced by 30% (rounded up) for the trader of that Crabari."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4581,36 +3927,12 @@
           ],
           "timerHours": 5,
           "resultDescription": "The candid discussion led by crew experts went smoothly. Ruth and the crew member agreed they’d jumped in too quickly and decided to remain friends — for now. As they exited, an officer swears the crew member gave Ruth a sly wink, hinting that the story might not be over just yet.",
-          "rewards": [
-            {
-              "resourceId": "status_11_morale_stasis",
-              "name": "Morale Stasis",
-              "rawName": "Morale Stasis",
-              "amount": "24",
-              "hasN": true,
-              "nValue": "24",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Morale Stasis.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Morale",
-              "target": "crew",
-              "effect": "Morale not changes for 24 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Morale value is frozen at the level it was when status effect has started. This effect can be overridden by bonus and debuff to morale effects."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792668541984",
@@ -4620,7 +3942,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
+      "floorIndex": 5,
       "tier": 3,
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
@@ -4639,7 +3961,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4330
+        "y": 3743
       },
       "actions": [
         {
@@ -4808,8 +4130,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792668543040",
@@ -4832,34 +4153,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The effects of the irritant intensified, and symptoms escalated into widespread malaise. The crew is left feeling unwell and uncomfortable, with persistent itching affecting everyone.",
-        "penalties": [
-          {
-            "resourceId": "status_18_weakened_health_ii",
-            "name": "Weakened Health II",
-            "rawName": "Weakened Health II",
-            "amount": "48",
-            "hasN": true,
-            "nValue": "48",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Weakened Health II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "HP",
-            "target": "crew",
-            "effect": "crew HP -40% for 48 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 2810,
-        "y": 3353
+        "y": 2927
       },
       "actions": [
         {
@@ -4884,30 +4182,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
-          "rewards": [
-            {
-              "resourceId": "status_23_health_recovery",
-              "name": "Health Recovery",
-              "rawName": "Health Recovery",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Health Recovery.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "HP",
-              "target": "crew",
-              "effect": "gain 5 HP per hour for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Affected crewmembers regain missing HP at the rate of 5HP per hour."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4933,30 +4208,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
-          "rewards": [
-            {
-              "resourceId": "status_14_boosted_immunity_i",
-              "name": "Boosted Immunity I",
-              "rawName": "Boosted Immunity I",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Immunity I.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Immunity",
-              "target": "crew",
-              "effect": "Immunity +50% for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4982,28 +4234,12 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
-          "rewards": [
-            {
-              "resourceId": "stat_crew",
-              "name": "Crew Members",
-              "amount": "4",
-              "iconImg": "",
-              "icon": "👨‍🚀"
-            },
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "+4",
-              "icon": "👨‍🚀",
-              "iconImg": ""
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792668543262",
@@ -5013,7 +4249,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": 3,
       "location": "in the open sea",
       "spawnConditions": "in the open sea",
@@ -5026,34 +4262,11 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "The lull passes without a plan. Although everything seems fine now, the first hour of the next surge is slowed by missing approvals, labels, and tool checks that could have been addressed earlier. The crew face the same friction as before, and the chance to build momentum is missed.",
-        "penalties": [
-          {
-            "resourceId": "status_27_productivity_slowdown_i",
-            "name": "Productivity Slowdown I",
-            "rawName": "Productivity Slowdown I",
-            "amount": "48",
-            "hasN": true,
-            "nValue": "48",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Slowdown Productivity I.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Production Bonuses",
-            "target": "crew/building",
-            "effect": "crew productivity -20 for 48 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
-          }
-        ]
+        "penalties": []
       },
       "position": {
         "x": 2810,
-        "y": 2357
+        "y": 2075
       },
       "actions": [
         {
@@ -5079,30 +4292,7 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew have planned out the next hours and are now able to address upcoming situations more efficiently, resulting in a spike in overall productivity.",
-          "rewards": [
-            {
-              "resourceId": "status_25_boosted_productivity_ii",
-              "name": "Boosted Productivity II",
-              "rawName": "Boosted Productivity II",
-              "amount": "48",
-              "hasN": true,
-              "nValue": "48",
-              "hasSpecies": false,
-              "species": "",
-              "iconImg": "icons/status_effects/Boosted Productivity II.png",
-              "icon": "✨",
-              "isStatusEffect": true,
-              "kind": "status_effect",
-              "category": "Status Effect",
-              "effectCategory": "Production Bonuses",
-              "target": "crew/building",
-              "effect": "productivity +50 for 48 hours",
-              "effectType": "Buff/Debuff",
-              "posNeg": "positive",
-              "description": "",
-              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
-            }
-          ],
+          "rewards": [],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -5146,8 +4336,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [],
-      "colorScheme": "emerald"
+      "disabledVariationIds": []
     },
     {
       "id": "node_1792668543463",
@@ -5168,7 +4357,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1402
+        "y": 1273
       },
       "actions": [
         {
@@ -5199,36 +4388,6 @@
                   "amount": 10,
                   "iconImg": "icons/T_Mycobrick.png",
                   "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792706878647",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "criteria_caged_plumplins_quest_item",
-                  "name": "Caged Plumplins_Quest item",
-                  "amount": 1,
-                  "icon": "🔑",
-                  "iconImg": "",
-                  "category": "Criteria",
-                  "isCriteria": true
-                }
-              ]
-            },
-            {
-              "id": "clause_1792706949555",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "criteria_stamets_artifact_immunity_buff",
-                  "name": "Stamets Artifact _Immunity buff",
-                  "amount": 1,
-                  "icon": "🔑",
-                  "iconImg": "",
-                  "category": "Criteria",
-                  "isCriteria": true
                 }
               ]
             }
@@ -5269,21 +4428,6 @@
                   "name": "👨‍🚀 Crew Count",
                   "amount": 3,
                   "icon": "👨‍🚀"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792706882880",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "criteria_caged_plumplins_quest_item",
-                  "name": "Caged Plumplins_Quest item",
-                  "amount": 1,
-                  "icon": "🔑",
-                  "iconImg": "",
-                  "category": "Criteria",
-                  "isCriteria": true
                 }
               ]
             }
