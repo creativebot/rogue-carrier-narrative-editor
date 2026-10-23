@@ -1444,8 +1444,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
-        "x": -2920,
-        "y": 5078
+        "x": -3083,
+        "y": 5123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3399,5 +3399,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:28:57.195025"
+  "_lastModified": "2026-10-23T23:29:02.755835"
 }
