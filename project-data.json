@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:42:57.788886",
+  "_lastModified": "2026-10-23T23:43:01.907383",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11947,7 +11947,7 @@
           "id": "l_1792798954257",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "What a joke this mission turned out to be, huh?"
         },
         {
           "id": "l_1792798955051",
