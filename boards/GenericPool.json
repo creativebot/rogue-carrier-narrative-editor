@@ -107,7 +107,7 @@
         {
           "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Extract Tissue",
           "description": "",
           "requirements": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:06:51.708812"
+  "_lastModified": "2026-10-23T13:06:53.800543"
 }
