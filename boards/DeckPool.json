@@ -1863,7 +1863,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
         "penalties": [
           {
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:19:33.730425"
+  "_lastModified": "2026-10-23T07:19:36.985177"
 }
