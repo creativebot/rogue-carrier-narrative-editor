@@ -3353,7 +3353,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
         "penalties": [
           {
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:19:36.985177"
+  "_lastModified": "2026-10-23T07:19:40.259714"
 }
