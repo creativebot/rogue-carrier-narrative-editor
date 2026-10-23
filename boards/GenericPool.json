@@ -598,7 +598,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists forced the pod open with a crafted lever. The  pressure difference between a hatch and the outside  caused explosive decompression. All three survivors were injured  as well as one of your crew. But all survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:05.531514"
+  "_lastModified": "2026-10-23T08:02:06.533802"
 }
