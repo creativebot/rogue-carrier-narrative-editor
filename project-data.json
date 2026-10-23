@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:30:25.787261",
+  "_lastModified": "2026-10-23T23:30:27.188850",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9897,6 +9897,18 @@
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
           "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
+        },
+        {
+          "id": "l_1792798226086",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792798225843",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
         },
         {
           "id": "l_1792798225098",
