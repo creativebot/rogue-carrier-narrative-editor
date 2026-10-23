@@ -3320,8 +3320,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3A) Study distantly",
       "position": {
-        "x": -2040,
-        "y": 4074
+        "x": -1899,
+        "y": 4206
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3438,9 +3438,9 @@
           "triggerCondition": "After (T1-V1-K3A) Study distantly"
         }
       ],
-      "floorIndex": 2
+      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:22:53.595791"
+  "_lastModified": "2026-10-23T23:23:24.087256"
 }
