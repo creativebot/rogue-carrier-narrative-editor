@@ -316,6 +316,18 @@
       "createdAt": "2026-10-23T23:42:12.476350Z",
       "displayTime": "2026-10-23 23:42",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792799174331",
+      "targetId": "diag_1792799107351",
+      "targetType": "dialogue",
+      "targetTitle": "Standalone Conversation",
+      "text": "Cond: Currently not in the game (2nd playthrough)",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-23T23:46:14.331813Z",
+      "displayTime": "2026-10-23 23:46",
+      "mentions": []
     }
   ],
   "deletedIds": [
