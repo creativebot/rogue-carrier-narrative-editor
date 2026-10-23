@@ -1096,7 +1096,7 @@
             }
           ],
           "timerHours": 7,
-          "resultDescription": "t takes a long time for the divers to cut through the multiple layers of metal. It is also quite a distressing job, as they report sightings of strange deep-sea fauna: ghostly shapes passing by in the distance.\n\nWhen they finally retrieve the flight recorder, they are happy to leave. In the submarine, they detect something large on their radar. It is rising fast to the surface, in the direction of the ship.",
+          "resultDescription": "It takes a long time for the divers to cut through the multiple layers of metal. It is also quite a distressing job, as they report sightings of strange deep-sea fauna: ghostly shapes passing by in the distance.\n\nWhen they finally retrieve the flight recorder, they are happy to leave. In the submarine, they detect something large on their radar. It is rising fast to the surface, in the direction of the ship.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -2251,5 +2251,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:41:24.084254"
+  "_lastModified": "2026-10-23T17:41:30.785052"
 }
