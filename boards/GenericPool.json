@@ -107,8 +107,8 @@
         {
           "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Extract Tissue",
-          "description": "",
+          "shortDescription": "Choice A",
+          "description": "Extract Tissue",
           "requirements": [
             {
               "id": "clause_1791996222092",
@@ -156,8 +156,8 @@
         {
           "id": "act_1791996581486",
           "codeSuffix": "B",
-          "shortDescription": "Neutralise the virus",
-          "description": "",
+          "shortDescription": "Choice B",
+          "description": "Neutralise the virus",
           "requirements": [
             {
               "id": "clause_1791996623956",
@@ -207,8 +207,8 @@
         {
           "id": "act_1791996584187",
           "codeSuffix": "C",
-          "shortDescription": "Neutralise the virus",
-          "description": "Neutralise the virus",
+          "shortDescription": "Choice C",
+          "description": "Reverse the sickness",
           "requirements": [
             {
               "id": "clause_1791996954490",
@@ -846,6 +846,15 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_resistance_to_diseases",
+              "name": "Resistance to diseases",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -942,6 +951,15 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_temporal_immunity",
+              "name": "Temporal immunity",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -1605,6 +1623,6 @@
       ]
     }
   ],
-  "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:11:21.838985"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-23T13:15:14.230201"
 }
