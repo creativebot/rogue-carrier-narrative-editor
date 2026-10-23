@@ -1836,8 +1836,8 @@
         },
         {
           "id": "l_1792796568694",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "survivor",
+          "speakerName": "Survivor",
           "text": "Please, help us. It hurts so much."
         }
       ],
@@ -3296,5 +3296,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:02:50.987701"
+  "_lastModified": "2026-10-23T23:02:53.713564"
 }
