@@ -1063,7 +1063,7 @@
         {
           "id": "c_1791706248386",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Send divers",
           "description": "Only anatomically-enhanced crew members can withstand the pressure and work under those conditions. ",
           "requirements": [],
           "timerHours": 5,
@@ -2161,5 +2161,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:33:10.223106"
+  "_lastModified": "2026-10-23T16:33:29.576650"
 }
