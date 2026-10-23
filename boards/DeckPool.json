@@ -464,6 +464,28 @@
             "amount": "-20",
             "icon": "😊",
             "iconImg": ""
+          },
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "8",
+            "hasN": true,
+            "nValue": "8",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 8 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
           }
         ]
       },
@@ -1758,7 +1780,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 216
+        "y": 48
       },
       "actions": [
         {
@@ -3393,7 +3415,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3418,7 +3440,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 6277
       },
       "actions": [
         {
@@ -3536,7 +3558,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
+      "floorIndex": 7,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -3561,7 +3583,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 5268
       },
       "actions": [
         {
@@ -3694,7 +3716,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3743
+        "y": 4275
       },
       "actions": [
         {
@@ -3890,7 +3912,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2927
+        "y": 3439
       },
       "actions": [
         {
@@ -3982,7 +4004,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea",
       "spawnConditions": "in the open sea",
@@ -3999,7 +4021,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2075
+        "y": 2555
       },
       "actions": [
         {
@@ -4090,7 +4112,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1273
+        "y": 1333
       },
       "actions": [
         {
@@ -4192,5 +4214,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:14:21.903389"
+  "_lastModified": "2026-10-23T13:31:22.097169"
 }
