@@ -1078,7 +1078,7 @@
           "id": "act_1792773156500",
           "codeSuffix": "B",
           "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
+          "description": "Worker drones reinforced with force shields should manage to extract the BVR, no problem.",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2161,5 +2161,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:33:03.653850"
+  "_lastModified": "2026-10-23T16:33:10.223106"
 }
