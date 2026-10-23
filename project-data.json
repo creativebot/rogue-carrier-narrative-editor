@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:16:54.296039",
+  "_lastModified": "2026-10-23T23:17:08.390936",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11808,7 +11808,7 @@
           "id": "l_1792797366299",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "Enter dialogue line here..."
+          "text": "Not many would agree, but perhaps it was a good idea to keep those people... isolated."
         },
         {
           "id": "l_1792797370813",
