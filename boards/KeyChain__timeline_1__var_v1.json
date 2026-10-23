@@ -1105,13 +1105,6 @@
               "amount": "3",
               "iconImg": "",
               "icon": "🌀"
-            },
-            {
-              "resourceId": "processing_02",
-              "name": "Alloyed Metal",
-              "amount": "3",
-              "iconImg": "icons/T_Alloy_Steel.png",
-              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -2204,5 +2197,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:46:42.850762"
+  "_lastModified": "2026-10-23T16:46:51.042846"
 }
