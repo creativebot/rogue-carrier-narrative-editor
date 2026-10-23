@@ -1700,9 +1700,9 @@
     },
     {
       "id": "diag_imp_1791393401628",
-      "targetEventId": "node_e1",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_e1_2",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
@@ -1740,15 +1740,7 @@
           "text": "Yes. \n\nI'm terrified."
         }
       ],
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e1",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_e1_2",
-          "triggerCondition": "After (T1-V1-K2A) Examine pod"
-        }
-      ]
+      "links": []
     },
     {
       "id": "diag_imp_1791402101041",
@@ -2701,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:19:03.549930"
+  "_lastModified": "2026-10-23T20:21:09.987732"
 }
