@@ -2642,7 +2642,7 @@
           "id": "l_1792785250324",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "A functional deep-sea trawler is required to complete the extraction mission."
         },
         {
           "id": "l_1792785255718",
@@ -2656,5 +2656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:54:37.713924"
+  "_lastModified": "2026-10-23T19:54:52.391173"
 }
