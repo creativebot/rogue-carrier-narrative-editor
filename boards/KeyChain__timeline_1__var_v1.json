@@ -3491,8 +3491,8 @@
         },
         {
           "id": "l_1792798957958",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "khalil",
+          "speakerName": "Khalil Arida",
           "text": "New dialogue speech text..."
         },
         {
@@ -3525,5 +3525,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:43:07.893535"
+  "_lastModified": "2026-10-23T23:43:11.196244"
 }
