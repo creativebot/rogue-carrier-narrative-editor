@@ -1427,16 +1427,16 @@
           "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
         },
         {
-          "id": "l_1792798225843",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
-        },
-        {
           "id": "l17",
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "So we're not going to have our brains bleed out of our eyes. That's nice."
+        },
+        {
+          "id": "l_1792798225843",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
         },
         {
           "id": "l_1792798225098",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:30:59.694289"
+  "_lastModified": "2026-10-23T23:31:00.988393"
 }
