@@ -243,7 +243,7 @@
         {
           "id": "act_e1_2",
           "codeSuffix": "B",
-          "shortDescription": "Examine pod",
+          "shortDescription": "Comb the island",
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
             {
@@ -2693,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:08:24.614449"
+  "_lastModified": "2026-10-23T20:08:37.199934"
 }
