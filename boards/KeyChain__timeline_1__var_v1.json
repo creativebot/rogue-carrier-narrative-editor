@@ -536,6 +536,13 @@
               "amount": "20",
               "iconImg": "icons/T_Raw_Meat.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "250-300",
+              "iconImg": "icons/T_Prebiotic.png",
+              "icon": "📦"
             }
           ],
           "targetNodeId": "node_e3a",
@@ -2663,5 +2670,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:31:04.690803"
+  "_lastModified": "2026-10-23T20:31:19.392167"
 }
