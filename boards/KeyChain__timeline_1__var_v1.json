@@ -746,9 +746,11 @@
             {
               "resourceId": "medres_03",
               "name": "Stem Tissue",
-              "amount": "8-16",
+              "amount": "4",
               "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
+              "icon": "📦",
+              "nValue": "4",
+              "hasN": true
             },
             {
               "resourceId": "stat_knowledge",
@@ -3297,5 +3299,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:11:17.122212"
+  "_lastModified": "2026-10-23T23:11:28.403344"
 }
