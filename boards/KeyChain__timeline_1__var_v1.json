@@ -2341,7 +2341,7 @@
       "targetEventId": null,
       "triggerTiming": null,
       "triggerActionId": null,
-      "delayHours": 0,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
@@ -2363,5 +2363,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:53:50.952868"
+  "_lastModified": "2026-10-23T17:53:54.048692"
 }
