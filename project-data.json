@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:43:18.294987",
+  "_lastModified": "2026-10-23T17:43:35.300316",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -8095,6 +8095,13 @@
               "amount": "+400",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "2",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
