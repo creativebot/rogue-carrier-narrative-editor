@@ -301,7 +301,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies  have been added to your stockpile.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:06.533802"
+  "_lastModified": "2026-10-23T08:02:10.038920"
 }
