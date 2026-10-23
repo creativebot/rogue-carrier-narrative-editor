@@ -1424,7 +1424,7 @@
           "id": "l_1792798226086",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "Let me tell you: it wasn't easy. Probably by design."
         },
         {
           "id": "l16",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:31:47.295110"
+  "_lastModified": "2026-10-23T23:32:03.369579"
 }
