@@ -455,7 +455,7 @@
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
+        "shortDescription": "15",
         "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:18:42.468674"
+  "_lastModified": "2026-10-23T07:18:46.321873"
 }
