@@ -245,7 +245,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
+          "resultDescription": " The escape shuttle's log accounts for six passengers, one of them a child.       The cameras show that two passengers of the shuttle had died before the creatures attacked. They bled from their eyes and were delirious. In the end, they grew aggressive and forced other passengers to flee.       The wild beasts only ravaged the corpses and did not attack any other member of the evacuation.       That's when the scouts notice the last clue. Each escape shuttle, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the shuttle's inventory.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -2694,5 +2694,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:16:26.486429"
+  "_lastModified": "2026-10-23T20:16:39.489515"
 }
