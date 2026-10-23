@@ -1707,8 +1707,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2A) Examine pod",
       "position": {
-        "x": -727,
-        "y": 2094
+        "x": -2612,
+        "y": 2110
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2693,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:21:09.987732"
+  "_lastModified": "2026-10-23T20:21:13.544888"
 }
