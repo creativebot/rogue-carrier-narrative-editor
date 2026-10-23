@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:20:49.514327",
+  "_lastModified": "2026-10-23T14:20:55.558652",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -7171,7 +7171,7 @@
                 {
                   "resourceId": "res_01_Gold",
                   "name": "Gold",
-                  "amount": 1,
+                  "amount": 10,
                   "iconImg": "icons/T_Gold.png",
                   "icon": "📦"
                 }
