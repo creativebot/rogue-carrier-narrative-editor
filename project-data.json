@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:13:54.375891",
+  "_lastModified": "2026-10-23T13:14:21.979738",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -245,7 +245,9 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items"
+    "any number of items",
+    "Caged Plumplins_Quest item",
+    "Stamets Artifact _Immunity buff"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -2025,7 +2027,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 48
+        "y": 216
       },
       "actions": [
         {
@@ -3660,7 +3662,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 7,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3685,7 +3687,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 6277
+        "y": 5669
       },
       "actions": [
         {
@@ -3803,7 +3805,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -3828,7 +3830,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5268
+        "y": 4648
       },
       "actions": [
         {
@@ -3961,7 +3963,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4275
+        "y": 3743
       },
       "actions": [
         {
@@ -4157,7 +4159,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3439
+        "y": 2927
       },
       "actions": [
         {
@@ -4249,7 +4251,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": 3,
       "location": "in the open sea",
       "spawnConditions": "in the open sea",
@@ -4266,7 +4268,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2555
+        "y": 2075
       },
       "actions": [
         {
@@ -4357,7 +4359,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1333
+        "y": 1273
       },
       "actions": [
         {
@@ -4562,8 +4564,8 @@
         {
           "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Extract Tissue",
+          "shortDescription": "Extract Tissue",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1791996222092",
@@ -4611,8 +4613,8 @@
         {
           "id": "act_1791996581486",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Neutralise the virus",
+          "shortDescription": "Neutralise the virus",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1791996623956",
@@ -4662,8 +4664,8 @@
         {
           "id": "act_1791996584187",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Reverse the sickness",
+          "shortDescription": "Neutralise the virus",
+          "description": "Neutralise the virus",
           "requirements": [
             {
               "id": "clause_1791996954490",
@@ -5301,15 +5303,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_resistance_to_diseases",
-              "name": "Resistance to diseases",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -5406,15 +5399,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_temporal_immunity",
-              "name": "Temporal immunity",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
