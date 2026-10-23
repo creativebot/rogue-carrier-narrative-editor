@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:07:31.299744",
+  "_lastModified": "2026-10-23T21:07:34.486915",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11411,7 +11411,8 @@
           "triggerCondition": "After (T1-V1-K4A) Study distantly"
         }
       ],
-      "floorIndex": 4
+      "floorIndex": 4,
+      "colorScheme": "rose"
     },
     {
       "id": "diag_1791832094238",
