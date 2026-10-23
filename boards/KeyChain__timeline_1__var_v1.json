@@ -2331,7 +2331,7 @@
           "id": "l_1792777958770",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "Attention! An unidentified object in the perimeter! Prepare for contact!"
         },
         {
           "id": "l_1792777959688",
@@ -2344,5 +2344,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:53:03.607172"
+  "_lastModified": "2026-10-23T17:53:13.041240"
 }
