@@ -906,7 +906,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -1033,12 +1033,12 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K4B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": null,
       "location": "",
       "spawnConditions": "",
@@ -1056,8 +1056,8 @@
         ]
       },
       "position": {
-        "x": 2336,
-        "y": 3290
+        "x": 3031,
+        "y": 4890
       },
       "actions": [
         {
@@ -1328,7 +1328,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
         "x": -839,
         "y": 4767
@@ -2246,7 +2246,7 @@
       ],
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Send divers • After (T1-V1-K3C) Send Drones",
+      "triggerCondition": "After (T1-V1-K4B) Send divers • After (T1-V1-K4B) Send Drones",
       "position": {
         "x": 2516,
         "y": 4264
@@ -2282,7 +2282,7 @@
       "triggerActionId": null,
       "delayHours": 0.25,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Send divers",
+      "triggerCondition": "After (T1-V1-K4B) Send divers",
       "position": {
         "x": 2511,
         "y": 4634
@@ -2395,5 +2395,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:32:03.591917"
+  "_lastModified": "2026-10-23T18:32:13.087313"
 }
