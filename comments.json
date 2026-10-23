@@ -170,6 +170,20 @@
         "ttretilova@n-ix.com",
         "pdushynskyi@n-ix.com"
       ]
+    },
+    {
+      "id": "cmt_1792761046246",
+      "targetId": "node_1792574416692",
+      "targetType": "event",
+      "targetTitle": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness - Plant Diseases",
+      "text": "@ttretilova please do not leave indents like here in description second paragraph.",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-23T13:10:46.262599Z",
+      "displayTime": "2026-10-23 13:10",
+      "mentions": [
+        "ttretilova@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
