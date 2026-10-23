@@ -3,7 +3,7 @@
   "filename": "snap_20261023_080134_Board_Save_GenericPool_Board_Save_080134.json",
   "reason": "Board Save (GenericPool): Board Save (08:01:34)",
   "author": "Tetiana Tretilova",
-  "timestamp": "2026-10-23T08:01:34.398114",
+  "timestamp": "2026-10-23T08:01:34.990499",
   "displayTime": "2026-10-23 08:01:34",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -11,7 +11,7 @@
     "version": "2.6.0",
     "schemaVersion": 1,
     "stageLayoutVersion": 2,
-    "_lastModified": "2026-10-23T08:01:34.188769",
+    "_lastModified": "2026-10-23T08:01:34.788430",
     "projectInfo": {
       "name": "Rogue Carrier Scenario 1",
       "author": "Tetiana Tretilova"
@@ -6069,7 +6069,7 @@
                 ]
               }
             ],
-            "timerHours": 5,
+            "timerHours": 0,
             "resultDescription": "Deeper in the caves, the scouts find a row of doors on the wall, each smaller than the last. None leads anywhere, painted. An air analyzer detects traces of incense used by Nasobi. Some crew members see an impressive artistic statement of one of Nasobies' artists; others see a waste of time. They debate modern art on the way back, but crew morale remains unchanged.",
             "rewards": [
               {
