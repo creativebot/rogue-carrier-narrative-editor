@@ -2257,7 +2257,7 @@
       "triggerActionId": "act_e0_2",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Process the data",
+      "triggerCondition": "",
       "position": {
         "x": 2366,
         "y": 301
@@ -2280,7 +2280,7 @@
           "targetEventId": "node_e0",
           "triggerTiming": "action_option",
           "triggerActionId": "act_e0_2",
-          "triggerCondition": "During (T1-V1-K2A) Process the data"
+          "triggerCondition": ""
         }
       ]
     },
@@ -2456,5 +2456,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:10:58.071002"
+  "_lastModified": "2026-10-23T18:11:03.688465"
 }
