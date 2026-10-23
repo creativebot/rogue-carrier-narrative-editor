@@ -2451,7 +2451,7 @@
           "id": "l_1792779308330",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "I also wanted to discuss the recent decrease in crew morale.\n\nAn unhappy crew leads to complications."
         },
         {
           "id": "l_1792779309505",
@@ -2512,5 +2512,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:16:07.917851"
+  "_lastModified": "2026-10-23T18:16:15.273151"
 }
