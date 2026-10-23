@@ -3342,7 +3342,7 @@
           "id": "l_1792797372835",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "The virus... It's a bioweapon."
         },
         {
           "id": "l_1792797371878",
@@ -3434,5 +3434,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:18:32.388703"
+  "_lastModified": "2026-10-23T23:18:43.637637"
 }
