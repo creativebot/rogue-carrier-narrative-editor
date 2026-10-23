@@ -758,6 +758,13 @@
               "amount": "+300",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "-2",
+              "icon": "😊",
+              "iconImg": ""
             }
           ],
           "targetNodeId": null,
@@ -3299,5 +3306,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:11:31.430855"
+  "_lastModified": "2026-10-23T23:11:38.089163"
 }
