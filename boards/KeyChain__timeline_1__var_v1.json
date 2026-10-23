@@ -297,7 +297,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape shuttle. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n\nThe ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -2694,5 +2694,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:17:23.166778"
+  "_lastModified": "2026-10-23T20:17:41.702410"
 }
