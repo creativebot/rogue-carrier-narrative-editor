@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:02:47.692909",
+  "_lastModified": "2026-10-23T23:02:49.290088",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10311,6 +10311,12 @@
           "speakerId": "survivor",
           "speakerName": "Survivor",
           "text": "We think we've... um, contracted something on that island. We're not feeling too well. "
+        },
+        {
+          "id": "l_1792796568694",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": []
