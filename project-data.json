@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:31:42.993974",
+  "_lastModified": "2026-10-23T20:31:50.595441",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7493,9 +7493,11 @@
             {
               "resourceId": "res_01_Gold",
               "name": "Gold",
-              "amount": "10-15",
+              "amount": "15",
               "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
+              "icon": "📦",
+              "nValue": "15",
+              "hasN": true
             },
             {
               "resourceId": "stat_knowledge",
