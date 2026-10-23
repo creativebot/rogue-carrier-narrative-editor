@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:48:15.390858",
+  "_lastModified": "2026-10-23T19:48:38.386775",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10969,7 +10969,7 @@
           "id": "l_1792784825196",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Now comes the bad, right?"
         },
         {
           "id": "l_1792784824466",
