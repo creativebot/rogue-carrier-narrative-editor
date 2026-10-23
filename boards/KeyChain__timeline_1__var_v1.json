@@ -1042,7 +1042,7 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "The fragment has sunk and now remains at the bottom of the ocean, together with the bridge voice recorder.",
       "eventDescription": "The fragment has sunk and now remains at the bottom of the ocean, together with the bridge voice recorder.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:32:17.343870"
+  "_lastModified": "2026-10-23T16:32:19.249438"
 }
