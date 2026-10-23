@@ -2034,7 +2034,7 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble • After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3388,
+        "x": 3632,
         "y": 3275
       },
       "variationId": "var_v1",
@@ -2619,5 +2619,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:53:16.706542"
+  "_lastModified": "2026-10-23T19:53:49.988371"
 }
