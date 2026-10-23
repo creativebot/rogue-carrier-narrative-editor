@@ -2472,6 +2472,18 @@
           "text": "Enter dialogue line here..."
         },
         {
+          "id": "l_1792784825196",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792784824466",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
           "id": "l_1792784823778",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
@@ -2549,5 +2561,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:47:04.311084"
+  "_lastModified": "2026-10-23T19:47:05.900704"
 }
