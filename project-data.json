@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:06:57.178800",
+  "_lastModified": "2026-10-23T13:06:59.768884",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4665,7 +4665,7 @@
           "id": "act_1791996584187",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Reverse the sickness",
+          "description": "Neutralise the virus",
           "requirements": [
             {
               "id": "clause_1791996954490",
