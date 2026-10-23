@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T16:32:36.990002",
+  "_lastModified": "2026-10-23T16:32:39.408177",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7943,8 +7943,16 @@
       "eventIntro": "The fragment has sunk and now remains at the bottom of the ocean, together with the bridge voice recorder.",
       "eventDescription": "Somewhere below the waters infested with dead fish lies the bridge voice recorder entombed in fused shreds of the spacecraft.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": 2207,
         "y": 3290
