@@ -3014,6 +3014,12 @@
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "We should consider choosing \"Study distantly\". It offers strong tactical advantages for our mission."
+        },
+        {
+          "id": "l_1792793830373",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ]
     },
@@ -3051,5 +3057,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:16:07.817659"
+  "_lastModified": "2026-10-23T22:17:10.674130"
 }
