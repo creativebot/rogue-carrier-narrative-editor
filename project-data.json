@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:10:48.790223",
+  "_lastModified": "2026-10-23T21:10:54.390765",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11492,6 +11492,38 @@
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "We should consider choosing \"Study distantly\". It offers strong tactical advantages for our mission."
+        }
+      ]
+    },
+    {
+      "id": "diag_1792789853557",
+      "targetEventId": "node_e2a",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e2a_1",
+      "links": [
+        {
+          "id": "dlink_1792789853557",
+          "targetEventId": "node_e2a",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e2a_1",
+          "triggerCondition": "During (T1-V1-K3B) Send scouts "
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K3B) Send scouts ",
+      "position": {
+        "x": -1462,
+        "y": 3493
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792789853557",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "We should consider choosing \"Send scouts \". It offers strong tactical advantages for our mission."
         }
       ]
     },
