@@ -719,7 +719,7 @@
           "id": "act_e2b_2",
           "codeSuffix": "B",
           "shortDescription": "Study distantly",
-          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
+          "description": "Keep your scouts away from the sick and use drones to study the disease.",
           "requirements": [
             {
               "id": "clause_1791704609876",
@@ -3305,5 +3305,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:10:31.433597"
+  "_lastModified": "2026-10-23T23:10:36.889743"
 }
