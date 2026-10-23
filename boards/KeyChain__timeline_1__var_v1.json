@@ -2676,7 +2676,7 @@
       "targetEventId": "node_e2a",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e2a_1",
-      "delayHours": 0,
+      "delayHours": 1,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Send scouts  • After (T1-V1-K3B) Send drones",
       "position": {
@@ -2713,5 +2713,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:42:52.092396"
+  "_lastModified": "2026-10-23T20:43:03.487830"
 }
