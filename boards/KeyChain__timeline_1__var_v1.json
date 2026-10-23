@@ -2671,8 +2671,8 @@
       "lines": [
         {
           "id": "l_1792785441773",
-          "speakerId": "voss",
-          "speakerName": "Voss",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
           "text": "Enter dialogue line here..."
         }
       ],
@@ -2681,5 +2681,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:57:25.591569"
+  "_lastModified": "2026-10-23T19:57:29.720967"
 }
