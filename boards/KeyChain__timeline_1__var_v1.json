@@ -2500,8 +2500,8 @@
       "lines": [
         {
           "id": "l_1792780820686",
-          "speakerId": "voss",
-          "speakerName": "Voss",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
           "text": "Captain, the artifact that the scouts have found! I confirm, its design is of Primordial origin, no doubt about it!"
         },
         {
@@ -2537,5 +2537,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:45:37.825217"
+  "_lastModified": "2026-10-23T19:45:53.476549"
 }
