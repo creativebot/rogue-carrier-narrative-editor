@@ -1126,6 +1126,13 @@
               "amount": "+10",
               "iconImg": "icons/b_service_02__Medical_Center.png",
               "icon": "🏥"
+            },
+            {
+              "resourceId": "b_production_t1_02",
+              "name": "Electronics Workshop",
+              "amount": "6",
+              "iconImg": "icons/b_production_t1_02__Electronics_Workshop.png",
+              "icon": "🏥"
             }
           ],
           "targetNodeIds": [],
@@ -2218,5 +2225,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:55:03.638916"
+  "_lastModified": "2026-10-23T16:56:07.395844"
 }
