@@ -2643,7 +2643,7 @@
           "shortDescription": "Choice C",
           "description": "Ignore",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 15,
           "resultDescription": "slightly productivity decrease",
           "rewards": [
             "🧠 Knowledge +100"
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:19:22.064849"
+  "_lastModified": "2026-10-23T07:19:24.182775"
 }
