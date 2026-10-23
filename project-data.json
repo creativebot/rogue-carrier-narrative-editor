@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:39:33.995644",
+  "_lastModified": "2026-10-23T17:39:47.191193",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7993,21 +7993,6 @@
                   "amount": 3,
                   "iconImg": "icons/T_Cyberware.png",
                   "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792777173491",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "criteria_unknown_item",
-                  "name": "Unknown_Item",
-                  "amount": 1,
-                  "icon": "🔑",
-                  "iconImg": "",
-                  "category": "Criteria",
-                  "isCriteria": true
                 }
               ]
             }
