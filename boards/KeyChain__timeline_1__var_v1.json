@@ -3463,7 +3463,7 @@
           "id": "l_1792798953145",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "...I am here."
         },
         {
           "id": "l_1792798954257",
@@ -3525,5 +3525,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:42:53.968352"
+  "_lastModified": "2026-10-23T23:42:57.586821"
 }
