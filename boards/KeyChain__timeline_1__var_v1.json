@@ -2636,7 +2636,7 @@
           "id": "l_1792785231900",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, the preliminary scanning indicates that the fragment of Zephyrus containing the bridge voice recorder has sunk."
         },
         {
           "id": "l_1792785250324",
@@ -2656,5 +2656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:54:21.800798"
+  "_lastModified": "2026-10-23T19:54:37.713924"
 }
