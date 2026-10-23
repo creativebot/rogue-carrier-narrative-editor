@@ -973,7 +973,23 @@
           "codeSuffix": "B",
           "shortDescription": "Investigate the Anomaly",
           "description": "STOP THE ANOMALY (THE PLAYER MUST EXTRACT THE ARTIFACT FROM THE ANOMALY",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792780626282",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_unknown_requirement",
+                  "name": "Unknown requirement",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
           "rewards": [
@@ -2413,5 +2429,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:37:03.594004"
+  "_lastModified": "2026-10-23T18:37:06.682377"
 }
