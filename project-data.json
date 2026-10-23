@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:25:56.472Z",
+  "_lastModified": "2026-10-23T07:39:11.591620",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -245,7 +245,9 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items"
+    "any number of items",
+    "Caged Plumplins_Quest item",
+    "Stamets Artifact _Immunity buff"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -6712,7 +6714,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 1201
+        "y": 1371
       },
       "actions": [
         {
