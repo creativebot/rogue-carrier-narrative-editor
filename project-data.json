@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:56:08.585834",
+  "_lastModified": "2026-10-23T17:56:17.598825",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10847,7 +10847,7 @@
           "id": "l_1792778165865",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "Aye, enough fishing for one day."
         }
       ],
       "links": [],
