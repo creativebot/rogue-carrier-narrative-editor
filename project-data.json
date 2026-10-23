@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:45:58.996140",
+  "_lastModified": "2026-10-23T17:46:03.294057",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10802,8 +10802,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 2405,
-        "y": 4183
+        "x": 2536,
+        "y": 4191
       },
       "variationId": "var_v1",
       "category": "KeyChain",
