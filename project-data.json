@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:19:45.291107",
+  "_lastModified": "2026-10-23T23:19:50.495219",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11856,7 +11856,7 @@
           "id": "l_1792797377759",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "And nothing should get past our safety suits..."
         },
         {
           "id": "l_1792797378763",
