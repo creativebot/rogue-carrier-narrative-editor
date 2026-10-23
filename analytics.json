@@ -188,11 +188,10 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 661,
+        "seconds": 413,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 287,
-          "DeckPool": 222,
-          "GenericPool": 152
+          "KeyChain:timeline_1:var_v1": 191,
+          "DeckPool": 222
         },
         "hourly": [
           0,
@@ -208,7 +207,7 @@
           0,
           338,
           0,
-          323,
+          75,
           0,
           0,
           0,
@@ -220,14 +219,14 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T13:29:28.261000Z"
+        "lastActive": "2026-10-23T13:13:43.450000Z"
       },
-      "mkorkach@n-ix.com": {
-        "name": "Mykola Korkach",
-        "email": "mkorkach@n-ix.com",
-        "seconds": 16,
+      "ttretilova@n-ix.com": {
+        "name": "Tetiana Tretilova",
+        "email": "ttretilova@n-ix.com",
+        "seconds": 141,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 16
+          "DeckPool": 141
         },
         "hourly": [
           0,
@@ -243,7 +242,7 @@
           0,
           0,
           0,
-          16,
+          141,
           0,
           0,
           0,
@@ -255,7 +254,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T13:30:04.728000Z"
+        "lastActive": "2026-10-23T13:31:16.625000Z"
       }
     }
   }
