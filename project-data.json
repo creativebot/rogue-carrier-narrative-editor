@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:19:16.979Z",
+  "_lastModified": "2026-10-23T07:19:24.290339",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2910,7 +2910,7 @@
           "shortDescription": "Choice C",
           "description": "Ignore",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 15,
           "resultDescription": "slightly productivity decrease",
           "rewards": [
             "🧠 Knowledge +100"
@@ -9220,7 +9220,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": null
+          "targetNodeId": "node_1791921021620"
         }
       ],
       "disabledVariationIds": [],
