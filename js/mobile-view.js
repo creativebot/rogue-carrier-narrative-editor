@@ -339,9 +339,7 @@ function renderMobileStageView() {
                 <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Event Choice Description</div>
                 ${getSymbolCounterBadgeHTML(actDescStr, actChoiceKey, true)}
               </div>
-              <p class="text-xs text-gray-200 leading-relaxed editable-spot ${isActDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">
-                ${act.description || 'Action description...'}
-              </p>
+              <p class="text-xs text-gray-200 leading-relaxed editable-spot ${isActDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${actIdx}.description')">${act.description || 'Action description...'}</p>
             </div>
             
             <!-- Requirements -->
@@ -533,18 +531,14 @@ function renderMobileStageView() {
                   <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Event Intro</span>
                   ${getSymbolCounterBadgeHTML(introStr, 'eventIntro', true)}
                 </div>
-                <div class="text-xs text-amber-200/90 italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-900/30 editable-spot ${isIntroOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
-                  ${node.eventIntro || 'Enter event intro...'}
-                </div>
+                <div class="text-xs text-amber-200/90 italic bg-amber-950/20 p-2.5 rounded-lg border border-amber-900/30 editable-spot ${isIntroOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">${node.eventIntro || 'Enter event intro...'}</div>
               </div>
               <div>
                 <div class="flex items-center justify-between gap-2 mb-0.5">
                   <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Event Description</div>
                   ${getSymbolCounterBadgeHTML(descStr, 'eventDescription', true)}
                 </div>
-                <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line ${isDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
-                  ${node.eventDescription || 'Enter event description context...'}
-                </p>
+                <p class="text-xs text-gray-200 leading-relaxed editable-spot whitespace-pre-line ${isDescOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">${node.eventDescription || 'Enter event description context...'}</p>
               </div>
             </div>
 

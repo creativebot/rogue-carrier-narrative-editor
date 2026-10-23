@@ -20,5 +20,6 @@ do_push.py
 backups/
 saves/
 github_token.txt
+sessions.json
 .env
 scratch/

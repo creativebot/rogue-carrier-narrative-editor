@@ -1130,9 +1130,7 @@ function createEventNodeDOM(node) {
             ${getSymbolCounterBadgeHTML(actResText, 'eventOutcome')}
           </div>
           <div class="w-full">
-            <div class="editable-spot w-full block ${actResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">
-              ${actResText || 'Action result description...'}
-            </div>
+            <div class="editable-spot w-full block ${actResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'actions.${idx}.resultDescription')">${actResText || 'Action result description...'}</div>
             ${postDiagPills}
           </div>
         </div>
@@ -1240,14 +1238,10 @@ function createEventNodeDOM(node) {
       </th>`;
 
     inactionDescCell = `
-      <td class="event-value-cell bg-red-50/70 text-red-950 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.description')">
-        ${inactionDesc}
-      </td>`;
+      <td class="event-value-cell bg-red-50/70 text-red-950 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.description')">${inactionDesc}</td>`;
 
     inactionShortDescCell = `
-      <td class="event-value-cell bg-red-50/70 text-center font-bold text-red-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.shortDescription')">
-        ${inactionShort}
-      </td>`;
+      <td class="event-value-cell bg-red-50/70 text-center font-bold text-red-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.shortDescription')">${inactionShort}</td>`;
 
     inactionReqCell = `
       <td class="event-value-cell bg-red-50/70 text-red-800 italic text-[11px]">
@@ -1266,9 +1260,7 @@ function createEventNodeDOM(node) {
             <div class="dialogue-trigger-port post-action-port shrink-0 cursor-pointer" data-node-id="${node.id}" data-action-id="inaction" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'post_action', 'inaction')"></div>
             ${getSymbolCounterBadgeHTML(inactionResult, 'inactionResult')}
           </div>
-          <div class="w-full editable-spot block text-red-950 ${inactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">
-            ${inactionResult || 'Catastrophic failure'}
-          </div>
+          <div class="w-full editable-spot block text-red-950 ${inactResOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'inactionThreat.resultDescription')">${inactionResult || 'Catastrophic failure'}</div>
         </div>
       </td>`;
 
@@ -1394,9 +1386,7 @@ function createEventNodeDOM(node) {
       <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 theme-substrip-label">Spawn conditions:</span>
       <div class="editable-spot italic text-gray-800 flex-1 truncate" 
            title="Click to specify spawn conditions for this event"
-           onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'spawnConditions')">
-        ${(node.spawnConditions !== undefined && node.spawnConditions !== null && node.spawnConditions !== '') ? node.spawnConditions : (node.location || 'Click to set spawn conditions...')}
-      </div>
+           onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'spawnConditions')">${(node.spawnConditions !== undefined && node.spawnConditions !== null && node.spawnConditions !== '') ? node.spawnConditions : (node.location || 'Click to set spawn conditions...')}</div>
     </div>
 
     <!-- Event-Level Metadata Header Strip -->
@@ -1418,9 +1408,7 @@ function createEventNodeDOM(node) {
         </div>
         <div class="editable-spot text-xs italic leading-snug text-gray-800 w-full block break-words ${introOver ? 'is-over-limit' : ''}" 
              title="Click to edit event intro text"
-             onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">
-          ${introText || 'Distress signal coming from Keeling island...'}
-        </div>
+             onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventIntro')">${introText || 'Distress signal coming from Keeling island...'}</div>
       </div>
 
       <div class="flex items-center gap-1.5 shrink-0 pt-0.5 whitespace-nowrap">
@@ -1442,9 +1430,7 @@ function createEventNodeDOM(node) {
           <span class="font-bold text-[11px] uppercase tracking-wider shrink-0 theme-substrip-label">Description:</span>
           ${getSymbolCounterBadgeHTML(descText, 'eventDescription')}
         </div>
-        <div class="editable-spot leading-snug text-gray-800 w-full block ${descOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
-          ${descText || 'Event context description...'}
-        </div>
+        <div class="editable-spot leading-snug text-gray-800 w-full block ${descOver ? 'is-over-limit' : ''}" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">${descText || 'Event context description...'}</div>
       </div>
     </div>
 
@@ -1754,9 +1740,7 @@ function createGenericNodeDOM(node) {
     <div class="flex justify-between items-center mb-3">
       <div class="inbound-event-port cursor-pointer mr-2" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
       <div class="generic-banner flex-1">${node.codename}</div>
-      <div class="generic-premise-card ml-4 w-64 bg-amber-100 border border-amber-300 p-2 rounded text-xs text-amber-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">
-        ${node.eventDescription}
-      </div>
+      <div class="generic-premise-card ml-4 w-64 bg-amber-100 border border-amber-300 p-2 rounded text-xs text-amber-900 editable-spot" onclick="event.stopPropagation(); makeInlineTextEditable(this, '${node.id}', 'eventDescription')">${node.eventDescription}</div>
       <button type="button" onclick="event.stopPropagation(); deleteEventNode('${node.id}')" class="text-xs font-bold text-red-600 hover:text-red-800 ml-2">✕</button>
     </div>
 
@@ -1967,9 +1951,7 @@ function createDialogueNodeDOM(dialogue) {
           </div>
         </div>
 
-        <div class="dialogue-text ${isReadOnly ? 'cursor-default' : 'editable-spot'}" onclick="event.stopPropagation(); ${isReadOnly ? '' : `makeInlineDialogueTextEditable(this, '${dialogue.id}', ${lIdx})`}">
-          ${l.text || 'Speech text...'}
-        </div>
+        <div class="dialogue-text ${isReadOnly ? 'cursor-default' : 'editable-spot'}" onclick="event.stopPropagation(); ${isReadOnly ? '' : `makeInlineDialogueTextEditable(this, '${dialogue.id}', ${lIdx})`}">${l.text || 'Speech text...'}</div>
       </div>
     `;
   }).join('');
