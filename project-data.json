@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:29:18.390924",
+  "_lastModified": "2026-10-23T20:29:20.098090",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7407,7 +7407,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
+          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing... ",
           "rewards": [
             {
               "resourceId": "res_06_Chrom",
