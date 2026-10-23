@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:22:47.196921",
+  "_lastModified": "2026-10-23T23:22:53.897204",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11826,12 +11826,12 @@
     },
     {
       "id": "diag_1792797366299",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_e2b",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_e2b_2",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
+      "triggerCondition": "After (T1-V1-K3A) Study distantly",
       "position": {
         "x": -2040,
         "y": 4074
@@ -11942,7 +11942,15 @@
           "text": "(transition to primordial message)"
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "id": "dlink_1792797773325_c8y3",
+          "targetEventId": "node_e2b",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_e2b_2",
+          "triggerCondition": "After (T1-V1-K3A) Study distantly"
+        }
+      ],
       "floorIndex": 2
     },
     {
