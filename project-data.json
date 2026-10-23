@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:18:47.899423",
+  "_lastModified": "2026-10-23T23:18:53.395332",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11832,7 +11832,7 @@
           "id": "l_1792797373713",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "By my calculations, the first contact happened inside the escape pod..."
         },
         {
           "id": "l_1792797374705",
