@@ -2732,7 +2732,7 @@
           "id": "l_1792788302290",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Can you pinpoint the location?"
         },
         {
           "id": "l_1792788303312",
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:45:06.088157"
+  "_lastModified": "2026-10-23T20:45:24.241816"
 }
