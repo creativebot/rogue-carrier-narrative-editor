@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:21:17.592316",
+  "_lastModified": "2026-10-23T23:21:18.899517",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11905,12 +11905,6 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "(transition to primordial message)"
-        },
-        {
-          "id": "l_1792797636056",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
