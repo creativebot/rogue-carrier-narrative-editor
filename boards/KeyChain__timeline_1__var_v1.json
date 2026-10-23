@@ -251,7 +251,7 @@
         {
           "id": "act_e1_2",
           "codeSuffix": "B",
-          "shortDescription": "Comb the island",
+          "shortDescription": "Comb the island (AVER. CHOICE)",
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
             {
@@ -2678,5 +2678,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:13:48.588251"
+  "_lastModified": "2026-10-23T20:14:00.478162"
 }
