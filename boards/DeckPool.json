@@ -4362,7 +4362,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Undisturbed, the creature resumed drawing energy from the source. The crew were not impressed by their commander's helplessness.",
         "penalties": [
           "💀 Entropy +10"
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:19:46.725717"
+  "_lastModified": "2026-10-23T07:19:49.174573"
 }
