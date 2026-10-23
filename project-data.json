@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:25:31.492626",
+  "_lastModified": "2026-10-23T20:25:35.111503",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7382,7 +7382,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -1000,
+        "x": -1004,
         "y": 3290
       },
       "actions": [
