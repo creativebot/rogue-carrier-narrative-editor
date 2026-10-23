@@ -46,7 +46,14 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -70,5 +77,5 @@
   ],
   "dialogues": [],
   "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T14:21:50.460329"
+  "_lastModified": "2026-10-23T14:22:01.373892"
 }
