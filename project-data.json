@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:56:05.290350",
+  "_lastModified": "2026-10-23T17:56:06.386560",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10842,6 +10842,12 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "Let's get the trawler back up before another one of these things shows up."
+        },
+        {
+          "id": "l_1792778165865",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
