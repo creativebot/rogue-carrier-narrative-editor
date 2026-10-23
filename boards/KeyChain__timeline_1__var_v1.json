@@ -307,13 +307,6 @@
               "icon": "📦"
             },
             {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "+2",
-              "icon": "📜",
-              "iconImg": ""
-            },
-            {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
               "amount": "+200",
@@ -2708,5 +2701,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:16:20.915657"
+  "_lastModified": "2026-10-23T20:16:25.201860"
 }
