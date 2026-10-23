@@ -951,10 +951,8 @@
               "isCriteria": true
             }
           ],
-          "targetNodeIds": [
-            "node_1792789263381"
-          ],
-          "targetNodeId": "node_1792789263381"
+          "targetNodeIds": [],
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -1335,41 +1333,6 @@
       "title": "The Moment After the End",
       "disabledVariationIds": [],
       "colorScheme": "rose"
-    },
-    {
-      "id": "node_1792789263381",
-      "codename": "T1-V1-K5A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 4,
-      "spawnConditions": "Triggered by T1-V1-K4A",
-      "eventDescription": "Enter new outcome narrative body text...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 419,
-        "y": 6490
-      },
-      "actions": [
-        {
-          "id": "c_1792789263381",
-          "codeSuffix": "A",
-          "shortDescription": "Continue",
-          "description": "Next step narrative",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "title": "The Moment After the End"
     }
   ],
   "dialogues": [
@@ -2870,5 +2833,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:01:03.591874"
+  "_lastModified": "2026-10-23T21:01:08.232127"
 }
