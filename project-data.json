@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:06:51.775855",
+  "_lastModified": "2026-10-23T13:06:53.812404",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -4564,7 +4564,7 @@
         {
           "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Extract Tissue",
           "description": "",
           "requirements": [
             {
