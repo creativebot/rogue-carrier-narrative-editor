@@ -208,6 +208,18 @@
       "createdAt": "2026-10-23T18:42:11.464045Z",
       "displayTime": "2026-10-23 18:42",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792786735590",
+      "targetId": "node_e1",
+      "targetType": "event",
+      "targetTitle": "T1-V1-K2A - The Moment After the End",
+      "text": "Knowledge +200\n+ SPECIALIZATION (SURVIVING)\nMorale -1\nTwo scouts lose 25% health",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-23T20:18:55.590743Z",
+      "displayTime": "2026-10-23 20:18",
+      "mentions": []
     }
   ],
   "deletedIds": [
