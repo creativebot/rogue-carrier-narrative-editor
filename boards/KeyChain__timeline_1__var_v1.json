@@ -1663,7 +1663,7 @@
       "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
         "x": 1121,
-        "y": -1466
+        "y": -1452
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:10:30.846917"
+  "_lastModified": "2026-10-23T11:10:34.373858"
 }
