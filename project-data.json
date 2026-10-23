@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:18:51.889501",
+  "_lastModified": "2026-10-23T22:18:55.690713",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11485,7 +11485,7 @@
           "triggerCondition": "After (T1-V1-K4A) Collect samples"
         }
       ],
-      "delayHours": 0,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Collect samples",
       "position": {
