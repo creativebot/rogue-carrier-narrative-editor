@@ -3126,7 +3126,7 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": -95,
+        "x": -33,
         "y": 6871
       },
       "variationId": "var_v1",
@@ -3174,5 +3174,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:23:03.493874"
+  "_lastModified": "2026-10-23T22:42:59.036398"
 }
