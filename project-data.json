@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:50:48.613175",
+  "_lastModified": "2026-10-23T13:51:41.039369",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Mykola Korkach"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -245,7 +245,9 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items"
+    "any number of items",
+    "Caged Plumplins_Quest item",
+    "Stamets Artifact _Immunity buff"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -2880,7 +2882,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 5325
+        "y": 5532
       },
       "actions": [
         {
@@ -2912,7 +2914,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Productivity Report:\n\"Captain, a recent discussion revealed a critical flaw in the original protocol, as identified by an attentive crew member during the meeting. Following a thorough conversation with the team, we have implemented updates to all relevant procedures. This revision has resulted in an unexpected boost to overall productivity.\nWith due respect, Mnemosyne.\"",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -2960,7 +2985,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 9,
       "tier": 2,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -2985,7 +3010,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 6277
+        "y": 6428
       },
       "actions": [
         {
@@ -3060,7 +3085,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 7032
+        "y": 7097
       },
       "actions": [
         {
@@ -4584,8 +4609,8 @@
         {
           "id": "c_1791996044351",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Extract Tissue",
+          "shortDescription": "Extract Tissue",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1791996222092",
@@ -4633,8 +4658,8 @@
         {
           "id": "act_1791996581486",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Neutralise the virus",
+          "shortDescription": "Neutralise the virus",
+          "description": "",
           "requirements": [
             {
               "id": "clause_1791996623956",
@@ -4684,8 +4709,8 @@
         {
           "id": "act_1791996584187",
           "codeSuffix": "C",
-          "shortDescription": "Choice C",
-          "description": "Reverse the sickness",
+          "shortDescription": "Neutralise the virus",
+          "description": "Neutralise the virus",
           "requirements": [
             {
               "id": "clause_1791996954490",
@@ -5323,15 +5348,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_resistance_to_diseases",
-              "name": "Resistance to diseases",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -5428,15 +5444,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_temporal_immunity",
-              "name": "Temporal immunity",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -6082,7 +6089,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 636,
+        "x": 934,
         "y": 90
       },
       "actions": [
@@ -6400,7 +6407,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2668,
+        "x": 2660,
         "y": 1690
       },
       "actions": [
