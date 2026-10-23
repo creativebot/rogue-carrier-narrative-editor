@@ -1758,7 +1758,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 48
+        "y": 216
       },
       "actions": [
         {
@@ -3393,7 +3393,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 7,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 6277
+        "y": 5669
       },
       "actions": [
         {
@@ -3536,7 +3536,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -3561,7 +3561,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5268
+        "y": 4648
       },
       "actions": [
         {
@@ -3694,7 +3694,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4275
+        "y": 3743
       },
       "actions": [
         {
@@ -3890,7 +3890,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3439
+        "y": 2927
       },
       "actions": [
         {
@@ -3982,7 +3982,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 2,
       "tier": 3,
       "location": "in the open sea",
       "spawnConditions": "in the open sea",
@@ -3999,7 +3999,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2555
+        "y": 2075
       },
       "actions": [
         {
@@ -4090,7 +4090,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1333
+        "y": 1273
       },
       "actions": [
         {
@@ -4191,6 +4191,6 @@
     }
   ],
   "dialogues": [],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T13:13:54.279506"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-23T13:14:21.903389"
 }
