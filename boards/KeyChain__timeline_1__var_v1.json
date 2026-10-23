@@ -1099,13 +1099,11 @@
           "resultDescription": "",
           "rewards": [
             {
-              "resourceId": "b_production_t1_04",
-              "name": "Processing Workshop",
-              "amount": "+7",
-              "iconImg": "icons/b_production_t1_04__Processing_Workshop.png",
-              "icon": "🏥",
-              "nValue": "+7",
-              "hasN": true
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -2198,5 +2196,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:14:28.976149"
+  "_lastModified": "2026-10-23T17:14:38.963174"
 }
