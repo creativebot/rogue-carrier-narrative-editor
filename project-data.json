@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:05:24.093493",
+  "_lastModified": "2026-10-23T18:05:41.098859",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10909,7 +10909,7 @@
           "id": "l_1792778707972",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "It's... it's pulsing, it's shifting, it's rearranging itself."
         },
         {
           "id": "l_1792778708830",
