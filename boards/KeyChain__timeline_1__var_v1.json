@@ -314,8 +314,10 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": "node_e2a",
+          "targetNodeIds": [
+            "node_e2a"
+          ]
         }
       ],
       "colorScheme": "blue",
@@ -2664,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:24:03.541728"
+  "_lastModified": "2026-10-23T20:24:41.628084"
 }
