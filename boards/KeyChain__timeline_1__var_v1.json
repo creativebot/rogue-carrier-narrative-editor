@@ -972,7 +972,7 @@
           "id": "act_1791705793442",
           "codeSuffix": "B",
           "shortDescription": "Investigate the Anomaly",
-          "description": "The team has to manage without a tricorder. ",
+          "description": "STOP THE ANOMALY (THE PLAYER MUST EXTRACT THE ARTIFACT FROM THE ANOMALY",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
@@ -2413,5 +2413,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:36:14.293518"
+  "_lastModified": "2026-10-23T18:36:53.012833"
 }
