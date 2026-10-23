@@ -1404,8 +1404,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": -839,
-        "y": 4767
+        "x": -1646,
+        "y": 4763
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2673,5 +2673,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:37:34.658797"
+  "_lastModified": "2026-10-23T20:37:39.289084"
 }
