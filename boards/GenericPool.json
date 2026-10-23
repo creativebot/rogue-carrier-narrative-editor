@@ -208,7 +208,7 @@
           "id": "act_1791996584187",
           "codeSuffix": "C",
           "shortDescription": "Choice C",
-          "description": "Reverse the sickness",
+          "description": "Neutralise the virus",
           "requirements": [
             {
               "id": "clause_1791996954490",
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:06:57.162108"
+  "_lastModified": "2026-10-23T13:06:59.682460"
 }
