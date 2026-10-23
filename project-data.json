@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:17:18.186488",
+  "_lastModified": "2026-10-23T22:17:23.695229",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11449,8 +11449,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K4A) Collect samples",
       "position": {
-        "x": -44,
-        "y": 6142
+        "x": -224,
+        "y": 6233
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -11461,7 +11461,8 @@
           "speakerName": "Voss",
           "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
         }
-      ]
+      ],
+      "floorIndex": 4
     },
     {
       "id": "diag_1792789964632",
