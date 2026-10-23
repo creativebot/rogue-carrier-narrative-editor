@@ -183,8 +183,16 @@
       "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
       "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "description": "Event times out without choice made.",
+        "shortDescription": "Timeout",
+        "timerHours": "Infinite",
+        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "penalties": [
+          "💀 Entropy +10"
+        ]
+      },
       "position": {
         "x": -1904,
         "y": 1690
@@ -2670,5 +2678,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:10:03.547908"
+  "_lastModified": "2026-10-23T20:11:45.405895"
 }
