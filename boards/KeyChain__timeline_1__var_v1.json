@@ -3458,6 +3458,12 @@
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
           "text": "Enter dialogue line here..."
+        },
+        {
+          "id": "l_1792798953145",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -3465,5 +3471,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:42:32.495748"
+  "_lastModified": "2026-10-23T23:42:33.587591"
 }
