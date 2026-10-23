@@ -929,7 +929,7 @@
           "id": "c_1791705255524",
           "codeSuffix": "A",
           "shortDescription": "Investigate the Anomaly",
-          "description": "\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
+          "description": "The scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
           "requirements": [
             {
               "id": "clause_1792507962988",
@@ -2413,5 +2413,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:36:03.596682"
+  "_lastModified": "2026-10-23T18:36:14.293518"
 }
