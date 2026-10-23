@@ -1973,8 +1973,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K2B) Disassemble • After (T1-V1-K2B) Blast through!",
       "position": {
-        "x": 3444,
-        "y": 3432
+        "x": 3388,
+        "y": 3275
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2395,5 +2395,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:31:03.593876"
+  "_lastModified": "2026-10-23T18:31:04.901233"
 }
