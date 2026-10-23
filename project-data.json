@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:57:17.692863",
+  "_lastModified": "2026-10-23T20:57:57.203268",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7745,7 +7745,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. Mars Abbadie, the Head of R&D, contacts you later with preliminary results. The virus is a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. ",
           "rewards": [
             {
               "resourceId": "questres_03",
