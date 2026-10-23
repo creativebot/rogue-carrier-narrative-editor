@@ -1458,8 +1458,8 @@
         },
         {
           "id": "l_1792798382125",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
           "text": "New dialogue speech text..."
         },
         {
@@ -3446,5 +3446,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:34:59.616129"
+  "_lastModified": "2026-10-23T23:35:02.692119"
 }
