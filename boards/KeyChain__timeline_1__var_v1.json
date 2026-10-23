@@ -3427,12 +3427,6 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "(transition to primordial message)"
-        },
-        {
-          "id": "l_1792797636056",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -3440,5 +3434,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:21:17.207437"
+  "_lastModified": "2026-10-23T23:21:18.498079"
 }
