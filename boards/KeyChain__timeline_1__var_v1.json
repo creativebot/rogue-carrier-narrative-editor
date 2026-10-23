@@ -1056,7 +1056,7 @@
         ]
       },
       "position": {
-        "x": 2211,
+        "x": 2336,
         "y": 3290
       },
       "actions": [
@@ -2395,5 +2395,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:30:27.312730"
+  "_lastModified": "2026-10-23T18:30:44.635725"
 }
