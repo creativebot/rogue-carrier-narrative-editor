@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:01:56.823884",
+  "_lastModified": "2026-10-23T08:01:57.598192",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -6253,7 +6253,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
           "rewards": [
             {
