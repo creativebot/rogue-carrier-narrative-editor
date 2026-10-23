@@ -205,14 +205,15 @@
           "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
           "requirements": [
             {
-              "id": "clause_1791379437831",
+              "id": "clause_1792786452101",
               "isReplaceable": false,
               "items": [
                 {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_DefensiveGear.png"
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
                 }
               ]
             }
@@ -2678,5 +2679,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:14:03.557142"
+  "_lastModified": "2026-10-23T20:14:12.486700"
 }
