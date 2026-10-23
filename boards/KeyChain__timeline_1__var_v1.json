@@ -1439,16 +1439,16 @@
           "text": "New dialogue speech text..."
         },
         {
-          "id": "l_1792798222002",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
-        },
-        {
           "id": "l17",
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "So we're not going to have our brains bleed out of our eyes. That's nice."
+        },
+        {
+          "id": "l_1792798222002",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
         },
         {
           "id": "l18",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:30:55.790718"
+  "_lastModified": "2026-10-23T23:30:58.288365"
 }
