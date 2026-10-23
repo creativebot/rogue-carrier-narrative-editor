@@ -587,13 +587,6 @@
           "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
           "rewards": [
             {
-              "resourceId": "res_19_Eldrit",
-              "name": "Eldritium",
-              "amount": "10-15",
-              "iconImg": "icons/T_Eldritium.png",
-              "icon": "📦"
-            },
-            {
               "resourceId": "res_01_Gold",
               "name": "Gold",
               "amount": "10-15",
@@ -2663,5 +2656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:31:28.635595"
+  "_lastModified": "2026-10-23T20:31:36.918044"
 }
