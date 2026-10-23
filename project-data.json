@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:04:27.195136",
+  "_lastModified": "2026-10-23T21:04:45.795610",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11351,7 +11351,7 @@
           "id": "l_1792789302179",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "And nothing should get past our safety suits..."
         },
         {
           "id": "l_1792789302937",
