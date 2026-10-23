@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:44:12.494266",
+  "_lastModified": "2026-10-23T20:44:26.707151",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11184,7 +11184,7 @@
           "id": "l_1792788194919",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Anybody? BCEV-something-something? Anybody? Can anyone hear us?\n\nWe're on a lifeboat. We need... we need help."
         },
         {
           "id": "l_1792788198962",
