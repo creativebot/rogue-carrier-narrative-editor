@@ -2823,8 +2823,8 @@
       "lines": [
         {
           "id": "l_1792789252340",
-          "speakerId": "voss",
-          "speakerName": "Voss",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
           "text": "Enter dialogue line here..."
         },
         {
@@ -2895,5 +2895,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:01:43.387366"
+  "_lastModified": "2026-10-23T21:01:53.551717"
 }
