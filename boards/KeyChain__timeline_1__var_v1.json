@@ -2439,7 +2439,7 @@
           "id": "l_1792779086690",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, I have completed my analysis and added the expected location of the flight recorder to the navigation panel."
         },
         {
           "id": "l_1792779307257",
@@ -2512,5 +2512,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:15:15.606616"
+  "_lastModified": "2026-10-23T18:15:30.673423"
 }
