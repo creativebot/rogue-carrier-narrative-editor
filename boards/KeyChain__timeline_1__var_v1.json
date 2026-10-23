@@ -1751,8 +1751,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Imported Dialogue Script",
       "position": {
-        "x": -2113,
-        "y": 3208
+        "x": -3107,
+        "y": 3124
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2693,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:59:08.526621"
+  "_lastModified": "2026-10-23T19:59:11.072657"
 }
