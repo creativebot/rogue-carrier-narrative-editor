@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:07:29.669547",
+  "_lastModified": "2026-10-23T13:07:35.169743",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5399,15 +5399,6 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
-            },
-            {
-              "resourceId": "criteria_temporal_immunity",
-              "name": "Temporal immunity",
-              "amount": 1,
-              "icon": "🔑",
-              "iconImg": "",
-              "category": "Criteria",
-              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
