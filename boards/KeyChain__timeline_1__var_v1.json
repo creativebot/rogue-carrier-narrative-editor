@@ -216,6 +216,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792786471075",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_02",
+                  "name": "Microcontrollers",
+                  "amount": 5,
+                  "iconImg": "icons/T_Microcontrollers.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2679,5 +2692,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:14:12.486700"
+  "_lastModified": "2026-10-23T20:14:31.494601"
 }
