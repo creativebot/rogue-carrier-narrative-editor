@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:36:14.390973",
+  "_lastModified": "2026-10-23T18:36:53.095703",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7875,7 +7875,7 @@
           "id": "act_1791705793442",
           "codeSuffix": "B",
           "shortDescription": "Investigate the Anomaly",
-          "description": "The team has to manage without a tricorder. ",
+          "description": "STOP THE ANOMALY (THE PLAYER MUST EXTRACT THE ARTIFACT FROM THE ANOMALY",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
