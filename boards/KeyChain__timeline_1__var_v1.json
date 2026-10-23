@@ -2680,8 +2680,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Send scouts  • After (T1-V1-K3B) Send drones",
       "position": {
-        "x": -852,
-        "y": 4226
+        "x": -725,
+        "y": 4430
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2713,5 +2713,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:42:37.985790"
+  "_lastModified": "2026-10-23T20:42:43.654768"
 }
