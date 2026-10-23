@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T16:32:05.494511",
+  "_lastModified": "2026-10-23T16:32:19.295436",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7940,7 +7940,7 @@
       "tier": null,
       "location": "",
       "spawnConditions": "",
-      "eventIntro": "Initial event context...",
+      "eventIntro": "The fragment has sunk and now remains at the bottom of the ocean, together with the bridge voice recorder.",
       "eventDescription": "The fragment has sunk and now remains at the bottom of the ocean, together with the bridge voice recorder.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
