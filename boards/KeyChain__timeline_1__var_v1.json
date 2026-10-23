@@ -940,6 +940,15 @@
               "amount": "+300",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_contagious_survivors",
+              "name": "Contagious survivors",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -2799,5 +2808,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:59:25.901724"
+  "_lastModified": "2026-10-23T20:59:31.590688"
 }
