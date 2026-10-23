@@ -1,0 +1,112 @@
+{
+  "id": "save_20261023_152920_1",
+  "boardId": "SpeciesPool",
+  "name": "Board Save (15:29:20)",
+  "filename": "save_20261023_152920_1.json",
+  "timestamp": "2026-10-23T15:29:20.202260",
+  "displayTime": "2026-10-23 15:29:20",
+  "author": "Daniel Poludyonny",
+  "nodeCount": 2,
+  "dialogueCount": 0,
+  "nodes": [
+    {
+      "id": "node_1792761001097",
+      "codename": "SPECIES-S1-E1",
+      "name": "Xenomorphic Bio-Sample Analysis",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "A containment breach occurred in Sector 4 of the laboratory.",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761001097",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792761063481",
+      "codename": "SPECIES-S1-E2",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "test test\n",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761063481",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    }
+  ],
+  "dialogues": [],
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+  }
+}
