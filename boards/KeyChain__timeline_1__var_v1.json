@@ -1436,43 +1436,6 @@
       "links": []
     },
     {
-      "id": "diag_engineer",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0.25,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
-      "position": {
-        "x": -3083,
-        "y": 5123
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "floorIndex": 3,
-      "lines": [
-        {
-          "id": "l19",
-          "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
-          "text": "Captain, we got the orange box! But... it doesn't have anything about the last ten minutes."
-        },
-        {
-          "id": "l20",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Inside job?"
-        },
-        {
-          "id": "l21",
-          "speakerId": "tuuli",
-          "speakerName": "Tuuli Korpela",
-          "text": "I can't see how an outside force could have paralyzed Zephyrus's entire nervous system."
-        }
-      ],
-      "links": []
-    },
-    {
       "id": "diag_1791326756359",
       "targetEventId": "node_e0",
       "triggerTiming": "post_action",
@@ -3399,5 +3362,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:29:02.755835"
+  "_lastModified": "2026-10-23T23:29:08.099131"
 }
