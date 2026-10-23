@@ -4684,9 +4684,7 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": [
-        "var_v1"
-      ],
+      "disabledVariationIds": [],
       "colorScheme": "emerald"
     },
     {
@@ -5048,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T14:36:37.577507"
+  "_lastModified": "2026-10-23T14:36:43.910325"
 }
