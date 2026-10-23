@@ -1,9 +1,9 @@
 {
   "id": "snap_20261023_133206_Board_Save_KeyChaintimeline_1var_v1_Boar",
   "filename": "snap_20261023_133206_Board_Save_KeyChaintimeline_1var_v1_Boar.json",
-  "reason": "Board Save (KeyChain:timeline_1:var_v1): Board Save (13:32:05)",
+  "reason": "Board Save (KeyChain:timeline_1:var_v1): Board Save (13:32:06)",
   "author": "Mykola Korkach",
-  "timestamp": "2026-10-23T13:32:06.018967",
+  "timestamp": "2026-10-23T13:32:06.622777",
   "displayTime": "2026-10-23 13:32:06",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -11,7 +11,7 @@
     "version": "2.6.0",
     "schemaVersion": 1,
     "stageLayoutVersion": 2,
-    "_lastModified": "2026-10-23T13:32:05.716424",
+    "_lastModified": "2026-10-23T13:32:06.327555",
     "projectInfo": {
       "name": "Rogue Carrier Scenario 1",
       "author": "Mykola Korkach"
@@ -6091,8 +6091,8 @@
         "hasInactionThreat": false,
         "inactionThreat": null,
         "position": {
-          "x": 942,
-          "y": 114
+          "x": 909,
+          "y": 90
         },
         "actions": [
           {
