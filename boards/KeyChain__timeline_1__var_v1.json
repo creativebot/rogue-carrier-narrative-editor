@@ -2720,7 +2720,7 @@
           "id": "l_1792788199935",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "The message is over."
         },
         {
           "id": "l_1792788200960",
@@ -2749,5 +2749,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:44:38.600276"
+  "_lastModified": "2026-10-23T20:44:59.651360"
 }
