@@ -3536,7 +3536,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
+      "floorIndex": 7,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -3561,7 +3561,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4648
+        "y": 5268
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:32:03.910021"
+  "_lastModified": "2026-10-23T11:32:05.799428"
 }
