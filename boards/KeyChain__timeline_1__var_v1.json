@@ -3016,8 +3016,40 @@
           "text": "We should consider choosing \"Study distantly\". It offers strong tactical advantages for our mission."
         }
       ]
+    },
+    {
+      "id": "diag_1792789873217",
+      "targetEventId": "node_e2a",
+      "triggerTiming": "pre_event",
+      "triggerActionId": null,
+      "links": [
+        {
+          "id": "dlink_1792789873217",
+          "targetEventId": "node_e2a",
+          "triggerTiming": "pre_event",
+          "triggerActionId": null,
+          "triggerCondition": "Before (T1-V1-K3B)"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Before (T1-V1-K3B)",
+      "position": {
+        "x": -773,
+        "y": 3020
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792789873217",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:11:06.898669"
+  "_lastModified": "2026-10-23T21:11:13.690396"
 }
