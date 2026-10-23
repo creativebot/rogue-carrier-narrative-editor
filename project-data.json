@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:04:26.387052",
+  "_lastModified": "2026-10-23T23:04:31.994335",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9863,7 +9863,7 @@
           "targetEventId": "node_e2b",
           "triggerTiming": "pre_event",
           "triggerActionId": null,
-          "triggerCondition": "Before (T1-V1-K3B)"
+          "triggerCondition": "Before (T1-V1-K3A)"
         }
       ]
     },
@@ -10796,14 +10796,14 @@
           "targetEventId": "node_1791706248386",
           "triggerTiming": "post_action",
           "triggerActionId": "c_1791706248386",
-          "triggerCondition": "After (T1-V1-K3C) Send divers"
+          "triggerCondition": "After (T1-V1-K4B) Send divers"
         },
         {
           "id": "dlink_1792777901076_sla2",
           "targetEventId": "node_1791706248386",
           "triggerTiming": "post_action",
           "triggerActionId": "act_1792773156500",
-          "triggerCondition": "After (T1-V1-K3C) Send Drones"
+          "triggerCondition": "After (T1-V1-K4B) Send Drones"
         }
       ],
       "delayHours": 0.5,
