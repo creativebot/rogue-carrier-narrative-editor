@@ -3393,7 +3393,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3418,7 +3418,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 6277
       },
       "actions": [
         {
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:31:16.005011"
+  "_lastModified": "2026-10-23T11:32:03.910021"
 }
