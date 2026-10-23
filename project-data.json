@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T16:47:35.887362",
+  "_lastModified": "2026-10-23T16:47:51.192568",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -8006,6 +8006,13 @@
               "amount": "3",
               "iconImg": "",
               "icon": "🌀"
+            },
+            {
+              "resourceId": "shipsystem_02",
+              "name": "Sensor System",
+              "amount": "4",
+              "iconImg": "icons/T_Sensors.png",
+              "icon": "🏥"
             }
           ],
           "targetNodeIds": [],
