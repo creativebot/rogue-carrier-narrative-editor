@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:21:50.516068",
+  "_lastModified": "2026-10-23T14:22:01.413422",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -7181,7 +7181,14 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100"
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
