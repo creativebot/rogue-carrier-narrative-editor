@@ -2283,41 +2283,8 @@
           "triggerCondition": "During (T1-V1-K2A) Process the data"
         }
       ]
-    },
-    {
-      "id": "diag_1792777555137",
-      "targetEventId": "node_1791706248386",
-      "triggerTiming": "pre_event",
-      "triggerActionId": null,
-      "delayHours": 0.5,
-      "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K3C)",
-      "position": {
-        "x": 2536,
-        "y": 4191
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792777555137",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ],
-      "links": [
-        {
-          "id": "dlink_1792777615723_g8zj",
-          "targetEventId": "node_1791706248386",
-          "triggerTiming": "pre_event",
-          "triggerActionId": null,
-          "triggerCondition": "Before (T1-V1-K3C)"
-        }
-      ],
-      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:47:03.652877"
+  "_lastModified": "2026-10-23T17:47:39.430056"
 }
