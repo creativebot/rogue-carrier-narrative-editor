@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:31:56.539148",
+  "_lastModified": "2026-10-23T13:32:04.914446",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -6077,13 +6077,13 @@
       "floorIndex": 0,
       "spawnConditions": "End of Tutorial / Zephyrus Collapse",
       "eventIntro": "N/A",
-      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved..",
+      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 934,
-        "y": 90
+        "x": 1175,
+        "y": 65
       },
       "actions": [
         {
