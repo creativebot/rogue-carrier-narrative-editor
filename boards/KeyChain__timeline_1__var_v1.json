@@ -2808,12 +2808,12 @@
     },
     {
       "id": "diag_1792789252340",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_e3a",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1791704810788",
       "delayHours": 30,
       "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
+      "triggerCondition": "After (T1-V1-K4A) Study distantly",
       "position": {
         "x": 377,
         "y": 5719
@@ -2828,10 +2828,18 @@
           "text": "Enter dialogue line here..."
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "id": "dlink_1792789273259_xuc5",
+          "targetEventId": "node_e3a",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1791704810788",
+          "triggerCondition": "After (T1-V1-K4A) Study distantly"
+        }
+      ],
       "floorIndex": 4
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:01:08.232127"
+  "_lastModified": "2026-10-23T21:01:13.599898"
 }
