@@ -489,19 +489,6 @@
           "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found. ",
           "requirements": [
             {
-              "id": "clause_1791673340691",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_01",
-                  "name": "Propulsion Kit",
-                  "amount": 3,
-                  "iconImg": "icons/T_Propulsion_Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1791673347965",
               "isReplaceable": false,
               "items": [
@@ -2666,5 +2653,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:03.539269"
+  "_lastModified": "2026-10-23T20:28:07.462161"
 }
