@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:06:44.096270",
+  "_lastModified": "2026-10-23T21:06:55.002695",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11387,7 +11387,7 @@
           "id": "l_1792789517660",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "It's... it's pulsing, it's shifting, it's rearranging itself."
         },
         {
           "id": "l_1792789518800",
