@@ -2706,8 +2706,8 @@
         },
         {
           "id": "l_1792788194919",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "survivor",
+          "speakerName": "Survivor",
           "text": "Anybody? BCEV-something-something? Anybody? Can anyone hear us?\n\nWe're on a lifeboat. We need... we need help."
         },
         {
@@ -2749,5 +2749,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:44:32.948336"
+  "_lastModified": "2026-10-23T20:44:38.600276"
 }
