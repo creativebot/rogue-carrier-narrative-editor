@@ -2987,8 +2987,8 @@
       "lines": [
         {
           "id": "l_1792789761539",
-          "speakerId": "voss",
-          "speakerName": "Voss",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
           "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
         },
         {
@@ -3052,5 +3052,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:18:04.291931"
+  "_lastModified": "2026-10-23T22:18:09.207566"
 }
