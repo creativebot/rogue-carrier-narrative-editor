@@ -1229,7 +1229,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew fights back, killing some of the attackers and forcing the rest to fall back temporarily. Still outnumbered, the scouts use the opening to retreat. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
           "rewards": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:21.992983"
+  "_lastModified": "2026-10-23T08:01:26.892476"
 }
