@@ -617,6 +617,13 @@
               "amount": "20",
               "iconImg": "icons/T_Lithium.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_08_Titan",
+              "name": "Titanium",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Ti.png",
+              "icon": "📦"
             }
           ],
           "targetNodeId": "node_e2b",
@@ -2674,5 +2681,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:32:09.269717"
+  "_lastModified": "2026-10-23T20:32:18.975284"
 }
