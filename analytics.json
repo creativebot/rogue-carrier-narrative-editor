@@ -115,11 +115,10 @@
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 6226,
+        "seconds": 5644,
         "boards": {
-          "DeckPool": 6000,
-          "GenericPool": 196,
-          "SecretChain:timeline_1:var_v1": 30
+          "DeckPool": 5568,
+          "GenericPool": 76
         },
         "hourly": [
           0,
@@ -135,7 +134,7 @@
           973,
           1865,
           1125,
-          1514,
+          932,
           0,
           0,
           0,
@@ -147,16 +146,14 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T13:43:31.277000Z"
+        "lastActive": "2026-10-22T13:25:17.667000Z"
       },
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 598,
+        "seconds": 90,
         "boards": {
-          "DeckPool": 486,
-          "KeyChain:timeline_1:var_v1": 52,
-          "GenericPool": 60
+          "DeckPool": 90
         },
         "hourly": [
           0,
@@ -172,45 +169,10 @@
           0,
           0,
           0,
-          0,
-          497,
-          70,
+          30,
           0,
           0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "lastActive": "2026-10-22T18:01:56.531000Z"
-      },
-      "pdushynskyi@n-ix.com": {
-        "name": "Petro Dushynskyi",
-        "email": "pdushynskyi@n-ix.com",
-        "seconds": 181,
-        "boards": {
-          "DeckPool": 181
-        },
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          181,
-          0,
-          0,
+          30,
           0,
           0,
           0,
@@ -219,52 +181,16 @@
           0,
           0
         ],
-        "lastActive": "2026-10-22T14:21:19.658000Z"
-      },
-      "oseliutin@n-ix.com": {
-        "name": "Oleksandr Seliutin",
-        "email": "oseliutin@n-ix.com",
-        "seconds": 29,
-        "boards": {
-          "KeyChain:timeline_1:var_v1": 29
-        },
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          29,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "lastActive": "2026-10-22T16:04:43.735000Z"
+        "lastActive": "2026-10-22T16:01:23.210000Z"
       }
     },
     "2026-10-23": {
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 274,
+        "seconds": 60,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 214,
-          "DeckPool": 60
+          "KeyChain:timeline_1:var_v1": 60
         },
         "hourly": [
           0,
@@ -273,12 +199,12 @@
           0,
           0,
           0,
-          30,
           0,
           0,
           0,
           0,
-          244,
+          0,
+          60,
           0,
           0,
           0,
@@ -292,42 +218,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T11:18:54.481000Z"
-      },
-      "oseliutin@n-ix.com": {
-        "name": "Oleksandr Seliutin",
-        "email": "oseliutin@n-ix.com",
-        "seconds": 1,
-        "boards": {
-          "KeyChain:timeline_1:var_v1": 1
-        },
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "lastActive": "2026-10-23T07:11:20.500000Z"
+        "lastActive": "2026-10-23T11:22:15.455000Z"
       }
     }
   }
