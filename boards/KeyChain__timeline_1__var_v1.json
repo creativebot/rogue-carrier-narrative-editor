@@ -2674,6 +2674,12 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "Enter dialogue line here..."
+        },
+        {
+          "id": "l_1792785451972",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -2681,5 +2687,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:57:29.720967"
+  "_lastModified": "2026-10-23T19:57:32.307397"
 }
