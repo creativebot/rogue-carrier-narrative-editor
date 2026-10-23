@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:34:45.198721",
+  "_lastModified": "2026-10-23T23:34:58.392594",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9930,8 +9930,8 @@
         },
         {
           "id": "l18",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
           "text": "I believe it was a bioweapon."
         },
         {
