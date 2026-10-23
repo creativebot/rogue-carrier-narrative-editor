@@ -229,6 +229,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792786482076",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 5,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2692,5 +2705,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:14:31.494601"
+  "_lastModified": "2026-10-23T20:14:42.487403"
 }
