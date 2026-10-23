@@ -35,7 +35,7 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.\n\ntest",
+          "description": "Direct crew to seal airlocks and foam containment.",
           "requirements": [],
           "timerHours": 1,
           "resultDescription": "Hangar secured ahead of schedule.",
@@ -4192,5 +4192,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:09:39.509792"
+  "_lastModified": "2026-10-23T11:09:40.570699"
 }
