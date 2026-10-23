@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:29:08.300045",
+  "_lastModified": "2026-10-23T23:29:16.486679",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9885,8 +9885,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
       "position": {
-        "x": -3146,
-        "y": 4737
+        "x": -2594,
+        "y": 4414
       },
       "variationId": "var_v1",
       "category": "KeyChain",
