@@ -1467,7 +1467,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts attempt to locate the center of the storm and fly as far away from it as possible, carefully maneuvering between the lightning balls. After several tense minutes, the lightning becomes less frequent, and the recon craft eventually escapes the storm and returns safely to the ship.",
           "rewards": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:20.393499"
+  "_lastModified": "2026-10-23T08:01:21.545453"
 }
