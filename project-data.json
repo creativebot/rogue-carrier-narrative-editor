@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:18:42.489477",
+  "_lastModified": "2026-10-23T07:18:46.380335",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -722,7 +722,7 @@
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
+        "shortDescription": "15",
         "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
