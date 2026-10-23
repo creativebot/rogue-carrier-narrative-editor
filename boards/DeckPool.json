@@ -464,6 +464,28 @@
             "amount": "-20",
             "icon": "😊",
             "iconImg": ""
+          },
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "8",
+            "hasN": true,
+            "nValue": "8",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 8 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
           }
         ]
       },
@@ -4192,5 +4214,5 @@
   ],
   "dialogues": [],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T13:13:14.742641"
+  "_lastModified": "2026-10-23T13:13:51.796618"
 }
