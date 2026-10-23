@@ -2520,6 +2520,12 @@
           "id": "l_1792780893670",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
+          "text": "Ah, yes, a classic example of Primordial practical jokes."
+        },
+        {
+          "id": "l_1792784782233",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
           "text": "New dialogue speech text..."
         }
       ],
@@ -2537,5 +2543,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:46:20.744193"
+  "_lastModified": "2026-10-23T19:46:22.749297"
 }
