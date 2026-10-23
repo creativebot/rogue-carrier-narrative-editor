@@ -2680,8 +2680,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": -648,
-        "y": 4102
+        "x": -852,
+        "y": 4226
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2693,9 +2693,10 @@
           "text": "Enter dialogue line here..."
         }
       ],
-      "links": []
+      "links": [],
+      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:42:20.951578"
+  "_lastModified": "2026-10-23T20:42:23.727176"
 }
