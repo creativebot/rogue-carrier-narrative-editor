@@ -1700,12 +1700,12 @@
     },
     {
       "id": "diag_imp_1791393401628",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_e1",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_e1_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2A) Examine pod",
+      "triggerCondition": "After (T1-V1-K2A) Access shuttle's log (HIGH CHALLENGE)",
       "position": {
         "x": -2612,
         "y": 2110
@@ -1740,7 +1740,15 @@
           "text": "Yes. \n\nI'm terrified."
         }
       ],
-      "links": []
+      "links": [
+        {
+          "id": "dlink_1792786883076_dyx0",
+          "targetEventId": "node_e1",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_e1_1",
+          "triggerCondition": "After (T1-V1-K2A) Access shuttle's log (HIGH CHALLENGE)"
+        }
+      ]
     },
     {
       "id": "diag_imp_1791402101041",
@@ -2693,5 +2701,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:21:13.544888"
+  "_lastModified": "2026-10-23T20:21:23.411764"
 }
