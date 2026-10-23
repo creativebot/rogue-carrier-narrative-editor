@@ -2475,7 +2475,7 @@
           "id": "l_1792784826038",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "New dialogue speech text..."
+          "text": "There's bad, and there's good news."
         },
         {
           "id": "l_1792784825815",
@@ -2579,5 +2579,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:47:22.396417"
+  "_lastModified": "2026-10-23T19:47:32.660293"
 }
