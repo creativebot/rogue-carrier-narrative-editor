@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:31:47.587804",
+  "_lastModified": "2026-10-23T23:32:03.398994",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9902,7 +9902,7 @@
           "id": "l_1792798226086",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "Let me tell you: it wasn't easy. Probably by design."
         },
         {
           "id": "l16",
