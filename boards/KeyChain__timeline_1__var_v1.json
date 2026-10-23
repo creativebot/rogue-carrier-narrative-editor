@@ -1099,13 +1099,6 @@
           "resultDescription": "",
           "rewards": [
             {
-              "resourceId": "shipsystem_02",
-              "name": "Sensor System",
-              "amount": "4",
-              "iconImg": "icons/T_Sensors.png",
-              "icon": "🏥"
-            },
-            {
               "resourceId": "b_service_02",
               "name": "Medical Center",
               "amount": "+10",
@@ -2221,5 +2214,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:14:20.232318"
+  "_lastModified": "2026-10-23T17:14:22.342159"
 }
