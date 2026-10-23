@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:03:41.296793",
+  "_lastModified": "2026-10-23T18:04:02.191217",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10873,7 +10873,7 @@
           "id": "l_1792778364546",
           "speakerId": "voss",
           "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
+          "text": "So, is the voice recorder intact?"
         },
         {
           "id": "l_1792778616995",
