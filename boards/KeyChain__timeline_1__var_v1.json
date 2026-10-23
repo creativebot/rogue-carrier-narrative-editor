@@ -3345,16 +3345,16 @@
           "text": "New dialogue speech text..."
         },
         {
-          "id": "l_1792797371878",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "Made by?"
-        },
-        {
           "id": "l_1792797373713",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
           "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792797371878",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "Made by?"
         },
         {
           "id": "l_1792797374705",
@@ -3434,5 +3434,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:18:23.697716"
+  "_lastModified": "2026-10-23T23:18:24.795036"
 }
