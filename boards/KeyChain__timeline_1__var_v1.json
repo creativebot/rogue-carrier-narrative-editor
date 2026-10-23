@@ -3320,8 +3320,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K3A)",
       "position": {
-        "x": -1567,
-        "y": 3290
+        "x": -3135,
+        "y": 3064
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3332,9 +3332,10 @@
           "speakerName": "Voss",
           "text": "Enter dialogue line here..."
         }
-      ]
+      ],
+      "floorIndex": 2
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:05:31.421305"
+  "_lastModified": "2026-10-23T23:06:29.892576"
 }
