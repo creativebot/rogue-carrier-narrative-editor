@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:16:25.289212",
+  "_lastModified": "2026-10-23T20:16:26.690958",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7203,13 +7203,6 @@
           "timerHours": 5,
           "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
           "rewards": [
-            {
-              "resourceId": "machinery_05",
-              "name": "Battery Block",
-              "amount": "6",
-              "iconImg": "icons/T_Battery-Block.png",
-              "icon": "📦"
-            },
             {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
