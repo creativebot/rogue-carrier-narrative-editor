@@ -1,0 +1,117 @@
+{
+  "id": "save_20261023_072556_1",
+  "boardId": "KeyChain:timeline_1:var_v3",
+  "name": "Board Save (07:25:56)",
+  "filename": "save_20261023_072556_1.json",
+  "timestamp": "2026-10-23T07:25:56.093634",
+  "displayTime": "2026-10-23 07:25:56",
+  "author": "Daniel Poludyonny",
+  "nodeCount": 2,
+  "dialogueCount": 0,
+  "nodes": [
+    {
+      "id": "node_1791921021620",
+      "codename": "T1-V3-K1A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1534,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1791921021620",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [
+            "node_1791921021620",
+            "node_1791921030715"
+          ],
+          "targetNodeId": "node_1791921021620"
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    },
+    {
+      "id": "node_1791921030715",
+      "codename": "T1-V3-K2A",
+      "name": "Too Many Variables",
+      "title": "Too Many Variables",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v3",
+      "floorIndex": 1,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 1426,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "c_1791921030715",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "timelineId": "timeline_1"
+    }
+  ],
+  "dialogues": [],
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+  }
+}
