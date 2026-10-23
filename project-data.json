@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:57:51.591922",
+  "_lastModified": "2026-10-23T19:58:00.798214",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11161,7 +11161,7 @@
           "id": "l_1792785453136",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "I believe we've entered an anomalous zone exhibiting electro-magnetic distortions. Further caution is advised."
         }
       ],
       "links": [],
