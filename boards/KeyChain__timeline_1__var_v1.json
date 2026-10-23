@@ -2405,7 +2405,7 @@
           "id": "l_1792778616995",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "New dialogue speech text..."
+          "text": "Yes, we have the data. I'm sending the full transcript to the database."
         },
         {
           "id": "l_1792778617980",
@@ -2437,5 +2437,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:04:06.808201"
+  "_lastModified": "2026-10-23T18:04:23.338803"
 }
