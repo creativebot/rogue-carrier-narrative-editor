@@ -1448,7 +1448,7 @@
           "id": "l_1792798222002",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "By my calculations, the first contact happened inside the escape pod..."
         },
         {
           "id": "l18",
@@ -3446,5 +3446,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:33:31.408231"
+  "_lastModified": "2026-10-23T23:34:45.117640"
 }
