@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:40:38.992542",
+  "_lastModified": "2026-10-23T17:40:55.797167",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -8054,6 +8054,19 @@
                   "name": "Worker Drone",
                   "amount": 2,
                   "iconImg": "icons/T_WorkerUnit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792777255282",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 2,
+                  "iconImg": "icons/T_ForceField.png",
                   "icon": "📦"
                 }
               ]
