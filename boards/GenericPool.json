@@ -880,7 +880,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:56.038265"
+  "_lastModified": "2026-10-23T08:01:56.809688"
 }
