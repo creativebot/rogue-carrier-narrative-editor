@@ -2841,8 +2841,8 @@
         },
         {
           "id": "l_1792789296663",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
           "text": "Made by?"
         },
         {
@@ -2895,5 +2895,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:02:57.720544"
+  "_lastModified": "2026-10-23T21:02:59.539688"
 }
