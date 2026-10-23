@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:46:50.798815",
+  "_lastModified": "2026-10-23T20:47:00.588013",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11156,8 +11156,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3B) Send scouts  • After (T1-V1-K3B) Send drones",
       "position": {
-        "x": -737,
-        "y": 4241
+        "x": -825,
+        "y": 4229
       },
       "variationId": "var_v1",
       "category": "KeyChain",
