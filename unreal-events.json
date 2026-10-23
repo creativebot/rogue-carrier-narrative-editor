@@ -1,11 +1,176 @@
 [
   {
-    "Name": "EVENT_node_deck_1",
-    "RowName": "EVENT_node_deck_1",
-    "EventID": "node_deck_1",
-    "EventTitle": "Hangar Deck Fire Drill",
-    "EventCategory": "DeckPool",
-    "EventType": "Carrier",
+    "Name": "EVENT_node_1791832874715",
+    "RowName": "EVENT_node_1791832874715",
+    "EventID": "node_1791832874715",
+    "EventTitle": "Once More Into The Frey",
+    "EventCategory": "KeyChain",
+    "EventType": "Deck",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 2,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 54.0,
+      "Y": 3290.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833234697",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_05",
+                "ItemName": "Tricoder",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791833262867",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_05",
+                "ItemName": "Battery Block",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833477818",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "questres_03",
+                "ItemName": "Comm-Link",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791833485256",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "machinery_03",
+                "ItemName": "Tech Voxel",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 2,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791833504172",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_01",
+                "ItemName": "AI Core",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +100"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+100",
+            "Category": "Stat",
+            "Icon": "🧠"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_e0",
+    "RowName": "EVENT_node_e0",
+    "EventID": "node_e0",
+    "EventTitle": "The Moment After the End",
+    "EventCategory": "KeyChain",
+    "EventType": "Deck",
     "PoolType": "Timeline",
     "PoolActiveByVariation": {},
     "Intro": "",
@@ -18,37 +183,167 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 110.0,
-      "Y": 56.0
+      "X": 934.0,
+      "Y": 90.0
     },
     "Actions": [
       {
         "ActionIndex": 0,
         "ActionText": "",
         "Tooltip": "",
-        "Requirements": [],
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791299400955",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_01",
+                "ItemName": "Metal Constructions",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "icons/T_Metal_Frames.png"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791299424222",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_04",
+                "ItemName": "Conductive Materials",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "icons/T_Conductive-Materials.png"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791384158266",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791384159499",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          }
+        ],
         "Rewards": [
-          "🛡️ Defense +1",
-          "🧠 Knowledge +150"
+          "🧠 Knowledge +300",
+          "📜 Blueprints x1"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_defense",
-            "Name": "Defense",
-            "Amount": "+1",
-            "Category": "Specialization",
-            "Icon": "🛡️"
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+300",
+            "Category": "Stat",
+            "Icon": "🧠"
           },
+          {
+            "ResourceID": "stat_blueprints",
+            "Name": "Blueprints",
+            "Amount": "1",
+            "Category": "Stat",
+            "Icon": "📜"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "node_e1",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      },
+      {
+        "ActionIndex": 1,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [
+          {
+            "ClauseID": "clause_1791299451478",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_03",
+                "ItemName": "Thermoplastic",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "icons/T_Thermoplastic.png"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791299458580",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "electronics_05",
+                "ItemName": "Electronic Components",
+                "Amount": 15,
+                "Category": "Item",
+                "Icon": "icons/T_Holo_Display.png"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791384183560",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_science",
+                "ItemName": "Science Crew",
+                "Amount": 2,
+                "Category": "Specialization",
+                "Icon": "🔬"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1791384184803",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          }
+        ],
+        "Rewards": [
+          "🧠 Knowledge +300"
+        ],
+        "StructuredRewards": [
           {
             "ResourceID": "res_knowledge",
             "Name": "Knowledge",
-            "Amount": "+150",
+            "Amount": "+300",
             "Category": "Stat",
             "Icon": "🧠"
           }
         ],
         "ConsequenceText": "",
-        "NextEventID": "",
+        "NextEventID": "node_e1b",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,
@@ -76,7 +371,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 918.0
+      "Y": 1352.0
     },
     "Actions": [
       {
@@ -224,7 +519,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 2,
+    "FloorIndex": 3,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -233,7 +528,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 2074.0
+      "Y": 2465.0
     },
     "Actions": [
       {
@@ -421,7 +716,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 3123.0
+      "Y": 3582.0
     },
     "Actions": [
       {
@@ -601,7 +896,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 5,
+    "FloorIndex": 6,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -610,7 +905,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 4267.0
+      "Y": 4794.0
     },
     "Actions": [
       {
@@ -791,7 +1086,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 7,
+    "FloorIndex": 8,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -800,7 +1095,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 5312.0
+      "Y": 5935.0
     },
     "Actions": [
       {
@@ -1003,7 +1298,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 8,
+    "FloorIndex": 9,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -1012,7 +1307,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 6301.0
+      "Y": 6989.0
     },
     "Actions": [
       {
@@ -1104,7 +1399,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 10,
+    "FloorIndex": 11,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -1113,24 +1408,90 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 7104.0
+      "Y": 7886.0
     },
     "Actions": [
       {
         "ActionIndex": 0,
         "ActionText": "",
         "Tooltip": "",
-        "Requirements": [],
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792704272373",
+            "IsAlternativeGroup": true,
+            "Alternatives": [
+              {
+                "ItemID": "processing_03",
+                "ItemName": "Thermoplastic",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              },
+              {
+                "ItemID": "synthesized_01",
+                "ItemName": "Biopolymer",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792704296260",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "processing_04",
+                "ItemName": "Conductive Materials",
+                "Amount": 10,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
         "Rewards": [
-          "🧠 Knowledge +100"
+          "🌀 Entropy x0.1",
+          "📦 K-IV Algae x0-60",
+          "📦 K-IV Krill x0-60",
+          "📦 K-IV Plankton x0-60",
+          "📦 K-IV Aminoacids x0-60"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "0.1",
+            "Category": "Item",
+            "Icon": "🌀"
+          },
+          {
+            "ResourceID": "res_31_k_Algae",
+            "Name": "K-IV Algae",
+            "Amount": "0-60",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_39_k_Krill",
+            "Name": "K-IV Krill",
+            "Amount": "0-60",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_24_k_Plankton",
+            "Name": "K-IV Plankton",
+            "Amount": "0-60",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_40_k_AminoAc",
+            "Name": "K-IV Aminoacids",
+            "Amount": "0-60",
+            "Category": "Item",
+            "Icon": "📦"
           }
         ],
         "ConsequenceText": "",
@@ -1144,17 +1505,76 @@
         "ActionIndex": 1,
         "ActionText": "",
         "Tooltip": "",
-        "Requirements": [],
+        "Requirements": [
+          {
+            "ClauseID": "clause_1792704304589",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "spec_engineering",
+                "ItemName": "Engineering Crew",
+                "Amount": 1,
+                "Category": "Specialization",
+                "Icon": "🔧"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792704312993",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "extractor_01",
+                "ItemName": "Basic Extractor",
+                "Amount": 1,
+                "Category": "Item",
+                "Icon": "📦"
+              }
+            ]
+          }
+        ],
         "Rewards": [
-          "🧠 Knowledge +100"
+          "🌀 Entropy x0.2",
+          "📦 K-IV Krill x60-120",
+          "📦 K-IV Algae x60-120",
+          "📦 K-IV Aminoacids x60-120",
+          "📦 K-IV Plankton x60-120"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
+            "ResourceID": "stat_entropy",
+            "Name": "Entropy",
+            "Amount": "0.2",
+            "Category": "Item",
+            "Icon": "🌀"
+          },
+          {
+            "ResourceID": "res_39_k_Krill",
+            "Name": "K-IV Krill",
+            "Amount": "60-120",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_31_k_Algae",
+            "Name": "K-IV Algae",
+            "Amount": "60-120",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_40_k_AminoAc",
+            "Name": "K-IV Aminoacids",
+            "Amount": "60-120",
+            "Category": "Item",
+            "Icon": "📦"
+          },
+          {
+            "ResourceID": "res_24_k_Plankton",
+            "Name": "K-IV Plankton",
+            "Amount": "60-120",
+            "Category": "Item",
+            "Icon": "📦"
           }
         ],
         "ConsequenceText": "",
@@ -1177,7 +1597,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 0,
+    "FloorIndex": 12,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -1186,7 +1606,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 110.0,
-      "Y": 7827.0
+      "Y": 9068.0
     },
     "Actions": [
       {
@@ -1427,7 +1847,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 48.0
+      "Y": 132.0
     },
     "Actions": [
       {
@@ -1535,7 +1955,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 992.0
+      "Y": 1056.0
     },
     "Actions": [
       {
@@ -1917,7 +2337,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 3148.0
+      "Y": 3210.0
     },
     "Actions": [
       {
@@ -1939,8 +2359,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "⚡ Weakened Morale II x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_6_weakened_morale_ii",
+            "Name": "Weakened Morale II",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "⚡"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -1967,8 +2397,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Morale Boost II x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_9_morale_boost_ii",
+            "Name": "Morale Boost II",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -1998,7 +2438,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 3924.0
+      "Y": 4143.0
     },
     "Actions": [
       {
@@ -2095,7 +2535,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 4515.0
+      "Y": 4870.0
     },
     "Actions": [
       {
@@ -2124,8 +2564,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "😊 Morale +10"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -2152,8 +2602,26 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "😊 Morale +10",
+          "⚡ Waste Issues I"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_morale",
+            "Name": "Morale",
+            "Amount": "+10",
+            "Category": "Stat",
+            "Icon": "😊"
+          },
+          {
+            "ResourceID": "status_43_waste_issues_i",
+            "Name": "Waste Issues I",
+            "Amount": "",
+            "Category": "Item",
+            "Icon": "⚡"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -2174,7 +2642,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 7,
+    "FloorIndex": 8,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -2183,7 +2651,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 5325.0
+      "Y": 5913.0
     },
     "Actions": [
       {
@@ -2212,8 +2680,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Boosted Productivity II x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_25_boosted_productivity_ii",
+            "Name": "Boosted Productivity II",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -2269,7 +2747,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 8,
+    "FloorIndex": 9,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -2278,7 +2756,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 6277.0
+      "Y": 7001.0
     },
     "Actions": [
       {
@@ -2287,7 +2765,8 @@
         "Tooltip": "",
         "Requirements": [],
         "Rewards": [
-          "😊 Morale +10"
+          "😊 Morale +10",
+          "✨ Boosted Health II x48"
         ],
         "StructuredRewards": [
           {
@@ -2296,6 +2775,13 @@
             "Amount": "+10",
             "Category": "Stat",
             "Icon": "😊"
+          },
+          {
+            "ResourceID": "status_21_boosted_health_ii",
+            "Name": "Boosted Health II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
           }
         ],
         "ConsequenceText": "",
@@ -2310,8 +2796,26 @@
         "ActionText": "",
         "Tooltip": "",
         "Requirements": [],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Morale Boost II x48",
+          "✨ Sustainable Living III"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_9_morale_boost_ii",
+            "Name": "Morale Boost II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "status_48_sustainable_living_iii",
+            "Name": "Sustainable Living III",
+            "Amount": "",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -2346,7 +2850,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 9,
+    "FloorIndex": 11,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -2355,7 +2859,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 1460.0,
-      "Y": 7032.0
+      "Y": 7892.0
     },
     "Actions": [
       {
@@ -2378,13 +2882,13 @@
           }
         ],
         "Rewards": [
-          "😊 Morale -10"
+          "😊 Morale -5"
         ],
         "StructuredRewards": [
           {
             "ResourceID": "stat_morale",
             "Name": "Morale",
-            "Amount": "-10",
+            "Amount": "-5",
             "Category": "Stat",
             "Icon": "😊"
           }
@@ -2461,15 +2965,23 @@
           }
         ],
         "Rewards": [
-          "🧠 Knowledge +100"
+          "✨ Morale Boost II x48",
+          "⚡ Productivity Slowdown I x48"
         ],
         "StructuredRewards": [
           {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
+            "ResourceID": "status_9_morale_boost_ii",
+            "Name": "Morale Boost II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "status_27_productivity_slowdown_i",
+            "Name": "Productivity Slowdown I",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "⚡"
           }
         ],
         "ConsequenceText": "",
@@ -2501,7 +3013,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 233.0
+      "Y": 146.0
     },
     "Actions": [
       {
@@ -2544,7 +3056,10 @@
           }
         ],
         "Rewards": [
-          "🧠 Knowledge +30"
+          "🧠 Knowledge +30",
+          "✨ Boosted Immunity I x72",
+          "✨ Morale Boost I x72",
+          "⚡ Productivity Slowdown I x72"
         ],
         "StructuredRewards": [
           {
@@ -2553,6 +3068,27 @@
             "Amount": "+30",
             "Category": "Stat",
             "Icon": "🧠"
+          },
+          {
+            "ResourceID": "status_14_boosted_immunity_i",
+            "Name": "Boosted Immunity I",
+            "Amount": "72",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "status_8_morale_boost_i",
+            "Name": "Morale Boost I",
+            "Amount": "72",
+            "Category": "Item",
+            "Icon": "✨"
+          },
+          {
+            "ResourceID": "status_27_productivity_slowdown_i",
+            "Name": "Productivity Slowdown I",
+            "Amount": "72",
+            "Category": "Item",
+            "Icon": "⚡"
           }
         ],
         "ConsequenceText": "",
@@ -2595,7 +3131,8 @@
           }
         ],
         "Rewards": [
-          "🧠 Knowledge +30"
+          "🧠 Knowledge +30",
+          "🔑 Caged Plumplins_Quest item x1"
         ],
         "StructuredRewards": [
           {
@@ -2604,6 +3141,13 @@
             "Amount": "+30",
             "Category": "Stat",
             "Icon": "🧠"
+          },
+          {
+            "ResourceID": "criteria_caged_plumplins_quest_item",
+            "Name": "Caged Plumplins_Quest item",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
           }
         ],
         "ConsequenceText": "",
@@ -2642,7 +3186,8 @@
         "Rewards": [
           "🧠 Knowledge +30",
           "😊 Morale -20",
-          "🌀 Entropy x1"
+          "🌀 Entropy x1",
+          "🔑 Stamets Artifact _Immunity buff x1"
         ],
         "StructuredRewards": [
           {
@@ -2665,6 +3210,13 @@
             "Amount": "1",
             "Category": "Item",
             "Icon": "🌀"
+          },
+          {
+            "ResourceID": "criteria_stamets_artifact_immunity_buff",
+            "Name": "Stamets Artifact _Immunity buff",
+            "Amount": "1",
+            "Category": "Item",
+            "Icon": "🔑"
           }
         ],
         "ConsequenceText": "",
@@ -2696,7 +3248,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 4160.0,
-      "Y": 1177.0
+      "Y": 1477.0
     },
     "Actions": [
       {
@@ -2919,8 +3471,18 @@
         "ActionText": "",
         "Tooltip": "",
         "Requirements": [],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Absolute Immunity x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_16_absolute_immunity",
+            "Name": "Absolute Immunity",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3005,7 +3567,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 8,
+    "FloorIndex": 9,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -3014,7 +3576,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 6277.0
+      "Y": 6497.0
     },
     "Actions": [
       {
@@ -3151,7 +3713,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 5268.0
+      "Y": 5375.0
     },
     "Actions": [
       {
@@ -3187,8 +3749,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Fasting x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_2_fasting",
+            "Name": "Fasting",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3222,8 +3794,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Delighted Crabari Traders x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_42_delighted_speciesname_traders",
+            "Name": "Delighted Crabari Traders",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3250,8 +3832,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Morale Stasis x24"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_11_morale_stasis",
+            "Name": "Morale Stasis",
+            "Amount": "24",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3272,7 +3864,7 @@
     "PoolActiveByVariation": {},
     "Intro": "",
     "Outro": "",
-    "FloorIndex": 5,
+    "FloorIndex": 6,
     "StageIndex": 0,
     "LeadInSpeaker": "",
     "LeadInDialogue": "",
@@ -3281,7 +3873,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 4275.0
+      "Y": 4330.0
     },
     "Actions": [
       {
@@ -3488,7 +4080,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 3439.0
+      "Y": 3353.0
     },
     "Actions": [
       {
@@ -3510,8 +4102,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Health Recovery x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_23_health_recovery",
+            "Name": "Health Recovery",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3538,8 +4140,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Boosted Immunity I x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_14_boosted_immunity_i",
+            "Name": "Boosted Immunity I",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3566,8 +4178,26 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "👨‍🚀 Crew Members x4",
+          "👨‍🚀 Crew Count +4"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "stat_crew",
+            "Name": "Crew Members",
+            "Amount": "4",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          },
+          {
+            "ResourceID": "stat_crew count",
+            "Name": "Crew Count",
+            "Amount": "+4",
+            "Category": "Specialization",
+            "Icon": "👨‍🚀"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3597,7 +4227,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 2555.0
+      "Y": 2357.0
     },
     "Actions": [
       {
@@ -3619,8 +4249,18 @@
             ]
           }
         ],
-        "Rewards": [],
-        "StructuredRewards": [],
+        "Rewards": [
+          "✨ Boosted Productivity II x48"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "status_25_boosted_productivity_ii",
+            "Name": "Boosted Productivity II",
+            "Amount": "48",
+            "Category": "Item",
+            "Icon": "✨"
+          }
+        ],
         "ConsequenceText": "",
         "NextEventID": "",
         "Condition": "",
@@ -3691,7 +4331,7 @@
     "Tags": [],
     "EditorPosition": {
       "X": 2810.0,
-      "Y": 1333.0
+      "Y": 1402.0
     },
     "Actions": [
       {
@@ -3722,6 +4362,32 @@
                 "Amount": 10,
                 "Category": "Item",
                 "Icon": "📦"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792706878647",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_caged_plumplins_quest_item",
+                "ItemName": "Caged Plumplins_Quest item",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
+          },
+          {
+            "ClauseID": "clause_1792706949555",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_stamets_artifact_immunity_buff",
+                "ItemName": "Stamets Artifact _Immunity buff",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
               }
             ]
           }
@@ -3770,6 +4436,19 @@
                 "Icon": "👨‍🚀"
               }
             ]
+          },
+          {
+            "ClauseID": "clause_1792706882880",
+            "IsAlternativeGroup": false,
+            "Alternatives": [
+              {
+                "ItemID": "criteria_caged_plumplins_quest_item",
+                "ItemName": "Caged Plumplins_Quest item",
+                "Amount": 1,
+                "Category": "Criteria",
+                "Icon": "🔑"
+              }
+            ]
           }
         ],
         "Rewards": [
@@ -3790,6 +4469,63 @@
             "Amount": "+10",
             "Category": "Stat",
             "Icon": "😊"
+          }
+        ],
+        "ConsequenceText": "",
+        "NextEventID": "",
+        "Condition": "",
+        "NextStageIndex": null,
+        "NextFloorIndex": null,
+        "CustomData": {}
+      }
+    ]
+  },
+  {
+    "Name": "EVENT_node_deck_1",
+    "RowName": "EVENT_node_deck_1",
+    "EventID": "node_deck_1",
+    "EventTitle": "Hangar Deck Fire Drill",
+    "EventCategory": "DeckPool",
+    "EventType": "Carrier",
+    "PoolType": "Timeline",
+    "PoolActiveByVariation": {},
+    "Intro": "",
+    "Outro": "",
+    "FloorIndex": 0,
+    "StageIndex": 0,
+    "LeadInSpeaker": "",
+    "LeadInDialogue": "",
+    "TimelineID": "",
+    "VariationIDs": [],
+    "Tags": [],
+    "EditorPosition": {
+      "X": 110.0,
+      "Y": 56.0
+    },
+    "Actions": [
+      {
+        "ActionIndex": 0,
+        "ActionText": "",
+        "Tooltip": "",
+        "Requirements": [],
+        "Rewards": [
+          "🛡️ Defense +1",
+          "🧠 Knowledge +150"
+        ],
+        "StructuredRewards": [
+          {
+            "ResourceID": "res_defense",
+            "Name": "Defense",
+            "Amount": "+1",
+            "Category": "Specialization",
+            "Icon": "🛡️"
+          },
+          {
+            "ResourceID": "res_knowledge",
+            "Name": "Knowledge",
+            "Amount": "+150",
+            "Category": "Stat",
+            "Icon": "🧠"
           }
         ],
         "ConsequenceText": "",
@@ -5458,193 +6194,6 @@
     ]
   },
   {
-    "Name": "EVENT_node_e0",
-    "RowName": "EVENT_node_e0",
-    "EventID": "node_e0",
-    "EventTitle": "The Moment After the End",
-    "EventCategory": "KeyChain",
-    "EventType": "Deck",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 0,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 934.0,
-      "Y": 90.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "clause_1791299400955",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "processing_01",
-                "ItemName": "Metal Constructions",
-                "Amount": 15,
-                "Category": "Item",
-                "Icon": "icons/T_Metal_Frames.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791299424222",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "processing_04",
-                "ItemName": "Conductive Materials",
-                "Amount": 15,
-                "Category": "Item",
-                "Icon": "icons/T_Conductive-Materials.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791384158266",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "spec_science",
-                "ItemName": "Science Crew",
-                "Amount": 2,
-                "Category": "Specialization",
-                "Icon": "🔬"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791384159499",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "spec_engineering",
-                "ItemName": "Engineering Crew",
-                "Amount": 1,
-                "Category": "Specialization",
-                "Icon": "🔧"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +300",
-          "📜 Blueprints x1"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+300",
-            "Category": "Stat",
-            "Icon": "🧠"
-          },
-          {
-            "ResourceID": "stat_blueprints",
-            "Name": "Blueprints",
-            "Amount": "1",
-            "Category": "Stat",
-            "Icon": "📜"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "node_e1",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 1,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "clause_1791299451478",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "processing_03",
-                "ItemName": "Thermoplastic",
-                "Amount": 15,
-                "Category": "Item",
-                "Icon": "icons/T_Thermoplastic.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791299458580",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "electronics_05",
-                "ItemName": "Electronic Components",
-                "Amount": 15,
-                "Category": "Item",
-                "Icon": "icons/T_Holo_Display.png"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791384183560",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "spec_science",
-                "ItemName": "Science Crew",
-                "Amount": 2,
-                "Category": "Specialization",
-                "Icon": "🔬"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791384184803",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "spec_engineering",
-                "ItemName": "Engineering Crew",
-                "Amount": 1,
-                "Category": "Specialization",
-                "Icon": "🔧"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +300"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+300",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "node_e1b",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
     "Name": "EVENT_node_e1",
     "RowName": "EVENT_node_e1",
     "EventID": "node_e1",
@@ -5822,7 +6371,7 @@
     "VariationIDs": [],
     "Tags": [],
     "EditorPosition": {
-      "X": 2660.0,
+      "X": 2668.0,
       "Y": 1690.0
     },
     "Actions": [
@@ -7491,171 +8040,6 @@
         ],
         "ConsequenceText": "",
         "NextEventID": "node_1791905801725",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      }
-    ]
-  },
-  {
-    "Name": "EVENT_node_1791832874715",
-    "RowName": "EVENT_node_1791832874715",
-    "EventID": "node_1791832874715",
-    "EventTitle": "Once More Into The Frey",
-    "EventCategory": "KeyChain",
-    "EventType": "Deck",
-    "PoolType": "Timeline",
-    "PoolActiveByVariation": {},
-    "Intro": "",
-    "Outro": "",
-    "FloorIndex": 2,
-    "StageIndex": 0,
-    "LeadInSpeaker": "",
-    "LeadInDialogue": "",
-    "TimelineID": "",
-    "VariationIDs": [],
-    "Tags": [],
-    "EditorPosition": {
-      "X": 54.0,
-      "Y": 3290.0
-    },
-    "Actions": [
-      {
-        "ActionIndex": 0,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "clause_1791833234697",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "questres_05",
-                "ItemName": "Tricoder",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "📦"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791833262867",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "machinery_05",
-                "ItemName": "Battery Block",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "📦"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 1,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "clause_1791833477818",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "questres_03",
-                "ItemName": "Comm-Link",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "📦"
-              }
-            ]
-          },
-          {
-            "ClauseID": "clause_1791833485256",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "machinery_03",
-                "ItemName": "Tech Voxel",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "📦"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
-        "Condition": "",
-        "NextStageIndex": null,
-        "NextFloorIndex": null,
-        "CustomData": {}
-      },
-      {
-        "ActionIndex": 2,
-        "ActionText": "",
-        "Tooltip": "",
-        "Requirements": [
-          {
-            "ClauseID": "clause_1791833504172",
-            "IsAlternativeGroup": false,
-            "Alternatives": [
-              {
-                "ItemID": "electronics_01",
-                "ItemName": "AI Core",
-                "Amount": 1,
-                "Category": "Item",
-                "Icon": "📦"
-              }
-            ]
-          }
-        ],
-        "Rewards": [
-          "🧠 Knowledge +100"
-        ],
-        "StructuredRewards": [
-          {
-            "ResourceID": "res_knowledge",
-            "Name": "Knowledge",
-            "Amount": "+100",
-            "Category": "Stat",
-            "Icon": "🧠"
-          }
-        ],
-        "ConsequenceText": "",
-        "NextEventID": "",
         "Condition": "",
         "NextStageIndex": null,
         "NextFloorIndex": null,

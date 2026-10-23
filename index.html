@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="icons/dodecahedron.png">
   <link rel="shortcut icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=20261023_v2">
+  <link rel="stylesheet" href="styles.css?v=20261023_v4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -860,9 +860,9 @@ And what about you? Disappointed, as well?"></textarea>
               </div>
               <p class="text-gray-400 text-[11px] leading-relaxed">Direct UE5 DataTable array containing all Event Nodes, Actions, Requirements, and Rewards.</p>
             </div>
-            <a href="/unreal-events.json" download="unreal-events.json" class="mt-2.5 bg-amber-600 hover:bg-amber-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95">
+            <button type="button" onclick="downloadProtectedFile('/unreal-events.json', 'unreal-events.json')" class="mt-2.5 bg-amber-600 hover:bg-amber-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95 cursor-pointer w-full">
               Download unreal-events.json
-            </a>
+            </button>
           </div>
 
           <div class="bg-gray-950 p-3.5 border border-purple-500/40 hover:border-purple-400 rounded-xl flex flex-col justify-between transition shadow">
@@ -875,9 +875,9 @@ And what about you? Disappointed, as well?"></textarea>
               </div>
               <p class="text-gray-400 text-[11px] leading-relaxed">Direct UE5 DataTable array with pre-event & post-action dialogues, delays, and speaker lines.</p>
             </div>
-            <a href="/unreal-dialogues.json" download="unreal-dialogues.json" class="mt-2.5 bg-purple-600 hover:bg-purple-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95">
+            <button type="button" onclick="downloadProtectedFile('/unreal-dialogues.json', 'unreal-dialogues.json')" class="mt-2.5 bg-purple-600 hover:bg-purple-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95 cursor-pointer w-full">
               Download unreal-dialogues.json
-            </a>
+            </button>
           </div>
 
           <div class="bg-gray-950 p-3.5 border border-emerald-500/40 hover:border-emerald-400 rounded-xl flex flex-col justify-between transition shadow">
@@ -890,9 +890,9 @@ And what about you? Disappointed, as well?"></textarea>
               </div>
               <p class="text-gray-400 text-[11px] leading-relaxed">Direct UE5 DataTable array containing character cast, roles, portraits/emojis, and assigned colors.</p>
             </div>
-            <a href="/unreal-characters.json" download="unreal-characters.json" class="mt-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95">
+            <button type="button" onclick="downloadProtectedFile('/unreal-characters.json', 'unreal-characters.json')" class="mt-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95 cursor-pointer w-full">
               Download unreal-characters.json
-            </a>
+            </button>
           </div>
         </div>
 
@@ -907,9 +907,9 @@ And what about you? Disappointed, as well?"></textarea>
               </div>
               <p class="text-gray-400 text-[11px] leading-relaxed">Full bundle containing ProjectMeta, Timelines, Variations, Characters, Events, and Dialogues.</p>
             </div>
-            <a href="/unreal-export.json" download="unreal-export.json" class="mt-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95">
+            <button type="button" onclick="downloadProtectedFile('/unreal-export.json', 'unreal-export.json')" class="mt-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95 cursor-pointer w-full">
               Download unreal-export.json
-            </a>
+            </button>
           </div>
 
           <div class="bg-gray-950 p-3.5 border border-indigo-500/40 hover:border-indigo-400 rounded-xl flex flex-col justify-between transition shadow">
@@ -922,9 +922,9 @@ And what about you? Disappointed, as well?"></textarea>
               </div>
               <p class="text-gray-400 text-[11px] leading-relaxed">Drop into your Unreal C++ Source folder. Fully blueprint-accessible USTRUCT definitions.</p>
             </div>
-            <a href="/unreal_structs.h" download="unreal_structs.h" class="mt-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95">
+            <button type="button" onclick="downloadProtectedFile('/unreal_structs.h', 'unreal_structs.h')" class="mt-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-1.5 px-3 rounded text-center block text-xs shadow transition active:scale-95 cursor-pointer w-full">
               Download unreal_structs.h
-            </a>
+            </button>
           </div>
         </div>
 
@@ -1678,16 +1678,16 @@ And what about you? Disappointed, as well?"></textarea>
   </div>
 
     <!-- Application Logic (Modular Architecture) -->
-  <script src="js/data-catalog.js?v=20261023_v2"></script>
-  <script src="js/state.js?v=20261023_v2"></script>
-  <script src="js/canvas-view.js?v=20261023_v2"></script>
-  <script src="js/connectors.js?v=20261023_v2"></script>
-  <script src="js/modals.js?v=20261023_v2"></script>
-  <script src="js/mobile-view.js?v=20261023_v2"></script>
-  <script src="js/collab-auth.js?v=20261023_v2"></script>
-  <script src="js/analytics-tracker.js?v=20261023_v2"></script>
-  <script src="js/analytics-dashboard.js?v=20261023_v2"></script>
-  <script src="app.js?v=20261023_v2"></script>
+  <script src="js/data-catalog.js?v=20261023_v4"></script>
+  <script src="js/state.js?v=20261023_v4"></script>
+  <script src="js/canvas-view.js?v=20261023_v4"></script>
+  <script src="js/connectors.js?v=20261023_v4"></script>
+  <script src="js/modals.js?v=20261023_v4"></script>
+  <script src="js/mobile-view.js?v=20261023_v4"></script>
+  <script src="js/collab-auth.js?v=20261023_v4"></script>
+  <script src="js/analytics-tracker.js?v=20261023_v4"></script>
+  <script src="js/analytics-dashboard.js?v=20261023_v4"></script>
+  <script src="app.js?v=20261023_v4"></script>
   <script>
     lucide.createIcons();
   </script>

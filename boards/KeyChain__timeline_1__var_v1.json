@@ -16,7 +16,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 934,
+        "x": 636,
         "y": 90
       },
       "actions": [
@@ -334,7 +334,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 2660,
+        "x": 2668,
         "y": 1690
       },
       "actions": [
@@ -2138,6 +2138,6 @@
       ]
     }
   ],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:29:50.251994"
+  "author": "Mykola Korkach",
+  "_lastModified": "2026-10-23T13:50:48.513589"
 }

@@ -477,6 +477,19 @@ html, body {
   font-size: 13px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  min-height: 34px;
+  max-height: 38px;
+  box-sizing: border-box;
+}
+
+.event-header .editable-spot,
+.codename-badge {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: normal !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 24px !important;
 }
 
 .event-location-row {

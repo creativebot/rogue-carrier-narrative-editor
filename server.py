@@ -134,9 +134,18 @@ class NarrativeEditorHandler(http.server.SimpleHTTPRequestHandler):
             token = self.headers['X-Auth-Token'].strip()
         
         if not token:
+            cookie_header = self.headers.get('Cookie', '')
+            if 'rc_session_token=' in cookie_header:
+                for part in cookie_header.split(';'):
+                    part = part.strip()
+                    if part.startswith('rc_session_token='):
+                        token = part[len('rc_session_token='):].strip()
+                        break
+        
+        if not token:
             # Check query string
-            if '?token=' in self.path:
-                token = self.path.split('?token=')[-1].split('&')[0]
+            if 'token=' in self.path:
+                token = self.path.split('token=')[-1].split('&')[0]
 
         header_email = (self.headers.get('X-User-Email') or '').strip().lower()
         header_name = (self.headers.get('X-User-Name') or '').strip()

@@ -451,10 +451,15 @@ def pull_latest_from_github_on_startup():
                                     should_take = False
                                     if not os.path.exists(target_fp):
                                         should_take = True
-                                    elif remote_nodes > local_nodes:
-                                        should_take = True
-                                    elif remote_mod and local_mod and remote_mod > local_mod:
-                                        should_take = True
+                                    elif br == GITHUB_DATA_BRANCH: # cloud-state is authoritative for live user data
+                                        r_rewards = sum(len(a.get('rewards', [])) for n in remote_obj.get('nodes', []) for a in n.get('actions', []))
+                                        l_rewards = sum(len(a.get('rewards', [])) for n in local_obj.get('nodes', []) for a in n.get('actions', [])) if os.path.exists(target_fp) else 0
+                                        if remote_nodes > local_nodes:
+                                            should_take = True
+                                        elif r_rewards > l_rewards:
+                                            should_take = True
+                                        elif remote_mod and local_mod and remote_mod > local_mod and r_rewards >= l_rewards:
+                                            should_take = True
                                     
                                     if should_take:
                                         with open(target_fp, 'wb') as wf:

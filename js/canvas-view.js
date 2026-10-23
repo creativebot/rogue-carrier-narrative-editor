@@ -1411,9 +1411,7 @@ function createEventNodeDOM(node) {
       <div class="event-header flex justify-between items-center px-3 py-1.5">
         <div class="flex items-center gap-2">
           <div class="inbound-event-port cursor-pointer" data-node-id="${node.id}" title="Inbound attachment node: drop action choice connectors here to lead into this event (including from this block's own choices)" onclick="event.stopPropagation(); showInboundConnectionsInfo('${node.id}')"><div class="inbound-port-dot"></div></div>
-          <span class="codename-badge editable-spot font-mono font-bold" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')">
-            ${node.codename}
-          </span>
+          <span class="codename-badge editable-spot font-mono font-bold" onclick="event.stopPropagation(); makeInlineCodenameEditable(this, '${node.id}')">${node.codename}</span>
           ${titleSpanHTML}
           <div class="dialogue-trigger-port pre-event-port shrink-0 cursor-pointer ${hasPreDiag ? 'has-connected-diag' : ''}" data-node-id="${node.id}" title="Click to spawn connected Dialogue (or drag to existing)" onclick="event.stopPropagation(); createConnectedDialogueFromPort('${node.id}', 'pre_event', null)"></div>
           ${preDiagPills}
@@ -3892,3 +3890,33 @@ function showInboundConnectionsInfo(nodeId) {
 window.showInboundConnectionsInfo = showInboundConnectionsInfo;
 window.rerenderNode = rerenderNode;
 window.rerenderDialogue = rerenderDialogue;
+async function downloadProtectedFile(url, filename) {
+  try {
+    if (typeof showToast === 'function') {
+      showToast('Preparing ' + filename + '...', 'info');
+    }
+    const headers = typeof getAuthHeaders === 'function' ? getAuthHeaders(false) : {};
+    const res = await fetch(url, { headers });
+    if (!res.ok) {
+      if (res.status === 401) {
+        if (typeof showToast === 'function') showToast('Authentication required. Please sign in to download.', 'error');
+        return;
+      }
+      throw new Error('HTTP ' + res.status);
+    }
+    const blob = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    if (typeof showToast === 'function') showToast('Downloaded ' + filename + ' successfully!', 'success');
+  } catch (err) {
+    console.error('[Download] Error downloading protected file:', err);
+    if (typeof showToast === 'function') showToast('Download failed: ' + err.message, 'error');
+  }
+}
+window.downloadProtectedFile = downloadProtectedFile;

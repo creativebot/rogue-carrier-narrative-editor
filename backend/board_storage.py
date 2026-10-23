@@ -1,4 +1,4 @@
-﻿import os
+import os
 import json
 import threading
 from datetime import datetime
@@ -133,7 +133,7 @@ def reassemble_full_project():
                 if fn.endswith('.json'):
                     fp = os.path.join(BOARDS_DIR, fn)
                     try:
-                        with open(fp, 'r', encoding='utf-8') as f:
+                        with open(fp, 'r', encoding='utf-8-sig') as f:
                             b_data = json.load(f)
                             for n in b_data.get('nodes', []):
                                 if n and n.get('id') and n['id'] not in seen_node_ids:
@@ -184,7 +184,7 @@ def reassemble_full_project():
                             b_diags = []
                             if os.path.exists(b_fp):
                                 try:
-                                    with open(b_fp, 'r', encoding='utf-8') as bf:
+                                    with open(b_fp, 'r', encoding='utf-8-sig') as bf:
                                         b_json = json.load(bf)
                                         b_nodes = b_json.get('nodes', [])
                                         b_diags = b_json.get('dialogues', [])
@@ -241,7 +241,7 @@ def load_board_slice(board_id):
     fp = get_board_file_path(board_id)
     if os.path.exists(fp):
         try:
-            with open(fp, 'r', encoding='utf-8') as f:
+            with open(fp, 'r', encoding='utf-8-sig') as f:
                 data = json.load(f)
                 return {
                     "status": "success",
@@ -261,6 +261,86 @@ def load_board_slice(board_id):
         "dialogues": [],
         "_lastModified": datetime.now().isoformat()
     }
+
+
+def merge_nodes_losslessly(existing_nodes, incoming_nodes):
+    """
+    Comprehensive non-destructive merge:
+    Protects all narrative text, action options, choices, requirements,
+    rewards, inaction threats, penalties, and node metadata from being
+    accidentally wiped by partial, blanked, or stale incoming saves.
+    """
+    if not existing_nodes:
+        return incoming_nodes or []
+    if not incoming_nodes:
+        return existing_nodes
+
+    ex_map = {n.get('id'): n for n in existing_nodes if isinstance(n, dict) and n.get('id')}
+    merged_list = []
+
+    for in_node in incoming_nodes:
+        if not isinstance(in_node, dict) or not in_node.get('id'):
+            merged_list.append(in_node)
+            continue
+
+        ex_node = ex_map.get(in_node['id'])
+        if not ex_node:
+            merged_list.append(in_node)
+            continue
+
+        merged = dict(ex_node)
+
+        for k, v in in_node.items():
+            if k in ('actions', 'inactionThreat'):
+                continue
+            elif k in ('eventDescription', 'eventIntro', 'description', 'location', 'spawnConditions'):
+                if str(v or '').strip() or not str(ex_node.get(k) or '').strip():
+                    merged[k] = v
+            else:
+                merged[k] = v
+
+        in_acts = in_node.get('actions')
+        ex_acts = ex_node.get('actions')
+        if isinstance(in_acts, list) and isinstance(ex_acts, list):
+            merged_acts = []
+            for idx, in_act in enumerate(in_acts):
+                ex_act = next((a for a in ex_acts if a.get('id') == in_act.get('id')), None)
+                if not ex_act and idx < len(ex_acts):
+                    ex_act = ex_acts[idx]
+                if ex_act:
+                    m_act = dict(ex_act)
+                    for ak, av in in_act.items():
+                        if ak == 'rewards' and (not av or len(av) == 0) and ex_act.get('rewards') and len(ex_act['rewards']) > 0:
+                            continue
+                        if ak == 'requirements' and (not av or len(av) == 0) and ex_act.get('requirements') and len(ex_act['requirements']) > 0:
+                            continue
+                        if ak in ('description', 'resultDescription', 'shortDescription') and not str(av or '').strip() and str(ex_act.get(ak) or '').strip():
+                            continue
+                        m_act[ak] = av
+                    merged_acts.append(m_act)
+                else:
+                    merged_acts.append(in_act)
+            merged['actions'] = merged_acts
+        elif in_acts is not None:
+            merged['actions'] = in_acts
+
+        in_threat = in_node.get('inactionThreat')
+        ex_threat = ex_node.get('inactionThreat')
+        if isinstance(in_threat, dict) and isinstance(ex_threat, dict):
+            m_threat = dict(ex_threat)
+            for tk, tv in in_threat.items():
+                if tk == 'penalties' and (not tv or len(tv) == 0) and ex_threat.get('penalties') and len(ex_threat['penalties']) > 0:
+                    continue
+                if tk in ('description', 'consequenceText') and not str(tv or '').strip() and str(ex_threat.get(tk) or '').strip():
+                    continue
+                m_threat[tk] = tv
+            merged['inactionThreat'] = m_threat
+        elif in_threat is not None:
+            merged['inactionThreat'] = in_threat
+
+        merged_list.append(merged)
+
+    return merged_list
 
 def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, variations=None, stage_layout_version=None, save_name=None, symbol_limits=None, recommended_limits=None, characters=None, criteria_pool=None):
     """
@@ -300,9 +380,19 @@ def save_board_slice(board_id, nodes, dialogues, author_name, timelines=None, va
         meta = load_shared_meta()
 
     fp = get_board_file_path(board_id)
+    final_nodes = nodes or []
+    if os.path.exists(fp):
+        try:
+            with open(fp, 'r', encoding='utf-8-sig') as f:
+                existing_slice = json.load(f)
+                ex_nodes = existing_slice.get('nodes', [])
+                if ex_nodes:
+                    final_nodes = merge_nodes_losslessly(ex_nodes, nodes or [])
+        except Exception:
+            pass
     board_payload = {
         "boardId": board_id,
-        "nodes": nodes or [],
+        "nodes": final_nodes,
         "dialogues": dialogues or [],
         "author": author_name or "Editor User",
         "_lastModified": now_iso
@@ -406,7 +496,7 @@ def list_board_saves(board_id):
             if fn.endswith('.json'):
                 fp = os.path.join(b_saves_dir, fn)
                 try:
-                    with open(fp, 'r', encoding='utf-8') as f:
+                    with open(fp, 'r', encoding='utf-8-sig') as f:
                         data = json.load(f)
                         saves.append({
                             "id": data.get("id"),
@@ -434,7 +524,7 @@ def restore_board_save(board_id, save_id, author_name):
     if not os.path.exists(fp):
         return {"status": "error", "message": f"Save file {save_id} not found for board {board_id}"}
 
-    with open(fp, 'r', encoding='utf-8') as f:
+    with open(fp, 'r', encoding='utf-8-sig') as f:
         save_data = json.load(f)
 
     nodes = save_data.get("nodes", [])
