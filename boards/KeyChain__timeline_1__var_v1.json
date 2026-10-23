@@ -2532,9 +2532,10 @@
           "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly"
         }
       ],
-      "floorIndex": 3
+      "floorIndex": 3,
+      "colorScheme": "rose"
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:42:03.586142"
+  "_lastModified": "2026-10-23T18:42:20.250997"
 }
