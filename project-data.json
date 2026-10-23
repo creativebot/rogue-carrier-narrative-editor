@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:28:57.493206",
+  "_lastModified": "2026-10-23T23:29:02.887903",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9922,8 +9922,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
       "position": {
-        "x": -2920,
-        "y": 5078
+        "x": -3083,
+        "y": 5123
       },
       "variationId": "var_v1",
       "category": "KeyChain",
