@@ -1139,9 +1139,11 @@
             {
               "resourceId": "b_production_t1_04",
               "name": "Processing Workshop",
-              "amount": "-7",
+              "amount": "+7",
               "iconImg": "icons/b_production_t1_04__Processing_Workshop.png",
-              "icon": "🏥"
+              "icon": "🏥",
+              "nValue": "+7",
+              "hasN": true
             }
           ],
           "targetNodeIds": [],
@@ -2234,5 +2236,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:12:34.492035"
+  "_lastModified": "2026-10-23T17:12:45.393813"
 }
