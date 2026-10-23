@@ -267,7 +267,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 4,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -278,7 +278,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 2712
+        "y": 3005
       },
       "actions": [
         {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:56:53.275845"
+  "_lastModified": "2026-10-23T07:56:57.186181"
 }
