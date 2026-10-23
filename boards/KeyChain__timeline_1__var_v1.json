@@ -2965,7 +2965,7 @@
           "id": "l_1792796226350",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "The interview is in the database. It's interesting, but doesn't give many answers."
         },
         {
           "id": "l_1792796227192",
@@ -3300,5 +3300,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:58:03.494321"
+  "_lastModified": "2026-10-23T22:58:04.793172"
 }
