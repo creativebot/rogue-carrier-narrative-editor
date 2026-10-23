@@ -318,7 +318,8 @@
           ],
           "targetNodeId": "node_e2b",
           "targetNodeIds": [
-            "node_e2b"
+            "node_e2b",
+            "node_1792786991252"
           ]
         }
       ],
@@ -626,7 +627,7 @@
     },
     {
       "id": "node_e2b",
-      "codename": "T1-V1-K3B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -914,7 +915,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3C",
+      "codename": "T1-V1-K3D",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -1285,6 +1286,41 @@
       "title": "The Moment After the End",
       "disabledVariationIds": [],
       "colorScheme": "rose"
+    },
+    {
+      "id": "node_1792786991252",
+      "codename": "T1-V1-K3B",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Triggered by T1-V1-K2A",
+      "eventDescription": "Enter new outcome narrative body text...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -2091,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1792786991252",
+          "codeSuffix": "A",
+          "shortDescription": "Continue",
+          "description": "Next step narrative",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "The Moment After the End"
     }
   ],
   "dialogues": [
@@ -1295,7 +1331,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K3B)",
+      "triggerCondition": "Before (T1-V1-K3C)",
       "position": {
         "x": -67,
         "y": 4369
@@ -1346,7 +1382,7 @@
       "triggerActionId": "act_e2b_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
+      "triggerCondition": "After (T1-V1-K3C) Rescue & Quarantine",
       "position": {
         "x": -54,
         "y": 3330
@@ -2436,7 +2472,7 @@
       "triggerActionId": "act_1792507915803",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Extract the BVR",
+      "triggerCondition": "After (T1-V1-K3D) Extract the BVR",
       "position": {
         "x": 5805,
         "y": 4772
@@ -2541,7 +2577,7 @@
       "triggerActionId": "c_1791705255524",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly",
+      "triggerCondition": "After (T1-V1-K3D) Investigate the Anomaly",
       "position": {
         "x": 5164,
         "y": 4773
@@ -2668,5 +2704,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:22:03.545998"
+  "_lastModified": "2026-10-23T20:23:11.595088"
 }
