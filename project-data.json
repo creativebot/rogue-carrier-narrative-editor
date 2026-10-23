@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:11:13.097363",
+  "_lastModified": "2026-10-23T18:11:16.996159",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10725,40 +10725,6 @@
       ]
     },
     {
-      "id": "diag_1791303674022",
-      "targetEventId": "node_e0",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "",
-      "position": {
-        "x": 1628,
-        "y": 982
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791303674022",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
-        }
-      ],
-      "floorIndex": 1,
-      "colorScheme": "purple",
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e0",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": ""
-        }
-      ]
-    },
-    {
       "id": "diag_1792777680805",
       "targetEventId": "node_1791706248386",
       "triggerTiming": "post_action",
@@ -10958,6 +10924,40 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_1791303674022",
+      "targetEventId": "node_e0",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e0_2",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "",
+      "position": {
+        "x": 1628,
+        "y": 982
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791303674022",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
+        }
+      ],
+      "floorIndex": 1,
+      "colorScheme": "purple",
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e0",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e0_2",
+          "triggerCondition": ""
+        }
+      ]
     }
   ]
 }
