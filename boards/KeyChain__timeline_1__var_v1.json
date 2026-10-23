@@ -649,7 +649,7 @@
       "floorIndex": 2,
       "spawnConditions": "Distance covered X",
       "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
-      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for.  People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
+      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for. People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.      \n\nThe sickness has spread among the survivors despite their safety suits. It means your scouts are not safe either.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -3313,5 +3313,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:13:31.438995"
+  "_lastModified": "2026-10-23T23:13:49.759393"
 }
