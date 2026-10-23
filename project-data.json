@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:47:22.503896",
+  "_lastModified": "2026-10-23T19:47:32.690322",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10951,7 +10951,7 @@
           "id": "l_1792784826038",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "New dialogue speech text..."
+          "text": "There's bad, and there's good news."
         },
         {
           "id": "l_1792784825815",
