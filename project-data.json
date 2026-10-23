@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:14:10.892666",
+  "_lastModified": "2026-10-23T17:14:12.195605",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7999,13 +7999,6 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            {
-              "resourceId": "stat_entropy",
-              "name": "Entropy",
-              "amount": "3",
-              "iconImg": "",
-              "icon": "🌀"
-            },
             {
               "resourceId": "shipsystem_02",
               "name": "Sensor System",
