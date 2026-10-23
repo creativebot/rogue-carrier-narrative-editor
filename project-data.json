@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:43:30.795918",
+  "_lastModified": "2026-10-23T20:43:40.997955",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11172,7 +11172,7 @@
           "id": "l_1792788192814",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Go on. Put it on."
         },
         {
           "id": "l_1792788193890",
