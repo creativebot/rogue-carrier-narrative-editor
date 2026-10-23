@@ -1971,7 +1971,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2B) Disassemble",
+      "triggerCondition": "After (T1-V1-K2B) Disassemble • After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 3300,
         "y": 3319
@@ -2037,6 +2037,13 @@
           "triggerTiming": "post_action",
           "triggerActionId": "act_e1b_1",
           "triggerCondition": "After (T1-V1-K2B) Disassemble"
+        },
+        {
+          "id": "dlink_1792780214716_gzpr",
+          "targetEventId": "node_e1b",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1791378373196",
+          "triggerCondition": "After (T1-V1-K2B) Blast through!"
         }
       ]
     },
@@ -2388,5 +2395,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:30:03.593986"
+  "_lastModified": "2026-10-23T18:30:15.091371"
 }
