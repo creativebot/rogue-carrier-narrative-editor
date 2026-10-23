@@ -2449,8 +2449,32 @@
       "links": [],
       "floorIndex": 4,
       "colorScheme": "rose"
+    },
+    {
+      "id": "diag_1792780814185",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 5798,
+        "y": 4343
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792780814185",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ],
+      "links": []
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:40:03.589591"
+  "_lastModified": "2026-10-23T18:40:14.558117"
 }
