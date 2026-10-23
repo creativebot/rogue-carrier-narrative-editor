@@ -795,7 +795,7 @@
           "id": "act_e3a_1",
           "codeSuffix": "A",
           "shortDescription": "Collect samples",
-          "description": "Send scouts to take the samples for the R&D lab.",
+          "description": "Order scouts to take the samples for the R&D lab.",
           "requirements": [
             {
               "id": "clause_1791704935868",
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:54:03.542724"
+  "_lastModified": "2026-10-23T20:54:44.354516"
 }
