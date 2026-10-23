@@ -2962,63 +2962,6 @@
       "floorIndex": 4
     },
     {
-      "id": "diag_1792789761539",
-      "targetEventId": "node_e3a",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e3a_1",
-      "links": [
-        {
-          "id": "dlink_1792789761539",
-          "targetEventId": "node_e3a",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e3a_1",
-          "triggerCondition": "During (T1-V1-K4A) Collect samples"
-        }
-      ],
-      "delayHours": 0.5,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K4A) Collect samples",
-      "position": {
-        "x": -224,
-        "y": 6233
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792789761539",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
-        },
-        {
-          "id": "l_1792793879489",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1792793880688",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1792793882607",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1792793883809",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
-        }
-      ],
-      "floorIndex": 4
-    },
-    {
       "id": "diag_1792789964632",
       "targetEventId": "node_e2a",
       "triggerTiming": "pre_event",
@@ -3084,5 +3027,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:18:32.894568"
+  "_lastModified": "2026-10-23T22:18:38.960264"
 }
