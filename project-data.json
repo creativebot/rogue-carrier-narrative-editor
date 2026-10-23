@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T11:09:27.424912",
+  "_lastModified": "2026-10-23T11:09:39.613721",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -302,7 +302,7 @@
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
+          "description": "Direct crew to seal airlocks and foam containment.\n\ntest",
           "requirements": [],
           "timerHours": 1,
           "resultDescription": "Hangar secured ahead of schedule.",
