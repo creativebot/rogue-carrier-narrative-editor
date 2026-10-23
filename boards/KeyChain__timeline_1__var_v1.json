@@ -579,7 +579,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 8,
           "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
           "rewards": [
             {
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:47.996959"
+  "_lastModified": "2026-10-23T20:28:55.172066"
 }
