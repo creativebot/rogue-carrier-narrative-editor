@@ -1,0 +1,127 @@
+{
+  "id": "save_20261023_131021_1",
+  "boardId": "SecretChain:timeline_1:var_v1",
+  "name": "Board Save (13:10:21)",
+  "filename": "save_20261023_131021_1.json",
+  "timestamp": "2026-10-23T13:10:21.851327",
+  "displayTime": "2026-10-23 13:10:21",
+  "author": "Tetiana Tretilova",
+  "nodeCount": 2,
+  "dialogueCount": 0,
+  "nodes": [
+    {
+      "id": "node_sec_1",
+      "codename": "T1-V1-S1A",
+      "name": "Encrypted Black-Box Beacon",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "Decrypted Hypercell Signal",
+      "eventIntro": "A low-frequency burst signal emerges from the wreckage perimeter.",
+      "eventDescription": "Sensors detect an encrypted automated transmission bearing classified Mothership command codes.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "act_sec_1_1",
+          "codeSuffix": "A",
+          "shortDescription": "Crack Encryption",
+          "description": "Override classified security cypher.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Coordinates extracted to hidden vessel.",
+          "rewards": [
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
+        },
+        {
+          "id": "act_sec_1_2",
+          "codeSuffix": "B",
+          "shortDescription": "Triangulate Source",
+          "description": "Scan directional telemetry.",
+          "requirements": [],
+          "timerHours": 4,
+          "resultDescription": "Origin pinpointed at ocean ridge.",
+          "rewards": [
+            "😊 Morale +10"
+          ],
+          "targetNodeId": "node_sec_2",
+          "targetNodeIds": [
+            "node_sec_2"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Encrypted Black-Box Beacon"
+    },
+    {
+      "id": "node_sec_2",
+      "codename": "T1-V1-S2A",
+      "name": "The Ghost Skiff",
+      "type": "World",
+      "category": "SecretChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Coordinates Decoded",
+      "eventIntro": "A derelict stealth vessel is tethered to a sunken ridge.",
+      "eventDescription": "The skiff belongs to an unlisted expedition team that arrived secretly prior to the collapse of Zephyrus.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 450,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_sec_2_1",
+          "codeSuffix": "A",
+          "shortDescription": "Retrieve Black Core",
+          "description": "Extract mission flight logs from terminal.",
+          "requirements": [],
+          "timerHours": 6,
+          "resultDescription": "Black Core retrieved! Conspiracy revealed.",
+          "rewards": [
+            "🧠 Knowledge +600",
+            "😊 Morale +20"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Ghost Skiff"
+    }
+  ],
+  "dialogues": [],
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+  }
+}
