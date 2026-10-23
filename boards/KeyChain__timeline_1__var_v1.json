@@ -2415,8 +2415,8 @@
         },
         {
           "id": "l_1792778618876",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "tuuli",
+          "speakerName": "Tuuli Korpela",
           "text": "New dialogue speech text..."
         },
         {
@@ -2437,5 +2437,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:04:35.924561"
+  "_lastModified": "2026-10-23T18:04:38.565725"
 }
