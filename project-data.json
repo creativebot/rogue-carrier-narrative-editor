@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:01:28.298371",
+  "_lastModified": "2026-10-23T08:01:33.206491",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5977,7 +5977,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Using scanners, the scouts trace the anomalies to an artifact inside the first chamber. The rising tide leaves little time to retrieve it. While retrieving the artifact, the crew discovers a passage to a deeper cave network. But time spent debating and scanning allows the rising tide to cut off access, preventing further exploration.",
           "rewards": [
             {
