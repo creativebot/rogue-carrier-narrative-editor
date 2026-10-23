@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:08:51.399998",
+  "_lastModified": "2026-10-23T20:08:52.688474",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7150,18 +7150,6 @@
           "shortDescription": "Comb the island",
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
-            {
-              "id": "clause_1791379470074",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 3,
-                  "iconImg": "icons/T_Container.png"
-                }
-              ]
-            },
             {
               "id": "clause_1791379483293",
               "isReplaceable": false,
