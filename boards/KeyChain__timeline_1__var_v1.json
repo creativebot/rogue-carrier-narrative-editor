@@ -900,19 +900,6 @@
               ]
             },
             {
-              "id": "clause_1791704967548",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_02",
-                  "name": "D.A.R.T.",
-                  "amount": 1,
-                  "iconImg": "icons/T_ControlStation.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
               "id": "clause_1792788981761",
               "isReplaceable": false,
               "items": [
@@ -2801,5 +2788,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:56:22.102775"
+  "_lastModified": "2026-10-23T20:56:47.223982"
 }
