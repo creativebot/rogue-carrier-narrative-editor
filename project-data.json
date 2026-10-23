@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:52:35.499779",
+  "_lastModified": "2026-10-23T17:52:37.990781",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10794,6 +10794,12 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "Attention! An unidentified object in the perimeter!"
+        },
+        {
+          "id": "l_1792777957544",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "floorIndex": 3
