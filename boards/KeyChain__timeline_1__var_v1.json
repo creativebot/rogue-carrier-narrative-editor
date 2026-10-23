@@ -485,7 +485,7 @@
         {
           "id": "act_e2a_1",
           "codeSuffix": "A",
-          "shortDescription": "Send drones",
+          "shortDescription": "Send scouts ",
           "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
           "requirements": [
             {
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:27:40.851927"
+  "_lastModified": "2026-10-23T20:27:42.685985"
 }
