@@ -1421,6 +1421,12 @@
           "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
         },
         {
+          "id": "l_1792798225098",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
+        },
+        {
           "id": "l_1792798222002",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
@@ -3368,5 +3374,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:30:22.386640"
+  "_lastModified": "2026-10-23T23:30:25.397577"
 }
