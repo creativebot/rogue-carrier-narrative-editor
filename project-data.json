@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:05:19.200794",
+  "_lastModified": "2026-10-23T21:05:36.690267",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11357,7 +11357,7 @@
           "id": "l_1792789302937",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Why would we have a bioweapon on Zephyrus? M?"
         },
         {
           "id": "l_1792789493211",
