@@ -603,6 +603,13 @@
               "iconImg": "",
               "nValue": "+200",
               "hasN": true
+            },
+            {
+              "resourceId": "res_06_Chrom",
+              "name": "Chromium",
+              "amount": "40",
+              "iconImg": "icons/T_Chromium.png",
+              "icon": "📦"
             }
           ],
           "targetNodeId": "node_e2b",
@@ -2660,5 +2667,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:31:50.541580"
+  "_lastModified": "2026-10-23T20:31:59.920283"
 }
