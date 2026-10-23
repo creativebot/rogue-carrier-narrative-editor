@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:11:50.091743",
+  "_lastModified": "2026-10-23T20:11:55.998851",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7087,7 +7087,7 @@
       "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
       "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
       "reactionTimerHours": "Infinite",
-      "hasInactionThreat": true,
+      "hasInactionThreat": false,
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
