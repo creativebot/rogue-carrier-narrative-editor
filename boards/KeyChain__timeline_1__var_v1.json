@@ -16,8 +16,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 934,
-        "y": 90
+        "x": 1175,
+        "y": 65
       },
       "actions": [
         {
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T13:32:00.005509"
+  "_lastModified": "2026-10-23T13:32:04.864087"
 }
