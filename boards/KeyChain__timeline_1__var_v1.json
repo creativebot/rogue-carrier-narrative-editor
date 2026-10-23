@@ -1399,49 +1399,6 @@
       ]
     },
     {
-      "id": "diag_survivor",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0.5,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3A) Rescue & Quarantine",
-      "position": {
-        "x": -3622,
-        "y": 5177
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "floorIndex": 3,
-      "lines": [
-        {
-          "id": "l12",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "The lifepod's log states there was a child on board..."
-        },
-        {
-          "id": "l13",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "I wasn't the only parent back on Zephyrus. It means nothing."
-        },
-        {
-          "id": "l14",
-          "speakerId": "survivor",
-          "speakerName": "Survivor",
-          "text": "Listen... is it true that there is a child with you?"
-        },
-        {
-          "id": "l15",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Yes, I've got my daughter here."
-        }
-      ],
-      "links": []
-    },
-    {
       "id": "diag_rnd",
       "targetEventId": null,
       "triggerTiming": null,
@@ -3442,5 +3399,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:23:31.433439"
+  "_lastModified": "2026-10-23T23:28:57.195025"
 }
