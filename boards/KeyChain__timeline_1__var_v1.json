@@ -2678,7 +2678,7 @@
       "triggerActionId": "act_e2a_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Send scouts ",
+      "triggerCondition": "After (T1-V1-K3B) Send scouts  • After (T1-V1-K3B) Send drones",
       "position": {
         "x": -852,
         "y": 4226
@@ -2700,11 +2700,18 @@
           "triggerTiming": "post_action",
           "triggerActionId": "act_e2a_1",
           "triggerCondition": "After (T1-V1-K3B) Send scouts "
+        },
+        {
+          "id": "dlink_1792788157661_1ogj",
+          "targetEventId": "node_e2a",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1791673301980",
+          "triggerCondition": "After (T1-V1-K3B) Send drones"
         }
       ],
       "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:42:33.647392"
+  "_lastModified": "2026-10-23T20:42:37.985790"
 }
