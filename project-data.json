@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:20:36.693535",
+  "_lastModified": "2026-10-23T23:20:52.395983",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11886,7 +11886,7 @@
           "id": "l_1792797382816",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "El! Something's off with the Prism. I... Look at it."
         },
         {
           "id": "l_1792797384111",
