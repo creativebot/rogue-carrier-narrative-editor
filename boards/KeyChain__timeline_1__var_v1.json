@@ -2811,7 +2811,7 @@
       "targetEventId": "node_e3a",
       "triggerTiming": "post_action",
       "triggerActionId": "act_1791704810788",
-      "delayHours": 29.5,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Study distantly",
       "position": {
@@ -2841,5 +2841,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:01:23.942775"
+  "_lastModified": "2026-10-23T21:01:31.586968"
 }
