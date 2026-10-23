@@ -1,0 +1,46 @@
+{
+  "boardId": "KeyChain:timeline_1:var_v10",
+  "nodes": [
+    {
+      "id": "node_1792765225249",
+      "codename": "T1-V10-K1A",
+      "name": "The Finite Infinity",
+      "title": "The Finite Infinity",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v10",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 328,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1792765225249",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    }
+  ],
+  "dialogues": [],
+  "author": "Mykola Korkach",
+  "_lastModified": "2026-10-23T14:20:25.426453"
+}
