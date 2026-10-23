@@ -1469,9 +1469,9 @@
     },
     {
       "id": "diag_engineer",
-      "targetEventId": "node_e3a",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_e3a_1",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
       "delayHours": 0.25,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
@@ -1502,15 +1502,7 @@
           "text": "I can't see how an outside force could have paralyzed Zephyrus's entire nervous system."
         }
       ],
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e3a",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_e3a_1",
-          "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan"
-        }
-      ]
+      "links": []
     },
     {
       "id": "diag_1791326756359",
@@ -2963,5 +2955,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:09:03.521204"
+  "_lastModified": "2026-10-23T21:09:08.258264"
 }
