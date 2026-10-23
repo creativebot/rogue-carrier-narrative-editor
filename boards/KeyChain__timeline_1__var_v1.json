@@ -1436,7 +1436,7 @@
           "id": "l_1792798225843",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "I believe it was a bioweapon."
         },
         {
           "id": "l_1792798225098",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:32:31.410063"
+  "_lastModified": "2026-10-23T23:32:40.991856"
 }
