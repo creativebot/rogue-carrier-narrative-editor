@@ -486,7 +486,7 @@
           "id": "act_e2a_1",
           "codeSuffix": "A",
           "shortDescription": "Send scouts ",
-          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
+          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found. ",
           "requirements": [
             {
               "id": "clause_1791673340691",
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:27:55.356760"
+  "_lastModified": "2026-10-23T20:28:01.884112"
 }
