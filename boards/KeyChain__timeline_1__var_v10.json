@@ -72,10 +72,11 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ]
+      ],
+      "disabledVariationIds": []
     }
   ],
   "dialogues": [],
-  "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T14:22:29.481023"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-23T23:48:31.394870"
 }
