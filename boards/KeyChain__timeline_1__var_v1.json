@@ -247,14 +247,15 @@
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
             {
-              "id": "clause_1791379483293",
+              "id": "clause_1792786146926",
               "isReplaceable": false,
               "items": [
                 {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
                   "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png"
+                  "iconImg": "icons/T_DefensiveGear.png",
+                  "icon": "📦"
                 }
               ]
             }
@@ -2669,5 +2670,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:09:03.551992"
+  "_lastModified": "2026-10-23T20:09:07.259378"
 }
