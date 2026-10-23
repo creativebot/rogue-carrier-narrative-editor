@@ -1407,7 +1407,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:18:56.979496"
+  "_lastModified": "2026-10-23T07:19:00.628314"
 }
