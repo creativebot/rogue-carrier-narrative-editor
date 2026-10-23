@@ -1025,7 +1025,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
           "rewards": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:34.707141"
+  "_lastModified": "2026-10-23T08:01:45.714389"
 }
