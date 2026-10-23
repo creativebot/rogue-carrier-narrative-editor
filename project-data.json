@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:20:21.496882",
+  "_lastModified": "2026-10-23T23:20:22.597024",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11874,7 +11874,7 @@
           "id": "l_1792797380773",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Bioweapon, I'll be damned..."
         },
         {
           "id": "l_1792797381837",
