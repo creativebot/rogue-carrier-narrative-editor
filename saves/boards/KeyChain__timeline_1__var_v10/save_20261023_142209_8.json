@@ -1,0 +1,107 @@
+{
+  "id": "save_20261023_142209_8",
+  "boardId": "KeyChain:timeline_1:var_v10",
+  "name": "Board Save (14:22:09)",
+  "filename": "save_20261023_142209_8.json",
+  "timestamp": "2026-10-23T14:22:09.580371",
+  "displayTime": "2026-10-23 14:22:09",
+  "author": "Mykola Korkach",
+  "nodeCount": 1,
+  "dialogueCount": 0,
+  "nodes": [
+    {
+      "id": "node_1792765225249",
+      "codename": "T1-V10-K1A",
+      "name": "The Finite Infinity",
+      "title": "The Finite Infinity",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v10",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 328,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1792765225249",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792765249255",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_01_Gold",
+                  "name": "Gold",
+                  "amount": 10,
+                  "iconImg": "icons/T_Gold.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "+4",
+              "icon": "💀",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792765310278",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    }
+  ],
+  "dialogues": [],
+  "symbolLimits": {
+    "eventIntro": 475,
+    "eventDescription": 475,
+    "actionDescription": 120,
+    "actionDescription3Opt": 200,
+    "actionButtonText": 24,
+    "eventOutcome": 925,
+    "inactionResult": 475,
+    "variationDescription": 280
+  },
+  "recommendedLimits": {
+    "eventIntro": 120,
+    "eventDescription": 180,
+    "actionDescription": 40,
+    "actionDescription3Opt": 60,
+    "actionButtonText": 8,
+    "eventOutcome": 200,
+    "inactionResult": 120,
+    "variationDescription": 80
+  }
+}
