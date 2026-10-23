@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:22:29.490677",
+  "_lastModified": "2026-10-23T14:22:31.418325",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Mykola Korkach"
+    "author": "Daniel Poludyonny"
   },
   "timelines": [
     {
@@ -6082,7 +6082,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 636,
+        "x": 621,
         "y": 90
       },
       "actions": [
