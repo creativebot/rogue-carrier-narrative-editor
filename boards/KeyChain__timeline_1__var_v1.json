@@ -563,7 +563,7 @@
           "id": "act_1791673301980",
           "codeSuffix": "B",
           "shortDescription": "Send drones",
-          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
+          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
           "requirements": [
             {
               "id": "clause_1791673357630",
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:01.884112"
+  "_lastModified": "2026-10-23T20:28:03.539269"
 }
