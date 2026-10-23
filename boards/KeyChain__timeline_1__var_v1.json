@@ -2626,8 +2626,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Standalone Conversation",
       "position": {
-        "x": 2932,
-        "y": 4592
+        "x": 2912,
+        "y": 4473
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2644,5 +2644,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:54:04.587084"
+  "_lastModified": "2026-10-23T19:54:06.692799"
 }
