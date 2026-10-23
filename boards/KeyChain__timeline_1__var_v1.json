@@ -983,6 +983,15 @@
               "amount": "+400",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_artifact",
+              "name": "Artifact",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -2404,5 +2413,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:35:08.724375"
+  "_lastModified": "2026-10-23T18:35:24.149138"
 }
