@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:22:01.914035",
+  "_lastModified": "2026-10-23T14:22:01.649Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -268,6 +268,1075 @@
     "variationDescription": 80
   },
   "nodes": [
+    {
+      "id": "node_e0",
+      "codename": "T1-V1-K1A",
+      "name": "The Moment After the End",
+      "type": "Deck",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "End of Tutorial / Zephyrus Collapse",
+      "eventIntro": "N/A",
+      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 636,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "act_e0_1",
+          "codeSuffix": "A",
+          "shortDescription": "Build a transmitter",
+          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
+          "requirements": [
+            {
+              "id": "clause_1791299400955",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_01",
+                  "name": "Metal Constructions",
+                  "amount": 15,
+                  "iconImg": "icons/T_Metal_Frames.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791299424222",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 15,
+                  "iconImg": "icons/T_Conductive-Materials.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384158266",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384159499",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
+          "rewards": [
+            "🧠 Knowledge +300",
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "📜"
+            }
+          ],
+          "targetNodeId": "node_e1",
+          "targetNodeIds": [
+            "node_e1"
+          ]
+        },
+        {
+          "id": "act_e0_2",
+          "codeSuffix": "B",
+          "shortDescription": "Process the data",
+          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
+          "requirements": [
+            {
+              "id": "clause_1791299451478",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 15,
+                  "iconImg": "icons/T_Thermoplastic.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791299458580",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_05",
+                  "name": "Electronic Components",
+                  "amount": 15,
+                  "iconImg": "icons/T_Holo_Display.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384183560",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384184803",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
+          "rewards": [
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_e1b",
+          "targetNodeIds": [
+            "node_e1b"
+          ]
+        }
+      ],
+      "colorScheme": "amber",
+      "disabledVariationIds": [],
+      "location": "End of Tutorial / Zephyrus Collapse",
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e1",
+      "codename": "T1-V1-K2A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "On an island with additional escape pod model.",
+      "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
+      "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -606,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_e1_1",
+          "codeSuffix": "A",
+          "shortDescription": "Comb island",
+          "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
+          "requirements": [
+            {
+              "id": "clause_1791379437831",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
+          "rewards": [
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "100-150",
+              "iconImg": "icons/T_Prebiotic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+3",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+200",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2a",
+          "targetNodeIds": [
+            "node_e2a"
+          ]
+        },
+        {
+          "id": "act_e1_2",
+          "codeSuffix": "B",
+          "shortDescription": "Examine pod",
+          "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
+          "requirements": [
+            {
+              "id": "clause_1791379456088",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_02",
+                  "name": "Microcontrollers",
+                  "amount": 1,
+                  "iconImg": "icons/T_Microcontrollers.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791379470074",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 3,
+                  "iconImg": "icons/T_Container.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791379483293",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "rewards": [
+            {
+              "resourceId": "machinery_05",
+              "name": "Battery Block",
+              "amount": "6",
+              "iconImg": "icons/T_Battery-Block.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "+2",
+              "icon": "📜",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2b",
+          "targetNodeIds": [
+            "node_e2b"
+          ]
+        }
+      ],
+      "colorScheme": "blue",
+      "location": "On an island with additional escape pod model.",
+      "disabledVariationIds": [],
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e1b",
+      "codename": "T1-V1-K2B",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Data processed",
+      "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
+      "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2668,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_e1b_1",
+          "codeSuffix": "A",
+          "shortDescription": "Disassemble",
+          "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
+          "requirements": [
+            {
+              "id": "clause_1791378421058",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 1,
+                  "iconImg": "icons/T_Container.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791378440100",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 6,
+          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
+          "rewards": [
+            "📜 Blueprints +3",
+            {
+              "resourceId": "processing_05",
+              "name": "Nano Parts",
+              "amount": "8",
+              "iconImg": "icons/T_Fuel_Rod.png",
+              "icon": "📦"
+            },
+            "🧠 Knowledge +350"
+          ],
+          "targetNodeId": "node_1791706248386",
+          "targetNodeIds": [
+            "node_1791706248386"
+          ]
+        },
+        {
+          "id": "act_1791378373196",
+          "codeSuffix": "B",
+          "shortDescription": "Blast through!",
+          "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
+          "requirements": [
+            {
+              "id": "clause_1791378603692",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 3,
+                  "iconImg": "icons/T_ExplosiveCharges.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 3,
+          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
+          "rewards": [
+            {
+              "resourceId": "processing_02",
+              "name": "Alloyed Metal",
+              "amount": "20-30",
+              "iconImg": "icons/T_Alloy_Steel.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "synthesized_01",
+              "name": "Biopolymer",
+              "amount": "20-30",
+              "iconImg": "icons/T_Biopolymer.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "processing_03",
+              "name": "Thermoplastic",
+              "amount": "20-30",
+              "iconImg": "icons/T_Thermoplastic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "processing_04",
+              "name": "Conductive Materials",
+              "amount": "20-30",
+              "iconImg": "icons/T_Conductive-Materials.png",
+              "icon": "📦"
+            },
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_1791705255524",
+          "targetNodeIds": [
+            "node_1791705255524"
+          ]
+        }
+      ],
+      "colorScheme": "blue",
+      "disabledVariationIds": [],
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e2a",
+      "codename": "T1-V1-K3A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Immediately after 2A choice resolution",
+      "eventIntro": "Repelled by the overwhelming numbers of local predators, the scouts failed to discover the fate of the survivors. It is the time to learn from our mistakes and attempt again.",
+      "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -1091,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "act_e2a_1",
+          "codeSuffix": "A",
+          "shortDescription": "Send drones",
+          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
+          "requirements": [
+            {
+              "id": "clause_1791673340691",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_01",
+                  "name": "Propulsion Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_Propulsion_Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791673347965",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 3,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
+          "rewards": [
+            {
+              "resourceId": "res_06_Chrom",
+              "name": "Chromium",
+              "amount": "40",
+              "iconImg": "icons/T_Chromium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_01_Gold",
+              "name": "Gold",
+              "amount": "15",
+              "iconImg": "icons/T_Gold.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_16_Lithium",
+              "name": "Lithium",
+              "amount": "20",
+              "iconImg": "icons/T_Lithium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_08_Titan",
+              "name": "Titanium",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Ti.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+200",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e3a",
+          "targetNodeIds": [
+            "node_e3a"
+          ]
+        },
+        {
+          "id": "act_1791673301980",
+          "codeSuffix": "B",
+          "shortDescription": "Send scouts",
+          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
+          "requirements": [
+            {
+              "id": "clause_1791673357630",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
+          "rewards": [
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "250-300",
+              "iconImg": "icons/T_Prebiotic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "10-15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_01_Gold",
+              "name": "Gold",
+              "amount": "10-15",
+              "iconImg": "icons/T_Gold.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2b",
+          "targetNodeIds": [
+            "node_e2b"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "colorScheme": "orange",
+      "location": "Immediately after 2A choice resolution"
+    },
+    {
+      "id": "node_e2b",
+      "codename": "T1-V1-K3B",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Distance covered X",
+      "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
+      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for.  People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 116,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "act_e2b_1",
+          "codeSuffix": "A",
+          "shortDescription": "Treat survivors",
+          "description": "Bring the survivors to the ship and provide them with all the necessary medical help.",
+          "requirements": [
+            {
+              "id": "clause_1791704591715",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704597486",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 1,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts return with the blood-crying survivors, and the fight for their lives begins.\n\nBased on the preliminary examination, the virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More work needs to be done to better understand its properties, learn how it ended up on Keeling, and find a way to treat it.",
+          "rewards": [
+            {
+              "resourceId": "spec_operations",
+              "name": "Operations Spec",
+              "amount": "+5",
+              "icon": "⚙️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": null,
+          "targetNodeIds": []
+        },
+        {
+          "id": "act_e2b_2",
+          "codeSuffix": "B",
+          "shortDescription": "Study distantly",
+          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
+          "requirements": [
+            {
+              "id": "clause_1791704609876",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_02",
+                  "name": "D.A.R.T.",
+                  "amount": 2,
+                  "iconImg": "icons/T_ControlStation.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704618396",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 4,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "R&D scientists and doctors give instructions to the scouts. They examine the survivors, collect the samples for R&D analysis, and do what they can to help. In the end, nothing works, and the scouts give the final gift to the tormented people — painkillers.  Having taken all the necessary precautions, the scouts then deliver the samples to the R&D lab for further research.  The virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+300",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": null,
+          "targetNodeIds": []
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "colorScheme": "orange",
+      "location": "Distance covered X"
+    },
+    {
+      "id": "node_e3a",
+      "codename": "T1-V1-K4A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 3,
+      "spawnConditions": "Immediately after 2A choice resolution",
+      "eventIntro": "The lifeboat is tossed around by the legion of turbulent waves. Radio silence greets your ship.",
+      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  Among those corpses also lies the frail body of a child.\n\nIt is not Liora.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -2095,
+        "y": 4890
+      },
+      "actions": [
+        {
+          "id": "act_e3a_1",
+          "codeSuffix": "A",
+          "shortDescription": "Collect samples",
+          "description": "Send scouts to take the samples for the R&D lab.",
+          "requirements": [
+            {
+              "id": "clause_1791704935868",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_05",
+                  "name": "Nano Parts",
+                  "amount": 3,
+                  "iconImg": "icons/T_Fuel_Rod.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704941985",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 6,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 6,
+          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. Mars Abbadie, the Head of R&D, contacts you later with preliminary results. The virus is a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "questres_03",
+              "name": "Comm-Link",
+              "amount": "4",
+              "iconImg": "icons/T_Comm_Link.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791704810788",
+          "codeSuffix": "B",
+          "shortDescription": "Study distantly",
+          "description": "The examination must be conducted remotely using drones.",
+          "requirements": [
+            {
+              "id": "clause_1791704949464",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 3,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704959408",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 3,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704967548",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_02",
+                  "name": "D.A.R.T.",
+                  "amount": 1,
+                  "iconImg": "icons/T_ControlStation.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+300",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "location": "Immediately after 2A choice resolution",
+      "colorScheme": "orange"
+    },
+    {
+      "id": "node_1791705255524",
+      "codename": "T1-V1-K3D",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
+      "spawnConditions": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
+      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
+      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 5176,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1791705255524",
+          "codeSuffix": "A",
+          "shortDescription": "Investigate the Anomaly",
+          "description": "\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
+          "requirements": [
+            {
+              "id": "clause_1792507962988",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 3,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 3,
+          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791705793442",
+          "codeSuffix": "B",
+          "shortDescription": "Investigate the Anomaly",
+          "description": "The team has to manage without a tricorder. ",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792507915803",
+          "codeSuffix": "C",
+          "shortDescription": "Extract the BVR",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792508262936",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792508280371",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 5,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Maddened by the ceaseless melody in their heads, equipped with tools that kept malfunctioning, the scouts have had quite a hard time extracting the target. And when they finally get their hands on the voice recorder, it appears damaged, too.\n\nNot as badly as the previous recorder, though. Some of its data might be saved.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "orange",
+      "title": "The Moment After the End",
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791706248386",
+      "codename": "T1-V1-K3C",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2207,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1791706248386",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "The Moment After the End",
+      "disabledVariationIds": []
+    },
     {
       "id": "node_deck_1",
       "codename": "DECK-E1",
@@ -6068,1148 +7137,6 @@
       "disabledVariationIds": []
     },
     {
-      "id": "node_e0",
-      "codename": "T1-V1-K1A",
-      "name": "The Moment After the End",
-      "type": "Deck",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "spawnConditions": "End of Tutorial / Zephyrus Collapse",
-      "eventIntro": "N/A",
-      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 636,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "act_e0_1",
-          "codeSuffix": "A",
-          "shortDescription": "Build a transmitter",
-          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
-          "requirements": [
-            {
-              "id": "clause_1791299400955",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_01",
-                  "name": "Metal Constructions",
-                  "amount": 15,
-                  "iconImg": "icons/T_Metal_Frames.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299424222",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_04",
-                  "name": "Conductive Materials",
-                  "amount": 15,
-                  "iconImg": "icons/T_Conductive-Materials.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384158266",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384159499",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
-          "rewards": [
-            "🧠 Knowledge +300",
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "1",
-              "iconImg": "",
-              "icon": "📜"
-            }
-          ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
-        },
-        {
-          "id": "act_e0_2",
-          "codeSuffix": "B",
-          "shortDescription": "Process the data",
-          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
-          "requirements": [
-            {
-              "id": "clause_1791299451478",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_03",
-                  "name": "Thermoplastic",
-                  "amount": 15,
-                  "iconImg": "icons/T_Thermoplastic.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299458580",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_05",
-                  "name": "Electronic Components",
-                  "amount": 15,
-                  "iconImg": "icons/T_Holo_Display.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384183560",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384184803",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
-          "rewards": [
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
-        }
-      ],
-      "colorScheme": "amber",
-      "disabledVariationIds": [],
-      "location": "End of Tutorial / Zephyrus Collapse",
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e1",
-      "codename": "T1-V1-K2A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "On an island with additional escape pod model.",
-      "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
-      "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -606,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_e1_1",
-          "codeSuffix": "A",
-          "shortDescription": "Comb island",
-          "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
-          "requirements": [
-            {
-              "id": "clause_1791379437831",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_DefensiveGear.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
-          "rewards": [
-            {
-              "resourceId": "res_38_Prebiotic",
-              "name": "Prebiotic Matter",
-              "amount": "100-150",
-              "iconImg": "icons/T_Prebiotic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+3",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+200",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2a",
-          "targetNodeIds": [
-            "node_e2a"
-          ]
-        },
-        {
-          "id": "act_e1_2",
-          "codeSuffix": "B",
-          "shortDescription": "Examine pod",
-          "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
-          "requirements": [
-            {
-              "id": "clause_1791379456088",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_02",
-                  "name": "Microcontrollers",
-                  "amount": 1,
-                  "iconImg": "icons/T_Microcontrollers.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791379470074",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 3,
-                  "iconImg": "icons/T_Container.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791379483293",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
-          "rewards": [
-            {
-              "resourceId": "machinery_05",
-              "name": "Battery Block",
-              "amount": "6",
-              "iconImg": "icons/T_Battery-Block.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "+2",
-              "icon": "📜",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
-        }
-      ],
-      "colorScheme": "blue",
-      "location": "On an island with additional escape pod model.",
-      "disabledVariationIds": [],
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e1b",
-      "codename": "T1-V1-K2B",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "Data processed",
-      "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
-      "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2668,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_e1b_1",
-          "codeSuffix": "A",
-          "shortDescription": "Disassemble",
-          "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
-          "requirements": [
-            {
-              "id": "clause_1791378421058",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 1,
-                  "iconImg": "icons/T_Container.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791378440100",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 6,
-          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
-          "rewards": [
-            "📜 Blueprints +3",
-            {
-              "resourceId": "processing_05",
-              "name": "Nano Parts",
-              "amount": "8",
-              "iconImg": "icons/T_Fuel_Rod.png",
-              "icon": "📦"
-            },
-            "🧠 Knowledge +350"
-          ],
-          "targetNodeId": "node_1791706248386",
-          "targetNodeIds": [
-            "node_1791706248386"
-          ]
-        },
-        {
-          "id": "act_1791378373196",
-          "codeSuffix": "B",
-          "shortDescription": "Blast through!",
-          "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
-          "requirements": [
-            {
-              "id": "clause_1791378603692",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "ammunition_02",
-                  "name": "Explosive Charges",
-                  "amount": 3,
-                  "iconImg": "icons/T_ExplosiveCharges.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 3,
-          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
-          "rewards": [
-            {
-              "resourceId": "processing_02",
-              "name": "Alloyed Metal",
-              "amount": "20-30",
-              "iconImg": "icons/T_Alloy_Steel.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "synthesized_01",
-              "name": "Biopolymer",
-              "amount": "20-30",
-              "iconImg": "icons/T_Biopolymer.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_03",
-              "name": "Thermoplastic",
-              "amount": "20-30",
-              "iconImg": "icons/T_Thermoplastic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_04",
-              "name": "Conductive Materials",
-              "amount": "20-30",
-              "iconImg": "icons/T_Conductive-Materials.png",
-              "icon": "📦"
-            },
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_1791705255524",
-          "targetNodeIds": [
-            "node_1791705255524"
-          ]
-        }
-      ],
-      "colorScheme": "blue",
-      "disabledVariationIds": [],
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e2a",
-      "codename": "T1-V1-K3A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "spawnConditions": "Immediately after 2A choice resolution",
-      "eventIntro": "Repelled by the overwhelming numbers of local predators, the scouts failed to discover the fate of the survivors. It is the time to learn from our mistakes and attempt again.",
-      "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -1091,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "act_e2a_1",
-          "codeSuffix": "A",
-          "shortDescription": "Send drones",
-          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
-          "requirements": [
-            {
-              "id": "clause_1791673340691",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_01",
-                  "name": "Propulsion Kit",
-                  "amount": 3,
-                  "iconImg": "icons/T_Propulsion_Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791673347965",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_03",
-                  "name": "Sensors Array",
-                  "amount": 3,
-                  "iconImg": "icons/T_Sensors.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
-          "rewards": [
-            {
-              "resourceId": "res_06_Chrom",
-              "name": "Chromium",
-              "amount": "40",
-              "iconImg": "icons/T_Chromium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "15",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_16_Lithium",
-              "name": "Lithium",
-              "amount": "20",
-              "iconImg": "icons/T_Lithium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_08_Titan",
-              "name": "Titanium",
-              "amount": "40",
-              "iconImg": "icons/T_Metals_Ti.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+200",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e3a",
-          "targetNodeIds": [
-            "node_e3a"
-          ]
-        },
-        {
-          "id": "act_1791673301980",
-          "codeSuffix": "B",
-          "shortDescription": "Send scouts",
-          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
-          "requirements": [
-            {
-              "id": "clause_1791673357630",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "consumer_02",
-                  "name": "Portable Force Shield",
-                  "amount": 5,
-                  "iconImg": "icons/T_ForceField.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
-          "rewards": [
-            {
-              "resourceId": "res_38_Prebiotic",
-              "name": "Prebiotic Matter",
-              "amount": "250-300",
-              "iconImg": "icons/T_Prebiotic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_19_Eldrit",
-              "name": "Eldritium",
-              "amount": "10-15",
-              "iconImg": "icons/T_Eldritium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "10-15",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "colorScheme": "orange",
-      "location": "Immediately after 2A choice resolution"
-    },
-    {
-      "id": "node_e2b",
-      "codename": "T1-V1-K3B",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "spawnConditions": "Distance covered X",
-      "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
-      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for.  People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 116,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "act_e2b_1",
-          "codeSuffix": "A",
-          "shortDescription": "Treat survivors",
-          "description": "Bring the survivors to the ship and provide them with all the necessary medical help.",
-          "requirements": [
-            {
-              "id": "clause_1791704591715",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_02",
-                  "name": "Med Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Med-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704597486",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_operations",
-                  "name": "Operations Crew",
-                  "amount": 1,
-                  "icon": "⚙️",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts return with the blood-crying survivors, and the fight for their lives begins.\n\nBased on the preliminary examination, the virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More work needs to be done to better understand its properties, learn how it ended up on Keeling, and find a way to treat it.",
-          "rewards": [
-            {
-              "resourceId": "spec_operations",
-              "name": "Operations Spec",
-              "amount": "+5",
-              "icon": "⚙️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": null,
-          "targetNodeIds": []
-        },
-        {
-          "id": "act_e2b_2",
-          "codeSuffix": "B",
-          "shortDescription": "Study distantly",
-          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
-          "requirements": [
-            {
-              "id": "clause_1791704609876",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_02",
-                  "name": "D.A.R.T.",
-                  "amount": 2,
-                  "iconImg": "icons/T_ControlStation.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704618396",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 4,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "R&D scientists and doctors give instructions to the scouts. They examine the survivors, collect the samples for R&D analysis, and do what they can to help. In the end, nothing works, and the scouts give the final gift to the tormented people — painkillers.  Having taken all the necessary precautions, the scouts then deliver the samples to the R&D lab for further research.  The virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+300",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": null,
-          "targetNodeIds": []
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "colorScheme": "orange",
-      "location": "Distance covered X"
-    },
-    {
-      "id": "node_e3a",
-      "codename": "T1-V1-K4A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 3,
-      "spawnConditions": "Immediately after 2A choice resolution",
-      "eventIntro": "The lifeboat is tossed around by the legion of turbulent waves. Radio silence greets your ship.",
-      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  Among those corpses also lies the frail body of a child.\n\nIt is not Liora.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -2095,
-        "y": 4890
-      },
-      "actions": [
-        {
-          "id": "act_e3a_1",
-          "codeSuffix": "A",
-          "shortDescription": "Collect samples",
-          "description": "Send scouts to take the samples for the R&D lab.",
-          "requirements": [
-            {
-              "id": "clause_1791704935868",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_05",
-                  "name": "Nano Parts",
-                  "amount": 3,
-                  "iconImg": "icons/T_Fuel_Rod.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704941985",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 6,
-                  "iconImg": "icons/T_Container.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 6,
-          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. Mars Abbadie, the Head of R&D, contacts you later with preliminary results. The virus is a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "questres_03",
-              "name": "Comm-Link",
-              "amount": "4",
-              "iconImg": "icons/T_Comm_Link.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791704810788",
-          "codeSuffix": "B",
-          "shortDescription": "Study distantly",
-          "description": "The examination must be conducted remotely using drones.",
-          "requirements": [
-            {
-              "id": "clause_1791704949464",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 3,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704959408",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 3,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704967548",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_02",
-                  "name": "D.A.R.T.",
-                  "amount": 1,
-                  "iconImg": "icons/T_ControlStation.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+300",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "location": "Immediately after 2A choice resolution",
-      "colorScheme": "orange"
-    },
-    {
-      "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
-      "spawnConditions": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
-      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
-      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 5176,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1791705255524",
-          "codeSuffix": "A",
-          "shortDescription": "Investigate the Anomaly",
-          "description": "\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
-          "requirements": [
-            {
-              "id": "clause_1792507962988",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 3,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 3,
-          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791705793442",
-          "codeSuffix": "B",
-          "shortDescription": "Investigate the Anomaly",
-          "description": "The team has to manage without a tricorder. ",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792507915803",
-          "codeSuffix": "C",
-          "shortDescription": "Extract the BVR",
-          "description": "Description for action choice C...",
-          "requirements": [
-            {
-              "id": "clause_1792508262936",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 1,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792508280371",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 5,
-                  "iconImg": "icons/T_Container.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Maddened by the ceaseless melody in their heads, equipped with tools that kept malfunctioning, the scouts have had quite a hard time extracting the target. And when they finally get their hands on the voice recorder, it appears damaged, too.\n\nNot as badly as the previous recorder, though. Some of its data might be saved.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "colorScheme": "orange",
-      "title": "The Moment After the End",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2207,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1791706248386",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "title": "The Moment After the End",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1792765225249",
-      "codename": "T1-V10-K1A",
-      "name": "The Finite Infinity",
-      "title": "The Finite Infinity",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v10",
-      "floorIndex": 0,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 328,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "c_1792765225249",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [
-            {
-              "id": "clause_1792765249255",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "res_01_Gold",
-                  "name": "Gold",
-                  "amount": 10,
-                  "iconImg": "icons/T_Gold.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100",
-            {
-              "resourceId": "stat_morale",
-              "name": "Morale",
-              "amount": "+4",
-              "icon": "😊",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792765310278",
-          "codeSuffix": "B",
-          "shortDescription": "Choice B",
-          "description": "Description for action choice B...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ]
-    },
-    {
       "id": "node_1791717900687",
       "codename": "T1-V2-K1A",
       "name": "Once More Into The Frey",
@@ -8461,7 +8388,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": "node_1791921021620"
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -8675,10 +8602,115 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792765225249",
+      "codename": "T1-V10-K1A",
+      "name": "The Finite Infinity",
+      "title": "The Finite Infinity",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v10",
+      "floorIndex": 0,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 328,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "c_1792765225249",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [
+            {
+              "id": "clause_1792765249255",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_01_Gold",
+                  "name": "Gold",
+                  "amount": 10,
+                  "iconImg": "icons/T_Gold.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100",
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792765310278",
+          "codeSuffix": "B",
+          "shortDescription": "Choice B",
+          "description": "Description for action choice B...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
       ]
     }
   ],
   "dialogues": [
+    {
+      "id": "diag_1791832094238",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 1800,
+        "y": -414
+      },
+      "variationId": "var_v2",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791832094238",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
+        },
+        {
+          "id": "l_1791832119337",
+          "speakerId": "khalil",
+          "speakerName": "Khalil Arida",
+          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
+        }
+      ],
+      "links": [],
+      "floorIndex": 0
+    },
     {
       "id": "diag_gen_beacon",
       "characterId": "char_catherine",
@@ -9773,37 +9805,6 @@
           "triggerCondition": "During (T1-V1-K2A) Process the data"
         }
       ]
-    },
-    {
-      "id": "diag_1791832094238",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
-      "position": {
-        "x": 1800,
-        "y": -414
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791832094238",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
-        },
-        {
-          "id": "l_1791832119337",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
-        }
-      ],
-      "links": [],
-      "floorIndex": 0
     }
   ]
 }
