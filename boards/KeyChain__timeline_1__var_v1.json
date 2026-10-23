@@ -2959,7 +2959,7 @@
           "id": "l_1792796225347",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Any word from the survivors? Did they tell anything useful?"
         },
         {
           "id": "l_1792796226350",
@@ -3300,5 +3300,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:57:43.386357"
+  "_lastModified": "2026-10-23T22:57:53.673315"
 }
