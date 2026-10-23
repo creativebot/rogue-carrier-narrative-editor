@@ -1662,8 +1662,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
-        "x": 1106,
-        "y": -1043
+        "x": 1119,
+        "y": -1519
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2138,6 +2138,6 @@
       ]
     }
   ],
-  "author": "Oleksandr Seliutin",
-  "_lastModified": "2026-10-23T07:08:28.394460"
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-23T11:10:14.788074"
 }
