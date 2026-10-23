@@ -1,18 +1,6 @@
 {
   "comments": [
     {
-      "id": "cmt_1791468621763",
-      "targetId": "node_e1",
-      "targetType": "event",
-      "targetTitle": "Escape Pod Signal",
-      "text": "yo",
-      "author": "Oleksandr Seliutin",
-      "authorEmail": "oseliutin@n-ix.com",
-      "createdAt": "2026-10-08T14:10:21.763424Z",
-      "displayTime": "2026-10-08 16:10",
-      "mentions": []
-    },
-    {
       "id": "cmt_1791724017477",
       "targetId": "node_1791717900687",
       "targetType": "event",
@@ -186,6 +174,7 @@
   ],
   "deletedIds": [
     "cmt_1791467850374",
+    "cmt_1791468621763",
     "cmt_1791569583368",
     "cmt_1791569647034",
     "cmt_1791723288305",
