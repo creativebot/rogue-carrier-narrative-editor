@@ -36,7 +36,7 @@
                 {
                   "resourceId": "res_01_Gold",
                   "name": "Gold",
-                  "amount": 1,
+                  "amount": 10,
                   "iconImg": "icons/T_Gold.png",
                   "icon": "📦"
                 }
@@ -56,5 +56,5 @@
   ],
   "dialogues": [],
   "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T14:20:49.446104"
+  "_lastModified": "2026-10-23T14:20:55.499764"
 }
