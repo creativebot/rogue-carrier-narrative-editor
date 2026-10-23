@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:19:24.290339",
+  "_lastModified": "2026-10-23T07:19:28.087967",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2741,7 +2741,7 @@
       "inactionThreat": {
         "description": "Leave them be",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Log the group as low-risk and schedule a discreet quarterly welfare check.",
         "penalties": [],
         "targetNodeId": "node_1792661442330"
