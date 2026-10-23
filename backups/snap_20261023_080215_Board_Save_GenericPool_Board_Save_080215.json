@@ -3,7 +3,7 @@
   "filename": "snap_20261023_080215_Board_Save_GenericPool_Board_Save_080215.json",
   "reason": "Board Save (GenericPool): Board Save (08:02:15)",
   "author": "Tetiana Tretilova",
-  "timestamp": "2026-10-23T08:02:15.394616",
+  "timestamp": "2026-10-23T08:02:15.999278",
   "displayTime": "2026-10-23 08:02:15",
   "nodeCount": 8,
   "dialogueCount": 17,
@@ -11,7 +11,7 @@
     "version": "2.6.0",
     "schemaVersion": 1,
     "stageLayoutVersion": 2,
-    "_lastModified": "2026-10-23T08:02:15.095136",
+    "_lastModified": "2026-10-23T08:02:15.795030",
     "projectInfo": {
       "name": "Rogue Carrier Scenario 1",
       "author": "Tetiana Tretilova"
@@ -5493,7 +5493,7 @@
                 ]
               }
             ],
-            "timerHours": 5,
+            "timerHours": 0,
             "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, the scouts reported that the virus had been neutralized and no longer posed a threat to humans or your food supplies.",
             "rewards": [
               {
