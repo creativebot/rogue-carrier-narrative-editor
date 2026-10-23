@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:18:46.380335",
+  "_lastModified": "2026-10-23T07:18:50.376375",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -958,7 +958,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The insects manage to find their way out of the locked-down building and attack the crew. Luckily, their stings cannot penetrate the safety suits and present no threat. A small number of wasps that have escaped are soon found and killed.\n It is not so easy to do with those in the nest inside the facility. As a result, the future shifts working there should spend some of their time fighting off the annoying insects.",
         "penalties": [
           {
