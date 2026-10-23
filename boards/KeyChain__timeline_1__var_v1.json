@@ -1361,12 +1361,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3A) Rescue & Quarantine",
       "position": {
-        "x": 72,
-        "y": 3673
+        "x": -2125,
+        "y": 4109
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "lines": [
         {
           "id": "l12",
@@ -2673,5 +2673,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:35:20.093636"
+  "_lastModified": "2026-10-23T20:35:24.192393"
 }
