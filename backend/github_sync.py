@@ -20,15 +20,8 @@ from backend.config import *
 from backend.unreal_export import count_board_contents
 from backend.auth import load_users, save_users, is_placeholder_name
 
-_SYNC_PARTS = (
-    "git", "hub", "_pat_",
-    "11ADAHINI00", "d29Pq1oAv1l_",
-    "u0w6jF9ToqT", "mflOwH8UBQz",
-    "NfkVVX61S1v", "gE2V9lwGao7",
-    "5WKQ7NHfFte", "drsv"
-)
-
 def get_github_pat():
+    """Token comes only from GITHUB_PAT env var (Render) or git-ignored github_token.txt. Never hardcoded."""
     pat = os.environ.get("GITHUB_PAT")
     if pat:
         return pat.strip()
@@ -41,7 +34,8 @@ def get_github_pat():
                     return tok
         except Exception:
             pass
-    return "".join(_SYNC_PARTS)
+    print("[GitHub Sync] WARNING: No GITHUB_PAT env var or github_token.txt found - GitHub cloud sync is DISABLED.")
+    return None
 
 GITHUB_PAT = get_github_pat()
 GITHUB_REPO = "creativebot/rogue-carrier-narrative-editor"
