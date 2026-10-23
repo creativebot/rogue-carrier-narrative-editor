@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:31:02.590523",
+  "_lastModified": "2026-10-23T23:31:03.885977",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9893,16 +9893,16 @@
       "floorIndex": 3,
       "lines": [
         {
-          "id": "l_1792798226086",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
-        },
-        {
           "id": "l17",
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "So we're not going to have our brains bleed out of our eyes. That's nice."
+        },
+        {
+          "id": "l_1792798226086",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "New dialogue speech text..."
         },
         {
           "id": "l16",
