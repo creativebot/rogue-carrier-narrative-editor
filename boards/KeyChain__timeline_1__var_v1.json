@@ -2530,6 +2530,12 @@
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
           "text": "El! Something's off with the Prism. I... Look at it."
+        },
+        {
+          "id": "l_1792785019201",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [
@@ -2603,5 +2609,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:50:17.959776"
+  "_lastModified": "2026-10-23T19:50:19.553427"
 }
