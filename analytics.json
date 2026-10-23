@@ -188,11 +188,12 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 753,
+        "seconds": 770,
         "boards": {
           "KeyChain:timeline_1:var_v1": 323,
           "DeckPool": 222,
-          "GenericPool": 208
+          "GenericPool": 208,
+          "SpeciesPool": 17
         },
         "hourly": [
           0,
@@ -210,7 +211,7 @@
           0,
           326,
           58,
-          31,
+          48,
           0,
           0,
           0,
@@ -220,7 +221,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T15:29:05.618000Z"
+        "lastActive": "2026-10-23T15:37:34.990000Z"
       },
       "mkorkach@n-ix.com": {
         "name": "Mykola Korkach",
