@@ -2472,6 +2472,30 @@
           "text": "Enter dialogue line here..."
         },
         {
+          "id": "l_1792784826038",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792784825815",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792784825605",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792784825196",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
+        },
+        {
           "id": "l_1792784824466",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
@@ -2555,5 +2579,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:47:05.186709"
+  "_lastModified": "2026-10-23T19:47:07.091324"
 }
