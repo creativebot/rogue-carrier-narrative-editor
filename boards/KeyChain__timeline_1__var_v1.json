@@ -1095,7 +1095,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 7,
           "resultDescription": "",
           "rewards": [
             {
@@ -2251,5 +2251,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:41:03.615119"
+  "_lastModified": "2026-10-23T17:41:05.402521"
 }
