@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T11:31:12.579578",
+  "_lastModified": "2026-10-23T11:31:16.077495",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -1045,7 +1045,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "You send a group equipped with improvised spraying devices to disperse the chemical poison. It works like a charm, quickly killing the insects.\n After that, all that is left to be done is to remove the nest formation.\n\n",
+          "resultDescription": "You send a group equipped with improvised spraying devices to disperse the chemical poison. It works like a charm, quickly killing the insects.\n After that, all that is left to be done is to remove the nest formation.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
