@@ -1064,7 +1064,7 @@
           "id": "c_1791706248386",
           "codeSuffix": "A",
           "shortDescription": "Choice A",
-          "description": "Action description...",
+          "description": "Only anatomically-enhanced crew members can withstand the pressure and work under those conditions. ",
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "",
@@ -2161,5 +2161,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T16:32:52.000140"
+  "_lastModified": "2026-10-23T16:33:02.050375"
 }
