@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:53:42.895938",
+  "_lastModified": "2026-10-23T22:53:54.296880",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11577,7 +11577,7 @@
           "id": "l_1792794128578",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "I'll see Liora and Angela soon."
         },
         {
           "id": "l_1792794129582",
