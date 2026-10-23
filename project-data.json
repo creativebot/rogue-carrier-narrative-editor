@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:57:35.093407",
+  "_lastModified": "2026-10-23T19:57:43.400680",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11149,7 +11149,7 @@
           "id": "l_1792785441773",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, the ship's multiple systems appear to be malfunctioning."
         },
         {
           "id": "l_1792785451972",
