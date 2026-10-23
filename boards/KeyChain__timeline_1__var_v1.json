@@ -3152,8 +3152,8 @@
         },
         {
           "id": "l_1792794133430",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
           "text": "New dialogue speech text..."
         },
         {
@@ -3174,5 +3174,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:44:37.492229"
+  "_lastModified": "2026-10-23T22:44:41.698113"
 }
