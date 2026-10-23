@@ -224,7 +224,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, they developed a custom batch of MedGel that not only neutralized the virus but also reversed its effects, saving several creatures on the brink of death.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:15.738616"
+  "_lastModified": "2026-10-23T08:02:16.287423"
 }
