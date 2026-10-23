@@ -2452,12 +2452,12 @@
     },
     {
       "id": "diag_1792780814185",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_1791705255524",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1792507915803",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
+      "triggerCondition": "After (T1-V1-K3C) Extract the BVR",
       "position": {
         "x": 5795,
         "y": 4582
@@ -2472,7 +2472,15 @@
           "text": "Enter dialogue line here..."
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "id": "dlink_1792780864483_s65g",
+          "targetEventId": "node_1791705255524",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1792507915803",
+          "triggerCondition": "After (T1-V1-K3C) Extract the BVR"
+        }
+      ],
       "floorIndex": 3
     },
     {
@@ -2510,5 +2518,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:41:03.589054"
+  "_lastModified": "2026-10-23T18:41:04.992111"
 }
