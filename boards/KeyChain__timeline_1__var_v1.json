@@ -1017,7 +1017,7 @@
           "id": "act_1792507915803",
           "codeSuffix": "C",
           "shortDescription": "Extract the BVR",
-          "description": "Description for action choice C...",
+          "description": "The anomaly does not go anywhere, and meanwhile, the debris of Zephyrus is slowly sinking. We should extract the BVR while it is not too late.",
           "requirements": [
             {
               "id": "clause_1792508262936",
@@ -2429,5 +2429,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:37:06.682377"
+  "_lastModified": "2026-10-23T18:37:34.254274"
 }
