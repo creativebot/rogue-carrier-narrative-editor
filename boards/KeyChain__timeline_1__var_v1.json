@@ -2311,8 +2311,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Send divers",
       "position": {
-        "x": 2520,
-        "y": 4635
+        "x": 2523,
+        "y": 4638
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2496,5 +2496,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:14:15.878926"
+  "_lastModified": "2026-10-23T18:14:27.789113"
 }
