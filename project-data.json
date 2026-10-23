@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:25:21.190802",
+  "_lastModified": "2026-10-23T20:25:28.392248",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7231,7 +7231,7 @@
     },
     {
       "id": "node_e1b",
-      "codename": "T1-V1-K2C",
+      "codename": "T1-V1-K2B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -7369,12 +7369,12 @@
     },
     {
       "id": "node_e2a",
-      "codename": "T1-V1-K2B",
+      "codename": "T1-V1-K3B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
       "variationId": "var_v1",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "spawnConditions": "Immediately after 2A choice resolution",
       "eventIntro": "Repelled by the overwhelming numbers of local predators, the scouts failed to discover the fate of the survivors. It is the time to learn from our mistakes and attempt again.",
       "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
@@ -7382,8 +7382,8 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -201,
-        "y": 1690
+        "x": -1004,
+        "y": 3290
       },
       "actions": [
         {
@@ -7816,7 +7816,7 @@
     },
     {
       "id": "node_1791705255524",
-      "codename": "T1-V1-K3B",
+      "codename": "T1-V1-K3C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -10481,7 +10481,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 2,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2C) Disassemble • After (T1-V1-K2C) Blast through!",
+      "triggerCondition": "After (T1-V1-K2B) Disassemble • After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 3632,
         "y": 3275
@@ -10564,7 +10564,7 @@
       "triggerActionId": "act_1791378373196",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2C) Blast through!",
+      "triggerCondition": "After (T1-V1-K2B) Blast through!",
       "position": {
         "x": 4286,
         "y": 1907
@@ -10640,7 +10640,7 @@
       "triggerActionId": "act_e1b_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K2C) Disassemble",
+      "triggerCondition": "After (T1-V1-K2B) Disassemble",
       "position": {
         "x": 2184,
         "y": 2873
@@ -10910,7 +10910,7 @@
       "triggerActionId": "act_1792507915803",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Extract the BVR",
+      "triggerCondition": "After (T1-V1-K3C) Extract the BVR",
       "position": {
         "x": 5805,
         "y": 4772
@@ -11015,7 +11015,7 @@
       "triggerActionId": "c_1791705255524",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Investigate the Anomaly",
+      "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly",
       "position": {
         "x": 5164,
         "y": 4773
