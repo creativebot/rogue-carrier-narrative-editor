@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T13:32:06.327555",
+  "_lastModified": "2026-10-23T13:32:07.022898",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -6082,7 +6082,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 909,
+        "x": 621,
         "y": 90
       },
       "actions": [
