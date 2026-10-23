@@ -2730,8 +2730,8 @@
         },
         {
           "id": "l_1792788302290",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
           "text": "Can you pinpoint the location?"
         },
         {
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:45:29.751592"
+  "_lastModified": "2026-10-23T20:45:47.730865"
 }
