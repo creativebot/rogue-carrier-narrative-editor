@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:28:40.198300",
+  "_lastModified": "2026-10-23T20:28:48.193206",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7465,6 +7465,19 @@
                   "name": "Propulsion Kit",
                   "amount": 1,
                   "iconImg": "icons/T_Propulsion_Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792787327669",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 1,
+                  "iconImg": "icons/T_Sensors.png",
                   "icon": "📦"
                 }
               ]
