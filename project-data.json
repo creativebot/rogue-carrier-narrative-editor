@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:04:33.597494",
+  "_lastModified": "2026-10-23T18:04:35.999231",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10885,7 +10885,7 @@
           "id": "l_1792778617980",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "New dialogue speech text..."
+          "text": "But, sir, it's... not much. "
         },
         {
           "id": "l_1792778618876",
