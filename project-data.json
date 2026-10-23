@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:15:15.696329",
+  "_lastModified": "2026-10-23T18:15:30.699686",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10913,7 +10913,7 @@
           "id": "l_1792779086690",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, I have completed my analysis and added the expected location of the flight recorder to the navigation panel."
         },
         {
           "id": "l_1792779307257",
