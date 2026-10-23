@@ -2481,7 +2481,7 @@
           "id": "l_1792784825815",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Start with the good."
         },
         {
           "id": "l_1792784825605",
@@ -2579,5 +2579,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:47:32.660293"
+  "_lastModified": "2026-10-23T19:47:42.648950"
 }
