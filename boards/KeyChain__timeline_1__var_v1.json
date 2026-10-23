@@ -2726,7 +2726,7 @@
           "id": "l_1792788200960",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "Can you pinpoint the location?"
         },
         {
           "id": "l_1792788302290",
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:45:24.241816"
+  "_lastModified": "2026-10-23T20:45:27.909620"
 }
