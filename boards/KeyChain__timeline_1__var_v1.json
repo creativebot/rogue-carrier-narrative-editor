@@ -2566,8 +2566,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly",
       "position": {
-        "x": 5149,
-        "y": 4586
+        "x": 5164,
+        "y": 4773
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2617,5 +2617,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:52:48.585840"
+  "_lastModified": "2026-10-23T19:53:03.788293"
 }
