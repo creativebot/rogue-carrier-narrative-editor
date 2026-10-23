@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:44:34.793218",
+  "_lastModified": "2026-10-23T22:44:37.698052",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11618,8 +11618,8 @@
         },
         {
           "id": "l_1792794131850",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
           "text": "Let me tell you: it wasn't easy. Probably by design."
         },
         {
