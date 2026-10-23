@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:10:59.605281",
+  "_lastModified": "2026-10-23T23:11:17.286770",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7602,14 +7602,6 @@
           "timerHours": 5,
           "resultDescription": "The scouts deliver shots of the omni-vaccine to the sick without much hope, as this cure only works against the known viruses. And yet, after the shots, the afflicted people seem to show general signs of improvement: less pain, less bleeding, and reduced fever.\n\nAs the scouts are about to return with the survivors, Mars Abbadie, the Head of R&D, advises you to isolate all of those people and prepare for the worst.",
           "rewards": [
-            {
-              "resourceId": "spec_operations",
-              "name": "Operations Spec",
-              "amount": "+5",
-              "icon": "⚙️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
             {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
