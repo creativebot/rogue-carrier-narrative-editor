@@ -1426,7 +1426,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "As the device begins drawing in the discharges, the glowing spheres flicker and gradually dissipate. After several tense minutes, they manage to clear a narrow passage through the storm. The recon craft escapes the dangerous airspace and safely returns to the ship.",
           "rewards": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:57:21.979862"
+  "_lastModified": "2026-10-23T08:01:20.393499"
 }
