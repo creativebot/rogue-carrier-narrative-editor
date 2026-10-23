@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:09:27.986343",
+  "_lastModified": "2026-10-23T21:09:46.389692",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11460,6 +11460,38 @@
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
+        }
+      ]
+    },
+    {
+      "id": "diag_1792789785562",
+      "targetEventId": "node_e3a",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_1791704810788",
+      "links": [
+        {
+          "id": "dlink_1792789785562",
+          "targetEventId": "node_e3a",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_1791704810788",
+          "triggerCondition": "During (T1-V1-K4A) Study distantly"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K4A) Study distantly",
+      "position": {
+        "x": 877,
+        "y": 5186
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792789785562",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "We should consider choosing \"Study distantly\". It offers strong tactical advantages for our mission."
         }
       ]
     },
