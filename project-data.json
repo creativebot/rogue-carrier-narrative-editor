@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:47:06.791059",
+  "_lastModified": "2026-10-23T23:47:24.991438",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -9830,7 +9830,7 @@
       "targetEventId": "node_e2b",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e2b_1",
-      "delayHours": 0,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3A) Treat survivors",
       "position": {
