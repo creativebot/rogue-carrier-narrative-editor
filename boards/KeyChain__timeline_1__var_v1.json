@@ -1055,6 +1055,13 @@
               "amount": "+400",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "machinery_05",
+              "name": "Battery Block",
+              "amount": "2",
+              "iconImg": "icons/T_Battery-Block.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -2429,5 +2436,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:38:03.599601"
+  "_lastModified": "2026-10-23T18:38:16.089193"
 }
