@@ -515,13 +515,6 @@
               "hasN": true
             },
             {
-              "resourceId": "res_16_Lithium",
-              "name": "Lithium",
-              "amount": "20",
-              "iconImg": "icons/T_Lithium.png",
-              "icon": "📦"
-            },
-            {
               "resourceId": "res_08_Titan",
               "name": "Titanium",
               "amount": "40",
@@ -2661,5 +2654,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:29:52.749972"
+  "_lastModified": "2026-10-23T20:30:02.565359"
 }
