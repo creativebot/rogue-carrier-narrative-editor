@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:12:34.594845",
+  "_lastModified": "2026-10-23T17:12:45.499555",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -8040,9 +8040,11 @@
             {
               "resourceId": "b_production_t1_04",
               "name": "Processing Workshop",
-              "amount": "-7",
+              "amount": "+7",
               "iconImg": "icons/b_production_t1_04__Processing_Workshop.png",
-              "icon": "🏥"
+              "icon": "🏥",
+              "nValue": "+7",
+              "hasN": true
             }
           ],
           "targetNodeIds": [],
