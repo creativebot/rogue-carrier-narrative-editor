@@ -2315,8 +2315,40 @@
           "text": "Enter dialogue line here..."
         }
       ]
+    },
+    {
+      "id": "diag_1792777689523",
+      "targetEventId": "node_1791706248386",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1792773156500",
+      "links": [
+        {
+          "id": "dlink_1792777689523",
+          "targetEventId": "node_1791706248386",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1792773156500",
+          "triggerCondition": "After (T1-V1-K3C) Send Drones"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "After (T1-V1-K3C) Send Drones",
+      "position": {
+        "x": 3161,
+        "y": 4061
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792777689523",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:48:03.610243"
+  "_lastModified": "2026-10-23T17:48:10.051762"
 }
