@@ -245,7 +245,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": " The escape shuttle's log accounts for six passengers, one of them a child.       The cameras show that two passengers of the shuttle had died before the creatures attacked. They bled from their eyes and were delirious. In the end, they grew aggressive and forced other passengers to flee.       The wild beasts only ravaged the corpses and did not attack any other member of the evacuation.       That's when the scouts notice the last clue. Each escape shuttle, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the shuttle's inventory.",
+          "resultDescription": "The escape shuttle's log accounts for six passengers, one of them a child. The cameras show that two passengers of the shuttle had died before the creatures attacked. They bled from their eyes and were delirious.\n\nIn the end, they grew aggressive and forced other passengers to flee.       \n\nThe wild beasts only ravaged the corpses and did not attack any other member of the evacuation.       \n\nThat's when the scouts notice the last clue. Each escape shuttle, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the shuttle's inventory.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -2694,5 +2694,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:17:03.545218"
+  "_lastModified": "2026-10-23T20:17:23.166778"
 }
