@@ -1415,16 +1415,16 @@
       "floorIndex": 3,
       "lines": [
         {
-          "id": "l16",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
-          "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
-        },
-        {
           "id": "l_1792798226086",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
           "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l16",
+          "speakerId": "abbadie",
+          "speakerName": "Mars Abbadie",
+          "text": "That's the thing—it shouldn't have happened! The virus couldn't have bypassed their suits."
         },
         {
           "id": "l_1792798225843",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:30:31.414661"
+  "_lastModified": "2026-10-23T23:30:55.790718"
 }
