@@ -1099,13 +1099,6 @@
           "resultDescription": "",
           "rewards": [
             {
-              "resourceId": "b_service_02",
-              "name": "Medical Center",
-              "amount": "+10",
-              "iconImg": "icons/b_service_02__Medical_Center.png",
-              "icon": "🏥"
-            },
-            {
               "resourceId": "b_production_t1_02",
               "name": "Electronics Workshop",
               "amount": "+6",
@@ -2214,5 +2207,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:14:22.342159"
+  "_lastModified": "2026-10-23T17:14:23.611527"
 }
