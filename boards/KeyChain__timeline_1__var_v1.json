@@ -3205,12 +3205,6 @@
           "text": "Makes me wonder just how much we have yet to learn."
         },
         {
-          "id": "l_1792795564800",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
-        },
-        {
           "id": "l_1792795680021",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
@@ -3246,5 +3240,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:48:30.630857"
+  "_lastModified": "2026-10-23T22:48:32.615154"
 }
