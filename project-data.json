@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:19:18.787033",
+  "_lastModified": "2026-10-23T07:19:21.281817",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -2941,7 +2941,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Safety Report: \"So, we let the bladed bot do its thing for a little too long. It eventually came way too close to stabbing one of our people—no fatalities, but it was a near miss. The panic spread fast, and the  film studio had to be shut down in record time. Lesson learned, I hope.\" From: Orest Demchuck.",
         "penalties": [
           {
