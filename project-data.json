@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:11:55.998851",
+  "_lastModified": "2026-10-23T20:13:48.698769",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7105,7 +7105,7 @@
         {
           "id": "act_e1_1",
           "codeSuffix": "A",
-          "shortDescription": "Access shuttle's log",
+          "shortDescription": "Access shuttle's log (HIGH CHALLENGE)",
           "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
           "requirements": [
             {
