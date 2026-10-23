@@ -1214,7 +1214,8 @@
         }
       ],
       "title": "The Moment After the End",
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "rose"
     }
   ],
   "dialogues": [
@@ -2285,5 +2286,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:44:03.636830"
+  "_lastModified": "2026-10-23T17:44:19.761714"
 }
