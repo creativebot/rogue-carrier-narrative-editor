@@ -2362,6 +2362,12 @@
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
           "text": "No way I am ever going to swim in the water here..."
+        },
+        {
+          "id": "l_1792778154338",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -2369,5 +2375,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:55:53.283971"
+  "_lastModified": "2026-10-23T17:55:54.756135"
 }
