@@ -2933,9 +2933,10 @@
           "triggerCondition": "After (T1-V1-K4A) Study distantly"
         }
       ],
-      "floorIndex": 4
+      "floorIndex": 4,
+      "colorScheme": "rose"
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:07:31.202468"
+  "_lastModified": "2026-10-23T21:07:34.236171"
 }
