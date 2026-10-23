@@ -2451,9 +2451,10 @@
         }
       ],
       "links": [],
-      "floorIndex": 3
+      "floorIndex": 3,
+      "colorScheme": "rose"
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:06:51.187919"
+  "_lastModified": "2026-10-23T18:06:55.933331"
 }
