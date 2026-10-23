@@ -2368,6 +2368,12 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "Let's get the trawler back up before another one of these things shows up."
+        },
+        {
+          "id": "l_1792778165865",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -2375,5 +2381,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:56:05.088057"
+  "_lastModified": "2026-10-23T17:56:06.276143"
 }
