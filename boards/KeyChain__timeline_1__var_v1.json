@@ -3080,40 +3080,8 @@
           "text": "Enter dialogue line here..."
         }
       ]
-    },
-    {
-      "id": "diag_1792789974008",
-      "targetEventId": "node_e2a",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_1791673301980",
-      "links": [
-        {
-          "id": "dlink_1792789974008",
-          "targetEventId": "node_e2a",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_1791673301980",
-          "triggerCondition": "During (T1-V1-K3B) Send drones"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K3B) Send drones",
-      "position": {
-        "x": 459,
-        "y": 3448
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792789974008",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "We should consider choosing \"Send drones\". It offers strong tactical advantages for our mission."
-        }
-      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:13:03.522073"
+  "_lastModified": "2026-10-23T21:13:50.888116"
 }
