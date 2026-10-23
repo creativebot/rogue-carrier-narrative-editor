@@ -2612,41 +2612,8 @@
       ],
       "floorIndex": 3,
       "colorScheme": "rose"
-    },
-    {
-      "id": "diag_1792785152056",
-      "targetEventId": "node_1791706248386",
-      "triggerTiming": "pre_event",
-      "triggerActionId": null,
-      "links": [
-        {
-          "id": "dlink_1792785152056",
-          "targetEventId": "node_1791706248386",
-          "triggerTiming": "pre_event",
-          "triggerActionId": null,
-          "triggerCondition": "Before (T1-V1-K4B)"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K4B)",
-      "position": {
-        "x": 4283,
-        "y": 4141
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792785152057",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ],
-      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:52:37.890700"
+  "_lastModified": "2026-10-23T19:52:44.694869"
 }
