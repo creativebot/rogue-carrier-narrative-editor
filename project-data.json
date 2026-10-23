@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:02:22.001813",
+  "_lastModified": "2026-10-23T08:02:16.970Z",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -587,7 +587,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scientists work hard to turn the whole crisis upside down: from poison to cure. Eventually, they bring the good news: they have managed to extract the parasitic fluid from the plants and use it to create a batch of custom MedGel.",
           "rewards": [
             {
@@ -628,7 +628,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scientists work hard on finding a way to neutralize the parasite's toxicity. Eventually, they bring the good news and inform you that, despite the lingering visual effects, the recently afflicted crops are fit for consumption.",
           "rewards": [
             {
@@ -689,7 +689,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The order is out, and the crew cuts down the blue-striped plants and hauls them to a workshop where they recycle them into Chemical Fuel.",
           "rewards": [
             {
@@ -796,7 +796,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Such a blatant violation of food safety protocols takes its toll within hours. Nevertheless, sharing meals and working together to cope with the consequences improves crew morale.",
           "rewards": [
             {
@@ -859,7 +859,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "As expected, the addition of energy bars to their meals is met with much enthusiasm.",
           "rewards": [
             {
@@ -909,7 +909,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "While making a new menu, your people find a secret and special ingredient that has long been lost. It is creativity that was missing. Take something from one dish and put it into another, and voila—something new and exciting is born. Even changing names makes a difference.\n Your people are loving the new menu.",
           "rewards": [
             {
@@ -1047,7 +1047,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "You send a group equipped with improvised spraying devices to disperse the chemical poison. It works like a charm, quickly killing the insects.\n After that, all that is left to be done is to remove the nest formation.",
           "rewards": [
             {
@@ -1117,7 +1117,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "You send a group equipped with improvised flamethrowers to shoot fire at the insects and their nest. As expected, these bugs are no more resistant to fire than their distant relatives back on Earth.  Unfortunately, during this mission, the building itself caught fire. And so, after the fight against insects was over, the fight against fire began.",
           "rewards": [
             {
@@ -1174,7 +1174,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Scientists take this as an opportunity to learn more about the local fauna. Their first discovery is that their stings present no threat to the crew wearing safety suits.  The work at the facility is soon renewed. However, the productivity is far from the best, as the shifts have to fight off the annoying wasps while working, all while being documented by their colleagues.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -1271,7 +1271,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
             {
@@ -1364,7 +1364,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             {
@@ -1457,7 +1457,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "This solution is better than nothing. The competitions are good for the crew's health, and they're grateful for the gesture.",
           "rewards": [
             {
@@ -1575,7 +1575,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Tasks are reshuffled across teams. The change breaks boredom, and initiative returns.",
           "rewards": [
             {
@@ -1625,7 +1625,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Short goals with visible progress bars go live. Crews chase targets and celebrate quick wins.",
           "rewards": [
             {
@@ -1733,7 +1733,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
             {
@@ -1809,7 +1809,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
             {
@@ -1903,7 +1903,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew undergoes a series of vigorous exercises: close combat, accuracy shooting, obstacle course traversal, and many others. The muscles throb and ache, making the next day of work a more tiring experience, but the skills learned and the knowledge gained are invaluable.",
           "rewards": [
             {
@@ -1952,7 +1952,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew learns several applications of MedGel and the basics of first aid. How to stop bleeding, what to do when a heart stops, and even less extreme situations, like what to do when someone faints, are given much-needed time, so that the crew can be ready for any exigency.",
           "rewards": [
             {
@@ -2016,7 +2016,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew learns how to navigate various types of available vessels and how to interpret sensor readings to avoid unwanted collisions on the island-riddled planet.",
           "rewards": [
             {
@@ -2065,7 +2065,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Orest invites Tuuli, the Chief Engineer, to give a masterclass on survival crafting. It starts with basics, such as making a lean-to and starting a fire, and then the training gets progressively more complicated as Tuuli forces crew members to disassemble various tools and gadgets to learn how to repair them.",
           "rewards": [
             {
@@ -2191,7 +2191,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "A friendly culinary competition was held among the crew. Thanks to their creativity and teamwork, a winning recipe was chosen, making meals noticeably more appealing and boosting morale across the ship.",
           "rewards": [
             {
@@ -2241,7 +2241,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
           "rewards": [
             {
@@ -2334,7 +2334,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
             {
@@ -2410,7 +2410,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The doctors do not manage to develop vaccine, however, the knowledge they gathered through research can be valuable in deepening comprehension of Keeling-IV ecosystems.",
           "rewards": [
             {
@@ -2457,7 +2457,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The doctors announce a breakthrough in their attempt to develop a vaccine. They advise every crew member to get a shot immediately to reduce the risk of contracting local diseases.",
           "rewards": [
             {
@@ -2566,7 +2566,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The support program proved to be efficient. With the help of deep meditation, psychological guidance, and cutting edge technology, people realized that ghosts only exist in the eye of an exhausted mind and let go of those irrational fears.",
           "rewards": [
             {
@@ -2615,7 +2615,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The sedatives improve the overall situation, though not without several side effects (apathy, lack of energy, loss of appetite, and others) that unfortunately affect general productivity.",
           "rewards": [
             {
@@ -2700,7 +2700,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "There is, indeed, a disembodied voice that haunts the halls of the ship. An unsanctioned AI Core was installed within the ship's systems and made invisible even to Mnemosyne. When it happened, or who is responsible for this crime, remains unanswered. But this AI agent is the one spreading disturbing ideas and sowing seeds of doubt in the minds of your crew.  The AI core is removed. And the mysterious ghost is no more.",
           "rewards": [
             {
@@ -2774,7 +2774,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
           "rewards": [
             {
@@ -2824,7 +2824,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The undercover agent reports on the group’s benign activities. TTRPGs become a welcome stress relief for the crew as their awareness increases.",
           "rewards": [
             {
@@ -2884,7 +2884,7 @@
           "shortDescription": "Choice A",
           "description": "Stop this",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Productivity bonus but  morale debuff",
           "rewards": [
             "🧠 Knowledge +100"
@@ -2898,7 +2898,7 @@
           "shortDescription": "Choice B",
           "description": "Encorage",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Productivity problem but good morale bonus",
           "rewards": [
             "🧠 Knowledge +100"
@@ -3009,7 +3009,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Safety Report: \"We managed to intercept the \"blade bot\" in the corridor and disarm it on the spot—literally took the knives right off. The robot’s back to harmlessly bumping into walls, and the crew’s sense of safety has gone way up. One less horror story for now.\" From: Orest Demchuck.",
           "rewards": [
             {
@@ -3044,7 +3044,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Safety report:\n\"Well, good news: the team managed to snag our knife-wielding cleaning robot with its batteries nearly drained! Sure, manual mopping isn’t anyone’s favorite pastime, but the chase gave everyone an unexpected show and actually boosted spirits. Crisis averted!\" From: Orest Demchuck.",
           "rewards": [
             {
@@ -3162,7 +3162,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Productivity Report:\n\"Captain, a recent discussion revealed a critical flaw in the original protocol, as identified by an attentive crew member during the meeting. Following a thorough conversation with the team, we have implemented updates to all relevant procedures. This revision has resulted in an unexpected boost to overall productivity.\nWith due respect, Mnemosyne.\"",
           "rewards": [
             {
@@ -3218,7 +3218,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Productivity Report:\n\"Captain, operations and logistics training has been successfully completed for designated personnel. While not all are stationed within the facility, their expertise is already enhancing coordination and significantly reducing the likelihood of future errors. This intervention is expected to provide lasting improvements to crew efficiency.\nWith due respect, Mnemosyne.\"",
           "rewards": [],
           "targetNodeIds": [],
@@ -3270,7 +3270,7 @@
           "shortDescription": "Organize a running group",
           "description": "Donate materials for crew to create makeshift running gear and start an athletics group.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew’s regular exercise routine has noticeably increased their energy levels and improved overall health, creating a more vibrant and resilient community.",
           "rewards": [
             {
@@ -3312,7 +3312,7 @@
           "shortDescription": "Organize art club",
           "description": "Supply resources so crew can create art and sculptures from scrap materials.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
           "rewards": [
             {
@@ -3369,7 +3369,7 @@
           "shortDescription": "Organize shooting range",
           "description": "Authorize weapon-handling practice so crew can train at an improvised shooting range.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
           "rewards": [],
           "targetNodeIds": [],
@@ -3473,7 +3473,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The group of volunteers confiscated the entire batch without sorting individual bottles. Though frustrating for some, this decisive action prevented a crisis and kept everyone safe.",
           "rewards": [
             {
@@ -3514,7 +3514,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew willingly returned several bottles, and the hallucinogenic substance was discovered during a routine trade-in inspection. Thanks to their cooperation, the risky spirits were contained before causing any incidents.",
           "rewards": [
             {
@@ -3549,7 +3549,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "A warning was issued about the potential effects, allowing crew members to make informed choices. While productivity may have taken a slight dip, overall morale and mental well-being noticeably improved as trust in crew leadership grew.",
           "rewards": [
             {
@@ -3693,7 +3693,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew adopts the Plumplins as unofficial mascots. Spirits lift, and medbay reports a measurable boost to crew immunity. The only cost is a slight dip in productivity — people keep finding reasons to walk past the habitat.",
           "rewards": [
             {
@@ -3805,7 +3805,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Nobody wanted to be the one who hurt them. The nest came out in one piece — lined material, scraps, and all — and went straight into a crate padded for the trip. The Plumplins moved in after it without much fuss, and the crew spent the rest of the shift checking on them.",
           "rewards": [
             {
@@ -3857,7 +3857,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew took it badly. Something settled over the ship afterwards that nobody puts into words. The researchers logged an anomalous organic artifact recovered from the nest, along with a strange connection to the Plumplins themselves.",
           "rewards": [
             {
@@ -3917,7 +3917,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Without intervention, the legged shark continues to roam freely, creating ongoing disorder and causing mounting frustration among the crew tasked with food production. Morale takes a hit as the nuisance persists.",
         "penalties": [
           {
@@ -4136,7 +4136,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "As anticipated, one of the extremophile bacteria escapes containment, rapidly corroding part of the ship’s structure. The incident serves as a costly reminder of the dangers unchecked fun can unleash.",
         "penalties": [
           {
@@ -4174,7 +4174,7 @@
           "shortDescription": "Make it regulated",
           "description": "Provide specialized equipment to ensure each “race” is safely contained, along with education on disease prevention to minimize health risks.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
           "rewards": [
             {
@@ -4209,7 +4209,7 @@
           "shortDescription": "Repurpose the Competition",
           "description": "Introduce precision tools and encourage the crew to reinvent the contest, using their enthusiasm to cultivate new antibiotics instead of hazards.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "With upgraded tools and a new purpose, the crew channels their competitive energy into real research. Friendly rivalries now push them to discover promising antibiotic candidates, blending fun with meaningful contributions to shipwide health.",
           "rewards": [
             {
@@ -4236,7 +4236,7 @@
           "shortDescription": "Dismantle the Casino",
           "description": "Impose immediate restrictions and dismantle the competition to prevent any risk of an outbreak.",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Though some crew members are disappointed, the swift action pays off — potential threats are neutralized before they can develop, safeguarding the entire vessel from a possible epidemic. Fortunately, a few of the cell cultures are salvaged safely and can be repurposed as basic medicine, providing a small but valuable benefit to the ship’s medical reserves.",
           "rewards": [
             {
@@ -4279,7 +4279,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The supposed birthday passes with no celebration or gift. Later, word spreads that Khalil’s birthday was actually on another day. Some crew members feel a twinge of disappointment, wondering if their own special days might someday be forgotten as well, leaving the atmosphere a bit subdued.",
         "penalties": [
           {
@@ -4331,7 +4331,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
           "rewards": [
             {
@@ -4379,7 +4379,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
           "rewards": [
             {
@@ -4422,7 +4422,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Disheartened by the lack of response from the captain, Ruthless-Sky and the unnamed crew member decided to take matters into their own hands. Under the cover of night, the pair slipped away from the ship, climbing atop a mysterious marine creature that surfaced near the hull. By morning, both were gone without a trace.  Little is known of their whereabouts, yet hope remains among the crew that, wherever they are, the unlikely couple has found happiness together. ",
         "penalties": [
           {
@@ -4473,7 +4473,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
           "rewards": [
             {
@@ -4529,7 +4529,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
           "rewards": [
             {
@@ -4579,7 +4579,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The candid discussion led by crew experts went smoothly. Ruth and the crew member agreed they’d jumped in too quickly and decided to remain friends — for now. As they exited, an officer swears the crew member gave Ruth a sly wink, hinting that the story might not be over just yet.",
           "rewards": [
             {
@@ -4689,7 +4689,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The operation was largely a success. The creature pounced on the bait without hesitation. That said, a few crew members were injured while installing the lure and in the aftermath. Still, it was spectacular, so morale is up.",
           "rewards": [
             {
@@ -4744,7 +4744,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "After the creature was attacked, it emitted a a powerful signal. It appears to have been a call for help, so be ready for a potential threat from the depths.",
           "rewards": [
             {
@@ -4792,7 +4792,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Studies of the creature have revealed extraordinary properties in its internal organs: they consume, store, and convert energy with remarkable efficiency. The research has since given rise to the idea of a new Energy Building.",
           "rewards": [
             "🧠 Knowledge +100",
@@ -4882,7 +4882,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
           "rewards": [
             {
@@ -4931,7 +4931,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
           "rewards": [
             {
@@ -4980,7 +4980,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
           "rewards": [
             {
@@ -5077,7 +5077,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew have planned out the next hours and are now able to address upcoming situations more efficiently, resulting in a spike in overall productivity.",
           "rewards": [
             {
@@ -5139,7 +5139,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Some crew members used this time to deepen their understanding of logistics, becoming more specialized in their roles and enabling smoother, more efficient task execution for everyone.",
           "rewards": [],
           "targetNodeIds": [],
@@ -5233,7 +5233,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The Plumplins took to the prepared nesting site at once and settled in, healthy and content. Over the following days they grew attached to the crew, and when it came time to part ways, they left something from the nest behind. The crew chose to read it as a thank-you.",
           "rewards": [
             {
@@ -5288,7 +5288,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "With bittersweet emotions, the crew released the adorable creatures into the wild, confident that the island will provide them a new home. Though farewells were teary, the crew felt joy knowing the Plumplins were safe and free, ready to embrace their new life.",
           "rewards": [
             {
@@ -9222,7 +9222,7 @@
             "node_1791921021620",
             "node_1791921030715"
           ],
-          "targetNodeId": "node_1791921021620"
+          "targetNodeId": null
         }
       ],
       "disabledVariationIds": [],
@@ -9390,38 +9390,6 @@
           "triggerTiming": "post_action",
           "triggerActionId": "c_1791297604320",
           "triggerCondition": "After (GEN-E1) Board Vessel"
-        }
-      ]
-    },
-    {
-      "id": "diag_1792742502689",
-      "targetEventId": "node_1792411390857",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_1792411418096",
-      "links": [
-        {
-          "id": "dlink_1792742502689",
-          "targetEventId": "node_1792411390857",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_1792411418096",
-          "triggerCondition": "After (GEN-S1-E8) Scare the monster"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "After (GEN-S1-E8) Scare the monster",
-      "position": {
-        "x": 2380,
-        "y": 1459
-      },
-      "variationId": "var_v1",
-      "category": "GenericPool",
-      "lines": [
-        {
-          "id": "l_1792742502689",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
         }
       ]
     },
@@ -10520,6 +10488,38 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_1792742502689",
+      "targetEventId": "node_1792411390857",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1792411418096",
+      "links": [
+        {
+          "id": "dlink_1792742502689",
+          "targetEventId": "node_1792411390857",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1792411418096",
+          "triggerCondition": "After (GEN-S1-E8) Scare the monster"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "After (GEN-S1-E8) Scare the monster",
+      "position": {
+        "x": 2380,
+        "y": 1459
+      },
+      "variationId": "var_v1",
+      "category": "GenericPool",
+      "lines": [
+        {
+          "id": "l_1792742502689",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ]
     }
   ]
 }
