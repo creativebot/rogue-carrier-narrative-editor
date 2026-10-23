@@ -261,10 +261,10 @@
       "dpoludonnyi@n-ix.com": {
         "name": "Daniel Poludyonny",
         "email": "dpoludonnyi@n-ix.com",
-        "seconds": 60,
+        "seconds": 120,
         "boards": {
-          "KeyChain:timeline_1:var_v1": 30,
-          "DeckPool": 30
+          "KeyChain:timeline_1:var_v1": 60,
+          "DeckPool": 60
         },
         "hourly": [
           0,
@@ -278,7 +278,7 @@
           0,
           0,
           0,
-          30,
+          90,
           0,
           0,
           0,
@@ -292,7 +292,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T11:09:20.955000Z"
+        "lastActive": "2026-10-23T11:10:20.952000Z"
       },
       "oseliutin@n-ix.com": {
         "name": "Oleksandr Seliutin",
