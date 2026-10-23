@@ -1069,6 +1069,15 @@
               "amount": "2",
               "iconImg": "icons/T_Ai-Core.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "criteria_end_game_the_scouts_retrieve_cvr_and_learn_more_about_zephyrus_incomplete_data_",
+              "name": "END GAME. THE SCOUTS RETRIEVE CVR AND LEARN MORE ABOUT ZEPHYRUS (INCOMPLETE DATA)",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
@@ -2443,5 +2452,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:39:03.596859"
+  "_lastModified": "2026-10-23T18:39:09.836046"
 }
