@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:02:10.097455",
+  "_lastModified": "2026-10-23T08:02:11.089521",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5662,7 +5662,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering reusable  materials.",
           "rewards": [
             {
