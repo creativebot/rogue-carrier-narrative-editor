@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:47:39.487430",
+  "_lastModified": "2026-10-23T17:48:01.591932",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10755,6 +10755,38 @@
           "triggerTiming": "action_option",
           "triggerActionId": "act_e0_2",
           "triggerCondition": "During (T1-V1-K2A) Process the data"
+        }
+      ]
+    },
+    {
+      "id": "diag_1792777680805",
+      "targetEventId": "node_1791706248386",
+      "triggerTiming": "post_action",
+      "triggerActionId": "c_1791706248386",
+      "links": [
+        {
+          "id": "dlink_1792777680805",
+          "targetEventId": "node_1791706248386",
+          "triggerTiming": "post_action",
+          "triggerActionId": "c_1791706248386",
+          "triggerCondition": "After (T1-V1-K3C) Send divers"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "After (T1-V1-K3C) Send divers",
+      "position": {
+        "x": 2641,
+        "y": 4209
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792777680805",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
         }
       ]
     },
