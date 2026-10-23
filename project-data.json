@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:02:04.892962",
+  "_lastModified": "2026-10-23T08:02:05.594126",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5861,7 +5861,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists slowly melted  through the lock. The air pressure between an airlock and outside the capsule equilized, allowing them to open the door safely. All three survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
