@@ -1354,7 +1354,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K3A)",
+      "triggerCondition": "Before (T1-V1-K3A) • After (T1-V1-K3A) Treat survivors",
       "position": {
         "x": -2845,
         "y": 4230
@@ -1395,6 +1395,13 @@
           "triggerTiming": "pre_event",
           "triggerActionId": null,
           "triggerCondition": "Before (T1-V1-K3A)"
+        },
+        {
+          "id": "dlink_1792798793716_1rxr",
+          "targetEventId": "node_e2b",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_e2b_1",
+          "triggerCondition": "After (T1-V1-K3A) Treat survivors"
         }
       ]
     },
@@ -3440,5 +3447,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:39:46.688512"
+  "_lastModified": "2026-10-23T23:39:53.990285"
 }
