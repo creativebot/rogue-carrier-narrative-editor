@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:14:31.689661",
+  "_lastModified": "2026-10-23T20:14:42.687642",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7130,6 +7130,19 @@
                   "name": "Microcontrollers",
                   "amount": 5,
                   "iconImg": "icons/T_Microcontrollers.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792786482076",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 5,
+                  "iconImg": "icons/T_Container.png",
                   "icon": "📦"
                 }
               ]
