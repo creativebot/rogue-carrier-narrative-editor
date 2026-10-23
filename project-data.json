@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:59:01.095180",
+  "_lastModified": "2026-10-23T19:59:02.797390",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10142,8 +10142,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Comb island",
       "position": {
-        "x": -1533,
-        "y": 1774
+        "x": -2786,
+        "y": 1645
       },
       "variationId": "var_v1",
       "category": "KeyChain",
