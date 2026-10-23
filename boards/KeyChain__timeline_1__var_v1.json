@@ -1098,7 +1098,6 @@
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
-            "🧠 Knowledge +100",
             {
               "resourceId": "stat_entropy",
               "name": "Entropy",
@@ -2236,5 +2235,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:13:03.663818"
+  "_lastModified": "2026-10-23T17:14:10.805890"
 }
