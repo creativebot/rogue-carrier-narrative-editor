@@ -2259,8 +2259,8 @@
       "delayUnit": "hours",
       "triggerCondition": "",
       "position": {
-        "x": 2366,
-        "y": 301
+        "x": 1628,
+        "y": 982
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2272,7 +2272,7 @@
           "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
         }
       ],
-      "floorIndex": 0,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "links": [
         {
@@ -2456,5 +2456,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:11:07.079097"
+  "_lastModified": "2026-10-23T18:11:12.995148"
 }
