@@ -257,6 +257,41 @@
           0
         ],
         "lastActive": "2026-10-23T14:21:31.327000Z"
+      },
+      "ttretilova@n-ix.com": {
+        "name": "Tetiana Tretilova",
+        "email": "ttretilova@n-ix.com",
+        "seconds": 30,
+        "boards": {
+          "DeckPool": 30
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          30,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-23T14:27:21.220000Z"
       }
     }
   }
