@@ -2448,12 +2448,6 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "(transition to primordial message)"
-        },
-        {
-          "id": "l_1792778793877",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -2461,5 +2455,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:06:34.268499"
+  "_lastModified": "2026-10-23T18:06:38.093093"
 }
