@@ -2316,8 +2316,40 @@
         }
       ],
       "floorIndex": 3
+    },
+    {
+      "id": "diag_1792777815717",
+      "targetEventId": "node_1791706248386",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_1792773156500",
+      "links": [
+        {
+          "id": "dlink_1792777815717",
+          "targetEventId": "node_1791706248386",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_1792773156500",
+          "triggerCondition": "During (T1-V1-K3C) Send Drones"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K3C) Send Drones",
+      "position": {
+        "x": 2990,
+        "y": 4207
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792777815717",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "We should consider choosing \"Send Drones\". It offers strong tactical advantages for our mission."
+        }
+      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:50:03.612533"
+  "_lastModified": "2026-10-23T17:50:16.289349"
 }
