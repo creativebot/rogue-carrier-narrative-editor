@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:16:07.990743",
+  "_lastModified": "2026-10-23T18:16:15.296802",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10925,7 +10925,7 @@
           "id": "l_1792779308330",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "I also wanted to discuss the recent decrease in crew morale.\n\nAn unhappy crew leads to complications."
         },
         {
           "id": "l_1792779309505",
