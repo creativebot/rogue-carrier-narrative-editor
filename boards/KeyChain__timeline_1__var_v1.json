@@ -2748,8 +2748,8 @@
         },
         {
           "id": "l_1792788305440",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
           "text": "Only one way to know."
         }
       ],
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:46:39.837048"
+  "_lastModified": "2026-10-23T20:46:42.710565"
 }
