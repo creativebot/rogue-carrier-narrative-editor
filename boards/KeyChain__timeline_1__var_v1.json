@@ -2971,8 +2971,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K4A) Collect samples",
       "position": {
-        "x": -44,
-        "y": 6142
+        "x": -224,
+        "y": 6233
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2983,7 +2983,8 @@
           "speakerName": "Voss",
           "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
         }
-      ]
+      ],
+      "floorIndex": 4
     },
     {
       "id": "diag_1792789964632",
@@ -3019,5 +3020,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:17:17.946224"
+  "_lastModified": "2026-10-23T22:17:23.586572"
 }
