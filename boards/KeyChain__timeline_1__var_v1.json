@@ -522,6 +522,13 @@
               "iconImg": "",
               "nValue": "+400",
               "hasN": true
+            },
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "🌀"
             }
           ],
           "targetNodeId": "node_e3a",
@@ -2649,5 +2656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:30:11.511835"
+  "_lastModified": "2026-10-23T20:30:23.189805"
 }
