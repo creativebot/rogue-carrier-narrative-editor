@@ -489,14 +489,14 @@
           "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found. ",
           "requirements": [
             {
-              "id": "clause_1791673347965",
+              "id": "clause_1792787304635",
               "isReplaceable": false,
               "items": [
                 {
-                  "resourceId": "electronics_03",
-                  "name": "Sensors Array",
-                  "amount": 3,
-                  "iconImg": "icons/T_Sensors.png",
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 1,
+                  "iconImg": "icons/T_ForceField.png",
                   "icon": "📦"
                 }
               ]
@@ -2653,5 +2653,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:10.757262"
+  "_lastModified": "2026-10-23T20:28:24.966310"
 }
