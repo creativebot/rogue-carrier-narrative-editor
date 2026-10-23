@@ -2673,7 +2673,7 @@
           "id": "l_1792785441773",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, the ship's multiple systems appear to be malfunctioning."
         },
         {
           "id": "l_1792785451972",
@@ -2693,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:57:35.049685"
+  "_lastModified": "2026-10-23T19:57:43.310075"
 }
