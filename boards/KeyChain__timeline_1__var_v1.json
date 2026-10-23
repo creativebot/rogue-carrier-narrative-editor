@@ -965,8 +965,10 @@
               "isCriteria": true
             }
           ],
-          "targetNodeIds": [],
-          "targetNodeId": null
+          "targetNodeIds": [
+            "node_1791706248386"
+          ],
+          "targetNodeId": "node_1791706248386"
         },
         {
           "id": "act_1791705793442",
@@ -2615,5 +2617,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:52:44.694869"
+  "_lastModified": "2026-10-23T19:52:48.585840"
 }
