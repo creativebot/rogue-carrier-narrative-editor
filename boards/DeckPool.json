@@ -231,7 +231,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "It appears that some of the infected crops have wound up in the kitchen. Stomach aches, fever, and diarrhea are now the common afflictions among the crew.",
         "penalties": [
           {
@@ -5046,5 +5046,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T07:18:34.609854"
+  "_lastModified": "2026-10-23T07:18:42.468674"
 }
