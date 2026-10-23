@@ -837,7 +837,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:52.458521"
+  "_lastModified": "2026-10-23T08:01:56.038265"
 }
