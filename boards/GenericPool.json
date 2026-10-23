@@ -666,7 +666,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Using scanners, the scouts trace the anomalies to an artifact inside the first chamber. The rising tide leaves little time to retrieve it. While retrieving the artifact, the crew discovers a passage to a deeper cave network. But time spent debating and scanning allows the rising tide to cut off access, preventing further exploration.",
           "rewards": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:01:28.191158"
+  "_lastModified": "2026-10-23T08:01:33.186549"
 }
