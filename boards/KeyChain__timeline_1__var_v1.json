@@ -2486,8 +2486,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 2292,
-        "y": 956
+        "x": 1753,
+        "y": 632
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2508,9 +2508,9 @@
           "triggerCondition": "After (T1-V1-K1A) Process the data"
         }
       ],
-      "floorIndex": 1
+      "floorIndex": 0
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:17:03.591502"
+  "_lastModified": "2026-10-23T18:19:32.273559"
 }
