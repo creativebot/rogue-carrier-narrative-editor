@@ -2442,41 +2442,8 @@
         }
       ],
       "floorIndex": 1
-    },
-    {
-      "id": "diag_1792779090419",
-      "targetEventId": "node_e0",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 2.5,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
-      "position": {
-        "x": 1753,
-        "y": 632
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792779090419",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ],
-      "links": [
-        {
-          "id": "dlink_1792779167145_fmiz",
-          "targetEventId": "node_e0",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": "After (T1-V1-K1A) Process the data"
-        }
-      ],
-      "floorIndex": 0
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:20:24.719622"
+  "_lastModified": "2026-10-23T18:20:36.577502"
 }
