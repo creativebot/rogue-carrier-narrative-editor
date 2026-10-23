@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T16:46:42.905061",
+  "_lastModified": "2026-10-23T16:46:51.093969",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -8006,13 +8006,6 @@
               "amount": "3",
               "iconImg": "",
               "icon": "🌀"
-            },
-            {
-              "resourceId": "processing_02",
-              "name": "Alloyed Metal",
-              "amount": "3",
-              "iconImg": "icons/T_Alloy_Steel.png",
-              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
