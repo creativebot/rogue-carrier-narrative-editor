@@ -2793,7 +2793,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 7032
+        "y": 7097
       },
       "actions": [
         {
@@ -4214,5 +4214,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:43:53.859782"
+  "_lastModified": "2026-10-23T13:44:01.200827"
 }
