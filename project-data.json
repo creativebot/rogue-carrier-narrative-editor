@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:01:56.088047",
+  "_lastModified": "2026-10-23T08:01:56.823884",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -6191,7 +6191,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
           "rewards": [
             {
