@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:13:48.698769",
+  "_lastModified": "2026-10-23T20:14:00.591796",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7155,7 +7155,7 @@
         {
           "id": "act_e1_2",
           "codeSuffix": "B",
-          "shortDescription": "Comb the island",
+          "shortDescription": "Comb the island (AVER. CHOICE)",
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
             {
