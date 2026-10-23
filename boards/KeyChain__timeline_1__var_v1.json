@@ -193,7 +193,7 @@
         {
           "id": "act_e1_1",
           "codeSuffix": "A",
-          "shortDescription": "Comb island",
+          "shortDescription": "Access shuttle's log",
           "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
           "requirements": [
             {
@@ -2693,5 +2693,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:00:03.564793"
+  "_lastModified": "2026-10-23T20:08:24.614449"
 }
