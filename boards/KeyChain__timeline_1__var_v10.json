@@ -50,7 +50,7 @@
             {
               "resourceId": "stat_entropy",
               "name": "Entropy",
-              "amount": "+4",
+              "amount": "-1",
               "icon": "💀",
               "iconImg": ""
             }
@@ -77,5 +77,5 @@
   ],
   "dialogues": [],
   "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T14:22:21.642470"
+  "_lastModified": "2026-10-23T14:22:29.481023"
 }
