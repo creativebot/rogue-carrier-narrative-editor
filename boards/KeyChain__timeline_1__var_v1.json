@@ -702,6 +702,13 @@
               "amount": "+400",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "+3",
+              "icon": "👨‍🚀",
+              "iconImg": ""
             }
           ],
           "targetNodeId": null,
@@ -3306,5 +3313,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:12:31.428285"
+  "_lastModified": "2026-10-23T23:12:53.394630"
 }
