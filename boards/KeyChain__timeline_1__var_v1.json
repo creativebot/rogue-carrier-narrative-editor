@@ -1442,7 +1442,7 @@
           "id": "l_1792798225098",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "Made by?"
         },
         {
           "id": "l_1792798222002",
@@ -3386,5 +3386,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:32:40.991856"
+  "_lastModified": "2026-10-23T23:32:48.383704"
 }
