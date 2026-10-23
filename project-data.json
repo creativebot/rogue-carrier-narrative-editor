@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:55:40.389543",
+  "_lastModified": "2026-10-23T17:55:45.089232",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10829,7 +10829,7 @@
           "id": "l_1792778026146",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "Enter dialogue line here..."
+          "text": "We did it... We killed the damn Moby Dick! \n"
         },
         {
           "id": "l_1792778136869",
