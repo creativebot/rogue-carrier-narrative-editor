@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:27:40.892585",
+  "_lastModified": "2026-10-23T20:27:42.885797",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7389,7 +7389,7 @@
         {
           "id": "act_e2a_1",
           "codeSuffix": "A",
-          "shortDescription": "Send drones",
+          "shortDescription": "Send scouts ",
           "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
           "requirements": [
             {
