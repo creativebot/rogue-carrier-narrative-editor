@@ -1142,6 +1142,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792777238553",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "unitres_01",
+                  "name": "Worker Drone",
+                  "amount": 2,
+                  "iconImg": "icons/T_WorkerUnit.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2225,5 +2238,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:40:05.551072"
+  "_lastModified": "2026-10-23T17:40:38.969922"
 }
