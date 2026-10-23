@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:55:16.789992",
+  "_lastModified": "2026-10-23T22:55:28.992142",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11613,7 +11613,7 @@
           "id": "l_1792796069596",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "The honor is mine. But... shhh... quiet...\n"
         },
         {
           "id": "l_1792796113933",
