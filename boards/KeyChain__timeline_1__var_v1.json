@@ -562,7 +562,7 @@
         {
           "id": "act_1791673301980",
           "codeSuffix": "B",
-          "shortDescription": "Send scouts",
+          "shortDescription": "Send drones",
           "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
           "requirements": [
             {
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:27:34.897308"
+  "_lastModified": "2026-10-23T20:27:40.851927"
 }
