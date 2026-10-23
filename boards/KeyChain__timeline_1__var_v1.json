@@ -2385,65 +2385,8 @@
       "links": [],
       "floorIndex": 3,
       "colorScheme": "rose"
-    },
-    {
-      "id": "diag_1792779086690",
-      "targetEventId": "node_e0",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_e0_2",
-      "delayHours": 2,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K1A) Process the data",
-      "position": {
-        "x": 1428,
-        "y": 1068
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792779086690",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "Captain, I have completed my analysis and added the expected location of the flight recorder to the navigation panel."
-        },
-        {
-          "id": "l_1792779307257",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "Thank you, M."
-        },
-        {
-          "id": "l_1792779308330",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "I also wanted to discuss the recent decrease in crew morale.\n\nAn unhappy crew leads to complications."
-        },
-        {
-          "id": "l_1792779309505",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "Did you consider giving a motivational speech?"
-        },
-        {
-          "id": "l_1792779310562",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
-        }
-      ],
-      "links": [
-        {
-          "id": "dlink_1792779158017_1l3h",
-          "targetEventId": "node_e0",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_e0_2",
-          "triggerCondition": "After (T1-V1-K1A) Process the data"
-        }
-      ],
-      "floorIndex": 1
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:21:06.256500"
+  "_lastModified": "2026-10-23T18:21:10.848683"
 }
