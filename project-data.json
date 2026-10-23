@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:31:05.597226",
+  "_lastModified": "2026-10-23T20:31:19.496400",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7439,6 +7439,13 @@
               "name": "Cultured Meat",
               "amount": "20",
               "iconImg": "icons/T_Raw_Meat.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "250-300",
+              "iconImg": "icons/T_Prebiotic.png",
               "icon": "📦"
             }
           ],
