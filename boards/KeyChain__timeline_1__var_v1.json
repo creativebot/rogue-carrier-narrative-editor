@@ -2885,7 +2885,7 @@
           "id": "l_1792789493211",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "There's nothing in my database."
         },
         {
           "id": "l_1792789494343",
@@ -2931,5 +2931,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:05:36.612422"
+  "_lastModified": "2026-10-23T21:05:53.921132"
 }
