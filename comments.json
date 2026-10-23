@@ -232,6 +232,18 @@
       "createdAt": "2026-10-23T22:49:41.077323Z",
       "displayTime": "2026-10-23 22:49",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792795826394",
+      "targetId": "diag_1792789252340",
+      "targetType": "dialogue",
+      "targetTitle": "After (T1-V1-K4A) Study distantly",
+      "text": "Condition: 30 min after Choice B",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-23T22:50:26.394039Z",
+      "displayTime": "2026-10-23 22:50",
+      "mentions": []
     }
   ],
   "deletedIds": [
