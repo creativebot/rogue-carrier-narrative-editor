@@ -1758,7 +1758,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "",
+      "triggerCondition": "Before (T1-V1-K3A)",
       "position": {
         "x": -3241,
         "y": 4019
@@ -1847,7 +1847,7 @@
           "targetEventId": "node_e2b",
           "triggerTiming": "pre_event",
           "triggerActionId": null,
-          "triggerCondition": ""
+          "triggerCondition": "Before (T1-V1-K3A)"
         }
       ]
     },
@@ -3304,5 +3304,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:06:57.690067"
+  "_lastModified": "2026-10-23T23:07:13.290419"
 }
