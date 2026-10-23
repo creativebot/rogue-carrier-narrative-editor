@@ -580,7 +580,7 @@
             }
           ],
           "timerHours": 8,
-          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
+          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
           "rewards": [
             {
               "resourceId": "res_38_Prebiotic",
@@ -2666,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:29:10.193315"
+  "_lastModified": "2026-10-23T20:29:18.312833"
 }
