@@ -1099,13 +1099,6 @@
           "resultDescription": "",
           "rewards": [
             {
-              "resourceId": "stat_entropy",
-              "name": "Entropy",
-              "amount": "3",
-              "iconImg": "",
-              "icon": "🌀"
-            },
-            {
               "resourceId": "shipsystem_02",
               "name": "Sensor System",
               "amount": "4",
@@ -2235,5 +2228,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:14:10.805890"
+  "_lastModified": "2026-10-23T17:14:12.143702"
 }
