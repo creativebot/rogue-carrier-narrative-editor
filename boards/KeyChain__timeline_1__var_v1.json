@@ -248,14 +248,6 @@
           "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
           "rewards": [
             {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+3",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
               "amount": "+200",
@@ -2698,5 +2690,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:15:05.600819"
+  "_lastModified": "2026-10-23T20:15:07.037629"
 }
