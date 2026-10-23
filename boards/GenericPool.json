@@ -1403,7 +1403,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 1201
+        "y": 1371
       },
       "actions": [
         {
@@ -1623,6 +1623,6 @@
       ]
     }
   ],
-  "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T14:25:08.959255"
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-23T07:39:11.560635"
 }
