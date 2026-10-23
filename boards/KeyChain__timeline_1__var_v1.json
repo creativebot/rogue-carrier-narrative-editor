@@ -255,6 +255,13 @@
               "iconImg": "",
               "nValue": "+400",
               "hasN": true
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "2",
+              "iconImg": "",
+              "icon": "📜"
             }
           ],
           "targetNodeId": "node_e2a",
@@ -2694,5 +2701,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:15:27.692056"
+  "_lastModified": "2026-10-23T20:15:42.609385"
 }
