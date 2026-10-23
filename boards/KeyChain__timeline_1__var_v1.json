@@ -2309,8 +2309,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Send divers • After (T1-V1-K3C) Send Drones",
       "position": {
-        "x": 2489,
-        "y": 4272
+        "x": 2508,
+        "y": 4275
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2326,5 +2326,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:51:41.485730"
+  "_lastModified": "2026-10-23T17:51:44.886656"
 }
