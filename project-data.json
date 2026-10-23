@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:10:49.691156",
+  "_lastModified": "2026-10-23T23:10:59.605281",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7655,7 +7655,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "R&D scientists and doctors give instructions to the scouts. They examine the survivors, collect the samples for R&D analysis, and do what they can to help. In the end, nothing works, and the scouts give the final gift to the tormented people — painkillers.  Having taken all the necessary precautions, the scouts then deliver the samples to the R&D lab for further research.  The virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "resultDescription": "Each survivor dies in horrible agony, screaming for help you would not provide. Their blood-streaked faces, their tormented cries — you don't think you will ever be able to forget. Especially, the death throes of that child. Not your, and yet, in that suit, so reminiscent of your daughter.",
           "rewards": [
             {
               "resourceId": "medres_03",
