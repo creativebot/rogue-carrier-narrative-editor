@@ -3035,8 +3035,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Collect samples",
       "position": {
-        "x": -578,
-        "y": 5652
+        "x": -509,
+        "y": 5695
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -3047,9 +3047,10 @@
           "speakerName": "Voss",
           "text": "Enter dialogue line here..."
         }
-      ]
+      ],
+      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:10:26.000219"
+  "_lastModified": "2026-10-23T21:10:27.487568"
 }
