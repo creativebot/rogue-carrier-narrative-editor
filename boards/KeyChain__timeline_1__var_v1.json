@@ -2690,7 +2690,7 @@
           "id": "l_1792788140629",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, we have picked up a distress message. Playing it for you."
         },
         {
           "id": "l_1792788192814",
@@ -2749,5 +2749,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:43:21.294531"
+  "_lastModified": "2026-10-23T20:43:30.766187"
 }
