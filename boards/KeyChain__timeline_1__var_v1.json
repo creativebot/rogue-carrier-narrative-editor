@@ -2990,6 +2990,12 @@
           "speakerId": "voss",
           "speakerName": "Voss",
           "text": "We should consider choosing \"Collect samples\". It offers strong tactical advantages for our mission."
+        },
+        {
+          "id": "l_1792793879489",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "floorIndex": 4
@@ -3028,5 +3034,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:17:56.136451"
+  "_lastModified": "2026-10-23T22:17:59.813844"
 }
