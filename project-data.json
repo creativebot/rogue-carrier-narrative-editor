@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:19:12.188536",
+  "_lastModified": "2026-10-23T07:19:15.897788",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3245,7 +3245,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Feeling that their needs were disregarded, the crew’s morale has declined, and a sense of frustration and disconnection has begun to take hold among the team.",
         "penalties": [
           {
