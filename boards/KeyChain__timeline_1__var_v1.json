@@ -2612,40 +2612,8 @@
       ],
       "floorIndex": 3,
       "colorScheme": "rose"
-    },
-    {
-      "id": "diag_1792785101029",
-      "targetEventId": "node_1791705255524",
-      "triggerTiming": "post_action",
-      "triggerActionId": "c_1791705255524",
-      "links": [
-        {
-          "id": "dlink_1792785101029",
-          "targetEventId": "node_1791705255524",
-          "triggerTiming": "post_action",
-          "triggerActionId": "c_1791705255524",
-          "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3C) Investigate the Anomaly",
-      "position": {
-        "x": 3618,
-        "y": 4620
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792785101029",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ]
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:51:41.593598"
+  "_lastModified": "2026-10-23T19:51:50.945857"
 }
