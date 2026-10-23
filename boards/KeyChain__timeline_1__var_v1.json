@@ -3424,8 +3424,8 @@
         },
         {
           "id": "l_1792797387725",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
           "text": "(transition to primordial message)"
         },
         {
@@ -3440,5 +3440,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:21:15.471997"
+  "_lastModified": "2026-10-23T23:21:17.207437"
 }
