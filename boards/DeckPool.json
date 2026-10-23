@@ -2645,7 +2645,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Productivity Report:\n\"Captain, a recent discussion revealed a critical flaw in the original protocol, as identified by an attentive crew member during the meeting. Following a thorough conversation with the team, we have implemented updates to all relevant procedures. This revision has resulted in an unexpected boost to overall productivity.\nWith due respect, Mnemosyne.\"",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4214,5 +4237,5 @@
   ],
   "dialogues": [],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:44:19.321385"
+  "_lastModified": "2026-10-23T13:51:40.950227"
 }
