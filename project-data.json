@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T07:19:04.684733",
+  "_lastModified": "2026-10-23T07:19:12.188536",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -3396,7 +3396,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The unexpected onset of confusion startled the technicians, leading to a period of significant distress. Doubts about lab discipline have risen, and the incident has shaken confidence in the team's safety procedures.",
         "penalties": [
           {
