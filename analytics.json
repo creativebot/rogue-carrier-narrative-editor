@@ -292,6 +292,41 @@
           0
         ],
         "lastActive": "2026-10-23T06:44:30.821000Z"
+      },
+      "oseliutin@n-ix.com": {
+        "name": "Oleksandr Seliutin",
+        "email": "oseliutin@n-ix.com",
+        "seconds": 1,
+        "boards": {
+          "KeyChain:timeline_1:var_v1": 1
+        },
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "lastActive": "2026-10-23T07:11:20.500000Z"
       }
     }
   }
