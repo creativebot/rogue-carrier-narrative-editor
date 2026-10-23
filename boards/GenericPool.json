@@ -413,7 +413,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering useful components.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:11.049818"
+  "_lastModified": "2026-10-23T08:02:11.731985"
 }
