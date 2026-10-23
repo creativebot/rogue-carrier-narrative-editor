@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:20:22.597024",
+  "_lastModified": "2026-10-23T23:20:28.396524",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11880,7 +11880,7 @@
           "id": "l_1792797381837",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Makes me wonder just how much we have yet to learn."
         },
         {
           "id": "l_1792797382816",
