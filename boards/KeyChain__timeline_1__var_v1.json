@@ -1062,6 +1062,13 @@
               "amount": "2",
               "iconImg": "icons/T_Battery-Block.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "electronics_01",
+              "name": "AI Core",
+              "amount": "2",
+              "iconImg": "icons/T_Ai-Core.png",
+              "icon": "📦"
             }
           ],
           "targetNodeIds": [],
@@ -2436,5 +2443,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:38:16.089193"
+  "_lastModified": "2026-10-23T18:38:24.542823"
 }
