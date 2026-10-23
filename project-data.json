@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:14:37.188947",
+  "_lastModified": "2026-10-23T18:14:49.203414",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10778,9 +10778,9 @@
     },
     {
       "id": "diag_1792778026146",
-      "targetEventId": "node_1791706248386",
-      "triggerTiming": "post_action",
-      "triggerActionId": "c_1791706248386",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
       "delayHours": 0.25,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Send divers",
@@ -10816,15 +10816,7 @@
           "text": "Aye, enough fishing for one day."
         }
       ],
-      "links": [
-        {
-          "id": "dlink_1792779255494_namz",
-          "targetEventId": "node_1791706248386",
-          "triggerTiming": "post_action",
-          "triggerActionId": "c_1791706248386",
-          "triggerCondition": "After (T1-V1-K3C) Send divers"
-        }
-      ],
+      "links": [],
       "floorIndex": 3,
       "colorScheme": "rose"
     },
