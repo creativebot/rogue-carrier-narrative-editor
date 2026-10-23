@@ -2974,12 +2974,6 @@
           "text": "Still, worth a read."
         },
         {
-          "id": "l_1792796228110",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
-        },
-        {
           "id": "l_1792796229060",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
@@ -3300,5 +3294,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:58:21.992326"
+  "_lastModified": "2026-10-23T22:58:24.190046"
 }
