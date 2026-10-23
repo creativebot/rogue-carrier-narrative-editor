@@ -1187,7 +1187,13 @@
           "timerHours": 5,
           "resultDescription": "It takes a long time for the drones to cut through the multiple layers of metal. The submarine crew supervises the process, happy to stay inside their vessel and not be outside next to those strange luminescent shapes.\n\nWhen the drones finally retrieve the flight recorder, the crew is elated to leave the depressing dark of the deep. Before they begin their way back, they detect something large on their radar.\n\nIt is rising fast to the surface, in the direction of the ship.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2265,5 +2271,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:43:11.595222"
+  "_lastModified": "2026-10-23T17:43:18.279323"
 }
