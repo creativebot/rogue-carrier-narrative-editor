@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T11:31:16.077495",
+  "_lastModified": "2026-10-23T11:32:03.980189",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -3660,7 +3660,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3685,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5669
+        "y": 6277
       },
       "actions": [
         {
