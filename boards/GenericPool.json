@@ -173,7 +173,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, the scouts reported that the virus had been neutralized and no longer posed a threat to humans or your food supplies.",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:15.035685"
+  "_lastModified": "2026-10-23T08:02:15.738616"
 }
