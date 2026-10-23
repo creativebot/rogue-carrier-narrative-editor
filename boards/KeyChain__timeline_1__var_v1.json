@@ -782,7 +782,7 @@
       "floorIndex": 3,
       "spawnConditions": "Immediately after 2A choice resolution",
       "eventIntro": "The lifeboat is tossed around by the legion of turbulent waves. Radio silence greets your ship.",
-      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  Among those corpses also lies the frail body of a child.\n\nIt is not Liora.",
+      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  \n\nAmong those corpses also lies the frail body of a child.\n\nIt is not Liora.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": false,
       "inactionThreat": null,
@@ -2773,5 +2773,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:47:03.566278"
+  "_lastModified": "2026-10-23T20:53:52.166113"
 }
