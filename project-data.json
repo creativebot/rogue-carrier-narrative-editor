@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:06:34.397514",
+  "_lastModified": "2026-10-23T23:06:38.100435",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10236,7 +10236,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K3A)",
+      "triggerCondition": "",
       "position": {
         "x": -3198,
         "y": 3319
@@ -10325,7 +10325,7 @@
           "targetEventId": "node_e2b",
           "triggerTiming": "pre_event",
           "triggerActionId": null,
-          "triggerCondition": "Before (T1-V1-K3A)"
+          "triggerCondition": ""
         }
       ]
     },
