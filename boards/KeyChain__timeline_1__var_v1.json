@@ -1452,8 +1452,8 @@
         },
         {
           "id": "l18",
-          "speakerId": "abbadie",
-          "speakerName": "Mars Abbadie",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
           "text": "I believe it was a bioweapon."
         },
         {
@@ -3446,5 +3446,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:34:45.117640"
+  "_lastModified": "2026-10-23T23:34:57.996164"
 }
