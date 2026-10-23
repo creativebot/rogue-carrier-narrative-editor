@@ -2302,8 +2302,8 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3C) Send divers",
       "position": {
-        "x": 2641,
-        "y": 4209
+        "x": 2481,
+        "y": 4512
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2314,9 +2314,10 @@
           "speakerName": "Voss",
           "text": "Enter dialogue line here..."
         }
-      ]
+      ],
+      "floorIndex": 3
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:48:35.217359"
+  "_lastModified": "2026-10-23T17:48:47.705603"
 }
