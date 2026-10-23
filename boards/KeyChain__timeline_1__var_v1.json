@@ -463,7 +463,7 @@
     },
     {
       "id": "node_e2a",
-      "codename": "T1-V1-K3A",
+      "codename": "T1-V1-K3B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -476,7 +476,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": -2512,
+        "x": 466,
         "y": 3290
       },
       "actions": [
@@ -622,7 +622,7 @@
     },
     {
       "id": "node_e2b",
-      "codename": "T1-V1-K3B",
+      "codename": "T1-V1-K3A",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -1291,7 +1291,7 @@
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Before (T1-V1-K3B)",
+      "triggerCondition": "Before (T1-V1-K3A)",
       "position": {
         "x": -67,
         "y": 4369
@@ -1342,7 +1342,7 @@
       "triggerActionId": "act_e2b_1",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine",
+      "triggerCondition": "After (T1-V1-K3A) Rescue & Quarantine",
       "position": {
         "x": -54,
         "y": 3330
@@ -2664,5 +2664,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:23:32.188513"
+  "_lastModified": "2026-10-23T20:23:48.991261"
 }
