@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T19:54:21.988327",
+  "_lastModified": "2026-10-23T19:54:37.798655",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11112,7 +11112,7 @@
           "id": "l_1792785231900",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "Enter dialogue line here..."
+          "text": "Captain, the preliminary scanning indicates that the fragment of Zephyrus containing the bridge voice recorder has sunk."
         },
         {
           "id": "l_1792785250324",
