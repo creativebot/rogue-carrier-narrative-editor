@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:30:11.696022",
+  "_lastModified": "2026-10-23T20:30:23.399224",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7426,6 +7426,13 @@
               "iconImg": "",
               "nValue": "+400",
               "hasN": true
+            },
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "🌀"
             }
           ],
           "targetNodeId": "node_e3a",
