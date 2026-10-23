@@ -156,7 +156,7 @@
         {
           "id": "act_1791996581486",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Neutralise the virus",
           "description": "",
           "requirements": [
             {
@@ -1624,5 +1624,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T13:06:55.613521"
+  "_lastModified": "2026-10-23T13:06:57.162108"
 }
