@@ -247,18 +247,6 @@
           "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
           "requirements": [
             {
-              "id": "clause_1791379456088",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_02",
-                  "name": "Microcontrollers",
-                  "amount": 1,
-                  "iconImg": "icons/T_Microcontrollers.png"
-                }
-              ]
-            },
-            {
               "id": "clause_1791379470074",
               "isReplaceable": false,
               "items": [
@@ -2693,5 +2681,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:08:37.199934"
+  "_lastModified": "2026-10-23T20:08:51.337267"
 }
