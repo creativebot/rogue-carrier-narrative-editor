@@ -529,6 +529,13 @@
               "amount": "1",
               "iconImg": "",
               "icon": "🌀"
+            },
+            {
+              "resourceId": "res_32",
+              "name": "Cultured Meat",
+              "amount": "20",
+              "iconImg": "icons/T_Raw_Meat.png",
+              "icon": "📦"
             }
           ],
           "targetNodeId": "node_e3a",
@@ -2656,5 +2663,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:31:03.559571"
+  "_lastModified": "2026-10-23T20:31:04.690803"
 }
