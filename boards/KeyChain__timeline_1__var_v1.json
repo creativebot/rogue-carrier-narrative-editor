@@ -914,7 +914,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. ",
           "rewards": [
             {
               "resourceId": "medres_03",
@@ -2788,5 +2788,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:57:03.548561"
+  "_lastModified": "2026-10-23T20:57:17.608133"
 }
