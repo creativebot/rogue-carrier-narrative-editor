@@ -3227,6 +3227,12 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "It's... it's pulsing, it's shifting, it's rearranging itself."
+        },
+        {
+          "id": "l_1792795695811",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [],
@@ -3234,5 +3240,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:48:14.540845"
+  "_lastModified": "2026-10-23T22:48:16.090983"
 }
