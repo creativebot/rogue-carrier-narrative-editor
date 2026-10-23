@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:01:57.598192",
+  "_lastModified": "2026-10-23T08:02:04.892962",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5820,7 +5820,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists picked the lock, but wiring, damaged while pod had crushed, electrified the capsules hull. One crew member suffered an electric shock during the operation. However all three survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
