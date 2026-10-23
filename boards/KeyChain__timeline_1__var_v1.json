@@ -2485,8 +2485,8 @@
         },
         {
           "id": "l_1792784825605",
-          "speakerId": "voss",
-          "speakerName": "Elias Voss",
+          "speakerId": "tuuli",
+          "speakerName": "Tuuli Korpela",
           "text": "New dialogue speech text..."
         },
         {
@@ -2579,5 +2579,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:47:42.648950"
+  "_lastModified": "2026-10-23T19:47:45.950525"
 }
