@@ -1833,6 +1833,12 @@
           "speakerId": "survivor",
           "speakerName": "Survivor",
           "text": "We think we've... um, contracted something on that island. We're not feeling too well. "
+        },
+        {
+          "id": "l_1792796568694",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": []
@@ -3290,5 +3296,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:02:47.611874"
+  "_lastModified": "2026-10-23T23:02:49.004729"
 }
