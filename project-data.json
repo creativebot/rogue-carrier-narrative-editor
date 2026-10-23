@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:13:51.002102",
+  "_lastModified": "2026-10-23T21:13:53.489478",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11496,38 +11496,6 @@
       ]
     },
     {
-      "id": "diag_1792789953292",
-      "targetEventId": "node_e2a",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_1791673301980",
-      "links": [
-        {
-          "id": "dlink_1792789953292",
-          "targetEventId": "node_e2a",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_1791673301980",
-          "triggerCondition": "After (T1-V1-K3B) Send drones"
-        }
-      ],
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K3B) Send drones",
-      "position": {
-        "x": 281,
-        "y": 3818
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1792789953292",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
-        }
-      ]
-    },
-    {
       "id": "diag_1792789964632",
       "targetEventId": "node_e2a",
       "triggerTiming": "pre_event",
@@ -11589,6 +11557,38 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_1792789953292",
+      "targetEventId": "node_e2a",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_1791673301980",
+      "links": [
+        {
+          "id": "dlink_1792789953292",
+          "targetEventId": "node_e2a",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_1791673301980",
+          "triggerCondition": "After (T1-V1-K3B) Send drones"
+        }
+      ],
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "After (T1-V1-K3B) Send drones",
+      "position": {
+        "x": 281,
+        "y": 3818
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1792789953292",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Enter dialogue line here..."
+        }
+      ]
     },
     {
       "id": "diag_1792789974008",
