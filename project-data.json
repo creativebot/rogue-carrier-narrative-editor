@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:43:25.695605",
+  "_lastModified": "2026-10-23T23:43:29.296407",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11959,7 +11959,7 @@
           "id": "l_1792798956050",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "You believe in that?"
         },
         {
           "id": "l_1792798956957",
