@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:02:11.789132",
+  "_lastModified": "2026-10-23T08:02:15.095136",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -5435,7 +5435,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected  samples from both diseased and apparently healthy organs and tissues. These samples will improve your understanding of the local fauna.",
           "rewards": [
             {
