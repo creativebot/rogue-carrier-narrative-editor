@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:07:15.596137",
+  "_lastModified": "2026-10-23T21:07:16.690639",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11394,6 +11394,12 @@
           "speakerId": "voss",
           "speakerName": "Elias Voss",
           "text": "What the hell? That light... what is going on..."
+        },
+        {
+          "id": "l_1792789636055",
+          "speakerId": "mnemosyne",
+          "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
         }
       ],
       "links": [
