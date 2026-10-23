@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:19:35.188360",
+  "_lastModified": "2026-10-23T23:19:45.291107",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11850,7 +11850,7 @@
           "id": "l_1792797376785",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "Yes, and it was trained to kill humans. It knew how to bypass our safety suits."
         },
         {
           "id": "l_1792797377759",
