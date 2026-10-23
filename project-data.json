@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T08:01:27.587234",
+  "_lastModified": "2026-10-23T08:01:28.298371",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -6649,7 +6649,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Outnumbered, the crew avoids close combat and calls in artillery fire to drive the attackers back. As they flee, they abandon several useful items, which the scouts collect as spoils. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
           "rewards": [
             {
