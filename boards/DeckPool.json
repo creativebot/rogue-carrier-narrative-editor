@@ -1,316 +1,6 @@
 {
   "boardId": "DeckPool",
-  "name": "Deck Events",
-  "author": "Tetiana Tretilova",
-  "savedAt": "2026-10-23T16:10:28.933644",
-  "_lastModified": "2026-10-23T16:10:28.933644",
   "nodes": [
-    {
-      "id": "node_1791832874715",
-      "codename": "T1-V2-K3A",
-      "name": "Once More Into The Frey",
-      "title": "Once More Into The Frey",
-      "type": "Deck",
-      "category": "KeyChain",
-      "variationId": "var_v2",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "All the points of interest are checked. We can start the research.",
-      "eventDescription": "Gathered artifacts and data can tell us more about the Primordials, their motives, and their current state.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 54,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1791832874715",
-          "codeSuffix": "A",
-          "shortDescription": "Commence the research",
-          "description": "We only managed to scratch the surface here. More information will be needed to obtain a deeper understanding of the Primordials, but it’s a start.",
-          "requirements": [
-            {
-              "id": "clause_1791833234697",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_05",
-                  "name": "Tricoder",
-                  "amount": 1,
-                  "iconImg": "icons/T_Tricoder.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791833262867",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_05",
-                  "name": "Battery Block",
-                  "amount": 1,
-                  "iconImg": "icons/T_Battery-Block.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Despite the first meeting with the Prims, all the structures we’ve found were deserted many centuries ago. What was the creature the Captain spoke to? A ghost? Or maybe they moved on – deeper into the sea perhaps? However, we didn’t find anything that could help us with the riddle of the Prism. We must continue our search.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791832960506",
-          "codeSuffix": "B",
-          "shortDescription": "Commence the research",
-          "description": "We’ve gathered a lot of data. The Primordials are an advanced and mysterious species, but this research may become a first step in understanding their motives.",
-          "requirements": [
-            {
-              "id": "clause_1791833477818",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 1,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791833485256",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_03",
-                  "name": "Tech Voxel",
-                  "amount": 1,
-                  "iconImg": "icons/T_Tech-Voxel.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "We had a first contact, but what was the creature that contacted us? All the structures we explored, even those that were still functioning, were deserted ages ago! Yet, the artifacts we’ve found and the processed data show the possibility of the multidimensional technology being used by the Primordals. However, such tech might require huge amounts of energy. How the Prism is functioning without the potent energy source, and whether there is a limit to its uses, remains unknown.",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791832963509",
-          "codeSuffix": "C",
-          "shortDescription": "Commence the research",
-          "description": "We managed to gather a massive amount of data to research. The main problem now is how to process it.",
-          "requirements": [
-            {
-              "id": "clause_1791833504172",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_01",
-                  "name": "AI Core",
-                  "amount": 1,
-                  "iconImg": "icons/T_Ai-Core.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The data shows that the first contact we had wasn’t a direct contact. At least not as direct as we thought it was. The Primodial wasn’t there in full, and we aren’t even sure that he could be present in a full material form. The one Voss talked to could be either an AI avatar, a transdimensional projection, or even an interactive semi-intelligent recording of the person long gone. The artifacts collected are mostly functional and can be studied to gain a better understanding of the prims’ technology, especially the Prism. What we know now is that the Prism is autonomous and powered by the source beyond our 4 dimensions. All attempts to mess with it will lead to the safety reboot, as well as any serious damage to the ship and crew. We can’t help but wonder: could Zephyrus survive the attack if the Prism were still aboard it?",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "colorScheme": "orange"
-    },
-    {
-      "id": "node_e0",
-      "codename": "T1-V1-K1A",
-      "name": "The Moment After the End",
-      "type": "Deck",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "spawnConditions": "End of Tutorial / Zephyrus Collapse",
-      "eventIntro": "N/A",
-      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 934,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "act_e0_1",
-          "codeSuffix": "A",
-          "shortDescription": "Build a transmitter",
-          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
-          "requirements": [
-            {
-              "id": "clause_1791299400955",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_01",
-                  "name": "Metal Constructions",
-                  "amount": 15,
-                  "iconImg": "icons/T_Metal_Frames.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299424222",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_04",
-                  "name": "Conductive Materials",
-                  "amount": 15,
-                  "iconImg": "icons/T_Conductive-Materials.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384158266",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384159499",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
-          "rewards": [
-            "🧠 Knowledge +300",
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "1",
-              "iconImg": "",
-              "icon": "📜"
-            }
-          ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
-        },
-        {
-          "id": "act_e0_2",
-          "codeSuffix": "B",
-          "shortDescription": "Process the data",
-          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
-          "requirements": [
-            {
-              "id": "clause_1791299451478",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_03",
-                  "name": "Thermoplastic",
-                  "amount": 15,
-                  "iconImg": "icons/T_Thermoplastic.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299458580",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_05",
-                  "name": "Electronic Components",
-                  "amount": 15,
-                  "iconImg": "icons/T_Holo_Display.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384183560",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384184803",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
-          "rewards": [
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
-        }
-      ],
-      "colorScheme": "amber",
-      "disabledVariationIds": [],
-      "location": "End of Tutorial / Zephyrus Collapse",
-      "title": "The Moment After the End"
-    },
     {
       "id": "node_1792573049123",
       "codename": "DECK-S1-E1  BPQ_DeckQuest_Fishing_Adventures",
@@ -5303,7 +4993,58 @@
         }
       ],
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 56
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
     }
   ],
-  "dialogues": []
+  "dialogues": [],
+  "author": "Tetiana Tretilova",
+  "_lastModified": "2026-10-23T14:26:56.886682"
 }
