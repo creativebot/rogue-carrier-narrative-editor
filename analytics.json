@@ -331,9 +331,9 @@
       "ttretilova@n-ix.com": {
         "name": "Tetiana Tretilova",
         "email": "ttretilova@n-ix.com",
-        "seconds": 321,
+        "seconds": 341,
         "boards": {
-          "DeckPool": 80,
+          "DeckPool": 100,
           "GenericPool": 241
         },
         "hourly": [
@@ -347,7 +347,7 @@
           205,
           95,
           21,
-          0,
+          20,
           0,
           0,
           0,
@@ -362,7 +362,7 @@
           0,
           0
         ],
-        "lastActive": "2026-10-23T09:06:16.627000Z"
+        "lastActive": "2026-10-23T10:39:46.615000Z"
       }
     }
   }
