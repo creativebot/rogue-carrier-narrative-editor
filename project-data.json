@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:20:25.443297",
+  "_lastModified": "2026-10-23T14:20:49.514327",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Mykola Korkach"
@@ -7163,7 +7163,21 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792765249255",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_01_Gold",
+                  "name": "Gold",
+                  "amount": 1,
+                  "iconImg": "icons/T_Gold.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
