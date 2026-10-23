@@ -28,7 +28,21 @@
           "codeSuffix": "A",
           "shortDescription": "Choice A",
           "description": "Action description...",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792765249255",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "res_01_Gold",
+                  "name": "Gold",
+                  "amount": 1,
+                  "iconImg": "icons/T_Gold.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "",
           "rewards": [
@@ -42,5 +56,5 @@
   ],
   "dialogues": [],
   "author": "Mykola Korkach",
-  "_lastModified": "2026-10-23T14:20:25.426453"
+  "_lastModified": "2026-10-23T14:20:49.446104"
 }
