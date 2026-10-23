@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:57:32.007531",
+  "_lastModified": "2026-10-23T22:57:43.491982",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11431,7 +11431,7 @@
           "id": "l_1792796224397",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "Gotta say, it's a really terrible and painful way to practice plague-containment strategies."
         },
         {
           "id": "l_1792796225347",
