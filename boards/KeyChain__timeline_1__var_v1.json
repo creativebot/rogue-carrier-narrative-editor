@@ -610,6 +610,13 @@
               "amount": "40",
               "iconImg": "icons/T_Chromium.png",
               "icon": "📦"
+            },
+            {
+              "resourceId": "res_16_Lithium",
+              "name": "Lithium",
+              "amount": "20",
+              "iconImg": "icons/T_Lithium.png",
+              "icon": "📦"
             }
           ],
           "targetNodeId": "node_e2b",
@@ -2667,5 +2674,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:32:03.554819"
+  "_lastModified": "2026-10-23T20:32:09.269717"
 }
