@@ -2831,7 +2831,7 @@
           "id": "l_1792789294823",
           "speakerId": "voss",
           "speakerName": "Elias Voss",
-          "text": "New dialogue speech text..."
+          "text": "Why? What have you found?"
         },
         {
           "id": "l_1792789295769",
@@ -2895,5 +2895,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T21:02:26.923588"
+  "_lastModified": "2026-10-23T21:02:29.257339"
 }
