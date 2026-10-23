@@ -1093,6 +1093,21 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792777173491",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_unknown_item",
+                  "name": "Unknown_Item",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2196,5 +2211,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:15:03.615402"
+  "_lastModified": "2026-10-23T17:39:33.894906"
 }
