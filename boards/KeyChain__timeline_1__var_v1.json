@@ -2499,7 +2499,7 @@
           "id": "l_1792784824466",
           "speakerId": "tuuli",
           "speakerName": "Tuuli Korpela",
-          "text": "New dialogue speech text..."
+          "text": "The data is corrupted. It leaves us with not much, not much at all."
         },
         {
           "id": "l_1792784823778",
@@ -2579,5 +2579,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T19:48:38.234765"
+  "_lastModified": "2026-10-23T19:48:50.279913"
 }
