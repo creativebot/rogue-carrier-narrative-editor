@@ -3007,7 +3007,7 @@
           "triggerCondition": "After (T1-V1-K4A) Collect samples"
         }
       ],
-      "delayHours": 0,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K4A) Collect samples",
       "position": {
@@ -3028,5 +3028,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:18:51.758428"
+  "_lastModified": "2026-10-23T22:18:55.645925"
 }
