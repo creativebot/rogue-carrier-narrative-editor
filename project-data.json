@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T18:11:07.100721",
+  "_lastModified": "2026-10-23T18:11:13.097363",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10733,8 +10733,8 @@
       "delayUnit": "hours",
       "triggerCondition": "",
       "position": {
-        "x": 2366,
-        "y": 301
+        "x": 1628,
+        "y": 982
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -10746,7 +10746,7 @@
           "text": "Lifepods are supplied with everything their passengers might need for weeks. The orange box, however, could be hopelessly lost unless we act."
         }
       ],
-      "floorIndex": 0,
+      "floorIndex": 1,
       "colorScheme": "purple",
       "links": [
         {
