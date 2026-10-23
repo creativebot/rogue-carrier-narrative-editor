@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:56:10.190583",
+  "_lastModified": "2026-10-23T20:56:22.392512",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7813,6 +7813,19 @@
                   "name": "D.A.R.T.",
                   "amount": 1,
                   "iconImg": "icons/T_ControlStation.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792788981761",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "unitres_01",
+                  "name": "Worker Drone",
+                  "amount": 1,
+                  "iconImg": "icons/T_WorkerUnit.png",
                   "icon": "📦"
                 }
               ]
