@@ -2,10 +2,10 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T14:23:57.469Z",
+  "_lastModified": "2026-10-23T14:26:57.043417",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
-    "author": "Daniel Poludyonny"
+    "author": "Tetiana Tretilova"
   },
   "timelines": [
     {
@@ -245,7 +245,9 @@
     "Jammer Found",
     "Resistance to diseases",
     "Temporal immunity",
-    "any number of items"
+    "any number of items",
+    "Caged Plumplins_Quest item",
+    "Stamets Artifact _Immunity buff"
   ],
   "symbolLimits": {
     "eventIntro": 475,
@@ -269,1127 +271,9 @@
   },
   "nodes": [
     {
-      "id": "node_e0",
-      "codename": "T1-V1-K1A",
-      "name": "The Moment After the End",
-      "type": "Deck",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "spawnConditions": "End of Tutorial / Zephyrus Collapse",
-      "eventIntro": "N/A",
-      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 621,
-        "y": 90
-      },
-      "actions": [
-        {
-          "id": "act_e0_1",
-          "codeSuffix": "A",
-          "shortDescription": "Build a transmitter",
-          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
-          "requirements": [
-            {
-              "id": "clause_1791299400955",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_01",
-                  "name": "Metal Constructions",
-                  "amount": 15,
-                  "iconImg": "icons/T_Metal_Frames.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299424222",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_04",
-                  "name": "Conductive Materials",
-                  "amount": 15,
-                  "iconImg": "icons/T_Conductive-Materials.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384158266",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384159499",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
-          "rewards": [
-            "🧠 Knowledge +300",
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "1",
-              "iconImg": "",
-              "icon": "📜"
-            }
-          ],
-          "targetNodeId": "node_e1",
-          "targetNodeIds": [
-            "node_e1"
-          ]
-        },
-        {
-          "id": "act_e0_2",
-          "codeSuffix": "B",
-          "shortDescription": "Process the data",
-          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
-          "requirements": [
-            {
-              "id": "clause_1791299451478",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_03",
-                  "name": "Thermoplastic",
-                  "amount": 15,
-                  "iconImg": "icons/T_Thermoplastic.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791299458580",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_05",
-                  "name": "Electronic Components",
-                  "amount": 15,
-                  "iconImg": "icons/T_Holo_Display.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384183560",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_science",
-                  "name": "Science Crew",
-                  "amount": 2,
-                  "icon": "🔬",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791384184803",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_engineering",
-                  "name": "Engineering Crew",
-                  "amount": 1,
-                  "icon": "🔧",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
-          "rewards": [
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_e1b",
-          "targetNodeIds": [
-            "node_e1b"
-          ]
-        }
-      ],
-      "colorScheme": "amber",
-      "disabledVariationIds": [],
-      "location": "End of Tutorial / Zephyrus Collapse",
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e1",
-      "codename": "T1-V1-K2A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "On an island with additional escape pod model.",
-      "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
-      "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -606,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_e1_1",
-          "codeSuffix": "A",
-          "shortDescription": "Comb island",
-          "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
-          "requirements": [
-            {
-              "id": "clause_1791379437831",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_04",
-                  "name": "Personal Defence Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_DefensiveGear.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
-          "rewards": [
-            {
-              "resourceId": "res_38_Prebiotic",
-              "name": "Prebiotic Matter",
-              "amount": "100-150",
-              "iconImg": "icons/T_Prebiotic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "spec_defense",
-              "name": "Defense Spec",
-              "amount": "+3",
-              "icon": "🛡️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+200",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2a",
-          "targetNodeIds": [
-            "node_e2a"
-          ]
-        },
-        {
-          "id": "act_e1_2",
-          "codeSuffix": "B",
-          "shortDescription": "Examine pod",
-          "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
-          "requirements": [
-            {
-              "id": "clause_1791379456088",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_02",
-                  "name": "Microcontrollers",
-                  "amount": 1,
-                  "iconImg": "icons/T_Microcontrollers.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791379470074",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 3,
-                  "iconImg": "icons/T_Container.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791379483293",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
-          "rewards": [
-            {
-              "resourceId": "machinery_05",
-              "name": "Battery Block",
-              "amount": "6",
-              "iconImg": "icons/T_Battery-Block.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_blueprints",
-              "name": "Blueprints",
-              "amount": "+2",
-              "icon": "📜",
-              "iconImg": ""
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
-        }
-      ],
-      "colorScheme": "blue",
-      "location": "On an island with additional escape pod model.",
-      "disabledVariationIds": [],
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e1b",
-      "codename": "T1-V1-K2B",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 1,
-      "spawnConditions": "Data processed",
-      "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
-      "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2668,
-        "y": 1690
-      },
-      "actions": [
-        {
-          "id": "act_e1b_1",
-          "codeSuffix": "A",
-          "shortDescription": "Disassemble",
-          "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
-          "requirements": [
-            {
-              "id": "clause_1791378421058",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 1,
-                  "iconImg": "icons/T_Container.png"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791378440100",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                },
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 6,
-          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
-          "rewards": [
-            "📜 Blueprints +3",
-            {
-              "resourceId": "processing_05",
-              "name": "Nano Parts",
-              "amount": "8",
-              "iconImg": "icons/T_Fuel_Rod.png",
-              "icon": "📦"
-            },
-            "🧠 Knowledge +350"
-          ],
-          "targetNodeId": "node_1791706248386",
-          "targetNodeIds": [
-            "node_1791706248386"
-          ]
-        },
-        {
-          "id": "act_1791378373196",
-          "codeSuffix": "B",
-          "shortDescription": "Blast through!",
-          "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
-          "requirements": [
-            {
-              "id": "clause_1791378603692",
-              "isReplaceable": true,
-              "items": [
-                {
-                  "resourceId": "ammunition_02",
-                  "name": "Explosive Charges",
-                  "amount": 3,
-                  "iconImg": "icons/T_ExplosiveCharges.png"
-                }
-              ]
-            }
-          ],
-          "timerHours": 3,
-          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
-          "rewards": [
-            {
-              "resourceId": "processing_02",
-              "name": "Alloyed Metal",
-              "amount": "20-30",
-              "iconImg": "icons/T_Alloy_Steel.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "synthesized_01",
-              "name": "Biopolymer",
-              "amount": "20-30",
-              "iconImg": "icons/T_Biopolymer.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_03",
-              "name": "Thermoplastic",
-              "amount": "20-30",
-              "iconImg": "icons/T_Thermoplastic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "processing_04",
-              "name": "Conductive Materials",
-              "amount": "20-30",
-              "iconImg": "icons/T_Conductive-Materials.png",
-              "icon": "📦"
-            },
-            "🧠 Knowledge +300"
-          ],
-          "targetNodeId": "node_1791705255524",
-          "targetNodeIds": [
-            "node_1791705255524"
-          ]
-        }
-      ],
-      "colorScheme": "blue",
-      "disabledVariationIds": [],
-      "title": "The Moment After the End"
-    },
-    {
-      "id": "node_e2a",
-      "codename": "T1-V1-K3A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "spawnConditions": "Immediately after 2A choice resolution",
-      "eventIntro": "Repelled by the overwhelming numbers of local predators, the scouts failed to discover the fate of the survivors. It is the time to learn from our mistakes and attempt again.",
-      "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -1091,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "act_e2a_1",
-          "codeSuffix": "A",
-          "shortDescription": "Send drones",
-          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
-          "requirements": [
-            {
-              "id": "clause_1791673340691",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_01",
-                  "name": "Propulsion Kit",
-                  "amount": 3,
-                  "iconImg": "icons/T_Propulsion_Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791673347965",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "electronics_03",
-                  "name": "Sensors Array",
-                  "amount": 3,
-                  "iconImg": "icons/T_Sensors.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
-          "rewards": [
-            {
-              "resourceId": "res_06_Chrom",
-              "name": "Chromium",
-              "amount": "40",
-              "iconImg": "icons/T_Chromium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "15",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_16_Lithium",
-              "name": "Lithium",
-              "amount": "20",
-              "iconImg": "icons/T_Lithium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_08_Titan",
-              "name": "Titanium",
-              "amount": "40",
-              "iconImg": "icons/T_Metals_Ti.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+200",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e3a",
-          "targetNodeIds": [
-            "node_e3a"
-          ]
-        },
-        {
-          "id": "act_1791673301980",
-          "codeSuffix": "B",
-          "shortDescription": "Send scouts",
-          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
-          "requirements": [
-            {
-              "id": "clause_1791673357630",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "consumer_02",
-                  "name": "Portable Force Shield",
-                  "amount": 5,
-                  "iconImg": "icons/T_ForceField.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
-          "rewards": [
-            {
-              "resourceId": "res_38_Prebiotic",
-              "name": "Prebiotic Matter",
-              "amount": "250-300",
-              "iconImg": "icons/T_Prebiotic.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_19_Eldrit",
-              "name": "Eldritium",
-              "amount": "10-15",
-              "iconImg": "icons/T_Eldritium.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "res_01_Gold",
-              "name": "Gold",
-              "amount": "10-15",
-              "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "colorScheme": "orange",
-      "location": "Immediately after 2A choice resolution"
-    },
-    {
-      "id": "node_e2b",
-      "codename": "T1-V1-K3B",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "spawnConditions": "Distance covered X",
-      "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
-      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for.  People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 116,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "act_e2b_1",
-          "codeSuffix": "A",
-          "shortDescription": "Treat survivors",
-          "description": "Bring the survivors to the ship and provide them with all the necessary medical help.",
-          "requirements": [
-            {
-              "id": "clause_1791704591715",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "medres_02",
-                  "name": "Med Kit",
-                  "amount": 5,
-                  "iconImg": "icons/T_Med-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704597486",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "spec_operations",
-                  "name": "Operations Crew",
-                  "amount": 1,
-                  "icon": "⚙️",
-                  "iconImg": "",
-                  "category": "Specialization"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "The scouts return with the blood-crying survivors, and the fight for their lives begins.\n\nBased on the preliminary examination, the virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More work needs to be done to better understand its properties, learn how it ended up on Keeling, and find a way to treat it.",
-          "rewards": [
-            {
-              "resourceId": "spec_operations",
-              "name": "Operations Spec",
-              "amount": "+5",
-              "icon": "⚙️",
-              "iconImg": "",
-              "category": "Specialization"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": null,
-          "targetNodeIds": []
-        },
-        {
-          "id": "act_e2b_2",
-          "codeSuffix": "B",
-          "shortDescription": "Study distantly",
-          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
-          "requirements": [
-            {
-              "id": "clause_1791704609876",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_02",
-                  "name": "D.A.R.T.",
-                  "amount": 2,
-                  "iconImg": "icons/T_ControlStation.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704618396",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 4,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "R&D scientists and doctors give instructions to the scouts. They examine the survivors, collect the samples for R&D analysis, and do what they can to help. In the end, nothing works, and the scouts give the final gift to the tormented people — painkillers.  Having taken all the necessary precautions, the scouts then deliver the samples to the R&D lab for further research.  The virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+300",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeId": null,
-          "targetNodeIds": []
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "colorScheme": "orange",
-      "location": "Distance covered X"
-    },
-    {
-      "id": "node_e3a",
-      "codename": "T1-V1-K4A",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 3,
-      "spawnConditions": "Immediately after 2A choice resolution",
-      "eventIntro": "The lifeboat is tossed around by the legion of turbulent waves. Radio silence greets your ship.",
-      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  Among those corpses also lies the frail body of a child.\n\nIt is not Liora.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": -2095,
-        "y": 4890
-      },
-      "actions": [
-        {
-          "id": "act_e3a_1",
-          "codeSuffix": "A",
-          "shortDescription": "Collect samples",
-          "description": "Send scouts to take the samples for the R&D lab.",
-          "requirements": [
-            {
-              "id": "clause_1791704935868",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_05",
-                  "name": "Nano Parts",
-                  "amount": 3,
-                  "iconImg": "icons/T_Fuel_Rod.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704941985",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 6,
-                  "iconImg": "icons/T_Container.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 6,
-          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. Mars Abbadie, the Head of R&D, contacts you later with preliminary results. The virus is a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "questres_03",
-              "name": "Comm-Link",
-              "amount": "4",
-              "iconImg": "icons/T_Comm_Link.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791704810788",
-          "codeSuffix": "B",
-          "shortDescription": "Study distantly",
-          "description": "The examination must be conducted remotely using drones.",
-          "requirements": [
-            {
-              "id": "clause_1791704949464",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "processing_06",
-                  "name": "Basic Toolkit",
-                  "amount": 3,
-                  "iconImg": "icons/T_Basic-Tool-Kit.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704959408",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 3,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1791704967548",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "extractor_02",
-                  "name": "D.A.R.T.",
-                  "amount": 1,
-                  "iconImg": "icons/T_ControlStation.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
-          "rewards": [
-            {
-              "resourceId": "medres_03",
-              "name": "Stem Tissue",
-              "amount": "8-16",
-              "iconImg": "icons/T_Stem-Tissue.png",
-              "icon": "📦"
-            },
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+300",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "The Moment After the End",
-      "location": "Immediately after 2A choice resolution",
-      "colorScheme": "orange"
-    },
-    {
-      "id": "node_1791705255524",
-      "codename": "T1-V1-K3D",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
-      "spawnConditions": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
-      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
-      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 5176,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1791705255524",
-          "codeSuffix": "A",
-          "shortDescription": "Investigate the Anomaly",
-          "description": "\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
-          "requirements": [
-            {
-              "id": "clause_1792507962988",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_03",
-                  "name": "Comm-Link",
-                  "amount": 3,
-                  "iconImg": "icons/T_Comm_Link.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 3,
-          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1791705793442",
-          "codeSuffix": "B",
-          "shortDescription": "Investigate the Anomaly",
-          "description": "The team has to manage without a tricorder. ",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792507915803",
-          "codeSuffix": "C",
-          "shortDescription": "Extract the BVR",
-          "description": "Description for action choice C...",
-          "requirements": [
-            {
-              "id": "clause_1792508262936",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "machinery_04",
-                  "name": "Basic Scanner",
-                  "amount": 1,
-                  "iconImg": "icons/T_Basic-Scaner.png",
-                  "icon": "📦"
-                }
-              ]
-            },
-            {
-              "id": "clause_1792508280371",
-              "isReplaceable": false,
-              "items": [
-                {
-                  "resourceId": "questres_01",
-                  "name": "Modular Container",
-                  "amount": 5,
-                  "iconImg": "icons/T_Container.png",
-                  "icon": "📦"
-                }
-              ]
-            }
-          ],
-          "timerHours": 5,
-          "resultDescription": "Maddened by the ceaseless melody in their heads, equipped with tools that kept malfunctioning, the scouts have had quite a hard time extracting the target. And when they finally get their hands on the voice recorder, it appears damaged, too.\n\nNot as badly as the previous recorder, though. Some of its data might be saved.",
-          "rewards": [
-            {
-              "resourceId": "stat_knowledge",
-              "name": "Knowledge",
-              "amount": "+400",
-              "icon": "🧠",
-              "iconImg": ""
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "colorScheme": "orange",
-      "title": "The Moment After the End",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_1791706248386",
-      "codename": "T1-V1-K3C",
-      "name": "The Moment After the End",
-      "type": "World",
-      "category": "KeyChain",
-      "variationId": "var_v1",
-      "floorIndex": 2,
-      "tier": null,
-      "location": "",
-      "spawnConditions": "",
-      "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
-      "reactionTimerHours": "Infinite",
-      "hasInactionThreat": false,
-      "inactionThreat": null,
-      "position": {
-        "x": 2207,
-        "y": 3290
-      },
-      "actions": [
-        {
-          "id": "c_1791706248386",
-          "codeSuffix": "A",
-          "shortDescription": "Choice A",
-          "description": "Action description...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            "🧠 Knowledge +100"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "title": "The Moment After the End",
-      "disabledVariationIds": []
-    },
-    {
-      "id": "node_deck_1",
-      "codename": "DECK-E1",
-      "name": "Hangar Deck Fire Drill",
-      "type": "Carrier",
-      "category": "DeckPool",
-      "variationId": "var_v1",
-      "floorIndex": 0,
-      "tier": 1,
-      "location": "Test Spawn Conditions Text",
-      "spawnConditions": "Test Spawn Conditions Text",
-      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
-      "reactionTimerHours": "2",
-      "hasInactionThreat": true,
-      "inactionThreat": {
-        "consequenceText": "Drill failure creates crew demoralization.",
-        "timerHours": 2,
-        "shortDescription": "Failed Drill",
-        "description": "No team responded in time.",
-        "resultDescription": "Penalty applied.",
-        "penalties": [
-          "💀 Entropy +5"
-        ]
-      },
-      "position": {
-        "x": 110,
-        "y": 56
-      },
-      "actions": [
-        {
-          "id": "act_deck_1",
-          "codeSuffix": "A",
-          "shortDescription": "Dispatch Fire Crews",
-          "description": "Direct crew to seal airlocks and foam containment.",
-          "requirements": [],
-          "timerHours": 1,
-          "resultDescription": "Hangar secured ahead of schedule.",
-          "rewards": [
-            "🛡️ Defense +1",
-            "🧠 Knowledge +150"
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        }
-      ],
-      "disabledVariationIds": [],
-      "title": "Hangar Deck Fire Drill"
-    },
-    {
       "id": "node_1792573049123",
-      "codename": "DECK-S1-E2  BPQ_DeckQuest_Fishing_Adventures",
-      "name": "New Event Block",
+      "codename": "DECK-S1-E1  BPQ_DeckQuest_Fishing_Adventures",
+      "name": "Fishing Adventures",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
@@ -1405,7 +289,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": 0,
+        "timerHours": 15,
         "resultDescription": "The fishing aficionados are tormented by the proximity of all that watery expanse, with all kinds of unknown fish they cannot catch.",
         "penalties": [
           {
@@ -1419,7 +303,7 @@
       },
       "position": {
         "x": 110,
-        "y": 918
+        "y": 1352
       },
       "actions": [
         {
@@ -1545,28 +429,29 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792574416692",
-      "codename": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness",
+      "codename": "DECK-S1-E2   BPQ_DeckQuest_Plant_Sickness",
       "name": "Plant Diseases",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": 1,
       "location": "Specific building, Universum, Plantation, Farm",
       "spawnConditions": "Specific building, Universum, Plantation, Farm",
       "eventIntro": "Initial event context...",
-      "eventDescription": "   The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. \n\n     Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
+      "eventDescription": "The crew members working with the crops report that an unknown affliction is targeting the plants on the ship. Strange blue lines, like varicose veins, spread on the stalks, leaves, and roots. The afflicted plants continue to grow and develop as usual, but as they grow in size, those alien streaks stretch and spread further. Glowing. Pulsating. Upon examination, it appears to be a local parasitic lifeform that lives in the plants' endodermis. It is highly toxic and therefore unfit for consumption.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "It appears that some of the infected crops have wound up in the kitchen. Stomach aches, fever, and diarrhea are now the common afflictions among the crew.",
         "penalties": [
           {
@@ -1617,7 +502,7 @@
       },
       "position": {
         "x": 110,
-        "y": 2074
+        "y": 2465
       },
       "actions": [
         {
@@ -1774,7 +659,7 @@
     },
     {
       "id": "node_1792575255849",
-      "codename": "DECK-S1-E4 BPQ_DeckQuest_NewMenu",
+      "codename": "DECK-S1-E3 BPQ_DeckQuest_NewMenu",
       "name": "New Menu",
       "title": "New Event Block",
       "type": "Deck",
@@ -1790,7 +675,7 @@
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
-        "shortDescription": "Timeout",
+        "shortDescription": "15",
         "timerHours": "Infinite",
         "resultDescription": "The crew, disappointedly, continues to force the same bland meal down their gullets.",
         "penalties": [
@@ -1800,34 +685,12 @@
             "amount": "-20",
             "icon": "😊",
             "iconImg": ""
-          },
-          {
-            "resourceId": "status_28_productivity_slowdown_ii",
-            "name": "Productivity Slowdown II",
-            "rawName": "Productivity Slowdown II",
-            "amount": "8",
-            "hasN": true,
-            "nValue": "8",
-            "hasSpecies": false,
-            "species": "",
-            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
-            "icon": "⚡",
-            "isStatusEffect": true,
-            "kind": "status_effect",
-            "category": "Status Effect",
-            "effectCategory": "Production Bonuses",
-            "target": "crew/building",
-            "effect": "crew productivity -40 for 8 hours",
-            "effectType": "Buff/Debuff",
-            "posNeg": "negative",
-            "description": "",
-            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
           }
         ]
       },
       "position": {
         "x": 110,
-        "y": 3123
+        "y": 3582
       },
       "actions": [
         {
@@ -2031,24 +894,24 @@
     },
     {
       "id": "node_1792576020887",
-      "codename": "DECK-S1-E5 BPQ_DeckQuest_Infestation",
+      "codename": "DECK-S1-E4 BPQ_DeckQuest_Infestation",
       "name": "Infestation",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 6,
       "tier": 1,
       "location": "Distance from island less than 1, any building",
       "spawnConditions": "Distance from island less than 1, any building",
-      "eventIntro": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
-      "eventDescription": "Enter narrative body context...",
+      "eventIntro": "",
+      "eventDescription": "A gnarly, bulbous, black formation of alien origin appears in one of the buildings. The crew hears a low buzzing noise from inside. \n The screams of the crew precede their appearance, running in panic from the building. The last man to get out closes the door and initiates a lockdown. When asked what happened, the crew tells about a strange black formation that appeared on the ceiling this morning. A gnarly, bulbous, tar-colored rock with porous walls spread and took over the facility, with a low buzzing noise humming inside. However, the mystery of that noise was short-lived. As the crew gaped at this unusual intrusion into their workspace, a bunch of amber-colored insects crawled out of that rock, spread their wings, and swooped toward the crew in what seemed to be a hostile maneuver.\nThe crew did not wait to find out and fled.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The insects manage to find their way out of the locked-down building and attack the crew. Luckily, their stings cannot penetrate the safety suits and present no threat. A small number of wasps that have escaped are soon found and killed.\n It is not so easy to do with those in the nest inside the facility. As a result, the future shifts working there should spend some of their time fighting off the annoying insects.",
         "penalties": [
           {
@@ -2099,7 +962,7 @@
       },
       "position": {
         "x": 110,
-        "y": 4267
+        "y": 4794
       },
       "actions": [
         {
@@ -2293,17 +1156,18 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792578159292",
-      "codename": "DECK-S1-E6 BPQ_DeckQuest_Tournament",
+      "codename": "DECK-S1-E5 BPQ_DeckQuest_Tournament",
       "name": "Tournament",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 1,
       "location": "Game stage 2 or more, Morale less then 30, Behemoth",
       "spawnConditions": "Game stage 2 or more, Morale less then 30, Behemoth",
@@ -2314,7 +1178,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The idea stalls and becomes a running argument in breaks. Morale gains are lost and small conflicts flare up over nothing. We spend more effort cooling tempers than the event would have cost.",
         "penalties": [
           {
@@ -2328,7 +1192,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5312
+        "y": 5935
       },
       "actions": [
         {
@@ -2570,13 +1434,13 @@
     },
     {
       "id": "node_1792578968136",
-      "codename": "DECK-S1-E7 BPQ_DeckQuest_Repetition_Load",
+      "codename": "DECK-S1-E6 BPQ_DeckQuest_Repetition_Load",
       "name": "Repetition Overload",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 9,
       "tier": 1,
       "location": "Game stage 2 or more, Behemoth",
       "spawnConditions": "Game stage 2 or more, Behemoth",
@@ -2587,7 +1451,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "We keep the same loop and ask for patience. Engagement falls and supervisors spend time chasing basics.",
         "penalties": [
           {
@@ -2638,7 +1502,7 @@
       },
       "position": {
         "x": 110,
-        "y": 6301
+        "y": 6989
       },
       "actions": [
         {
@@ -2746,24 +1610,24 @@
     },
     {
       "id": "node_1792579368503",
-      "codename": "DECK-S1-E8 BPQ_DeckQuest_Fishing_Rig",
+      "codename": "DECK-S1-E7 BPQ_DeckQuest_Fishing_Rig",
       "name": "Trawl Rig",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 10,
+      "floorIndex": 11,
       "tier": 1,
       "location": "in the open sea, Behemoth, ",
       "spawnConditions": "in the open sea, Behemoth, ",
-      "eventIntro": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
-      "eventDescription": "Enter narrative body context...",
+      "eventIntro": "",
+      "eventDescription": "One of the technicians has come up with a brilliant idea: bolt a trawl rig to the Behemoth and let the ship catch whatever swims past. Delighted by the simple genius of it, they want to rig it up right away.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
@@ -2777,19 +1641,87 @@
       },
       "position": {
         "x": 110,
-        "y": 7104
+        "y": 7886
       },
       "actions": [
         {
           "id": "c_1792579368503",
           "codeSuffix": "A",
-          "shortDescription": "Choice A",
+          "shortDescription": "Build the Rig",
           "description": "Such initiative deserves support. Provide the materials to build simple trawl gear.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792704272373",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 10,
+                  "iconImg": "icons/T_Thermoplastic.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "synthesized_01",
+                  "name": "Biopolymer",
+                  "amount": 10,
+                  "iconImg": "icons/T_Biopolymer.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792704296260",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 10,
+                  "iconImg": "icons/T_Conductive-Materials.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Rivalry lifts spirits and crews who rarely talk start coordinating better on shift. Minor disputes route through the committee rather than command, which frees supervisors to focus on work. The deck comes out of the week more connected.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.1",
+              "iconImg": "",
+              "icon": "🌀"
+            },
+            {
+              "resourceId": "res_31_k_Algae",
+              "name": "K-IV Algae",
+              "amount": "0-60",
+              "iconImg": "icons/T_ET_Squash.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_39_k_Krill",
+              "name": "K-IV Krill",
+              "amount": "0-60",
+              "iconImg": "icons/T_K-IV_Krill.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_24_k_Plankton",
+              "name": "K-IV Plankton",
+              "amount": "0-60",
+              "iconImg": "icons/T_ET_Plankton.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_40_k_AminoAc",
+              "name": "K-IV Aminoacids",
+              "amount": "0-60",
+              "iconImg": "icons/T_Amino_Acid.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -2797,29 +1729,92 @@
         {
           "id": "act_1792579735218",
           "codeSuffix": "B",
-          "shortDescription": "Choice B",
+          "shortDescription": "Build the Advanced Rig",
           "description": "There's a better way: repurpose one of our extractors. A few modifications, and it will outperform any net we could rig.",
-          "requirements": [],
+          "requirements": [
+            {
+              "id": "clause_1792704304589",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792704312993",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_01",
+                  "name": "Basic Extractor",
+                  "amount": 1,
+                  "iconImg": "icons/T_ExtractorBasic.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
           "timerHours": 5,
           "resultDescription": "Tempers run high, and the crew works them off on the job. In the middle of the mayhem, one of the researchers finds extra blueprints left from previous operations.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "stat_entropy",
+              "name": "Entropy",
+              "amount": "0.2",
+              "iconImg": "",
+              "icon": "🌀"
+            },
+            {
+              "resourceId": "res_39_k_Krill",
+              "name": "K-IV Krill",
+              "amount": "60-120",
+              "iconImg": "icons/T_K-IV_Krill.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_31_k_Algae",
+              "name": "K-IV Algae",
+              "amount": "60-120",
+              "iconImg": "icons/T_ET_Squash.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_40_k_AminoAc",
+              "name": "K-IV Aminoacids",
+              "amount": "60-120",
+              "iconImg": "icons/T_Amino_Acid.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_24_k_Plankton",
+              "name": "K-IV Plankton",
+              "amount": "60-120",
+              "iconImg": "icons/T_ET_Plankton.png",
+              "icon": "📦"
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792582814090",
-      "codename": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining",
+      "codename": "DECK-S1-E8 BPQ_DeckQuest_SpecialTraining",
       "name": "Special Training",
       "title": "New Event Block",
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 12,
       "tier": 1,
       "location": "in the open sea, Game stage 2 or more, Behemoth",
       "spawnConditions": "in the open sea, Game stage 2 or more, Behemoth",
@@ -2830,13 +1825,13 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The training course remains a missed opportunity.",
         "penalties": []
       },
       "position": {
         "x": 110,
-        "y": 7827
+        "y": 9068
       },
       "actions": [
         {
@@ -3066,7 +2061,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792585570927",
@@ -3087,7 +2083,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The experts carefully fine-tuned the existing meal formula. While the taste remained familiar, the nutritional value was significantly enhanced, ensuring the crew’s health and well-being improved with every meal.",
         "penalties": [
           {
@@ -3116,7 +2112,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 48
+        "y": 132
       },
       "actions": [
         {
@@ -3241,19 +2237,19 @@
       "location": "More than 5 ill crew members, Behemoth",
       "spawnConditions": "More than 5 ill crew members, Behemoth",
       "eventIntro": "Initial event context...",
-      "eventDescription": "Enter narrative body context...",
+      "eventDescription": "The Medbay has been developing a special vaccine meant to boost the crew's immunity to the local pathogens.\n The crew of Behemoth is alien to this planet, and the risk of someone catching some indigenous virus or bacteria is always present. Surely, the crew follows a set of strict rules and precautions to reduce the chance of contracting a deadly strain, but it would be much better for the crew to have resistance to the unwanted gifts of this planet. To create a vaccine, the doctors need to study one of the following subjects extensively.",
       "reactionTimerHours": "Infinite",
       "hasInactionThreat": true,
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "You ignored requests from the team. The “Nocebo effect” caused by continuous stress among team members regarding potential alien sickness actually worsened their natural resistance.",
         "penalties": []
       },
       "position": {
         "x": 1460,
-        "y": 992
+        "y": 1056
       },
       "actions": [
         {
@@ -3470,7 +2466,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Catastrophic failure occurs due to delay.",
         "penalties": [
           {
@@ -3698,14 +2694,14 @@
       "inactionThreat": {
         "description": "Leave them be",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Log the group as low-risk and schedule a discreet quarterly welfare check.",
         "penalties": [],
         "targetNodeId": "node_1792661442330"
       },
       "position": {
         "x": 1460,
-        "y": 3148
+        "y": 3210
       },
       "actions": [
         {
@@ -3731,7 +2727,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The “cultists” are playing tabletop role-playing games and are offended by the police-like raid. Team morale dropped.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_6_weakened_morale_ii",
+              "name": "Weakened Morale II",
+              "rawName": "Weakened Morale II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Weakened Morale II.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale -4 per hour for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "The crewmember loses 4 morale per hour for certain time."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3758,7 +2777,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The undercover agent reports on the group’s benign activities. TTRPGs become a welcome stress relief for the crew as their awareness increases.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
@@ -3784,7 +2826,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3924
+        "y": 4143
       },
       "actions": [
         {
@@ -3821,7 +2863,7 @@
           "shortDescription": "Choice C",
           "description": "Ignore",
           "requirements": [],
-          "timerHours": 5,
+          "timerHours": 15,
           "resultDescription": "slightly productivity decrease",
           "rewards": [
             "🧠 Knowledge +100"
@@ -3852,13 +2894,43 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Safety Report: \"So, we let the bladed bot do its thing for a little too long. It eventually came way too close to stabbing one of our people—no fatalities, but it was a near miss. The panic spread fast, and the  film studio had to be shut down in record time. Lesson learned, I hope.\" From: Orest Demchuck.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "stat_morale",
+            "name": "Morale",
+            "amount": "-10",
+            "icon": "😊",
+            "iconImg": ""
+          },
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 1460,
-        "y": 4515
+        "y": 4870
       },
       "actions": [
         {
@@ -3890,7 +2962,15 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety Report: \"We managed to intercept the \"blade bot\" in the corridor and disarm it on the spot—literally took the knives right off. The robot’s back to harmlessly bumping into walls, and the crew’s sense of safety has gone way up. One less horror story for now.\" From: Orest Demchuck.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -3917,12 +2997,43 @@
           ],
           "timerHours": 5,
           "resultDescription": "Safety report:\n\"Well, good news: the team managed to snag our knife-wielding cleaning robot with its batteries nearly drained! Sure, manual mopping isn’t anyone’s favorite pastime, but the chase gave everyone an unexpected show and actually boosted spirits. Crisis averted!\" From: Orest Demchuck.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+10",
+              "icon": "😊",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "status_43_waste_issues_i",
+              "name": "Waste Issues I",
+              "rawName": "Waste Issues I",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Waste Issues I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Waste",
+              "target": "building",
+              "effect": "Waste accumulation +20%",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "Each affected building produces 20% more waste."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792661778711",
@@ -3932,7 +3043,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 2,
       "location": "Game stage 3 or more, Behemoth",
       "spawnConditions": "Game stage 3 or more, Behemoth",
@@ -3943,13 +3054,36 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Productivity report:\n\"Captain, no corrective action has been taken. The gaps in our procedures persist. Rather than cooperating, personnel now circumvent each other, bypassing the shared process entirely. Recovery will require considerable effort and time.\nWith due respect, Mnemosyne.\"",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 1460,
-        "y": 5325
+        "y": 5913
       },
       "actions": [
         {
@@ -3981,7 +3115,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Productivity Report:\n\"Captain, a recent discussion revealed a critical flaw in the original protocol, as identified by an attentive crew member during the meeting. Following a thorough conversation with the team, we have implemented updates to all relevant procedures. This revision has resulted in an unexpected boost to overall productivity.\nWith due respect, Mnemosyne.\"",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4019,7 +3176,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792661784289",
@@ -4029,7 +3187,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 9,
       "tier": 2,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -4040,7 +3198,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Feeling that their needs were disregarded, the crew’s morale has declined, and a sense of frustration and disconnection has begun to take hold among the team.",
         "penalties": [
           {
@@ -4054,7 +3212,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 6277
+        "y": 7001
       },
       "actions": [
         {
@@ -4072,6 +3230,28 @@
               "amount": "+10",
               "icon": "😊",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_21_boosted_health_ii",
+              "name": "Boosted Health II",
+              "rawName": "Boosted Health II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Health II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "crew HP +50% for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crew's HP maximum is increased by a percentile. The extra HP max comes filled with extra health."
             }
           ],
           "targetNodeIds": [],
@@ -4085,7 +3265,52 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "By repurposing scrap materials for creative projects, the crew not only reduced waste accumulation but also found a valuable outlet for self-expression.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            },
+            {
+              "resourceId": "status_48_sustainable_living_iii",
+              "name": "Sustainable Living III",
+              "rawName": "Sustainable Living III",
+              "amount": "",
+              "hasN": false,
+              "nValue": "",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Sustainable Living III.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Waste",
+              "target": "building",
+              "effect": "Waste accumulation -75%",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Each affected building produces 100% less waste."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4102,7 +3327,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792661788229",
@@ -4112,7 +3338,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 9,
+      "floorIndex": 11,
       "tier": 2,
       "location": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
       "spawnConditions": "in the open sea, in the building, Synthesis workshop, compounds workshop, chemistry workshop, or bioengineering workshop ",
@@ -4123,13 +3349,58 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The unexpected onset of confusion startled the technicians, leading to a period of significant distress. Doubts about lab discipline have risen, and the incident has shaken confidence in the team's safety procedures.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_17_weakened_health_i",
+            "name": "Weakened Health I",
+            "rawName": "Weakened Health I",
+            "amount": "1",
+            "hasN": true,
+            "nValue": "1",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -20% for 1 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          },
+          {
+            "resourceId": "status_28_productivity_slowdown_ii",
+            "name": "Productivity Slowdown II",
+            "rawName": "Productivity Slowdown II",
+            "amount": "1",
+            "hasN": true,
+            "nValue": "1",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -40 for 1 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 40 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 1460,
-        "y": 7032
+        "y": 7892
       },
       "actions": [
         {
@@ -4159,7 +3430,7 @@
             {
               "resourceId": "stat_morale",
               "name": "Morale",
-              "amount": "-10",
+              "amount": "-5",
               "icon": "😊",
               "iconImg": ""
             }
@@ -4232,7 +3503,50 @@
           "timerHours": 5,
           "resultDescription": "A warning was issued about the potential effects, allowing crew members to make informed choices. While productivity may have taken a slight dip, overall morale and mental well-being noticeably improved as trust in crew leadership grew.",
           "rewards": [
-            "🧠 Knowledge +100"
+            {
+              "resourceId": "status_9_morale_boost_ii",
+              "name": "Morale Boost II",
+              "rawName": "Morale Boost II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +20 morale for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 20 for that duration (can surpass 100)"
+            },
+            {
+              "resourceId": "status_27_productivity_slowdown_i",
+              "name": "Productivity Slowdown I",
+              "rawName": "Productivity Slowdown I",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "crew productivity -20 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+            }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
@@ -4259,13 +3573,36 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The colony works its way into new vents and any corner nobody checks. Cleanup is no longer a quick job.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_44_waste_issues_ii",
+            "name": "Waste Issues II",
+            "rawName": "Waste Issues II",
+            "amount": "",
+            "hasN": false,
+            "nValue": "",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Waste Issues II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Waste",
+            "target": "building",
+            "effect": "Waste accumulation +50%",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each affected building produces 50% more waste."
+          }
+        ]
       },
       "position": {
         "x": 2810,
-        "y": 233
+        "y": 146
       },
       "actions": [
         {
@@ -4316,6 +3653,72 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "status_14_boosted_immunity_i",
+              "name": "Boosted Immunity I",
+              "rawName": "Boosted Immunity I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +50% for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
+            },
+            {
+              "resourceId": "status_8_morale_boost_i",
+              "name": "Morale Boost I",
+              "rawName": "Morale Boost I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Boost I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "gain +10 morale for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember's morale is increased by 10 for that duration (can surpass 100)"
+            },
+            {
+              "resourceId": "status_27_productivity_slowdown_i",
+              "name": "Productivity Slowdown I",
+              "rawName": "Productivity Slowdown I",
+              "amount": "72",
+              "hasN": true,
+              "nValue": "72",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+              "icon": "⚡",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "crew productivity -20 for 72 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "negative",
+              "description": "",
+              "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
             }
           ],
           "targetNodeIds": [],
@@ -4362,6 +3765,15 @@
               "amount": "+30",
               "icon": "🧠",
               "iconImg": ""
+            },
+            {
+              "resourceId": "criteria_caged_plumplins_quest_item",
+              "name": "Caged Plumplins_Quest item",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [
@@ -4419,13 +3831,23 @@
               "amount": "1",
               "iconImg": "",
               "icon": "🌀"
+            },
+            {
+              "resourceId": "criteria_stamets_artifact_immunity_buff",
+              "name": "Stamets Artifact _Immunity buff",
+              "amount": 1,
+              "icon": "🔑",
+              "iconImg": "",
+              "category": "Criteria",
+              "isCriteria": true
             }
           ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792668540158",
@@ -4460,7 +3882,7 @@
       },
       "position": {
         "x": 4160,
-        "y": 1177
+        "y": 1477
       },
       "actions": [
         {
@@ -4648,7 +4070,7 @@
     },
     {
       "id": "node_1792668541024",
-      "codename": "DECK-S1-E21 BPQ_DeckQuest_LetsGoGambling",
+      "codename": "DECK-S1-E29 BPQ_DeckQuest_LetsGoGambling",
       "name": "Lets Go Gambling",
       "title": "New Event Block",
       "type": "Deck",
@@ -4667,7 +4089,30 @@
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
         "resultDescription": "As anticipated, one of the extremophile bacteria escapes containment, rapidly corroding part of the ship’s structure. The incident serves as a costly reminder of the dangers unchecked fun can unleash.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_30_corrosive_mold",
+            "name": "Corrosive Mold",
+            "rawName": "Corrosive Mold",
+            "amount": "24",
+            "hasN": true,
+            "nValue": "24",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Corrosive Mold.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Repair, hull and buildings HP",
+            "target": "building",
+            "effect": "integrity -5 per hour for 24 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Each hour, affected building loses 5 points of Integrity."
+          }
+        ]
       },
       "position": {
         "x": 4160,
@@ -4682,7 +4127,30 @@
           "requirements": [],
           "timerHours": 5,
           "resultDescription": "With improved containment gear and briefings on the dangers of improper handling, the crew’s competitions become much safer. Not only is the risk of disease spread drastically reduced, but the heightened awareness gives everyone’s immunity a welcome boost.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_16_absolute_immunity",
+              "name": "Absolute Immunity",
+              "rawName": "Absolute Immunity",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Absolute Immunity.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "gain no infections for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4751,7 +4219,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 8,
+      "floorIndex": 9,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -4763,7 +4231,7 @@
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
         "timerHours": "Infinite",
-        "resultDescription": "Catastrophic failure occurs due to delay.",
+        "resultDescription": "The supposed birthday passes with no celebration or gift. Later, word spreads that Khalil’s birthday was actually on another day. Some crew members feel a twinge of disappointment, wondering if their own special days might someday be forgotten as well, leaving the atmosphere a bit subdued.",
         "penalties": [
           {
             "resourceId": "stat_morale",
@@ -4776,7 +4244,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 6277
+        "y": 6497
       },
       "actions": [
         {
@@ -4815,7 +4283,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "The crew gathers in the R&D lab, ready with decorations and homemade treats to greet the officer. Throughout the party, Khalil appears pleasantly surprised, though a bit bewildered by all the fuss. At the end, he quietly confides that today isn’t actually his birthday. Nevertheless, the crew enjoys themselves immensely, and the shared laughter brings everyone a little closer together.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4863,7 +4331,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "",
+          "resultDescription": "Pooling their skills, the team assembles a fresh powercell, recalling that Khalil’s equipment has been in need of an upgrade. When the gift is presented privately, Khalil politely declines, explaining that his birthday isn’t today. Even so, the spare powercell finds a grateful home aboard the ship, proving useful for the entire crew.",
           "rewards": [
             {
               "resourceId": "stat_knowledge",
@@ -4919,7 +4387,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5268
+        "y": 5375
       },
       "actions": [
         {
@@ -4958,7 +4426,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The wedding feast turned out to be wonderfully lavish, even with limited resources. Bellies were so full by the end that several crew members vowed to start a diet immediately afterward.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_2_fasting",
+              "name": "Fasting",
+              "rawName": "Fasting",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Fasting.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Food",
+              "target": "crew",
+              "effect": "each food charge lasts 4 hours for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "The crewmember spends each food charge every 4 hours, while receiving effects of food every hour as usual."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -4991,7 +4482,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The ceremony was simple, set amid the practical backdrop of the R&D lab, with rings fashioned from scrap metal. As the two exchanged vows and became a couple, the ship seemed just a little warmer. Word of the union spread, and sympathetic traders across the sector offered financial gifts to celebrate the new couple’s happiness.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_42_delighted_speciesname_traders",
+              "name": "Delighted Crabari Traders",
+              "rawName": "Delighted {SpeciesName} Traders",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": true,
+              "species": "Crabari",
+              "iconImg": "icons/status_effects/Delighted traders.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Trade",
+              "target": "Crabari Traders",
+              "effect": "prices -30% for Crabari for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buying prices are reduced by 30% (rounded up) for the trader of that Crabari."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -5018,12 +4532,36 @@
           ],
           "timerHours": 5,
           "resultDescription": "The candid discussion led by crew experts went smoothly. Ruth and the crew member agreed they’d jumped in too quickly and decided to remain friends — for now. As they exited, an officer swears the crew member gave Ruth a sly wink, hinting that the story might not be over just yet.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_11_morale_stasis",
+              "name": "Morale Stasis",
+              "rawName": "Morale Stasis",
+              "amount": "24",
+              "hasN": true,
+              "nValue": "24",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Morale Stasis.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Morale",
+              "target": "crew",
+              "effect": "Morale not changes for 24 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Morale value is frozen at the level it was when status effect has started. This effect can be overridden by bonus and debuff to morale effects."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792668541984",
@@ -5033,7 +4571,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 5,
+      "floorIndex": 6,
       "tier": 3,
       "location": "Game stage 3 or more, in the open sea, any energy building",
       "spawnConditions": "Game stage 3 or more, in the open sea, any energy building",
@@ -5044,7 +4582,7 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "Undisturbed, the creature resumed drawing energy from the source. The crew were not impressed by their commander's helplessness.",
         "penalties": [
           "💀 Entropy +10"
@@ -5052,7 +4590,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4275
+        "y": 4330
       },
       "actions": [
         {
@@ -5221,7 +4759,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792668543040",
@@ -5242,13 +4781,36 @@
       "inactionThreat": {
         "description": "No solution, everyone sneezing",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The effects of the irritant intensified, and symptoms escalated into widespread malaise. The crew is left feeling unwell and uncomfortable, with persistent itching affecting everyone.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_18_weakened_health_ii",
+            "name": "Weakened Health II",
+            "rawName": "Weakened Health II",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Weakened Health II.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "HP",
+            "target": "crew",
+            "effect": "crew HP -40% for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "The crew's HP maximum is reduced by a percentile. The missing amount of health is reduced first."
+          }
+        ]
       },
       "position": {
         "x": 2810,
-        "y": 3439
+        "y": 3353
       },
       "actions": [
         {
@@ -5273,7 +4835,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The remedy proved highly effective among the crew, not only alleviating irritation symptoms but also providing a noticeable boost to overall well-being.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_23_health_recovery",
+              "name": "Health Recovery",
+              "rawName": "Health Recovery",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Health Recovery.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "HP",
+              "target": "crew",
+              "effect": "gain 5 HP per hour for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected crewmembers regain missing HP at the rate of 5HP per hour."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -5299,7 +4884,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "Inspection revealed that faulty filters were the source of the problem. With repairs completed, crew symptoms have drastically diminished, and as an added benefit, the risk of disease transmission has been reduced.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_14_boosted_immunity_i",
+              "name": "Boosted Immunity I",
+              "rawName": "Boosted Immunity I",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Immunity I.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Immunity",
+              "target": "crew",
+              "effect": "Immunity +50% for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Affected cremember's Immunity is Increased by 50% (rounded up)"
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -5325,12 +4933,28 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew successfully adjusted the reagent formula to lessen its irritating effects. Additionally, several members gained valuable hands-on experience, leading to new specializations within the team.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "stat_crew",
+              "name": "Crew Members",
+              "amount": "4",
+              "iconImg": "",
+              "icon": "👨‍🚀"
+            },
+            {
+              "resourceId": "stat_crew count",
+              "name": "Crew Count",
+              "amount": "+4",
+              "icon": "👨‍🚀",
+              "iconImg": ""
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792668543262",
@@ -5351,13 +4975,36 @@
       "inactionThreat": {
         "description": "Event times out without choice made.",
         "shortDescription": "Timeout",
-        "timerHours": "Infinite",
+        "timerHours": 15,
         "resultDescription": "The lull passes without a plan. Although everything seems fine now, the first hour of the next surge is slowed by missing approvals, labels, and tool checks that could have been addressed earlier. The crew face the same friction as before, and the chance to build momentum is missed.",
-        "penalties": []
+        "penalties": [
+          {
+            "resourceId": "status_27_productivity_slowdown_i",
+            "name": "Productivity Slowdown I",
+            "rawName": "Productivity Slowdown I",
+            "amount": "48",
+            "hasN": true,
+            "nValue": "48",
+            "hasSpecies": false,
+            "species": "",
+            "iconImg": "icons/status_effects/Slowdown Productivity I.png",
+            "icon": "⚡",
+            "isStatusEffect": true,
+            "kind": "status_effect",
+            "category": "Status Effect",
+            "effectCategory": "Production Bonuses",
+            "target": "crew/building",
+            "effect": "crew productivity -20 for 48 hours",
+            "effectType": "Buff/Debuff",
+            "posNeg": "negative",
+            "description": "",
+            "comments": "Buildings' or crew's  productivity is reduced by 20 for duration fo effect."
+          }
+        ]
       },
       "position": {
         "x": 2810,
-        "y": 2555
+        "y": 2357
       },
       "actions": [
         {
@@ -5383,7 +5030,30 @@
           ],
           "timerHours": 5,
           "resultDescription": "The crew have planned out the next hours and are now able to address upcoming situations more efficiently, resulting in a spike in overall productivity.",
-          "rewards": [],
+          "rewards": [
+            {
+              "resourceId": "status_25_boosted_productivity_ii",
+              "name": "Boosted Productivity II",
+              "rawName": "Boosted Productivity II",
+              "amount": "48",
+              "hasN": true,
+              "nValue": "48",
+              "hasSpecies": false,
+              "species": "",
+              "iconImg": "icons/status_effects/Boosted Productivity II.png",
+              "icon": "✨",
+              "isStatusEffect": true,
+              "kind": "status_effect",
+              "category": "Status Effect",
+              "effectCategory": "Production Bonuses",
+              "target": "crew/building",
+              "effect": "productivity +50 for 48 hours",
+              "effectType": "Buff/Debuff",
+              "posNeg": "positive",
+              "description": "",
+              "comments": "Buildings' or crew's productivity is increased by 50 for duration fo effect."
+            }
+          ],
           "targetNodeIds": [],
           "targetNodeId": null
         },
@@ -5427,7 +5097,8 @@
           "targetNodeId": null
         }
       ],
-      "disabledVariationIds": []
+      "disabledVariationIds": [],
+      "colorScheme": "emerald"
     },
     {
       "id": "node_1792668543463",
@@ -5448,7 +5119,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1333
+        "y": 1402
       },
       "actions": [
         {
@@ -5479,6 +5150,36 @@
                   "amount": 10,
                   "iconImg": "icons/T_Mycobrick.png",
                   "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792706878647",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_caged_plumplins_quest_item",
+                  "name": "Caged Plumplins_Quest item",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
+            },
+            {
+              "id": "clause_1792706949555",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_stamets_artifact_immunity_buff",
+                  "name": "Stamets Artifact _Immunity buff",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
                 }
               ]
             }
@@ -5521,6 +5222,21 @@
                   "icon": "👨‍🚀"
                 }
               ]
+            },
+            {
+              "id": "clause_1792706882880",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_caged_plumplins_quest_item",
+                  "name": "Caged Plumplins_Quest item",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -5546,6 +5262,55 @@
         }
       ],
       "disabledVariationIds": []
+    },
+    {
+      "id": "node_deck_1",
+      "codename": "DECK-E1",
+      "name": "Hangar Deck Fire Drill",
+      "type": "Carrier",
+      "category": "DeckPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "Test Spawn Conditions Text",
+      "spawnConditions": "Test Spawn Conditions Text",
+      "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
+      "reactionTimerHours": "2",
+      "hasInactionThreat": true,
+      "inactionThreat": {
+        "consequenceText": "Drill failure creates crew demoralization.",
+        "timerHours": 2,
+        "shortDescription": "Failed Drill",
+        "description": "No team responded in time.",
+        "resultDescription": "Penalty applied.",
+        "penalties": [
+          "💀 Entropy +5"
+        ]
+      },
+      "position": {
+        "x": 110,
+        "y": 56
+      },
+      "actions": [
+        {
+          "id": "act_deck_1",
+          "codeSuffix": "A",
+          "shortDescription": "Dispatch Fire Crews",
+          "description": "Direct crew to seal airlocks and foam containment.",
+          "requirements": [],
+          "timerHours": 1,
+          "resultDescription": "Hangar secured ahead of schedule.",
+          "rewards": [
+            "🛡️ Defense +1",
+            "🧠 Knowledge +150"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "Hangar Deck Fire Drill"
     },
     {
       "id": "node_1791297604320",
@@ -7137,6 +6902,1075 @@
       "disabledVariationIds": []
     },
     {
+      "id": "node_e0",
+      "codename": "T1-V1-K1A",
+      "name": "The Moment After the End",
+      "type": "Deck",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "spawnConditions": "End of Tutorial / Zephyrus Collapse",
+      "eventIntro": "N/A",
+      "eventDescription": "The likelihood of anyone surviving the spaceship's destruction is low but not zero: Zephyrus had self-propelled emergency escape pods and shuttles distributed throughout the ship for evacuation. Someone could have reached them just in time. But what exactly could destroy Zephyrus, our most advanced and well-protected spaceship? Could the Behemoth be next? Learning more about what happened might increase the chances of survival for this ship and its crew. For that, the flight recorder and the bridge voice recorder must be retrieved.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 636,
+        "y": 90
+      },
+      "actions": [
+        {
+          "id": "act_e0_1",
+          "codeSuffix": "A",
+          "shortDescription": "Build a transmitter",
+          "description": "Harsh conditions jam the long-distance signals. To pick up the emergency signal from the escape pods, a more powerful transmitter is required.",
+          "requirements": [
+            {
+              "id": "clause_1791299400955",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_01",
+                  "name": "Metal Constructions",
+                  "amount": 15,
+                  "iconImg": "icons/T_Metal_Frames.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791299424222",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_04",
+                  "name": "Conductive Materials",
+                  "amount": 15,
+                  "iconImg": "icons/T_Conductive-Materials.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384158266",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384159499",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The transmitter has picked up several signals, all heavily distorted. For now, it is unclear whether any of them belong to an escape pod, but Mnemosyne will work on finding out.",
+          "rewards": [
+            "🧠 Knowledge +300",
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "1",
+              "iconImg": "",
+              "icon": "📜"
+            }
+          ],
+          "targetNodeId": "node_e1",
+          "targetNodeIds": [
+            "node_e1"
+          ]
+        },
+        {
+          "id": "act_e0_2",
+          "codeSuffix": "B",
+          "shortDescription": "Process the data",
+          "description": "Mnemosyne can analyze all the recorded data of the Zephyrus's destruction and predict the probable crash sites of its debris, including the pieces where the flight recorders should be contained.",
+          "requirements": [
+            {
+              "id": "clause_1791299451478",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_03",
+                  "name": "Thermoplastic",
+                  "amount": 15,
+                  "iconImg": "icons/T_Thermoplastic.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791299458580",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_05",
+                  "name": "Electronic Components",
+                  "amount": 15,
+                  "iconImg": "icons/T_Holo_Display.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384183560",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_science",
+                  "name": "Science Crew",
+                  "amount": 2,
+                  "icon": "🔬",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791384184803",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_engineering",
+                  "name": "Engineering Crew",
+                  "amount": 1,
+                  "icon": "🔧",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Mnemosyne is about to determine a possible crash site area of the mothership's fragment containing the Orange box. The fragment is still in orbit and has yet to pass through the lower atmosphere, shattering in the process and thus complicating the precise prediction of the orange box's final location.",
+          "rewards": [
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_e1b",
+          "targetNodeIds": [
+            "node_e1b"
+          ]
+        }
+      ],
+      "colorScheme": "amber",
+      "disabledVariationIds": [],
+      "location": "End of Tutorial / Zephyrus Collapse",
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e1",
+      "codename": "T1-V1-K2A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "On an island with additional escape pod model.",
+      "eventIntro": "An escape pod must be somewhere on this island, as this is where its distress signal is coming from.",
+      "eventDescription": "Blood, claw marks, shredded EVAs, guts, torn limbs, and more blood greet your scouts inside the escape pod. Something has gotten to the space refugees before you.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -606,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_e1_1",
+          "codeSuffix": "A",
+          "shortDescription": "Comb island",
+          "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
+          "requirements": [
+            {
+              "id": "clause_1791379437831",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_04",
+                  "name": "Personal Defence Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_DefensiveGear.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Despite the lack of progress in locating people from Zephyrus, the scouts have had significant success in finding the predators, possibly responsible for attacking the escape pod. All they had to do was stay on the island long enough to become bait for the hungry beasts.\n The ambush left two of the party severely wounded, but the team managed to fight off and retreat to the extraction point, leaving the island without discovering the fate of the survivors.",
+          "rewards": [
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "100-150",
+              "iconImg": "icons/T_Prebiotic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "spec_defense",
+              "name": "Defense Spec",
+              "amount": "+3",
+              "icon": "🛡️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+200",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2a",
+          "targetNodeIds": [
+            "node_e2a"
+          ]
+        },
+        {
+          "id": "act_e1_2",
+          "codeSuffix": "B",
+          "shortDescription": "Examine pod",
+          "description": "Investigate the scene to gather clues, recreate the events, and learn more about the fate of the survivors.",
+          "requirements": [
+            {
+              "id": "clause_1791379456088",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_02",
+                  "name": "Microcontrollers",
+                  "amount": 1,
+                  "iconImg": "icons/T_Microcontrollers.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791379470074",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 3,
+                  "iconImg": "icons/T_Container.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791379483293",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "rewards": [
+            {
+              "resourceId": "machinery_05",
+              "name": "Battery Block",
+              "amount": "6",
+              "iconImg": "icons/T_Battery-Block.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_blueprints",
+              "name": "Blueprints",
+              "amount": "+2",
+              "icon": "📜",
+              "iconImg": ""
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2b",
+          "targetNodeIds": [
+            "node_e2b"
+          ]
+        }
+      ],
+      "colorScheme": "blue",
+      "location": "On an island with additional escape pod model.",
+      "disabledVariationIds": [],
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e1b",
+      "codename": "T1-V1-K2B",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 1,
+      "spawnConditions": "Data processed",
+      "eventIntro": "According to Mnemosyne's predictions, the section of the mothership containing the orange box should have landed on this island.",
+      "eventDescription": "The scouts follow the column of smoke that echoes the trajectory of the fallen fragment. The closer they get, the more destruction they see. The blast from the impact has melted stone and banished the living elements from the location. Not a blade of grass has remained. Just pockmarks from stone-turned-shrapnel everywhere, leaving long-standing scars.\n And then, a crater. A large, smoldering chunk of twisted metal lies inside. The dispatched scouts approach a burial ground of their mothership, watching it somberly — another reminder of what they have lost.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2668,
+        "y": 1690
+      },
+      "actions": [
+        {
+          "id": "act_e1b_1",
+          "codeSuffix": "A",
+          "shortDescription": "Disassemble",
+          "description": "Six hours of painstaking and careful \"surgery\" are required to extract the orange box without any risk of damaging it.",
+          "requirements": [
+            {
+              "id": "clause_1791378421058",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 1,
+                  "iconImg": "icons/T_Container.png"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791378440100",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                },
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 6,
+          "resultDescription": "Slowly and carefully, like handling a bomb that is one wrong move away from detonating, the team peels off layer after layer of metal, exposing a mess of fried spaceship's innards. In the process, they manage to salvage quite a few valuable parts and components that can be useful for our survival.\n\nFinally, after long hours of exhausting dissection, the flight data recorder is retrieved. It appears to be intact.",
+          "rewards": [
+            "📜 Blueprints +3",
+            {
+              "resourceId": "processing_05",
+              "name": "Nano Parts",
+              "amount": "8",
+              "iconImg": "icons/T_Fuel_Rod.png",
+              "icon": "📦"
+            },
+            "🧠 Knowledge +350"
+          ],
+          "targetNodeId": "node_1791706248386",
+          "targetNodeIds": [
+            "node_1791706248386"
+          ]
+        },
+        {
+          "id": "act_1791378373196",
+          "codeSuffix": "B",
+          "shortDescription": "Blast through!",
+          "description": "We have no time to waste on the surgical dissection. We need the orange box, and we need it ASAP.",
+          "requirements": [
+            {
+              "id": "clause_1791378603692",
+              "isReplaceable": true,
+              "items": [
+                {
+                  "resourceId": "ammunition_02",
+                  "name": "Explosive Charges",
+                  "amount": 3,
+                  "iconImg": "icons/T_ExplosiveCharges.png"
+                }
+              ]
+            }
+          ],
+          "timerHours": 3,
+          "resultDescription": "Tuuli, Chief Engineer, does her best to calculate the amount of explosive charges, as well as their placement, to keep the further destruction of Zephyrus's wreck under control. Despite her best efforts, all the fine elements of the spaceship that could have survived the fall are now beyond salvation.\n\nThe flight data recorder appears to have taken serious damage, too. Its integrity is compromised. It is unclear whether your team's explosive extraction techniques are to blame, but it is doubtful they have improved the situation.",
+          "rewards": [
+            {
+              "resourceId": "processing_02",
+              "name": "Alloyed Metal",
+              "amount": "20-30",
+              "iconImg": "icons/T_Alloy_Steel.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "synthesized_01",
+              "name": "Biopolymer",
+              "amount": "20-30",
+              "iconImg": "icons/T_Biopolymer.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "processing_03",
+              "name": "Thermoplastic",
+              "amount": "20-30",
+              "iconImg": "icons/T_Thermoplastic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "processing_04",
+              "name": "Conductive Materials",
+              "amount": "20-30",
+              "iconImg": "icons/T_Conductive-Materials.png",
+              "icon": "📦"
+            },
+            "🧠 Knowledge +300"
+          ],
+          "targetNodeId": "node_1791705255524",
+          "targetNodeIds": [
+            "node_1791705255524"
+          ]
+        }
+      ],
+      "colorScheme": "blue",
+      "disabledVariationIds": [],
+      "title": "The Moment After the End"
+    },
+    {
+      "id": "node_e2a",
+      "codename": "T1-V1-K3A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Immediately after 2A choice resolution",
+      "eventIntro": "Repelled by the overwhelming numbers of local predators, the scouts failed to discover the fate of the survivors. It is the time to learn from our mistakes and attempt again.",
+      "eventDescription": "The island is swarming with dangerous predators. And somewhere, surrounded by violent beasts, a group of survivors might still be alive. Or so many of your crew want to believe.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -1091,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "act_e2a_1",
+          "codeSuffix": "A",
+          "shortDescription": "Send drones",
+          "description": "The drones should not attract the unwanted attention of local predators and will therefore traverse the island more efficiently.",
+          "requirements": [
+            {
+              "id": "clause_1791673340691",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_01",
+                  "name": "Propulsion Kit",
+                  "amount": 3,
+                  "iconImg": "icons/T_Propulsion_Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791673347965",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 3,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "As expected, the drones are of no interest to the carnivores and pass through the island without a hitch. But after hours of circling around, they find no evidence of any human being present in this place.\n\nEventually, passing by the escape pod one more time, one of the operators notices that a lifeboat is missing. And since animals don't usually sail on boats, it can mean only one thing...",
+          "rewards": [
+            {
+              "resourceId": "res_06_Chrom",
+              "name": "Chromium",
+              "amount": "40",
+              "iconImg": "icons/T_Chromium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_01_Gold",
+              "name": "Gold",
+              "amount": "15",
+              "iconImg": "icons/T_Gold.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_16_Lithium",
+              "name": "Lithium",
+              "amount": "20",
+              "iconImg": "icons/T_Lithium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_08_Titan",
+              "name": "Titanium",
+              "amount": "40",
+              "iconImg": "icons/T_Metals_Ti.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+200",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e3a",
+          "targetNodeIds": [
+            "node_e3a"
+          ]
+        },
+        {
+          "id": "act_1791673301980",
+          "codeSuffix": "B",
+          "shortDescription": "Send scouts",
+          "description": "Protected by force shields, an armed group can easily dispatch the hunting packs of predators and provide the necessary aid to survivors if any are found.",
+          "requirements": [
+            {
+              "id": "clause_1791673357630",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 5,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts move swiftly through the island, unhindered. Claws and fangs fail to pierce the force fields encompassing the bodies of the scouts, while the bullets find no such problem with the animal hides.  But all that bloodshed leads to nothing. Your scouts find no survivors on the island, nor their remains.  But when they pass by the escape pod one more time, they realize that it does not have the emergency lifeboat. And since animals don't usually sail on boats, it can mean only one thing...",
+          "rewards": [
+            {
+              "resourceId": "res_38_Prebiotic",
+              "name": "Prebiotic Matter",
+              "amount": "250-300",
+              "iconImg": "icons/T_Prebiotic.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_19_Eldrit",
+              "name": "Eldritium",
+              "amount": "10-15",
+              "iconImg": "icons/T_Eldritium.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "res_01_Gold",
+              "name": "Gold",
+              "amount": "10-15",
+              "iconImg": "icons/T_Gold.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": "node_e2b",
+          "targetNodeIds": [
+            "node_e2b"
+          ]
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "colorScheme": "orange",
+      "location": "Immediately after 2A choice resolution"
+    },
+    {
+      "id": "node_e2b",
+      "codename": "T1-V1-K3B",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "spawnConditions": "Distance covered X",
+      "eventIntro": "The lifeboat is feverishly tossed around by the legion of turbulent waves.",
+      "eventDescription": "Your scouts reach the lifeboat and meet the survivors. But it is not the reunion they have been hoping for.  People on the lifeboat look horrible. Their eyes bulge in pain, rimmed by blood. Crimson tears run down and spread, like Martian deltas, on their puffed, inflamed faces.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 116,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "act_e2b_1",
+          "codeSuffix": "A",
+          "shortDescription": "Treat survivors",
+          "description": "Bring the survivors to the ship and provide them with all the necessary medical help.",
+          "requirements": [
+            {
+              "id": "clause_1791704591715",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "medres_02",
+                  "name": "Med Kit",
+                  "amount": 5,
+                  "iconImg": "icons/T_Med-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704597486",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "spec_operations",
+                  "name": "Operations Crew",
+                  "amount": 1,
+                  "icon": "⚙️",
+                  "iconImg": "",
+                  "category": "Specialization"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "The scouts return with the blood-crying survivors, and the fight for their lives begins.\n\nBased on the preliminary examination, the virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More work needs to be done to better understand its properties, learn how it ended up on Keeling, and find a way to treat it.",
+          "rewards": [
+            {
+              "resourceId": "spec_operations",
+              "name": "Operations Spec",
+              "amount": "+5",
+              "icon": "⚙️",
+              "iconImg": "",
+              "category": "Specialization"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": null,
+          "targetNodeIds": []
+        },
+        {
+          "id": "act_e2b_2",
+          "codeSuffix": "B",
+          "shortDescription": "Study distantly",
+          "description": "Keep the survivors on the lifeboat and examine the virus there, thus avoiding any unnecessary risks for the crew on the Behemoth.",
+          "requirements": [
+            {
+              "id": "clause_1791704609876",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_02",
+                  "name": "D.A.R.T.",
+                  "amount": 2,
+                  "iconImg": "icons/T_ControlStation.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704618396",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 4,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "R&D scientists and doctors give instructions to the scouts. They examine the survivors, collect the samples for R&D analysis, and do what they can to help. In the end, nothing works, and the scouts give the final gift to the tormented people — painkillers.  Having taken all the necessary precautions, the scouts then deliver the samples to the R&D lab for further research.  The virus appears to be a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+300",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeId": null,
+          "targetNodeIds": []
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "colorScheme": "orange",
+      "location": "Distance covered X"
+    },
+    {
+      "id": "node_e3a",
+      "codename": "T1-V1-K4A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 3,
+      "spawnConditions": "Immediately after 2A choice resolution",
+      "eventIntro": "The lifeboat is tossed around by the legion of turbulent waves. Radio silence greets your ship.",
+      "eventDescription": "Bodies of the survivors, who are survivors no more, cover the floor of the lifeboat's only cabin. Their eyes bulge in pain, rimmed by a dried moat of blood. Crimson tears have run down and spread, like Martian deltas, on their puffed, still inflamed faces. These people have fled from horrible death in space and on the island, only to succumb to a no less cruel disease.  Among those corpses also lies the frail body of a child.\n\nIt is not Liora.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -2095,
+        "y": 4890
+      },
+      "actions": [
+        {
+          "id": "act_e3a_1",
+          "codeSuffix": "A",
+          "shortDescription": "Collect samples",
+          "description": "Send scouts to take the samples for the R&D lab.",
+          "requirements": [
+            {
+              "id": "clause_1791704935868",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_05",
+                  "name": "Nano Parts",
+                  "amount": 3,
+                  "iconImg": "icons/T_Fuel_Rod.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704941985",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 6,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 6,
+          "resultDescription": "Having taken all the necessary precautions, the scouts extract the samples and deliver them to the R&D lab for further research. Mars Abbadie, the Head of R&D, contacts you later with preliminary results. The virus is a mutated (or modified) strain of the Ebola virus disease. It is much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "questres_03",
+              "name": "Comm-Link",
+              "amount": "4",
+              "iconImg": "icons/T_Comm_Link.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791704810788",
+          "codeSuffix": "B",
+          "shortDescription": "Study distantly",
+          "description": "The examination must be conducted remotely using drones.",
+          "requirements": [
+            {
+              "id": "clause_1791704949464",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "processing_06",
+                  "name": "Basic Toolkit",
+                  "amount": 3,
+                  "iconImg": "icons/T_Basic-Tool-Kit.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704959408",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 3,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1791704967548",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "extractor_02",
+                  "name": "D.A.R.T.",
+                  "amount": 1,
+                  "iconImg": "icons/T_ControlStation.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Transmitted results indicate that the virus responsible for the death of survivors is a mutated (or modified) strain of the Ebola virus disease. It appears to be much deadlier and more contagious than its Earth-based relative. More research is needed to better understand its properties and how it ended up on Keeling.",
+          "rewards": [
+            {
+              "resourceId": "medres_03",
+              "name": "Stem Tissue",
+              "amount": "8-16",
+              "iconImg": "icons/T_Stem-Tissue.png",
+              "icon": "📦"
+            },
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+300",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": [],
+      "title": "The Moment After the End",
+      "location": "Immediately after 2A choice resolution",
+      "colorScheme": "orange"
+    },
+    {
+      "id": "node_1791705255524",
+      "codename": "T1-V1-K3D",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
+      "spawnConditions": "THIS IS THE CHOICE IN CASE THERE WILL BE NO ANOMALY OUTSIDE THE TEXT.",
+      "eventIntro": "The fallen fragment of Zephyrus is the epicenter of mass destruction, surrounded by a field of dead, boiled fish bobbing on the disturbed water. It is also in the middle of the anomalous zone.",
+      "eventDescription": "The scouts report malfunctions in their electronic equipment and strange sounds when using communication devices. Each crew member present in the recon craft claims to hear a melody, something from their past. It keeps ringing in their ears, at the back of their mind. Invasive. Persisting. Haunting.\nThe success of the extraction operation is at risk as long as the anomaly is active. But waiting might not be an option: the fragment is slowly sinking.",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 5176,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1791705255524",
+          "codeSuffix": "A",
+          "shortDescription": "Investigate the Anomaly",
+          "description": "\nThe scouts believe the sounds lead them on, somewhere. It must be delirium, but… this planet is quite strange. Maybe it warrants an investigation.",
+          "requirements": [
+            {
+              "id": "clause_1792507962988",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 3,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 3,
+          "resultDescription": " The scouts chase the ghostly melody, looping in their heads, taunting, calling. This madness continues for a while until the scouts triumphantly report having found the Source.       The melody... it is now heard on the ship, too. The song Liora loved to listen to. It is in your head, and her voice, bright and worry-free, is so real, you turn around to find her... but she is not there. Then the melody stops. The scouts report they have found a strange artifact. It appears to be the cause of it all.       In the meantime, a large part of the sinking fragment breaks off and sinks into the bottomless dark below. The bridge voice recorder was there, too. And it is gone.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1791705793442",
+          "codeSuffix": "B",
+          "shortDescription": "Investigate the Anomaly",
+          "description": "The team has to manage without a tricorder. ",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "After the anomaly dissipates, the fragment containing the CVR breaks off and disappears in the dark depth of the ocean.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        },
+        {
+          "id": "act_1792507915803",
+          "codeSuffix": "C",
+          "shortDescription": "Extract the BVR",
+          "description": "Description for action choice C...",
+          "requirements": [
+            {
+              "id": "clause_1792508262936",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "machinery_04",
+                  "name": "Basic Scanner",
+                  "amount": 1,
+                  "iconImg": "icons/T_Basic-Scaner.png",
+                  "icon": "📦"
+                }
+              ]
+            },
+            {
+              "id": "clause_1792508280371",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_01",
+                  "name": "Modular Container",
+                  "amount": 5,
+                  "iconImg": "icons/T_Container.png",
+                  "icon": "📦"
+                }
+              ]
+            }
+          ],
+          "timerHours": 5,
+          "resultDescription": "Maddened by the ceaseless melody in their heads, equipped with tools that kept malfunctioning, the scouts have had quite a hard time extracting the target. And when they finally get their hands on the voice recorder, it appears damaged, too.\n\nNot as badly as the previous recorder, though. Some of its data might be saved.",
+          "rewards": [
+            {
+              "resourceId": "stat_knowledge",
+              "name": "Knowledge",
+              "amount": "+400",
+              "icon": "🧠",
+              "iconImg": ""
+            }
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "colorScheme": "orange",
+      "title": "The Moment After the End",
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1791706248386",
+      "codename": "T1-V1-K3C",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 2,
+      "tier": null,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 2207,
+        "y": 3290
+      },
+      "actions": [
+        {
+          "id": "c_1791706248386",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "The Moment After the End",
+      "disabledVariationIds": []
+    },
+    {
       "id": "node_1792765225249",
       "codename": "T1-V10-K1A",
       "name": "The Finite Infinity",
@@ -7183,10 +8017,10 @@
           "rewards": [
             "🧠 Knowledge +100",
             {
-              "resourceId": "stat_entropy",
-              "name": "Entropy",
-              "amount": "-1",
-              "icon": "💀",
+              "resourceId": "stat_morale",
+              "name": "Morale",
+              "amount": "+4",
+              "icon": "😊",
               "iconImg": ""
             }
           ],
@@ -7207,8 +8041,7 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     },
     {
       "id": "node_1791717900687",
@@ -8676,42 +9509,10 @@
           "targetNodeIds": [],
           "targetNodeId": null
         }
-      ],
-      "disabledVariationIds": []
+      ]
     }
   ],
   "dialogues": [
-    {
-      "id": "diag_1791832094238",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
-      "position": {
-        "x": 1800,
-        "y": -414
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791832094238",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
-        },
-        {
-          "id": "l_1791832119337",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
-        }
-      ],
-      "links": [],
-      "floorIndex": 0
-    },
     {
       "id": "diag_gen_beacon",
       "characterId": "char_catherine",
@@ -9806,6 +10607,37 @@
           "triggerCondition": "During (T1-V1-K2A) Process the data"
         }
       ]
+    },
+    {
+      "id": "diag_1791832094238",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 1800,
+        "y": -414
+      },
+      "variationId": "var_v2",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791832094238",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
+        },
+        {
+          "id": "l_1791832119337",
+          "speakerId": "khalil",
+          "speakerName": "Khalil Arida",
+          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
+        }
+      ],
+      "links": [],
+      "floorIndex": 0
     }
   ]
 }
