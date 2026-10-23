@@ -624,10 +624,8 @@
               "icon": "📦"
             }
           ],
-          "targetNodeId": "node_e2b",
-          "targetNodeIds": [
-            "node_e2b"
-          ]
+          "targetNodeId": null,
+          "targetNodeIds": []
         }
       ],
       "disabledVariationIds": [],
@@ -2671,5 +2669,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:41:00.921573"
+  "_lastModified": "2026-10-23T20:41:03.791433"
 }
