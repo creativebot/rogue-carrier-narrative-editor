@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:46:14.190378",
+  "_lastModified": "2026-10-23T20:46:26.387476",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11220,7 +11220,7 @@
           "id": "l_1792788304408",
           "speakerId": "khalil",
           "speakerName": "Khalil Arida",
-          "text": "New dialogue speech text..."
+          "text": "It's all the strain we've been under, El. But... you heard the man. A child...\n\nCould it be..."
         },
         {
           "id": "l_1792788305440",
