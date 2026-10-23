@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T23:22:14.397024",
+  "_lastModified": "2026-10-23T23:22:30.398562",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -7680,8 +7680,10 @@
               "iconImg": ""
             }
           ],
-          "targetNodeId": null,
-          "targetNodeIds": []
+          "targetNodeId": "node_1792797749691",
+          "targetNodeIds": [
+            "node_1792797749691"
+          ]
         }
       ],
       "disabledVariationIds": [],
@@ -7691,7 +7693,7 @@
     },
     {
       "id": "node_e3a",
-      "codename": "T1-V1-K4A",
+      "codename": "T1-V1-K4B",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -8067,7 +8069,7 @@
     },
     {
       "id": "node_1791706248386",
-      "codename": "T1-V1-K4B",
+      "codename": "T1-V1-K4C",
       "name": "The Moment After the End",
       "type": "World",
       "category": "KeyChain",
@@ -8250,6 +8252,41 @@
       "title": "The Moment After the End",
       "disabledVariationIds": [],
       "colorScheme": "rose"
+    },
+    {
+      "id": "node_1792797749691",
+      "codename": "T1-V1-K4A",
+      "name": "The Moment After the End",
+      "type": "World",
+      "category": "KeyChain",
+      "variationId": "var_v1",
+      "floorIndex": 3,
+      "spawnConditions": "Triggered by T1-V1-K3A",
+      "eventDescription": "Enter new outcome narrative body text...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": -1520,
+        "y": 4890
+      },
+      "actions": [
+        {
+          "id": "c_1792797749691",
+          "codeSuffix": "A",
+          "shortDescription": "Continue",
+          "description": "Next step narrative",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "title": "The Moment After the End"
     },
     {
       "id": "node_1792765225249",
@@ -9926,7 +9963,7 @@
       "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Mass Produce Medkits",
+      "triggerCondition": "After (T1-V1-K4C) Mass Produce Medkits",
       "position": {
         "x": -3146,
         "y": 4737
@@ -9963,7 +10000,7 @@
       "triggerActionId": null,
       "delayHours": 0.25,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4A) Defeat Leviathan",
+      "triggerCondition": "After (T1-V1-K4B) Defeat Leviathan",
       "position": {
         "x": -2920,
         "y": 5078
@@ -10817,7 +10854,7 @@
       ],
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Send divers • After (T1-V1-K4B) Send Drones",
+      "triggerCondition": "After (T1-V1-K4C) Send divers • After (T1-V1-K4C) Send Drones",
       "position": {
         "x": 3341,
         "y": 5834
@@ -10853,7 +10890,7 @@
       "triggerActionId": null,
       "delayHours": 0.25,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4B) Send divers",
+      "triggerCondition": "After (T1-V1-K4C) Send divers",
       "position": {
         "x": 3344,
         "y": 6202
@@ -11308,7 +11345,7 @@
       "triggerActionId": "act_1791704810788",
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4A) Study distantly",
+      "triggerCondition": "After (T1-V1-K4B) Study distantly",
       "position": {
         "x": 1031,
         "y": 6172
@@ -11438,7 +11475,7 @@
       "triggerActionId": "act_e3a_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4A) Collect samples",
+      "triggerCondition": "After (T1-V1-K4B) Collect samples",
       "position": {
         "x": -638,
         "y": 5936
@@ -11536,7 +11573,7 @@
       ],
       "delayHours": 0.5,
       "delayUnit": "hours",
-      "triggerCondition": "After (T1-V1-K4A) Collect samples",
+      "triggerCondition": "After (T1-V1-K4B) Collect samples",
       "position": {
         "x": -89,
         "y": 5936
