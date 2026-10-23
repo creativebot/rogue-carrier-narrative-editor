@@ -564,6 +564,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792787327669",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "electronics_03",
+                  "name": "Sensors Array",
+                  "amount": 1,
+                  "iconImg": "icons/T_Sensors.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2653,5 +2666,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:28:40.141515"
+  "_lastModified": "2026-10-23T20:28:47.996959"
 }
