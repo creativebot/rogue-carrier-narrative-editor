@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:18:55.690713",
+  "_lastModified": "2026-10-23T22:18:56.794670",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11500,6 +11500,12 @@
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
           "text": "Sir, we need to initiate quarantine immediately."
+        },
+        {
+          "id": "l_1792793936314",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
+          "text": "New dialogue speech text..."
         }
       ],
       "floorIndex": 4
