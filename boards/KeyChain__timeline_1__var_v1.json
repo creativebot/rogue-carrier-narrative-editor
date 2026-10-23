@@ -3190,7 +3190,7 @@
           "id": "l_1792795561968",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": ""
         },
         {
           "id": "l_1792795562930",
@@ -3222,5 +3222,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T22:47:03.480218"
+  "_lastModified": "2026-10-23T22:47:06.797641"
 }
