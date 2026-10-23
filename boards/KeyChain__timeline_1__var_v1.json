@@ -201,7 +201,7 @@
         {
           "id": "act_e1_1",
           "codeSuffix": "A",
-          "shortDescription": "Access shuttle's log",
+          "shortDescription": "Access shuttle's log (HIGH CHALLENGE)",
           "description": "Arm the scouts and send them to search the island for survivors (or their bodies).",
           "requirements": [
             {
@@ -2678,5 +2678,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:13:26.291406"
+  "_lastModified": "2026-10-23T20:13:48.588251"
 }
