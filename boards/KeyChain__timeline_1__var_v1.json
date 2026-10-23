@@ -508,9 +508,11 @@
             {
               "resourceId": "res_01_Gold",
               "name": "Gold",
-              "amount": "15",
+              "amount": "10",
               "iconImg": "icons/T_Gold.png",
-              "icon": "📦"
+              "icon": "📦",
+              "nValue": "10",
+              "hasN": true
             },
             {
               "resourceId": "res_16_Lithium",
@@ -2659,5 +2661,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:29:43.003868"
+  "_lastModified": "2026-10-23T20:29:52.749972"
 }
