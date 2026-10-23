@@ -515,13 +515,6 @@
               "hasN": true
             },
             {
-              "resourceId": "res_08_Titan",
-              "name": "Titanium",
-              "amount": "40",
-              "iconImg": "icons/T_Metals_Ti.png",
-              "icon": "📦"
-            },
-            {
               "resourceId": "stat_knowledge",
               "name": "Knowledge",
               "amount": "+400",
@@ -2656,5 +2649,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:30:08.773789"
+  "_lastModified": "2026-10-23T20:30:11.511835"
 }
