@@ -1511,12 +1511,12 @@
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K1A) Process the data",
       "position": {
-        "x": 1866,
-        "y": 1554
+        "x": 1938,
+        "y": 2400
       },
       "variationId": "var_v1",
       "category": "KeyChain",
-      "floorIndex": 1,
+      "floorIndex": 2,
       "colorScheme": "purple",
       "lines": [
         {
@@ -2472,5 +2472,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:11:40.491255"
+  "_lastModified": "2026-10-23T18:11:46.432792"
 }
