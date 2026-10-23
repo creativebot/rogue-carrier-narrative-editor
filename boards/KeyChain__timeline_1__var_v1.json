@@ -822,6 +822,21 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792788939962",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "criteria_plague_survived",
+                  "name": "Plague survived",
+                  "amount": 1,
+                  "icon": "🔑",
+                  "iconImg": "",
+                  "category": "Criteria",
+                  "isCriteria": true
+                }
+              ]
             }
           ],
           "timerHours": 6,
@@ -2773,5 +2788,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:55:03.543710"
+  "_lastModified": "2026-10-23T20:55:40.319664"
 }
