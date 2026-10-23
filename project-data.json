@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:19:39.394984",
+  "_lastModified": "2026-10-23T22:19:55.095485",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11511,7 +11511,7 @@
           "id": "l_1792793937450",
           "speakerId": "abbadie",
           "speakerName": "Mars Abbadie",
-          "text": "New dialogue speech text..."
+          "text": "You won't believe it! The virus somehow managed to catch a ride on the recon craft!"
         },
         {
           "id": "l_1792793939996",
