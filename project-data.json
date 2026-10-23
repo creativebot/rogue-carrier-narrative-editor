@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:21:23.495824",
+  "_lastModified": "2026-10-23T20:21:49.797138",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10142,39 +10142,6 @@
       ]
     },
     {
-      "id": "diag_1791393196279",
-      "targetEventId": "node_e1",
-      "triggerTiming": "action_option",
-      "triggerActionId": "act_e1_1",
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "During (T1-V1-K2A) Comb island",
-      "position": {
-        "x": -2786,
-        "y": 1645
-      },
-      "variationId": "var_v1",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791393196279",
-          "speakerId": "orest",
-          "speakerName": "Orest Demchuck",
-          "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
-        }
-      ],
-      "floorIndex": 1,
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e1",
-          "triggerTiming": "action_option",
-          "triggerActionId": "act_e1_1",
-          "triggerCondition": "During (T1-V1-K2A) Comb island"
-        }
-      ]
-    },
-    {
       "id": "diag_imp_1791393401628",
       "targetEventId": "node_e1",
       "triggerTiming": "post_action",
@@ -11205,6 +11172,39 @@
       ],
       "links": [],
       "floorIndex": 0
+    },
+    {
+      "id": "diag_1791393196279",
+      "targetEventId": "node_e1",
+      "triggerTiming": "action_option",
+      "triggerActionId": "act_e1_1",
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "During (T1-V1-K2A) Comb island",
+      "position": {
+        "x": -2786,
+        "y": 1645
+      },
+      "variationId": "var_v1",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791393196279",
+          "speakerId": "orest",
+          "speakerName": "Orest Demchuck",
+          "text": "I'd like to sweep the area. And, considering the violence those people met here, I believe it is only reasonable to request firearms."
+        }
+      ],
+      "floorIndex": 1,
+      "links": [
+        {
+          "id": "dlink_0",
+          "targetEventId": "node_e1",
+          "triggerTiming": "action_option",
+          "triggerActionId": "act_e1_1",
+          "triggerCondition": "During (T1-V1-K2A) Comb island"
+        }
+      ]
     }
   ]
 }
