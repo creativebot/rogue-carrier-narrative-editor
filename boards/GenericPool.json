@@ -550,7 +550,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists slowly melted  through the lock. The air pressure between an airlock and outside the capsule equilized, allowing them to open the door safely. All three survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
@@ -1656,5 +1656,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T08:02:04.828442"
+  "_lastModified": "2026-10-23T08:02:05.531514"
 }
