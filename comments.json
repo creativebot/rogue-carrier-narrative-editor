@@ -256,6 +256,18 @@
       "createdAt": "2026-10-23T22:52:34.771738Z",
       "displayTime": "2026-10-23 22:52",
       "mentions": []
+    },
+    {
+      "id": "cmt_1792796196417",
+      "targetId": "diag_1792793912425",
+      "targetType": "dialogue",
+      "targetTitle": "After (T1-V1-K4A) Collect samples",
+      "text": "Condition: Final Choice A",
+      "author": "Tetiana Tretilova",
+      "authorEmail": "ttretilova@n-ix.com",
+      "createdAt": "2026-10-23T22:56:36.417176Z",
+      "displayTime": "2026-10-23 22:56",
+      "mentions": []
     }
   ],
   "deletedIds": [
