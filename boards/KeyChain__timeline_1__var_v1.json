@@ -1129,6 +1129,19 @@
                   "isCriteria": true
                 }
               ]
+            },
+            {
+              "id": "clause_1792777205151",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "questres_03",
+                  "name": "Comm-Link",
+                  "amount": 3,
+                  "iconImg": "icons/T_Comm_Link.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2212,5 +2225,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:40:03.617057"
+  "_lastModified": "2026-10-23T17:40:05.551072"
 }
