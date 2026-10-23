@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:57:11.797421",
+  "_lastModified": "2026-10-23T22:57:25.605625",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11425,7 +11425,7 @@
           "id": "l_1792789726136",
           "speakerId": "voss",
           "speakerName": "Voss",
-          "text": "Enter dialogue line here..."
+          "text": "Damn, this bioweapon is a nasty thing."
         },
         {
           "id": "l_1792796224397",
