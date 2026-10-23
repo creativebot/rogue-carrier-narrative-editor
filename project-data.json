@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T22:17:23.695229",
+  "_lastModified": "2026-10-23T22:17:36.697201",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11408,12 +11408,12 @@
     },
     {
       "id": "diag_1792789726136",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_e3a",
+      "triggerTiming": "post_action",
+      "triggerActionId": "act_e3a_1",
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
+      "triggerCondition": "After (T1-V1-K4A) Collect samples",
       "position": {
         "x": -638,
         "y": 5936
@@ -11428,7 +11428,15 @@
           "text": "Enter dialogue line here..."
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "id": "dlink_1792793856365_86x6",
+          "targetEventId": "node_e3a",
+          "triggerTiming": "post_action",
+          "triggerActionId": "act_e3a_1",
+          "triggerCondition": "After (T1-V1-K4A) Collect samples"
+        }
+      ],
       "floorIndex": 4
     },
     {
