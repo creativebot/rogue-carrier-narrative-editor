@@ -1,18 +1,18 @@
 {
   "notifications": [
     {
-      "id": "notif_1792678573176_0",
+      "id": "notif_1792761046264_0",
       "recipientEmail": "ttretilova@n-ix.com",
       "senderName": "Daniel Poludyonny",
       "senderEmail": "dpoludonnyi@n-ix.com",
-      "targetId": "node_deck_1",
+      "targetId": "node_1792574416692",
       "targetType": "event",
-      "targetTitle": "DECK-E1 - Hangar Deck Fire Drill",
-      "commentText": "@ttretilova @pdushynskyi I'm not sure this is actual, is there 1 option only?",
-      "commentId": "cmt_1792678573173",
-      "createdAt": "2026-10-22T14:16:13.173429Z",
-      "displayTime": "Oct 22, 14:16",
-      "read": true
+      "targetTitle": "DECK-S1-E3   BPQ_DeckQuest_Plant_Sickness - Plant Diseases",
+      "commentText": "@ttretilova please do not leave indents like here in description second paragraph.",
+      "commentId": "cmt_1792761046246",
+      "createdAt": "2026-10-23T13:10:46.262599Z",
+      "displayTime": "Oct 23, 13:10",
+      "read": false
     },
     {
       "id": "notif_1792678573176_1",
@@ -27,6 +27,20 @@
       "createdAt": "2026-10-22T14:16:13.173429Z",
       "displayTime": "Oct 22, 14:16",
       "read": false
+    },
+    {
+      "id": "notif_1792678573176_0",
+      "recipientEmail": "ttretilova@n-ix.com",
+      "senderName": "Daniel Poludyonny",
+      "senderEmail": "dpoludonnyi@n-ix.com",
+      "targetId": "node_deck_1",
+      "targetType": "event",
+      "targetTitle": "DECK-E1 - Hangar Deck Fire Drill",
+      "commentText": "@ttretilova @pdushynskyi I'm not sure this is actual, is there 1 option only?",
+      "commentId": "cmt_1792678573173",
+      "createdAt": "2026-10-22T14:16:13.173429Z",
+      "displayTime": "Oct 22, 14:16",
+      "read": true
     },
     {
       "id": "notif_1792514182768_0",
