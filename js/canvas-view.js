@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/canvas-view.js - Canvas Viewport, Node/Dialogue DOM Builders, Inline Editors & Drag Engine
 // ============================================================================
 
@@ -414,7 +414,59 @@ function updateCanvasTransform() {
     const resetBtn = document.getElementById('btn-zoom-reset');
     if (resetBtn) resetBtn.innerText = `${Math.round(transform.scale * 100)}%`;
   }
+  schedulePersistBoardView();
 }
+
+function getActiveBoardViewKey() {
+  if (activeCategoryFilter === 'GenericPool') return 'rc_board_view_GenericPool';
+  if (activeCategoryFilter === 'DeckPool') return 'rc_board_view_DeckPool';
+  if (activeCategoryFilter === 'SpeciesPool') return 'rc_board_view_SpeciesPool';
+  const tl = (typeof activeTimelineId !== 'undefined' && activeTimelineId) ? activeTimelineId : 'tl1';
+  const v = (typeof activeVariationId !== 'undefined' && activeVariationId) ? activeVariationId : 'v1';
+  return `rc_board_view_${activeCategoryFilter || 'KeyChain'}_${tl}_${v}`;
+}
+
+let boardViewSaveTimeout = null;
+function persistCurrentBoardView() {
+  try {
+    const key = getActiveBoardViewKey();
+    if (!key) return;
+    const viewData = {
+      x: Math.round(transform.x),
+      y: Math.round(transform.y),
+      scale: parseFloat(transform.scale.toFixed(4)),
+      time: Date.now()
+    };
+    localStorage.setItem(key, JSON.stringify(viewData));
+  } catch (e) {}
+}
+
+function schedulePersistBoardView() {
+  if (boardViewSaveTimeout) clearTimeout(boardViewSaveTimeout);
+  boardViewSaveTimeout = setTimeout(persistCurrentBoardView, 200);
+}
+
+function restoreBoardViewTransform() {
+  try {
+    const key = getActiveBoardViewKey();
+    if (!key) return false;
+    const raw = localStorage.getItem(key);
+    if (!raw) return false;
+    const viewData = JSON.parse(raw);
+    if (viewData && typeof viewData.x === 'number' && typeof viewData.y === 'number' && typeof viewData.scale === 'number') {
+      transform.x = viewData.x;
+      transform.y = viewData.y;
+      transform.scale = Math.min(Math.max(viewData.scale, 0.15), 3.0);
+      updateCanvasTransform();
+      return true;
+    }
+  } catch (e) {}
+  return false;
+}
+
+window.persistCurrentBoardView = persistCurrentBoardView;
+window.restoreBoardViewTransform = restoreBoardViewTransform;
+window.addEventListener('beforeunload', persistCurrentBoardView);
 
 function updateLodUIState() {}
 function toggleLodMode() {}
@@ -424,6 +476,7 @@ window.updateLodUIState = updateLodUIState;
 function setupToolbarEvents() {
   if (variationSelect) {
     variationSelect.addEventListener('change', (e) => {
+      persistCurrentBoardView();
       activeVariationId = e.target.value;
       const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
       if (vObj && vObj.timelineId) {
@@ -436,9 +489,12 @@ function setupToolbarEvents() {
           syncActiveBoardLock();
         }
         if (currentAppViewMode !== 'mobile-stage') {
-          const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool';
-          if (!isPool) {
-            setTimeout(() => fitWholeSchematic(), 50);
+          const restored = restoreBoardViewTransform();
+          if (!restored) {
+            const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool';
+            if (!isPool) {
+              setTimeout(() => fitWholeSchematic(), 50);
+            }
           }
         }
       };
@@ -465,6 +521,9 @@ function setupToolbarEvents() {
   
   const btnDeck = document.getElementById('btn-view-deck');
   if (btnDeck) btnDeck.onclick = () => setCategoryFilter('DeckPool');
+
+  const btnSpecies = document.getElementById('btn-view-species');
+  if (btnSpecies) btnSpecies.onclick = () => setCategoryFilter('SpeciesPool');
 
   const btnModeCanvas = document.getElementById('btn-mode-canvas');
   if (btnModeCanvas) btnModeCanvas.onclick = () => switchAppViewMode('desktop');
@@ -608,6 +667,7 @@ function setupToolbarEvents() {
 }
 
 function setCategoryFilter(filter) {
+  persistCurrentBoardView();
   activeCategoryFilter = filter;
   syncCategoryFilterButtonsUI(filter);
   saveActiveWorkspacePosition();
@@ -615,6 +675,15 @@ function setCategoryFilter(filter) {
     renderApp();
     if (typeof syncActiveBoardLock === 'function') {
       syncActiveBoardLock();
+    }
+    if (currentAppViewMode !== 'mobile-stage') {
+      const restored = restoreBoardViewTransform();
+      if (!restored) {
+        const isPool = activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool';
+        if (!isPool) {
+          setTimeout(() => fitWholeSchematic(), 50);
+        }
+      }
     }
   };
 
@@ -699,14 +768,9 @@ function renderFloorBands() {
   if (activeCategoryFilter === 'KeyChain' || activeCategoryFilter === 'SecretChain') {
     const isSecret = activeCategoryFilter === 'SecretChain';
 
-    // Right-size stage bands to comfortably span active events without allocating 20,000px of GPU memory
-    let boardMaxX = 5200;
-    (appData.nodes || []).forEach(n => {
-      const x = (n.position && n.position.x) || 0;
-      if (x + 1200 > boardMaxX) boardMaxX = x + 1200;
-    });
-    const bandLeft = -600;
-    const bandWidth = Math.max(boardMaxX - bandLeft, 6500);
+    // Infinite continuous stage bands with lightweight zero-overhead CSS geometry
+    const bandLeft = -100000;
+    const bandWidth = 200000;
 
     FLOOR_Y.forEach((y, idx) => {
       const band = document.createElement('div');
@@ -718,18 +782,15 @@ function renderFloorBands() {
       band.style.width = `${bandWidth}px`;
       floorBandsLayer.appendChild(band);
 
-      // Stage label badges placed at clean intervals across the scheme (main label at 40px)
-      const labelXPositions = [40, 1600, 3200, 4800];
-      labelXPositions.forEach(lx => {
-        if (lx > bandLeft && lx < (bandLeft + bandWidth - 300)) {
-          const label = document.createElement('div');
-          label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
-          label.style.top = `${y - 59}px`;
-          label.style.left = `${lx}px`;
-          label.innerText = isSecret ? `SECRET STAGE ${idx + 1}` : `STAGE ${idx + 1}`;
-          floorBandsLayer.appendChild(label);
-        }
-      });
+      // Clean repeating stage badges across visible pan spectrum
+      for (let lx = -16000; lx <= 24000; lx += 1600) {
+        const label = document.createElement('div');
+        label.className = `stage-label floor-label ${isSecret ? 'secret-stage-label' : ''}`;
+        label.style.top = `${y - 59}px`;
+        label.style.left = `${lx + 40}px`;
+        label.innerText = isSecret ? `SECRET STAGE ${idx + 1}` : `STAGE ${idx + 1}`;
+        floorBandsLayer.appendChild(label);
+      }
     });
   } else {
     // 5 Vertical Difficulty Tier Columns (Tier I to Tier V for Generic & Deck Event Pools)
@@ -741,6 +802,7 @@ function renderFloorBands() {
       'TIER V (Apex / Extreme Hazard)'
     ];
     const isDeck = activeCategoryFilter === 'DeckPool';
+    const isSpecies = activeCategoryFilter === 'SpeciesPool';
     const poolNodes = (appData.nodes || []).filter(n => (n.category || 'GenericPool') === activeCategoryFilter);
 
     // 1. Calculate dynamic width for each tier based on the largest element in it
@@ -771,25 +833,30 @@ function renderFloorBands() {
       currentX += tierWidths[t] + tierGap;
     }
 
-    // 3. Render vertical column bands with hardware-composited bounds & clean header
+    // 3. Render vertical column bands with infinite continuous span & periodic headers
+    const headerYPositions = [-5000, -2500, 40, 2500, 5000, 7500, 10000, 12500, 15000, 17500, 20000];
     for (let t = 0; t < 5; t++) {
       const band = document.createElement('div');
       band.id = `tier-band-${t}`;
-      band.className = `tier-column-band ${isDeck ? 'tier-column-band-deck' : ''}`;
+      const bandClass = isDeck ? 'tier-column-band-deck' : (isSpecies ? 'tier-column-band-species' : '');
+      band.className = `tier-column-band ${bandClass}`.trim();
       band.style.left = `${tierStarts[t]}px`;
       band.style.width = `${tierWidths[t]}px`;
-      band.style.top = `-2000px`;
-      band.style.height = `10000px`;
+      band.style.top = `-100000px`;
+      band.style.height = `200000px`;
       floorBandsLayer.appendChild(band);
 
-      const header = document.createElement('div');
-      header.className = `tier-column-header ${isDeck ? 'tier-column-header-deck' : ''}`;
-      header.style.top = `40px`;
-      header.style.left = `${tierStarts[t] + Math.round((tierWidths[t] - 280) / 2)}px`;
-      header.style.width = `280px`;
-      header.style.textAlign = 'center';
-      header.innerText = tierLabels[t];
-      floorBandsLayer.appendChild(header);
+      const headerClass = isDeck ? 'tier-column-header-deck' : (isSpecies ? 'tier-column-header-species' : '');
+      headerYPositions.forEach(hy => {
+        const header = document.createElement('div');
+        header.className = `tier-column-header ${headerClass}`.trim();
+        header.style.top = `${hy}px`;
+        header.style.left = `${tierStarts[t] + Math.round((tierWidths[t] - 280) / 2)}px`;
+        header.style.width = `280px`;
+        header.style.textAlign = 'center';
+        header.innerText = tierLabels[t];
+        floorBandsLayer.appendChild(header);
+      });
     }
   }
 }
@@ -881,7 +948,7 @@ function renderNodes() {
   if (!nodesLayer) return;
   nodesLayer.innerHTML = '';
 
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
 
   const filteredNodes = appData.nodes.filter(n => {
     const cat = n.category || 'KeyChain';
@@ -945,7 +1012,7 @@ function createEventNodeDOM(node) {
   const totalColumns = actionColsCount + (hasInaction ? 1 : 0);
   const actionWidthPercent = (100 / (totalColumns || 1)).toFixed(2);
 
-  const isPoolEvent = (node.category === 'GenericPool' || node.category === 'DeckPool' || activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolEvent = (node.category === 'GenericPool' || node.category === 'DeckPool' || node.category === 'SpeciesPool' || activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const isDimmed = isPoolEvent && isPoolNodeDimmed(node.id, activeVariationId);
   const currentVar = (appData.variations || []).find(v => v.id === activeVariationId) || { number: 1, name: 'Variation 1' };
 
@@ -2315,7 +2382,7 @@ function findClosestEmptyCanvasPosition(width, height) {
   const padding = 50; // Safety clearance so blocks never touch or overlap
 
   // Collect bounding boxes of all relevant items in the current active category
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const boxes = [];
 
   (appData.nodes || []).forEach(n => {
@@ -3073,7 +3140,7 @@ function finalizeNodeDrop(obj, el, nodeStartPos, preDragSnapshot) {
     redoStack.length = 0;
   }
 
-  if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
+  if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool') {
     // Snap horizontally to nearest Tier Column X
     let closestTierIdx = 0;
     let minTierDist = Infinity;
@@ -3327,7 +3394,7 @@ function navigateToLinkedEvent(targetIdOrCodename) {
   }
 
   const targetCat = targetNode.category || 'KeyChain';
-  const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool');
+  const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool' || targetCat === 'SpeciesPool');
   let needsReRender = false;
 
   if (targetCat !== activeCategoryFilter) {
@@ -3443,7 +3510,7 @@ function zoomInToBlock(blockId, isDialogue) {
 
   if (!isDialogue) {
     const targetCat = obj.category || 'KeyChain';
-    const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool');
+    const isPool = (targetCat === 'GenericPool' || targetCat === 'DeckPool' || targetCat === 'SpeciesPool');
     let switched = false;
     if (targetCat !== activeCategoryFilter) {
       activeCategoryFilter = targetCat;
@@ -3524,7 +3591,7 @@ function fitWholeSchematic(keepZoomLock = false) {
     window.maxZoomedBlockId = null;
     updateBlockZoomButtons();
   }
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const visibleNodes = appData.nodes.filter(n => {
     if (!isPoolPage && n.variationId && n.variationId !== activeVariationId) return false;
     return (n.category || 'KeyChain') === activeCategoryFilter;

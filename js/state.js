@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/state.js - Data Recovery, Normalization, Auto-Save, Symbol Limits & Codenames
 // ============================================================================
 
@@ -118,7 +118,7 @@ function inspectDatasetForTargetEdits(data) {
 // Accurately counts unique Event Blocks and Dialogue Blocks on the active board for any dataset snapshot
 function countDatasetBlocksForActiveBoard(data, categoryFilter = activeCategoryFilter, variationId = activeVariationId) {
   if (!data || typeof data !== 'object') return { eventCount: 0, dialogueCount: 0 };
-  const isPoolPage = (categoryFilter === 'GenericPool' || categoryFilter === 'DeckPool');
+  const isPoolPage = (categoryFilter === 'GenericPool' || categoryFilter === 'DeckPool' || categoryFilter === 'SpeciesPool');
   const seenNodeIds = new Set();
   const nodes = Array.isArray(data.nodes) ? data.nodes : [];
   nodes.forEach(n => {
@@ -570,7 +570,7 @@ function restoreActiveWorkspacePosition() {
       activeTimelineId = variations[0].timelineId || 'timeline_1';
     }
 
-    if (savedCat && ['KeyChain', 'SecretChain', 'GenericPool', 'DeckPool'].includes(savedCat)) {
+    if (savedCat && ['KeyChain', 'SecretChain', 'GenericPool', 'DeckPool', 'SpeciesPool'].includes(savedCat)) {
       activeCategoryFilter = savedCat;
       syncCategoryFilterButtonsUI(savedCat);
     }
@@ -586,6 +586,7 @@ function syncCategoryFilterButtonsUI(filter) {
   const btnSecret = document.getElementById('btn-view-secret');
   const btnGeneric = document.getElementById('btn-view-generic');
   const btnDeck = document.getElementById('btn-view-deck');
+  const btnSpecies = document.getElementById('btn-view-species');
 
   if (btnKeychain) {
     btnKeychain.className = filter === 'KeyChain'
@@ -606,6 +607,11 @@ function syncCategoryFilterButtonsUI(filter) {
     btnDeck.className = filter === 'DeckPool'
       ? "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-emerald-400"
       : "px-2.5 py-1 rounded text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 border border-emerald-700/60 flex items-center gap-1 transition shadow-xs";
+  }
+  if (btnSpecies) {
+    btnSpecies.className = filter === 'SpeciesPool'
+      ? "px-2.5 py-1 rounded text-xs font-bold bg-fuchsia-600 text-white shadow-lg flex items-center gap-1 transition ring-2 ring-fuchsia-400 col-span-2"
+      : "px-2.5 py-1 rounded text-xs font-bold bg-fuchsia-950/40 text-fuchsia-300 hover:bg-fuchsia-900/60 border border-fuchsia-700/60 flex items-center gap-1 transition shadow-xs col-span-2";
   }
 
   const headerSelect = document.getElementById('header-board-select');
@@ -1030,6 +1036,11 @@ function nodeBelongsToBoardId(node, boardId) {
     const varId = node.variationId || '';
     return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
   }
+  if (boardId === 'SpeciesPool') {
+    const cat = node.category || 'KeyChain';
+    const varId = node.variationId || '';
+    return cat === 'SpeciesPool' || cat === 'species' || varId === 'species_events';
+  }
 
   const parts = boardId.includes(':') ? boardId.split(':') : boardId.split('__');
   const expectedCat = parts[0] || 'KeyChain';
@@ -1058,6 +1069,11 @@ function dialogueBelongsToBoardId(diag, boardId, activeNodeIds) {
     const cat = diag.category || 'KeyChain';
     const varId = diag.variationId || '';
     return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  }
+  if (boardId === 'SpeciesPool') {
+    const cat = diag.category || 'KeyChain';
+    const varId = diag.variationId || '';
+    return cat === 'SpeciesPool' || cat === 'species' || varId === 'species_events';
   }
 
   const parts = boardId.includes(':') ? boardId.split(':') : boardId.split('__');
@@ -1234,9 +1250,12 @@ async function syncProjectToDiskServer() {
     if (res.ok) {
       const resp = await res.json();
       if (badgeText) badgeText.innerText = `Saved to Server (${resp.timestamp || 'Synced'})`;
+      return true;
     }
+    return false;
   } catch (e) {
     if (badgeText) badgeText.innerText = 'Saved Locally';
+    return false;
   }
 }
 
@@ -1500,6 +1519,7 @@ async function populateSaveManagerBoardPicker() {
     });
     boards.push({ id: 'GenericPool', name: 'Generic Pool (World Events)' });
     boards.push({ id: 'DeckPool', name: 'Deck Pool (Carrier Events)' });
+    boards.push({ id: 'SpeciesPool', name: 'Species Events (Species Pool)' });
   }
 
   picker.innerHTML = '';
@@ -1586,6 +1606,8 @@ function switchCanvasToSelectedBoard() {
     setCategoryFilter('GenericPool');
   } else if (selectedSaveManagerBoardId === 'DeckPool') {
     setCategoryFilter('DeckPool');
+  } else if (selectedSaveManagerBoardId === 'SpeciesPool') {
+    setCategoryFilter('SpeciesPool');
   } else if (parts.length >= 3) {
     activeCategoryFilter = parts[0];
     activeTimelineId = parts[1];
@@ -3000,8 +3022,8 @@ function getNextAvailableEventLetter(stageIndex, category, variationId) {
 }
 
 function generateNewEventCodename(category, stageIndex, variationId) {
-  if (category === 'GenericPool' || category === 'DeckPool') {
-    const prefix = category === 'DeckPool' ? 'DECK' : 'GEN';
+  if (category === 'GenericPool' || category === 'DeckPool' || category === 'SpeciesPool') {
+    const prefix = category === 'DeckPool' ? 'DECK' : (category === 'SpeciesPool' ? 'SPECIES' : 'GEN');
     const count = (appData.nodes || []).filter(n => n.category === category).length + 1;
     return `${prefix}-S${stageIndex + 1}-E${count}`;
   }

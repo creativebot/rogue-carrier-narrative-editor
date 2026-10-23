@@ -1,4 +1,4 @@
-import threading
+﻿import threading
 import base64
 import json
 import os
@@ -28,7 +28,7 @@ def count_board_contents(app_data, category='KeyChain', variation_id='var_v1'):
         return 0, 0
     nodes = app_data.get('nodes') or []
     dialogues = app_data.get('dialogues') or []
-    is_pool_page = category in ('GenericPool', 'DeckPool')
+    is_pool_page = category in ('GenericPool', 'DeckPool', 'SpeciesPool')
 
     seen_node_ids = set()
     for n in nodes:

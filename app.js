@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // app.js - Rogue Carrier Narrative Editor Bootstrap Entrypoint
 // ============================================================================
 
@@ -58,8 +58,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       renderApp();
       setTimeout(() => {
-        updateCanvasTransform();
-        fitWholeSchematic();
+        const restored = (typeof restoreBoardViewTransform === 'function') && restoreBoardViewTransform();
+        if (!restored) {
+          updateCanvasTransform();
+          fitWholeSchematic();
+        }
       }, 150);
     }
   } else {

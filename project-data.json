@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-22T18:16:02.167555",
+  "_lastModified": "2026-10-23T15:11:04.025604",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Daniel Poludyonny"
@@ -280,7 +280,7 @@
       "location": "Test Spawn Conditions Text",
       "spawnConditions": "Test Spawn Conditions Text",
       "eventIntro": "Sirens blare across the lower catwalks as simulated thermal alarms trip.",
-      "eventDescription": "Opening paragraph.\n\nSecond paragraph after an empty line.\n\nThird concluding line.",
+      "eventDescription": "Chief Engineer orders an unannounced high-readiness damage control drill.",
       "reactionTimerHours": "2",
       "hasInactionThreat": true,
       "inactionThreat": {
@@ -295,17 +295,17 @@
       },
       "position": {
         "x": 110,
-        "y": 220
+        "y": 56
       },
       "actions": [
         {
           "id": "act_deck_1",
           "codeSuffix": "A",
           "shortDescription": "Dispatch Fire Crews",
-          "description": "Option Alpha.\n\nDetailed choice condition.",
+          "description": "Direct crew to seal airlocks and foam containment.",
           "requirements": [],
           "timerHours": 1,
-          "resultDescription": "Mission Step A complete.\n\nNext phase initialized with zero losses.\n\nAll stations standing by.",
+          "resultDescription": "Hangar secured ahead of schedule.",
           "rewards": [
             "🛡️ Defense +1",
             "🧠 Knowledge +150"
@@ -1237,7 +1237,7 @@
       },
       "position": {
         "x": 110,
-        "y": 5324
+        "y": 5312
       },
       "actions": [
         {
@@ -2025,7 +2025,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 216
+        "y": 48
       },
       "actions": [
         {
@@ -2693,7 +2693,7 @@
       "inactionThreat": null,
       "position": {
         "x": 1460,
-        "y": 3815
+        "y": 3924
       },
       "actions": [
         {
@@ -2767,7 +2767,7 @@
       },
       "position": {
         "x": 1460,
-        "y": 4457
+        "y": 4515
       },
       "actions": [
         {
@@ -3660,7 +3660,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 7,
+      "floorIndex": 8,
       "tier": 3,
       "location": "In the open sea",
       "spawnConditions": "In the open sea",
@@ -3685,7 +3685,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 5491
+        "y": 6277
       },
       "actions": [
         {
@@ -3803,7 +3803,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 6,
+      "floorIndex": 7,
       "tier": 3,
       "location": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
       "spawnConditions": "Game stage 2 or later\nat least 1 crabari crew member, in the open sea",
@@ -3828,7 +3828,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 4512
+        "y": 5268
       },
       "actions": [
         {
@@ -3961,7 +3961,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 3610
+        "y": 4275
       },
       "actions": [
         {
@@ -4140,7 +4140,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 3,
+      "floorIndex": 4,
       "tier": 3,
       "location": "in the open sea, Behemoth",
       "spawnConditions": "in the open sea, Behemoth",
@@ -4157,7 +4157,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2877
+        "y": 3439
       },
       "actions": [
         {
@@ -4249,7 +4249,7 @@
       "type": "Deck",
       "category": "DeckPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": 3,
       "location": "in the open sea",
       "spawnConditions": "in the open sea",
@@ -4266,7 +4266,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 2075
+        "y": 2555
       },
       "actions": [
         {
@@ -4357,7 +4357,7 @@
       "inactionThreat": null,
       "position": {
         "x": 2810,
-        "y": 1273
+        "y": 1333
       },
       "actions": [
         {
@@ -4474,7 +4474,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 243
+        "y": 121
       },
       "actions": [
         {
@@ -4515,7 +4515,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 1216
+        "y": 1107
       },
       "actions": [
         {
@@ -4545,7 +4545,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 2,
       "tier": 1,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow any island",
@@ -4556,7 +4556,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 1752
+        "y": 1809
       },
       "actions": [
         {
@@ -4579,7 +4579,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected  samples from both diseased and apparently healthy organs and tissues. These samples will improve your understanding of the local fauna.",
           "rewards": [
             {
@@ -4628,7 +4628,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, the scouts reported that the virus had been neutralized and no longer posed a threat to humans or your food supplies.",
           "rewards": [
             {
@@ -4679,7 +4679,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your scouts thoroughly examined the animal carcasses and collected samples from both diseased and apparently healthy organs and tissues. After further research and adjustments to the medical lab, they developed a custom batch of MedGel that not only neutralized the virus but also reversed its effects, saving several creatures on the brink of death.",
           "rewards": [
             {
@@ -4722,7 +4722,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 0,
+      "floorIndex": 4,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -4733,7 +4733,7 @@
       "inactionThreat": null,
       "position": {
         "x": 110,
-        "y": 2712
+        "y": 3005
       },
       "actions": [
         {
@@ -4756,7 +4756,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists cut through the damaged hull and recovered the cargo stored inside. The salvaged supplies  have been added to your stockpile.",
           "rewards": [
             {
@@ -4806,7 +4806,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists dismantled the beacon and sorted the wreckage, recovering reusable  materials.",
           "rewards": [
             {
@@ -4868,7 +4868,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists carefully removed the surviving electronics from the beacon's hull, recovering useful components.",
           "rewards": [
             {
@@ -4916,7 +4916,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 4,
+      "floorIndex": 5,
       "tier": 1,
       "location": "any island",
       "spawnConditions": "any island",
@@ -4941,7 +4941,7 @@
       },
       "position": {
         "x": 110,
-        "y": 3589
+        "y": 3992
       },
       "actions": [
         {
@@ -4964,7 +4964,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists picked the lock, but wiring, damaged while pod had crushed, electrified the capsules hull. One crew member suffered an electric shock during the operation. However all three survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
@@ -5005,7 +5005,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists slowly melted  through the lock. The air pressure between an airlock and outside the capsule equilized, allowing them to open the door safely. All three survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
@@ -5053,7 +5053,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Your specialists forced the pod open with a crafted lever. The  pressure difference between a hatch and the outside  caused explosive decompression. All three survivors were injured  as well as one of your crew. But all survivors were rescued and joined your crew, boosting morale.  ",
           "rewards": [
             {
@@ -5121,7 +5121,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Using scanners, the scouts trace the anomalies to an artifact inside the first chamber. The rising tide leaves little time to retrieve it. While retrieving the artifact, the crew discovers a passage to a deeper cave network. But time spent debating and scanning allows the rising tide to cut off access, preventing further exploration.",
           "rewards": [
             {
@@ -5155,7 +5155,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "A thorough inspection reveals a rich metal ore vein extending into a deeper cave network. With the tide rising, the crew chooses to extract what ore they can rather than explore further.",
           "rewards": [
             {
@@ -5204,7 +5204,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Deeper in the caves, the scouts find a row of doors on the wall, each smaller than the last. None leads anywhere, painted. An air analyzer detects traces of incense used by Nasobi. Some crew members see an impressive artistic statement of one of Nasobies' artists; others see a waste of time. They debate modern art on the way back, but crew morale remains unchanged.",
           "rewards": [
             {
@@ -5244,7 +5244,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 3,
       "tier": 2,
       "location": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
       "spawnConditions": "spawn on Biome 01, Biome 06, Biome 10 = shallow",
@@ -5258,12 +5258,18 @@
         "timerHours": "Infinite",
         "resultDescription": "The crew slowly backs away, hoping the beasts will lose interest. Instead, the animals begin to surround them, showing coordinated hunting behavior. Two crew members are killed before the others can escape.",
         "penalties": [
-          "💀 Entropy +10"
+          {
+            "resourceId": "stat_crew count",
+            "name": "Crew Count",
+            "amount": "-2",
+            "icon": "👨‍🚀",
+            "iconImg": ""
+          }
         ]
       },
       "position": {
         "x": 1460,
-        "y": 2060
+        "y": 2267
       },
       "actions": [
         {
@@ -5286,7 +5292,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts shield themselves from the enraged beasts. During the confrontation, the equipment becomes coated in mucus secreted by the creatures. Analysis of the substance reveals how the beasts resist local infections, allowing the crew to improve their own defenses against native diseases.",
           "rewards": [
             {
@@ -5329,7 +5335,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts scares the beasts away, and collect promising samples of metals and algae from their resting place before making a hasty retreat. Further analysis of the samples improves the crew’s understanding of local viruses.",
           "rewards": [
             {
@@ -5391,7 +5397,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts attack the beasts, but the bullets fail to pierce their thick hides, merely driving them away and leaving no bodies to examine. However, the crew collects promising samples of metals and algae from their resting place. Further analysis of the biological samples improves their understanding of local viruses.",
           "rewards": [
             {
@@ -5409,26 +5415,6 @@
               "iconImg": "",
               "category": "Criteria",
               "isCriteria": true
-            }
-          ],
-          "targetNodeIds": [],
-          "targetNodeId": null
-        },
-        {
-          "id": "act_1792403901862",
-          "codeSuffix": "D",
-          "shortDescription": "DO NOTHING",
-          "description": "Description for action choice D...",
-          "requirements": [],
-          "timerHours": 5,
-          "resultDescription": "",
-          "rewards": [
-            {
-              "resourceId": "stat_crew count",
-              "name": "Crew Count",
-              "amount": "-2",
-              "icon": "👨‍🚀",
-              "iconImg": ""
             }
           ],
           "targetNodeIds": [],
@@ -5494,7 +5480,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew attacks first, but the beast’s thick hide prevents a fatal hit. Wounded, it flees. The fight gives the scouts valuable combat experience, and they return more confident in their ability to defend themselves against the local fauna.",
           "rewards": [
             {
@@ -5543,7 +5529,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "A blast sends the beast fleeing behind the rocks and exposes mineral deposits beneath the shattered surface. The crew collects samples before making a hasty retreat. Everyone agrees the samples are not worth risking their lives for.",
           "rewards": [
             {
@@ -5604,7 +5590,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew tosses out bait. While the beast sniffs the unfamiliar food, they shoot it with a sample collection capsule. Startled, it flees, leaving behind a sample of its remarkably tough skin. Everyone agrees the samples are not worth risking their lives for and retreats.",
           "rewards": [
             {
@@ -5698,7 +5684,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The crew fights back, killing some of the attackers and forcing the rest to fall back temporarily. Still outnumbered, the scouts use the opening to retreat. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
           "rewards": [
             {
@@ -5766,7 +5752,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "There are too many attackers, and the crew is reluctant to hurt fellow humans. They decide to retreat quickly. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
           "rewards": [
             {
@@ -5807,7 +5793,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "Outnumbered, the crew avoids close combat and calls in artillery fire to drive the attackers back. As they flee, they abandon several useful items, which the scouts collect as spoils. Later, a review of the expedition recordings reveals growths covering the attackers’ faces and damage to their suits. The crew suspects a local virus entered through the breaches and affected their brains, causing aggression similar to rabies, an ancient Earth disease.",
           "rewards": [
             {
@@ -5847,7 +5833,7 @@
       "type": "World",
       "category": "GenericPool",
       "variationId": "var_v1",
-      "floorIndex": 2,
+      "floorIndex": 1,
       "tier": 3,
       "location": "Any island",
       "spawnConditions": "Any island",
@@ -5872,7 +5858,7 @@
       },
       "position": {
         "x": 2810,
-        "y": 1692
+        "y": 1371
       },
       "actions": [
         {
@@ -5895,7 +5881,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "As the device begins drawing in the discharges, the glowing spheres flicker and gradually dissipate. After several tense minutes, they manage to clear a narrow passage through the storm. The recon craft escapes the dangerous airspace and safely returns to the ship.",
           "rewards": [
             {
@@ -5936,7 +5922,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The scouts attempt to locate the center of the storm and fly as far away from it as possible, carefully maneuvering between the lightning balls. After several tense minutes, the lightning becomes less frequent, and the recon craft eventually escapes the storm and returns safely to the ship.",
           "rewards": [
             {
@@ -5998,7 +5984,7 @@
               ]
             }
           ],
-          "timerHours": 5,
+          "timerHours": 0,
           "resultDescription": "The plan works: electrical discharges strike the projectiles, briefly clearing a path through the storm. Taking advantage of the opening, the crew maneuvers through the remaining lightning balls and safely returns to the ship.",
           "rewards": [
             {
@@ -6342,7 +6328,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go?   That's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
           "rewards": [
             {
               "resourceId": "machinery_05",
@@ -6689,7 +6675,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 111,
+        "x": 116,
         "y": 3290
       },
       "actions": [
@@ -8518,6 +8504,83 @@
       ],
       "disabledVariationIds": [],
       "title": "The Ghost Skiff"
+    },
+    {
+      "id": "node_1792761001097",
+      "codename": "SPECIES-S1-E1",
+      "name": "Xenomorphic Bio-Sample Analysis",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "A containment breach occurred in Sector 4 of the laboratory.",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761001097",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792761063481",
+      "codename": "SPECIES-S1-E2",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761063481",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
     }
   ],
   "dialogues": [
@@ -9141,8 +9204,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
-        "x": 1106,
-        "y": -1043
+        "x": 1121,
+        "y": -1452
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -9591,8 +9654,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Process the data",
       "position": {
-        "x": 2243,
-        "y": 138
+        "x": 2366,
+        "y": 301
       },
       "variationId": "var_v1",
       "category": "KeyChain",

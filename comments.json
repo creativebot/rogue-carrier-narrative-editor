@@ -1,18 +1,6 @@
 {
   "comments": [
     {
-      "id": "cmt_1791468621763",
-      "targetId": "node_e1",
-      "targetType": "event",
-      "targetTitle": "Escape Pod Signal",
-      "text": "yo",
-      "author": "Oleksandr Seliutin",
-      "authorEmail": "oseliutin@n-ix.com",
-      "createdAt": "2026-10-08T14:10:21.763424Z",
-      "displayTime": "2026-10-08 16:10",
-      "mentions": []
-    },
-    {
       "id": "cmt_1791724017477",
       "targetId": "node_1791717900687",
       "targetType": "event",
@@ -169,24 +157,29 @@
       "mentions": []
     },
     {
-      "id": "cmt_1792585433273",
-      "targetId": "node_1792582814090",
+      "id": "cmt_1792678573173",
+      "targetId": "node_deck_1",
       "targetType": "event",
-      "targetTitle": "DECK-S1-E9 BPQ_DeckQuest_SpecialTraining - Special Training",
-      "text": "Outcome 1: Give specialization Defense to 1-5 crew members\nOutcome 2: Give specialization Science to 1-5 crew members\nOutcome 3: Give specialization Operations to 1-5 crew members without specialization\nOutcome 4: Give specialization Engineer to 1-5 crew members",
-      "author": "Tetiana Tretilova",
-      "authorEmail": "ttretilova@n-ix.com",
-      "createdAt": "2026-10-21T12:23:53.287408Z",
-      "displayTime": "2026-10-21 12:23",
-      "mentions": []
+      "targetTitle": "DECK-E1 - Hangar Deck Fire Drill",
+      "text": "@ttretilova @pdushynskyi I'm not sure this is actual, is there 1 option only?",
+      "author": "Daniel Poludyonny",
+      "authorEmail": "dpoludonnyi@n-ix.com",
+      "createdAt": "2026-10-22T14:16:13.173429Z",
+      "displayTime": "2026-10-22 14:16",
+      "mentions": [
+        "ttretilova@n-ix.com",
+        "pdushynskyi@n-ix.com"
+      ]
     }
   ],
   "deletedIds": [
     "cmt_1791467850374",
+    "cmt_1791468621763",
     "cmt_1791569583368",
     "cmt_1791569647034",
     "cmt_1791723288305",
     "cmt_1792153661694",
-    "cmt_1792495013747"
+    "cmt_1792495013747",
+    "cmt_1792585433273"
   ]
 }

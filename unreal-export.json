@@ -1,11 +1,11 @@
 {
   "ProjectMeta": {
-    "ExportTime": "2026-10-22T16:16:02.180141Z",
+    "ExportTime": "2026-10-23T13:11:04.046301Z",
     "ToolkitVersion": "3.0",
     "GameTitle": "Rogue Carrier",
     "ProjectName": "Rogue Carrier Scenario 1",
     "Author": "Daniel Poludyonny",
-    "TotalEvents": 59,
+    "TotalEvents": 61,
     "TotalDialogues": 19,
     "TotalTimelines": 1,
     "TotalVariations": 10,
@@ -417,7 +417,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 220.0
+        "Y": 56.0
       },
       "Actions": [
         {
@@ -1198,7 +1198,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 5324.0
+        "Y": 5312.0
       },
       "Actions": [
         {
@@ -1825,7 +1825,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1460.0,
-        "Y": 216.0
+        "Y": 48.0
       },
       "Actions": [
         {
@@ -2396,7 +2396,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1460.0,
-        "Y": 3815.0
+        "Y": 3924.0
       },
       "Actions": [
         {
@@ -2493,7 +2493,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1460.0,
-        "Y": 4457.0
+        "Y": 4515.0
       },
       "Actions": [
         {
@@ -3403,7 +3403,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 7,
+      "FloorIndex": 8,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -3412,7 +3412,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 5491.0
+        "Y": 6277.0
       },
       "Actions": [
         {
@@ -3540,7 +3540,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 6,
+      "FloorIndex": 7,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -3549,7 +3549,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 4512.0
+        "Y": 5268.0
       },
       "Actions": [
         {
@@ -3679,7 +3679,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 3610.0
+        "Y": 4275.0
       },
       "Actions": [
         {
@@ -3877,7 +3877,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 3,
+      "FloorIndex": 4,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -3886,7 +3886,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 2877.0
+        "Y": 3439.0
       },
       "Actions": [
         {
@@ -3986,7 +3986,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 2,
+      "FloorIndex": 3,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -3995,7 +3995,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 2075.0
+        "Y": 2555.0
       },
       "Actions": [
         {
@@ -4089,7 +4089,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 1273.0
+        "Y": 1333.0
       },
       "Actions": [
         {
@@ -4219,7 +4219,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 243.0
+        "Y": 121.0
       },
       "Actions": [
         {
@@ -4268,7 +4268,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 1216.0
+        "Y": 1107.0
       },
       "Actions": [
         {
@@ -4316,7 +4316,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 0,
+      "FloorIndex": 2,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -4325,7 +4325,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 1752.0
+        "Y": 1809.0
       },
       "Actions": [
         {
@@ -4503,7 +4503,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 0,
+      "FloorIndex": 4,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -4512,7 +4512,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 2712.0
+        "Y": 3005.0
       },
       "Actions": [
         {
@@ -4714,7 +4714,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 4,
+      "FloorIndex": 5,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -4723,7 +4723,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 110.0,
-        "Y": 3589.0
+        "Y": 3992.0
       },
       "Actions": [
         {
@@ -5055,7 +5055,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 2,
+      "FloorIndex": 3,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -5064,7 +5064,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 1460.0,
-        "Y": 2060.0
+        "Y": 2267.0
       },
       "Actions": [
         {
@@ -5220,30 +5220,6 @@
               "Amount": "1",
               "Category": "Item",
               "Icon": "🔑"
-            }
-          ],
-          "ConsequenceText": "",
-          "NextEventID": "",
-          "Condition": "",
-          "NextStageIndex": null,
-          "NextFloorIndex": null,
-          "CustomData": {}
-        },
-        {
-          "ActionIndex": 3,
-          "ActionText": "",
-          "Tooltip": "",
-          "Requirements": [],
-          "Rewards": [
-            "👨‍🚀 Crew Count -2"
-          ],
-          "StructuredRewards": [
-            {
-              "ResourceID": "stat_crew count",
-              "Name": "Crew Count",
-              "Amount": "-2",
-              "Category": "Specialization",
-              "Icon": "👨‍🚀"
             }
           ],
           "ConsequenceText": "",
@@ -5663,7 +5639,7 @@
       "PoolActiveByVariation": {},
       "Intro": "",
       "Outro": "",
-      "FloorIndex": 2,
+      "FloorIndex": 1,
       "StageIndex": 0,
       "LeadInSpeaker": "",
       "LeadInDialogue": "",
@@ -5672,7 +5648,7 @@
       "Tags": [],
       "EditorPosition": {
         "X": 2810.0,
-        "Y": 1692.0
+        "Y": 1371.0
       },
       "Actions": [
         {
@@ -6583,7 +6559,7 @@
       "VariationIDs": [],
       "Tags": [],
       "EditorPosition": {
-        "X": 111.0,
+        "X": 116.0,
         "Y": 3290.0
       },
       "Actions": [
@@ -8680,6 +8656,104 @@
           "CustomData": {}
         }
       ]
+    },
+    {
+      "Name": "EVENT_node_1792761001097",
+      "RowName": "EVENT_node_1792761001097",
+      "EventID": "node_1792761001097",
+      "EventTitle": "New Event Block",
+      "EventCategory": "SpeciesPool",
+      "EventType": "Species",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 265.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
+    },
+    {
+      "Name": "EVENT_node_1792761063481",
+      "RowName": "EVENT_node_1792761063481",
+      "EventID": "node_1792761063481",
+      "EventTitle": "New Event Block",
+      "EventCategory": "SpeciesPool",
+      "EventType": "Species",
+      "PoolType": "Timeline",
+      "PoolActiveByVariation": {},
+      "Intro": "",
+      "Outro": "",
+      "FloorIndex": 0,
+      "StageIndex": 0,
+      "LeadInSpeaker": "",
+      "LeadInDialogue": "",
+      "TimelineID": "",
+      "VariationIDs": [],
+      "Tags": [],
+      "EditorPosition": {
+        "X": 110.0,
+        "Y": 265.0
+      },
+      "Actions": [
+        {
+          "ActionIndex": 0,
+          "ActionText": "",
+          "Tooltip": "",
+          "Requirements": [],
+          "Rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "StructuredRewards": [
+            {
+              "ResourceID": "res_knowledge",
+              "Name": "Knowledge",
+              "Amount": "+100",
+              "Category": "Stat",
+              "Icon": "🧠"
+            }
+          ],
+          "ConsequenceText": "",
+          "NextEventID": "",
+          "Condition": "",
+          "NextStageIndex": null,
+          "NextFloorIndex": null,
+          "CustomData": {}
+        }
+      ]
     }
   ],
   "DialoguesDataTable": [
@@ -9424,8 +9498,8 @@
       "FloorIndex": 0,
       "ColorScheme": "amber",
       "EditorPosition": {
-        "X": 1106.0,
-        "Y": -1043.0
+        "X": 1121.0,
+        "Y": -1452.0
       },
       "Lines": [
         {
@@ -9973,8 +10047,8 @@
       "FloorIndex": 0,
       "ColorScheme": "purple",
       "EditorPosition": {
-        "X": 2243.0,
-        "Y": 138.0
+        "X": 2366.0,
+        "Y": 301.0
       },
       "Lines": [
         {

@@ -284,7 +284,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go?   That's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
           "rewards": [
             {
               "resourceId": "machinery_05",
@@ -631,7 +631,7 @@
       "hasInactionThreat": false,
       "inactionThreat": null,
       "position": {
-        "x": 111,
+        "x": 116,
         "y": 3290
       },
       "actions": [
@@ -1662,8 +1662,8 @@
       "delayUnit": "hours",
       "triggerCondition": "Before (T1-V1-K1A)",
       "position": {
-        "x": 1106,
-        "y": -1043
+        "x": 1121,
+        "y": -1452
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2112,8 +2112,8 @@
       "delayUnit": "hours",
       "triggerCondition": "During (T1-V1-K2A) Process the data",
       "position": {
-        "x": 2243,
-        "y": 138
+        "x": 2366,
+        "y": 301
       },
       "variationId": "var_v1",
       "category": "KeyChain",
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-22T13:26:05.429428"
+  "_lastModified": "2026-10-23T11:29:50.251994"
 }

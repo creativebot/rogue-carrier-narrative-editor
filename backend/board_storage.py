@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import threading
 from datetime import datetime
@@ -172,6 +172,8 @@ def reassemble_full_project():
                                 b_fn = 'GenericPool.json'
                             elif cat == 'DeckPool':
                                 b_fn = 'DeckPool.json'
+                            elif cat == 'SpeciesPool':
+                                b_fn = 'SpeciesPool.json'
                             elif cat == 'SecretChain':
                                 b_fn = f"SecretChain__{tl_id}__{var_id}.json"
                             else:
@@ -539,6 +541,23 @@ def list_all_boards_summary():
         "nodeCount": len(deck_slice.get("nodes", [])),
         "dialogueCount": len(deck_slice.get("dialogues", [])),
         "lastModified": deck_slice.get("_lastModified", "")
+    })
+
+    species_slice = load_board_slice("SpeciesPool")
+    boards.append({
+        "id": "SpeciesPool",
+        "name": "Species Events (Species Pool)",
+        "shortName": "Species Events",
+        "category": "SpeciesPool",
+        "timelineId": None,
+        "timelineNumber": None,
+        "timelineName": None,
+        "variationId": None,
+        "variationNumber": None,
+        "variationName": None,
+        "nodeCount": len(species_slice.get("nodes", [])),
+        "dialogueCount": len(species_slice.get("dialogues", [])),
+        "lastModified": species_slice.get("_lastModified", "")
     })
 
     return boards

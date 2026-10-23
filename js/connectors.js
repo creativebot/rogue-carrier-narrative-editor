@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/connectors.js - SVG Orthogonal Line Routing, Port Dragging & Collision Engine
 // ============================================================================
 
@@ -690,7 +690,7 @@ function renderConnectors() {
   const NODE_WIDTH = 940;
   const LABEL_WIDTH = 190;
 
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
 
   // 1. Collect & Draw Action/Inaction -> Event Connections (including self-loops and multi-target links)
   const eventLinks = [];
@@ -1258,7 +1258,7 @@ function calculateOrthogonalDialogueConnector(sourceRect, diagRect, laneOffset =
 function preventNodeOverlap(movedId) {
   const MIN_MARGIN = 30;
   const allElements = [];
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
 
   appData.nodes.forEach(n => {
     if (!isPoolPage && n.variationId && n.variationId !== activeVariationId) return;

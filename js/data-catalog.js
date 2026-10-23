@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/data-catalog.js - Global State, Constants, Resource Catalog & Default Dataset
 // ============================================================================
 
@@ -41,7 +41,7 @@ Object.defineProperty(window, 'appData', {
 let resourceCatalog = { resources: [], characters: [] };
 let activeTimelineId = "timeline_1";
 let activeVariationId = "var_v1";
-let activeCategoryFilter = "KeyChain"; // KeyChain | GenericPool | DeckPool
+let activeCategoryFilter = "KeyChain"; // KeyChain | GenericPool | DeckPool | SpeciesPool
 let maxZoomedBlockId = null; // Block ID currently in max zoom focus
 let maxZoomScale = 1.0; // The scale when max zoom was activated
 let minOverviewScale = 0.35; // The scale of the full schematic overview

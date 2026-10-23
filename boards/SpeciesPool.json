@@ -1,0 +1,85 @@
+{
+  "boardId": "SpeciesPool",
+  "nodes": [
+    {
+      "id": "node_1792761001097",
+      "codename": "SPECIES-S1-E1",
+      "name": "Xenomorphic Bio-Sample Analysis",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "A containment breach occurred in Sector 4 of the laboratory.",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761001097",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ],
+      "disabledVariationIds": []
+    },
+    {
+      "id": "node_1792761063481",
+      "codename": "SPECIES-S1-E2",
+      "name": "New Event Block",
+      "title": "New Event Block",
+      "type": "Species",
+      "category": "SpeciesPool",
+      "variationId": "var_v1",
+      "floorIndex": 0,
+      "tier": 1,
+      "location": "",
+      "spawnConditions": "",
+      "eventIntro": "Initial event context...",
+      "eventDescription": "Enter narrative body context...",
+      "reactionTimerHours": "Infinite",
+      "hasInactionThreat": false,
+      "inactionThreat": null,
+      "position": {
+        "x": 110,
+        "y": 265
+      },
+      "actions": [
+        {
+          "id": "c_1792761063481",
+          "codeSuffix": "A",
+          "shortDescription": "Choice A",
+          "description": "Action description...",
+          "requirements": [],
+          "timerHours": 5,
+          "resultDescription": "",
+          "rewards": [
+            "🧠 Knowledge +100"
+          ],
+          "targetNodeIds": [],
+          "targetNodeId": null
+        }
+      ]
+    }
+  ],
+  "dialogues": [],
+  "author": "Daniel Poludyonny",
+  "_lastModified": "2026-10-23T15:11:03.924639"
+}

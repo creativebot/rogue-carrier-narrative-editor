@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import threading
 from datetime import datetime, timedelta
@@ -299,6 +299,8 @@ def node_belongs_to_board(node, board_id):
         return cat == "GenericPool"
     if board_id == "DeckPool":
         return cat in ("DeckPool", "deck") or var_id == "deck_events"
+    if board_id == "SpeciesPool":
+        return cat in ("SpeciesPool", "species") or var_id == "species_events"
 
     parts = board_id.split(":")
     board_cat = parts[0]
@@ -340,6 +342,8 @@ def dialogue_belongs_to_board(diag, board_id, active_board_node_ids):
         return cat == "GenericPool"
     if board_id == "DeckPool":
         return cat in ("DeckPool", "deck") or var_id == "deck_events"
+    if board_id == "SpeciesPool":
+        return cat in ("SpeciesPool", "species") or var_id == "species_events"
 
     parts = board_id.split(":")
     board_cat = parts[0]

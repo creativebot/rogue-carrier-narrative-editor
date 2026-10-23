@@ -1,4 +1,4 @@
-/* Rogue Carrier Narrative Editor Toolkit - Custom Styling v2.5 */
+﻿/* Rogue Carrier Narrative Editor Toolkit - Custom Styling v2.5 */
 
 :root {
   --bg-canvas: #0f172a;
@@ -99,8 +99,8 @@ html, body {
 .stage-band,
 .floor-band {
   position: absolute;
-  left: -600px;
-  width: 6500px;
+  left: -100000px;
+  width: 200000px;
   min-height: 1500px;
   border-top: 2px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 2px dashed rgba(234, 179, 8, 0.4);
@@ -1312,9 +1312,9 @@ body.is-port-dragging .inbound-event-port {
 /* Vertical Difficulty Tier Columns (Generic & Deck Event Pools) */
 .tier-column-band {
   position: absolute;
-  top: -2000px;
+  top: -100000px;
   width: 1020px;
-  height: 14000px;
+  height: 200000px;
   border-left: 2px dashed rgba(59, 130, 246, 0.35);
   border-right: 2px dashed rgba(59, 130, 246, 0.35);
   background: rgba(15, 23, 42, 0.4);
@@ -1326,6 +1326,12 @@ body.is-port-dragging .inbound-event-port {
   border-left-color: rgba(16, 185, 129, 0.35);
   border-right-color: rgba(16, 185, 129, 0.35);
   background: rgba(6, 78, 59, 0.2);
+}
+
+.tier-column-band-species {
+  border-left-color: rgba(217, 70, 239, 0.35);
+  border-right-color: rgba(217, 70, 239, 0.35);
+  background: rgba(112, 26, 117, 0.12);
 }
 
 .tier-column-header {
@@ -1349,6 +1355,13 @@ body.is-port-dragging .inbound-event-port {
   background: #064e3b;
   color: #6ee7b7;
   border-color: #10b981;
+}
+
+.tier-column-header-species {
+  background: #701a75;
+  color: #f5d0fe;
+  border-color: #d946ef;
+  box-shadow: 0 4px 12px rgba(217, 70, 239, 0.3);
 }
 
 /* Toast Notifications */

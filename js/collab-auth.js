@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/collab-auth.js - @n-ix.com Auth, Team Manager, Snapshots, Comments & Notifications
 // ============================================================================
 
@@ -1505,6 +1505,7 @@ function getCurrentBoardIdentifier() {
   if (typeof activeCategoryFilter !== 'undefined') {
     if (activeCategoryFilter === 'GenericPool') return 'GenericPool';
     if (activeCategoryFilter === 'DeckPool') return 'DeckPool';
+    if (activeCategoryFilter === 'SpeciesPool') return 'SpeciesPool';
     const tl = typeof activeTimelineId !== 'undefined' ? activeTimelineId : 'timeline_1';
     const v = typeof activeVariationId !== 'undefined' ? activeVariationId : 'var_v1';
     if (activeCategoryFilter === 'SecretChain') return `SecretChain:${tl}:${v}`;
@@ -1517,6 +1518,7 @@ function getCurrentBoardDisplayName() {
   if (typeof activeCategoryFilter !== 'undefined') {
     if (activeCategoryFilter === 'GenericPool') return 'Generic Event Pool';
     if (activeCategoryFilter === 'DeckPool') return 'Deck Event Pool';
+    if (activeCategoryFilter === 'SpeciesPool') return 'Species Events';
     const vObj = (appData.variations || []).find(v => v.id === activeVariationId);
     const varName = vObj ? (vObj.name || vObj.id) : (typeof activeVariationId !== 'undefined' ? activeVariationId : 'Var 1');
     const tlObj = (appData.timelines || []).find(tl => tl.id === activeTimelineId);
@@ -1874,6 +1876,16 @@ function jumpToNarrativeBoard(boardId) {
     return;
   }
 
+  // 2b. SpeciesPool
+  if (boardId === 'SpeciesPool') {
+    if (typeof setCategoryFilter === 'function') {
+      setCategoryFilter('SpeciesPool');
+      if (typeof showToast === 'function') showToast("Switched to Species Events", "success");
+      sendPresenceHeartbeat();
+    }
+    return;
+  }
+
   // 3. Partitioned timeline/variation board: Category:TimelineId:VariationId
   const parts = boardId.split(':');
   if (parts.length >= 3) {
@@ -2083,6 +2095,7 @@ function nodeBelongsToBoard(node, boardId) {
   const varId = node.variationId || '';
   if (boardId === 'GenericPool') return cat === 'GenericPool';
   if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  if (boardId === 'SpeciesPool') return cat === 'SpeciesPool' || cat === 'species' || varId === 'species_events';
   const parts = boardId.split(':');
   if (parts[0] === 'KeyChain') return cat === 'KeyChain' && (!parts[2] || varId === parts[2]);
   if (parts[0] === 'SecretChain') return cat === 'SecretChain' && (!parts[2] || varId === parts[2]);
@@ -2102,6 +2115,7 @@ function dialogueBelongsToBoard(diag, boardId, activeNodeIds) {
   const varId = diag.variationId || '';
   if (boardId === 'GenericPool') return cat === 'GenericPool';
   if (boardId === 'DeckPool') return cat === 'DeckPool' || cat === 'deck' || varId === 'deck_events';
+  if (boardId === 'SpeciesPool') return cat === 'SpeciesPool' || cat === 'species' || varId === 'species_events';
   const parts = boardId.split(':');
   if (parts[0] === 'KeyChain' || parts[0] === 'SecretChain') {
     return cat === parts[0] && (!parts[2] || varId === parts[2]);

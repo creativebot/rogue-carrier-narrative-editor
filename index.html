@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="icons/dodecahedron.png">
   <link rel="shortcut icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=20261023_v1">
+  <link rel="stylesheet" href="styles.css?v=20261023_v2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
           <option value="KeyChain">🔑 Key Events</option>
           <option value="SecretChain">🛡️ Secret Events</option>
           <option value="GenericPool">🌐 Generic Pool</option>
-          <option value="DeckPool">🧭 Deck Pool</option>
+          <option value="DeckPool">🧭 Deck Pool</option>`r`n          <option value="SpeciesPool">🧬 Species Events</option>
         </select>
       </div>
 
@@ -180,6 +180,9 @@
               </button>
               <button id="btn-view-deck" class="px-2 py-1.5 rounded-lg text-xs font-bold bg-emerald-950/60 text-emerald-300 hover:bg-emerald-900/80 border border-emerald-700/60 flex items-center gap-1.5 transition">
                 <i data-lucide="compass" class="w-3.5 h-3.5 text-emerald-400"></i> Deck Pool
+              </button>
+              <button id="btn-view-species" class="px-2 py-1.5 rounded-lg text-xs font-bold bg-fuchsia-950/60 text-fuchsia-300 hover:bg-fuchsia-900/80 border border-fuchsia-700/60 flex items-center gap-1.5 transition col-span-2">
+                <i data-lucide="dna" class="w-3.5 h-3.5 text-fuchsia-400"></i> Species Events
               </button>
             </div>
           </div>
@@ -1675,16 +1678,16 @@ And what about you? Disappointed, as well?"></textarea>
   </div>
 
     <!-- Application Logic (Modular Architecture) -->
-  <script src="js/data-catalog.js?v=20261023_v1"></script>
-  <script src="js/state.js?v=20261023_v1"></script>
-  <script src="js/canvas-view.js?v=20261023_v1"></script>
-  <script src="js/connectors.js?v=20261023_v1"></script>
-  <script src="js/modals.js?v=20261023_v1"></script>
-  <script src="js/mobile-view.js?v=20261023_v1"></script>
-  <script src="js/collab-auth.js?v=20261023_v1"></script>
-  <script src="js/analytics-tracker.js?v=20261023_v1"></script>
-  <script src="js/analytics-dashboard.js?v=20261023_v1"></script>
-  <script src="app.js?v=20261023_v1"></script>
+  <script src="js/data-catalog.js?v=20261023_v2"></script>
+  <script src="js/state.js?v=20261023_v2"></script>
+  <script src="js/canvas-view.js?v=20261023_v2"></script>
+  <script src="js/connectors.js?v=20261023_v2"></script>
+  <script src="js/modals.js?v=20261023_v2"></script>
+  <script src="js/mobile-view.js?v=20261023_v2"></script>
+  <script src="js/collab-auth.js?v=20261023_v2"></script>
+  <script src="js/analytics-tracker.js?v=20261023_v2"></script>
+  <script src="js/analytics-dashboard.js?v=20261023_v2"></script>
+  <script src="app.js?v=20261023_v2"></script>
   <script>
     lucide.createIcons();
   </script>

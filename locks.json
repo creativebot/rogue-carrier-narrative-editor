@@ -1,23 +1,23 @@
 {
+  "SpeciesPool": {
+    "boardId": "SpeciesPool",
+    "boardName": "Species Events",
+    "userEmail": "dpoludonnyi@n-ix.com",
+    "userName": "Daniel Poludyonny",
+    "lockedAt": "2026-10-23T15:10:00.534948",
+    "lastHeartbeat": "2026-10-23T15:11:04.614873",
+    "expiresAt": "2026-10-23T15:14:04.614873",
+    "ttlSeconds": 180,
+    "remainingSeconds": 180
+  },
   "KeyChain:timeline_1:var_v1": {
     "boardId": "KeyChain:timeline_1:var_v1",
     "boardName": "Key Events (Timeline 1 • The Moment After the End)",
     "userEmail": "dpoludonnyi@n-ix.com",
     "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-21T13:02:07.650030",
-    "lastHeartbeat": "2026-10-21T13:05:54.344805",
-    "expiresAt": "2026-10-21T13:08:54.344805",
-    "ttlSeconds": 180,
-    "remainingSeconds": 180
-  },
-  "DeckPool": {
-    "boardId": "DeckPool",
-    "boardName": "Deck Event Pool",
-    "userEmail": "dpoludonnyi@n-ix.com",
-    "userName": "Daniel Poludyonny",
-    "lockedAt": "2026-10-21T13:05:57.910580",
-    "lastHeartbeat": "2026-10-21T13:05:57.910580",
-    "expiresAt": "2026-10-21T13:08:57.910580",
+    "lockedAt": "2026-10-23T15:11:02.252631",
+    "lastHeartbeat": "2026-10-23T15:11:04.236723",
+    "expiresAt": "2026-10-23T15:14:04.236723",
     "ttlSeconds": 180,
     "remainingSeconds": 180
   }

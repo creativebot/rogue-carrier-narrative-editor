@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/mobile-view.js - Mobile Stage View, Desktop Slot Allocator & Layout Health Check
 // ============================================================================
 
@@ -180,7 +180,7 @@ function renderMobileStageView() {
   const container = document.getElementById('mobile-stage-view');
   if (!container) return;
 
-  const isPool = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPool = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const stageLabels = isPool 
     ? [
         { label: 'Tier 1', title: 'Tier 1: Introductory Encounters' },
@@ -702,7 +702,7 @@ function createMobileEvent(floorIndex) {
   if (!requireAuthToEdit("create events")) return;
   pushUndoState();
   const floor = (floorIndex !== undefined) ? floorIndex : activeMobileStageIndex;
-  const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const slot = allocateDesktopSlotForEvent(floor, activeCategoryFilter);
 
   const codename = generateNewEventCodename(activeCategoryFilter, floor, activeVariationId);
@@ -716,7 +716,7 @@ function createMobileEvent(floorIndex) {
     codename: codename,
     name: defaultMobEventName,
     title: defaultMobEventName,
-    type: activeCategoryFilter === 'DeckPool' ? 'Deck' : 'World',
+    type: activeCategoryFilter === 'DeckPool' ? 'Deck' : (activeCategoryFilter === 'SpeciesPool' ? 'Species' : 'World'),
     category: activeCategoryFilter,
     variationId: activeVariationId,
     floorIndex: floor,

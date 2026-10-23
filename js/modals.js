@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // js/modals.js - Resource/Criteria Picker, Characters, Timelines/Variations, OCR & Stats
 // ============================================================================
 
@@ -290,9 +290,9 @@ function openResourcePickerModal(nodeId, actionIdx, type, itemIdx, clauseIdx = n
   if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("modify requirements or rewards")) return;
   const node = (appData.nodes || []).find(n => n.id === nodeId);
   const isDeckEvent = Boolean(
-    (node && (node.category === 'DeckPool' || node.category === 'deck' || node.variationId === 'deck_events')) ||
-    (typeof getCurrentBoardIdentifier === 'function' && getCurrentBoardIdentifier() === 'DeckPool') ||
-    activeCategoryFilter === 'DeckPool'
+    (node && (node.category === 'DeckPool' || node.category === 'SpeciesPool' || node.category === 'deck' || node.variationId === 'deck_events')) ||
+    (typeof getCurrentBoardIdentifier === 'function' && (getCurrentBoardIdentifier() === 'DeckPool' || getCurrentBoardIdentifier() === 'SpeciesPool')) ||
+    activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool'
   );
   const isRewardOrPenalty = (type === 'reward' || type === 'inaction_penalty');
   const canPickAllStatusEffects = Boolean(isRewardOrPenalty && isDeckEvent);
@@ -1915,7 +1915,7 @@ function deleteVariation(varId) {
     return;
   }
 
-  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool';
+  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool' || cat === 'SpeciesPool';
   const varNodes = (appData.nodes || []).filter(n => n && n.variationId === varId && !isPoolCat(n.category));
   const varNodeIds = new Set(varNodes.map(n => n.id));
   const varDialogues = (appData.dialogues || []).filter(d => {
@@ -2030,7 +2030,7 @@ async function deleteTimeline(tlId) {
 
   const tlVars = (appData.variations || []).filter(v => v.timelineId === tlId);
   const tlVarIds = new Set(tlVars.map(v => v.id));
-  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool';
+  const isPoolCat = (cat) => cat === 'GenericPool' || cat === 'DeckPool' || cat === 'SpeciesPool';
 
   const tlNodes = (appData.nodes || []).filter(n => n && tlVarIds.has(n.variationId) && !isPoolCat(n.category));
   const tlNodeIds = new Set(tlNodes.map(n => n.id));
@@ -2145,7 +2145,7 @@ async function deleteTimeline(tlId) {
 window.deleteTimeline = deleteTimeline;
 
 function getActiveBoardEventBlocks() {
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const seenIds = new Set();
   return (appData.nodes || []).filter(n => {
     if (!n || !n.id || seenIds.has(n.id)) return false;
@@ -2158,7 +2158,7 @@ function getActiveBoardEventBlocks() {
 }
 
 function getActiveBoardDialogueBlocks() {
-  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPoolPage = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const seenIds = new Set();
   return (appData.dialogues || []).filter(d => {
     if (!d || !d.id || seenIds.has(d.id)) return false;
@@ -2185,7 +2185,7 @@ function getActiveBoardDialogueBlocks() {
 }
 
 function calculateActiveBoardSymbolStats() {
-  const isPool = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isPool = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
   const varObj = (appData.variations || []).find(v => v.id === activeVariationId);
   const vNum = varObj ? varObj.number : 1;
   const vName = varObj ? varObj.name : 'Variation';
@@ -2263,6 +2263,9 @@ function calculateActiveBoardSymbolStats() {
   } else if (activeCategoryFilter === 'DeckPool') {
     boardTypeLabel = 'Deck Pool';
     symbolsTag = `Symbols (Deck Pool)`;
+  } else if (activeCategoryFilter === 'SpeciesPool') {
+    boardTypeLabel = 'Species Events';
+    symbolsTag = `Symbols (Species Events)`;
   }
 
   return {
@@ -2291,7 +2294,7 @@ function updateStats() {
   if (evStat) {
     if (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool') {
       const activeInVar = activeEvents.filter(n => !isPoolNodeDimmed(n.id, activeVariationId)).length;
-      const typeLabel = activeCategoryFilter === 'DeckPool' ? 'Deck Events' : 'Generic Events';
+      const typeLabel = activeCategoryFilter === 'DeckPool' ? 'Deck Events' : (activeCategoryFilter === 'SpeciesPool' ? 'Species Events' : 'Generic Events');
       evStat.innerText = `${typeLabel}: ${activeEvents.length} (${activeInVar} active in V${stats.varNumber})`;
       evStat.title = `${typeLabel} in pool: ${activeEvents.length} total, ${activeInVar} currently active/included in V${stats.varNumber}`;
     } else {
@@ -2846,7 +2849,7 @@ function confirmImportToCanvas() {
 function openCreateEventModal() {
   if (typeof requireAuthToEdit === 'function' && !requireAuthToEdit("create event block")) return;
   pushUndoState();
-  const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool');
+  const isTier = (activeCategoryFilter === 'GenericPool' || activeCategoryFilter === 'DeckPool' || activeCategoryFilter === 'SpeciesPool');
 
   const spawnPos = findClosestEmptyCanvasPosition(880, 540);
   let floor = 0;
@@ -2875,7 +2878,7 @@ function openCreateEventModal() {
     codename: newCodename,
     name: defaultEventName,
     title: defaultEventName,
-    type: activeCategoryFilter === 'DeckPool' ? 'Deck' : 'World',
+    type: activeCategoryFilter === 'DeckPool' ? 'Deck' : (activeCategoryFilter === 'SpeciesPool' ? 'Species' : 'World'),
     category: activeCategoryFilter,
     variationId: activeVariationId,
     floorIndex: floor,
