@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T21:01:39.895747",
+  "_lastModified": "2026-10-23T21:01:40.900554",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11368,6 +11368,12 @@
           "id": "l_1792789299163",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
+          "text": "New dialogue speech text..."
+        },
+        {
+          "id": "l_1792789300039",
+          "speakerId": "voss",
+          "speakerName": "Elias Voss",
           "text": "New dialogue speech text..."
         }
       ],
