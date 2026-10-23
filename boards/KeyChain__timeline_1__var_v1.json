@@ -1352,7 +1352,7 @@
       "targetEventId": "node_e2b",
       "triggerTiming": "post_action",
       "triggerActionId": "act_e2b_1",
-      "delayHours": 0,
+      "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3A) Treat survivors",
       "position": {
@@ -3580,5 +3580,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:47:06.492277"
+  "_lastModified": "2026-10-23T23:47:24.591512"
 }
