@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T17:48:26.697151",
+  "_lastModified": "2026-10-23T17:48:35.292902",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -10791,6 +10791,37 @@
       ]
     },
     {
+      "id": "diag_1791832094238",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
+      "delayHours": 0,
+      "delayUnit": "hours",
+      "triggerCondition": "Standalone Conversation",
+      "position": {
+        "x": 1800,
+        "y": -414
+      },
+      "variationId": "var_v2",
+      "category": "KeyChain",
+      "lines": [
+        {
+          "id": "l_1791832094238",
+          "speakerId": "voss",
+          "speakerName": "Voss",
+          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
+        },
+        {
+          "id": "l_1791832119337",
+          "speakerId": "khalil",
+          "speakerName": "Khalil Arida",
+          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
+        }
+      ],
+      "links": [],
+      "floorIndex": 0
+    },
+    {
       "id": "diag_1792777706013",
       "targetEventId": "node_1791706248386",
       "triggerTiming": "post_action",
@@ -10821,37 +10852,6 @@
           "text": "Enter dialogue line here..."
         }
       ]
-    },
-    {
-      "id": "diag_1791832094238",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
-      "delayHours": 0,
-      "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
-      "position": {
-        "x": 1800,
-        "y": -414
-      },
-      "variationId": "var_v2",
-      "category": "KeyChain",
-      "lines": [
-        {
-          "id": "l_1791832094238",
-          "speakerId": "voss",
-          "speakerName": "Voss",
-          "text": "Immediately after the drop, the cutscene with the destruction of Zepyrus triggers. The following dialogue describes the shock the team fell into, completely dazed by their sudden time loop. It takes effort to overcome the shock and start doing something.  As this was the first return, the dialogues must demonstrate the confusion and surprise"
-        },
-        {
-          "id": "l_1791832119337",
-          "speakerId": "khalil",
-          "speakerName": "Khalil Arida",
-          "text": "Key Event marker spawns on the island with the Primordial structure. Scouting the event triggers the cutscene in which Voss meets the Primordials. After the cutscene ends, the 0A Event triggers. "
-        }
-      ],
-      "links": [],
-      "floorIndex": 0
     },
     {
       "id": "diag_1792777695759",
