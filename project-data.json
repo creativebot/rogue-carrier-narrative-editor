@@ -2,7 +2,7 @@
   "version": "2.6.0",
   "schemaVersion": 1,
   "stageLayoutVersion": 2,
-  "_lastModified": "2026-10-23T20:43:40.997955",
+  "_lastModified": "2026-10-23T20:43:58.393782",
   "projectInfo": {
     "name": "Rogue Carrier Scenario 1",
     "author": "Tetiana Tretilova"
@@ -11178,7 +11178,7 @@
           "id": "l_1792788193890",
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
+          "text": "Anybody? BCEV-something-something? Anybody? Can anyone hear us?\n\nWe're on a lifeboat. We need... we need help.\n\nPlease... she's just a child... she doesn't deserve this..."
         },
         {
           "id": "l_1792788194919",
