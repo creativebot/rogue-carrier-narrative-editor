@@ -1753,12 +1753,12 @@
     },
     {
       "id": "diag_imp_1791402101041",
-      "targetEventId": null,
-      "triggerTiming": null,
+      "targetEventId": "node_e2b",
+      "triggerTiming": "pre_event",
       "triggerActionId": null,
       "delayHours": 0,
       "delayUnit": "hours",
-      "triggerCondition": "Imported Dialogue Script",
+      "triggerCondition": "Before (T1-V1-K3A)",
       "position": {
         "x": -3107,
         "y": 3124
@@ -1841,7 +1841,15 @@
           "text": "Please, help us. It hurts so much."
         }
       ],
-      "links": []
+      "links": [
+        {
+          "id": "dlink_1792796589074_5dil",
+          "targetEventId": "node_e2b",
+          "triggerTiming": "pre_event",
+          "triggerActionId": null,
+          "triggerCondition": "Before (T1-V1-K3A)"
+        }
+      ]
     },
     {
       "id": "diag_1791402455441",
@@ -3296,5 +3304,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:03:03.483741"
+  "_lastModified": "2026-10-23T23:03:09.514744"
 }
