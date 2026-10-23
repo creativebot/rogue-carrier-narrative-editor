@@ -1155,6 +1155,19 @@
                   "icon": "📦"
                 }
               ]
+            },
+            {
+              "id": "clause_1792777255282",
+              "isReplaceable": false,
+              "items": [
+                {
+                  "resourceId": "consumer_02",
+                  "name": "Portable Force Shield",
+                  "amount": 2,
+                  "iconImg": "icons/T_ForceField.png",
+                  "icon": "📦"
+                }
+              ]
             }
           ],
           "timerHours": 5,
@@ -2238,5 +2251,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T17:40:38.969922"
+  "_lastModified": "2026-10-23T17:40:55.702755"
 }
