@@ -2304,12 +2304,12 @@
     },
     {
       "id": "diag_1792778026146",
-      "targetEventId": null,
-      "triggerTiming": null,
-      "triggerActionId": null,
+      "targetEventId": "node_1791706248386",
+      "triggerTiming": "post_action",
+      "triggerActionId": "c_1791706248386",
       "delayHours": 0.25,
       "delayUnit": "hours",
-      "triggerCondition": "Standalone Conversation",
+      "triggerCondition": "After (T1-V1-K3C) Send divers",
       "position": {
         "x": 2520,
         "y": 4635
@@ -2342,7 +2342,15 @@
           "text": "Aye, enough fishing for one day."
         }
       ],
-      "links": [],
+      "links": [
+        {
+          "id": "dlink_1792779255494_namz",
+          "targetEventId": "node_1791706248386",
+          "triggerTiming": "post_action",
+          "triggerActionId": "c_1791706248386",
+          "triggerCondition": "After (T1-V1-K3C) Send divers"
+        }
+      ],
       "floorIndex": 3,
       "colorScheme": "rose"
     },
@@ -2488,5 +2496,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T18:14:03.599302"
+  "_lastModified": "2026-10-23T18:14:15.878926"
 }
