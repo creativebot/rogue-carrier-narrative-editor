@@ -284,7 +284,7 @@
             }
           ],
           "timerHours": 5,
-          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go?   That's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
+          "resultDescription": "The escape pod's log accounts for six passengers, one of them is a child. The shredded EVAs and most of the blood belong to two adults, which leaves four people missing. But where would they go? \n\nThat's when the scouts notice another clue. Each escape pod, specifically designed for Keeling in mind, is equipped with a lifeboat in case the landing happens to be 'watering.' And such a lifeboat is currently missing from the escape pod's inventory.",
           "rewards": [
             {
               "resourceId": "machinery_05",
@@ -2139,5 +2139,5 @@
     }
   ],
   "author": "Daniel Poludyonny",
-  "_lastModified": "2026-10-23T11:17:25.652396"
+  "_lastModified": "2026-10-23T11:18:38.398562"
 }
