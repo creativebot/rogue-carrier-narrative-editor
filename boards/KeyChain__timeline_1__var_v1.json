@@ -1509,12 +1509,6 @@
           "speakerId": "mnemosyne",
           "speakerName": "Mnemosyne",
           "text": "New dialogue speech text..."
-        },
-        {
-          "id": "l_1792798393531",
-          "speakerId": "mnemosyne",
-          "speakerName": "Mnemosyne",
-          "text": "New dialogue speech text..."
         }
       ],
       "links": []
@@ -3446,5 +3440,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T23:36:57.786846"
+  "_lastModified": "2026-10-23T23:37:00.403887"
 }
