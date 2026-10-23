@@ -1354,9 +1354,9 @@
     },
     {
       "id": "diag_survivor",
-      "targetEventId": "node_e2b",
-      "triggerTiming": "post_action",
-      "triggerActionId": "act_e2b_1",
+      "targetEventId": null,
+      "triggerTiming": null,
+      "triggerActionId": null,
       "delayHours": 0.5,
       "delayUnit": "hours",
       "triggerCondition": "After (T1-V1-K3A) Rescue & Quarantine",
@@ -1393,15 +1393,7 @@
           "text": "Yes, I've got my daughter here."
         }
       ],
-      "links": [
-        {
-          "id": "dlink_0",
-          "targetEventId": "node_e2b",
-          "triggerTiming": "post_action",
-          "triggerActionId": "act_e2b_1",
-          "triggerCondition": "After (T1-V1-K3B) Rescue & Quarantine"
-        }
-      ]
+      "links": []
     },
     {
       "id": "diag_rnd",
@@ -2681,5 +2673,5 @@
     }
   ],
   "author": "Tetiana Tretilova",
-  "_lastModified": "2026-10-23T20:35:03.564874"
+  "_lastModified": "2026-10-23T20:35:20.093636"
 }
